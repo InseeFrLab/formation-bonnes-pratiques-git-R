@@ -1,0 +1,58 @@
+## La notion de bonnes pratiques
+
+- [**Origine**]{.blue2} : communauté des développeurs logiciels
+
+::: {.incremental}
+- [**Constats**]{.blue2} :
+    - le [_"code est plus souvent lu qu'écrit"_]{.green2} ([Guido Van Rossum](https://fr.wikipedia.org/wiki/Guido_van_Rossum))
+    - la maintenance d'un code est très coûteuse
+:::
+
+. . .
+
+- [**Conséquence**]{.blue2} : un ensemble de [**règles informelles**]{.orange},
+conventionnellement acceptées comme produisant des logiciels [**fiables**]{.orange}, [**évolutifs**]{.orange} et [**maintenables**]{.orange}
+
+
+## Pourquoi s'intéresser aux bonnes pratiques ? {.smaller}
+
+<br>
+
+L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur :
+
+. . .
+
+- projets [**intenses en code**]{.orange}
+
+. . .
+
+- [**projets collaboratifs**]{.orange} et de grande envergure
+
+. . .
+
+
+- [**complexification**]{.orange} des données et donc des [**infrastructures**]{.orange}
+
+. . .
+
+- [**déploiement**]{.orange} d'applications pour valoriser les analyses
+
+## Bonnes pratiques et reproductibilité {.smaller}
+
+![](img/reprospectrum.png){height="200" fig-align="center"}
+
+**Source** : Peng R., Reproducible Research in Computational Science, Science (2011)
+
+. . .
+
+- Une reproductibilité parfaite est [**coûteuse**]{.orange}
+
+. . .
+
+- `Git` est un [**standard atteignable**]{.orange} et [**efficient**]{.orange}
+
+. . .
+
+::: {.callout-note}
+**Quel socle de bonnes pratiques pour les projets statistiques en `R` ?**
+:::

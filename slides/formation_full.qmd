@@ -1,0 +1,126 @@
+---
+title: Bonnes pratiques pour les projets statistiques
+subtitle: |
+  **[Une formation aux bonnes pratiques avec Git et R]{.orange}**
+author: |
+  [Romain Avouac](https://github.com/avouacr),
+  [Thomas Faria](https://github.com/ThomasFaria),
+  [Lino Galiana](https://www.linogaliana.fr/),
+  [Olivier Meslin](https://github.com/oliviermeslin),
+  [Tom Seimandi](https://github.com/tomseimandi/)
+# date: 
+slide-number: true
+footer: |
+  Bonnes pratiques pour les projets statistiques
+# uncomment for French presentations:
+#lang: fr-FR
+# for blind readers:
+slide-tone: false
+# for @olevitt:
+chalkboard: # press the B key to toggle chalkboard
+  theme: whiteboard
+# uncomment to use the multiplex mode:
+#multiplex: true
+format:
+  # pick the light mode (onyxia-revealjs) or the dark mode (onyxia-dark-revealjs)
+  onyxia-revealjs:
+  #onyxia-dark-revealjs:
+    output-file: index.html
+controls: true
+css: custom.css
+from: markdown+emoji
+bibliography: references.bib
+---
+
+# Introduction
+
+{{< include _intro.qmd >}}
+
+# Partie 1 : contrôle de version avec `Git`
+
+## Plan de la formation
+
+:one: Le [**contrôle de version**]{.orange} : pourquoi faire ?
+
+. . .
+
+:two: Le [**contrôle de version**]{.orange} avec `Git`
+
+. . .
+
+:three: Le [**travail collaboratif**]{.orange} avec `Git`
+
+{{< include _git_fundamentals.qmd >}}
+
+{{< include _git_collab.qmd >}}
+
+## Ressources supplémentaires {.smaller}
+
+<br>
+
+- Pour **aller plus loin**:
+    - Formation [Travail collaboratif avec `R`](https://collaboratif-git-formation-insee.netlify.app/index.html)
+    - Cours [Reproductibilité et bonnes pratiques pour les projets de data science](https://ensae-reproductibilite.netlify.app/) de l'`ENSAE`
+    - La [documentation `utilitR`](https://www.book.utilitr.org/) propose plusieurs chapitres sur `Git`
+    - La [Bible](https://git-scm.com/book/en/v2)
+<br>
+
+. . .
+
+- **Trouver de l'aide**:
+    - Pour toute question : le salon Tchap [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
+    - A l'Insee : la [documentation utilisateurs] pour l'utilisation de `Git` sur `AUS`
+    - Sollicitez vos collègues utilisateurs de `Git` !
+
+
+
+# Partie 2 : bonnes pratiques avec `R`
+
+## Plan de la partie
+
+Améliorations graduelles dans l'échelle de la reproductibilité :
+
+:one: Qualité du code
+
+. . .
+
+:two: Structure des projets
+
+. . .
+
+:three: Formats de données
+
+. . .
+
+:four: Environnements reproductibles
+
+. . .
+
+:five: *Pipelines* de données
+
+. . .
+
+:six: Publication reproductible
+
+{{< include _r_fundamentals.qmd >}}
+
+{{< include _r_advanced.qmd >}}
+
+
+
+
+# Conclusion
+
+- Les [**bonnes pratiques**]{.blue2} favorisent la [**reproductibilité**]{.orange} et la [**réutilisation**]{.orange} des projets statistiques
+
+. . .
+
+- Des [**outils**]{.orange} permettent d'appliquer les [**bonnes pratiques**]{.blue2}
+
+. . .
+
+- Le [**coût**]{.orange} est d'autant plus faible que l'on se place [**en amont du projet**]{.orange}
+
+. . .
+
+- Quel [**socle**]{.orange} de [**bonnes pratiques**]{.blue2} pour l'Insee ?

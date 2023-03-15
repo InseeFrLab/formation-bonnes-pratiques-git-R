@@ -1,0 +1,340 @@
+# IV- Environnements reproductibles
+
+## Expérience de pensée
+
+::: {.incremental}
+- Imaginons la situation suivante :
+  - J'installe une version de `R` sur mon poste
+  - Je développe un projet en installant les _packages_ nécessaires
+  - Une fois terminé, je passe au projet suivant, et ainsi de suite.
+
+
+- Quels [**problèmes**]{.orange} puis-je rencontrer au fil des projets ?
+
+- Est-il facile de [**partager**]{.orange} un de mes projets ?
+:::
+
+## Enjeux
+
+- [**Version de**]{.orange} [**R**]{.blue2} [**fixe**]{.orange}, celle de l'installation système
+
+. . .
+
+- [**Conflits de version**]{.orange} : différents projets peuvent requérir différentes versions d'un même _package_.
+
+. . .
+
+- [**Reproductibilité limitée**]{.orange} : difficile de dire quel projet nécessite quel _package_.
+
+. . .
+
+- [**Portabilité limitée**]{.orange} : difficile de préciser dans un fichier les dépendances spécifiques à un projet.
+
+
+## Des environnements reproductibles avec `renv`
+
+- `renv` permet de créer des **env**ironnements **r**eproductibles
+
+. . .
+
+- [**Isolation**]{.orange} : chaque projet dispose de sa propre librairie de packages
+
+. . .
+
+- [**Reproductibilité**]{.orange} : `renv` enregistre les versions exactes des *packages* nécessaires au projet
+
+. . .
+
+- [**Portabilité**]{.orange}: un tiers peut exécuter le projet avec les mêmes spécifications
+
+## Utilisation de `renv`
+
+1. [**Initialisation**]{.orange} (`init`) de l'environnement local du projet
+
+. . .
+
+2. [**Développement**]{.orange} du projet
+
+. . .
+
+3. [**Enregistrement**]{.orange} (`snapshot`) des versions des *packages* installés
+
+. . .
+
+4. [**Restauration**]{.orange} (`restore`) d'un environnement
+
+## :one: Initialisation de l'environnement
+
+::: {.incremental}
+- `renv::init()` dans un projet RStudio crée :
+  - Un dossier `renv` et le fichier `.Rprofile` : activation automatique de l'environnement
+  - Le fichier `renv.lock` : versions des *packages* installés
+:::
+
+. . .
+
+![](img/renv_init.png){height="400" fig-align="center"}
+
+## :two: Développement du projet
+
+::: {.incremental}
+- Une fois l'environnement initialisé, on développe le projet de manière habituelle :
+  - Installations/suppressions/mises à jour de packages
+  - Ecriture de scripts
+:::
+
+. . .
+
+- `renv::status()` : indique les _packages_ installés/supprimés par rapport au fichier `renv.lock`
+
+## :three: Enregistrement de l'environnement {.smaller}
+
+- `renv::snapshot()` : enregistre les versions des _packages_ installés dans le fichier `renv.lock`
+
+. . .
+
+![](img/renv_snapshot.png){height="400" fig-align="center"}
+
+## :four: Restauration de l'environnement
+
+- `renv::restore()` : installe/désinstalle les _packages_ nécessaires pour arriver à l'état spécifié dans le fichier `renv.lock`
+
+. . .
+
+- [**Portabilité**]{.orange} : un tiers peut recréer un environnement avec les mêmes spécifications
+
+
+{{< include applications_r/_application4.qmd >}}
+
+
+## Vers une reproductibilité optimale
+
+::: {.incremental}
+- [**Limites**]{.orange} des environnements virtuels : 
+  - Les [**librairies système**]{.blue2} ne sont pas gérées
+  - Lourdeur de la phase d'installation à chaque changement d'environnement
+  - Peu adaptés à un environnement de production
+:::
+
+. . .
+
+- La [**conteneurisation**]{.orange} (ex : `Docker`) apporte la solution
+
+. . .
+
+- [**Intuition**]{.orange} : au lieu de distribuer la recette pour recréer l'environnement, [**distribuer directement une "machine" qui contient *tout* l'environnement nécessaire au projet**]{.blue2}
+
+## Ressources supplémentaires
+
+- La [documentation officielle de `renv`](https://rstudio.github.io/renv/articles/renv.html)
+
+- La [fiche utilitR sur la gestion des dépendances](https://www.book.utilitr.org/03_fiches_thematiques/fiche_gerer_dependances)
+
+# V- *Pipelines* de données
+
+## Motivations
+
+- Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
+
+![](https://astrakhan.fr/wp-content/uploads/2020/10/Data-Engineering.png)
+
+[Source](https://astrakhan.fr/blog/formation-au-data-engineering-une-nouvelle-offre-dastrakhan/)
+
+
+## Motivations
+
+- Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
+
+- Ces étapes peuvent être formalisées sous forme d'un [**pipeline (*direct acyclic graph*)**]{.orange}
+
+![](img/dag_argo.png)
+
+[Source](https://medium.com/hashmapinc/building-ml-pipelines-8e27344a42d2)
+
+## Motivations
+
+- Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
+
+::: {.incremental}
+- Modéliser ces étapes sous forme de [**pipeline (*direct acyclic graph*)**]{.orange} a plusieurs avantages :
+  - [**Découplage**]{.blue2} des différentes étapes
+  - Facilite la [**planification**]{.blue2} du traitement
+  - Facilite la [**prise en main**]{.blue2} du projet par un tiers
+:::
+
+
+
+## Le package `targets`
+
+- `targets` est un *framework* de modélisation de *pipelines* spécifiquement dédié aux projets `R`.
+
+::: {.incremental}
+- Deux objectifs majeurs : 
+  1. [**Réduire le coût d'expérimentation**]{.orange} en sauvegardant les résultats intermédiaires (***targets***)
+  2. Garantir la [**reproductibilité**]{.orange} de la chaîne en traçant les changements de ces ***targets***
+:::
+
+## Méthode de travail avec `targets` {.smaller}
+
+- On développe dans des scripts :
+    + Fonctions dans un ou plusieurs fichiers dédiés
+    + Chaîne de production dans un fichier `_targets.R`
+
+. . .
+    
+- On gère l'exécution du _pipeline_ directement dans la console
+    + `tar_visnetwork()` pour inspecter la structure du _pipeline_
+    + `tar_make` pour exécuter la chaine de production
+    
+::: {.callout-note}
+
+Quand on part du chaine de traitement dans un fichier déja existant
+(`script.R` par exemple), il faut faire la transition vers un fichier
+`_targets.R` dont la structure est particulière.
+
+:::
+
+## :one: Un projet minimaliste {.smaller}
+
+- Structure de projet _opinionated_ :
+    + ~~Long script `script.R`~~ `_targets.R`
+    + Chaîne de production: suite d'appels à des fonctions définies dans `R/functions.R`
+
+<br>
+
+```
+├── _targets.R
+├── data
+│   ├── raw
+│   │   └── data.csv
+├── R
+│   └── functions.R
+```
+
+. . .
+
+<br>
+
+- Nouveau fichier: `_targets.R`
+    + Contrôle le comportement de notre chaine de traitement
+    + Enchaînement d'étapes de transformation de données selon une syntaxe particulière
+
+## :two: Le fichier `_targets.R` {.smaller}
+
+::: {.incremental}
+- Le fichier `_targets.R` doit satisfaire plusieurs conditions :
+  1. Charger le _package_ `targets`
+  2. Charger dans l'environnement les fonctions nécessaires
+  3. Déclarer les _packages_ nécessaires aux différentes étapes
+  4. Définir le *pipeline*.
+:::
+
+. . . 
+
+```r
+# _targets.R file
+library(targets)
+source("R/functions.R")
+tar_option_set(packages = c("readr", "dplyr", "ggplot2"))
+list(
+  tar_target(file, "data.csv", format = "file"),
+  tar_target(data, get_data(file)),
+  tar_target(model, fit_model(data)),
+  tar_target(plot, plot_model(model, data))
+)
+```
+
+::: {.callout-note}
+Les fonctions `get_data`, `fit_model` et `plot_model` sont définies
+dans 📁 `R/functions.R`
+:::
+
+## :three: Inspecter le *pipeline*
+
+- La fonction `tar_visnetwork` permet de visualiser le *pipeline*
+
+![](img/pipeline.png){height="350" fig-align="center"}
+
+## :three: Exécuter le *pipeline* {.smaller}
+
+- La fonction `tar_make` exécute le *pipeline* défini dans `_targets.R`
+
+![](img/pipeline_run1.png){height="200" fig-align="center"}
+
+- 💡 Lors des exécutions suivantes, `targets` saute automatiquement les étapes qui n'ont pas changé
+
+![](img/pipeline_run2.png){height="150" fig-align="center"}
+
+## Ressources supplémentaires
+
+- La [documentation officielle de `targets`](https://books.ropensci.org/targets/)
+
+- La [fiche UtilitR dédiée à `targets`](https://www.book.utilitr.org/targets.html)
+
+
+{{< include applications_r/_application5.qmd >}}
+
+
+
+# VI- Publication reproductible
+
+## Enjeux
+
+- Produire des [**études reproductibles**]{.orange} en intégrant le code et le texte dans un même document
+
+. . .
+
+- La génération complète de l'étude est contenue dans un [**unique projet**]{.orange}
+
+. . .
+
+- [**Limiter les risques d'erreurs**]{.orange} dues aux gestes manuels
+
+. . .
+
+- Gestion native de [**différents formats**]{.orange} pour le document final (`pdf`, `html`, `odt`, etc.)
+
+## `R Markdown`
+
+::: {.incremental}
+- `R Markdown` est un *package* `R` qui permet de lier
+  - Du [**texte**]{.orange} au format `Markdown`
+  - Du [**code**]{.orange} `R` qui peut être exécuté et dont les sorties peuvent être intégrées au texte
+:::
+
+. . .
+
+- [**Dissociation du fond et de la forme**]{.orange} du document
+
+::: {.incremental}
+- Un document est [**compilé**]{.orange} en deux étapes
+  - [***knit***]{.green2} : le package `knitr` transforme le texte et les sorties `R` en un document `Markdown` standard
+  - [***convert***]{.green2} : le logiciel `pandoc` transforme le document `.md` en un format de sortie standard (`html`, `pdf`, etc.)
+:::
+
+## `Quarto`
+
+- `Quarto` est le successeur de `R Markdown`
+
+. . .
+
+- `Quarto` supporte [**différents moteurs de calcul**]{.orange} (`knitr`, `Jupyter`, `Observable`..) ce qui le rend nativement [**multi-langage**]{.orange} (`R`, `Python`, `JavaScript`..)
+
+. . .
+
+- Le fonctionnement des deux systèmes reste très proche
+
+## Anatomie d'un document reproductible
+
+![](img/qmd.png){height="500" fig-align="center"}
+
+## Ressources supplémentaires
+
+- La [documentation officielle de `R Markdown`](https://rmarkdown.rstudio.com/lesson-1.html)
+
+- La [fiche `UtilitR` sur `R Markdown`](https://www.book.utilitr.org/rmarkdown.html)
+
+- La [documentation officielle de `quarto`](https://quarto.org/)
+
+
+{{< include applications_r/_application6.qmd >}}
