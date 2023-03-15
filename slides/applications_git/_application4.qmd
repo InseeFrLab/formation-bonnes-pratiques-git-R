@@ -1,0 +1,26 @@
+:::{.callout-tip collapse="true" icon=false}
+## Synchronisation des dépôts
+
+::: {.incremental}
+1. Se mettre par [__groupes de 3/4 personnes__]{.orange}:
+    - Une personne aura la responsabilité d’être [**mainteneur**]{.blue2}
+    - Deux à trois personnes seront [**développeurs**]{.blue2}
+2. Le mainteneur crée un dépôt sur `Github`. Il/Elle donne des droits au(x) développeur(s) du projet
+3. Créer une copie locale (clone) du projet sur son service `RStudio` du [Datalab](https://datalab.sspcloud.fr/home)
+4. Créer un fichier `<votre_nom>-<votre_prenom>.md`. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis `commit` et `push` les modifications
+:::
+
+__À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du `push`.__
+C’est normal ! Avant d’accepter une modification, `Git` vérifie en premier lieu la cohérence de la branche avec le dépôt distant. Le premier ayant fait un `push` a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (`pull`) avant d’avoir le droit de proposer un changement.
+
+::: {.incremental}
+5. Pour ceux dont le `push` a été refusé, effectuer un `pull` des modifications distantes
+6. Dans `RStudio`, afficher l'historique du projet et regarder la manière dont ont été intégrées les modifications des collaborateurs
+7. Effectuer à nouveau un `push` de vos modifications locales
+8. Les derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir `push` les modifications locales
+:::
+
+
+:::
+
+❓ **Question** : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?

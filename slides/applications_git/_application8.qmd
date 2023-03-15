@@ -1,0 +1,14 @@
+:::{.callout-tip collapse="true" icon=false}
+## Contribution à un projet open-source
+
+::: {.incremental}
+1. Sur `GitHub`, faire un `fork` du dépôt [`git-exo`](https://github.com/avouacr/git-exo.git)
+2. Créer une branche intitulée `<votre_nom>-<votre_prénom>`
+3. Effectuer un `commit` avec les modifications de votre choix, puis pousser les changements sur votre `fork`
+4. Ouvrir une `Pull Request` (`PR`) pour proposer d'intégrer vos changements sur la branche principale du dépôt [`git-exo`](https://github.com/avouacr/git-exo.git)
+5. Ouvrir une `Issue` dans laquelle vous mentionnez la `Pull Request` précédemment ouverte
+:::
+
+:::
+
+❓ **Question** : pourquoi, avec un `fork`, est-il très important de toujours effectuer une `Pull Request` à partir d'une branche différente de la branche principale ?

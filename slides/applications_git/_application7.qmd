@@ -1,0 +1,11 @@
+:::{.callout-tip collapse="true" icon=false}
+## Utilisation de `GitLab`
+
+::: {.incremental}
+Cette application vise à prendre en matin l'interface de `GitLab`, éventuellement dans le cadre de votre environnement interne de travail.
+
+1. Dans le cadre d'un `GitLab` interne, il est plus confortable d'utiliser l'authentification via clé `ssh` plutôt que l'authentification par *token*. Si vous n'en avez pas encore, générer une clé `ssh` et ajouter celle-ci à votre compte `GitLab`. Se référer pour cela à la [documentation GitLab](https://docs.gitlab.com/ee/user/ssh.html) ou, idéalement, à la documentation de cette procédure sur votre environnement interne de travail.
+2. Explorer l'interface de `GitLab` pour retrouver les différents éléments que nous avons exploités sur l'interface de `GitHub`.
+3. Créer un projet dans son espace personnel sur `GitLab` et répéter les opérations des applications 1 et 2.
+:::
+:::

@@ -1,0 +1,19 @@
+:::{.callout-tip collapse="true" icon=false}
+## Préparation de l'environnement de travail
+
+:::{.incremental}
+1. Créer un compte [`GitHub`](https://github.com/)
+2. Créer un nouveau dépôt **privé** sur `GitHub`
+3. Créer un compte sur le [SSP Cloud](https://datalab.sspcloud.fr/home)
+4. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitHub` à une valeur suffisamment élevée
+5. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` du `Datalab`):
+    + `File` → `New project` → `Version Control` → `Git`
+6. [Générer un *token*](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (jeton d'authentification) sur `GitHub`
+7. Stocker le *token* sur le `SSP Cloud` (ou un gestionnaire de mot de passe) :
+    + `Mon Compte` -> `Services externes` -> `Jeton d'accès personnel GitHub`
+8. Terminer la procédure de clonage en fournissant le nom d'utilisateur `GitHub` et le *token*
+:::
+
+:::
+
+❓ **Question** : qu'est ce qui différencie le projet cloné d'un projet quelconque ?

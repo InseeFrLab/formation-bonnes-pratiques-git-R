@@ -1,0 +1,84 @@
+## Application 6
+
+:::{.callout-tip collapse="true" icon=false}
+## Introduction à la publication reproductible
+
+:::{.incremental}
+1. Cliquer sur `File > New file > Quarto document`:
+    + Donner un titre et un.e auteur.e au rapport
+    + Choisir `HTML` comme format de sortie
+    + Décocher la case `Use visual markdown editor`
+2. Sauvegarder le fichier sous le nom `report.qmd`.
+:::
+
+:::
+
+## Application 6
+
+:::{.callout-tip collapse="true" icon=false}
+## Introduction à la publication reproductible (suite)
+
+:::{.incremental}
+4. Produire une courte note présentant le tableau des âges produit précédemment :
+    + Un _chunk_ `R` qui importe le _package_ `targets`. Le contenu produit par ce _chunk_ doit être caché, il est donc nécessaire d'utiliser une [option](https://quarto.org/docs/computations/execution-options.html)
+    + Une courte phrase d'introduction
+    + Dans le fichier `.qmd`, importer l'objet `table_age` via `tar_load` et faire en sorte d'afficher ce tableau dans le document
+    
+5. Générer le rapport avec le bouton `Render` et vérifier que l'*output* correspond à celui attendu.
+:::
+
+:::
+
+::: {.callout-important}
+En supposant que ce document est à vocation d'une audience non technique, masquer le code ayant généré les sorties
+:::
+
+## Application 6 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false}
+## Introduction à la publication reproductible (suite)
+
+6. Dans `script.R`, nous avions créé un graphique `p.png`. 
+    + A partir des exemples de la [documentation](https://quarto.org/docs/authoring/figures.html)
+introduire cette figure
+    + La faire précéder d'une phrase d'introduction.
+    + Êtes-vous sûr que cette figure est à jour ?
+
+7. A partir de la fonction suivante à mettre dans `R/functions.R`, 
+créer une nouvelle _target_ `graph_part_hommes` dans `_targets.R`.
+
+```r
+figure_part_homme_age <- function(df){
+  p <- df %>%
+    group_by(aged, sexe) %>%
+    summarise(SH_sexe = n()) %>%
+    group_by(aged) %>%
+    mutate(SH_sexe = SH_sexe / sum(SH_sexe)) %>%
+    filter(sexe == "Homme") %>%
+    ggplot() +
+    geom_bar(aes(x = aged, y = SH_sexe), stat = "identity") +
+    geom_point(
+      aes(x = aged, y = SH_sexe),
+      stat = "identity", color = "red") +
+    coord_cartesian(c(0, 100))
+  return(p)
+}
+```
+
+8. Faire tourner le _pipeline_ (`tar_make`)
+9. Pour être certain que votre note utilise la dernière version du _pipeline_, introduire
+un `tar_make()` dans votre document à la suite du `library(targets)`
+10. Cliquer sur le bouton `Render` pour mettre à jour votre note
+:::
+
+
+## Checkpoint
+
+::: {layout=[30,70]}
+
+- [report.qmd](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/report.qmd)
+- [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/functions.R)
+- [_targets.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/_targets.R)
+
+![](checkpoint.jpg){width=60%}
+:::

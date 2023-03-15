@@ -1,0 +1,12 @@
+:::{.callout-tip collapse="true" icon=false}
+
+## Interactions avec le dépôt distant
+
+::: {.incremental}
+1. Effectuer un `push` pour intégrer les changements locaux au projet distant
+2. Parcourir l'historique du projet sur `GitHub`
+    a. Faire apparaître les différences entre deux versions consécutives du projet
+    b. Afficher une version passée du projet
+:::
+
+:::

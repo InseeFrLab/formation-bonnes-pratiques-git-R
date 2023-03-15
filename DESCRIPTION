@@ -1,0 +1,23 @@
+Package: templateProjetMutualise
+Title: Template de projet mutualisé
+Version: 0.0.0.9000
+Authors@R: 
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Un template de projet mutualisé basé sur un package R.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports:
+    arrow (>= 10.0.1),
+    dplyr (>= 1.0.10),
+    forcats,
+    ggplot2,
+    magrittr,
+    MASS,
+    readr (>= 2.1.3),
+    yaml
+Suggests:
+  aws.s3 (>= 0.3.21),
+  data.table (>= 1.14.6)

@@ -1,0 +1,13 @@
+:::{.callout-tip collapse="true" icon=false}
+## Branches, *issues* et *pull requests*
+
+::: {.incremental}
+1. Sur `GitHub`, chaque personne ouvre une `Issue` sur le même dépôt que les applications précédentes, dans laquelle vous suggérez une modification à apporter à votre projet
+2. Créer une branche dont le nom indique la modification que vous allez apporter (ex : `ajout-authentification`)
+3. Effectuer un `commit` avec les modifications de votre choix, puis pousser les changements sur une nouvelle branche du dépôt distant
+4. Ouvrir une `Pull Request` (`PR`) pour proposer d'intégrer vos changements sur la branche principale du dépôt distant. Spécifier que l'acceptation de la `Pull Request` entraînera la fermeture automatique de l'`Issue` associée en écrivant dans le corps de la `PR` : `close #N` où `N` est le numéro de l'`Issue` en question
+5. Chaque personne effectue finalement une *review* d'une `PR` d'un autre membre de l'équipe, suite à quoi les différentes `PR` peuvent être fusionnées
+:::
+:::
+
+❓ **Question** : quelle organisation pour merge dans la branche principale ?

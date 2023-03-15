@@ -1,0 +1,30 @@
+---
+title: "Mon super rapport"
+author: "Daffy Duck"
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+#| output: false
+library(targets)
+tar_make()
+```
+
+A partir du recensement de la population, on peut déduire que la
+pyramide des âges est la suivante:
+
+
+```{r}
+tar_read(table_age)
+```
+
+Des statistiques supplémentaires sur la part d'homme dans chaque cohorte:
+
+```{r}
+tar_load(graph_part_hommes)
+graph_part_hommes
+```
+
+

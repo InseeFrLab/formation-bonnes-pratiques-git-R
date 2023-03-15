@@ -1,0 +1,15 @@
+:::{.callout-tip collapse="true" icon=false}
+## Le fichier `.gitignore`
+
+::: {.incremental}
+Lors de la création du projet sur `GitHub`, nous avons demandé la création d'un fichier `.gitignore`, qui se situe à la racine du projet. Il spécifie l'ensemble des fichiers qui seront toujours exclus de l'indexation faite par `Git`.
+
+1. Exclure les fichiers de type `*.pdf` et `*.html`
+2. Créer un dossier `data` à la racine du projet et créer à l'intérieur de celui-ci un fichier `data/raw.csv` avec une ligne de données quelconque
+3. Ajouter au `.gitignore` le dossier `data/`
+4. Vérifier que toutes les règles ajoutées précédemment fonctionnent comme attendu
+:::
+
+:::
+
+❓ **Question** : que se passe-t-il lorsque l'on ajoute au `.gitignore` des fichiers qui ont déjà été *commit* sur le projet Git ?

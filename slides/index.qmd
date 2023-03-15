@@ -1,0 +1,1256 @@
+---
+title: Bonnes pratiques pour les projets statistiques
+subtitle: |
+  **[Une formation aux bonnes pratiques avec Git et R]{.orange}**
+author: |
+  [Romain Avouac](https://github.com/avouacr),
+  [Thomas Faria](https://github.com/ThomasFaria),
+  [Lino Galiana](https://www.linogaliana.fr/),
+  [Olivier Meslin](https://github.com/oliviermeslin),
+  [Tom Seimandi](https://github.com/tomseimandi/)
+# date: 
+slide-number: true
+footer: |
+  Bonnes pratiques pour les projets statistiques
+# uncomment for French presentations:
+#lang: fr-FR
+# for blind readers:
+slide-tone: false
+# for @olevitt:
+chalkboard: # press the B key to toggle chalkboard
+  theme: whiteboard
+# uncomment to use the multiplex mode:
+#multiplex: true
+format:
+  # pick the light mode (onyxia-revealjs) or the dark mode (onyxia-dark-revealjs)
+  onyxia-revealjs:
+  #onyxia-dark-revealjs:
+    output-file: index.html
+controls: true
+css: custom.css
+from: markdown+emoji
+bibliography: references.bib
+---
+
+
+
+
+# Introduction
+
+## La notion de bonnes pratiques
+
+- [**Origine**]{.blue2} : communauté des développeurs logiciels
+
+::: {.incremental}
+- [**Constats**]{.blue2} :
+    - le [_"code est plus souvent lu qu'écrit"_]{.green2} ([Guido Van Rossum](https://fr.wikipedia.org/wiki/Guido_van_Rossum))
+    - la maintenance d'un code est très coûteuse
+:::
+
+. . .
+
+- [**Conséquence**]{.blue2} : un ensemble de [**règles informelles**]{.orange},
+conventionnellement acceptées comme produisant des logiciels [**fiables**]{.orange}, [**évolutifs**]{.orange} et [**maintenables**]{.orange}
+
+
+## Pourquoi s'intéresser aux bonnes pratiques ? {.smaller}
+
+<br>
+
+L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur :
+
+. . .
+
+- projets [**intenses en code**]{.orange}
+
+. . .
+
+- [**projets collaboratifs**]{.orange} et de grande envergure
+
+. . .
+
+
+- [**complexification**]{.orange} des données et donc des [**infrastructures**]{.orange}
+
+. . .
+
+- [**déploiement**]{.orange} d'applications pour valoriser les analyses
+
+## Bonnes pratiques et reproductibilité {.smaller}
+
+![](img/reprospectrum.png){height="200" fig-align="center"}
+
+**Source** : Peng R., Reproducible Research in Computational Science, Science (2011)
+
+. . .
+
+- Une reproductibilité parfaite est [**coûteuse**]{.orange}
+
+. . .
+
+- `Git` est un [**standard atteignable**]{.orange} et [**efficient**]{.orange}
+
+. . .
+
+::: {.callout-note}
+**Quel socle de bonnes pratiques pour les projets statistiques en `R` ?**
+:::
+
+
+
+
+# Partie 1 : contrôle de version avec `Git`
+
+## Plan de la formation
+
+:one: Le [**contrôle de version**]{.orange} : pourquoi faire ?
+
+. . .
+
+:two: Le [**contrôle de version**]{.orange} avec `Git`
+
+. . .
+
+:three: Le [**travail collaboratif**]{.orange} avec `Git`
+
+
+# I- Le contrôle de version : pourquoi faire ?
+
+## :one: Archiver son code proprement {auto-animate=true}
+
+pour en finir avec ça :
+
+![](img/fichiers_multiples.png)
+
+
+## :one: Archiver son code proprement {auto-animate=true}
+
+ou ça :
+
+![](img/finalfinal.png){fig-align="center"}
+
+
+## :one: Archiver son code proprement {auto-animate=true}
+
+ou encore ça :
+
+```{.python code-line-numbers="12-18"}
+prior <- read_csv(prior_path)
+prior <- prior %>%
+    select(id, proba_inter, proba_build, proba_rfl) %>%
+    separate(id, into = c('nidt', 'grid_id'), sep = ":") %>%
+    group_by(nidt) %>%
+    mutate(
+        proba_build = proba_build/sum(proba_build),
+        proba_rfl = proba_rfl/sum(proba_rfl),
+        ) %>%
+    unite(col = "id", nidt, grid_id, sep = ":")
+
+# Test
+# prior_test <- prior %>%
+#    mutate(
+#        proba_inter = round(proba_inter, 4)
+#        proba_build = round(proba_build, 4)
+#        proba_rfl = round(proba_rfl, 4)
+#    )
+
+write_csv(prior_round, "~/prior.csv")
+```
+
+## :one: Archiver son code proprement {auto-animate=true}
+
+Pour arriver à ça :
+
+![](img/timeline.png){fig-align="center" height=475}
+
+Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/)
+
+## :two: Voyager dans le temps (de votre projet)
+
+![](img/historique_utilitr.png){fig-align="center"}
+
+## :three: Une collaboration simplifiée et efficace {auto-animate=true}
+
+Un modèle distribué
+
+![](img/git_distributed.png){fig-align="center" height=475}
+
+Source : [specbee.com](https://www.specbee.com)
+
+## :three: Une collaboration simplifiée et efficace {auto-animate=true}
+
+Qui permet l'expérimentation en toute sécurité
+
+![](img/branches.png){fig-align="center"}
+
+Source : [lutece.paris.fr](https://lutece.paris.fr/support/jsp/site/Portal.jsp?page=wiki&view=page&page_name=git&language=fr)
+
+## :three: Une collaboration simplifiée et efficace {auto-animate=true}
+
+Quel que soit l'environnement de travail
+
+![](img/envtravail.png){fig-align="center" height=475}
+
+## :three: Une collaboration simplifiée et efficace {auto-animate=true}
+
+Avec des outils pour faciliter la collaboration
+
+![](img/issue.png){fig-align="center" height=500}
+
+## :four: Partager son code à un public large {auto-animate=true}
+
+Une vitrine pour les projets et l'organisation
+
+![](img/ghinseefr.png){fig-align="center" height=475}
+
+
+## En résumé
+
+- [__Construire__]{.blue2} et [__naviguer__]{.blue2} à travers l'[**historique**]{.orange} de son projet
+
+. . .
+
+- La [**collaboration**]{.orange} rendue [__simple__]{.blue2} et [__efficace__]{.blue2}
+
+. . .
+
+- Améliorer la [**reproductibilité**]{.orange} de ses projets
+
+. . .
+
+- Améliorer la [**visibilité**]{.orange} de ses projets
+
+# II- Le contrôle de version avec `Git`
+
+## :warning: Git est complexe {auto-animate=true}
+
+L'utilisation de `Git` nécessite [__certaines notions préalables__]{.orange}:
+
+::: {.incremental}
+- Fonctionnement d'un `filesystem`
+- Connaissance basique du terminal `Linux`
+- Potentiellement, un grand nombre de commandes
+:::
+
+![Source : [Ici](https://iulianacosmina.com/?p=19452)](img/gitfire.png){height="400"}
+
+## :warning: Git est complexe {auto-animate=true}
+
+[__Mais__]{.blue2}
+
+::: {.incremental}
+- L'**usage quotidien** n'implique que [**quelques commandes**]{.orange}
+- [**Enormément de ressources**]{.orange} disponibles sur internet
+- Des [**interfaces visuelles**]{.orange} (ex: `RStudio`, `Sublime Merge`, `VS Code`) qui facilitent l'apprentissage
+- Un petit investissement individuel pour de [**gros gains collectifs**]{.orange}
+:::
+
+
+## Concepts {auto-animate=true}
+
+#### `Git`, `GitHub`, `GitLab`... quelles différences ?
+
+:::{.incremental}
+- `Git` est un **logiciel** ;
+- Utilisation en ligne de commandes
+- Différentes [__interfaces graphiques__]{.blue2} (`RStudio`, `VS Code`...)
+:::
+
+## Concepts {auto-animate=true}
+
+#### `Git`, `GitHub`, `GitLab`... quelles différences ?
+
+
+:::{.incremental}
+- `GitHub` et `GitLab` sont des **forges logicielles**
+- _Forge_: espace d'archivage de code
+- Des fonctionalités supplémentaires : __réseau social du code__
+:::
+
+:::{.callout-tip}
+
+- `GitHub` : utilisation pour les projets **open-source**
+- `GitLab` : utilisation pour les projets **internes**
+
+:::
+
+
+## Concepts {auto-animate=true}
+
+#### Dépôt local / dépôt distant (`remote`)
+
+![](img/localremote.png){fig-align="center" height=400}
+
+- Par défaut, le dépôt distant porte l'alias `origin`
+
+<!-- ## Concepts {auto-animate=true}
+
+_Workflow_ (version littéraire) :
+
+- On travaille sur un dépôt local en éditant des fichiers
+- On dit à `Git` que ces fichiers doivent être suivis (`staging area`)
+- On valide les modifications faites en local (`commit`)
+- On soumet les modifications (`push`) après avoir récupéré la version collective (`pull`) -->
+
+## Concepts {auto-animate=true}
+
+#### _Workflow_ local
+
+![](img/areas.png){fig-align="center" height=400}
+
+Source : [Git Documentation](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F)
+
+## Concepts {auto-animate=true}
+
+#### _Workflow_ complet
+
+![Source : [itnext.io](https://itnext.io/git-concepts-for-newcomers-part-2-git-repository-working-tree-and-staging-area-a2e720bf3528)](img/completeworkflow.png){height="400" width="500"}
+
+## Commandes essentielles {auto-animate=true}
+
+<br> 
+
+| Action     | Commande      |
+|------------|---------------|
+| Cloner un projet | `git clone [url-to-git-repo]` |
+| Afficher les changements | `git status` |
+| Retrouver l'URL du dépôt distant | `git remote -v` |
+
+## Commandes essentielles {auto-animate=true .smaller}
+
+<br>
+
+| Action     | Commande      |
+|------------|---------------|
+| Ajouter des changements à l'index de `Git` | Un seul fichier : `git add <file-name>` <br> Tous les fichiers déjà indexés : `git add -u` <br> Tous les fichiers :warning: : `git add -A` |
+
+<br>
+
+:::{.callout-important}
+## Warning
+
+La méthode `git add -A` peut amener à suivre les modifications
+de fichiers qui ne devraient pas l'être (par exemple, des données).
+
+Il est recommandé de bien réfléchir avant de l'utiliser (ou d'avoir
+un bon `.gitignore`)
+
+:::
+
+## Commandes essentielles {auto-animate=true}
+
+<br>
+
+| Action     | Commande      |
+|------------|---------------|
+| Faire un `commit` | `git commit -m "message"`|
+| Pousser les changements locaux (branche `master`) | `git push origin master` |
+| Récupérer les changements distants (branche `master`) | `git pull origin master` |
+
+## Modes d'authentification
+
+:::{.incremental}
+- [**https**]{.orange}
+  - `git clone https://github.com/username/projet.git`
+  - simple à utiliser
+  - authentification username/token à chaque *push*
+
+- [**ssh**]{.orange}
+  - `git clone git@github.com:username/projet.git`
+  - (plus) complexe à initialiser
+  - authentification automatique 
+:::
+
+## Application 0 {.smaller}
+
+{{< include applications_git/_application0.qmd >}}
+
+## Application 1
+
+{{< include applications_git/_application1.qmd >}}
+
+## Application 2
+
+{{< include applications_git/_application2.qmd >}}
+
+## Bonnes pratiques {auto-animate=true .smaller}
+
+__Que versionne-t-on ?__
+
+:::{.incremental}
+- Essentiellement du [**code source**]{.orange}
+- [__Pas d'outputs__]{.orange} (fichiers `.html`, `.pdf`, modèles...)
+- [__Pas de données__]{.orange}, d'informations locales ou sensibles
+:::
+
+:::{.callout-note}
+
+Pour définir des règles qui évitent de committer tel ou tel fichier, on utilise
+un fichier nommé __`.gitignore`__.
+
+Si on mélange du code et des éléments
+annexes (_output_, données...) dans un même dossier, il [__faut consacrer du temps à ce fichier__]{.orange}.
+
+Le site [`gitignore.io`](https://www.toptal.com/developers/gitignore) peut vous fournir
+des modèles.
+
+N'hésitez pas à y ajouter des règles conservatrices (par exemple `*.csv`), 
+comme cela est expliqué dans [la documentation `utilitR`](https://www.book.utilitr.org/git.html?q=gitignore#gitignore).
+
+:::
+
+## Bonnes pratiques {auto-animate=true .smaller}
+
+__Format des commits__
+
+::: {layout="[40,60]"}
+
+::: {.incremental}
+- [**Fréquence**]{.orange}
+    - Aussi souvent que possible
+    - Le lot de modifications doit "faire sens"
+- [**Messages**]{.orange}
+    - Courts et informatifs (comme un titre de mail)
+    - Décrire **le pourquoi plutôt que le comment** dans le texte
+:::
+
+![](img/titre-commit.png)
+
+:::
+
+## Application 3
+
+{{< include applications_git/_application3.qmd >}}
+
+
+# III- Le travail collaboratif avec Git
+
+## Outils pour le travail collaboratif
+
+- L'éco-système `Git` [**facilite** le travail collaboratif]{.blue2}
+    - `Git` {{< fa brands git-alt >}} : modèle des [__branches__]{.orange}
+    - `GitHub` {{< fa brands github >}} / `GitLab` {{< fa brands gitlab >}} : [**Issues**, **Pull Requests**, **Forks**]{.orange}
+
+. . .
+
+- Ces outils ne remplacent pas une [**bonne définition de l'organisation du travail**]{.orange} en équipe
+    - Choix d'un *workflow*
+    - Droits d'accès
+    - Règles de contribution
+
+## Application 4 {.smaller}
+
+{{< include applications_git/_application4.qmd >}}
+
+## Application 5 {.smaller}
+
+{{< include applications_git/_application5.qmd >}}
+
+## Le modèle des branches {auto-animate=true}
+
+![](https://i.imgflip.com/4ooord.jpg){fig-align="center"}
+
+## Le modèle des branches {auto-animate=true}
+
+![](img/branches.png)
+
+## Exemple d'organisation : le *GitHub flow*
+
+![](img/ghflow.png)
+
+Description plus détaillée : [ici](https://docs.github.com/en/get-started/quickstart/github-flow)
+
+<!--
+## Adopter de bonnes pratiques collaboratives {.smaller}
+
+:warning: __Ne jamais `git push --force`__
+
+![](https://miro.medium.com/max/400/0*XaLzNzYkA6PZjbl9.jpg){height="350" fig-align="center"}
+-->
+
+## Application 6
+
+{{< include applications_git/_application6.qmd >}}
+
+## Application 7
+
+{{< include applications_git/_application7.qmd >}}
+
+## Application 8 (bonus)
+
+{{< include applications_git/_application8.qmd >}}
+
+## Ressources supplémentaires {.smaller}
+
+<br>
+
+- Pour **aller plus loin**:
+    - Formation [Travail collaboratif avec `R`](https://collaboratif-git-formation-insee.netlify.app/index.html)
+    - Cours [Reproductibilité et bonnes pratiques pour les projets de data science](https://ensae-reproductibilite.netlify.app/) de l'`ENSAE`
+    - La [documentation `utilitR`](https://www.book.utilitr.org/) propose plusieurs chapitres sur `Git`
+    - La [Bible](https://git-scm.com/book/en/v2)
+<br>
+
+. . .
+
+- **Trouver de l'aide**:
+    - Pour toute question : le salon Tchap [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
+    - A l'Insee : la [documentation utilisateurs] pour l'utilisation de `Git` sur `AUS`
+    - Sollicitez vos collègues utilisateurs de `Git` !
+
+
+
+
+
+
+
+# Partie 2 : bonnes pratiques en `R`
+
+## Plan de la partie
+
+Améliorations graduelles dans l'échelle de la reproductibilité :
+
+:one: Qualité du code
+
+. . .
+
+:two: Structure des projets
+
+. . .
+
+:three: Formats de données
+
+. . .
+
+:four: Environnements reproductibles
+
+. . .
+
+:five: *Pipelines* de données
+
+. . .
+
+:six: Publication reproductible
+
+. . .
+
+{{< include applications_r/_application0.qmd >}}
+
+
+# I- Qualité du code
+
+## Enjeux
+
+- D'une vision utilitariste du code à une vision du code comme [**outil de communication**]{.orange}
+
+. . .
+
+- Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
+
+. . .
+
+- Faciliter la [**réutilisation**]{.orange}
+
+. . .
+
+- Assurer la [__transparence__]{.orange} méthodologique
+
+## Principes généraux
+
+1. Adopter les [**standards communautaires**]{.orange}
+
+. . .
+
+2. Utiliser des [**fonctions**]{.orange}
+
+. . .
+
+3. [**Documenter**]{.orange} son code
+
+. . .
+
+4. Indiquer les _packages_ utilisés afin d'éviter les [**conflits**]{.orange}
+
+
+## :one: Adopter les standards communautaires
+
+> *"Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread"*
+>
+> [Tidyverse Style Guide](https://style.tidyverse.org/)
+
+. . .
+
+- Respecter les [conventions]{.orange} du langage dans lequel il est rédigé
+
+. . .
+
+- Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse style guide](https://style.tidyverse.org/index.html).
+
+
+## :one: Adopter les standards communautaires {.smaller}
+
+Deux outils pratiques aident à respecter les standards :
+
+1. [**_linter_**]{.orange} : programme qui vérifie que le code est __formellement__ conforme à un certain _guidestyle_
+    + signale problèmes formels, sans corriger 
+
+. . .
+
+2. [**_formatter_**]{.orange} : programme qui reformate un code pour le rendre conforme à un certain _guidestyle_
+    + modifie directement le code
+
+. . .
+
+::: {.callout-tip}
+
+- [Exemples d’erreurs repérées]{.blue2} par un _linter_ : 
+    + lignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…
+- [Exemples d’erreurs __non__ repérées]{.blue2} par un _linter_ :
+    + fonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…
+:::
+
+
+## :one: Adopter les standards communautaires {.smaller}
+
+<br>
+
+Dans le cas de {{< fa brands r-project >}} : 
+
+- le [_linter_]{.orange} à utiliser est le _package_ [`lintr`](https://github.com/r-lib/lintr)
+- le [_formatter_]{.orange} à utiliser est le _package_ [`styler`](https://github.com/r-lib/styler).
+    + Existe également le _package_ [`formatR`](https://github.com/yihui/formatR).
+
+## :two: Utiliser des fonctions {.smaller}
+
+::: {.callout-important}
+## Règle d'or
+
+Il faut utiliser une [**fonction**]{.red2} dès qu'on utilise une même
+portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
+:::
+
+- [Limite les risques d'erreurs]{.orange} liés aux copier/coller
+- Rend le code [plus lisible]{.orange} et [plus compact]{.orange}
+- [Un seul endroit]{.orange} du code à modifier lorsqu'on souhaite modifier le traitement
+- Facilite la [réutilisation]{.orange} et la [documentation]{.orange} du code !
+
+. . .
+
+::: {.callout-tip}
+## Règles pour écrire des fonctions **pertinentes**
+
+- Une tâche = une fonction
+- Une tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple
+- Limiter l'utilisation de variables globales.
+
+:::
+
+## :three: Documenter son code
+
+- Grands principes :
+  - Documenter le [__pourquoi__]{.orange} plutôt que le [__comment__]{.orange}
+  - Privilégier l'auto-documentation via des [**nommages pertinents**]{.orange}.
+
+. . .
+
+::: {.callout-tip}
+## Comment bien documenter un script ?
+
+- [**Minimum**]{.orange} 🚦 : commentaire au début du script pour décrire ce qu'il fait
+- [**Bien**]{.orange} 👍 : commenter les parties "délicates" du code
+- [**Idéal**]{.orange} 💪 : documenter ses fonctions avec la syntaxe `roxygen2`.
+
+:::
+
+
+## :four: Pas d'ambiguïté sur les _packages_ utilisés {.smaller}
+
+- Deux fonctions peuvent avoir le [__même nom__]{.orange} dans des [__packages différents__]{.orange}
+
+. . .
+
+- `R` utilise par défaut la librairie chargée le plus récemment
+
+. . .
+
+- Erreurs difficiles à repérer car il est nécessaire d'exécuter le code
+
+. . .
+
+- Recommandation : indiquer explicitement le _package_ : notation `package::fonction()`
+    + Exemple : `dplyr::filter()`
+
+:::{.callout-tip}
+## Exemple
+- `package1` et `package2` contiennent chacun une fonction appelée `superFonction`.
+- Si `package2` est chargé après `package1`, alors `superFonction` désigne par défaut la fonction de `package2`.
+- Mieux vaut noter `package1::superFonction` et `package2::superFonction`
+:::
+
+
+## Ressources supplémentaires
+
+<br>
+
+- [Un cours complet](https://eliocamp.github.io/reproducibility-with-r/) sur la reproductibilité avec `R`
+- Une [présentation très complète](https://mitmat.github.io/slides/2022-05-26-egu/code-data-open-science.html#1) sur le partage de code et de données avec `R`
+- L'équivalent `Python` en [3A d'ENSAE](https://ensae-reproductibilite.netlify.app/about/)
+
+
+{{< include applications_r/_application1.qmd >}}
+
+
+## Bilan
+
+::: {.incremental}
+- Un code mal structuré
+  - Limite la lisibilité du projet
+  - Est très coûteux à maintenir (dette technique)
+:::
+
+. . .
+
+::: {layout="[80,30]"}
+
+![](https://www.earthdatascience.org/images/earth-analytics/clean-code/reproducible-science-is-about-being-lazy-hadley-wickham.png)
+
+:::
+
+# II- Structure des projets
+
+## Enjeux
+
+1. Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
+
+. . .
+
+2 Construire des projets [**reproductibles**]{.orange}
+
+## :warning: A ne pas reproduire chez vous
+
+<br>
+
+```
+├── report.Rmd
+├── correlation.png
+├── data.csv
+├── data2.csv
+├── fig1.png
+├── figure 2 (copy).png
+├── report.pdf
+├── partial data.csv
+├── script.R
+└── script_final.R
+```
+
+Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/materials/day1/02-projects/)
+
+## Principes généraux
+
+1. Utiliser les [**projets RStudio**]{.orange}
+
+. . .
+
+2. Organiser son projet en [**sous-dossiers**]{.orange}
+
+. . .
+
+3. Donner des [**noms pertinents**]{.orange} aux fichiers
+
+. . .
+
+4. [**Documenter**]{.orange} son projet
+
+. . .
+
+5. (Faire de son projet un [**package**]{.orange})
+
+## :one: Utiliser les projets RStudio
+
+::: {.incremental}
+- [**Objectif**]{.orange} : favoriser la [**reproductibilité**]{.blue2}
+  - Tous les fichiers nécessaires au projet dans un même dossier
+  - Le dossier contenant le projet RStudio est automatiquement utilisé comme ***working directory***
+  - Utilisation de [**chemins relatifs**]{.blue2} plutôt qu'absolus.
+:::
+
+. . .
+
+- **Bonus** : en utilisant `Git`, on s'assure de toujours travailler dans un projet RStudio !
+
+## :two: Organiser son projet en sous-dossiers
+
+- [**Objectif**]{.orange} : adopter une structure arbitraire, mais [**lisible**]{.blue2} et [**cohérente**]{.blue2}
+
+```
+├── data
+│   ├── raw
+│   │   ├── data.csv
+│   │   └── data2.csv
+│   └── derived
+│       └── partial data.csv
+├── R
+|   ├── script.R
+│   ├── script_final.R
+│   └── report.Rmd
+└── output
+    ├── fig1.png
+    ├── figure 2 (copy).png
+    ├── figure10.png
+    ├── correlation.png
+    └── report.pdf
+```
+
+## :three: Donner des noms pertinents aux fichiers
+
+- [**Objectif**]{.orange} : [**auto-documenter**]{.blue2} son projet
+
+```
+├── data
+│   ├── raw
+│   │   ├── dpe_logement_202103.csv
+│   │   └── dpe_logement_202003.csv
+│   └── derived
+│       └── dpe_logement_merged_preprocessed.csv
+├── R
+|   ├── preprocessing.R
+│   ├── generate_plots.R
+│   └── report.Rmd
+└── output
+    ├── histogram_energy_diagnostic.png
+    ├── barplot_consumption_pcs.png
+    ├── correlation_matrix.png
+    └── report.pdf
+```
+
+## :four: Documenter son projet
+
+- Le fichier `README.md`, situé à la racine du projet, est à la fois la **carte d'identité** et la **vitrine du projet**
+
+::: {.incremental}
+- Idéalement, il contient :
+  - Une [**présentation**]{.orange} du contexte et des objectifs
+  - Une description de son [**fonctionnement**]{.orange}
+  - Un guide de [**contribution**]{.orange} (*open-source*)
+:::
+
+. . .
+
+- Quelques modèles de `README.md` complets :
+  - [utilitR](https://github.com/InseeFrLab/utilitR/blob/master/README.md)
+  - [DoReMIFaSol](https://github.com/InseeFrLab/DoReMIFaSol)
+
+## :five: Faire de son projet un *package*
+
+::: {.incremental}
+- Un *package* est la forme maximale de [**modularité**]{.orange}
+  - Contient des [**fonctions**]{.blue2} rangées dans des [**modules**]{.blue2}
+  - Contient également de la [**documentation**]{.blue2}, des [**tests**]{.blue2}, des (méta-)données... 
+
+- [**Avantages**]{.orange}
+  - Idéal pour favoriser la [**réutilisation**]{.blue2} du code
+  - Des [**outils**]{.blue2} de développement : `devtools` et `usethis`
+
+- [**Inconvénients**]{.orange}
+  - Coût de [**maintenance**]{.blue2} élevé
+:::
+
+## Ressources supplémentaires
+
+<br>
+
+- La documentation utilitR sur les [projets RStudio](https://www.book.utilitr.org/03_fiches_thematiques/fiche_rprojects) et les [packages R](https://www.book.utilitr.org/01_r_insee/fiche_installer_packages)
+- La [bible des packages R](https://r-pkgs.org/whole-game.html)
+- Un excellent [workshop sur la reproductibilité avec R](https://eliocamp.github.io/reproducibility-with-r/materials/day1/02-projects/)
+
+
+{{< include applications_r/_application2.qmd >}}
+
+
+# III- Formats de données
+
+## Enjeux
+
+::: {.incremental}
+- Le choix d'un format de données répond à un [**arbitrage**]{.orange} entre plusieurs critères :
+  - [**Finalité**]{.blue2} (traitement, analyse, diffusion)
+  - [**Public cible**]{.blue2}
+  - [**Volumétrie**]{.blue2}
+:::
+
+## Recommandations {.smaller}
+
+- Eviter impérativement les formats de données adhérents à un langage (`RDS`, `RData`, `fst`, `sas7bdat`, etc.).
+
+::: {.incremental}
+- Deux formats à privilégier :
+  - [**CSV**]{.orange} : pour la [**plupart des usages courants**]{.blue2}
+    - _Avantage_ : [**non-compressé**]{.blue2} donc facilement [**lisible**]{.blue2}
+    - _Inconvénients_ : pas de gestion des méta-données, peu adapté aux données volumineuses
+  - [**Parquet**]{.orange} : pour le traitement de [**données volumineuses**]{.blue2}
+    - [**Compressé**]{.blue2} et très [**performant**]{.blue2} en lecture/écriture
+    - Gestion native des méta-données
+:::
+
+
+{{< include applications_r/_application3.qmd >}}
+
+
+# IV- Environnements reproductibles
+
+## Expérience de pensée
+
+::: {.incremental}
+- Imaginons la situation suivante :
+  - J'installe une version de `R` sur mon poste
+  - Je développe un projet en installant les _packages_ nécessaires
+  - Une fois terminé, je passe au projet suivant, et ainsi de suite.
+
+
+- Quels [**problèmes**]{.orange} puis-je rencontrer au fil des projets ?
+
+- Est-il facile de [**partager**]{.orange} un de mes projets ?
+:::
+
+## Enjeux
+
+- [**Version de**]{.orange} [**R**]{.blue2} [**fixe**]{.orange}, celle de l'installation système
+
+. . .
+
+- [**Conflits de version**]{.orange} : différents projets peuvent requérir différentes versions d'un même _package_.
+
+. . .
+
+- [**Reproductibilité limitée**]{.orange} : difficile de dire quel projet nécessite quel _package_.
+
+. . .
+
+- [**Portabilité limitée**]{.orange} : difficile de préciser dans un fichier les dépendances spécifiques à un projet.
+
+
+## Des environnements reproductibles avec `renv`
+
+- `renv` permet de créer des **env**ironnements **r**eproductibles
+
+. . .
+
+- [**Isolation**]{.orange} : chaque projet dispose de sa propre librairie de packages
+
+. . .
+
+- [**Reproductibilité**]{.orange} : `renv` enregistre les versions exactes des *packages* nécessaires au projet
+
+. . .
+
+- [**Portabilité**]{.orange}: un tiers peut exécuter le projet avec les mêmes spécifications
+
+## Utilisation de `renv`
+
+1. [**Initialisation**]{.orange} (`init`) de l'environnement local du projet
+
+. . .
+
+2. [**Développement**]{.orange} du projet
+
+. . .
+
+3. [**Enregistrement**]{.orange} (`snapshot`) des versions des *packages* installés
+
+. . .
+
+4. [**Restauration**]{.orange} (`restore`) d'un environnement
+
+## :one: Initialisation de l'environnement
+
+::: {.incremental}
+- `renv::init()` dans un projet RStudio crée :
+  - Un dossier `renv` et le fichier `.Rprofile` : activation automatique de l'environnement
+  - Le fichier `renv.lock` : versions des *packages* installés
+:::
+
+. . .
+
+![](img/renv_init.png){height="400" fig-align="center"}
+
+## :two: Développement du projet
+
+::: {.incremental}
+- Une fois l'environnement initialisé, on développe le projet de manière habituelle :
+  - Installations/suppressions/mises à jour de packages
+  - Ecriture de scripts
+:::
+
+. . .
+
+- `renv::status()` : indique les _packages_ installés/supprimés par rapport au fichier `renv.lock`
+
+## :three: Enregistrement de l'environnement {.smaller}
+
+- `renv::snapshot()` : enregistre les versions des _packages_ installés dans le fichier `renv.lock`
+
+. . .
+
+![](img/renv_snapshot.png){height="400" fig-align="center"}
+
+## :four: Restauration de l'environnement
+
+- `renv::restore()` : installe/désinstalle les _packages_ nécessaires pour arriver à l'état spécifié dans le fichier `renv.lock`
+
+. . .
+
+- [**Portabilité**]{.orange} : un tiers peut recréer un environnement avec les mêmes spécifications
+
+
+{{< include applications_r/_application4.qmd >}}
+
+
+## Vers une reproductibilité optimale
+
+::: {.incremental}
+- [**Limites**]{.orange} des environnements virtuels : 
+  - Les [**librairies système**]{.blue2} ne sont pas gérées
+  - Lourdeur de la phase d'installation à chaque changement d'environnement
+  - Peu adaptés à un environnement de production
+:::
+
+. . .
+
+- La [**conteneurisation**]{.orange} (ex : `Docker`) apporte la solution
+
+. . .
+
+- [**Intuition**]{.orange} : au lieu de distribuer la recette pour recréer l'environnement, [**distribuer directement une "machine" qui contient *tout* l'environnement nécessaire au projet**]{.blue2}
+
+## Ressources supplémentaires
+
+- La [documentation officielle de `renv`](https://rstudio.github.io/renv/articles/renv.html)
+
+- La [fiche utilitR sur la gestion des dépendances](https://www.book.utilitr.org/03_fiches_thematiques/fiche_gerer_dependances)
+
+# V- *Pipelines* de données
+
+## Motivations
+
+- Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
+
+![](https://astrakhan.fr/wp-content/uploads/2020/10/Data-Engineering.png)
+
+[Source](https://astrakhan.fr/blog/formation-au-data-engineering-une-nouvelle-offre-dastrakhan/)
+
+
+## Motivations
+
+- Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
+
+- Ces étapes peuvent être formalisées sous forme d'un [**pipeline (*direct acyclic graph*)**]{.orange}
+
+![](img/dag_argo.png)
+
+[Source](https://medium.com/hashmapinc/building-ml-pipelines-8e27344a42d2)
+
+## Motivations
+
+- Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
+
+::: {.incremental}
+- Modéliser ces étapes sous forme de [**pipeline (*direct acyclic graph*)**]{.orange} a plusieurs avantages :
+  - [**Découplage**]{.blue2} des différentes étapes
+  - Facilite la [**planification**]{.blue2} du traitement
+  - Facilite la [**prise en main**]{.blue2} du projet par un tiers
+:::
+
+
+
+## Le package `targets`
+
+- `targets` est un *framework* de modélisation de *pipelines* spécifiquement dédié aux projets `R`.
+
+::: {.incremental}
+- Deux objectifs majeurs : 
+  1. [**Réduire le coût d'expérimentation**]{.orange} en sauvegardant les résultats intermédiaires (***targets***)
+  2. Garantir la [**reproductibilité**]{.orange} de la chaîne en traçant les changements de ces ***targets***
+:::
+
+## Méthode de travail avec `targets` {.smaller}
+
+- On développe dans des scripts :
+    + Fonctions dans un ou plusieurs fichiers dédiés
+    + Chaîne de production dans un fichier `_targets.R`
+
+. . .
+    
+- On gère l'exécution du _pipeline_ directement dans la console
+    + `tar_visnetwork()` pour inspecter la structure du _pipeline_
+    + `tar_make` pour exécuter la chaine de production
+    
+::: {.callout-note}
+
+Quand on part du chaine de traitement dans un fichier déja existant
+(`script.R` par exemple), il faut faire la transition vers un fichier
+`_targets.R` dont la structure est particulière.
+
+:::
+
+## :one: Un projet minimaliste {.smaller}
+
+- Structure de projet _opinionated_ :
+    + ~~Long script `script.R`~~ `_targets.R`
+    + Chaîne de production: suite d'appels à des fonctions définies dans `R/functions.R`
+
+<br>
+
+```
+├── _targets.R
+├── data
+│   ├── raw
+│   │   └── data.csv
+├── R
+│   └── functions.R
+```
+
+. . .
+
+<br>
+
+- Nouveau fichier: `_targets.R`
+    + Contrôle le comportement de notre chaine de traitement
+    + Enchaînement d'étapes de transformation de données selon une syntaxe particulière
+
+## :two: Le fichier `_targets.R` {.smaller}
+
+::: {.incremental}
+- Le fichier `_targets.R` doit satisfaire plusieurs conditions :
+  1. Charger le _package_ `targets`
+  2. Charger dans l'environnement les fonctions nécessaires
+  3. Déclarer les _packages_ nécessaires aux différentes étapes
+  4. Définir le *pipeline*.
+:::
+
+. . . 
+
+```r
+# _targets.R file
+library(targets)
+source("R/functions.R")
+tar_option_set(packages = c("readr", "dplyr", "ggplot2"))
+list(
+  tar_target(file, "data.csv", format = "file"),
+  tar_target(data, get_data(file)),
+  tar_target(model, fit_model(data)),
+  tar_target(plot, plot_model(model, data))
+)
+```
+
+::: {.callout-note}
+Les fonctions `get_data`, `fit_model` et `plot_model` sont définies
+dans 📁 `R/functions.R`
+:::
+
+## :three: Inspecter le *pipeline*
+
+- La fonction `tar_visnetwork` permet de visualiser le *pipeline*
+
+![](img/pipeline.png){height="350" fig-align="center"}
+
+## :three: Exécuter le *pipeline* {.smaller}
+
+- La fonction `tar_make` exécute le *pipeline* défini dans `_targets.R`
+
+![](img/pipeline_run1.png){height="200" fig-align="center"}
+
+- 💡 Lors des exécutions suivantes, `targets` saute automatiquement les étapes qui n'ont pas changé
+
+![](img/pipeline_run2.png){height="150" fig-align="center"}
+
+## Ressources supplémentaires
+
+- La [documentation officielle de `targets`](https://books.ropensci.org/targets/)
+
+- La [fiche UtilitR dédiée à `targets`](https://www.book.utilitr.org/targets.html)
+
+
+{{< include applications_r/_application5.qmd >}}
+
+
+
+# VI- Publication reproductible
+
+## Enjeux
+
+- Produire des [**études reproductibles**]{.orange} en intégrant le code et le texte dans un même document
+
+. . .
+
+- La génération complète de l'étude est contenue dans un [**unique projet**]{.orange}
+
+. . .
+
+- [**Limiter les risques d'erreurs**]{.orange} dues aux gestes manuels
+
+. . .
+
+- Gestion native de [**différents formats**]{.orange} pour le document final (`pdf`, `html`, `odt`, etc.)
+
+## `R Markdown`
+
+::: {.incremental}
+- `R Markdown` est un *package* `R` qui permet de lier
+  - Du [**texte**]{.orange} au format `Markdown`
+  - Du [**code**]{.orange} `R` qui peut être exécuté et dont les sorties peuvent être intégrées au texte
+:::
+
+. . .
+
+- [**Dissociation du fond et de la forme**]{.orange} du document
+
+::: {.incremental}
+- Un document est [**compilé**]{.orange} en deux étapes
+  - [***knit***]{.green2} : le package `knitr` transforme le texte et les sorties `R` en un document `Markdown` standard
+  - [***convert***]{.green2} : le logiciel `pandoc` transforme le document `.md` en un format de sortie standard (`html`, `pdf`, etc.)
+:::
+
+## `Quarto`
+
+- `Quarto` est le successeur de `R Markdown`
+
+. . .
+
+- `Quarto` supporte [**différents moteurs de calcul**]{.orange} (`knitr`, `Jupyter`, `Observable`..) ce qui le rend nativement [**multi-langage**]{.orange} (`R`, `Python`, `JavaScript`..)
+
+. . .
+
+- Le fonctionnement des deux systèmes reste très proche
+
+## Anatomie d'un document reproductible
+
+![](img/qmd.png){height="500" fig-align="center"}
+
+## Ressources supplémentaires
+
+- La [documentation officielle de `R Markdown`](https://rmarkdown.rstudio.com/lesson-1.html)
+
+- La [fiche `UtilitR` sur `R Markdown`](https://www.book.utilitr.org/rmarkdown.html)
+
+- La [documentation officielle de `quarto`](https://quarto.org/)
+
+
+{{< include applications_r/_application6.qmd >}}
+
+
+
+# Conclusion
+
+- Les [**bonnes pratiques**]{.blue2} favorisent la [**reproductibilité**]{.orange} et la [**réutilisation**]{.orange} des projets statistiques
+
+. . .
+
+- Des [**outils**]{.orange} permettent d'appliquer les [**bonnes pratiques**]{.blue2}
+
+. . .
+
+- Le [**coût**]{.orange} est d'autant plus faible que l'on se place [**en amont du projet**]{.orange}
+
+. . .
+
+- Quel [**socle**]{.orange} de [**bonnes pratiques**]{.blue2} pour l'Insee ?
