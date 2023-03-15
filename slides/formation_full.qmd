@@ -29,7 +29,6 @@ format:
 controls: true
 css: custom.css
 from: markdown+emoji
-bibliography: references.bib
 ---
 
 # Introduction
