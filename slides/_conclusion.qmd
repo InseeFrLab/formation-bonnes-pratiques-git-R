@@ -1,0 +1,10 @@
+
+- Les [**bonnes pratiques**]{.blue2} favorisent la [**reproductibilité**]{.orange} et la [**réutilisation**]{.orange} des projets statistiques
+
+. . .
+
+- Des [**outils**]{.orange} permettent d'appliquer les [**bonnes pratiques**]{.blue2}
+
+. . .
+
+- Le [**coût**]{.orange} est d'autant plus faible que l'on se place [**en amont du projet**]{.orange}

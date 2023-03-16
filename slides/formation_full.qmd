@@ -37,7 +37,7 @@ from: markdown+emoji
 
 # Partie 1 : contrôle de version avec `Git`
 
-## Plan de la formation
+## Plan de la partie
 
 :one: Le [**contrôle de version**]{.orange} : pourquoi faire ?
 
@@ -96,16 +96,4 @@ Améliorations graduelles dans l'échelle de la reproductibilité :
 
 # Conclusion
 
-- Les [**bonnes pratiques**]{.blue2} favorisent la [**reproductibilité**]{.orange} et la [**réutilisation**]{.orange} des projets statistiques
-
-. . .
-
-- Des [**outils**]{.orange} permettent d'appliquer les [**bonnes pratiques**]{.blue2}
-
-. . .
-
-- Le [**coût**]{.orange} est d'autant plus faible que l'on se place [**en amont du projet**]{.orange}
-
-. . .
-
-- Quel [**socle**]{.orange} de [**bonnes pratiques**]{.blue2} pour l'Insee ?
+{{< include _conclusion_.qmd >}}
