@@ -25,7 +25,7 @@ format:
   # pick the light mode (onyxia-revealjs) or the dark mode (onyxia-dark-revealjs)
   onyxia-revealjs:
   #onyxia-dark-revealjs:
-    output-file: index.html
+    output-file: light.html
 controls: true
 css: custom.css
 from: markdown+emoji

@@ -23,6 +23,10 @@ abstract: |
 categories:
   - R
   - Git
-slides: https://inseefrlab.github.io/formation-bonnes-pratiques-R/#/title-slide
-code: https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R
+slides:
+  text: Slides
+  url: /slides/light.html
+code:
+  text: Code 
+  url: https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R
 ---

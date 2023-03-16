@@ -1,7 +1,8 @@
 project:
   type: website
   render:
-    - "/slides/**/*.qmd"
+    - /slides/formation_light.qmd
+    - /slides/formation_full.qmd
     - index.qmd
     - "/cards/**/*.qmd"
 
@@ -16,5 +17,5 @@ website:
 format:
   html:
     theme: cosmo
-    css: styles.css
+    css: styles.scss
     toc: true
