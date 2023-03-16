@@ -1,0 +1,13 @@
+## Ressources supplémentaires {.smaller}
+
+- Pour **aller plus loin**:
+    - Formation [Travail collaboratif avec `R`](https://collaboratif-git-formation-insee.netlify.app/index.html)
+    - La [documentation `utilitR`](https://www.book.utilitr.org/) propose plusieurs chapitres sur `Git`
+    - La [Bible](https://git-scm.com/book/en/v2) de l'usage de `Git`
+
+. . .
+
+- **Trouver de l'aide**:
+    - Pour toute question : le salon Tchap [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
+    - A l'Insee : la [documentation utilisateurs](https://gitlab.insee.fr/infrastructure/lss/ausv3/documentation-utilisateurs/-/wikis/Logiciels/Git) pour l'utilisation de `Git` sur `AUS`
+    - Sollicitez vos collègues utilisateurs de `Git` !

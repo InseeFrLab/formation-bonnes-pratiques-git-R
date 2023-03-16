@@ -13,7 +13,7 @@ slide-number: true
 footer: |
   Bonnes pratiques pour les projets statistiques
 # uncomment for French presentations:
-#lang: fr-FR
+lang: fr-FR
 # for blind readers:
 slide-tone: false
 # for @olevitt:
@@ -50,23 +50,7 @@ from: markdown+emoji
 
 {{< include _git_fundamentals.qmd >}}
 
-## Ressources supplémentaires {.smaller}
-
-<br>
-
-- Pour **aller plus loin**:
-    - Formation [Travail collaboratif avec `R`](https://collaboratif-git-formation-insee.netlify.app/index.html)
-    - Cours [Reproductibilité et bonnes pratiques pour les projets de data science](https://ensae-reproductibilite.netlify.app/) de l'`ENSAE`
-    - La [documentation `utilitR`](https://www.book.utilitr.org/) propose plusieurs chapitres sur `Git`
-    - La [Bible](https://git-scm.com/book/en/v2)
-<br>
-
-. . .
-
-- **Trouver de l'aide**:
-    - Pour toute question : le salon Tchap [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
-    - A l'Insee : la [documentation utilisateurs] pour l'utilisation de `Git` sur `AUS`
-    - Sollicitez vos collègues utilisateurs de `Git` !
+{{< include _git_resources.qmd >}}
 
 
 
@@ -87,6 +71,8 @@ Améliorations graduelles dans l'échelle de la reproductibilité :
 :three: Formats de données
 
 {{< include _r_fundamentals.qmd >}}
+
+{{< include _r_resources.qmd >}}
 
 
 

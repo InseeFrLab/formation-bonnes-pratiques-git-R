@@ -1,0 +1,13 @@
+## Ressources supplémentaires {.smaller}
+
+- Pour **aller plus loin**:
+    - La [documentation `utilitR`](https://www.book.utilitr.org/)
+    - [Un cours complet](https://eliocamp.github.io/reproducibility-with-r/) sur la reproductibilité avec `R`
+    - Cours [Reproductibilité et bonnes pratiques pour les projets de data science](https://ensae-reproductibilite.netlify.app/) de l'`ENSAE`
+
+. . .
+
+- **Trouver de l'aide**:
+    - Pour toute question : le salon `Slack` [grrr](r-grrr.slack.com), très dynamique
+    - Le salon `Tchap` [Langage R](https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr)
+    - Pour l'utilisation de `R` à l'Insee : le salon `Tchap` [Insee - Outils Stats v2](https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr)
