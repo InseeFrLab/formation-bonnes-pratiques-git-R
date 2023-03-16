@@ -9,7 +9,7 @@ toc: false
 
 ## Formation aux bonnes pratiques avec `Git` et `R`
 
-La formation est déclinée en deux versions: une version _light_ (une journée) et la version complète (deux jours).
+La formation est déclinée en deux versions: une version allégée (une journée) et la version complète (deux jours).
 
 Tous les supports sont sur [`Github`](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R)
 <br>
