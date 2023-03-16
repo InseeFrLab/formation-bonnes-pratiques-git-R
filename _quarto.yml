@@ -7,11 +7,15 @@ project:
     - "/cards/**/*.qmd"
 
 website:
-  title: "Formation aux bonnes pratiques"
+  title: "Formation aux bonnes pratiques `Git` et `R`"
   navbar:
     left:
       - href: index.qmd
         text: Home
+      - href: slides/light.html
+        text: Version courte
+      - href: slides/complete.html
+        text: Version longue
     background: "#4758AB"
 
 format:
