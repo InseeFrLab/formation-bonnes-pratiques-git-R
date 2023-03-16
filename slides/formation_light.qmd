@@ -77,4 +77,4 @@ Améliorations graduelles dans l'échelle de la reproductibilité :
 
 # Conclusion
 
-{{< include _conclusion_.qmd >}}
+{{< include _conclusion.qmd >}}
