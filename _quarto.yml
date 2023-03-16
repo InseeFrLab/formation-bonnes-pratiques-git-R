@@ -6,11 +6,9 @@ project:
     - slides/formation_full.qmd
 
 website:
-  title: "today"
   navbar:
     left:
       - href: slides/index.html
-        text: Home
 
 format:
   html:

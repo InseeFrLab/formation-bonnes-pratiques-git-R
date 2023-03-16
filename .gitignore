@@ -6,5 +6,6 @@ slides/index_files
 slides/formation_light_files
 slides/formation_full_files
 _targets/
+/.quarto/
+site_libs
 _site
-.quarto/
