@@ -12,32 +12,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - name: Set up quarto
         uses: quarto-dev/quarto-actions/setup@v2
-      - name: Render slides (light version)
-        uses: quarto-dev/quarto-actions/render@v2
+      - name: Publish slides
+        uses: quarto-dev/quarto-actions/publish@v2
         with:
-          to: html
-          path: slides/formation_light.qmd
-      - name: Render slides (full version)
-        uses: quarto-dev/quarto-actions/render@v2
-        with:
-          to: html
-          path: slides/formation_full.qmd
-      - name: Render index
-        uses: quarto-dev/quarto-actions/render@v2
-        with:
-          to: html
-          path: slides/index.qmd
-      - name: Publish changes to GitHub Pages
-        run: |
-          mv slides/index.html index.html
-          if [[ `git status --porcelain` ]]; then
-            git add -A
-            git commit -m "Automated changes"
-            git push
-          fi
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
