@@ -1,0 +1,2769 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Romain Avouac, Thomas Faria, Lino Galiana, Olivier Meslin, Tom Seimandi">
+
+<title>Bonnes pratiques pour les projets statistiques</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="formation_full_files/libs/clipboard/clipboard.min.js"></script>
+<script src="formation_full_files/libs/quarto-html/quarto.js"></script>
+<script src="formation_full_files/libs/quarto-html/popper.min.js"></script>
+<script src="formation_full_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="formation_full_files/libs/quarto-html/anchor.min.js"></script>
+<link href="formation_full_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="formation_full_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="formation_full_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="formation_full_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="formation_full_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="formation_full_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="formation_full_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="custom.css">
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Bonnes pratiques pour les projets statistiques</h1>
+<p class="subtitle lead"></p><p><strong><span class="orange">Une formation aux bonnes pratiques avec Git et R</span></strong></p><p></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p> </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<section id="la-notion-de-bonnes-pratiques" class="level2">
+<h2 class="anchored" data-anchor-id="la-notion-de-bonnes-pratiques">La notion de bonnes pratiques</h2>
+<ul>
+<li><span class="blue2"><strong>Origine</strong></span> : communauté des développeurs logiciels</li>
+</ul>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="blue2"><strong>Constats</strong></span> :
+<ul class="incremental">
+<li>le <span class="green2"><em>“code est plus souvent lu qu’écrit”</em></span> (<a href="https://fr.wikipedia.org/wiki/Guido_van_Rossum">Guido Van Rossum</a>)</li>
+<li>la maintenance d’un code est très coûteuse</li>
+</ul></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="blue2"><strong>Conséquence</strong></span> : un ensemble de <span class="orange"><strong>règles informelles</strong></span>, conventionnellement acceptées comme produisant des logiciels <span class="orange"><strong>fiables</strong></span>, <span class="orange"><strong>évolutifs</strong></span> et <span class="orange"><strong>maintenables</strong></span></li>
+</ul>
+</div>
+</section>
+<section id="pourquoi-sintéresser-aux-bonnes-pratiques" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pourquoi-sintéresser-aux-bonnes-pratiques">Pourquoi s’intéresser aux bonnes pratiques ?</h2>
+<p><br></p>
+<p>L’activité du statisticien / <em>datascientist</em> tend à se rapprocher de celle du développeur :</p>
+<div class="incremental">
+<ul>
+<li>projets <span class="orange"><strong>intenses en code</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>projets collaboratifs</strong></span> et de grande envergure</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>complexification</strong></span> des données et donc des <span class="orange"><strong>infrastructures</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>déploiement</strong></span> d’applications pour valoriser les analyses</li>
+</ul>
+</div>
+</section>
+<section id="bonnes-pratiques-et-reproductibilité" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="bonnes-pratiques-et-reproductibilité">Bonnes pratiques et reproductibilité</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/reprospectrum.png" height="200" class="figure-img"></p>
+</figure>
+</div>
+<p><strong>Source</strong> : Peng R., Reproducible Research in Computational Science, Science (2011)</p>
+<div class="incremental">
+<ul>
+<li>Une reproductibilité parfaite est <span class="orange"><strong>coûteuse</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><code>Git</code> est un <span class="orange"><strong>standard atteignable</strong></span> et <span class="orange"><strong>efficient</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Quel socle de bonnes pratiques pour les projets statistiques en <code>R</code> ?</strong></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="partie-1-contrôle-de-version-avec-git" class="level1">
+<h1>Partie 1 : contrôle de version avec <code>Git</code></h1>
+<section id="plan-de-la-formation" class="level2">
+<h2 class="anchored" data-anchor-id="plan-de-la-formation">Plan de la formation</h2>
+<p><span class="emoji" data-emoji="one">1️⃣</span> Le <span class="orange"><strong>contrôle de version</strong></span> : pourquoi faire ?</p>
+<div class="incremental">
+<p><span class="emoji" data-emoji="two">2️⃣</span> Le <span class="orange"><strong>contrôle de version</strong></span> avec <code>Git</code></p>
+</div>
+<div class="incremental">
+<p><span class="emoji" data-emoji="three">3️⃣</span> Le <span class="orange"><strong>travail collaboratif</strong></span> avec <code>Git</code></p>
+</div>
+</section>
+</section>
+<section id="i--le-contrôle-de-version-pourquoi-faire" class="level1">
+<h1>I- Le contrôle de version : pourquoi faire ?</h1>
+<section id="archiver-son-code-proprement" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="archiver-son-code-proprement"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
+<p>pour en finir avec ça :</p>
+<p><img src="img/fichiers_multiples.png" class="img-fluid"></p>
+</section>
+<section id="archiver-son-code-proprement-1" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="archiver-son-code-proprement-1"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
+<p>ou ça :</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/finalfinal.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="archiver-son-code-proprement-2" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="archiver-son-code-proprement-2"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
+<p>ou encore ça :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>prior <span class="op">&lt;-</span> read_csv(prior_path)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>prior <span class="op">&lt;-</span> prior <span class="op">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    select(<span class="bu">id</span>, proba_inter, proba_build, proba_rfl) <span class="op">%&gt;%</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    separate(<span class="bu">id</span>, into <span class="op">=</span> c(<span class="st">'nidt'</span>, <span class="st">'grid_id'</span>), sep <span class="op">=</span> <span class="st">":"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    group_by(nidt) <span class="op">%&gt;%</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    mutate(</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        proba_build <span class="op">=</span> proba_build<span class="op">/</span><span class="bu">sum</span>(proba_build),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>        proba_rfl <span class="op">=</span> proba_rfl<span class="op">/</span><span class="bu">sum</span>(proba_rfl),</span>
+<span id="cb1-9"><a href="#cb1-9"></a>        ) <span class="op">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>    unite(col <span class="op">=</span> <span class="st">"id"</span>, nidt, grid_id, sep <span class="op">=</span> <span class="st">":"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co"># Test</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># prior_test &lt;- prior %&gt;%</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#    mutate(</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co">#        proba_inter = round(proba_inter, 4)</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="co">#        proba_build = round(proba_build, 4)</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="co">#        proba_rfl = round(proba_rfl, 4)</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="co">#    )</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a>write_csv(prior_round, <span class="st">"~/prior.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="archiver-son-code-proprement-3" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="archiver-son-code-proprement-3"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
+<p>Pour arriver à ça :</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/timeline.png" height="475" class="figure-img"></p>
+</figure>
+</div>
+<p>Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/">ThinkR</a></p>
+</section>
+<section id="voyager-dans-le-temps-de-votre-projet" class="level2">
+<h2 class="anchored" data-anchor-id="voyager-dans-le-temps-de-votre-projet"><span class="emoji" data-emoji="two">2️⃣</span> Voyager dans le temps (de votre projet)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/historique_utilitr.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="une-collaboration-simplifiée-et-efficace" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="une-collaboration-simplifiée-et-efficace"><span class="emoji" data-emoji="three">3️⃣</span> Une collaboration simplifiée et efficace</h2>
+<p>Un modèle distribué</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/git_distributed.png" height="475" class="figure-img"></p>
+</figure>
+</div>
+<p>Source : <a href="https://www.specbee.com">specbee.com</a></p>
+</section>
+<section id="une-collaboration-simplifiée-et-efficace-1" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="une-collaboration-simplifiée-et-efficace-1"><span class="emoji" data-emoji="three">3️⃣</span> Une collaboration simplifiée et efficace</h2>
+<p>Qui permet l’expérimentation en toute sécurité</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/branches.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Source : <a href="https://lutece.paris.fr/support/jsp/site/Portal.jsp?page=wiki&amp;view=page&amp;page_name=git&amp;language=fr">lutece.paris.fr</a></p>
+</section>
+<section id="une-collaboration-simplifiée-et-efficace-2" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="une-collaboration-simplifiée-et-efficace-2"><span class="emoji" data-emoji="three">3️⃣</span> Une collaboration simplifiée et efficace</h2>
+<p>Quel que soit l’environnement de travail</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/envtravail.png" height="475" class="figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="une-collaboration-simplifiée-et-efficace-3" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="une-collaboration-simplifiée-et-efficace-3"><span class="emoji" data-emoji="three">3️⃣</span> Une collaboration simplifiée et efficace</h2>
+<p>Avec des outils pour faciliter la collaboration</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/issue.png" height="500" class="figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="partager-son-code-à-un-public-large" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="partager-son-code-à-un-public-large"><span class="emoji" data-emoji="four">4️⃣</span> Partager son code à un public large</h2>
+<p>Une vitrine pour les projets et l’organisation</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/ghinseefr.png" height="475" class="figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="en-résumé" class="level2">
+<h2 class="anchored" data-anchor-id="en-résumé">En résumé</h2>
+<ul>
+<li><span class="blue2"><strong>Construire</strong></span> et <span class="blue2"><strong>naviguer</strong></span> à travers l’<span class="orange"><strong>historique</strong></span> de son projet</li>
+</ul>
+<div class="incremental">
+<ul>
+<li>La <span class="orange"><strong>collaboration</strong></span> rendue <span class="blue2"><strong>simple</strong></span> et <span class="blue2"><strong>efficace</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Améliorer la <span class="orange"><strong>reproductibilité</strong></span> de ses projets</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Améliorer la <span class="orange"><strong>visibilité</strong></span> de ses projets</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="ii--le-contrôle-de-version-avec-git" class="level1">
+<h1>II- Le contrôle de version avec <code>Git</code></h1>
+<section id="git-est-complexe" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="git-est-complexe"><span class="emoji" data-emoji="warning">⚠️</span> Git est complexe</h2>
+<p>L’utilisation de <code>Git</code> nécessite <span class="orange"><strong>certaines notions préalables</strong></span>:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Fonctionnement d’un <code>filesystem</code></li>
+<li>Connaissance basique du terminal <code>Linux</code></li>
+<li>Potentiellement, un grand nombre de commandes</li>
+</ul>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/gitfire.png" height="400" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Source : <a href="https://iulianacosmina.com/?p=19452">Ici</a></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="git-est-complexe-1" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="git-est-complexe-1"><span class="emoji" data-emoji="warning">⚠️</span> Git est complexe</h2>
+<p><span class="blue2"><strong>Mais</strong></span></p>
+<div class="incremental">
+<ul class="incremental">
+<li>L’<strong>usage quotidien</strong> n’implique que <span class="orange"><strong>quelques commandes</strong></span></li>
+<li><span class="orange"><strong>Enormément de ressources</strong></span> disponibles sur internet</li>
+<li>Des <span class="orange"><strong>interfaces visuelles</strong></span> (ex: <code>RStudio</code>, <code>Sublime Merge</code>, <code>VS Code</code>) qui facilitent l’apprentissage</li>
+<li>Un petit investissement individuel pour de <span class="orange"><strong>gros gains collectifs</strong></span></li>
+</ul>
+</div>
+</section>
+<section id="concepts" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts">Concepts</h2>
+<section id="git-github-gitlab-quelles-différences" class="level4">
+<h4 class="anchored" data-anchor-id="git-github-gitlab-quelles-différences"><code>Git</code>, <code>GitHub</code>, <code>GitLab</code>… quelles différences ?</h4>
+<div class="incremental">
+<ul class="incremental">
+<li><code>Git</code> est un <strong>logiciel</strong> ;</li>
+<li>Utilisation en ligne de commandes</li>
+<li>Différentes <span class="blue2"><strong>interfaces graphiques</strong></span> (<code>RStudio</code>, <code>VS Code</code>…)</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="concepts-1" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts-1">Concepts</h2>
+<section id="git-github-gitlab-quelles-différences-1" class="level4">
+<h4 class="anchored" data-anchor-id="git-github-gitlab-quelles-différences-1"><code>Git</code>, <code>GitHub</code>, <code>GitLab</code>… quelles différences ?</h4>
+<div class="incremental">
+<ul class="incremental">
+<li><code>GitHub</code> et <code>GitLab</code> sont des <strong>forges logicielles</strong></li>
+<li><em>Forge</em>: espace d’archivage de code</li>
+<li>Des fonctionalités supplémentaires : <strong>réseau social du code</strong></li>
+</ul>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>GitHub</code> : utilisation pour les projets <strong>open-source</strong></li>
+<li><code>GitLab</code> : utilisation pour les projets <strong>internes</strong></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="concepts-2" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts-2">Concepts</h2>
+<section id="dépôt-local-dépôt-distant-remote" class="level4">
+<h4 class="anchored" data-anchor-id="dépôt-local-dépôt-distant-remote">Dépôt local / dépôt distant (<code>remote</code>)</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/localremote.png" height="400" class="figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>Par défaut, le dépôt distant porte l’alias <code>origin</code></li>
+</ul>
+<!-- ## Concepts {auto-animate=true}
+
+_Workflow_ (version littéraire) :
+
+- On travaille sur un dépôt local en éditant des fichiers
+- On dit à `Git` que ces fichiers doivent être suivis (`staging area`)
+- On valide les modifications faites en local (`commit`)
+- On soumet les modifications (`push`) après avoir récupéré la version collective (`pull`) -->
+</section>
+</section>
+<section id="concepts-3" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts-3">Concepts</h2>
+<section id="workflow-local" class="level4">
+<h4 class="anchored" data-anchor-id="workflow-local"><em>Workflow</em> local</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/areas.png" height="400" class="figure-img"></p>
+</figure>
+</div>
+<p>Source : <a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F">Git Documentation</a></p>
+</section>
+</section>
+<section id="concepts-4" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="concepts-4">Concepts</h2>
+<section id="workflow-complet" class="level4">
+<h4 class="anchored" data-anchor-id="workflow-complet"><em>Workflow</em> complet</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/completeworkflow.png" width="500" height="400" class="figure-img"></p>
+<p></p><figcaption class="figure-caption">Source : <a href="https://itnext.io/git-concepts-for-newcomers-part-2-git-repository-working-tree-and-staging-area-a2e720bf3528">itnext.io</a></figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="commandes-essentielles" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="commandes-essentielles">Commandes essentielles</h2>
+<p><br></p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Cloner un projet</td>
+<td><code>git clone [url-to-git-repo]</code></td>
+</tr>
+<tr class="even">
+<td>Afficher les changements</td>
+<td><code>git status</code></td>
+</tr>
+<tr class="odd">
+<td>Retrouver l’URL du dépôt distant</td>
+<td><code>git remote -v</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commandes-essentielles-1" class="level2 smaller" data-auto-animate="true">
+<h2 class="smaller anchored" data-auto-animate="true" data-anchor-id="commandes-essentielles-1">Commandes essentielles</h2>
+<p><br></p>
+<table class="table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ajouter des changements à l’index de <code>Git</code></td>
+<td>Un seul fichier : <code>git add &lt;file-name&gt;</code> <br> Tous les fichiers déjà indexés : <code>git add -u</code> <br> Tous les fichiers <span class="emoji" data-emoji="warning">⚠️</span> : <code>git add -A</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La méthode <code>git add -A</code> peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).</p>
+<p>Il est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon <code>.gitignore</code>)</p>
+</div>
+</div>
+</section>
+<section id="commandes-essentielles-2" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="commandes-essentielles-2">Commandes essentielles</h2>
+<p><br></p>
+<table class="table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>Commande</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Faire un <code>commit</code></td>
+<td><code>git commit -m "message"</code></td>
+</tr>
+<tr class="even">
+<td>Pousser les changements locaux (branche <code>master</code>)</td>
+<td><code>git push origin master</code></td>
+</tr>
+<tr class="odd">
+<td>Récupérer les changements distants (branche <code>master</code>)</td>
+<td><code>git pull origin master</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="modes-dauthentification" class="level2">
+<h2 class="anchored" data-anchor-id="modes-dauthentification">Modes d’authentification</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="orange"><strong>https</strong></span>
+<ul class="incremental">
+<li><code>git clone https://github.com/username/projet.git</code></li>
+<li>simple à utiliser</li>
+<li>authentification username/token à chaque <em>push</em></li>
+</ul></li>
+<li><span class="orange"><strong>ssh</strong></span>
+<ul class="incremental">
+<li><code>git clone git@github.com:username/projet.git</code></li>
+<li>(plus) complexe à initialiser</li>
+<li>authentification automatique</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="application-0" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="application-0">Application 0</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Préparation de l’environnement de travail
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Créer un compte <a href="https://github.com/"><code>GitHub</code></a></li>
+<li>Créer un nouveau dépôt <strong>privé</strong> sur <code>GitHub</code></li>
+<li>Créer un compte sur le <a href="https://datalab.sspcloud.fr/home">SSP Cloud</a></li>
+<li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitHub</code> à une valeur suffisamment élevée</li>
+<li>Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> du <code>Datalab</code>):
+<ul class="incremental">
+<li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
+</ul></li>
+<li><a href="https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Générer un <em>token</em></a> (jeton d’authentification) sur <code>GitHub</code></li>
+<li>Stocker le <em>token</em> sur le <code>SSP Cloud</code> (ou un gestionnaire de mot de passe) :
+<ul class="incremental">
+<li><code>Mon Compte</code> -&gt; <code>Services externes</code> -&gt; <code>Jeton d'accès personnel GitHub</code></li>
+</ul></li>
+<li>Terminer la procédure de clonage en fournissant le nom d’utilisateur <code>GitHub</code> et le <em>token</em></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : qu’est ce qui différencie le projet cloné d’un projet quelconque ?</p>
+</section>
+<section id="application-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-1">Application 1</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Premiers commits
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Créer un dossier 📁 <code>scripts</code></li>
+<li>Y créer les fichiers <code>script1.R</code> et <code>script2.R</code>, chacun contenant quelques commandes <code>R</code> de votre choix</li>
+<li>Ajouter ces fichiers à la zone de <em>staging</em> de Git en les cochant dans l’interface <code>RStudio</code></li>
+<li>Effectuer un <code>commit</code>, auquel on donnera un message descriptif pertinent</li>
+<li>Supprimer le fichier <code>script1.R</code> et modifier le contenu du fichier <code>script2.R</code></li>
+<li>Analyser ce qui se passe lorsque l’on coche ces fichiers dans l’interface <code>RStudio</code></li>
+<li>Effectuer un nouveau <em>commit</em> pour ajouter ces modifications à l’historique</li>
+<li>Visualiser l’historique du projet à partir de l’interface graphique de <code>RStudio</code></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : à ce stade, le dépôt du projet sur <code>GitHub</code> (<code>remote</code>) a-t-il été modifié ?</p>
+</section>
+<section id="application-2" class="level2">
+<h2 class="anchored" data-anchor-id="application-2">Application 2</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Interactions avec le dépôt distant
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Effectuer un <code>push</code> pour intégrer les changements locaux au projet distant</li>
+<li>Parcourir l’historique du projet sur <code>GitHub</code>
+<ol class="incremental" type="a">
+<li>Faire apparaître les différences entre deux versions consécutives du projet</li>
+<li>Afficher une version passée du projet</li>
+</ol></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="bonnes-pratiques" class="level2 smaller" data-auto-animate="true">
+<h2 class="smaller anchored" data-auto-animate="true" data-anchor-id="bonnes-pratiques">Bonnes pratiques</h2>
+<p><strong>Que versionne-t-on ?</strong></p>
+<div class="incremental">
+<ul class="incremental">
+<li>Essentiellement du <span class="orange"><strong>code source</strong></span></li>
+<li><span class="orange"><strong>Pas d’outputs</strong></span> (fichiers <code>.html</code>, <code>.pdf</code>, modèles…)</li>
+<li><span class="orange"><strong>Pas de données</strong></span>, d’informations locales ou sensibles</li>
+</ul>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé <strong><code>.gitignore</code></strong>.</p>
+<p>Si on mélange du code et des éléments annexes (<em>output</em>, données…) dans un même dossier, il <span class="orange"><strong>faut consacrer du temps à ce fichier</strong></span>.</p>
+<p>Le site <a href="https://www.toptal.com/developers/gitignore"><code>gitignore.io</code></a> peut vous fournir des modèles.</p>
+<p>N’hésitez pas à y ajouter des règles conservatrices (par exemple <code>*.csv</code>), comme cela est expliqué dans <a href="https://www.book.utilitr.org/git.html?q=gitignore#gitignore">la documentation <code>utilitR</code></a>.</p>
+</div>
+</div>
+</section>
+<section id="bonnes-pratiques-1" class="level2 smaller" data-auto-animate="true">
+<h2 class="smaller anchored" data-auto-animate="true" data-anchor-id="bonnes-pratiques-1">Bonnes pratiques</h2>
+<p><strong>Format des commits</strong></p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="incremental quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<ul class="incremental">
+<li><span class="orange"><strong>Fréquence</strong></span>
+<ul class="incremental">
+<li>Aussi souvent que possible</li>
+<li>Le lot de modifications doit “faire sens”</li>
+</ul></li>
+<li><span class="orange"><strong>Messages</strong></span>
+<ul class="incremental">
+<li>Courts et informatifs (comme un titre de mail)</li>
+<li>Décrire <strong>le pourquoi plutôt que le comment</strong> dans le texte</li>
+</ul></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
+<p><img src="img/titre-commit.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="application-3" class="level2">
+<h2 class="anchored" data-anchor-id="application-3">Application 3</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Le fichier <code>.gitignore</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<p>Lors de la création du projet sur <code>GitHub</code>, nous avons demandé la création d’un fichier <code>.gitignore</code>, qui se situe à la racine du projet. Il spécifie l’ensemble des fichiers qui seront toujours exclus de l’indexation faite par <code>Git</code>.</p>
+<ol class="incremental" type="1">
+<li>Exclure les fichiers de type <code>*.pdf</code> et <code>*.html</code></li>
+<li>Créer un dossier <code>data</code> à la racine du projet et créer à l’intérieur de celui-ci un fichier <code>data/raw.csv</code> avec une ligne de données quelconque</li>
+<li>Ajouter au <code>.gitignore</code> le dossier <code>data/</code></li>
+<li>Vérifier que toutes les règles ajoutées précédemment fonctionnent comme attendu</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : que se passe-t-il lorsque l’on ajoute au <code>.gitignore</code> des fichiers qui ont déjà été <em>commit</em> sur le projet Git ?</p>
+</section>
+</section>
+<section id="iii--le-travail-collaboratif-avec-git" class="level1">
+<h1>III- Le travail collaboratif avec Git</h1>
+<section id="outils-pour-le-travail-collaboratif" class="level2">
+<h2 class="anchored" data-anchor-id="outils-pour-le-travail-collaboratif">Outils pour le travail collaboratif</h2>
+<ul>
+<li>L’éco-système <code>Git</code> <span class="blue2"><strong>facilite</strong> le travail collaboratif</span>
+<ul>
+<li><code>Git</code> <i class="fa-brands fa-git-alt" aria-hidden="true"></i> : modèle des <span class="orange"><strong>branches</strong></span></li>
+<li><code>GitHub</code> <i class="fa-brands fa-github" aria-hidden="true"></i> / <code>GitLab</code> <i class="fa-brands fa-gitlab" aria-hidden="true"></i> : <span class="orange"><strong>Issues</strong>, <strong>Pull Requests</strong>, <strong>Forks</strong></span></li>
+</ul></li>
+</ul>
+<div class="incremental">
+<ul>
+<li>Ces outils ne remplacent pas une <span class="orange"><strong>bonne définition de l’organisation du travail</strong></span> en équipe
+<ul>
+<li>Choix d’un <em>workflow</em></li>
+<li>Droits d’accès</li>
+<li>Règles de contribution</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="application-4" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="application-4">Application 4</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Synchronisation des dépôts
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Se mettre par <span class="orange"><strong>groupes de 3/4 personnes</strong></span>:
+<ul class="incremental">
+<li>Une personne aura la responsabilité d’être <span class="blue2"><strong>mainteneur</strong></span></li>
+<li>Deux à trois personnes seront <span class="blue2"><strong>développeurs</strong></span></li>
+</ul></li>
+<li>Le mainteneur crée un dépôt sur <code>Github</code>. Il/Elle donne des droits au(x) développeur(s) du projet</li>
+<li>Créer une copie locale (clone) du projet sur son service <code>RStudio</code> du <a href="https://datalab.sspcloud.fr/home">Datalab</a></li>
+<li>Créer un fichier <code>&lt;votre_nom&gt;-&lt;votre_prenom&gt;.md</code>. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis <code>commit</code> et <code>push</code> les modifications</li>
+</ol>
+</div>
+<p><strong>À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du <code>push</code>.</strong> C’est normal ! Avant d’accepter une modification, <code>Git</code> vérifie en premier lieu la cohérence de la branche avec le dépôt distant. Le premier ayant fait un <code>push</code> a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (<code>pull</code>) avant d’avoir le droit de proposer un changement.</p>
+<div class="incremental">
+<ol class="incremental" start="5" type="1">
+<li>Pour ceux dont le <code>push</code> a été refusé, effectuer un <code>pull</code> des modifications distantes</li>
+<li>Dans <code>RStudio</code>, afficher l’historique du projet et regarder la manière dont ont été intégrées les modifications des collaborateurs</li>
+<li>Effectuer à nouveau un <code>push</code> de vos modifications locales</li>
+<li>Les derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir <code>push</code> les modifications locales</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?</p>
+</section>
+<section id="application-5" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="application-5">Application 5</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Résoudre les conflits
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>On se place dans la même configuration que dans l’application précédente : un <span class="blue2"><strong>mainteneur</strong></span> et deux/trois <span class="blue2"><strong>développeurs</strong></span></li>
+<li>Le mainteneur modifie le contenu de son fichier, puis <code>commit</code> et <code>push</code> les modifications</li>
+<li>Sans faire de <code>pull</code> préalable, les développeurs modifient également le contenu du fichier du mainteneur, puis <code>commit</code> et <code>push</code> les modifications</li>
+</ol>
+</div>
+<p>Le <code>push</code> est rejeté pour la même raison que dans l’application précédente : les dépôts ne sont plus synchronisés, il faut <code>pull</code> les changements distants au préalable. Mais <strong>cette fois, le <code>pull</code> est également rejeté</strong> : il y a un <strong>conflit</strong> entre l’historique du projet distant et celui du projet local. <code>Git</code> nous indique qu’il faut résoudre le conflit avant de pouvoir modifier l’historique du projet.</p>
+<div class="incremental">
+<ol class="incremental" start="5" type="1">
+<li>Utiliser l’interface de <code>RStudio</code> pour résoudre le conflit, en choisissant la version du fichier que vous souhaitez conserver, puis <code>commit</code>/<code>push</code> les modifications</li>
+<li>Comme dans l’application précédente, seul le développeur le plus rapide parvient à <code>push</code>. Les autres doivent répéter l’opération.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : comment limiter au maximum la survenue des conflits d’historique ?</p>
+</section>
+<section id="le-modèle-des-branches" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="le-modèle-des-branches">Le modèle des branches</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgflip.com/4ooord.jpg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="le-modèle-des-branches-1" class="level2" data-auto-animate="true">
+<h2 data-auto-animate="true" class="anchored" data-anchor-id="le-modèle-des-branches-1">Le modèle des branches</h2>
+<p><img src="img/branches.png" class="img-fluid"></p>
+</section>
+<section id="exemple-dorganisation-le-github-flow" class="level2">
+<h2 class="anchored" data-anchor-id="exemple-dorganisation-le-github-flow">Exemple d’organisation : le <em>GitHub flow</em></h2>
+<p><img src="img/ghflow.png" class="img-fluid"></p>
+<p>Description plus détaillée : <a href="https://docs.github.com/en/get-started/quickstart/github-flow">ici</a></p>
+</section>
+<section id="application-6" class="level2">
+<h2 class="anchored" data-anchor-id="application-6">Application 6</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Branches, <em>issues</em> et <em>pull requests</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Sur <code>GitHub</code>, chaque personne ouvre une <code>Issue</code> sur le même dépôt que les applications précédentes, dans laquelle vous suggérez une modification à apporter à votre projet</li>
+<li>Créer une branche dont le nom indique la modification que vous allez apporter (ex : <code>ajout-authentification</code>)</li>
+<li>Effectuer un <code>commit</code> avec les modifications de votre choix, puis pousser les changements sur une nouvelle branche du dépôt distant</li>
+<li>Ouvrir une <code>Pull Request</code> (<code>PR</code>) pour proposer d’intégrer vos changements sur la branche principale du dépôt distant. Spécifier que l’acceptation de la <code>Pull Request</code> entraînera la fermeture automatique de l’<code>Issue</code> associée en écrivant dans le corps de la <code>PR</code> : <code>close #N</code> où <code>N</code> est le numéro de l’<code>Issue</code> en question</li>
+<li>Chaque personne effectue finalement une <em>review</em> d’une <code>PR</code> d’un autre membre de l’équipe, suite à quoi les différentes <code>PR</code> peuvent être fusionnées</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : quelle organisation pour merge dans la branche principale ?</p>
+</section>
+<section id="application-7" class="level2">
+<h2 class="anchored" data-anchor-id="application-7">Application 7</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Utilisation de <code>GitLab</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<p>Cette application vise à prendre en matin l’interface de <code>GitLab</code>, éventuellement dans le cadre de votre environnement interne de travail.</p>
+<ol class="incremental" type="1">
+<li>Dans le cadre d’un <code>GitLab</code> interne, il est plus confortable d’utiliser l’authentification via clé <code>ssh</code> plutôt que l’authentification par <em>token</em>. Si vous n’en avez pas encore, générer une clé <code>ssh</code> et ajouter celle-ci à votre compte <code>GitLab</code>. Se référer pour cela à la <a href="https://docs.gitlab.com/ee/user/ssh.html">documentation GitLab</a> ou, idéalement, à la documentation de cette procédure sur votre environnement interne de travail.</li>
+<li>Explorer l’interface de <code>GitLab</code> pour retrouver les différents éléments que nous avons exploités sur l’interface de <code>GitHub</code>.</li>
+<li>Créer un projet dans son espace personnel sur <code>GitLab</code> et répéter les opérations des applications 1 et 2.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-8-bonus" class="level2">
+<h2 class="anchored" data-anchor-id="application-8-bonus">Application 8 (bonus)</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Contribution à un projet open-source
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Sur <code>GitHub</code>, faire un <code>fork</code> du dépôt <a href="https://github.com/avouacr/git-exo.git"><code>git-exo</code></a></li>
+<li>Créer une branche intitulée <code>&lt;votre_nom&gt;-&lt;votre_prénom&gt;</code></li>
+<li>Effectuer un <code>commit</code> avec les modifications de votre choix, puis pousser les changements sur votre <code>fork</code></li>
+<li>Ouvrir une <code>Pull Request</code> (<code>PR</code>) pour proposer d’intégrer vos changements sur la branche principale du dépôt <a href="https://github.com/avouacr/git-exo.git"><code>git-exo</code></a></li>
+<li>Ouvrir une <code>Issue</code> dans laquelle vous mentionnez la <code>Pull Request</code> précédemment ouverte</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : pourquoi, avec un <code>fork</code>, est-il très important de toujours effectuer une <code>Pull Request</code> à partir d’une branche différente de la branche principale ?</p>
+</section>
+<section id="ressources-supplémentaires" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="ressources-supplémentaires">Ressources supplémentaires</h2>
+<p><br></p>
+<ul>
+<li>Pour <strong>aller plus loin</strong>:
+<ul>
+<li>Formation <a href="https://collaboratif-git-formation-insee.netlify.app/index.html">Travail collaboratif avec <code>R</code></a></li>
+<li>Cours <a href="https://ensae-reproductibilite.netlify.app/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></li>
+<li>La <a href="https://www.book.utilitr.org/">documentation <code>utilitR</code></a> propose plusieurs chapitres sur <code>Git</code></li>
+<li>La <a href="https://git-scm.com/book/en/v2">Bible</a> <br></li>
+</ul></li>
+</ul>
+<div class="incremental">
+<ul>
+<li><strong>Trouver de l’aide</strong>:
+<ul>
+<li>Pour toute question : le salon Tchap <a href="https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr">Insee-Git-Gitlab</a></li>
+<li>A l’Insee : la [documentation utilisateurs] pour l’utilisation de <code>Git</code> sur <code>AUS</code></li>
+<li>Sollicitez vos collègues utilisateurs de <code>Git</code> !</li>
+</ul></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="partie-2-bonnes-pratiques-avec-r" class="level1">
+<h1>Partie 2 : bonnes pratiques avec <code>R</code></h1>
+<section id="plan-de-la-partie" class="level2">
+<h2 class="anchored" data-anchor-id="plan-de-la-partie">Plan de la partie</h2>
+<p>Améliorations graduelles dans l’échelle de la reproductibilité :</p>
+<p><span class="emoji" data-emoji="one">1️⃣</span> Qualité du code</p>
+<div class="incremental">
+<p><span class="emoji" data-emoji="two">2️⃣</span> Structure des projets</p>
+</div>
+<div class="incremental">
+<p><span class="emoji" data-emoji="three">3️⃣</span> Formats de données</p>
+</div>
+<div class="incremental">
+<p><span class="emoji" data-emoji="four">4️⃣</span> Environnements reproductibles</p>
+</div>
+<div class="incremental">
+<p><span class="emoji" data-emoji="five">5️⃣</span> <em>Pipelines</em> de données</p>
+</div>
+<div class="incremental">
+<p><span class="emoji" data-emoji="six">6️⃣</span> Publication reproductible</p>
+</div>
+</section>
+<section id="application-0-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-0-1">Application 0</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Préparation de l’environnement de travail
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" start="0" type="1">
+<li>Si vous ne l’avez pas fait lors de la première partie de la formation, créer un compte sur <a href="https://github.com/">GitHub</a> et <a href="https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">générer un <em>token</em></a> (jeton d’accès) d’authentification</li>
+<li>Créer un nouveau dépôt public sur <a href="https://github.com/">GitHub</a></li>
+<li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitHub</code> à une valeur suffisamment élevée</li>
+<li>Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> du <code>Datalab</code>):
+<ul class="incremental">
+<li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
+</ul></li>
+<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/get_data.R">ce fichier</a>, puis l’exécuter</li>
+<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/script.R">ce fichier</a></li>
+<li>Ajouter la règle “individu_reg.*” au fichier <code>.gitignore</code>. Que signifie-t-elle ?</li>
+<li><em>Commit</em>/<em>push</em> les changements</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="i--qualité-du-code" class="level1">
+<h1>I- Qualité du code</h1>
+<section id="enjeux" class="level2">
+<h2 class="anchored" data-anchor-id="enjeux">Enjeux</h2>
+<ul>
+<li>D’une vision utilitariste du code à une vision du code comme <span class="orange"><strong>outil de communication</strong></span></li>
+</ul>
+<div class="incremental">
+<ul>
+<li>Favoriser la <span class="orange"><strong>lisibilité</strong></span> et la <span class="orange"><strong>maintenabilité</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Faciliter la <span class="orange"><strong>réutilisation</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Assurer la <span class="orange"><strong>transparence</strong></span> méthodologique</li>
+</ul>
+</div>
+</section>
+<section id="principes-généraux" class="level2">
+<h2 class="anchored" data-anchor-id="principes-généraux">Principes généraux</h2>
+<ol type="1">
+<li>Adopter les <span class="orange"><strong>standards communautaires</strong></span></li>
+</ol>
+<div class="incremental">
+<ol start="2" type="1">
+<li>Utiliser des <span class="orange"><strong>fonctions</strong></span></li>
+</ol>
+</div>
+<div class="incremental">
+<ol start="3" type="1">
+<li><span class="orange"><strong>Documenter</strong></span> son code</li>
+</ol>
+</div>
+<div class="incremental">
+<ol start="4" type="1">
+<li>Indiquer les <em>packages</em> utilisés afin d’éviter les <span class="orange"><strong>conflits</strong></span></li>
+</ol>
+</div>
+</section>
+<section id="adopter-les-standards-communautaires" class="level2">
+<h2 class="anchored" data-anchor-id="adopter-les-standards-communautaires"><span class="emoji" data-emoji="one">1️⃣</span> Adopter les standards communautaires</h2>
+<blockquote class="blockquote">
+<p><em>“Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread”</em></p>
+<p><a href="https://style.tidyverse.org/">Tidyverse Style Guide</a></p>
+</blockquote>
+<div class="incremental">
+<ul>
+<li>Respecter les <span class="orange">conventions</span> du langage dans lequel il est rédigé</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Il existe un <strong>guide de référence</strong> pour bien coder en <code>R</code> : le <a href="https://style.tidyverse.org/index.html">Tidyverse style guide</a>.</li>
+</ul>
+</div>
+</section>
+<section id="adopter-les-standards-communautaires-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="adopter-les-standards-communautaires-1"><span class="emoji" data-emoji="one">1️⃣</span> Adopter les standards communautaires</h2>
+<p>Deux outils pratiques aident à respecter les standards :</p>
+<ol type="1">
+<li><span class="orange"><strong><em>linter</em></strong></span> : programme qui vérifie que le code est <strong>formellement</strong> conforme à un certain <em>guidestyle</em>
+<ul>
+<li>signale problèmes formels, sans corriger</li>
+</ul></li>
+</ol>
+<div class="incremental">
+<ol start="2" type="1">
+<li><span class="orange"><strong><em>formatter</em></strong></span> : programme qui reformate un code pour le rendre conforme à un certain <em>guidestyle</em>
+<ul>
+<li>modifie directement le code</li>
+</ul></li>
+</ol>
+</div>
+<div class="incremental">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="blue2">Exemples d’erreurs repérées</span> par un <em>linter</em> :
+<ul>
+<li>lignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…</li>
+</ul></li>
+<li><span class="blue2">Exemples d’erreurs <strong>non</strong> repérées</span> par un <em>linter</em> :
+<ul>
+<li>fonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="adopter-les-standards-communautaires-2" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="adopter-les-standards-communautaires-2"><span class="emoji" data-emoji="one">1️⃣</span> Adopter les standards communautaires</h2>
+<p><br></p>
+<p>Dans le cas de <i class="fa-brands fa-r-project" aria-hidden="true"></i> :</p>
+<ul>
+<li>le <span class="orange"><em>linter</em></span> à utiliser est le <em>package</em> <a href="https://github.com/r-lib/lintr"><code>lintr</code></a></li>
+<li>le <span class="orange"><em>formatter</em></span> à utiliser est le <em>package</em> <a href="https://github.com/r-lib/styler"><code>styler</code></a>.
+<ul>
+<li>Existe également le <em>package</em> <a href="https://github.com/yihui/formatR"><code>formatR</code></a>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="utiliser-des-fonctions" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="utiliser-des-fonctions"><span class="emoji" data-emoji="two">2️⃣</span> Utiliser des fonctions</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Règle d’or
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il faut utiliser une <span class="red2"><strong>fonction</strong></span> dès qu’on utilise une même portion de code plus de deux fois (<span class="red2"><strong><em>don’t repeat yourself</em> (DRY)</strong></span>)</p>
+</div>
+</div>
+<ul>
+<li><span class="orange">Limite les risques d’erreurs</span> liés aux copier/coller</li>
+<li>Rend le code <span class="orange">plus lisible</span> et <span class="orange">plus compact</span></li>
+<li><span class="orange">Un seul endroit</span> du code à modifier lorsqu’on souhaite modifier le traitement</li>
+<li>Facilite la <span class="orange">réutilisation</span> et la <span class="orange">documentation</span> du code !</li>
+</ul>
+<div class="incremental">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Règles pour écrire des fonctions <strong>pertinentes</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Une tâche = une fonction</li>
+<li>Une tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple</li>
+<li>Limiter l’utilisation de variables globales.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="documenter-son-code" class="level2">
+<h2 class="anchored" data-anchor-id="documenter-son-code"><span class="emoji" data-emoji="three">3️⃣</span> Documenter son code</h2>
+<ul>
+<li>Grands principes :
+<ul>
+<li>Documenter le <span class="orange"><strong>pourquoi</strong></span> plutôt que le <span class="orange"><strong>comment</strong></span></li>
+<li>Privilégier l’auto-documentation via des <span class="orange"><strong>nommages pertinents</strong></span>.</li>
+</ul></li>
+</ul>
+<div class="incremental">
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Comment bien documenter un script ?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><span class="orange"><strong>Minimum</strong></span> 🚦 : commentaire au début du script pour décrire ce qu’il fait</li>
+<li><span class="orange"><strong>Bien</strong></span> 👍 : commenter les parties “délicates” du code</li>
+<li><span class="orange"><strong>Idéal</strong></span> 💪 : documenter ses fonctions avec la syntaxe <code>roxygen2</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="pas-dambiguïté-sur-les-packages-utilisés" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="pas-dambiguïté-sur-les-packages-utilisés"><span class="emoji" data-emoji="four">4️⃣</span> Pas d’ambiguïté sur les <em>packages</em> utilisés</h2>
+<ul>
+<li>Deux fonctions peuvent avoir le <span class="orange"><strong>même nom</strong></span> dans des <span class="orange"><strong>packages différents</strong></span></li>
+</ul>
+<div class="incremental">
+<ul>
+<li><code>R</code> utilise par défaut la librairie chargée le plus récemment</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Erreurs difficiles à repérer car il est nécessaire d’exécuter le code</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Recommandation : indiquer explicitement le <em>package</em> : notation <code>package::fonction()</code>
+<ul>
+<li>Exemple : <code>dplyr::filter()</code></li>
+</ul></li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Exemple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>package1</code> et <code>package2</code> contiennent chacun une fonction appelée <code>superFonction</code>.</li>
+<li>Si <code>package2</code> est chargé après <code>package1</code>, alors <code>superFonction</code> désigne par défaut la fonction de <code>package2</code>.</li>
+<li>Mieux vaut noter <code>package1::superFonction</code> et <code>package2::superFonction</code></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="ressources-supplémentaires-1" class="level2">
+<h2 class="anchored" data-anchor-id="ressources-supplémentaires-1">Ressources supplémentaires</h2>
+<p><br></p>
+<ul>
+<li><a href="https://eliocamp.github.io/reproducibility-with-r/">Un cours complet</a> sur la reproductibilité avec <code>R</code></li>
+<li>Une <a href="https://mitmat.github.io/slides/2022-05-26-egu/code-data-open-science.html#1">présentation très complète</a> sur le partage de code et de données avec <code>R</code></li>
+<li>L’équivalent <code>Python</code> en <a href="https://ensae-reproductibilite.netlify.app/about/">3A d’ENSAE</a></li>
+</ul>
+</section>
+<section id="application-1-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-1-1">Application 1</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 1 : vérification du bon fonctionnement du code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Un code reproductible est avant toute chose un code fonctionnel ! Repérez les erreurs qui empêchent le script <code>script.R</code> de s’exécuter correctement, et les corriger.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="application-1-2" class="level2">
+<h2 class="anchored" data-anchor-id="application-1-2">Application 1</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 2 : premiers standards de qualité
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Installer les <em>packages</em> <code>R</code> <a href="https://github.com/r-lib/lintr"><code>lintr</code></a> et <a href="https://github.com/r-lib/styler"><code>styler</code></a>.</li>
+<li>Définir le <em>linter</em> à utiliser comme étant de type <code>tidyverse</code> : <code>lintr::use_lintr(type = "tidyverse")</code></li>
+<li>Diagnostiquer le script <code>script.R</code> : <code>lintr::lint("script.R")</code>.
+<ul class="incremental">
+<li>Comprenez-vous la nature des problèmes détectés par le <em>linter</em>?</li>
+</ul></li>
+<li>Appliquer le <em>formatter</em> au <code>script.R</code> : <code>styler::style_file("script.R")</code>.</li>
+<li>Refaire tourner le <em>linter</em>. Il reste encore un certain nombre d’erreurs de formattage, car <code>styler</code> est un <em>formatter</em> peu intrusif.</li>
+<li>Regarder les différents problèmes repérés par le <em>linter</em>, et en corriger quelques uns (un pour chaque type de problème).</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-1-3" class="level2">
+<h2 class="anchored" data-anchor-id="application-1-3">Application 1</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 3 : une meilleure gestion des <em>packages</em> utilisés
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Limiter les ambiguités sur les <em>packages</em> en utilisant la syntaxe <code>package::fonction</code> pour les <em>packages</em> rarement utilisés dans le script.</li>
+<li>L’installation des <em>packages</em> dans un script n’est pas une bonne pratique. Supprimer les instructions correspondantes.</li>
+<li>Importer le <code>tidyverse</code> au complet est rarement utile. N’importer à la place que les <em>packages</em> effectivement utilisés dans le script.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-1-4" class="level2">
+<h2 class="anchored" data-anchor-id="application-1-4">Application 1</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 4 : (auto-)documentation du code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Déplacer les <code>library</code> pour les mettre tous ensemble au début du script.</li>
+<li>Le script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus logique :
+<ul class="incremental">
+<li>Gestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation</li>
+</ul></li>
+<li>Donner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :
+<ul class="incremental">
+<li><code># TITRE NIVEAU 1 ------------</code> et <code>## TITRE NIVEAU 2 ==========</code></li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-1-5" class="level2">
+<h2 class="anchored" data-anchor-id="application-1-5">Application 1</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 5 : une meilleure gestion des <span class="orange">secrets</span>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental" style="margin-left: 30px;">
+<ol class="incremental" type="1">
+<li>Repérer le jeton d’API dans le code. Retirer le jeton d’API du code et créer à la racine du projet un fichier YAML nommé <code>secrets.yaml</code> où vous écrivez ce secret sous la forme <code>key: value</code>. <span class="red2"><span class="emoji" data-emoji="warning">⚠️</span> Attention</span> : le package <code>yaml</code> impose la création d’une ligne vierge à la fin du fichier pour être valide.</li>
+<li>Dans <code>script.R</code>, importer ce YAML (avec <code>yaml::read_yaml("secrets.yaml")</code>) pour créer une variable <code>api_token</code> ayant cette valeur.</li>
+<li>Ajouter dans <code>.gitignore</code> le fichier <code>secrets.yaml</code> et indiquer dans le <code>README.md</code> de votre projet que les secrets sont stockés dans ce fichier. <span class="red2"><span class="emoji" data-emoji="warning">⚠️</span> Attention</span> : il ne faut pas committer <code>secrets.yaml</code> car le jeton d’API est personnel et secret!</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="checkpoint" class="level2">
+<h2 class="anchored" data-anchor-id="checkpoint">Checkpoint</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<ul>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application1/script.R">script.R</a></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<p><img src="checkpoint.jpg" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="bilan" class="level2">
+<h2 class="anchored" data-anchor-id="bilan">Bilan</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Un code mal structuré
+<ul class="incremental">
+<li>Limite la lisibilité du projet</li>
+<li>Est très coûteux à maintenir (dette technique)</li>
+</ul></li>
+</ul>
+</div>
+<div class="incremental">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 72.7%;justify-content: center;">
+<p><img src="https://www.earthdatascience.org/images/earth-analytics/clean-code/reproducible-science-is-about-being-lazy-hadley-wickham.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="ii--structure-des-projets" class="level1">
+<h1>II- Structure des projets</h1>
+<section id="enjeux-1" class="level2">
+<h2 class="anchored" data-anchor-id="enjeux-1">Enjeux</h2>
+<ol type="1">
+<li>Favoriser la <span class="orange"><strong>lisibilité</strong></span> et la <span class="orange"><strong>maintenabilité</strong></span></li>
+</ol>
+<div class="incremental">
+<p>2 Construire des projets <span class="orange"><strong>reproductibles</strong></span></p>
+</div>
+</section>
+<section id="a-ne-pas-reproduire-chez-vous" class="level2">
+<h2 class="anchored" data-anchor-id="a-ne-pas-reproduire-chez-vous"><span class="emoji" data-emoji="warning">⚠️</span> A ne pas reproduire chez vous</h2>
+<p><br></p>
+<pre><code>├── report.Rmd
+├── correlation.png
+├── data.csv
+├── data2.csv
+├── fig1.png
+├── figure 2 (copy).png
+├── report.pdf
+├── partial data.csv
+├── script.R
+└── script_final.R</code></pre>
+<p>Source : <a href="https://eliocamp.github.io/reproducibility-with-r/materials/day1/02-projects/">eliocamp.github.io</a></p>
+</section>
+<section id="principes-généraux-1" class="level2">
+<h2 class="anchored" data-anchor-id="principes-généraux-1">Principes généraux</h2>
+<ol type="1">
+<li>Utiliser les <span class="orange"><strong>projets RStudio</strong></span></li>
+</ol>
+<div class="incremental">
+<ol start="2" type="1">
+<li>Organiser son projet en <span class="orange"><strong>sous-dossiers</strong></span></li>
+</ol>
+</div>
+<div class="incremental">
+<ol start="3" type="1">
+<li>Donner des <span class="orange"><strong>noms pertinents</strong></span> aux fichiers</li>
+</ol>
+</div>
+<div class="incremental">
+<ol start="4" type="1">
+<li><span class="orange"><strong>Documenter</strong></span> son projet</li>
+</ol>
+</div>
+<div class="incremental">
+<ol start="5" type="1">
+<li>(Faire de son projet un <span class="orange"><strong>package</strong></span>)</li>
+</ol>
+</div>
+</section>
+<section id="utiliser-les-projets-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="utiliser-les-projets-rstudio"><span class="emoji" data-emoji="one">1️⃣</span> Utiliser les projets RStudio</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="orange"><strong>Objectif</strong></span> : favoriser la <span class="blue2"><strong>reproductibilité</strong></span>
+<ul class="incremental">
+<li>Tous les fichiers nécessaires au projet dans un même dossier</li>
+<li>Le dossier contenant le projet RStudio est automatiquement utilisé comme <strong><em>working directory</em></strong></li>
+<li>Utilisation de <span class="blue2"><strong>chemins relatifs</strong></span> plutôt qu’absolus.</li>
+</ul></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><strong>Bonus</strong> : en utilisant <code>Git</code>, on s’assure de toujours travailler dans un projet RStudio !</li>
+</ul>
+</div>
+</section>
+<section id="organiser-son-projet-en-sous-dossiers" class="level2">
+<h2 class="anchored" data-anchor-id="organiser-son-projet-en-sous-dossiers"><span class="emoji" data-emoji="two">2️⃣</span> Organiser son projet en sous-dossiers</h2>
+<ul>
+<li><span class="orange"><strong>Objectif</strong></span> : adopter une structure arbitraire, mais <span class="blue2"><strong>lisible</strong></span> et <span class="blue2"><strong>cohérente</strong></span></li>
+</ul>
+<pre><code>├── data
+│   ├── raw
+│   │   ├── data.csv
+│   │   └── data2.csv
+│   └── derived
+│       └── partial data.csv
+├── R
+|   ├── script.R
+│   ├── script_final.R
+│   └── report.Rmd
+└── output
+    ├── fig1.png
+    ├── figure 2 (copy).png
+    ├── figure10.png
+    ├── correlation.png
+    └── report.pdf</code></pre>
+</section>
+<section id="donner-des-noms-pertinents-aux-fichiers" class="level2">
+<h2 class="anchored" data-anchor-id="donner-des-noms-pertinents-aux-fichiers"><span class="emoji" data-emoji="three">3️⃣</span> Donner des noms pertinents aux fichiers</h2>
+<ul>
+<li><span class="orange"><strong>Objectif</strong></span> : <span class="blue2"><strong>auto-documenter</strong></span> son projet</li>
+</ul>
+<pre><code>├── data
+│   ├── raw
+│   │   ├── dpe_logement_202103.csv
+│   │   └── dpe_logement_202003.csv
+│   └── derived
+│       └── dpe_logement_merged_preprocessed.csv
+├── R
+|   ├── preprocessing.R
+│   ├── generate_plots.R
+│   └── report.Rmd
+└── output
+    ├── histogram_energy_diagnostic.png
+    ├── barplot_consumption_pcs.png
+    ├── correlation_matrix.png
+    └── report.pdf</code></pre>
+</section>
+<section id="documenter-son-projet" class="level2">
+<h2 class="anchored" data-anchor-id="documenter-son-projet"><span class="emoji" data-emoji="four">4️⃣</span> Documenter son projet</h2>
+<ul>
+<li>Le fichier <code>README.md</code>, situé à la racine du projet, est à la fois la <strong>carte d’identité</strong> et la <strong>vitrine du projet</strong></li>
+</ul>
+<div class="incremental">
+<ul class="incremental">
+<li>Idéalement, il contient :
+<ul class="incremental">
+<li>Une <span class="orange"><strong>présentation</strong></span> du contexte et des objectifs</li>
+<li>Une description de son <span class="orange"><strong>fonctionnement</strong></span></li>
+<li>Un guide de <span class="orange"><strong>contribution</strong></span> (<em>open-source</em>)</li>
+</ul></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Quelques modèles de <code>README.md</code> complets :
+<ul>
+<li><a href="https://github.com/InseeFrLab/utilitR/blob/master/README.md">utilitR</a></li>
+<li><a href="https://github.com/InseeFrLab/DoReMIFaSol">DoReMIFaSol</a></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="faire-de-son-projet-un-package" class="level2">
+<h2 class="anchored" data-anchor-id="faire-de-son-projet-un-package"><span class="emoji" data-emoji="five">5️⃣</span> Faire de son projet un <em>package</em></h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Un <em>package</em> est la forme maximale de <span class="orange"><strong>modularité</strong></span>
+<ul class="incremental">
+<li>Contient des <span class="blue2"><strong>fonctions</strong></span> rangées dans des <span class="blue2"><strong>modules</strong></span></li>
+<li>Contient également de la <span class="blue2"><strong>documentation</strong></span>, des <span class="blue2"><strong>tests</strong></span>, des (méta-)données…</li>
+</ul></li>
+<li><span class="orange"><strong>Avantages</strong></span>
+<ul class="incremental">
+<li>Idéal pour favoriser la <span class="blue2"><strong>réutilisation</strong></span> du code</li>
+<li>Des <span class="blue2"><strong>outils</strong></span> de développement : <code>devtools</code> et <code>usethis</code></li>
+</ul></li>
+<li><span class="orange"><strong>Inconvénients</strong></span>
+<ul class="incremental">
+<li>Coût de <span class="blue2"><strong>maintenance</strong></span> élevé</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="ressources-supplémentaires-2" class="level2">
+<h2 class="anchored" data-anchor-id="ressources-supplémentaires-2">Ressources supplémentaires</h2>
+<p><br></p>
+<ul>
+<li>La documentation utilitR sur les <a href="https://www.book.utilitr.org/03_fiches_thematiques/fiche_rprojects">projets RStudio</a> et les <a href="https://www.book.utilitr.org/01_r_insee/fiche_installer_packages">packages R</a></li>
+<li>La <a href="https://r-pkgs.org/whole-game.html">bible des packages R</a></li>
+<li>Un excellent <a href="https://eliocamp.github.io/reproducibility-with-r/materials/day1/02-projects/">workshop sur la reproductibilité avec R</a></li>
+</ul>
+</section>
+<section id="application-2-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-2-1">Application 2</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 1 : modularisation du projet
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Déplacer toutes les fonctions dans un fichier <code>R/functions.R</code>.</li>
+<li>Donner à la fonction <code>fonction_de_stat_agregee</code> un nom plus pertinent et des noms d’arguments plus transparents.</li>
+<li>Dans <code>script.R</code>, appeler en début de chaîne ces fonctions avec <code>source("R/functions.R", encoding = "UTF-8")</code>.</li>
+<li>Documenter la fonction principale au <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">format attendu</a> par <code>roxygen2</code>.</li>
+<li>Ajouter les tests unitaires de la fonction comme exemples d’utilisation et les retirer de <code>script.R</code>.</li>
+<li>Tester le bon fonctionnement de <code>script.R</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-2-2" class="level2">
+<h2 class="anchored" data-anchor-id="application-2-2">Application 2</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 2 : création d’un <em>package</em>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Initialiser un <em>package</em> avec la fonction <code>usethis::create_package()</code></li>
+<li>Placer dans le dossier <code>R</code> du <em>package</em> un module <code>stat.R</code> et y copier la fonction de statistique agrégée</li>
+<li>Charger le package avec la fonction <code>devtools::load_all()</code> et vérifier que la fonction marche correctement</li>
+<li>Remplir le fichier <code>DESCRIPTION</code>. En particulier, spécifier les dépendances nécessaires (<code>Imports</code>) et facultatives (<code>Suggests</code>)</li>
+<li>Construire la documentation du <em>package</em> avec la fonction <code>devtools::document()</code>. Où est-elle stockée et sous quel format ?</li>
+<li>Vérifier que la documentation de notre fonction est accessible avec <code>?ma_fonction</code></li>
+<li>(Facultatif) Initialiser un nouveau projet sur <code>GitHub</code> est y mettre le code du <em>package</em>. Vérifier que le <em>package</em> peut être installé en local avec la fonction <code>devtools::install_github()</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="checkpoint-1" class="level2">
+<h2 class="anchored" data-anchor-id="checkpoint-1">Checkpoint</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<ul>
+<li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application2/script.R">script.R</a></p></li>
+<li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application2/functions.R">functions.R</a></p></li>
+<li><p><a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-R/tree/main/package">Package R</a></p></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<p><img src="checkpoint.jpg" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="iii--formats-de-données" class="level1">
+<h1>III- Formats de données</h1>
+<section id="enjeux-2" class="level2">
+<h2 class="anchored" data-anchor-id="enjeux-2">Enjeux</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Le choix d’un format de données répond à un <span class="orange"><strong>arbitrage</strong></span> entre plusieurs critères :
+<ul class="incremental">
+<li><span class="blue2"><strong>Finalité</strong></span> (traitement, analyse, diffusion)</li>
+<li><span class="blue2"><strong>Public cible</strong></span></li>
+<li><span class="blue2"><strong>Volumétrie</strong></span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="recommandations" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="recommandations">Recommandations</h2>
+<ul>
+<li>Eviter impérativement les formats de données adhérents à un langage (<code>RDS</code>, <code>RData</code>, <code>fst</code>, <code>sas7bdat</code>, etc.).</li>
+</ul>
+<div class="incremental">
+<ul class="incremental">
+<li>Deux formats à privilégier :
+<ul class="incremental">
+<li><span class="orange"><strong>CSV</strong></span> : pour la <span class="blue2"><strong>plupart des usages courants</strong></span>
+<ul class="incremental">
+<li><em>Avantage</em> : <span class="blue2"><strong>non-compressé</strong></span> donc facilement <span class="blue2"><strong>lisible</strong></span></li>
+<li><em>Inconvénients</em> : pas de gestion des méta-données, peu adapté aux données volumineuses</li>
+</ul></li>
+<li><span class="orange"><strong>Parquet</strong></span> : pour le traitement de <span class="blue2"><strong>données volumineuses</strong></span>
+<ul class="incremental">
+<li><span class="blue2"><strong>Compressé</strong></span> et très <span class="blue2"><strong>performant</strong></span> en lecture/écriture</li>
+<li>Gestion native des méta-données</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="application-3-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-3-1">Application 3</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Manipulation des formats CSV et Parquet
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Effacer la base <code>individu_reg.csv</code></li>
+<li>Modifier le script <code>get_data.R</code> pour écrire les données au format <code>Parquet</code> à l’aide de la fonction <code>arrow::write_parquet</code></li>
+<li>Modifier la phase d’import dans <code>script.R</code> pour importer le fichier <code>Parquet</code> à l’aide de la fonction <code>arrow::read_parquet</code></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="checkpoint-2" class="level2">
+<h2 class="anchored" data-anchor-id="checkpoint-2">Checkpoint</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<ul>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application3/script.R">script.R</a></li>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application3/get_data.R">get_data.R</a></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<p><img src="checkpoint.jpg" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="iv--environnements-reproductibles" class="level1">
+<h1>IV- Environnements reproductibles</h1>
+<section id="expérience-de-pensée" class="level2">
+<h2 class="anchored" data-anchor-id="expérience-de-pensée">Expérience de pensée</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><p>Imaginons la situation suivante :</p>
+<ul class="incremental">
+<li>J’installe une version de <code>R</code> sur mon poste</li>
+<li>Je développe un projet en installant les <em>packages</em> nécessaires</li>
+<li>Une fois terminé, je passe au projet suivant, et ainsi de suite.</li>
+</ul></li>
+<li><p>Quels <span class="orange"><strong>problèmes</strong></span> puis-je rencontrer au fil des projets ?</p></li>
+<li><p>Est-il facile de <span class="orange"><strong>partager</strong></span> un de mes projets ?</p></li>
+</ul>
+</div>
+</section>
+<section id="enjeux-3" class="level2">
+<h2 class="anchored" data-anchor-id="enjeux-3">Enjeux</h2>
+<ul>
+<li><span class="orange"><strong>Version de</strong></span> <span class="blue2"><strong>R</strong></span> <span class="orange"><strong>fixe</strong></span>, celle de l’installation système</li>
+</ul>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Conflits de version</strong></span> : différents projets peuvent requérir différentes versions d’un même <em>package</em>.</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Reproductibilité limitée</strong></span> : difficile de dire quel projet nécessite quel <em>package</em>.</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Portabilité limitée</strong></span> : difficile de préciser dans un fichier les dépendances spécifiques à un projet.</li>
+</ul>
+</div>
+</section>
+<section id="des-environnements-reproductibles-avec-renv" class="level2">
+<h2 class="anchored" data-anchor-id="des-environnements-reproductibles-avec-renv">Des environnements reproductibles avec <code>renv</code></h2>
+<ul>
+<li><code>renv</code> permet de créer des <strong>env</strong>ironnements <strong>r</strong>eproductibles</li>
+</ul>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Isolation</strong></span> : chaque projet dispose de sa propre librairie de packages</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Reproductibilité</strong></span> : <code>renv</code> enregistre les versions exactes des <em>packages</em> nécessaires au projet</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Portabilité</strong></span>: un tiers peut exécuter le projet avec les mêmes spécifications</li>
+</ul>
+</div>
+</section>
+<section id="utilisation-de-renv" class="level2">
+<h2 class="anchored" data-anchor-id="utilisation-de-renv">Utilisation de <code>renv</code></h2>
+<ol type="1">
+<li><span class="orange"><strong>Initialisation</strong></span> (<code>init</code>) de l’environnement local du projet</li>
+</ol>
+<div class="incremental">
+<ol start="2" type="1">
+<li><span class="orange"><strong>Développement</strong></span> du projet</li>
+</ol>
+</div>
+<div class="incremental">
+<ol start="3" type="1">
+<li><span class="orange"><strong>Enregistrement</strong></span> (<code>snapshot</code>) des versions des <em>packages</em> installés</li>
+</ol>
+</div>
+<div class="incremental">
+<ol start="4" type="1">
+<li><span class="orange"><strong>Restauration</strong></span> (<code>restore</code>) d’un environnement</li>
+</ol>
+</div>
+</section>
+<section id="initialisation-de-lenvironnement" class="level2">
+<h2 class="anchored" data-anchor-id="initialisation-de-lenvironnement"><span class="emoji" data-emoji="one">1️⃣</span> Initialisation de l’environnement</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><code>renv::init()</code> dans un projet RStudio crée :
+<ul class="incremental">
+<li>Un dossier <code>renv</code> et le fichier <code>.Rprofile</code> : activation automatique de l’environnement</li>
+<li>Le fichier <code>renv.lock</code> : versions des <em>packages</em> installés</li>
+</ul></li>
+</ul>
+</div>
+<div class="incremental">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/renv_init.png" height="400" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="développement-du-projet" class="level2">
+<h2 class="anchored" data-anchor-id="développement-du-projet"><span class="emoji" data-emoji="two">2️⃣</span> Développement du projet</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Une fois l’environnement initialisé, on développe le projet de manière habituelle :
+<ul class="incremental">
+<li>Installations/suppressions/mises à jour de packages</li>
+<li>Ecriture de scripts</li>
+</ul></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><code>renv::status()</code> : indique les <em>packages</em> installés/supprimés par rapport au fichier <code>renv.lock</code></li>
+</ul>
+</div>
+</section>
+<section id="enregistrement-de-lenvironnement" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="enregistrement-de-lenvironnement"><span class="emoji" data-emoji="three">3️⃣</span> Enregistrement de l’environnement</h2>
+<ul>
+<li><code>renv::snapshot()</code> : enregistre les versions des <em>packages</em> installés dans le fichier <code>renv.lock</code></li>
+</ul>
+<div class="incremental">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/renv_snapshot.png" height="400" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="restauration-de-lenvironnement" class="level2">
+<h2 class="anchored" data-anchor-id="restauration-de-lenvironnement"><span class="emoji" data-emoji="four">4️⃣</span> Restauration de l’environnement</h2>
+<ul>
+<li><code>renv::restore()</code> : installe/désinstalle les <em>packages</em> nécessaires pour arriver à l’état spécifié dans le fichier <code>renv.lock</code></li>
+</ul>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Portabilité</strong></span> : un tiers peut recréer un environnement avec les mêmes spécifications</li>
+</ul>
+</div>
+</section>
+<section id="application-4-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-4-1">Application 4</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 1 : prise en main de la librairie <code>renv</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" start="0" type="1">
+<li><p>Installer le package <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a></p></li>
+<li><p>Taper dans la console <code>renv::init()</code>, <strong>lire le message</strong> et accepter.</p></li>
+<li><p>Observer les nouveaux élements qui sont apparus dans le projet.</p></li>
+<li><p>Installer le <a href="https://gt.rstudio.com/">package <code>gt</code></a> et observer le message dans la console.</p></li>
+<li><p>Dans la partie sur les statistiques descriptives d’âge, ajouter ce code :</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stats_age <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="at">decennie =</span> <span class="fu">decennie_a_partir_annee</span>(age)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>table_age <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(stats_age) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Distribution des âges dans notre population"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">fmt_number</span>(</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="st">`</span><span class="at">n()</span><span class="st">`</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep_mark =</span> <span class="st">" "</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">decimals =</span> <span class="dv">0</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">decennie =</span> <span class="st">"Tranche d'âge"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">n()</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Population"</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-4-2" class="level2">
+<h2 class="anchored" data-anchor-id="application-4-2">Application 4</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 2 : faire un <em>snapshot</em> de l’environnement
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental" style="margin-left: 30px;">
+<ol class="incremental" start="5" type="1">
+<li>Dans la console, faire <code>renv::status()</code> et observer le message.</li>
+<li>Effectuer <code>renv::snapshot()</code> pour intégrer les nouveaux packages au <em>lockfile</em></li>
+<li>Faire un <em>commit</em> / <em>push</em> des fichiers <code>script.R</code>, <code>.Rprofile</code>, <code>renv.lock</code> et du dossier <code>renv/</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-4-3" class="level2">
+<h2 class="anchored" data-anchor-id="application-4-3">Application 4</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Partie 3 : test de la portabilité (facultatif)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental" style="margin-left: 30px;">
+<ol class="incremental" start="8" type="1">
+<li>Ouvrir un nouveau service <code>RStudio</code> sur le <code>SSPCloud</code></li>
+<li>Cloner votre dépôt</li>
+<li>Exécuter <code>renv::restore()</code> pour installer les packages nécessaires à l’exécution du projet</li>
+<li>Vérifier que le <code>script.R</code> s’exécute correctement dans ce nouvel environnement.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="checkpoint-3" class="level2">
+<h2 class="anchored" data-anchor-id="checkpoint-3">Checkpoint</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<ul>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application4/script.R">script.R</a></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<p><img src="checkpoint.jpg" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="vers-une-reproductibilité-optimale" class="level2">
+<h2 class="anchored" data-anchor-id="vers-une-reproductibilité-optimale">Vers une reproductibilité optimale</h2>
+<div class="incremental">
+<ul class="incremental">
+<li><span class="orange"><strong>Limites</strong></span> des environnements virtuels :
+<ul class="incremental">
+<li>Les <span class="blue2"><strong>librairies système</strong></span> ne sont pas gérées</li>
+<li>Lourdeur de la phase d’installation à chaque changement d’environnement</li>
+<li>Peu adaptés à un environnement de production</li>
+</ul></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>La <span class="orange"><strong>conteneurisation</strong></span> (ex : <code>Docker</code>) apporte la solution</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Intuition</strong></span> : au lieu de distribuer la recette pour recréer l’environnement, <span class="blue2"><strong>distribuer directement une “machine” qui contient <em>tout</em> l’environnement nécessaire au projet</strong></span></li>
+</ul>
+</div>
+</section>
+<section id="ressources-supplémentaires-3" class="level2">
+<h2 class="anchored" data-anchor-id="ressources-supplémentaires-3">Ressources supplémentaires</h2>
+<ul>
+<li><p>La <a href="https://rstudio.github.io/renv/articles/renv.html">documentation officielle de <code>renv</code></a></p></li>
+<li><p>La <a href="https://www.book.utilitr.org/03_fiches_thematiques/fiche_gerer_dependances">fiche utilitR sur la gestion des dépendances</a></p></li>
+</ul>
+</section>
+</section>
+<section id="v--pipelines-de-données" class="level1">
+<h1>V- <em>Pipelines</em> de données</h1>
+<section id="motivations" class="level2">
+<h2 class="anchored" data-anchor-id="motivations">Motivations</h2>
+<ul>
+<li>Une analyse de données ou une chaîne de production font intervenir des <span class="orange"><strong>étapes standardisées</strong></span></li>
+</ul>
+<p><img src="https://astrakhan.fr/wp-content/uploads/2020/10/Data-Engineering.png" class="img-fluid"></p>
+<p><a href="https://astrakhan.fr/blog/formation-au-data-engineering-une-nouvelle-offre-dastrakhan/">Source</a></p>
+</section>
+<section id="motivations-1" class="level2">
+<h2 class="anchored" data-anchor-id="motivations-1">Motivations</h2>
+<ul>
+<li><p>Une analyse de données ou une chaîne de production font intervenir des <span class="orange"><strong>étapes standardisées</strong></span></p></li>
+<li><p>Ces étapes peuvent être formalisées sous forme d’un <span class="orange"><strong>pipeline (<em>direct acyclic graph</em>)</strong></span></p></li>
+</ul>
+<p><img src="img/dag_argo.png" class="img-fluid"></p>
+<p><a href="https://medium.com/hashmapinc/building-ml-pipelines-8e27344a42d2">Source</a></p>
+</section>
+<section id="motivations-2" class="level2">
+<h2 class="anchored" data-anchor-id="motivations-2">Motivations</h2>
+<ul>
+<li>Une analyse de données ou une chaîne de production font intervenir des <span class="orange"><strong>étapes standardisées</strong></span></li>
+</ul>
+<div class="incremental">
+<ul class="incremental">
+<li>Modéliser ces étapes sous forme de <span class="orange"><strong>pipeline (<em>direct acyclic graph</em>)</strong></span> a plusieurs avantages :
+<ul class="incremental">
+<li><span class="blue2"><strong>Découplage</strong></span> des différentes étapes</li>
+<li>Facilite la <span class="blue2"><strong>planification</strong></span> du traitement</li>
+<li>Facilite la <span class="blue2"><strong>prise en main</strong></span> du projet par un tiers</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="le-package-targets" class="level2">
+<h2 class="anchored" data-anchor-id="le-package-targets">Le package <code>targets</code></h2>
+<ul>
+<li><code>targets</code> est un <em>framework</em> de modélisation de <em>pipelines</em> spécifiquement dédié aux projets <code>R</code>.</li>
+</ul>
+<div class="incremental">
+<ul class="incremental">
+<li>Deux objectifs majeurs :
+<ol class="incremental" type="1">
+<li><span class="orange"><strong>Réduire le coût d’expérimentation</strong></span> en sauvegardant les résultats intermédiaires (<strong><em>targets</em></strong>)</li>
+<li>Garantir la <span class="orange"><strong>reproductibilité</strong></span> de la chaîne en traçant les changements de ces <strong><em>targets</em></strong></li>
+</ol></li>
+</ul>
+</div>
+</section>
+<section id="méthode-de-travail-avec-targets" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="méthode-de-travail-avec-targets">Méthode de travail avec <code>targets</code></h2>
+<ul>
+<li>On développe dans des scripts :
+<ul>
+<li>Fonctions dans un ou plusieurs fichiers dédiés</li>
+<li>Chaîne de production dans un fichier <code>_targets.R</code></li>
+</ul></li>
+</ul>
+<div class="incremental">
+<ul>
+<li>On gère l’exécution du <em>pipeline</em> directement dans la console
+<ul>
+<li><code>tar_visnetwork()</code> pour inspecter la structure du <em>pipeline</em></li>
+<li><code>tar_make</code> pour exécuter la chaine de production</li>
+</ul></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Quand on part du chaine de traitement dans un fichier déja existant (<code>script.R</code> par exemple), il faut faire la transition vers un fichier <code>_targets.R</code> dont la structure est particulière.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="un-projet-minimaliste" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="un-projet-minimaliste"><span class="emoji" data-emoji="one">1️⃣</span> Un projet minimaliste</h2>
+<ul>
+<li>Structure de projet <em>opinionated</em> :
+<ul>
+<li><del>Long script <code>script.R</code></del> <code>_targets.R</code></li>
+<li>Chaîne de production: suite d’appels à des fonctions définies dans <code>R/functions.R</code></li>
+</ul></li>
+</ul>
+<p><br></p>
+<pre><code>├── _targets.R
+├── data
+│   ├── raw
+│   │   └── data.csv
+├── R
+│   └── functions.R</code></pre>
+<div class="incremental">
+<p><br></p>
+<ul>
+<li>Nouveau fichier: <code>_targets.R</code>
+<ul>
+<li>Contrôle le comportement de notre chaine de traitement</li>
+<li>Enchaînement d’étapes de transformation de données selon une syntaxe particulière</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="le-fichier-_targets.r" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="le-fichier-_targets.r"><span class="emoji" data-emoji="two">2️⃣</span> Le fichier <code>_targets.R</code></h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Le fichier <code>_targets.R</code> doit satisfaire plusieurs conditions :
+<ol class="incremental" type="1">
+<li>Charger le <em>package</em> <code>targets</code></li>
+<li>Charger dans l’environnement les fonctions nécessaires</li>
+<li>Déclarer les <em>packages</em> nécessaires aux différentes étapes</li>
+<li>Définir le <em>pipeline</em>.</li>
+</ol></li>
+</ul>
+</div>
+<div class="incremental">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># _targets.R file</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/functions.R"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_option_set</span>(<span class="at">packages =</span> <span class="fu">c</span>(<span class="st">"readr"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggplot2"</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(file, <span class="st">"data.csv"</span>, <span class="at">format =</span> <span class="st">"file"</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(data, <span class="fu">get_data</span>(file)),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(model, <span class="fu">fit_model</span>(data)),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tar_target</span>(plot, <span class="fu">plot_model</span>(model, data))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Les fonctions <code>get_data</code>, <code>fit_model</code> et <code>plot_model</code> sont définies dans 📁 <code>R/functions.R</code></p>
+</div>
+</div>
+</div>
+</section>
+<section id="inspecter-le-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="inspecter-le-pipeline"><span class="emoji" data-emoji="three">3️⃣</span> Inspecter le <em>pipeline</em></h2>
+<ul>
+<li>La fonction <code>tar_visnetwork</code> permet de visualiser le <em>pipeline</em></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/pipeline.png" height="350" class="figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="exécuter-le-pipeline" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="exécuter-le-pipeline"><span class="emoji" data-emoji="three">3️⃣</span> Exécuter le <em>pipeline</em></h2>
+<ul>
+<li>La fonction <code>tar_make</code> exécute le <em>pipeline</em> défini dans <code>_targets.R</code></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/pipeline_run1.png" height="200" class="figure-img"></p>
+</figure>
+</div>
+<ul>
+<li>💡 Lors des exécutions suivantes, <code>targets</code> saute automatiquement les étapes qui n’ont pas changé</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/pipeline_run2.png" height="150" class="figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="ressources-supplémentaires-4" class="level2">
+<h2 class="anchored" data-anchor-id="ressources-supplémentaires-4">Ressources supplémentaires</h2>
+<ul>
+<li><p>La <a href="https://books.ropensci.org/targets/">documentation officielle de <code>targets</code></a></p></li>
+<li><p>La <a href="https://www.book.utilitr.org/targets.html">fiche UtilitR dédiée à <code>targets</code></a></p></li>
+</ul>
+</section>
+<section id="application-5-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-5-1">Application 5</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Modélisation d’un projet sous forme de <em>pipeline</em> de données
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" start="0" type="1">
+<li>Installer le package <code>targets</code>.</li>
+<li>Créer un fichier <code>_targets.R</code> à la racine du dépôt, à partir de <a href="https://books.ropensci.org/targets/walkthrough.html#target-script-file">l’exemple</a> dans la documentation.</li>
+<li>Ajouter <code>_targets/</code> dans le <code>.gitignore</code>.</li>
+<li>Reporter les <code>library</code> dans le fichier <code>R/functions.R</code> et récupérer les noms des packages pour les mettre dans la section <code>tar_option_set()</code>.</li>
+<li>Ajouter dans <code>R/functions.R</code> les fonctions <code>read_yaml_secret</code> et <code>read_from_parquet</code>:</li>
+</ol>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>read_yaml_secret <span class="ot">&lt;-</span> <span class="cf">function</span>(path, key) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(yaml<span class="sc">::</span><span class="fu">read_yaml</span>(path)[[key]])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>read_from_parquet <span class="ot">&lt;-</span> <span class="cf">function</span>(path) {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">read_parquet</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    path,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_select  =</span> <span class="fu">c</span>(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">"region"</span>, <span class="st">"aemm"</span>, <span class="st">"aged"</span>, <span class="st">"anai"</span>, <span class="st">"catl"</span>, <span class="st">"cs1"</span>, <span class="st">"cs2"</span>, <span class="st">"cs3"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">"couple"</span>, <span class="st">"na38"</span>, <span class="st">"naf08"</span>, <span class="st">"pnai12"</span>, <span class="st">"sexe"</span>, <span class="st">"surf"</span>, <span class="st">"tp"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">"trans"</span>, <span class="st">"ur"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-5-2" class="level2">
+<h2 class="anchored" data-anchor-id="application-5-2">Application 5</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Modélisation d’un projet sous forme de <em>pipeline</em> de données (suite)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" start="6" type="1">
+<li>En extrayant du contenu de <code>script.R</code>, créer les deux premières cibles (<em>targets</em>) dans <code>_targets.R</code>:
+<ul class="incremental">
+<li>Créer les <em>targets</em> <code>file_token</code> et <code>file_data</code> stockant les chemins de nos fichiers en entrée</li>
+<li>⚠️ Ne pas oublier l’argument <code>format = 'file'</code> dans <code>tar_target</code></li>
+</ul></li>
+<li>Créer les deux cibles suivantes dans <code>_targets.R</code>:
+<ul class="incremental">
+<li>Créer <code>token</code> et <code>data</code> à partir, respectivement, de <code>read_yaml_secret</code> et <code>read_from_parquet</code>.</li>
+<li>Pour <code>data</code>, utiliser l’argument <code>format = 'parquet'</code> dans <code>tar_target</code>.</li>
+</ul></li>
+<li>Visualiser les relations entre objets de notre <em>pipeline</em> en utilisant dans la console <code>R</code> la fonction <code>tar_visnetwork()</code>.</li>
+<li>Exécuter <code>tar_make()</code> dans la console et observer le changement d’état avec <code>tar_visnetwork()</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-5-3" class="level2">
+<h2 class="anchored" data-anchor-id="application-5-3">Application 5</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Modélisation d’un projet sous forme de <em>pipeline</em> de données (suite)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol start="9" type="1">
+<li>A partir des fonctions suivantes, créer deux nouvelles cibles (<code>clean_data</code> et <code>table_age</code>) qui automatisent la production du tableau <code>gt</code></li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>retraitement_donnees <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">aged =</span> <span class="fu">as.numeric</span>(aged))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>sexe <span class="ot">&lt;-</span> df<span class="sc">$</span>sexe <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fct_recode</span>(<span class="at">Homme =</span> <span class="st">"1"</span>, <span class="at">Femme =</span> <span class="st">"2"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(df)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>produce_table_age <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  stats_age <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="at">decennie =</span> <span class="fu">decennie_a_partir_annee</span>(aged)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  table_age <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(stats_age) <span class="sc">%&gt;%</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">"Distribution des âges dans notre population"</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">fmt_number</span>(</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> <span class="st">`</span><span class="at">n()</span><span class="st">`</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">sep_mark =</span> <span class="st">" "</span>,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">decimals =</span> <span class="dv">0</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">decennie =</span> <span class="st">"Tranche d'âge"</span>,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">n()</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Population"</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(table_age)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="10" type="1">
+<li>En console, visualiser l’état du <em>pipeline</em> avec <code>tar_visnetwork</code> puis exécuter <code>tar_make()</code>. Analyser la sortie dans la console.</li>
+<li>A l’aide de la fonction <code>tar_read(table_age)</code>, visualiser la table des âges produite.</li>
+<li>Ajouter les commandes suivantes au sein de la fonction <code>retraitement_donnees</code> pour la modifier:</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">surf =</span> <span class="fu">factor</span>(surf, <span class="at">ordered =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cs1 =</span> <span class="fu">factor</span>(cs1)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="13" type="1">
+<li>Depuis la console, inspecter le _pipeline avec <code>tar_visnetwork</code> puis exécuter <code>tar_make()</code> pour lancer le <em>pipeline</em>. Analyser la sortie.</li>
+<li>Si vous avez le temps, continuer à enrichir votre <em>pipeline</em></li>
+</ol>
+</div>
+</div>
+</div>
+<p>:::</p>
+</section>
+<section id="checkpoint-4" class="level2">
+<h2 class="anchored" data-anchor-id="checkpoint-4">Checkpoint</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<ul>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application5/functions.R">functions.R</a></li>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application5/_targets.R">_targets.R</a></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<p><img src="checkpoint.jpg" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="vi--publication-reproductible" class="level1">
+<h1>VI- Publication reproductible</h1>
+<section id="enjeux-4" class="level2">
+<h2 class="anchored" data-anchor-id="enjeux-4">Enjeux</h2>
+<ul>
+<li>Produire des <span class="orange"><strong>études reproductibles</strong></span> en intégrant le code et le texte dans un même document</li>
+</ul>
+<div class="incremental">
+<ul>
+<li>La génération complète de l’étude est contenue dans un <span class="orange"><strong>unique projet</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Limiter les risques d’erreurs</strong></span> dues aux gestes manuels</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Gestion native de <span class="orange"><strong>différents formats</strong></span> pour le document final (<code>pdf</code>, <code>html</code>, <code>odt</code>, etc.)</li>
+</ul>
+</div>
+</section>
+<section id="r-markdown" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown"><code>R Markdown</code></h2>
+<div class="incremental">
+<ul class="incremental">
+<li><code>R Markdown</code> est un <em>package</em> <code>R</code> qui permet de lier
+<ul class="incremental">
+<li>Du <span class="orange"><strong>texte</strong></span> au format <code>Markdown</code></li>
+<li>Du <span class="orange"><strong>code</strong></span> <code>R</code> qui peut être exécuté et dont les sorties peuvent être intégrées au texte</li>
+</ul></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li><span class="orange"><strong>Dissociation du fond et de la forme</strong></span> du document</li>
+</ul>
+<div class="incremental">
+<ul class="incremental">
+<li>Un document est <span class="orange"><strong>compilé</strong></span> en deux étapes
+<ul class="incremental">
+<li><span class="green2"><strong><em>knit</em></strong></span> : le package <code>knitr</code> transforme le texte et les sorties <code>R</code> en un document <code>Markdown</code> standard</li>
+<li><span class="green2"><strong><em>convert</em></strong></span> : le logiciel <code>pandoc</code> transforme le document <code>.md</code> en un format de sortie standard (<code>html</code>, <code>pdf</code>, etc.)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto"><code>Quarto</code></h2>
+<ul>
+<li><code>Quarto</code> est le successeur de <code>R Markdown</code></li>
+</ul>
+<div class="incremental">
+<ul>
+<li><code>Quarto</code> supporte <span class="orange"><strong>différents moteurs de calcul</strong></span> (<code>knitr</code>, <code>Jupyter</code>, <code>Observable</code>..) ce qui le rend nativement <span class="orange"><strong>multi-langage</strong></span> (<code>R</code>, <code>Python</code>, <code>JavaScript</code>..)</li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Le fonctionnement des deux systèmes reste très proche</li>
+</ul>
+</div>
+</section>
+<section id="anatomie-dun-document-reproductible" class="level2">
+<h2 class="anchored" data-anchor-id="anatomie-dun-document-reproductible">Anatomie d’un document reproductible</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/qmd.png" height="500" class="figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="ressources-supplémentaires-5" class="level2">
+<h2 class="anchored" data-anchor-id="ressources-supplémentaires-5">Ressources supplémentaires</h2>
+<ul>
+<li><p>La <a href="https://rmarkdown.rstudio.com/lesson-1.html">documentation officielle de <code>R Markdown</code></a></p></li>
+<li><p>La <a href="https://www.book.utilitr.org/rmarkdown.html">fiche <code>UtilitR</code> sur <code>R Markdown</code></a></p></li>
+<li><p>La <a href="https://quarto.org/">documentation officielle de <code>quarto</code></a></p></li>
+</ul>
+</section>
+<section id="application-6-1" class="level2">
+<h2 class="anchored" data-anchor-id="application-6-1">Application 6</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Introduction à la publication reproductible
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Cliquer sur <code>File &gt; New file &gt; Quarto document</code>:
+<ul class="incremental">
+<li>Donner un titre et un.e auteur.e au rapport</li>
+<li>Choisir <code>HTML</code> comme format de sortie</li>
+<li>Décocher la case <code>Use visual markdown editor</code></li>
+</ul></li>
+<li>Sauvegarder le fichier sous le nom <code>report.qmd</code>.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-6-2" class="level2">
+<h2 class="anchored" data-anchor-id="application-6-2">Application 6</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Introduction à la publication reproductible (suite)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="incremental">
+<ol class="incremental" start="4" type="1">
+<li>Produire une courte note présentant le tableau des âges produit précédemment :
+<ul class="incremental">
+<li>Un <em>chunk</em> <code>R</code> qui importe le <em>package</em> <code>targets</code>. Le contenu produit par ce <em>chunk</em> doit être caché, il est donc nécessaire d’utiliser une <a href="https://quarto.org/docs/computations/execution-options.html">option</a></li>
+<li>Une courte phrase d’introduction</li>
+<li>Dans le fichier <code>.qmd</code>, importer l’objet <code>table_age</code> via <code>tar_load</code> et faire en sorte d’afficher ce tableau dans le document</li>
+</ul></li>
+<li>Générer le rapport avec le bouton <code>Render</code> et vérifier que l’<em>output</em> correspond à celui attendu.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En supposant que ce document est à vocation d’une audience non technique, masquer le code ayant généré les sorties</p>
+</div>
+</div>
+</section>
+<section id="application-6-3" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="application-6-3">Application 6</h2>
+<div class="callout-tip callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Introduction à la publication reproductible (suite)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol start="6" type="1">
+<li>Dans <code>script.R</code>, nous avions créé un graphique <code>p.png</code>.
+<ul>
+<li>A partir des exemples de la <a href="https://quarto.org/docs/authoring/figures.html">documentation</a> introduire cette figure</li>
+<li>La faire précéder d’une phrase d’introduction.</li>
+<li>Êtes-vous sûr que cette figure est à jour ?</li>
+</ul></li>
+<li>A partir de la fonction suivante à mettre dans <code>R/functions.R</code>, créer une nouvelle <em>target</em> <code>graph_part_hommes</code> dans <code>_targets.R</code>.</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>figure_part_homme_age <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(aged, sexe) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">SH_sexe =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(aged) <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">SH_sexe =</span> SH_sexe <span class="sc">/</span> <span class="fu">sum</span>(SH_sexe)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(sexe <span class="sc">==</span> <span class="st">"Homme"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> aged, <span class="at">y =</span> SH_sexe), <span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">aes</span>(<span class="at">x =</span> aged, <span class="at">y =</span> SH_sexe),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>))</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(p)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="8" type="1">
+<li>Faire tourner le <em>pipeline</em> (<code>tar_make</code>)</li>
+<li>Pour être certain que votre note utilise la dernière version du <em>pipeline</em>, introduire un <code>tar_make()</code> dans votre document à la suite du <code>library(targets)</code></li>
+<li>Cliquer sur le bouton <code>Render</code> pour mettre à jour votre note</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="checkpoint-5" class="level2">
+<h2 class="anchored" data-anchor-id="checkpoint-5">Checkpoint</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<ul>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/report.qmd">report.qmd</a></li>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/functions.R">functions.R</a></li>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/_targets.R">_targets.R</a></li>
+</ul>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
+<p><img src="checkpoint.jpg" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<ul>
+<li>Les <span class="blue2"><strong>bonnes pratiques</strong></span> favorisent la <span class="orange"><strong>reproductibilité</strong></span> et la <span class="orange"><strong>réutilisation</strong></span> des projets statistiques</li>
+</ul>
+<div class="incremental">
+<ul>
+<li>Des <span class="orange"><strong>outils</strong></span> permettent d’appliquer les <span class="blue2"><strong>bonnes pratiques</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Le <span class="orange"><strong>coût</strong></span> est d’autant plus faible que l’on se place <span class="orange"><strong>en amont du projet</strong></span></li>
+</ul>
+</div>
+<div class="incremental">
+<ul>
+<li>Quel <span class="orange"><strong>socle</strong></span> de <span class="blue2"><strong>bonnes pratiques</strong></span> pour l’Insee ?</li>
+</ul>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
