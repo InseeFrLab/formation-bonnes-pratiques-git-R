@@ -11,7 +11,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-    background: "#ff562c"
+    background: "#4758AB"
 
 format:
   html:
