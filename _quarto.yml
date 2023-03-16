@@ -1,0 +1,20 @@
+project:
+  type: website
+  render:
+    - "/slides/**/*.qmd"
+    - index.qmd
+    - "/cards/**/*.qmd"
+
+website:
+  title: "Formation aux bonnes pratiques"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+    background: "#ff562c"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.scss
+    toc: true

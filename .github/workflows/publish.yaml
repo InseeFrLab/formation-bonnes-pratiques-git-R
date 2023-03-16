@@ -19,8 +19,10 @@ jobs:
         with:
           to: html
           path: slides/formation_light.qmd
+          output-dir: light
       - name: Render slides (full version)
         uses: quarto-dev/quarto-actions/render@v2
         with:
           to: html
           path: slides/formation_full.qmd
+          output-dir: full
