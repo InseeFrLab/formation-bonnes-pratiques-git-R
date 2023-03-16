@@ -130,7 +130,7 @@
     "href": "slides/light.html#concepts-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Concepts",
-    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\n\nTip\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
+    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\n\nAstuce\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
   },
   {
     "objectID": "slides/light.html#concepts-2",
@@ -228,7 +228,7 @@
     "href": "slides/light.html#ressources-supplémentaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\n\nPour aller plus loin:\n\nFormation Travail collaboratif avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible \n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la [documentation utilisateurs] pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
+    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nFormation Travail collaboratif avec R\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
   },
   {
     "objectID": "slides/light.html#plan-de-la-partie",
@@ -270,7 +270,7 @@
     "href": "slides/light.html#adopter-les-standards-communautaires-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Adopter les standards communautaires",
-    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\n\n\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nExemples d’erreurs repérées par un linter :\n\nlignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…\n\nExemples d’erreurs non repérées par un linter :\n\nfonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…"
+    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\n\n\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\n\n\nAstuce\n\n\n\nExemples d’erreurs repérées par un linter :\n\nlignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…\n\nExemples d’erreurs non repérées par un linter :\n\nfonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…"
   },
   {
     "objectID": "slides/light.html#adopter-les-standards-communautaires-2",
@@ -469,6 +469,13 @@
     "text": "Checkpoint\n\n\n\n\nscript.R\nget_data.R"
   },
   {
+    "objectID": "slides/light.html#ressources-supplémentaires-3",
+    "href": "slides/light.html#ressources-supplémentaires-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Ressources supplémentaires",
+    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR\nUn cours complet sur la reproductibilité avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Slack grrr, très dynamique\nLe salon Tchap Langage R\nPour l’utilisation de R à l’Insee : le salon Tchap Insee - Outils Stats v2"
+  },
+  {
     "objectID": "slides/complete.html#la-notion-de-bonnes-pratiques",
     "href": "slides/complete.html#la-notion-de-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
@@ -599,7 +606,7 @@
     "href": "slides/complete.html#concepts-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Concepts",
-    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\n\nTip\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
+    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\n\nAstuce\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
   },
   {
     "objectID": "slides/complete.html#concepts-2",
@@ -760,7 +767,7 @@
     "href": "slides/complete.html#ressources-supplémentaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\n\nPour aller plus loin:\n\nFormation Travail collaboratif avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible \n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la [documentation utilisateurs] pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
+    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nFormation Travail collaboratif avec R\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
   },
   {
     "objectID": "slides/complete.html#plan-de-la-partie",
@@ -802,7 +809,7 @@
     "href": "slides/complete.html#adopter-les-standards-communautaires-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Adopter les standards communautaires",
-    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\n\n\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nExemples d’erreurs repérées par un linter :\n\nlignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…\n\nExemples d’erreurs non repérées par un linter :\n\nfonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…"
+    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\n\n\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\n\n\nAstuce\n\n\n\nExemples d’erreurs repérées par un linter :\n\nlignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…\n\nExemples d’erreurs non repérées par un linter :\n\nfonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…"
   },
   {
     "objectID": "slides/complete.html#adopter-les-standards-communautaires-2",
@@ -1258,6 +1265,13 @@
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
     "text": "Checkpoint\n\n\n\n\nreport.qmd\nfunctions.R\n_targets.R"
+  },
+  {
+    "objectID": "slides/complete.html#ressources-supplémentaires-6",
+    "href": "slides/complete.html#ressources-supplémentaires-6",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Ressources supplémentaires",
+    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR\nUn cours complet sur la reproductibilité avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Slack grrr, très dynamique\nLe salon Tchap Langage R\nPour l’utilisation de R à l’Insee : le salon Tchap Insee - Outils Stats v2"
   },
   {
     "objectID": "index.html",
