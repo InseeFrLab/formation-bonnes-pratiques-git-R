@@ -21,11 +21,11 @@
     "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en R ?"
   },
   {
-    "objectID": "slides/light.html#plan-de-la-formation",
-    "href": "slides/light.html#plan-de-la-formation",
+    "objectID": "slides/light.html#plan-de-la-partie",
+    "href": "slides/light.html#plan-de-la-partie",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Plan de la formation",
-    "text": "Plan de la formation\n1️⃣ Le contrôle de version : pourquoi faire ?\n\n2️⃣ Le contrôle de version avec Git"
+    "section": "Plan de la partie",
+    "text": "Plan de la partie\n1️⃣ Le contrôle de version : pourquoi faire ?\n\n2️⃣ Le contrôle de version avec Git"
   },
   {
     "objectID": "slides/light.html#archiver-son-code-proprement",
@@ -231,8 +231,8 @@
     "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nFormation Travail collaboratif avec R\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
   },
   {
-    "objectID": "slides/light.html#plan-de-la-partie",
-    "href": "slides/light.html#plan-de-la-partie",
+    "objectID": "slides/light.html#plan-de-la-partie-1",
+    "href": "slides/light.html#plan-de-la-partie-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Plan de la partie",
     "text": "Plan de la partie\nAméliorations graduelles dans l’échelle de la reproductibilité :\n1️⃣ Qualité du code\n\n2️⃣ Structure des projets\n\n\n3️⃣ Formats de données"
@@ -497,11 +497,11 @@
     "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en R ?"
   },
   {
-    "objectID": "slides/complete.html#plan-de-la-formation",
-    "href": "slides/complete.html#plan-de-la-formation",
+    "objectID": "slides/complete.html#plan-de-la-partie",
+    "href": "slides/complete.html#plan-de-la-partie",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Plan de la formation",
-    "text": "Plan de la formation\n1️⃣ Le contrôle de version : pourquoi faire ?\n\n2️⃣ Le contrôle de version avec Git\n\n\n3️⃣ Le travail collaboratif avec Git"
+    "section": "Plan de la partie",
+    "text": "Plan de la partie\n1️⃣ Le contrôle de version : pourquoi faire ?\n\n2️⃣ Le contrôle de version avec Git\n\n\n3️⃣ Le travail collaboratif avec Git"
   },
   {
     "objectID": "slides/complete.html#archiver-son-code-proprement",
@@ -770,8 +770,8 @@
     "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nFormation Travail collaboratif avec R\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
   },
   {
-    "objectID": "slides/complete.html#plan-de-la-partie",
-    "href": "slides/complete.html#plan-de-la-partie",
+    "objectID": "slides/complete.html#plan-de-la-partie-1",
+    "href": "slides/complete.html#plan-de-la-partie-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Plan de la partie",
     "text": "Plan de la partie\nAméliorations graduelles dans l’échelle de la reproductibilité :\n1️⃣ Qualité du code\n\n2️⃣ Structure des projets\n\n\n3️⃣ Formats de données\n\n\n4️⃣ Environnements reproductibles\n\n\n5️⃣ Pipelines de données\n\n\n6️⃣ Publication reproductible"
