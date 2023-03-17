@@ -31,6 +31,18 @@ css: custom.css
 from: markdown+emoji
 ---
 
+
+
+## Introduction
+
+* Version courte de la formation
+aux bonnes pratiques avec `R` et `Git`
+
+![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-light/cheetah.png){fig-align="center"}
+
+[_Retour à la page d'accueil pour explorer les autres versions_](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/)
+
+
 # Introduction
 
 {{< include _intro.qmd >}}
