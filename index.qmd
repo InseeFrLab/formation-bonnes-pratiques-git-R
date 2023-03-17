@@ -34,4 +34,6 @@ Elle a bénéficié des contributions de : [Romain Avouac](https://github.com/av
 [Olivier Pucher](https://github.com/Evargalo),
 [Clément Rousset](https://github.com/clerousset),
 Mohamed Seikouri et
-Tom Seimandi
+Tom Seimandi.
+
+Les supports et le code source ([`Github InseeFrLab`](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R)) sont librement réutilisables et disponibles sous licence MIT. 

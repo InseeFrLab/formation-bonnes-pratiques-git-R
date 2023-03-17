@@ -17,9 +17,12 @@ website:
       - href: slides/complete.html
         text: Version longue
     background: "#4758AB"
+  twitter-card:
+    image: /cards/version-light/cheetah.png
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+
