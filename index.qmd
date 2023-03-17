@@ -1,5 +1,6 @@
 ---
 listing:
+  id: formations
   contents: cards
   sort: "date desc"
   template: listing-grid.ejs
@@ -9,10 +10,28 @@ toc: false
 
 ## Formation aux bonnes pratiques avec `Git` et `R`
 
-La formation est déclinée en deux versions: une version allégée (une journée) et la version complète (deux jours).
+Formation construite à l'__Insee__, déclinée en deux versions: une version allégée (une journée) et la version complète (deux jours).
 
-Tous les supports sont sur [`Github`](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R)
+Tous les supports sont sur le [`Github InseeFrLab`](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R)
 <br>
 <br>
 
+::: {#formations}
+:::
 
+
+## Crédits
+
+Cette formation a été conçue de manière collaborative par des équipes de 
+l'Insee et coordonnée
+par [Romain Avouac](https://github.com/avouacr) et [Lino Galiana](https://github.com/linogaliana).
+
+Elle a bénéficié des contributions de : [Romain Avouac](https://github.com/avouacr), 
+[Julien Blasco](https://github.com/JulienBlasco),
+[Thomas Faria](https://github.com/ThomasFaria)
+[Lino Galiana](https://github.com/linogaliana)
+[Olivier Meslin](https://github.com/oliviermeslin),
+[Olivier Pucher](https://github.com/Evargalo),
+[Clément Rousset](https://github.com/clerousset),
+Mohamed Seikouri et
+Tom Seimandi
