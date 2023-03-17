@@ -63,7 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-formations .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-formations'] = new List('listing-formations', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -93,6 +93,12 @@ ul.task-list li input[type="checkbox"] {
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
+<meta name="twitter:title" content="">
+<meta name="twitter:description" content="Formation construite à l’Insee, déclinée en deux versions: une version allégée (une journée) et la version complète (deux jours).">
+<meta name="twitter:image" content="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/cards/version-light/cheetah.png">
+<meta name="twitter:image-height" content="1024">
+<meta name="twitter:image-width" content="1024">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -141,16 +147,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="formation-aux-bonnes-pratiques-avec-git-et-r" class="level2">
 <h2 class="anchored" data-anchor-id="formation-aux-bonnes-pratiques-avec-git-et-r">Formation aux bonnes pratiques avec <code>Git</code> et <code>R</code></h2>
-<p>La formation est déclinée en deux versions: une version allégée (une journée) et la version complète (deux jours).</p>
-<p>Tous les supports sont sur <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R"><code>Github</code></a> <br> <br></p>
-
-
-
-</section>
-
-<div class="quarto-listing quarto-listing-container-custom" id="listing-listing">
+<p>Formation construite à l’<strong>Insee</strong>, déclinée en deux versions: une version allégée (une journée) et la version complète (deux jours).</p>
+<p>Tous les supports sont sur le <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R"><code>Github InseeFrLab</code></a> <br> <br></p>
+<div id="listing-formations" class="quarto-listing quarto-listing-container-custom">
 <div class="list grid quarto-listing-cols-3">
-  <div class="g-col-1" data-index="0" data-categories="R,Git" data-listing-date-sort="1643673600000" data-listing-file-modified-sort="1678986050402" data-listing-reading-time-sort="0.005">
+  <div class="g-col-1" data-index="0" data-categories="R,Git" data-listing-date-sort="1643673600000" data-listing-file-modified-sort="1679044719893" data-listing-reading-time-sort="0.005">
     <div class="quarto-grid-item card h-100 card-left">
         <p class="card-img-top">
           <img src="./cards/version-light/cheetah.png" class="thumbnail-image card-img" style="height: auto;" alt="">
@@ -194,12 +195,12 @@ de la qualité du code <code>R</code>
             index.qmd
           </div>
           <div class="card-file-modified listing-file-modified">
-            3/16/23, 5:00:50 PM
+            3/17/23, 9:18:39 AM
           </div>
       </div> -->
     </div>
   </div>
-  <div class="g-col-1" data-index="1" data-categories="R,Git" data-listing-date-sort="1643587200000" data-listing-file-modified-sort="1678986050398" data-listing-reading-time-sort="0.005">
+  <div class="g-col-1" data-index="1" data-categories="R,Git" data-listing-date-sort="1643587200000" data-listing-file-modified-sort="1679044719889" data-listing-reading-time-sort="0.005">
     <div class="quarto-grid-item card h-100 card-left">
         <p class="card-img-top">
           <img src="./cards/version-full/eagle.png" class="thumbnail-image card-img" style="height: auto;" alt="">
@@ -242,7 +243,7 @@ reproductibilité et de la collaboration.
             index.qmd
           </div>
           <div class="card-file-modified listing-file-modified">
-            3/16/23, 5:00:50 PM
+            3/17/23, 9:18:39 AM
           </div>
       </div> -->
     </div>
@@ -251,7 +252,19 @@ reproductibilité et de la collaboration.
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div>
+</section>
+<section id="crédits" class="level2">
+<h2 class="anchored" data-anchor-id="crédits">Crédits</h2>
+<p>Cette formation a été conçue de manière collaborative par des équipes de l’Insee et coordonnée par <a href="https://github.com/avouacr">Romain Avouac</a> et <a href="https://github.com/linogaliana">Lino Galiana</a>.</p>
+<p>Elle a bénéficié des contributions de : <a href="https://github.com/avouacr">Romain Avouac</a>, <a href="https://github.com/JulienBlasco">Julien Blasco</a>, <a href="https://github.com/ThomasFaria">Thomas Faria</a> <a href="https://github.com/linogaliana">Lino Galiana</a> <a href="https://github.com/oliviermeslin">Olivier Meslin</a>, <a href="https://github.com/Evargalo">Olivier Pucher</a>, <a href="https://github.com/clerousset">Clément Rousset</a>, Mohamed Seikouri et Tom Seimandi.</p>
+<p>Les supports et le code source (<a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R"><code>Github InseeFrLab</code></a>) sont librement réutilisables et disponibles sous licence MIT.</p>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
