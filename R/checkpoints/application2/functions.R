@@ -13,9 +13,9 @@ decennie_a_partir_annee <- function(annee) {
 #' @export
 #'
 #' @examples
-#' fonction_de_stat_agregee(rnorm(10))
-#' fonction_de_stat_agregee(rnorm(10), "ecart-type")
-#' fonction_de_stat_agregee(rnorm(10), "variance")
+#' stats_agregees(rnorm(10))
+#' stats_agregees(rnorm(10), "ecart-type")
+#' stats_agregees(rnorm(10), "variance")
 stats_agregees <- function(x, stat = "moyenne", ...) {
   if (stat == "moyenne") {
     resultat <- mean(x, na.rm = TRUE, ...)
