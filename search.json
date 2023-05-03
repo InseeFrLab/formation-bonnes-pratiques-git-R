@@ -725,56 +725,56 @@
     "href": "slides/complete.html#application-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\n\nSe mettre par groupes de 3/4 personnes:\n\nUne personne aura la responsabilité d’être mainteneur\nDeux à trois personnes seront développeurs\n\nLe mainteneur crée un dépôt sur Github. Il/Elle donne des droits au(x) développeur(s) du projet\nCréer une copie locale (clone) du projet sur son service RStudio du Datalab\nCréer un fichier &lt;votre_nom&gt;-&lt;votre_prenom&gt;.md. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis commit et push les modifications\n\nÀ ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du push. C’est normal ! Avant d’accepter une modification, Git vérifie en premier lieu la cohérence de la branche avec le dépôt distant. Le premier ayant fait un push a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (pull) avant d’avoir le droit de proposer un changement.\nNéanmoins, le pull renvoie une erreur. Essayons de comprendre le problème et les solutions possibles.\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
+    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\n\nSe mettre par groupes de 3/4 personnes:\n\nUne personne aura la responsabilité d’être mainteneur\nDeux à trois personnes seront développeurs\n\nLe mainteneur crée un dépôt sur Github. Il/Elle donne des droits au(x) développeur(s) du projet\nCréer une copie locale (clone) du projet sur son service RStudio du Datalab\nCréer un fichier &lt;votre_nom&gt;-&lt;votre_prenom&gt;.md. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis commit et push les modifications\nÀ ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du push. C’est normal ! Le premier ayant fait un push a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (pull) avant d’avoir le droit de proposer un changement.\nNéanmoins, le pull renvoie également une erreur : Git ne parvient pas à résoudre la divergence d’historique. Essayons de comprendre le problème et les solutions possibles."
   },
   {
     "objectID": "slides/complete.html#divergence-dhistoriques-cas-simple",
     "href": "slides/complete.html#divergence-dhistoriques-cas-simple",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Divergence d’historiques : cas simple",
-    "text": "Divergence d’historiques : cas simple"
+    "text": "Divergence d’historiques : cas simple\n\n\n\nGit résout le problème via un fast-forward merge\n\nLe commit distant est rajouté à l’historique local\nLes dépôts sont synchronisés"
   },
   {
     "objectID": "slides/complete.html#divergence-dhistoriques-cas-compliqué",
     "href": "slides/complete.html#divergence-dhistoriques-cas-compliqué",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Divergence d’historiques : cas compliqué",
-    "text": "Divergence d’historiques : cas compliqué"
+    "text": "Divergence d’historiques : cas compliqué\n\n\n\nGit ne peut pas résoudre de lui même la divergence\n\n\n\n\nDeux stratégies possibles\n\nLe merge\nLe rebase"
   },
   {
     "objectID": "slides/complete.html#ère-possibilité-le-merge",
     "href": "slides/complete.html#ère-possibilité-le-merge",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1ère possibilité : le merge",
-    "text": "1ère possibilité : le merge"
+    "text": "1ère possibilité : le merge\n\n\n\nGit crée un commit de merge\n\nComportement par défaut jusqu’à récemment\n\n\n\n\n\nInconvénient : rend l’historique non-linéaire"
   },
   {
     "objectID": "slides/complete.html#ème-possibilité-le-rebase-12",
     "href": "slides/complete.html#ème-possibilité-le-rebase-12",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2ème possibilité : le rebase (1/2)",
-    "text": "2ème possibilité : le rebase (1/2)"
+    "text": "2ème possibilité : le rebase (1/2)\n\n\n\nGit effectue 3 étapes\n\nSupprime temporairement le commit local\nRéalise un fast-forward merge\nRajoute le commit local au bout de l’historique"
   },
   {
     "objectID": "slides/complete.html#ème-possibilité-le-rebase-22",
     "href": "slides/complete.html#ème-possibilité-le-rebase-22",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2ème possibilité : le rebase (2/2)",
-    "text": "2ème possibilité : le rebase (2/2)"
+    "text": "2ème possibilité : le rebase (2/2)\n\n\n\nAvantage : l’historique reste linéaire\n\n\n\n\nInconvénient : modification de l’historique lorsqu’utilisé sur des branches publiques"
   },
   {
-    "objectID": "slides/complete.html#divergence-dhistoriques-cas-compliqué-1",
-    "href": "slides/complete.html#divergence-dhistoriques-cas-compliqué-1",
+    "objectID": "slides/complete.html#application-4-suite",
+    "href": "slides/complete.html#application-4-suite",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Divergence d’historiques : cas compliqué",
-    "text": "Divergence d’historiques : cas compliqué\n\n\n\n\nSynchronisation des dépôts\n\n\n\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes\nDans RStudio, afficher l’historique du projet et regarder la manière dont ont été intégrées les modifications des collaborateurs\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push les modifications locales\n\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
+    "section": "Application 4 (suite)",
+    "text": "Application 4 (suite)\n\n\n\nSynchronisation des dépôts\n\n\n\n\nDans notre cas, on peut utiliser rebase sans trop de risques. Comme l’interface RStudio ne permet pas (encore) de sélectionner la stratégie de pull, on va préciser la configuration voulue via une commande passée dans le terminal\n\ngit config pull.rebase true\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes via l’interface RStudio\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push leurs modifications locales\n\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
   },
   {
     "objectID": "slides/complete.html#application-5",
     "href": "slides/complete.html#application-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 5",
-    "text": "Application 5\n\n\n\nRésoudre les conflits\n\n\n\n\nOn se place dans la même configuration que dans l’application précédente : un mainteneur et deux/trois développeurs\nLe mainteneur modifie le contenu de son fichier, puis commit et push les modifications\nSans faire de pull préalable, les développeurs modifient également le contenu du fichier du mainteneur, puis commit et push les modifications\n\n\nLe push est rejeté pour la même raison que dans l’application précédente : les dépôts ne sont plus synchronisés, il faut pull les changements distants au préalable. Mais cette fois, le pull est également rejeté : il y a un conflit entre l’historique du projet distant et celui du projet local. Git nous indique qu’il faut résoudre le conflit avant de pouvoir modifier l’historique du projet.\n\n\nUtiliser l’interface de RStudio pour résoudre le conflit, en choisissant la version du fichier que vous souhaitez conserver, puis commit/push les modifications\nComme dans l’application précédente, seul le développeur le plus rapide parvient à push. Les autres doivent répéter l’opération.\n\n\n\n\n\n❓ Question : comment limiter au maximum la survenue des conflits d’historique ?"
+    "text": "Application 5\n\n\n\nRésoudre les conflits\n\n\n\n\nOn se place dans la même configuration que dans l’application précédente : un mainteneur et deux/trois développeurs\nLe mainteneur modifie le contenu de son fichier, puis commit et push les modifications\nSans faire de pull préalable, les développeurs modifient également le contenu du fichier du mainteneur, puis commit et push les modifications\nLe push est rejeté pour la même raison que dans l’application précédente : les dépôts ne sont plus synchronisés, il faut pull les changements distants au préalable. Mais cette fois, le pull est également rejeté : il y a un conflit entre l’historique du projet distant et celui du projet local. Git nous indique qu’il faut résoudre le conflit avant de pouvoir modifier l’historique du projet.\nUtiliser l’interface de RStudio pour résoudre le conflit, en choisissant la version du fichier que vous souhaitez conserver, puis commit/push les modifications\nComme dans l’application précédente, seul le développeur le plus rapide parvient à push. Les autres doivent répéter l’opération.\n\n\n\n\n\n❓ Question : comment limiter au maximum la survenue des conflits d’historique ?"
   },
   {
     "objectID": "slides/complete.html#le-modèle-des-branches",

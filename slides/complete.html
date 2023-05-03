@@ -1058,50 +1058,107 @@ _Workflow_ (version littéraire) :
 <li class="fragment">Le mainteneur crée un dépôt sur <code>Github</code>. Il/Elle donne des droits au(x) développeur(s) du projet</li>
 <li class="fragment">Créer une copie locale (clone) du projet sur son service <code>RStudio</code> du <a href="https://datalab.sspcloud.fr/home">Datalab</a></li>
 <li class="fragment">Créer un fichier <code>&lt;votre_nom&gt;-&lt;votre_prenom&gt;.md</code>. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis <code>commit</code> et <code>push</code> les modifications</li>
+<li class="fragment"><strong>À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du <code>push</code>.</strong> C’est normal ! Le premier ayant fait un <code>push</code> a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (<code>pull</code>) avant d’avoir le droit de proposer un changement.</li>
+<li class="fragment">Néanmoins, le <code>pull</code> renvoie également une erreur : <code>Git</code> ne parvient pas à résoudre la divergence d’historique. Essayons de comprendre le problème et les solutions possibles.</li>
 </ol>
-<p><strong>À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du <code>push</code>.</strong> C’est normal ! Avant d’accepter une modification, <code>Git</code> vérifie en premier lieu la cohérence de la branche avec le dépôt distant. Le premier ayant fait un <code>push</code> a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (<code>pull</code>) avant d’avoir le droit de proposer un changement.</p>
-<p>Néanmoins, le <code>pull</code> renvoie une erreur. Essayons de comprendre le problème et les solutions possibles.</p>
 </div>
 </div>
 </div>
 </div>
-<p>❓ <strong>Question</strong> : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?</p>
 </section>
 <section id="divergence-dhistoriques-cas-simple" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Divergence d’historiques : cas simple</h2>
 
-<img data-src="img/ff.png" class="r-stretch"></section>
+<img data-src="img/ff.png" class="r-stretch"><div class="fragment">
+<ul>
+<li><code>Git</code> résout le problème via un <em>fast-forward merge</em>
+<ul>
+<li>Le commit distant est rajouté à l’historique local</li>
+<li>Les dépôts sont synchronisés</li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="divergence-dhistoriques-cas-compliqué" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Divergence d’historiques : cas compliqué</h2>
 
-<img data-src="img/divergence.png" class="r-stretch"></section>
+<img data-src="img/divergence.png" class="r-stretch"><div class="fragment">
+<ul>
+<li><code>Git</code> ne peut pas résoudre de lui même la divergence</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Deux stratégies possibles
+<ul>
+<li>Le <span class="blue2"><strong>merge</strong></span></li>
+<li>Le <span class="blue2"><strong>rebase</strong></span></li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="ère-possibilité-le-merge" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>1ère possibilité : le <em>merge</em></h2>
 
-<img data-src="img/merge.png" class="r-stretch"></section>
+<img data-src="img/merge.png" class="r-stretch"><div class="fragment">
+<ul>
+<li><code>Git</code> crée un <span class="blue2"><strong>commit de merge</strong></span>
+<ul>
+<li>Comportement par défaut jusqu’à récemment</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="orange"><strong>Inconvénient</strong></span> : rend l’<span class="blue2"><strong>historique non-linéaire</strong></span></li>
+</ul>
+</div>
+</section>
 <section id="ème-possibilité-le-rebase-12" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>2ème possibilité : le <em>rebase</em> (1/2)</h2>
 
-<img data-src="img/rebase1.png" class="r-stretch"></section>
+<img data-src="img/rebase1.png" class="r-stretch"><div class="fragment">
+<ul>
+<li><code>Git</code> effectue 3 étapes
+<ul>
+<li>Supprime temporairement le commit local</li>
+<li>Réalise un <em>fast-forward merge</em></li>
+<li>Rajoute le commit local au bout de l’historique</li>
+</ul></li>
+</ul>
+</div>
+</section>
 <section id="ème-possibilité-le-rebase-22" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>2ème possibilité : le <em>rebase</em> (2/2)</h2>
 
-<img data-src="img/rebase2.png" class="r-stretch"></section>
-<section id="divergence-dhistoriques-cas-compliqué-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Divergence d’historiques : cas compliqué</h2>
-
-<img data-src="img/divergence.png" class="r-stretch"><div class="callout callout-tip no-icon callout-titled callout-style-default">
+<img data-src="img/rebase2.png" class="r-stretch"><div class="fragment">
+<ul>
+<li><span class="orange"><strong>Avantage</strong></span> : l’historique reste <span class="blue2"><strong>linéaire</strong></span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="orange"><strong>Inconvénient</strong></span> : modification de l’historique lorsqu’utilisé sur des branches publiques</li>
+</ul>
+</div>
+</section>
+<section id="application-4-suite" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 4 (suite)</h2>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Synchronisation des dépôts</strong></p>
 </div>
 <div class="callout-content">
 <div>
-<ol start="5" type="1">
-<li class="fragment">Pour ceux dont le <code>push</code> a été refusé, effectuer un <code>pull</code> des modifications distantes</li>
-<li class="fragment">Dans <code>RStudio</code>, afficher l’historique du projet et regarder la manière dont ont été intégrées les modifications des collaborateurs</li>
+<ol start="7" type="1">
+<li class="fragment">Dans notre cas, on peut utiliser <em>rebase</em> sans trop de risques. Comme l’interface <code>RStudio</code> ne permet pas (encore) de sélectionner la stratégie de <code>pull</code>, on va préciser la configuration voulue via une commande passée dans le terminal
+<ul>
+<li class="fragment"><code>git config pull.rebase true</code></li>
+</ul></li>
+<li class="fragment">Pour ceux dont le <code>push</code> a été refusé, effectuer un <code>pull</code> des modifications distantes via l’interface <code>RStudio</code></li>
 <li class="fragment">Effectuer à nouveau un <code>push</code> de vos modifications locales</li>
-<li class="fragment">Les derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir <code>push</code> les modifications locales</li>
+<li class="fragment">Les derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir <code>push</code> leurs modifications locales</li>
 </ol>
 </div>
 </div>
@@ -1122,11 +1179,7 @@ _Workflow_ (version littéraire) :
 <li class="fragment">On se place dans la même configuration que dans l’application précédente : un <span class="blue2"><strong>mainteneur</strong></span> et deux/trois <span class="blue2"><strong>développeurs</strong></span></li>
 <li class="fragment">Le mainteneur modifie le contenu de son fichier, puis <code>commit</code> et <code>push</code> les modifications</li>
 <li class="fragment">Sans faire de <code>pull</code> préalable, les développeurs modifient également le contenu du fichier du mainteneur, puis <code>commit</code> et <code>push</code> les modifications</li>
-</ol>
-</div>
-<p>Le <code>push</code> est rejeté pour la même raison que dans l’application précédente : les dépôts ne sont plus synchronisés, il faut <code>pull</code> les changements distants au préalable. Mais <strong>cette fois, le <code>pull</code> est également rejeté</strong> : il y a un <strong>conflit</strong> entre l’historique du projet distant et celui du projet local. <code>Git</code> nous indique qu’il faut résoudre le conflit avant de pouvoir modifier l’historique du projet.</p>
-<div>
-<ol start="5" type="1">
+<li class="fragment">Le <code>push</code> est rejeté pour la même raison que dans l’application précédente : les dépôts ne sont plus synchronisés, il faut <code>pull</code> les changements distants au préalable. Mais <strong>cette fois, le <code>pull</code> est également rejeté</strong> : il y a un <strong>conflit</strong> entre l’historique du projet distant et celui du projet local. <code>Git</code> nous indique qu’il faut résoudre le conflit avant de pouvoir modifier l’historique du projet.</li>
 <li class="fragment">Utiliser l’interface de <code>RStudio</code> pour résoudre le conflit, en choisissant la version du fichier que vous souhaitez conserver, puis <code>commit</code>/<code>push</code> les modifications</li>
 <li class="fragment">Comme dans l’application précédente, seul le développeur le plus rapide parvient à <code>push</code>. Les autres doivent répéter l’opération.</li>
 </ol>
