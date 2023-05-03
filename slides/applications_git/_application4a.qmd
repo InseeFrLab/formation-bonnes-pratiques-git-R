@@ -8,13 +8,9 @@
 2. Le mainteneur crée un dépôt sur `Github`. Il/Elle donne des droits au(x) développeur(s) du projet
 3. Créer une copie locale (clone) du projet sur son service `RStudio` du [Datalab](https://datalab.sspcloud.fr/home)
 4. Créer un fichier `<votre_nom>-<votre_prenom>.md`. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis `commit` et `push` les modifications
-
-__À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du `push`.__
-C’est normal ! Avant d’accepter une modification, `Git` vérifie en premier lieu la cohérence de la branche avec le dépôt distant. Le premier ayant fait un `push` a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (`pull`) avant d’avoir le droit de proposer un changement.
-
-Néanmoins, le `pull` renvoie une erreur. Essayons de comprendre le problème et les solutions possibles.
+5. __À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du `push`.__
+C’est normal ! Le premier ayant fait un `push` a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (`pull`) avant d’avoir le droit de proposer un changement.
+6. Néanmoins, le `pull` renvoie également une erreur : `Git` ne parvient pas à résoudre la divergence d'historique. Essayons de comprendre le problème et les solutions possibles.
 :::
 
 :::
-
-❓ **Question** : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?

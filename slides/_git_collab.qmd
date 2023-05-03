@@ -21,26 +21,63 @@
 
 ![](img/ff.png)
 
+. . .
+
+- `Git` résout le problème via un *fast-forward merge*
+    - Le commit distant est rajouté à l'historique local
+    - Les dépôts sont synchronisés
+
 ## Divergence d'historiques : cas compliqué
 
 ![](img/divergence.png)
+
+. . .
+
+- `Git` ne peut pas résoudre de lui même la divergence
+
+. . .
+
+- Deux stratégies possibles
+    - Le [**merge**]{.blue2}
+    - Le [**rebase**]{.blue2}
 
 ## 1ère possibilité : le *merge*
 
 ![](img/merge.png)
 
+. . .
+
+- `Git` crée un [**commit de merge**]{.blue2}
+    - Comportement par défaut jusqu'à récemment
+
+. . .
+
+- [**Inconvénient**]{.orange} : rend l'[**historique non-linéaire**]{.blue2}
+
 ## 2ème possibilité : le *rebase* (1/2)
 
 ![](img/rebase1.png)
+
+. . .
+
+- `Git` effectue 3 étapes
+    - Supprime temporairement le commit local
+    - Réalise un *fast-forward merge*
+    - Rajoute le commit local au bout de l'historique
 
 ## 2ème possibilité : le *rebase* (2/2)
 
 ![](img/rebase2.png)
 
+. . .
 
-## Divergence d'historiques : cas compliqué
+- [**Avantage**]{.orange} : l'historique reste [**linéaire**]{.blue2}
 
-![](img/divergence.png)
+. . .
+
+- [**Inconvénient**]{.orange} : modification de l'historique lorsqu'utilisé sur des branches publiques
+
+## Application 4 (suite) {.smaller}
 
 {{< include applications_git/_application4b.qmd >}}
 

@@ -5,13 +5,8 @@
 1. On se place dans la même configuration que dans l'application précédente : un [**mainteneur**]{.blue2} et deux/trois [**développeurs**]{.blue2}
 2. Le mainteneur modifie le contenu de son fichier, puis `commit` et `push` les modifications
 3. Sans faire de `pull` préalable, les développeurs modifient également le contenu du fichier du mainteneur, puis `commit` et `push` les modifications
-:::
-
-Le `push` est rejeté pour la même raison que dans l'application précédente : les dépôts ne sont plus synchronisés, il faut `pull` les changements distants au préalable.
-Mais **cette fois, le `pull` est également rejeté** : il y a un **conflit** entre l'historique du projet distant et celui du projet local.
+4. Le `push` est rejeté pour la même raison que dans l'application précédente : les dépôts ne sont plus synchronisés, il faut `pull` les changements distants au préalable. Mais **cette fois, le `pull` est également rejeté** : il y a un **conflit** entre l'historique du projet distant et celui du projet local.
 `Git` nous indique qu'il faut résoudre le conflit avant de pouvoir modifier l'historique du projet.
-
-::: {.incremental}
 5. Utiliser l'interface de `RStudio` pour résoudre le conflit, en choisissant la version du fichier que vous souhaitez conserver, puis `commit`/`push` les modifications
 6. Comme dans l'application précédente, seul le développeur le plus rapide parvient à `push`. Les autres doivent répéter l'opération.
 :::

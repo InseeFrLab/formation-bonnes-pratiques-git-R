@@ -2,10 +2,11 @@
 ## Synchronisation des dépôts
 
 ::: {.incremental}
-5. Pour ceux dont le `push` a été refusé, effectuer un `pull` des modifications distantes
-6. Dans `RStudio`, afficher l'historique du projet et regarder la manière dont ont été intégrées les modifications des collaborateurs
-7. Effectuer à nouveau un `push` de vos modifications locales
-8. Les derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir `push` les modifications locales
+7. Dans notre cas, on peut utiliser *rebase* sans trop de risques. Comme l'interface `RStudio` ne permet pas (encore) de sélectionner la stratégie de `pull`, on va préciser la configuration voulue via une commande passée dans le terminal
+    + `git config pull.rebase true`
+8. Pour ceux dont le `push` a été refusé, effectuer un `pull` des modifications distantes via l'interface `RStudio`
+9. Effectuer à nouveau un `push` de vos modifications locales
+10. Les derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir `push` leurs modifications locales
 :::
 
 
