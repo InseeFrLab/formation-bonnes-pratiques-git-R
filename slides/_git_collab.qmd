@@ -15,7 +15,34 @@
 
 ## Application 4 {.smaller}
 
-{{< include applications_git/_application4.qmd >}}
+{{< include applications_git/_application4a.qmd >}}
+
+## Divergence d'historiques : cas simple
+
+![](img/ff.png)
+
+## Divergence d'historiques : cas compliqué
+
+![](img/divergence.png)
+
+## 1ère possibilité : le *merge*
+
+![](img/merge.png)
+
+## 2ème possibilité : le *rebase* (1/2)
+
+![](img/rebase1.png)
+
+## 2ème possibilité : le *rebase* (2/2)
+
+![](img/rebase2.png)
+
+
+## Divergence d'historiques : cas compliqué
+
+![](img/divergence.png)
+
+{{< include applications_git/_application4b.qmd >}}
 
 ## Application 5 {.smaller}
 
