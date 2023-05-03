@@ -53,7 +53,7 @@
     "href": "slides/light.html#archiver-son-code-proprement-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Archiver son code proprement",
-    "text": "1️⃣ Archiver son code proprement\nou encore ça :\nprior <- read_csv(prior_path)\nprior <- prior %>%\n    select(id, proba_inter, proba_build, proba_rfl) %>%\n    separate(id, into = c('nidt', 'grid_id'), sep = \":\") %>%\n    group_by(nidt) %>%\n    mutate(\n        proba_build = proba_build/sum(proba_build),\n        proba_rfl = proba_rfl/sum(proba_rfl),\n        ) %>%\n    unite(col = \"id\", nidt, grid_id, sep = \":\")\n\n# Test\n# prior_test <- prior %>%\n#    mutate(\n#        proba_inter = round(proba_inter, 4)\n#        proba_build = round(proba_build, 4)\n#        proba_rfl = round(proba_rfl, 4)\n#    )\n\nwrite_csv(prior_round, \"~/prior.csv\")"
+    "text": "1️⃣ Archiver son code proprement\nou encore ça :\nprior &lt;- read_csv(prior_path)\nprior &lt;- prior %&gt;%\n    select(id, proba_inter, proba_build, proba_rfl) %&gt;%\n    separate(id, into = c('nidt', 'grid_id'), sep = \":\") %&gt;%\n    group_by(nidt) %&gt;%\n    mutate(\n        proba_build = proba_build/sum(proba_build),\n        proba_rfl = proba_rfl/sum(proba_rfl),\n        ) %&gt;%\n    unite(col = \"id\", nidt, grid_id, sep = \":\")\n\n# Test\n# prior_test &lt;- prior %&gt;%\n#    mutate(\n#        proba_inter = round(proba_inter, 4)\n#        proba_build = round(proba_build, 4)\n#        proba_rfl = round(proba_rfl, 4)\n#    )\n\nwrite_csv(prior_round, \"~/prior.csv\")"
   },
   {
     "objectID": "slides/light.html#archiver-son-code-proprement-3",
@@ -172,7 +172,7 @@
     "href": "slides/light.html#commandes-essentielles-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Commandes essentielles",
-    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nAjouter des changements à l’index de Git\nUn seul fichier : git add <file-name>  Tous les fichiers déjà indexés : git add -u  Tous les fichiers ⚠️ : git add -A\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nLa méthode git add -A peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).\nIl est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon .gitignore)"
+    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nAjouter des changements à l’index de Git\nUn seul fichier : git add &lt;file-name&gt;  Tous les fichiers déjà indexés : git add -u  Tous les fichiers ⚠️ : git add -A\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nLa méthode git add -A peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).\nIl est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon .gitignore)"
   },
   {
     "objectID": "slides/light.html#commandes-essentielles-2",
@@ -193,7 +193,7 @@
     "href": "slides/light.html#application-0",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -> Services externes -> Jeton d'accès personnel GitHub\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
+    "text": "Application 0\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Services externes -&gt; Jeton d'accès personnel GitHub\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
   },
   {
     "objectID": "slides/light.html#application-1",
@@ -340,7 +340,7 @@
     "href": "slides/light.html#application-1-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus logique :\n\nGestion de l’environnement -> Définition de fonctions -> Import des données -> Retraitement des données -> Statistiques descriptives -> Graphiques -> Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
+    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus logique :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
   },
   {
     "objectID": "slides/light.html#application-1-5",
@@ -536,7 +536,7 @@
     "href": "slides/complete.html#archiver-son-code-proprement-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Archiver son code proprement",
-    "text": "1️⃣ Archiver son code proprement\nou encore ça :\nprior <- read_csv(prior_path)\nprior <- prior %>%\n    select(id, proba_inter, proba_build, proba_rfl) %>%\n    separate(id, into = c('nidt', 'grid_id'), sep = \":\") %>%\n    group_by(nidt) %>%\n    mutate(\n        proba_build = proba_build/sum(proba_build),\n        proba_rfl = proba_rfl/sum(proba_rfl),\n        ) %>%\n    unite(col = \"id\", nidt, grid_id, sep = \":\")\n\n# Test\n# prior_test <- prior %>%\n#    mutate(\n#        proba_inter = round(proba_inter, 4)\n#        proba_build = round(proba_build, 4)\n#        proba_rfl = round(proba_rfl, 4)\n#    )\n\nwrite_csv(prior_round, \"~/prior.csv\")"
+    "text": "1️⃣ Archiver son code proprement\nou encore ça :\nprior &lt;- read_csv(prior_path)\nprior &lt;- prior %&gt;%\n    select(id, proba_inter, proba_build, proba_rfl) %&gt;%\n    separate(id, into = c('nidt', 'grid_id'), sep = \":\") %&gt;%\n    group_by(nidt) %&gt;%\n    mutate(\n        proba_build = proba_build/sum(proba_build),\n        proba_rfl = proba_rfl/sum(proba_rfl),\n        ) %&gt;%\n    unite(col = \"id\", nidt, grid_id, sep = \":\")\n\n# Test\n# prior_test &lt;- prior %&gt;%\n#    mutate(\n#        proba_inter = round(proba_inter, 4)\n#        proba_build = round(proba_build, 4)\n#        proba_rfl = round(proba_rfl, 4)\n#    )\n\nwrite_csv(prior_round, \"~/prior.csv\")"
   },
   {
     "objectID": "slides/complete.html#archiver-son-code-proprement-3",
@@ -655,7 +655,7 @@
     "href": "slides/complete.html#commandes-essentielles-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Commandes essentielles",
-    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nAjouter des changements à l’index de Git\nUn seul fichier : git add <file-name>  Tous les fichiers déjà indexés : git add -u  Tous les fichiers ⚠️ : git add -A\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nLa méthode git add -A peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).\nIl est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon .gitignore)"
+    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nAjouter des changements à l’index de Git\nUn seul fichier : git add &lt;file-name&gt;  Tous les fichiers déjà indexés : git add -u  Tous les fichiers ⚠️ : git add -A\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nLa méthode git add -A peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).\nIl est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon .gitignore)"
   },
   {
     "objectID": "slides/complete.html#commandes-essentielles-2",
@@ -676,7 +676,7 @@
     "href": "slides/complete.html#application-0",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -> Services externes -> Jeton d'accès personnel GitHub\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
+    "text": "Application 0\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Services externes -&gt; Jeton d'accès personnel GitHub\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
   },
   {
     "objectID": "slides/complete.html#application-1",
@@ -725,7 +725,49 @@
     "href": "slides/complete.html#application-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\n\nSe mettre par groupes de 3/4 personnes:\n\nUne personne aura la responsabilité d’être mainteneur\nDeux à trois personnes seront développeurs\n\nLe mainteneur crée un dépôt sur Github. Il/Elle donne des droits au(x) développeur(s) du projet\nCréer une copie locale (clone) du projet sur son service RStudio du Datalab\nCréer un fichier <votre_nom>-<votre_prenom>.md. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis commit et push les modifications\n\n\nÀ ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du push. C’est normal ! Avant d’accepter une modification, Git vérifie en premier lieu la cohérence de la branche avec le dépôt distant. Le premier ayant fait un push a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (pull) avant d’avoir le droit de proposer un changement.\n\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes\nDans RStudio, afficher l’historique du projet et regarder la manière dont ont été intégrées les modifications des collaborateurs\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push les modifications locales\n\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
+    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\n\nSe mettre par groupes de 3/4 personnes:\n\nUne personne aura la responsabilité d’être mainteneur\nDeux à trois personnes seront développeurs\n\nLe mainteneur crée un dépôt sur Github. Il/Elle donne des droits au(x) développeur(s) du projet\nCréer une copie locale (clone) du projet sur son service RStudio du Datalab\nCréer un fichier &lt;votre_nom&gt;-&lt;votre_prenom&gt;.md. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis commit et push les modifications\n\nÀ ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du push. C’est normal ! Avant d’accepter une modification, Git vérifie en premier lieu la cohérence de la branche avec le dépôt distant. Le premier ayant fait un push a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (pull) avant d’avoir le droit de proposer un changement.\nNéanmoins, le pull renvoie une erreur. Essayons de comprendre le problème et les solutions possibles.\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
+  },
+  {
+    "objectID": "slides/complete.html#divergence-dhistoriques-cas-simple",
+    "href": "slides/complete.html#divergence-dhistoriques-cas-simple",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Divergence d’historiques : cas simple",
+    "text": "Divergence d’historiques : cas simple"
+  },
+  {
+    "objectID": "slides/complete.html#divergence-dhistoriques-cas-compliqué",
+    "href": "slides/complete.html#divergence-dhistoriques-cas-compliqué",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Divergence d’historiques : cas compliqué",
+    "text": "Divergence d’historiques : cas compliqué"
+  },
+  {
+    "objectID": "slides/complete.html#ère-possibilité-le-merge",
+    "href": "slides/complete.html#ère-possibilité-le-merge",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "1ère possibilité : le merge",
+    "text": "1ère possibilité : le merge"
+  },
+  {
+    "objectID": "slides/complete.html#ème-possibilité-le-rebase-12",
+    "href": "slides/complete.html#ème-possibilité-le-rebase-12",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "2ème possibilité : le rebase (1/2)",
+    "text": "2ème possibilité : le rebase (1/2)"
+  },
+  {
+    "objectID": "slides/complete.html#ème-possibilité-le-rebase-22",
+    "href": "slides/complete.html#ème-possibilité-le-rebase-22",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "2ème possibilité : le rebase (2/2)",
+    "text": "2ème possibilité : le rebase (2/2)"
+  },
+  {
+    "objectID": "slides/complete.html#divergence-dhistoriques-cas-compliqué-1",
+    "href": "slides/complete.html#divergence-dhistoriques-cas-compliqué-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Divergence d’historiques : cas compliqué",
+    "text": "Divergence d’historiques : cas compliqué\n\n\n\n\nSynchronisation des dépôts\n\n\n\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes\nDans RStudio, afficher l’historique du projet et regarder la manière dont ont été intégrées les modifications des collaborateurs\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push les modifications locales\n\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
   },
   {
     "objectID": "slides/complete.html#application-5",
@@ -774,7 +816,7 @@
     "href": "slides/complete.html#application-8-bonus",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 8 (bonus)",
-    "text": "Application 8 (bonus)\n\n\n\nContribution à un projet open-source\n\n\n\n\nSur GitHub, faire un fork du dépôt git-exo\nCréer une branche intitulée <votre_nom>-<votre_prénom>\nEffectuer un commit avec les modifications de votre choix, puis pousser les changements sur votre fork\nOuvrir une Pull Request (PR) pour proposer d’intégrer vos changements sur la branche principale du dépôt git-exo\nOuvrir une Issue dans laquelle vous mentionnez la Pull Request précédemment ouverte\n\n\n\n\n\n❓ Question : pourquoi, avec un fork, est-il très important de toujours effectuer une Pull Request à partir d’une branche différente de la branche principale ?"
+    "text": "Application 8 (bonus)\n\n\n\nContribution à un projet open-source\n\n\n\n\nSur GitHub, faire un fork du dépôt git-exo\nCréer une branche intitulée &lt;votre_nom&gt;-&lt;votre_prénom&gt;\nEffectuer un commit avec les modifications de votre choix, puis pousser les changements sur votre fork\nOuvrir une Pull Request (PR) pour proposer d’intégrer vos changements sur la branche principale du dépôt git-exo\nOuvrir une Issue dans laquelle vous mentionnez la Pull Request précédemment ouverte\n\n\n\n\n\n❓ Question : pourquoi, avec un fork, est-il très important de toujours effectuer une Pull Request à partir d’une branche différente de la branche principale ?"
   },
   {
     "objectID": "slides/complete.html#ressources-supplémentaires",
@@ -886,7 +928,7 @@
     "href": "slides/complete.html#application-1-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus logique :\n\nGestion de l’environnement -> Définition de fonctions -> Import des données -> Retraitement des données -> Statistiques descriptives -> Graphiques -> Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
+    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus logique :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
   },
   {
     "objectID": "slides/complete.html#application-1-5",
@@ -1082,7 +1124,7 @@
     "href": "slides/complete.html#application-4-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nPartie 1 : prise en main de la librairie renv\n\n\n\n\nInstaller le package renv\nTaper dans la console renv::init(), lire le message et accepter.\nObserver les nouveaux élements qui sont apparus dans le projet.\nInstaller le package gt et observer le message dans la console.\nDans la partie sur les statistiques descriptives d’âge, ajouter ce code :\nstats_age <- df %>%\n  group_by(decennie = decennie_a_partir_annee(age)) %>%\n  summarise(n())\n\ntable_age <- gt::gt(stats_age) %>%\n  gt::tab_header(\n    title = \"Distribution des âges dans notre population\"\n  ) %>%\n  gt::fmt_number(\n    columns = `n()`,\n    sep_mark = \" \",\n    decimals = 0\n  ) %>%\n  gt::cols_label(\n    decennie = \"Tranche d'âge\",\n    `n()` = \"Population\"\n  )"
+    "text": "Application 4\n\n\n\nPartie 1 : prise en main de la librairie renv\n\n\n\n\nInstaller le package renv\nTaper dans la console renv::init(), lire le message et accepter.\nObserver les nouveaux élements qui sont apparus dans le projet.\nInstaller le package gt et observer le message dans la console.\nDans la partie sur les statistiques descriptives d’âge, ajouter ce code :\nstats_age &lt;- df %&gt;%\n  group_by(decennie = decennie_a_partir_annee(age)) %&gt;%\n  summarise(n())\n\ntable_age &lt;- gt::gt(stats_age) %&gt;%\n  gt::tab_header(\n    title = \"Distribution des âges dans notre population\"\n  ) %&gt;%\n  gt::fmt_number(\n    columns = `n()`,\n    sep_mark = \" \",\n    decimals = 0\n  ) %&gt;%\n  gt::cols_label(\n    decennie = \"Tranche d'âge\",\n    `n()` = \"Population\"\n  )"
   },
   {
     "objectID": "slides/complete.html#application-4-2",
@@ -1194,7 +1236,7 @@
     "href": "slides/complete.html#application-5-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 5",
-    "text": "Application 5\n\n\n\nModélisation d’un projet sous forme de pipeline de données\n\n\n\n\nInstaller le package targets.\nCréer un fichier _targets.R à la racine du dépôt, à partir de l’exemple dans la documentation.\nAjouter _targets/ dans le .gitignore.\nReporter les library dans le fichier R/functions.R et récupérer les noms des packages pour les mettre dans la section tar_option_set().\nAjouter dans R/functions.R les fonctions read_yaml_secret et read_from_parquet:\n\nread_yaml_secret <- function(path, key) {\n  return(yaml::read_yaml(path)[[key]])\n}\nread_from_parquet <- function(path) {\n  df <- arrow::read_parquet(\n    path,\n    col_select  = c(\n      \"region\", \"aemm\", \"aged\", \"anai\", \"catl\", \"cs1\", \"cs2\", \"cs3\",\n      \"couple\", \"na38\", \"naf08\", \"pnai12\", \"sexe\", \"surf\", \"tp\",\n      \"trans\", \"ur\"\n    )\n  )\n  return(df)\n}"
+    "text": "Application 5\n\n\n\nModélisation d’un projet sous forme de pipeline de données\n\n\n\n\nInstaller le package targets.\nCréer un fichier _targets.R à la racine du dépôt, à partir de l’exemple dans la documentation.\nAjouter _targets/ dans le .gitignore.\nReporter les library dans le fichier R/functions.R et récupérer les noms des packages pour les mettre dans la section tar_option_set().\nAjouter dans R/functions.R les fonctions read_yaml_secret et read_from_parquet:\n\nread_yaml_secret &lt;- function(path, key) {\n  return(yaml::read_yaml(path)[[key]])\n}\nread_from_parquet &lt;- function(path) {\n  df &lt;- arrow::read_parquet(\n    path,\n    col_select  = c(\n      \"region\", \"aemm\", \"aged\", \"anai\", \"catl\", \"cs1\", \"cs2\", \"cs3\",\n      \"couple\", \"na38\", \"naf08\", \"pnai12\", \"sexe\", \"surf\", \"tp\",\n      \"trans\", \"ur\"\n    )\n  )\n  return(df)\n}"
   },
   {
     "objectID": "slides/complete.html#application-5-2",
@@ -1208,7 +1250,7 @@
     "href": "slides/complete.html#application-5-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 5",
-    "text": "Application 5\n\n\n\nModélisation d’un projet sous forme de pipeline de données (suite)\n\n\n\nA partir des fonctions suivantes, créer deux nouvelles cibles (clean_data et table_age) qui automatisent la production du tableau gt\n\nretraitement_donnees <- function(df){\n  df <- df %>%\n    mutate(aged = as.numeric(aged))\n  df$sexe <- df$sexe %>%\n    as.character() %>%\n    fct_recode(Homme = \"1\", Femme = \"2\")\n  return(df)\n}\n\n\nproduce_table_age <- function(df){\n  stats_age <- df %>%\n    group_by(decennie = decennie_a_partir_annee(aged)) %>%\n    summarise(n())\n  \n  table_age <- gt::gt(stats_age) %>%\n    gt::tab_header(\n      title = \"Distribution des âges dans notre population\"\n    ) %>%\n    gt::fmt_number(\n      columns = `n()`,\n      sep_mark = \" \",\n      decimals = 0\n    ) %>%\n    gt::cols_label(\n      decennie = \"Tranche d'âge\",\n      `n()` = \"Population\"\n    )\n  return(table_age)\n}\n\nEn console, visualiser l’état du pipeline avec tar_visnetwork puis exécuter tar_make(). Analyser la sortie dans la console.\nA l’aide de la fonction tar_read(table_age), visualiser la table des âges produite.\nAjouter les commandes suivantes au sein de la fonction retraitement_donnees pour la modifier:\n\ndf <- df %>%\n  mutate(\n    surf = factor(surf, ordered = TRUE),\n    cs1 = factor(cs1)\n  )\n\nDepuis la console, inspecter le _pipeline avec tar_visnetwork puis exécuter tar_make() pour lancer le pipeline. Analyser la sortie.\nSi vous avez le temps, continuer à enrichir votre pipeline\n\n\n\n\n:::"
+    "text": "Application 5\n\n\n\nModélisation d’un projet sous forme de pipeline de données (suite)\n\n\n\nA partir des fonctions suivantes, créer deux nouvelles cibles (clean_data et table_age) qui automatisent la production du tableau gt\n\nretraitement_donnees &lt;- function(df){\n  df &lt;- df %&gt;%\n    mutate(aged = as.numeric(aged))\n  df$sexe &lt;- df$sexe %&gt;%\n    as.character() %&gt;%\n    fct_recode(Homme = \"1\", Femme = \"2\")\n  return(df)\n}\n\n\nproduce_table_age &lt;- function(df){\n  stats_age &lt;- df %&gt;%\n    group_by(decennie = decennie_a_partir_annee(aged)) %&gt;%\n    summarise(n())\n  \n  table_age &lt;- gt::gt(stats_age) %&gt;%\n    gt::tab_header(\n      title = \"Distribution des âges dans notre population\"\n    ) %&gt;%\n    gt::fmt_number(\n      columns = `n()`,\n      sep_mark = \" \",\n      decimals = 0\n    ) %&gt;%\n    gt::cols_label(\n      decennie = \"Tranche d'âge\",\n      `n()` = \"Population\"\n    )\n  return(table_age)\n}\n\nEn console, visualiser l’état du pipeline avec tar_visnetwork puis exécuter tar_make(). Analyser la sortie dans la console.\nA l’aide de la fonction tar_read(table_age), visualiser la table des âges produite.\nAjouter les commandes suivantes au sein de la fonction retraitement_donnees pour la modifier:\n\ndf &lt;- df %&gt;%\n  mutate(\n    surf = factor(surf, ordered = TRUE),\n    cs1 = factor(cs1)\n  )\n\nDepuis la console, inspecter le _pipeline avec tar_visnetwork puis exécuter tar_make() pour lancer le pipeline. Analyser la sortie.\nSi vous avez le temps, continuer à enrichir votre pipeline\n\n\n\n\n:::"
   },
   {
     "objectID": "slides/complete.html#checkpoint-4",
@@ -1257,7 +1299,7 @@
     "href": "slides/complete.html#application-6-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 6",
-    "text": "Application 6\n\n\n\nIntroduction à la publication reproductible\n\n\n\n\nCliquer sur File > New file > Quarto document:\n\nDonner un titre et un.e auteur.e au rapport\nChoisir HTML comme format de sortie\nDécocher la case Use visual markdown editor\n\nSauvegarder le fichier sous le nom report.qmd."
+    "text": "Application 6\n\n\n\nIntroduction à la publication reproductible\n\n\n\n\nCliquer sur File &gt; New file &gt; Quarto document:\n\nDonner un titre et un.e auteur.e au rapport\nChoisir HTML comme format de sortie\nDécocher la case Use visual markdown editor\n\nSauvegarder le fichier sous le nom report.qmd."
   },
   {
     "objectID": "slides/complete.html#application-6-2",
@@ -1271,7 +1313,7 @@
     "href": "slides/complete.html#application-6-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 6",
-    "text": "Application 6\n\n\n\nIntroduction à la publication reproductible (suite)\n\n\n\nDans script.R, nous avions créé un graphique p.png.\n\nA partir des exemples de la documentation introduire cette figure\nLa faire précéder d’une phrase d’introduction.\nÊtes-vous sûr que cette figure est à jour ?\n\nA partir de la fonction suivante à mettre dans R/functions.R, créer une nouvelle target graph_part_hommes dans _targets.R.\n\nfigure_part_homme_age <- function(df){\n  p <- df %>%\n    group_by(aged, sexe) %>%\n    summarise(SH_sexe = n()) %>%\n    group_by(aged) %>%\n    mutate(SH_sexe = SH_sexe / sum(SH_sexe)) %>%\n    filter(sexe == \"Homme\") %>%\n    ggplot() +\n    geom_bar(aes(x = aged, y = SH_sexe), stat = \"identity\") +\n    geom_point(\n      aes(x = aged, y = SH_sexe),\n      stat = \"identity\", color = \"red\") +\n    coord_cartesian(c(0, 100))\n  return(p)\n}\n\nFaire tourner le pipeline (tar_make)\nPour être certain que votre note utilise la dernière version du pipeline, introduire un tar_make() dans votre document à la suite du library(targets)\nCliquer sur le bouton Render pour mettre à jour votre note"
+    "text": "Application 6\n\n\n\nIntroduction à la publication reproductible (suite)\n\n\n\nDans script.R, nous avions créé un graphique p.png.\n\nA partir des exemples de la documentation introduire cette figure\nLa faire précéder d’une phrase d’introduction.\nÊtes-vous sûr que cette figure est à jour ?\n\nA partir de la fonction suivante à mettre dans R/functions.R, créer une nouvelle target graph_part_hommes dans _targets.R.\n\nfigure_part_homme_age &lt;- function(df){\n  p &lt;- df %&gt;%\n    group_by(aged, sexe) %&gt;%\n    summarise(SH_sexe = n()) %&gt;%\n    group_by(aged) %&gt;%\n    mutate(SH_sexe = SH_sexe / sum(SH_sexe)) %&gt;%\n    filter(sexe == \"Homme\") %&gt;%\n    ggplot() +\n    geom_bar(aes(x = aged, y = SH_sexe), stat = \"identity\") +\n    geom_point(\n      aes(x = aged, y = SH_sexe),\n      stat = \"identity\", color = \"red\") +\n    coord_cartesian(c(0, 100))\n  return(p)\n}\n\nFaire tourner le pipeline (tar_make)\nPour être certain que votre note utilise la dernière version du pipeline, introduire un tar_make() dans votre document à la suite du library(targets)\nCliquer sur le bouton Render pour mettre à jour votre note"
   },
   {
     "objectID": "slides/complete.html#checkpoint-5",
@@ -1290,6 +1332,13 @@
   {
     "objectID": "index.html",
     "href": "index.html",
+    "title": "Formation aux bonnes pratiques `Git` et `R`",
+    "section": "",
+    "text": "Formation construite à l’Insee, déclinée en deux versions: une version allégée (une journée) et la version complète (deux jours).\nTous les supports sont sur le Github InseeFrLab  \n\n\n  \n    \n        \n          \n        \n        \n          \n          \n            \nVersion allégée de la formation aux bonnes pratiques en\nR et en Git, axée autour de\nl'apprentissage de Git, de la structure des projets R et\nde la qualité du code R\n\n\nVersion en une journée\n\n            \n              \n            \n          \n          \n              \n                  \n                      Slides\n                  \n              \n              \n                  \n                      Code\n                  \n              \n          \n        \n      \n    \n  \n  \n    \n        \n          \n        \n        \n          \n          \n            \nVersion complète de la formation aux bonnes pratiques en\nR et en Git, axée autour de la notion de\nreproductibilité et de la collaboration.\n\n\nVersion en deux jours\n\n            \n              \n            \n          \n          \n              \n                  \n                      Slides\n                  \n              \n              \n                  \n                      Code\n                  \n              \n          \n        \n      \n    \n  \n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#formation-aux-bonnes-pratiques-avec-git-et-r",
+    "href": "index.html#formation-aux-bonnes-pratiques-avec-git-et-r",
     "title": "Formation aux bonnes pratiques `Git` et `R`",
     "section": "",
     "text": "Formation construite à l’Insee, déclinée en deux versions: une version allégée (une journée) et la version complète (deux jours).\nTous les supports sont sur le Github InseeFrLab  \n\n\n  \n    \n        \n          \n        \n        \n          \n          \n            \nVersion allégée de la formation aux bonnes pratiques en\nR et en Git, axée autour de\nl'apprentissage de Git, de la structure des projets R et\nde la qualité du code R\n\n\nVersion en une journée\n\n            \n              \n            \n          \n          \n              \n                  \n                      Slides\n                  \n              \n              \n                  \n                      Code\n                  \n              \n          \n        \n      \n    \n  \n  \n    \n        \n          \n        \n        \n          \n          \n            \nVersion complète de la formation aux bonnes pratiques en\nR et en Git, axée autour de la notion de\nreproductibilité et de la collaboration.\n\n\nVersion en deux jours\n\n            \n              \n            \n          \n          \n              \n                  \n                      Slides\n                  \n              \n              \n                  \n                      Code\n                  \n              \n          \n        \n      \n    \n  \n\n\nNo matching items"
