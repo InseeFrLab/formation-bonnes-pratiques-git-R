@@ -746,7 +746,7 @@
     "href": "slides/complete.html#ère-possibilité-le-merge",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1ère possibilité : le merge",
-    "text": "1ère possibilité : le merge\n\n\n\nGit crée un commit de merge\n\nComportement par défaut jusqu’à récemment\n\n\n\n\n\nInconvénient : rend l’historique non-linéaire"
+    "text": "1ère possibilité : le merge\n\n\n\nGit crée un commit de merge\n\nComportement par défaut (jusqu’à récemment)\n\n\n\n\n\nInconvénient : rend l’historique non-linéaire (plus d’explications)"
   },
   {
     "objectID": "slides/complete.html#ème-possibilité-le-rebase-12",
@@ -760,7 +760,7 @@
     "href": "slides/complete.html#ème-possibilité-le-rebase-22",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2ème possibilité : le rebase (2/2)",
-    "text": "2ème possibilité : le rebase (2/2)\n\n\n\nAvantage : l’historique reste linéaire\n\n\n\n\nInconvénient : modification de l’historique lorsqu’utilisé sur des branches publiques"
+    "text": "2ème possibilité : le rebase (2/2)\n\n\n\nAvantage : l’historique reste linéaire\n\n\n\n\nAttention : ne jamais rebase des commits déjà poussés sur un dépôt public (plus d’explications)"
   },
   {
     "objectID": "slides/complete.html#application-4-suite",

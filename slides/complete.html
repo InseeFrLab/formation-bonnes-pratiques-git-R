@@ -1071,7 +1071,7 @@ _Workflow_ (version littéraire) :
 
 <img data-src="img/ff.png" class="r-stretch"><div class="fragment">
 <ul>
-<li><code>Git</code> résout le problème via un <em>fast-forward merge</em>
+<li><code>Git</code> résout le problème via un <span class="blue2"><strong><em>fast-forward merge</em></strong></span>
 <ul>
 <li>Le commit distant est rajouté à l’historique local</li>
 <li>Les dépôts sont synchronisés</li>
@@ -1104,13 +1104,13 @@ _Workflow_ (version littéraire) :
 <ul>
 <li><code>Git</code> crée un <span class="blue2"><strong>commit de merge</strong></span>
 <ul>
-<li>Comportement par défaut jusqu’à récemment</li>
+<li>Comportement par défaut (jusqu’à récemment)</li>
 </ul></li>
 </ul>
 </div>
 <div class="fragment">
 <ul>
-<li><span class="orange"><strong>Inconvénient</strong></span> : rend l’<span class="blue2"><strong>historique non-linéaire</strong></span></li>
+<li><span class="orange"><strong>Inconvénient</strong></span> : rend l’<span class="blue2"><strong>historique non-linéaire</strong></span> (<a href="https://www.atlassian.com/fr/git/tutorials/using-branches/git-merge">plus d’explications</a>)</li>
 </ul>
 </div>
 </section>
@@ -1138,7 +1138,7 @@ _Workflow_ (version littéraire) :
 </div>
 <div class="fragment">
 <ul>
-<li><span class="orange"><strong>Inconvénient</strong></span> : modification de l’historique lorsqu’utilisé sur des branches publiques</li>
+<li><span class="orange"><strong>Attention</strong></span> : ne jamais <em>rebase</em> des commits déjà poussés sur un dépôt public (<a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Rebaser-Rebasing#s_rebase_peril">plus d’explications</a>)</li>
 </ul>
 </div>
 </section>
