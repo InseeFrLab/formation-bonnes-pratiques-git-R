@@ -23,7 +23,7 @@
 
 . . .
 
-- `Git` résout le problème via un *fast-forward merge*
+- `Git` résout le problème via un [***fast-forward merge***]{.blue2}
     - Le commit distant est rajouté à l'historique local
     - Les dépôts sont synchronisés
 
@@ -48,11 +48,11 @@
 . . .
 
 - `Git` crée un [**commit de merge**]{.blue2}
-    - Comportement par défaut jusqu'à récemment
+    - Comportement par défaut (jusqu'à récemment)
 
 . . .
 
-- [**Inconvénient**]{.orange} : rend l'[**historique non-linéaire**]{.blue2}
+- [**Inconvénient**]{.orange} : rend l'[**historique non-linéaire**]{.blue2} ([plus d'explications](https://www.atlassian.com/fr/git/tutorials/using-branches/git-merge))
 
 ## 2ème possibilité : le *rebase* (1/2)
 
@@ -75,7 +75,7 @@
 
 . . .
 
-- [**Inconvénient**]{.orange} : modification de l'historique lorsqu'utilisé sur des branches publiques
+- [**Attention**]{.orange} : ne jamais *rebase* des commits déjà poussés sur un dépôt public ([plus d'explications](https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Rebaser-Rebasing#s_rebase_peril))
 
 ## Application 4 (suite) {.smaller}
 
