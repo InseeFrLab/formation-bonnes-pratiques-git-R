@@ -27,4 +27,5 @@ slides:
 code:
   text: Code 
   url: https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R
+order: 2
 ---
