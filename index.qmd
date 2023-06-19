@@ -10,12 +10,14 @@ toc: false
 
 ## Formation aux bonnes pratiques avec `Git` et `R`
 
-Formation construite à l'__Insee__, déclinée en quatre versions:
+Un parcours de formation construit par l'[__Insee__](https://www.insee.fr/fr/accueil).
 
+<!-------
 - une [version allégée](/slides/light.html) (une journée) ;
 - une [version complète](/slides/complete.html) (deux jours) ;
 - une [version _manageurs_](https://diit.pages.lab.sspcloud.fr/presentation/sensibilisation-management-bp/#/title-slide) (1/2 journée) ;
 - une version _teasing_ (1h, à venir) ;
+--------->
 
 Tous les supports sont sur le [`Github InseeFrLab` {{< fa brands github >}}](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R)
 <br>
