@@ -17,7 +17,7 @@ const imgHeight = "100%";
 <div class="list grid quarto-listing-cols-<%=cols%>">
 <% for (const item of items) { %>
   <div class="g-col-1" <%= metadataAttrs(item) %>>
-    <a href="<%= item.code %>" target="_blank" rel="noopener" class="grid-item-link"> <!-- Added link wrapper -->
+    <a href="<%= item.slides.url %>" target="_blank" rel="noopener" class="grid-item-link"> <!-- Added link wrapper -->
       <div class="quarto-grid-item card h-100 <%-`card-${align}`%><%= hideBorders ? ' borderless' : '' %>">
         <% if (item.image) { %>
           <p class="card-img-top">
