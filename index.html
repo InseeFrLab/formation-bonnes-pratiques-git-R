@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script>
@@ -70,9 +71,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-image','listing-title','listing-date','listing-description','listing-abstract','listing-categories','listing-slides','listing-code','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-filename','listing-file-modified','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-project','listing-website','listing-format','listing-language','listing-image','listing-title','listing-date','listing-description','listing-abstract','listing-categories','listing-slides','listing-code','listing-order','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-filename','listing-file-modified','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
       
-      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-image","listing-title","listing-date","listing-description","listing-abstract","listing-categories","listing-slides","listing-code","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-filename","listing-file-modified","listing-reading-time"],
+      searchColumns: ["listing-project","listing-website","listing-format","listing-language","listing-image","listing-title","listing-date","listing-description","listing-abstract","listing-categories","listing-slides","listing-code","listing-order","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-filename","listing-file-modified","listing-reading-time"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -154,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Tous les supports sont sur le <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R"><code>Github InseeFrLab</code></a> <br> <br></p>
 <div id="listing-formations" class="quarto-listing quarto-listing-container-custom">
 <div class="list grid quarto-listing-cols-3">
-  <div class="g-col-1" data-index="0" data-categories="R,Git" data-listing-date-sort="1643673600000" data-listing-file-modified-sort="1685107132298" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="0" data-categories="R,Git" data-listing-date-sort="1643673600000" data-listing-file-modified-sort="1687163369940" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
     <div class="quarto-grid-item card h-100 card-left">
         <p class="card-img-top">
           <img src="./cards/version-light/cheetah.png" class="thumbnail-image card-img" style="height: auto;" alt="">
@@ -198,12 +199,12 @@ de la qualité du code <code>R</code>
             index.qmd
           </div>
           <div class="card-file-modified listing-file-modified">
-            5/26/23, 1:18:52 PM
+            6/19/23, 8:29:29 AM
           </div>
       </div> -->
     </div>
   </div>
-  <div class="g-col-1" data-index="1" data-categories="R,Git" data-listing-date-sort="1643587200000" data-listing-file-modified-sort="1685107132294" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+  <div class="g-col-1" data-index="1" data-categories="R,Git" data-listing-date-sort="1643587200000" data-listing-file-modified-sort="1687163369936" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
     <div class="quarto-grid-item card h-100 card-left">
         <p class="card-img-top">
           <img src="./cards/version-full/eagle.png" class="thumbnail-image card-img" style="height: auto;" alt="">
@@ -246,7 +247,56 @@ reproductibilité et de la collaboration.
             index.qmd
           </div>
           <div class="card-file-modified listing-file-modified">
-            5/26/23, 1:18:52 PM
+            6/19/23, 8:29:29 AM
+          </div>
+      </div> -->
+    </div>
+  </div>
+  <div class="g-col-1" data-index="2" data-categories="R,Git" data-listing-date-sort="1654041600000" data-listing-file-modified-sort="1687163369928" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+    <div class="quarto-grid-item card h-100 card-left">
+        <p class="card-img-top">
+          <img src="./cards/version-boss/falcon.png" class="thumbnail-image card-img" style="height: auto;" alt="">
+        </p>
+        <div class="card-body post-contents">
+          <h5 class="no-anchor card-title listing-title">Sensibilisation pour les chefs</h5>
+          <div class="card-subtitle listing-subtitle"></div>
+            <div class="card-text listing-description delink"><br>
+Version plus succinct pour sensibiliser les
+responsables hiérarchiques au sujet
+des bonnes pratiques de code
+<code>R</code> et en <code>Git</code>.
+<br>
+<br>
+<b>Version 1/2 journée</b>
+</div>
+            <div class="card-attribution card-text-small justify">
+              <div class="listing-author"></div>
+            </div>
+          <style>
+            .listing-categories .listing-category .listing-href {
+              color: inherit; /* blue colors for links too */
+              text-decoration: inherit; /* no underline */
+            }
+          </style>
+          <div class="listing-categories" style="padding-top: 1em;">
+              <div class="listing-category">
+                  <a class="listing-href" href="https://diit.pages.lab.sspcloud.fr/presentation/sensibilisation-management-bp/#/title-slide" target="_blank" rel="noopener">
+                      Slides
+                  </a>
+              </div>
+              <div class="listing-category">
+                  <a class="listing-href" href="https://git.lab.sspcloud.fr/diit/presentation/sensibilisation-management-bp" target="_blank" rel="noopener">
+                      Code
+                  </a>
+              </div>
+          </div>
+        </div>
+      <!-- <div class="card-footer">
+          <div class="card-filename listing-filename">
+            index.qmd
+          </div>
+          <div class="card-file-modified listing-file-modified">
+            6/19/23, 8:29:29 AM
           </div>
       </div> -->
     </div>
@@ -260,7 +310,7 @@ No matching items
 <section id="crédits" class="level2">
 <h2 class="anchored" data-anchor-id="crédits">Crédits</h2>
 <p>Cette formation a été conçue de manière collaborative par des équipes de l’Insee et coordonnée par <a href="https://github.com/avouacr">Romain Avouac</a> et <a href="https://github.com/linogaliana">Lino Galiana</a>.</p>
-<p>Elle a bénéficié des contributions de : <a href="https://github.com/avouacr">Romain Avouac</a>, <a href="https://github.com/JulienBlasco">Julien Blasco</a>, <a href="https://github.com/ThomasFaria">Thomas Faria</a> <a href="https://github.com/linogaliana">Lino Galiana</a> <a href="https://github.com/oliviermeslin">Olivier Meslin</a>, <a href="https://github.com/Evargalo">Olivier Pucher</a>, <a href="https://github.com/clerousset">Clément Rousset</a>, Mohamed Seikouri et Tom Seimandi.</p>
+<p>Elle a bénéficié des contributions de : <a href="https://github.com/avouacr">Romain Avouac</a>, <a href="https://github.com/JulienBlasco">Julien Blasco</a>, <a href="https://github.com/ThomasFaria">Thomas Faria</a>, <a href="https://github.com/linogaliana">Lino Galiana</a>, <a href="https://github.com/pierre-lamarche">Pierre Lamarche</a>, <a href="https://github.com/rlesur">Romain Lesur</a> <a href="https://github.com/oliviermeslin">Olivier Meslin</a>, <a href="https://github.com/Evargalo">Olivier Pucher</a>, <a href="https://github.com/clerousset">Clément Rousset</a>, Mohamed Seikouri et <a href="https://github.com/tomseimandi">Tom Seimandi</a>.</p>
 <p>Les supports et le code source (<a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R"><code>Github InseeFrLab</code></a>) sont librement réutilisables et disponibles sous licence MIT.</p>
 
 
