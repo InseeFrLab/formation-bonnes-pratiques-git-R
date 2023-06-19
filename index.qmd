@@ -10,9 +10,10 @@ toc: false
 
 ## Formation aux bonnes pratiques avec `Git` et `R`
 
-Formation construite à l'__Insee__, déclinée en deux versions: une version allégée (une journée) et la version complète (deux jours).
+Formation construite à l'__Insee__, déclinée en trois versions:
+une version allégée (une journée), une version complète (deux jours) et une version _manageurs_ (1/2 journée).
 
-Tous les supports sont sur le [`Github InseeFrLab`](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R)
+Tous les supports sont sur le [`Github InseeFrLab` {{< fa brands github >}}](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R)
 <br>
 <br>
 
@@ -38,4 +39,4 @@ Elle a bénéficié des contributions de : [Romain Avouac](https://github.com/av
 Mohamed Seikouri et
 [Tom Seimandi](https://github.com/tomseimandi).
 
-Les supports et le code source ([`Github InseeFrLab`](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R)) sont librement réutilisables et disponibles sous licence MIT. 
+Les supports et le code source ([`Github InseeFrLab` {{< fa brands github >}}](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R)) sont librement réutilisables et disponibles sous licence MIT. 

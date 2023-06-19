@@ -1,6 +1,6 @@
 ---
 image: falcon.png
-title: Sensibilisation pour les chefs
+title: Sensibilisation pour les manageurs
 date: "2022-06-01"
 description: |
   <br>

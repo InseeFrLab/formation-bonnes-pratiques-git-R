@@ -64,21 +64,6 @@ const imgHeight = "100%";
                 <% } %>
               </div>
             <% } %>
-            <% if ('code') { %>
-              <div class="listing-category">
-                <% if (item.code.url) { %>
-                  <a class="listing-href" href="<%= item.code.url %>" target="_blank" rel="noopener">
-                    <% if (item.code.text) { %>
-                      <%= item.code.text %>
-                    <% } else { %>
-                      Code
-                    <% } %>
-                  </a>
-                <% } else { %>
-                  <a class="listing-href" href="<%= item.code %>" target="_blank" rel="noopener">Code</a>
-                <% } %>
-              </div>
-            <% } %>
           </div>
         </div>
       <% } %>
