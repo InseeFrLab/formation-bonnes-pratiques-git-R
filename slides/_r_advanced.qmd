@@ -136,15 +136,6 @@
 
 - Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
 
-![](https://astrakhan.fr/wp-content/uploads/2020/10/Data-Engineering.png)
-
-[Source](https://astrakhan.fr/blog/formation-au-data-engineering-une-nouvelle-offre-dastrakhan/)
-
-
-## Motivations
-
-- Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
-
 - Ces étapes peuvent être formalisées sous forme d'un [**pipeline (*direct acyclic graph*)**]{.orange}
 
 ![](img/dag_argo.png)
@@ -153,14 +144,12 @@
 
 ## Motivations
 
-- Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
+-  Modéliser ces étapes sous forme de [**pipeline (*direct acyclic graph*)**]{.orange} a plusieurs avantages :
 
 ::: {.incremental}
-- Modéliser ces étapes sous forme de [**pipeline (*direct acyclic graph*)**]{.orange} a plusieurs avantages :
   - [**Découplage**]{.blue2} des différentes étapes
   - Facilite la [**planification**]{.blue2} du traitement
   - Facilite la [**prise en main**]{.blue2} du projet par un tiers
-:::
 
 
 
