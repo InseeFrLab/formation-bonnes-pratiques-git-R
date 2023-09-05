@@ -258,7 +258,7 @@ dans 📁 `R/functions.R`
 
 - La [documentation officielle de `targets`](https://books.ropensci.org/targets/)
 
-- La [fiche UtilitR dédiée à `targets`](https://www.book.utilitr.org/targets.html)
+- La [fiche UtilitR dédiée à `targets`](https://www.book.utilitr.org/03_fiches_thematiques/fiche_targets)
 
 
 {{< include applications_r/_application5.qmd >}}
