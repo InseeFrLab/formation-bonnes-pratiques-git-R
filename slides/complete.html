@@ -2313,10 +2313,12 @@ _Workflow_ (version littéraire) :
 <li class="fragment">Facilite la <span class="blue2"><strong>planification</strong></span> du traitement</li>
 <li class="fragment">Facilite la <span class="blue2"><strong>prise en main</strong></span> du projet par un tiers</li>
 </ul>
+</div>
+</section>
 <section id="le-package-targets" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Le package <code>targets</code></h2>
 <ul>
-<li class="fragment"><code>targets</code> est un <em>framework</em> de modélisation de <em>pipelines</em> spécifiquement dédié aux projets <code>R</code>.</li>
+<li><code>targets</code> est un <em>framework</em> de modélisation de <em>pipelines</em> spécifiquement dédié aux projets <code>R</code>.</li>
 </ul>
 <div>
 <ul>
@@ -2331,18 +2333,18 @@ _Workflow_ (version littéraire) :
 <section id="méthode-de-travail-avec-targets" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Méthode de travail avec <code>targets</code></h2>
 <ul>
-<li class="fragment">On développe dans des scripts :
+<li>On développe dans des scripts :
 <ul>
-<li class="fragment">Fonctions dans un ou plusieurs fichiers dédiés</li>
-<li class="fragment">Chaîne de production dans un fichier <code>_targets.R</code></li>
+<li>Fonctions dans un ou plusieurs fichiers dédiés</li>
+<li>Chaîne de production dans un fichier <code>_targets.R</code></li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li class="fragment">On gère l’exécution du <em>pipeline</em> directement dans la console
+<li>On gère l’exécution du <em>pipeline</em> directement dans la console
 <ul>
-<li class="fragment"><code>tar_visnetwork()</code> pour inspecter la structure du <em>pipeline</em></li>
-<li class="fragment"><code>tar_make</code> pour exécuter la chaine de production</li>
+<li><code>tar_visnetwork()</code> pour inspecter la structure du <em>pipeline</em></li>
+<li><code>tar_make</code> pour exécuter la chaine de production</li>
 </ul></li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -2363,10 +2365,10 @@ _Workflow_ (version littéraire) :
 <section id="un-projet-minimaliste" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Un projet minimaliste</h2>
 <ul>
-<li class="fragment">Structure de projet <em>opinionated</em> :
+<li>Structure de projet <em>opinionated</em> :
 <ul>
-<li class="fragment"><del>Long script <code>script.R</code></del> <code>_targets.R</code></li>
-<li class="fragment">Chaîne de production: suite d’appels à des fonctions définies dans <code>R/functions.R</code></li>
+<li><del>Long script <code>script.R</code></del> <code>_targets.R</code></li>
+<li>Chaîne de production: suite d’appels à des fonctions définies dans <code>R/functions.R</code></li>
 </ul></li>
 </ul>
 <p><br></p>
@@ -2379,10 +2381,10 @@ _Workflow_ (version littéraire) :
 <div class="fragment">
 <p><br></p>
 <ul>
-<li class="fragment">Nouveau fichier: <code>_targets.R</code>
+<li>Nouveau fichier: <code>_targets.R</code>
 <ul>
-<li class="fragment">Contrôle le comportement de notre chaine de traitement</li>
-<li class="fragment">Enchaînement d’étapes de transformation de données selon une syntaxe particulière</li>
+<li>Contrôle le comportement de notre chaine de traitement</li>
+<li>Enchaînement d’étapes de transformation de données selon une syntaxe particulière</li>
 </ul></li>
 </ul>
 </div>
@@ -2429,7 +2431,7 @@ _Workflow_ (version littéraire) :
 <section id="inspecter-le-pipeline" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Inspecter le <em>pipeline</em></h2>
 <ul>
-<li class="fragment">La fonction <code>tar_visnetwork</code> permet de visualiser le <em>pipeline</em></li>
+<li>La fonction <code>tar_visnetwork</code> permet de visualiser le <em>pipeline</em></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2440,7 +2442,7 @@ _Workflow_ (version littéraire) :
 <section id="exécuter-le-pipeline" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Exécuter le <em>pipeline</em></h2>
 <ul>
-<li class="fragment">La fonction <code>tar_make</code> exécute le <em>pipeline</em> défini dans <code>_targets.R</code></li>
+<li>La fonction <code>tar_make</code> exécute le <em>pipeline</em> défini dans <code>_targets.R</code></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2448,7 +2450,7 @@ _Workflow_ (version littéraire) :
 </figure>
 </div>
 <ul>
-<li class="fragment">💡 Lors des exécutions suivantes, <code>targets</code> saute automatiquement les étapes qui n’ont pas changé</li>
+<li>💡 Lors des exécutions suivantes, <code>targets</code> saute automatiquement les étapes qui n’ont pas changé</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2459,8 +2461,8 @@ _Workflow_ (version littéraire) :
 <section id="ressources-supplémentaires-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
-<li class="fragment"><p>La <a href="https://books.ropensci.org/targets/">documentation officielle de <code>targets</code></a></p></li>
-<li class="fragment"><p>La <a href="https://www.book.utilitr.org/03_fiches_thematiques/fiche_targets">fiche UtilitR dédiée à <code>targets</code></a></p></li>
+<li><p>La <a href="https://books.ropensci.org/targets/">documentation officielle de <code>targets</code></a></p></li>
+<li><p>La <a href="https://www.book.utilitr.org/03_fiches_thematiques/fiche_targets">fiche UtilitR dédiée à <code>targets</code></a></p></li>
 </ul>
 </section>
 <section id="application-5-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
@@ -2535,7 +2537,7 @@ _Workflow_ (version littéraire) :
 </div>
 <div class="callout-content">
 <ol start="9" type="1">
-<li class="fragment">A partir des fonctions suivantes, créer deux nouvelles cibles (<code>clean_data</code> et <code>table_age</code>) qui automatisent la production du tableau <code>gt</code></li>
+<li>A partir des fonctions suivantes, créer deux nouvelles cibles (<code>clean_data</code> et <code>table_age</code>) qui automatisent la production du tableau <code>gt</code></li>
 </ol>
 <div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>retraitement_donnees <span class="ot">&lt;-</span> <span class="cf">function</span>(df){</span>
 <span id="cb9-2"><a href="#cb9-2"></a>  df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
@@ -2568,9 +2570,9 @@ _Workflow_ (version littéraire) :
 <span id="cb9-29"><a href="#cb9-29"></a>  <span class="fu">return</span>(table_age)</span>
 <span id="cb9-30"><a href="#cb9-30"></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="10" type="1">
-<li class="fragment">En console, visualiser l’état du <em>pipeline</em> avec <code>tar_visnetwork</code> puis exécuter <code>tar_make()</code>. Analyser la sortie dans la console.</li>
-<li class="fragment">A l’aide de la fonction <code>tar_read(table_age)</code>, visualiser la table des âges produite.</li>
-<li class="fragment">Ajouter les commandes suivantes au sein de la fonction <code>retraitement_donnees</code> pour la modifier:</li>
+<li>En console, visualiser l’état du <em>pipeline</em> avec <code>tar_visnetwork</code> puis exécuter <code>tar_make()</code>. Analyser la sortie dans la console.</li>
+<li>A l’aide de la fonction <code>tar_read(table_age)</code>, visualiser la table des âges produite.</li>
+<li>Ajouter les commandes suivantes au sein de la fonction <code>retraitement_donnees</code> pour la modifier:</li>
 </ol>
 <div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">mutate</span>(</span>
@@ -2578,14 +2580,13 @@ _Workflow_ (version littéraire) :
 <span id="cb10-4"><a href="#cb10-4"></a>    <span class="at">cs1 =</span> <span class="fu">factor</span>(cs1)</span>
 <span id="cb10-5"><a href="#cb10-5"></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="13" type="1">
-<li class="fragment">Depuis la console, inspecter le _pipeline avec <code>tar_visnetwork</code> puis exécuter <code>tar_make()</code> pour lancer le <em>pipeline</em>. Analyser la sortie.</li>
-<li class="fragment">Si vous avez le temps, continuer à enrichir votre <em>pipeline</em></li>
+<li>Depuis la console, inspecter le _pipeline avec <code>tar_visnetwork</code> puis exécuter <code>tar_make()</code> pour lancer le <em>pipeline</em>. Analyser la sortie.</li>
+<li>Si vous avez le temps, continuer à enrichir votre <em>pipeline</em></li>
 </ol>
 </div>
 </div>
 </div>
-</section>
-</div>
+<p>:::</p>
 </section>
 <section id="checkpoint-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
