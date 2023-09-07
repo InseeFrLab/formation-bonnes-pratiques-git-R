@@ -150,7 +150,7 @@
   - [**Découplage**]{.blue2} des différentes étapes
   - Facilite la [**planification**]{.blue2} du traitement
   - Facilite la [**prise en main**]{.blue2} du projet par un tiers
-
+:::
 
 
 ## Le package `targets`
