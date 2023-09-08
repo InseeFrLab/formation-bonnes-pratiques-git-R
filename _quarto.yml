@@ -16,6 +16,8 @@ website:
         text: Version courte
       - href: slides/complete.html
         text: Version longue
+      - icon: github
+        href: https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R
     background: "#4758AB"
   twitter-card:
     image: /cards/version-light/cheetah.png

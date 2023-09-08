@@ -1,4 +1,4 @@
-# Bonnes pratiques pour les projets statistiques avec Git et R
+# Bonnes pratiques pour les projets statistiques avec `Git` <img height="18" width="18" src="https://cdn.simpleicons.org/git/00ccff99" />` et `R` <img height="18" width="18" src="https://cdn.simpleicons.org/r/00ccff99" />
 
 <div id="badges">
   <a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/">
@@ -7,10 +7,11 @@
 </div>
 
 
-Ensemble des supports des formations __"Bonnes pratiques pour les projets statistiques avec `Git` <img height="18" width="18" src="https://cdn.simpleicons.org/git/00ccff99" /> et `R` <img height="18" width="18" src="https://cdn.simpleicons.org/r/00ccff99" />"__ données à l'Insee et dans le SSP.
+Ensemble des supports des formations "__Bonnes pratiques pour les projets statistiques avec `Git` et `R`__" données à l'Insee et dans le [service statistique publique](https://www.insee.fr/fr/information/1302192).
 
 Les supports de formation sont déployés sur un [site dédié](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/).
 
+![](formation-bp.png)
 
 ## Contenu
 
