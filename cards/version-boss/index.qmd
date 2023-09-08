@@ -4,7 +4,7 @@ title: Sensibilisation pour les manageurs
 date: "2022-06-01"
 description: |
   <br>
-  Version plus succinct pour sensibiliser les 
+  Version plus succincte pour sensibiliser les 
   responsables hiérarchiques au sujet
   des bonnes pratiques de code
   <code>R</code> et en <code>Git</code>.
@@ -13,7 +13,7 @@ description: |
   <b>Version 1/2 journée</b>
 abstract: |
   <br>
-  Version plus succinct pour sensibiliser les 
+  Version plus succincte pour sensibiliser les 
   responsables hiérarchiques au sujet
   des bonnes pratiques de code
   <code>R</code> et en <code>Git</code>.
