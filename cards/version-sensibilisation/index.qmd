@@ -6,9 +6,7 @@ description: |
   <br>
   Présentation rapide sous forme de <i>teasing</i>
   de la formation aux bonnes pratiques en
-  <code>R</code> et en <code>Git</code>, axée autour de
-  l'apprentissage de <code>Git</code>, de la structure des projets <code>R</code> et
-  de la qualité du code <code>R</code>
+  <code>R</code> et en <code>Git</code>.
   <br>
   <br>
   <b>Version en 1h</b> 
@@ -16,9 +14,7 @@ abstract: |
   <br>
   Présentation rapide sous forme de <i>teasing</i>
   de la formation aux bonnes pratiques en
-  <code>R</code> et en <code>Git</code>, axée autour de
-  l'apprentissage de <code>Git</code>, de la structure des projets <code>R</code> et
-  de la qualité du code <code>R</code>
+  <code>R</code> et en <code>Git</code>.
   <br>
   <br>
   <b>Version en 1h</b> 
