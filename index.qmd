@@ -4,11 +4,12 @@ listing:
   contents: cards
   sort: "order asc"
   template: listing-grid.ejs
+  grid-columns: 2
 page-layout: full
 toc: false
 ---
 
-## Formation aux bonnes pratiques avec `Git` et `R`
+## Formation aux bonnes pratiques avec `Git` {{< fa brands git-alt >}} et {{< fa brands r-project >}}
 
 Un parcours de formation construit par l'[__Insee__](https://www.insee.fr/fr/accueil).
 
