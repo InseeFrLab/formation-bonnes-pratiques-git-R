@@ -1,0 +1,35 @@
+---
+image: cats.png
+title: Sensibilisation pour les agents
+date: "2023-09-08"
+description: |
+  <br>
+  Présentation rapide sous forme de <i>teasing</i>
+  de la formation aux bonnes pratiques en
+  <code>R</code> et en <code>Git</code>, axée autour de
+  l'apprentissage de <code>Git</code>, de la structure des projets <code>R</code> et
+  de la qualité du code <code>R</code>
+  <br>
+  <br>
+  <b>Version en 1h</b> 
+abstract: |
+  <br>
+  Présentation rapide sous forme de <i>teasing</i>
+  de la formation aux bonnes pratiques en
+  <code>R</code> et en <code>Git</code>, axée autour de
+  l'apprentissage de <code>Git</code>, de la structure des projets <code>R</code> et
+  de la qualité du code <code>R</code>
+  <br>
+  <br>
+  <b>Version en 1h</b> 
+categories:
+  - R
+  - Git
+slides:
+  text: Slides
+  url: https://diit.pages.lab.sspcloud.fr/presentation/20230908-sensibilisation-self/
+code:
+  text: Code 
+  url: https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R
+order: 4
+---
