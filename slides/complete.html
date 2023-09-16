@@ -667,6 +667,7 @@
 <div>
 <ul>
 <li class="fragment">L’<strong>usage quotidien</strong> n’implique que <span class="orange"><strong>quelques commandes</strong></span></li>
+<li class="fragment">Lors de chaque action, Git renvoie un <span class="orange">message</span> qui indique s’il y a eu problème (:important: il faut lire les messages de Git)</li>
 <li class="fragment"><span class="orange"><strong>Enormément de ressources</strong></span> disponibles sur internet</li>
 <li class="fragment">Des <span class="orange"><strong>interfaces visuelles</strong></span> (ex: <code>RStudio</code>, <code>Sublime Merge</code>, <code>VS Code</code>) qui facilitent l’apprentissage</li>
 <li class="fragment">Un petit investissement individuel pour de <span class="orange"><strong>gros gains collectifs</strong></span></li>
@@ -834,11 +835,11 @@ _Workflow_ (version littéraire) :
 <td><code>git commit -m "message"</code></td>
 </tr>
 <tr class="even">
-<td>Pousser les changements locaux (branche <code>master</code>)</td>
+<td>Pousser les changements locaux vers le dépôt distant (branche <code>master</code>)</td>
 <td><code>git push origin master</code></td>
 </tr>
 <tr class="odd">
-<td>Récupérer les changements distants (branche <code>master</code>)</td>
+<td>Récupérer les changements sur le dépôt distant (branche <code>master</code>)</td>
 <td><code>git pull origin master</code></td>
 </tr>
 </tbody>
@@ -852,7 +853,7 @@ _Workflow_ (version littéraire) :
 <ul>
 <li class="fragment"><code>git clone https://github.com/username/projet.git</code></li>
 <li class="fragment">simple à utiliser</li>
-<li class="fragment">authentification username/token à chaque <em>push</em></li>
+<li class="fragment">authentification username + password (ou token) à chaque <em>push</em></li>
 </ul></li>
 <li class="fragment"><span class="orange"><strong>ssh</strong></span>
 <ul>
@@ -894,7 +895,7 @@ _Workflow_ (version littéraire) :
 </div>
 <p>❓ <strong>Question</strong> : qu’est ce qui différencie le projet cloné d’un projet quelconque ?</p>
 </section>
-<section id="application-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="application-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 1</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -978,7 +979,7 @@ _Workflow_ (version littéraire) :
 <li class="fragment"><span class="orange"><strong>Fréquence</strong></span>
 <ul>
 <li class="fragment">Aussi souvent que possible</li>
-<li class="fragment">Le lot de modifications doit “faire sens”</li>
+<li class="fragment">Le lot de modifications doit “avoir du sens”</li>
 </ul></li>
 <li class="fragment"><span class="orange"><strong>Messages</strong></span>
 <ul>

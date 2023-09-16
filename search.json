@@ -144,7 +144,7 @@
     "href": "slides/light.html#git-est-complexe-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "⚠️ Git est complexe",
-    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
+    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nLors de chaque action, Git renvoie un message qui indique s’il y a eu problème (:important: il faut lire les messages de Git)\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
   },
   {
     "objectID": "slides/light.html#concepts",
@@ -200,14 +200,14 @@
     "href": "slides/light.html#commandes-essentielles-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Commandes essentielles",
-    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nFaire un commit\ngit commit -m \"message\"\n\n\nPousser les changements locaux (branche master)\ngit push origin master\n\n\nRécupérer les changements distants (branche master)\ngit pull origin master"
+    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nFaire un commit\ngit commit -m \"message\"\n\n\nPousser les changements locaux vers le dépôt distant (branche master)\ngit push origin master\n\n\nRécupérer les changements sur le dépôt distant (branche master)\ngit pull origin master"
   },
   {
     "objectID": "slides/light.html#modes-dauthentification",
     "href": "slides/light.html#modes-dauthentification",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Modes d’authentification",
-    "text": "Modes d’authentification\n\n\nhttps\n\ngit clone https://github.com/username/projet.git\nsimple à utiliser\nauthentification username/token à chaque push\n\nssh\n\ngit clone git@github.com:username/projet.git\n(plus) complexe à initialiser\nauthentification automatique"
+    "text": "Modes d’authentification\n\n\nhttps\n\ngit clone https://github.com/username/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@github.com:username/projet.git\n(plus) complexe à initialiser\nauthentification automatique"
   },
   {
     "objectID": "slides/light.html#application-0",
@@ -242,7 +242,7 @@
     "href": "slides/light.html#bonnes-pratiques-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “faire sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte"
+    "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “avoir du sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte"
   },
   {
     "objectID": "slides/light.html#application-3",
@@ -627,7 +627,7 @@
     "href": "slides/complete.html#git-est-complexe-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "⚠️ Git est complexe",
-    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
+    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nLors de chaque action, Git renvoie un message qui indique s’il y a eu problème (:important: il faut lire les messages de Git)\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
   },
   {
     "objectID": "slides/complete.html#concepts",
@@ -683,14 +683,14 @@
     "href": "slides/complete.html#commandes-essentielles-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Commandes essentielles",
-    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nFaire un commit\ngit commit -m \"message\"\n\n\nPousser les changements locaux (branche master)\ngit push origin master\n\n\nRécupérer les changements distants (branche master)\ngit pull origin master"
+    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nFaire un commit\ngit commit -m \"message\"\n\n\nPousser les changements locaux vers le dépôt distant (branche master)\ngit push origin master\n\n\nRécupérer les changements sur le dépôt distant (branche master)\ngit pull origin master"
   },
   {
     "objectID": "slides/complete.html#modes-dauthentification",
     "href": "slides/complete.html#modes-dauthentification",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Modes d’authentification",
-    "text": "Modes d’authentification\n\n\nhttps\n\ngit clone https://github.com/username/projet.git\nsimple à utiliser\nauthentification username/token à chaque push\n\nssh\n\ngit clone git@github.com:username/projet.git\n(plus) complexe à initialiser\nauthentification automatique"
+    "text": "Modes d’authentification\n\n\nhttps\n\ngit clone https://github.com/username/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@github.com:username/projet.git\n(plus) complexe à initialiser\nauthentification automatique"
   },
   {
     "objectID": "slides/complete.html#application-0",
@@ -725,7 +725,7 @@
     "href": "slides/complete.html#bonnes-pratiques-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “faire sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte"
+    "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “avoir du sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte"
   },
   {
     "objectID": "slides/complete.html#application-3",
