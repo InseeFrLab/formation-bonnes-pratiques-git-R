@@ -228,8 +228,8 @@ un bon `.gitignore`)
 | Action     | Commande      |
 |------------|---------------|
 | Faire un `commit` | `git commit -m "message"`|
-| Pousser les changements locaux (branche `master`) | `git push origin master` |
-| Récupérer les changements distants (branche `master`) | `git pull origin master` |
+| Pousser les changements locaux vers le dépôt distant (branche `master`) | `git push origin master` |
+| Récupérer les changements sur le dépôt distant (branche `master`) | `git pull origin master` |
 
 ## Modes d'authentification
 
@@ -237,7 +237,7 @@ un bon `.gitignore`)
 - [**https**]{.orange}
   - `git clone https://github.com/username/projet.git`
   - simple à utiliser
-  - authentification username/token à chaque *push*
+  - authentification username + password (ou token) à chaque *push*
 
 - [**ssh**]{.orange}
   - `git clone git@github.com:username/projet.git`
