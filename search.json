@@ -1131,7 +1131,7 @@
     "href": "slides/complete.html#enregistrement-de-lenvironnement",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Enregistrement de l’environnement",
-    "text": "3️⃣ Enregistrement de l’environnement\n\nrenv::snapshot() : enregistre les versions des packages installés dans le fichier renv.lock"
+    "text": "3️⃣ Enregistrement de l’environnement\n\nrenv::snapshot() : enregistre les versions des packages installés dans le fichier renv.lock\nNe pas oublier de committer le fichier renv.lock!"
   },
   {
     "objectID": "slides/complete.html#restauration-de-lenvironnement",
