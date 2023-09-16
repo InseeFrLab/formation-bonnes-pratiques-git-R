@@ -193,7 +193,7 @@
     "href": "slides/light.html#commandes-essentielles-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Commandes essentielles",
-    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nAjouter des changements à l’index de Git\nUn seul fichier : git add &lt;file-name&gt;  Tous les fichiers déjà indexés : git add -u  Tous les fichiers ⚠️ : git add -A\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nLa méthode git add -A peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).\nIl est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon .gitignore)"
+    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nAjouter des changements à l’index de Git (stage fixes)\nUn seul fichier : git add &lt;file-name&gt;  Tous les fichiers déjà indexés : git add -u  Tous les fichiers ⚠️ : git add -A\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nLa méthode git add -A peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).\nIl est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon .gitignore)"
   },
   {
     "objectID": "slides/light.html#commandes-essentielles-2",
@@ -676,7 +676,7 @@
     "href": "slides/complete.html#commandes-essentielles-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Commandes essentielles",
-    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nAjouter des changements à l’index de Git\nUn seul fichier : git add &lt;file-name&gt;  Tous les fichiers déjà indexés : git add -u  Tous les fichiers ⚠️ : git add -A\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nLa méthode git add -A peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).\nIl est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon .gitignore)"
+    "text": "Commandes essentielles\n\n\n\n\n\n\n\n\nAction\nCommande\n\n\n\n\nAjouter des changements à l’index de Git (stage fixes)\nUn seul fichier : git add &lt;file-name&gt;  Tous les fichiers déjà indexés : git add -u  Tous les fichiers ⚠️ : git add -A\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nLa méthode git add -A peut amener à suivre les modifications de fichiers qui ne devraient pas l’être (par exemple, des données).\nIl est recommandé de bien réfléchir avant de l’utiliser (ou d’avoir un bon .gitignore)"
   },
   {
     "objectID": "slides/complete.html#commandes-essentielles-2",
