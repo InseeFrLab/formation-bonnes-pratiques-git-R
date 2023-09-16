@@ -124,7 +124,7 @@ L'utilisation de `Git` nécessite [__certaines notions préalables__]{.orange}:
 
 ::: {.incremental}
 - L'**usage quotidien** n'implique que [**quelques commandes**]{.orange}
-- Lors de chaque action, Git renvoie un [message]{.orange} qui indique s'il y a eu problème (il faut lire les messages de Git!)
+- Lors de chaque action, Git renvoie un [**message**]{.orange} qui indique s'il y a eu problème (il faut lire les messages de Git!)
 - [**Enormément de ressources**]{.orange} disponibles sur internet
 - Des [**interfaces visuelles**]{.orange} (ex: `RStudio`, `Sublime Merge`, `VS Code`) qui facilitent l'apprentissage
 - Un petit investissement individuel pour de [**gros gains collectifs**]{.orange}
