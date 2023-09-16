@@ -249,7 +249,7 @@ un bon `.gitignore`)
 
 {{< include applications_git/_application0.qmd >}}
 
-## Application 1
+## Application 1 {.smaller}
 
 {{< include applications_git/_application1.qmd >}}
 
