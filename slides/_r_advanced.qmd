@@ -90,10 +90,11 @@
 ## :three: Enregistrement de l'environnement {.smaller}
 
 - `renv::snapshot()` : enregistre les versions des _packages_ installés dans le fichier `renv.lock`
+- Ne pas oublier de committer le fichier `renv.lock`!
 
 . . .
 
-![](img/renv_snapshot.png){height="400" fig-align="center"}
+![](img/renv_snapshot.png){height="350" fig-align="center"}
 
 ## :four: Restauration de l'environnement
 
