@@ -144,7 +144,7 @@
     "href": "slides/light.html#git-est-complexe-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "⚠️ Git est complexe",
-    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nLors de chaque action, Git renvoie un message qui indique s’il y a eu problème (:important: il faut lire les messages de Git)\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
+    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nLors de chaque action, Git renvoie un message qui indique s’il y a eu problème (il faut lire les messages de Git!)\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
   },
   {
     "objectID": "slides/light.html#concepts",
@@ -627,7 +627,7 @@
     "href": "slides/complete.html#git-est-complexe-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "⚠️ Git est complexe",
-    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nLors de chaque action, Git renvoie un message qui indique s’il y a eu problème (:important: il faut lire les messages de Git)\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
+    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nLors de chaque action, Git renvoie un message qui indique s’il y a eu problème (il faut lire les messages de Git!)\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
   },
   {
     "objectID": "slides/complete.html#concepts",
