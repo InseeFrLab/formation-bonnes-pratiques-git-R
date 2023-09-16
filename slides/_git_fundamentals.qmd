@@ -206,7 +206,7 @@ Source : [Git Documentation](https://git-scm.com/book/en/v2/Getting-Started-What
 
 | Action     | Commande      |
 |------------|---------------|
-| Ajouter des changements à l'index de `Git` | Un seul fichier : `git add <file-name>` <br> Tous les fichiers déjà indexés : `git add -u` <br> Tous les fichiers :warning: : `git add -A` |
+| Ajouter des changements à l'index de `Git` (_stage fixes_) | Un seul fichier : `git add <file-name>` <br> Tous les fichiers déjà indexés : `git add -u` <br> Tous les fichiers :warning: : `git add -A` |
 
 <br>
 
