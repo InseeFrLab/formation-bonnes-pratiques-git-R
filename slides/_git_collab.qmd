@@ -100,7 +100,7 @@
 Description plus détaillée : [ici](https://docs.github.com/en/get-started/quickstart/github-flow)
 
 
-## Application 6
+## Application 6 {.smaller}
 
 {{< include applications_git/_application6.qmd >}}
 
