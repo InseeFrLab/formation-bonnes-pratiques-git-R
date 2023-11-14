@@ -11,7 +11,7 @@ author: |
 # date: 
 slide-number: true
 footer: |
-  Bonnes pratiques pour les projets statistiques
+  Bonnes pratiques pour les projets statistiques ([retour au site principal](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/) ; [<i class="fa-brands fa-github"></i>](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R))
 # uncomment for French presentations:
 lang: fr-FR
 # for blind readers:
