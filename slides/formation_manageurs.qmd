@@ -121,19 +121,32 @@ Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse sty
 {{< include elements_git/_bp_git.qmd >}}
 
 
-## L'élaboration d'une statistique, le cas d'usage classique à l'Insee
+## L'élaboration d'une statistique
+
+<h4>Le cas d'usage classique à l'Insee</h4>
+
+<br>
 
 Il faut distinguer deux types de processus de production :
 
-- celui qui est entièrement automatisé, et où l'intervention humaine est limitée ;
-- celui qui nécessite du [_fine tuning_]{.orange} de la part du statisticien, et donc fait l'objet de tâtonnements
-  + calcul du taux de pauvreté avec ERFS et SRCV
-  + micro-simulation avec le modèle INES
-  + de manière générale, des processus de suivi conjoncturels
-  
-## Pourquoi Git répond-il bien aux enjeux de la production ?
+- celui qui est [**entièrement automatisé**]{.orange}, et où l'intervention humaine est limitée ;
 
-Les tâtonnements supposent des allers et retours sur différentes hypothèses, par exemple dans le cas du calcul du taux de pauvreté dans SRCV :
+. . .
+
+- celui qui nécessite du [__travail humain postérieur__]{.orange} de la part du statisticien, et donc fait l'objet de tâtonnements
+  + calcul du taux de pauvreté avec [__ERFS et SRCV__]{.blue2} ;
+  + micro-simulation avec le [__modèle INES__]{.blue2} ;
+  + des processus de [__suivi conjoncturels__]{.blue2}...
+  
+## Pourquoi `Git` répond-il bien aux enjeux de la production ?
+
+::: {h4}
+__Exemple avec calcul du taux de pauvreté dans [SRCV]{.blue2}__
+:::
+
+<br>
+
+Les tâtonnements supposent des allers et retours sur différentes hypothèses :
 
 - prise en compte évolutive des phénomènes affectant l'indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;
 - production de différentes [__variantes__]{.orange} que l'on veut pouvoir comparer les unes aux autres ;
@@ -142,29 +155,39 @@ Les tâtonnements supposent des allers et retours sur différentes hypothèses, 
 ## Quels concepts ?
 
 - les [__variantes__]{.orange} peuvent se décliner sous la notion de [__branches__]{.orange} ;
-- en traçant l'ensemble des modifications du code, Git facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
+- en traçant l'ensemble des modifications du code, `Git` facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
 - au travers de l'[__historique__]{.orange}, il permet de retracer l'ensemble du cheminement ;
-- le [__git blame__]{.orange} permet de voir qui a fait quoi ;
-- mais cela nécessite une [__discipline__]{.orange} sur l'usage de Git.
+- le `git blame` permet de voir qui a fait quoi ;
+- mais cela nécessite une [__discipline__]{.orange} sur l'usage de `Git`.
 
 &#8658; deux notions essentielles : [__reproductibilité__]{.orange} et [__traçabilité__]{.orange}
 
 ## Gestion du cycle de vie d'un projet
 
-- changement de paradigme : [**le code self doit être maintenu**]{.orange}
-  * changement de version de R et des packages
-  * quelles solutions connaissez-vous ?
+- Changement de paradigme : [**le code _self_ doit être maintenu**]{.orange}
+  * Changement de version de `R` et des _packages_ ;
+  * Quelles solutions connaissez-vous ?
 
 . . .
 
-- renv et la notion de lockfile
-- anticiper les montées de version des logiciels :  on peut envisager un protocole pour cela => cycle de vie du code et de son environnement d’exécution
+- `renv` et la notion de _lockfile_
+- anticiper les montées de version des logiciels :  on peut envisager un protocole pour cela 
+
+## Gestion du cycle de vie d'un projet
+
+- Gérer le cycle de vie:
+  - du [__code__]{.orange}
+  - de son [__environnement d’exécution__]{.orange}
+  - des [__données__]{.orange} mobilisées en entrée du projet et produites de manière intermédiaire.
 
 . . .
 
-- responsabilités et organisation : à la fois sur la maintenance du code et sur [gitlab.insee.fr](https://gitlab.insee.fr)
+- Définir responsabilités et organisation à la fois :
+    + sur la maintenance du code ;
+    + sur [gitlab.insee.fr](https://gitlab.insee.fr).
 
-# II- Enjeux de sécurité
+
+# Partie 3: Enjeux de sécurité
 
 ## Question
 
@@ -174,12 +197,12 @@ Les tâtonnements supposent des allers et retours sur différentes hypothèses, 
 
 :::
 
-## Risques
+## Risques 👮
 
 - Mot de passe et jetons d'accès à des API  
   [**pas de mot de passe ni de jeton d'accès écrits dans le code**]{.orange}
 - Risques sur les données :
-  * **pas de données dans `git`**
+  * **pas de données dans `Git`**
   * **pas de compte d'accès commun à des bases de données**
   * **pas de données sensibles en dehors des environnements protégés**
 
@@ -217,7 +240,7 @@ connexion_clone <- do.call(dbConnect, args = c(connexion_details$clone[2:4],
 
 ## A utiliser avec un gestionnaire de mots de passe
 
-KeePass ![](img/keepass.png){height=30 style="vertical-align: middle;"} :
+`KeePass` ![](img/keepass.png){height=30 style="vertical-align: middle;"} :
 
 - disponible dans le centre logiciel
 - simple d'utilisation
@@ -237,20 +260,20 @@ KeePass ![](img/keepass.png){height=30 style="vertical-align: middle;"} :
 ## Stockage des données
 
 - Données sous forme de fichier :
-  * ne pas les mettre sous `git` (utiliser le fichier `.gitignore`)
-  * veiller à ce que les données sensibles ne prolifèrent pas
+  * ne pas les mettre sous `Git` (utiliser le fichier `.gitignore`)
+  * veiller à ce que les données sensibles ne prolifèrent pas.
 - Données dans des bases de données :
   * toujours se poser la question de l'opportunité de les dupliquer sous forme de fichier
 
 On préférera toujours avoir des données stockées dans un unique espace pour lequel les droits d'accès sont gérés individuellement.
 
-# III- Collaboration et ouverture
+# Partie 4: Collaboration et ouverture
 
 ## Quelques questions pour commencer
 
 - Pour limiter les risques de sécurité, vaut-il mieux cacher son code à ses collègues ?
 - Quelle est la nature juridique des codes sources réalisés à l'Insee ?
-- R, python et leurs packages sont gratuits, comment est-ce possible ?
+- `R`, `Python` et leurs _packages_ sont gratuits, comment est-ce possible ?
 - Connaissez-vous la science ouverte et ses standards ?
 
 ## La sécurité par l'obscurité
@@ -276,8 +299,8 @@ On préférera toujours avoir des données stockées dans un unique espace pour 
 
 ## Différents niveaux d'ouverture possibles
 
-- Au-delà, la publication de certains projets en open source permet de valoriser le savoir-faire de l'Insee :
-  - packages R : disaggR, btb, RJDemetra...
+- Au-delà, la publication de certains projets en _open source_ permet de valoriser le savoir-faire de l'Insee :
+  - _Packages_ `R` : `disaggR`, `btb`, `RJDemetra`...
   - Eurostat systématise l'open source pour les travaux européens
   - une nécessité pour ne pas passer pour un passager clandestin vis-à-vis des communautés open source
   - un moyen d'assurer la transparence de nos méthodes (cf. code des bonnes pratiques et les standards de la science ouverte)
