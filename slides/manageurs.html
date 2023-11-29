@@ -787,22 +787,34 @@ Pierre Lamarche
 </div>
 </div>
 </section>
-<section id="lélaboration-dune-statistique-le-cas-dusage-classique-à-linsee" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>L’élaboration d’une statistique, le cas d’usage classique à l’Insee</h2>
+<section id="lélaboration-dune-statistique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>L’élaboration d’une statistique</h2>
+<h4>
+Le cas d’usage classique à l’Insee
+</h4>
+<p><br></p>
 <p>Il faut distinguer deux types de processus de production :</p>
 <ul>
-<li>celui qui est entièrement automatisé, et où l’intervention humaine est limitée ;</li>
-<li>celui qui nécessite du <span class="orange"><em>fine tuning</em></span> de la part du statisticien, et donc fait l’objet de tâtonnements
+<li>celui qui est <span class="orange"><strong>entièrement automatisé</strong></span>, et où l’intervention humaine est limitée ;</li>
+</ul>
+<div class="fragment">
 <ul>
-<li>calcul du taux de pauvreté avec ERFS et SRCV</li>
-<li>micro-simulation avec le modèle INES</li>
-<li>de manière générale, des processus de suivi conjoncturels</li>
+<li>celui qui nécessite du <span class="orange"><strong>travail humain postérieur</strong></span> de la part du statisticien, et donc fait l’objet de tâtonnements
+<ul>
+<li>calcul du taux de pauvreté avec <span class="blue2"><strong>ERFS et SRCV</strong></span> ;</li>
+<li>micro-simulation avec le <span class="blue2"><strong>modèle INES</strong></span> ;</li>
+<li>des processus de <span class="blue2"><strong>suivi conjoncturels</strong></span>…</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section id="pourquoi-git-répond-il-bien-aux-enjeux-de-la-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Pourquoi Git répond-il bien aux enjeux de la production ?</h2>
-<p>Les tâtonnements supposent des allers et retours sur différentes hypothèses, par exemple dans le cas du calcul du taux de pauvreté dans SRCV :</p>
+<h2>Pourquoi <code>Git</code> répond-il bien aux enjeux de la production ?</h2>
+<div class="{h4}">
+<p><strong>Exemple avec calcul du taux de pauvreté dans <span class="blue2">SRCV</span></strong></p>
+</div>
+<p><br></p>
+<p>Les tâtonnements supposent des allers et retours sur différentes hypothèses :</p>
 <ul>
 <li>prise en compte évolutive des phénomènes affectant l’indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;</li>
 <li>production de différentes <span class="orange"><strong>variantes</strong></span> que l’on veut pouvoir comparer les unes aux autres ;</li>
@@ -813,37 +825,52 @@ Pierre Lamarche
 <h2>Quels concepts ?</h2>
 <ul>
 <li>les <span class="orange"><strong>variantes</strong></span> peuvent se décliner sous la notion de <span class="orange"><strong>branches</strong></span> ;</li>
-<li>en traçant l’ensemble des modifications du code, Git facilite la complète <span class="orange"><strong>reproductibilité</strong></span> des tâtonnements ;</li>
+<li>en traçant l’ensemble des modifications du code, <code>Git</code> facilite la complète <span class="orange"><strong>reproductibilité</strong></span> des tâtonnements ;</li>
 <li>au travers de l’<span class="orange"><strong>historique</strong></span>, il permet de retracer l’ensemble du cheminement ;</li>
-<li>le <span class="orange"><strong>git blame</strong></span> permet de voir qui a fait quoi ;</li>
-<li>mais cela nécessite une <span class="orange"><strong>discipline</strong></span> sur l’usage de Git.</li>
+<li>le <code>git blame</code> permet de voir qui a fait quoi ;</li>
+<li>mais cela nécessite une <span class="orange"><strong>discipline</strong></span> sur l’usage de <code>Git</code>.</li>
 </ul>
 <p>⇒ deux notions essentielles : <span class="orange"><strong>reproductibilité</strong></span> et <span class="orange"><strong>traçabilité</strong></span></p>
 </section>
 <section id="gestion-du-cycle-de-vie-dun-projet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Gestion du cycle de vie d’un projet</h2>
 <ul>
-<li>changement de paradigme : <span class="orange"><strong>le code self doit être maintenu</strong></span>
+<li>Changement de paradigme : <span class="orange"><strong>le code <em>self</em> doit être maintenu</strong></span>
 <ul>
-<li>changement de version de R et des packages</li>
-<li>quelles solutions connaissez-vous ?</li>
+<li>Changement de version de <code>R</code> et des <em>packages</em> ;</li>
+<li>Quelles solutions connaissez-vous ?</li>
 </ul></li>
 </ul>
 <div class="fragment">
 <ul>
-<li>renv et la notion de lockfile</li>
-<li>anticiper les montées de version des logiciels : on peut envisager un protocole pour cela =&gt; cycle de vie du code et de son environnement d’exécution</li>
+<li><code>renv</code> et la notion de <em>lockfile</em></li>
+<li>anticiper les montées de version des logiciels : on peut envisager un protocole pour cela</li>
 </ul>
 </div>
+</section>
+<section id="gestion-du-cycle-de-vie-dun-projet-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Gestion du cycle de vie d’un projet</h2>
+<ul>
+<li>Gérer le cycle de vie:
+<ul>
+<li>du <span class="orange"><strong>code</strong></span></li>
+<li>de son <span class="orange"><strong>environnement d’exécution</strong></span></li>
+<li>des <span class="orange"><strong>données</strong></span> mobilisées en entrée du projet et produites de manière intermédiaire.</li>
+</ul></li>
+</ul>
 <div class="fragment">
 <ul>
-<li>responsabilités et organisation : à la fois sur la maintenance du code et sur <a href="https://gitlab.insee.fr">gitlab.insee.fr</a></li>
+<li>Définir responsabilités et organisation à la fois :
+<ul>
+<li>sur la maintenance du code ;</li>
+<li>sur <a href="https://gitlab.insee.fr">gitlab.insee.fr</a>.</li>
+</ul></li>
 </ul>
 </div>
 </section></section>
 <section>
-<section id="ii--enjeux-de-sécurité" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>II- Enjeux de sécurité</h1>
+<section id="partie-3-enjeux-de-sécurité" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Partie 3: Enjeux de sécurité</h1>
 
 </section>
 <section id="question" class="slide level2" data-background-image="background.svg" data-background-size="contain">
@@ -863,13 +890,13 @@ Pierre Lamarche
 </div>
 </section>
 <section id="risques" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Risques</h2>
+<h2>Risques 👮</h2>
 <ul>
 <li>Mot de passe et jetons d’accès à des API<br>
 <span class="orange"><strong>pas de mot de passe ni de jeton d’accès écrits dans le code</strong></span></li>
 <li>Risques sur les données :
 <ul>
-<li><strong>pas de données dans <code>git</code></strong></li>
+<li><strong>pas de données dans <code>Git</code></strong></li>
 <li><strong>pas de compte d’accès commun à des bases de données</strong></li>
 <li><strong>pas de données sensibles en dehors des environnements protégés</strong></li>
 </ul></li>
@@ -908,7 +935,7 @@ Pierre Lamarche
 <img data-src="img/motdepasse_rstudio.png" class="r-stretch quarto-figure-center"></section>
 <section id="a-utiliser-avec-un-gestionnaire-de-mots-de-passe" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>A utiliser avec un gestionnaire de mots de passe</h2>
-<p>KeePass <img data-src="img/keepass.png" style="vertical-align: middle;" height="30"> :</p>
+<p><code>KeePass</code> <img data-src="img/keepass.png" style="vertical-align: middle;" height="30"> :</p>
 <ul>
 <li>disponible dans le centre logiciel</li>
 <li>simple d’utilisation</li>
@@ -937,8 +964,8 @@ Pierre Lamarche
 <ul>
 <li>Données sous forme de fichier :
 <ul>
-<li>ne pas les mettre sous <code>git</code> (utiliser le fichier <code>.gitignore</code>)</li>
-<li>veiller à ce que les données sensibles ne prolifèrent pas</li>
+<li>ne pas les mettre sous <code>Git</code> (utiliser le fichier <code>.gitignore</code>)</li>
+<li>veiller à ce que les données sensibles ne prolifèrent pas.</li>
 </ul></li>
 <li>Données dans des bases de données :
 <ul>
@@ -948,8 +975,8 @@ Pierre Lamarche
 <p>On préférera toujours avoir des données stockées dans un unique espace pour lequel les droits d’accès sont gérés individuellement.</p>
 </section></section>
 <section>
-<section id="iii--collaboration-et-ouverture" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>III- Collaboration et ouverture</h1>
+<section id="partie-4-collaboration-et-ouverture" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Partie 4: Collaboration et ouverture</h1>
 
 </section>
 <section id="quelques-questions-pour-commencer" class="slide level2" data-background-image="background.svg" data-background-size="contain">
@@ -957,7 +984,7 @@ Pierre Lamarche
 <ul>
 <li>Pour limiter les risques de sécurité, vaut-il mieux cacher son code à ses collègues ?</li>
 <li>Quelle est la nature juridique des codes sources réalisés à l’Insee ?</li>
-<li>R, python et leurs packages sont gratuits, comment est-ce possible ?</li>
+<li><code>R</code>, <code>Python</code> et leurs <em>packages</em> sont gratuits, comment est-ce possible ?</li>
 <li>Connaissez-vous la science ouverte et ses standards ?</li>
 </ul>
 </section>
@@ -995,9 +1022,9 @@ Pierre Lamarche
 <section id="différents-niveaux-douverture-possibles-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Différents niveaux d’ouverture possibles</h2>
 <ul>
-<li>Au-delà, la publication de certains projets en open source permet de valoriser le savoir-faire de l’Insee :
+<li>Au-delà, la publication de certains projets en <em>open source</em> permet de valoriser le savoir-faire de l’Insee :
 <ul>
-<li>packages R : disaggR, btb, RJDemetra…</li>
+<li><em>Packages</em> <code>R</code> : <code>disaggR</code>, <code>btb</code>, <code>RJDemetra</code>…</li>
 <li>Eurostat systématise l’open source pour les travaux européens</li>
 <li>une nécessité pour ne pas passer pour un passager clandestin vis-à-vis des communautés open source</li>
 <li>un moyen d’assurer la transparence de nos méthodes (cf.&nbsp;code des bonnes pratiques et les standards de la science ouverte)</li>
