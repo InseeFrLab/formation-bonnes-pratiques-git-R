@@ -25,9 +25,9 @@ categories:
   - Git
 slides:
   text: Slides
-  url: /slides/complete.html
+  url: /slides/manageurs.html
 code:
   text: Code 
-  url: https://git.lab.sspcloud.fr/diit/presentation/sensibilisation-management-bp
+  url: https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R
 order: 3
 ---
