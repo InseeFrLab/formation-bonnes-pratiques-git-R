@@ -25,7 +25,7 @@ categories:
   - Git
 slides:
   text: Slides
-  url: https://diit.pages.lab.sspcloud.fr/presentation/sensibilisation-management-bp/#/title-slide
+  url: /slides/complete.html
 code:
   text: Code 
   url: https://git.lab.sspcloud.fr/diit/presentation/sensibilisation-management-bp

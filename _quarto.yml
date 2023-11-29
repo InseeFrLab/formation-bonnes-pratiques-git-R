@@ -3,6 +3,7 @@ project:
   render:
     - /slides/formation_light.qmd
     - /slides/formation_full.qmd
+    - /slides/formation_manageurs.qmd
     - index.qmd
     - "/cards/**/*.qmd"
 

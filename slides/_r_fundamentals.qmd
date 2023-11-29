@@ -2,65 +2,9 @@
 
 # I- Qualité du code
 
-## Enjeux
+{{< include elements_r/_enjeux.qmd >}}
 
-- D'une vision utilitariste du code à une vision du code comme [**outil de communication**]{.orange}
-
-. . .
-
-- Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
-
-. . .
-
-- Faciliter la [**réutilisation**]{.orange}
-
-. . .
-
-- Assurer la [__transparence__]{.orange} méthodologique
-
-## Principes généraux
-
-1. Adopter les [**standards communautaires**]{.orange}
-
-. . .
-
-2. Utiliser des [**fonctions**]{.orange}
-
-. . .
-
-3. [**Documenter**]{.orange} son code
-
-. . .
-
-4. Indiquer les _packages_ utilisés afin d'éviter les [**conflits**]{.orange}
-
-
-## :one: Adopter les standards communautaires
-
-> *"Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread"*
->
-> [Tidyverse Style Guide](https://style.tidyverse.org/)
-
-. . .
-
-- Respecter les [conventions]{.orange} du langage dans lequel il est rédigé
-
-. . .
-
-- Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse style guide](https://style.tidyverse.org/index.html).
-
-
-## :one: Adopter les standards communautaires {.smaller}
-
-Deux outils pratiques aident à respecter les standards :
-
-1. [**_linter_**]{.orange} : programme qui vérifie que le code est __formellement__ conforme à un certain _guidestyle_
-    + signale problèmes formels, sans corriger 
-
-. . .
-
-2. [**_formatter_**]{.orange} : programme qui reformate un code pour le rendre conforme à un certain _guidestyle_
-    + modifie directement le code
+{{< include elements_r/_1_standards.qmd >}}
 
 . . .
 
@@ -110,9 +54,7 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 ## :three: Documenter son code
 
-- Grands principes :
-  - Documenter le [__pourquoi__]{.orange} plutôt que le [__comment__]{.orange}
-  - Privilégier l'auto-documentation via des [**nommages pertinents**]{.orange}.
+{{< include elements_r/_3_documentation.qmd >}}
 
 . . .
 

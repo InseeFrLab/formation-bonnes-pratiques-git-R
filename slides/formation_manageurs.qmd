@@ -1,0 +1,286 @@
+---
+title: Bonnes pratiques pour les projets statistiques
+subtitle: |
+  **[Une formation aux bonnes pratiques avec Git et R]{.orange}**
+author:
+  - name: "[Lino Galiana](https://www.linogaliana.fr/)"
+    affiliations:
+      - Insee 
+  - name: "Pierre Lamarche"
+    affiliations:
+      - Insee 
+slide-number: true
+footer: |
+  Bonnes pratiques pour les projets statistiques ([retour au site principal](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/) ; [<i class="fa-brands fa-github"></i>](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R))
+# uncomment for French presentations:
+lang: fr-FR
+# for blind readers:
+slide-tone: false
+# for @olevitt:
+chalkboard: # press the B key to toggle chalkboard
+  theme: whiteboard
+# uncomment to use the multiplex mode:
+#multiplex: true
+format:
+  # pick the light mode (onyxia-revealjs) or the dark mode (onyxia-dark-revealjs)
+  onyxia-revealjs:
+  #onyxia-dark-revealjs:
+    output-file: manageurs.html
+controls: true
+css: custom.css
+from: markdown+emoji
+---
+
+
+
+## Introduction
+
+* Version pour les _manageurs_ de la formation
+aux bonnes pratiques avec `R` et `Git`
+
+![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-boss/falcon.png){fig-align="center"}
+
+[_Retour à la page d'accueil pour explorer les autres versions_](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/)
+
+
+# Introduction
+
+{{< include _intro.qmd >}}
+
+
+## Vers un socle de bonnes pratiques ?
+
+:one: [**Qualité**]{.orange} du code et [**structure**]{.orange} des projets
+
+. . .
+
+:two: Le [**contrôle de version**]{.orange}
+
+. . .
+
+:three: Normes de [**sécurité**]{.orange}
+
+. . .
+
+:four: [**Ouverture**]{.orange}
+
+
+# Partie 1 : Qualité du code et structure des projets
+
+{{< include elements_r/_enjeux.qmd >}}
+
+
+## :one: Adopter les standards communautaires {.smaller}
+
+Deux outils pratiques aident à respecter les standards :
+
+1. [**_linter_**]{.orange} : programme qui vérifie que le code est __formellement__ conforme à un certain _guidestyle_
+    + signale problèmes formels, sans corriger 
+
+. . .
+
+2. [**_formatter_**]{.orange} : programme qui reformate un code pour le rendre conforme à un certain _guidestyle_
+    + modifie directement le code
+
+::: {.callout-note}
+Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse style guide](https://style.tidyverse.org/index.html).
+:::
+
+
+## :two: Favoriser la modularité des projets {.smaller}
+
+::: {.incremental}
+- Favoriser l’utilisation de [**fonctions**]{.orange}
+  - [**Limite les risques d'erreur**]{.blue} liés aux copier/coller
+  - Rend le code plus [**lisible**]{.blue} et plus [**compact**]{.blue}
+  - [**Unicité**]{.blue} de la source de vérité
+
+- Les [**packages**]{.orange}
+  - Idéal pour favoriser la [**réutilisation**]{.blue} du code
+  - Coût de [**maintenance**]{.blue} élevé
+:::
+
+
+## :three: Documenter son code
+
+{{< include elements_r/_3_documentation.qmd >}}
+
+. . .
+
+- Documenter le projet (contexte, objectifs, fonctionnement) dans un fichier `README`
+  - Quelques modèles : [utilitR](https://github.com/InseeFrLab/utilitR/blob/master/README.md), [DoReMIFaSol](https://github.com/InseeFrLab/DoReMIFaSol)
+
+
+# Partie 2 : Le contrôle de version
+
+
+{{< include elements_git/_1_2_pourquoi.qmd >}}
+
+{{< include elements_git/_concepts.qmd >}}
+
+{{< include elements_git/_bp_git.qmd >}}
+
+
+## L'élaboration d'une statistique, le cas d'usage classique à l'Insee
+
+Il faut distinguer deux types de processus de production :
+
+- celui qui est entièrement automatisé, et où l'intervention humaine est limitée ;
+- celui qui nécessite du [_fine tuning_]{.orange} de la part du statisticien, et donc fait l'objet de tâtonnements
+  + calcul du taux de pauvreté avec ERFS et SRCV
+  + micro-simulation avec le modèle INES
+  + de manière générale, des processus de suivi conjoncturels
+  
+## Pourquoi Git répond-il bien aux enjeux de la production ?
+
+Les tâtonnements supposent des allers et retours sur différentes hypothèses, par exemple dans le cas du calcul du taux de pauvreté dans SRCV :
+
+- prise en compte évolutive des phénomènes affectant l'indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;
+- production de différentes [__variantes__]{.orange} que l'on veut pouvoir comparer les unes aux autres ;
+- comprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi.
+
+## Quels concepts ?
+
+- les [__variantes__]{.orange} peuvent se décliner sous la notion de [__branches__]{.orange} ;
+- en traçant l'ensemble des modifications du code, Git facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
+- au travers de l'[__historique__]{.orange}, il permet de retracer l'ensemble du cheminement ;
+- le [__git blame__]{.orange} permet de voir qui a fait quoi ;
+- mais cela nécessite une [__discipline__]{.orange} sur l'usage de Git.
+
+&#8658; deux notions essentielles : [__reproductibilité__]{.orange} et [__traçabilité__]{.orange}
+
+## Gestion du cycle de vie d'un projet
+
+- changement de paradigme : [**le code self doit être maintenu**]{.orange}
+  * changement de version de R et des packages
+  * quelles solutions connaissez-vous ?
+
+. . .
+
+- renv et la notion de lockfile
+- anticiper les montées de version des logiciels :  on peut envisager un protocole pour cela => cycle de vie du code et de son environnement d’exécution
+
+. . .
+
+- responsabilités et organisation : à la fois sur la maintenance du code et sur [gitlab.insee.fr](https://gitlab.insee.fr)
+
+# II- Enjeux de sécurité
+
+## Question
+
+::: {.callout-note title="Question"}
+
+**Quels sont, selon vous, les principaux risques de sécurité liés au développement en self ?**
+
+:::
+
+## Risques
+
+- Mot de passe et jetons d'accès à des API  
+  [**pas de mot de passe ni de jeton d'accès écrits dans le code**]{.orange}
+- Risques sur les données :
+  * **pas de données dans `git`**
+  * **pas de compte d'accès commun à des bases de données**
+  * **pas de données sensibles en dehors des environnements protégés**
+
+## Jetons d'accès à des API
+
+- une solution à préférer au mot de passe (quand disponible)
+- gestion fine des droits
+- possibilité de révocation des jetons
+- peuvent être limités dans le temps
+- mais qui présentent des risques identiques aux mots de passe si les jetons ont des droits élevés
+
+## Les solutions concrètes pour les mots de passe
+
+Notion de boîte de dialogue qui permet d'entrer le mot de passe sans l'inscrire dans le code
+
+```{.r code-line-numbers="12-18"}
+library(DBI)
+library(RPostgresInsee)
+library(rjson)
+
+## import des éléments de connexion
+
+connexion_details <- fromJSON(file = "X:/HAB-LOGFIDELI/Production en self/conf_servers_fideli.json")
+
+## connexion au clone
+
+connexion_clone <- do.call(dbConnect, args = c(connexion_details$clone[2:4], 
+                                               list(drv = Postgres(),
+                                                    password = rstudioapi::askForPassword("Mot de passe :"))))
+```
+
+## Résultat : un prompt qui récupère le mot de passe
+
+![](img/motdepasse_rstudio.png){fig-align="center"}
+
+## A utiliser avec un gestionnaire de mots de passe
+
+KeePass ![](img/keepass.png){height=30 style="vertical-align: middle;"} :
+
+- disponible dans le centre logiciel
+- simple d'utilisation
+- les mots de passe sont stockés dans un fichier `.kdbx` chiffré
+- les fichiers `.kdbx` sont protégés par un mot de passe maître
+- une aide à la génération de mots de passe forts
+
+## Droits d'accès aux données
+
+- ne pas utiliser de compte générique pour accéder à des bases de données :
+  * ne répond pas aux exigences de traçabilité
+  * ne répond pas aux exigences de révocation des droits d'accès
+- préférer :
+  * des comptes individuels
+  * associés à une revue annuelle des droits
+
+## Stockage des données
+
+- Données sous forme de fichier :
+  * ne pas les mettre sous `git` (utiliser le fichier `.gitignore`)
+  * veiller à ce que les données sensibles ne prolifèrent pas
+- Données dans des bases de données :
+  * toujours se poser la question de l'opportunité de les dupliquer sous forme de fichier
+
+On préférera toujours avoir des données stockées dans un unique espace pour lequel les droits d'accès sont gérés individuellement.
+
+# III- Collaboration et ouverture
+
+## Quelques questions pour commencer
+
+- Pour limiter les risques de sécurité, vaut-il mieux cacher son code à ses collègues ?
+- Quelle est la nature juridique des codes sources réalisés à l'Insee ?
+- R, python et leurs packages sont gratuits, comment est-ce possible ?
+- Connaissez-vous la science ouverte et ses standards ?
+
+## La sécurité par l'obscurité
+
+- Postulat : si on conserve ses codes sources secrets alors les failles de sécurité seront plus difficiles à détecter
+- Ce postulat s'est avéré faux : 
+  * des failles de sécurité sont en permanence détectées dans des logiciels propriétaires
+  * cela revient à cacher la fiabilité réelle des processus mis en oeuvre
+  * les logiciels open source sont examinés par de très nombreuses personnes et corrigés en cas de problème
+
+## Nature juridique des codes sources
+
+- Les codes sources achevés (qui servent en production) ont le statut de document administratif
+- Ils peuvent faire l'objet de demandes d'accès
+- En cas d'accès, la publication doit se faire en open source
+- Plutôt que de vérifier en catastrophe s'il y a des problèmes, autant s'y préparer au fur et à mesure
+
+## Différents niveaux d'ouverture possibles
+
+- On peut déjà ouvrir les codes en interne au sein de l'Insee :
+  * meilleure compréhension mutuelle des travaux
+  * associé à GitLab, un cadre idéal pour la collaboration et la mutualisation
+
+## Différents niveaux d'ouverture possibles
+
+- Au-delà, la publication de certains projets en open source permet de valoriser le savoir-faire de l'Insee :
+  - packages R : disaggR, btb, RJDemetra...
+  - Eurostat systématise l'open source pour les travaux européens
+  - une nécessité pour ne pas passer pour un passager clandestin vis-à-vis des communautés open source
+  - un moyen d'assurer la transparence de nos méthodes (cf. code des bonnes pratiques et les standards de la science ouverte)
+
+**L'ensemble des bonnes pratiques qui ont été présentées sont issues de l'open source.**
+
