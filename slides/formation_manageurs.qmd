@@ -50,19 +50,26 @@ aux bonnes pratiques avec `R` et `Git`
 
 ## Vers un socle de bonnes pratiques ?
 
+<br>
+
 :one: [**Qualité**]{.orange} du code et [**structure**]{.orange} des projets
 
 . . .
 
-:two: Le [**contrôle de version**]{.orange}
+:two: Les [**formats de données**]{.orange} de diffusion
+
 
 . . .
 
-:three: Normes de [**sécurité**]{.orange}
+:three: Le [**contrôle de version**]{.orange}
 
 . . .
 
-:four: [**Ouverture**]{.orange}
+:four: Normes de [**sécurité**]{.orange}
+
+. . .
+
+:five: [**Ouverture**]{.orange}
 
 
 # Partie 1 : Qualité du code et structure des projets
@@ -110,8 +117,12 @@ Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse sty
 - Documenter le projet (contexte, objectifs, fonctionnement) dans un fichier `README`
   - Quelques modèles : [utilitR](https://github.com/InseeFrLab/utilitR/blob/master/README.md), [DoReMIFaSol](https://github.com/InseeFrLab/DoReMIFaSol)
 
+# Partie 2: les formats de données
 
-# Partie 2 : Le contrôle de version
+{{< include elements_git/_formats_data.qmd >}}
+
+
+# Partie 3 : Le contrôle de version
 
 
 {{< include elements_git/_1_2_pourquoi.qmd >}}
@@ -187,7 +198,7 @@ Les tâtonnements supposent des allers et retours sur différentes hypothèses :
     + sur [gitlab.insee.fr](https://gitlab.insee.fr).
 
 
-# Partie 3: Enjeux de sécurité
+# Partie 4: Enjeux de sécurité
 
 ## Question
 
@@ -267,7 +278,7 @@ connexion_clone <- do.call(dbConnect, args = c(connexion_details$clone[2:4],
 
 On préférera toujours avoir des données stockées dans un unique espace pour lequel les droits d'accès sont gérés individuellement.
 
-# Partie 4: Collaboration et ouverture
+# Partie 5: Collaboration et ouverture
 
 ## Quelques questions pour commencer
 
