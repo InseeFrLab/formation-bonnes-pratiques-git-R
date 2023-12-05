@@ -7,7 +7,9 @@
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Lino Galiana">
@@ -519,15 +521,19 @@ Pierre Lamarche
 </section>
 <section id="vers-un-socle-de-bonnes-pratiques" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Vers un socle de bonnes pratiques ?</h2>
+<p><br></p>
 <p><span class="emoji" data-emoji="one">1️⃣</span> <span class="orange"><strong>Qualité</strong></span> du code et <span class="orange"><strong>structure</strong></span> des projets</p>
 <div class="fragment">
-<p><span class="emoji" data-emoji="two">2️⃣</span> Le <span class="orange"><strong>contrôle de version</strong></span></p>
+<p><span class="emoji" data-emoji="two">2️⃣</span> Les <span class="orange"><strong>formats de données</strong></span> de diffusion</p>
 </div>
 <div class="fragment">
-<p><span class="emoji" data-emoji="three">3️⃣</span> Normes de <span class="orange"><strong>sécurité</strong></span></p>
+<p><span class="emoji" data-emoji="three">3️⃣</span> Le <span class="orange"><strong>contrôle de version</strong></span></p>
 </div>
 <div class="fragment">
-<p><span class="emoji" data-emoji="four">4️⃣</span> <span class="orange"><strong>Ouverture</strong></span></p>
+<p><span class="emoji" data-emoji="four">4️⃣</span> Normes de <span class="orange"><strong>sécurité</strong></span></p>
+</div>
+<div class="fragment">
+<p><span class="emoji" data-emoji="five">5️⃣</span> <span class="orange"><strong>Ouverture</strong></span></p>
 </div>
 </section></section>
 <section>
@@ -645,8 +651,49 @@ Pierre Lamarche
 </div>
 </section></section>
 <section>
-<section id="partie-2-le-contrôle-de-version" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Partie 2 : Le contrôle de version</h1>
+<section id="partie-2-les-formats-de-données" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Partie 2: les formats de données</h1>
+
+</section>
+<section id="enjeux-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Enjeux</h2>
+<div>
+<ul>
+<li class="fragment">Le choix d’un format de données répond à un <span class="orange"><strong>arbitrage</strong></span> entre plusieurs critères :
+<ul>
+<li class="fragment"><span class="blue2"><strong>Finalité</strong></span> (traitement, analyse, diffusion)</li>
+<li class="fragment"><span class="blue2"><strong>Public cible</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Volumétrie</strong></span></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="recommandations" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Recommandations</h2>
+<ul>
+<li>Eviter impérativement les formats de données adhérents à un langage (<code>RDS</code>, <code>RData</code>, <code>fst</code>, <code>sas7bdat</code>, etc.).</li>
+</ul>
+<div>
+<ul>
+<li class="fragment">Deux formats à privilégier :
+<ul>
+<li class="fragment"><span class="orange"><strong>CSV</strong></span> : pour la <span class="blue2"><strong>plupart des usages courants</strong></span>
+<ul>
+<li class="fragment"><em>Avantage</em> : <span class="blue2"><strong>non-compressé</strong></span> donc facilement <span class="blue2"><strong>lisible</strong></span></li>
+<li class="fragment"><em>Inconvénients</em> : pas de gestion des méta-données, peu adapté aux données volumineuses</li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Parquet</strong></span> : pour le traitement de <span class="blue2"><strong>données volumineuses</strong></span>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Compressé</strong></span> et très <span class="blue2"><strong>performant</strong></span> en lecture/écriture</li>
+<li class="fragment">Gestion native des méta-données</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="partie-3-le-contrôle-de-version" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Partie 3 : Le contrôle de version</h1>
 
 </section>
 <section id="archiver-son-code-proprement" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
@@ -754,9 +801,9 @@ Pierre Lamarche
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Pour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé <strong><code>.gitignore</code></strong>.</p>
+<p>Pour définir des règles qui évitent de <em>committer</em> tel ou tel fichier, on utilise un fichier nommé <strong><code>.gitignore</code></strong>.</p>
 <p>Si on mélange du code et des éléments annexes (<em>output</em>, données…) dans un même dossier, il <span class="orange"><strong>faut consacrer du temps à ce fichier</strong></span>.</p>
-<p>Le site <a href="https://www.toptal.com/developers/gitignore"><code>gitignore.io</code></a> peut vous fournir des modèles.</p>
+<p>Des modèles de <code>.gitignore</code> existent sur internet, par exemple <a href="https://www.toptal.com/developers/gitignore">celui-ci</a> pour les projets <i class="fa-brands fa-r-project" aria-label="r-project"></i>.</p>
 <p>N’hésitez pas à y ajouter des règles conservatrices (par exemple <code>*.csv</code>), comme cela est expliqué dans <a href="https://www.book.utilitr.org/git.html?q=gitignore#gitignore">la documentation <code>utilitR</code></a>.</p>
 </div>
 </div>
@@ -869,8 +916,8 @@ Le cas d’usage classique à l’Insee
 </div>
 </section></section>
 <section>
-<section id="partie-3-enjeux-de-sécurité" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Partie 3: Enjeux de sécurité</h1>
+<section id="partie-4-enjeux-de-sécurité" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Partie 4: Enjeux de sécurité</h1>
 
 </section>
 <section id="question" class="slide level2" data-background-image="background.svg" data-background-size="contain">
@@ -975,8 +1022,8 @@ Le cas d’usage classique à l’Insee
 <p>On préférera toujours avoir des données stockées dans un unique espace pour lequel les droits d’accès sont gérés individuellement.</p>
 </section></section>
 <section>
-<section id="partie-4-collaboration-et-ouverture" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
-<h1>Partie 4: Collaboration et ouverture</h1>
+<section id="partie-5-collaboration-et-ouverture" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Partie 5: Collaboration et ouverture</h1>
 
 </section>
 <section id="quelques-questions-pour-commencer" class="slide level2" data-background-image="background.svg" data-background-size="contain">

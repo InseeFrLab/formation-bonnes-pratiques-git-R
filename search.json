@@ -235,7 +235,7 @@
     "href": "slides/complete.html#bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nLe site gitignore.io peut vous fournir des modèles.\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
+    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
   },
   {
     "objectID": "slides/complete.html#bonnes-pratiques-1",
@@ -1075,7 +1075,7 @@
     "href": "slides/light.html#bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nLe site gitignore.io peut vous fournir des modèles.\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
+    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
   },
   {
     "objectID": "slides/light.html#bonnes-pratiques-1",
@@ -1376,7 +1376,7 @@
     "href": "slides/manageurs.html#vers-un-socle-de-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Vers un socle de bonnes pratiques ?",
-    "text": "Vers un socle de bonnes pratiques ?\n1️⃣ Qualité du code et structure des projets\n\n2️⃣ Le contrôle de version\n\n\n3️⃣ Normes de sécurité\n\n\n4️⃣ Ouverture"
+    "text": "Vers un socle de bonnes pratiques ?\n\n1️⃣ Qualité du code et structure des projets\n\n2️⃣ Les formats de données de diffusion\n\n\n3️⃣ Le contrôle de version\n\n\n4️⃣ Normes de sécurité\n\n\n5️⃣ Ouverture"
   },
   {
     "objectID": "slides/manageurs.html#enjeux",
@@ -1412,6 +1412,20 @@
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Documenter son code",
     "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents.\n\n\n\n\nDocumenter le projet (contexte, objectifs, fonctionnement) dans un fichier README\n\nQuelques modèles : utilitR, DoReMIFaSol"
+  },
+  {
+    "objectID": "slides/manageurs.html#enjeux-1",
+    "href": "slides/manageurs.html#enjeux-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Enjeux",
+    "text": "Enjeux\n\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
+  },
+  {
+    "objectID": "slides/manageurs.html#recommandations",
+    "href": "slides/manageurs.html#recommandations",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Recommandations",
+    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\n\n\n\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
   },
   {
     "objectID": "slides/manageurs.html#archiver-son-code-proprement",
@@ -1467,7 +1481,7 @@
     "href": "slides/manageurs.html#bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nLe site gitignore.io peut vous fournir des modèles.\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
+    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
   },
   {
     "objectID": "slides/manageurs.html#bonnes-pratiques-1",
