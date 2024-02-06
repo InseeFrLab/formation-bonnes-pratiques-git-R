@@ -67,6 +67,34 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 :::
 
+## :three: Documenter son code
+
+::: {.callout-tip}
+## Bien documenter... mais pas trop !
+
+. . .
+
+Bof :
+```
+# Utilise string si x est non manquant et non vide
+if (!is.na(x) && nzchar(x)) {
+  use_string(x)
+}
+```
+. . .
+
+Mieux ! 
+
+```
+x_is_not_empty_string <- (!is.na(x) && nzchar(x))
+if (x_is_not_empty_string) {
+  use_string(x)
+}
+```
+. . .
+Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le « Code beau ».
+
+:::
 
 ## :four: Pas d'ambiguïté sur les _packages_ utilisés {.smaller}
 
