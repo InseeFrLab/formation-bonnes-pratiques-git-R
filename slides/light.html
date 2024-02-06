@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.450">
+  <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Romain Avouac, Thomas Faria, Lino Galiana, Olivier Meslin, Tom Seimandi">
   <title>Formation aux bonnes pratiques Git et R - Bonnes pratiques pour les projets statistiques</title>
@@ -33,7 +33,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -227,7 +227,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -393,7 +394,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <meta name="twitter:title" content="Formation aux bonnes pratiques Git et R - Bonnes pratiques pour les projets statistiques">
 <meta name="twitter:description" content="Une formation aux bonnes pratiques avec Git et R">
-<meta name="twitter:image" content="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/cards/version-light/cheetah.png">
+<meta name="twitter:image" content="https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R//cards/version-light/cheetah.png">
 <meta name="twitter:image-height" content="1024">
 <meta name="twitter:image-width" content="1024">
 <meta name="twitter:card" content="summary_large_image">
@@ -421,7 +422,7 @@
 <li>Version courte de la formation aux bonnes pratiques avec <code>R</code> et <code>Git</code></li>
 </ul>
 
-<img data-src="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-light/cheetah.png" class="r-stretch quarto-figure-center"><p><a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/"><em>Retour à la page d’accueil pour explorer les autres versions</em></a></p>
+<img data-src="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-light/cheetah.png" class="quarto-figure quarto-figure-center r-stretch"><p><a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/"><em>Retour à la page d’accueil pour explorer les autres versions</em></a></p>
 </section>
 <section>
 <section id="introduction-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -477,7 +478,7 @@
 <h2>Bonnes pratiques et reproductibilité</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/reprospectrum.png" height="200"></p>
+<p><img data-src="img/reprospectrum.png" class="quarto-figure quarto-figure-center" height="200"></p>
 </figure>
 </div>
 <p><strong>Source</strong> : Peng R., Reproducible Research in Computational Science, Science (2011)</p>
@@ -533,37 +534,37 @@
 <h2 data-id="quarto-animate-title"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
 <p>ou ça :</p>
 
-<img data-src="img/finalfinal.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="img/finalfinal.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="archiver-son-code-proprement-2" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
 <p>ou encore ça :</p>
-<div class="sourceCode" id="cb1" data-code-line-numbers="12-18"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb1-1" class="hljs-ln-code"><a href="#cb1-1"></a>prior <span class="op">&lt;-</span> read_csv(prior_path)</span>
-<span id="cb1-2" class="hljs-ln-code"><a href="#cb1-2"></a>prior <span class="op">&lt;-</span> prior <span class="op">%&gt;%</span></span>
-<span id="cb1-3" class="hljs-ln-code"><a href="#cb1-3"></a>    select(<span class="bu">id</span>, proba_inter, proba_build, proba_rfl) <span class="op">%&gt;%</span></span>
-<span id="cb1-4" class="hljs-ln-code"><a href="#cb1-4"></a>    separate(<span class="bu">id</span>, into <span class="op">=</span> c(<span class="st">'nidt'</span>, <span class="st">'grid_id'</span>), sep <span class="op">=</span> <span class="st">":"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb1-5" class="hljs-ln-code"><a href="#cb1-5"></a>    group_by(nidt) <span class="op">%&gt;%</span></span>
-<span id="cb1-6" class="hljs-ln-code"><a href="#cb1-6"></a>    mutate(</span>
-<span id="cb1-7" class="hljs-ln-code"><a href="#cb1-7"></a>        proba_build <span class="op">=</span> proba_build<span class="op">/</span><span class="bu">sum</span>(proba_build),</span>
-<span id="cb1-8" class="hljs-ln-code"><a href="#cb1-8"></a>        proba_rfl <span class="op">=</span> proba_rfl<span class="op">/</span><span class="bu">sum</span>(proba_rfl),</span>
-<span id="cb1-9" class="hljs-ln-code"><a href="#cb1-9"></a>        ) <span class="op">%&gt;%</span></span>
-<span id="cb1-10" class="hljs-ln-code"><a href="#cb1-10"></a>    unite(col <span class="op">=</span> <span class="st">"id"</span>, nidt, grid_id, sep <span class="op">=</span> <span class="st">":"</span>)</span>
-<span id="cb1-11" class="hljs-ln-code"><a href="#cb1-11"></a></span>
-<span id="cb1-12" class="hljs-ln-code"><a href="#cb1-12"></a><span class="co"># Test</span></span>
-<span id="cb1-13" class="hljs-ln-code"><a href="#cb1-13"></a><span class="co"># prior_test &lt;- prior %&gt;%</span></span>
-<span id="cb1-14" class="hljs-ln-code"><a href="#cb1-14"></a><span class="co">#    mutate(</span></span>
-<span id="cb1-15" class="hljs-ln-code"><a href="#cb1-15"></a><span class="co">#        proba_inter = round(proba_inter, 4)</span></span>
-<span id="cb1-16" class="hljs-ln-code"><a href="#cb1-16"></a><span class="co">#        proba_build = round(proba_build, 4)</span></span>
-<span id="cb1-17" class="hljs-ln-code"><a href="#cb1-17"></a><span class="co">#        proba_rfl = round(proba_rfl, 4)</span></span>
-<span id="cb1-18" class="hljs-ln-code"><a href="#cb1-18"></a><span class="co">#    )</span></span>
-<span id="cb1-19" class="hljs-ln-code"><a href="#cb1-19"></a></span>
-<span id="cb1-20" class="hljs-ln-code"><a href="#cb1-20"></a>write_csv(prior_round, <span class="st">"~/prior.csv"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-code-line-numbers="12-18"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb1-1" class="hljs-ln-code"><a></a>prior <span class="op">&lt;-</span> read_csv(prior_path)</span>
+<span id="cb1-2" class="hljs-ln-code"><a></a>prior <span class="op">&lt;-</span> prior <span class="op">%&gt;%</span></span>
+<span id="cb1-3" class="hljs-ln-code"><a></a>    select(<span class="bu">id</span>, proba_inter, proba_build, proba_rfl) <span class="op">%&gt;%</span></span>
+<span id="cb1-4" class="hljs-ln-code"><a></a>    separate(<span class="bu">id</span>, into <span class="op">=</span> c(<span class="st">'nidt'</span>, <span class="st">'grid_id'</span>), sep <span class="op">=</span> <span class="st">":"</span>) <span class="op">%&gt;%</span></span>
+<span id="cb1-5" class="hljs-ln-code"><a></a>    group_by(nidt) <span class="op">%&gt;%</span></span>
+<span id="cb1-6" class="hljs-ln-code"><a></a>    mutate(</span>
+<span id="cb1-7" class="hljs-ln-code"><a></a>        proba_build <span class="op">=</span> proba_build<span class="op">/</span><span class="bu">sum</span>(proba_build),</span>
+<span id="cb1-8" class="hljs-ln-code"><a></a>        proba_rfl <span class="op">=</span> proba_rfl<span class="op">/</span><span class="bu">sum</span>(proba_rfl),</span>
+<span id="cb1-9" class="hljs-ln-code"><a></a>        ) <span class="op">%&gt;%</span></span>
+<span id="cb1-10" class="hljs-ln-code"><a></a>    unite(col <span class="op">=</span> <span class="st">"id"</span>, nidt, grid_id, sep <span class="op">=</span> <span class="st">":"</span>)</span>
+<span id="cb1-11" class="hljs-ln-code"><a></a></span>
+<span id="cb1-12" class="hljs-ln-code"><a></a><span class="co"># Test</span></span>
+<span id="cb1-13" class="hljs-ln-code"><a></a><span class="co"># prior_test &lt;- prior %&gt;%</span></span>
+<span id="cb1-14" class="hljs-ln-code"><a></a><span class="co">#    mutate(</span></span>
+<span id="cb1-15" class="hljs-ln-code"><a></a><span class="co">#        proba_inter = round(proba_inter, 4)</span></span>
+<span id="cb1-16" class="hljs-ln-code"><a></a><span class="co">#        proba_build = round(proba_build, 4)</span></span>
+<span id="cb1-17" class="hljs-ln-code"><a></a><span class="co">#        proba_rfl = round(proba_rfl, 4)</span></span>
+<span id="cb1-18" class="hljs-ln-code"><a></a><span class="co">#    )</span></span>
+<span id="cb1-19" class="hljs-ln-code"><a></a></span>
+<span id="cb1-20" class="hljs-ln-code"><a></a>write_csv(prior_round, <span class="st">"~/prior.csv"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="archiver-son-code-proprement-3" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
 <p>Pour arriver à ça :</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/timeline.png" height="475"></p>
+<p><img data-src="img/timeline.png" class="quarto-figure quarto-figure-center" height="475"></p>
 </figure>
 </div>
 <p>Source : <a href="https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/">ThinkR</a></p>
@@ -571,13 +572,13 @@
 <section id="voyager-dans-le-temps-de-votre-projet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Voyager dans le temps (de votre projet)</h2>
 
-<img data-src="img/historique_utilitr.png" class="r-stretch quarto-figure-center"></section>
+<img data-src="img/historique_utilitr.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="une-collaboration-simplifiée-et-efficace" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title"><span class="emoji" data-emoji="three">3️⃣</span> Une collaboration simplifiée et efficace</h2>
 <p>Un modèle distribué</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/git_distributed.png" height="475"></p>
+<p><img data-src="img/git_distributed.png" class="quarto-figure quarto-figure-center" height="475"></p>
 </figure>
 </div>
 <p>Source : <a href="https://www.specbee.com">specbee.com</a></p>
@@ -586,14 +587,14 @@
 <h2 data-id="quarto-animate-title"><span class="emoji" data-emoji="three">3️⃣</span> Une collaboration simplifiée et efficace</h2>
 <p>Qui permet l’expérimentation en toute sécurité</p>
 
-<img data-src="img/branches.png" class="r-stretch quarto-figure-center"><p>Source : <a href="https://lutece.paris.fr/support/jsp/site/Portal.jsp?page=wiki&amp;view=page&amp;page_name=git&amp;language=fr">lutece.paris.fr</a></p>
+<img data-src="img/branches.png" class="quarto-figure quarto-figure-center r-stretch"><p>Source : <a href="https://lutece.paris.fr/support/jsp/site/Portal.jsp?page=wiki&amp;view=page&amp;page_name=git&amp;language=fr">lutece.paris.fr</a></p>
 </section>
 <section id="une-collaboration-simplifiée-et-efficace-2" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title"><span class="emoji" data-emoji="three">3️⃣</span> Une collaboration simplifiée et efficace</h2>
 <p>Quel que soit l’environnement de travail</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/envtravail.png" height="475"></p>
+<p><img data-src="img/envtravail.png" class="quarto-figure quarto-figure-center" height="475"></p>
 </figure>
 </div>
 </section>
@@ -602,7 +603,7 @@
 <p>Avec des outils pour faciliter la collaboration</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/issue.png" height="500"></p>
+<p><img data-src="img/issue.png" class="quarto-figure quarto-figure-center" height="500"></p>
 </figure>
 </div>
 </section>
@@ -611,7 +612,7 @@
 <p>Une vitrine pour les projets et l’organisation</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/ghinseefr.png" height="475"></p>
+<p><img data-src="img/ghinseefr.png" class="quarto-figure quarto-figure-center" height="475"></p>
 </figure>
 </div>
 </section>
@@ -714,7 +715,7 @@
 <h4 data-background-image="background.svg" data-background-size="contain" id="dépôt-local-dépôt-distant-remote">Dépôt local / dépôt distant (<code>remote</code>)</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/localremote.png" height="400"></p>
+<p><img data-src="img/localremote.png" class="quarto-figure quarto-figure-center" height="400"></p>
 </figure>
 </div>
 <ul>
@@ -734,7 +735,7 @@ _Workflow_ (version littéraire) :
 <h4 data-background-image="background.svg" data-background-size="contain" id="workflow-local"><em>Workflow</em> local</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/areas.png" height="400"></p>
+<p><img data-src="img/areas.png" class="quarto-figure quarto-figure-center" height="400"></p>
 </figure>
 </div>
 <p>Source : <a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F">Git Documentation</a></p>
@@ -969,9 +970,9 @@ _Workflow_ (version littéraire) :
 <section id="bonnes-pratiques-1" class="slide level2 smaller" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title">Bonnes pratiques</h2>
 <p><strong>Format des commits</strong></p>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<div class="quarto-layout-panel" data-layout="[40,60]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: flex-start;">
 <ul>
 <li class="fragment"><span class="orange"><strong>Fréquence</strong></span>
 <ul>
@@ -1265,6 +1266,34 @@ _Workflow_ (version littéraire) :
 </div>
 </div>
 </section>
+<section id="documenter-son-code-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2><span class="emoji" data-emoji="three">3️⃣</span> Documenter son code</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Bien documenter… mais pas trop !</strong></p>
+</div>
+<div class="callout-content">
+<p>. . .</p>
+<p>Bof :</p>
+<pre><code># Utilise string si x est non manquant et non vide
+if (!is.na(x) &amp;&amp; nzchar(x)) {
+  use_string(x)
+}</code></pre>
+<p>. . .</p>
+<p>Mieux !</p>
+<pre><code>x_is_not_empty_string &lt;- (!is.na(x) &amp;&amp; nzchar(x))
+if (x_is_not_empty_string) {
+  use_string(x)
+}</code></pre>
+<p>. . . Voir la <a href="https://jolicode.netlify.app/">présentation</a> de Maëlle Salmon sur le « Code beau ».</p>
+</div>
+</div>
+</div>
+</section>
 <section id="pas-dambiguïté-sur-les-packages-utilisés" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="four">4️⃣</span> Pas d’ambiguïté sur les <em>packages</em> utilisés</h2>
 <ul>
@@ -1418,15 +1447,15 @@ _Workflow_ (version littéraire) :
 </section>
 <section id="checkpoint" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<div class="quarto-layout-panel" data-layout="[30,70]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: flex-start;">
 <ul>
 <li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application1/script.R">script.R</a></li>
 </ul>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p><img data-src="checkpoint.jpg"></p>
+<p><img data-src="checkpoint.jpg" style="width:60.0%"></p>
 </div>
 </div>
 </div>
@@ -1443,8 +1472,8 @@ _Workflow_ (version littéraire) :
 </ul>
 </div>
 <div class="fragment">
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-panel" data-layout="[80,30]">
+<div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 72.7%;justify-content: center;">
 <p><img data-src="https://www.earthdatascience.org/images/earth-analytics/clean-code/reproducible-science-is-about-being-lazy-hadley-wickham.png"></p>
 </div>
@@ -1670,9 +1699,9 @@ _Workflow_ (version littéraire) :
 </section>
 <section id="checkpoint-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<div class="quarto-layout-panel" data-layout="[30,70]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: flex-start;">
 <ul>
 <li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application2/script.R">script.R</a></p></li>
 <li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application2/functions.R">functions.R</a></p></li>
@@ -1680,7 +1709,7 @@ _Workflow_ (version littéraire) :
 </ul>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p><img data-src="checkpoint.jpg"></p>
+<p><img data-src="checkpoint.jpg" style="width:60.0%"></p>
 </div>
 </div>
 </div>
@@ -1747,16 +1776,16 @@ _Workflow_ (version littéraire) :
 </section>
 <section id="checkpoint-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<div class="quarto-layout-panel" data-layout="[30,70]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: flex-start;">
 <ul>
 <li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application3/script.R">script.R</a></li>
 <li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application3/get_data.R">get_data.R</a></li>
 </ul>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 70.0%;justify-content: center;">
-<p><img data-src="checkpoint.jpg"></p>
+<p><img data-src="checkpoint.jpg" style="width:60.0%"></p>
 </div>
 </div>
 </div>
@@ -1797,8 +1826,10 @@ _Workflow_ (version littéraire) :
 <li>Le <span class="orange"><strong>coût</strong></span> est d’autant plus faible que l’on se place <span class="orange"><strong>en amont du projet</strong></span></li>
 </ul>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Bonnes pratiques pour les projets statistiques (<a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/">retour au site principal</a> ; <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R"><i class="fa-brands fa-github"></i></a>)</p>
+</div>
 </div>
 </div>
 </section>
@@ -1829,7 +1860,6 @@ _Workflow_ (version littéraire) :
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -2091,10 +2121,9 @@ _Workflow_ (version littéraire) :
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -2104,8 +2133,17 @@ _Workflow_ (version littéraire) :
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
