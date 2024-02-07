@@ -67,12 +67,10 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 :::
 
-## :three: Documenter son code
+## :three: Comment bien documenter un script ?
 
 ::: {.callout-tip}
 ## Bien documenter... mais pas trop !
-
-. . .
 
 Bof :
 ```
@@ -81,7 +79,6 @@ if (!is.na(x) && nzchar(x)) {
   use_string(x)
 }
 ```
-. . .
 
 Mieux ! 
 
@@ -91,7 +88,7 @@ if (x_is_not_empty_string) {
   use_string(x)
 }
 ```
-. . .
+
 Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le « Code beau ».
 
 :::
