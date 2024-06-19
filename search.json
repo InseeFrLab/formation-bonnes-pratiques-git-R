@@ -46,7 +46,21 @@
     "href": "slides/complete.html#bonnes-pratiques-et-reproductibilité",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques et reproductibilité",
-    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en R ?"
+    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
+  },
+  {
+    "objectID": "slides/complete.html#horizon-de-cette-formation",
+    "href": "slides/complete.html#horizon-de-cette-formation",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Horizon de cette formation",
+    "text": "Horizon de cette formation\nUn point de départ commun"
+  },
+  {
+    "objectID": "slides/complete.html#horizon-de-cette-formation-1",
+    "href": "slides/complete.html#horizon-de-cette-formation-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Horizon de cette formation",
+    "text": "Horizon de cette formation\nUn point de départ commun \nUne structuration de projet plus viable"
   },
   {
     "objectID": "slides/complete.html#plan-de-la-partie",
@@ -893,7 +907,21 @@
     "href": "slides/light.html#bonnes-pratiques-et-reproductibilité",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques et reproductibilité",
-    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en R ?"
+    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
+  },
+  {
+    "objectID": "slides/light.html#horizon-de-cette-formation",
+    "href": "slides/light.html#horizon-de-cette-formation",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Horizon de cette formation",
+    "text": "Horizon de cette formation\nUn point de départ commun"
+  },
+  {
+    "objectID": "slides/light.html#horizon-de-cette-formation-1",
+    "href": "slides/light.html#horizon-de-cette-formation-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Horizon de cette formation",
+    "text": "Horizon de cette formation\nUn point de départ commun \nUne structuration de projet plus viable"
   },
   {
     "objectID": "slides/light.html#plan-de-la-partie",
@@ -1383,7 +1411,21 @@
     "href": "slides/manageurs.html#bonnes-pratiques-et-reproductibilité",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques et reproductibilité",
-    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en R ?"
+    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
+  },
+  {
+    "objectID": "slides/manageurs.html#horizon-de-cette-formation",
+    "href": "slides/manageurs.html#horizon-de-cette-formation",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Horizon de cette formation",
+    "text": "Horizon de cette formation\nUn point de départ commun"
+  },
+  {
+    "objectID": "slides/manageurs.html#horizon-de-cette-formation-1",
+    "href": "slides/manageurs.html#horizon-de-cette-formation-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Horizon de cette formation",
+    "text": "Horizon de cette formation\nUn point de départ commun \nUne structuration de projet plus viable"
   },
   {
     "objectID": "slides/manageurs.html#vers-un-socle-de-bonnes-pratiques",
@@ -1505,11 +1547,18 @@
     "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “avoir du sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte"
   },
   {
-    "objectID": "slides/manageurs.html#lélaboration-dune-statistique",
-    "href": "slides/manageurs.html#lélaboration-dune-statistique",
+    "objectID": "slides/manageurs.html#ouverture-vers-la-partie-4",
+    "href": "slides/manageurs.html#ouverture-vers-la-partie-4",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "L’élaboration d’une statistique",
-    "text": "L’élaboration d’une statistique\n\nLe cas d’usage classique à l’Insee\n\n\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé, et où l’intervention humaine est limitée ;\n\n\n\ncelui qui nécessite du travail humain postérieur de la part du statisticien, et donc fait l’objet de tâtonnements\n\ncalcul du taux de pauvreté avec ERFS et SRCV ;\nmicro-simulation avec le modèle INES ;\ndes processus de suivi conjoncturels…"
+    "section": "Ouverture vers la partie 4",
+    "text": "Ouverture vers la partie 4\nNous nous sommes concentrés sur les briques:\n\n\n\n“Code R”\n“Données”\n\n\n\n\n\n\nMais besoin d’aller plus loin:\n\n“Code R” : besoin d’un environnement standardisé (renv)\n“Données”: enjeu de localisation (réseau, cloud, etc)\n“Configuration”: enjeu de la sécurité"
+  },
+  {
+    "objectID": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
+    "href": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le cas d’usage classique à l’Insee",
+    "text": "Le cas d’usage classique à l’Insee\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé, et où l’intervention humaine est limitée ;\n\n\n\ncelui qui nécessite du travail humain postérieur de la part du statisticien, et donc fait l’objet de tâtonnements\n\ncalcul du taux de pauvreté avec ERFS et SRCV ;\nmicro-simulation avec le modèle INES ;\ndes processus de suivi conjoncturels…"
   },
   {
     "objectID": "slides/manageurs.html#pourquoi-git-répond-il-bien-aux-enjeux-de-la-production",
@@ -1523,14 +1572,21 @@
     "href": "slides/manageurs.html#quels-concepts",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Quels concepts ?",
-    "text": "Quels concepts ?\n\nles variantes peuvent se décliner sous la notion de branches ;\nen traçant l’ensemble des modifications du code, Git facilite la complète reproductibilité des tâtonnements ;\nau travers de l’historique, il permet de retracer l’ensemble du cheminement ;\nle git blame permet de voir qui a fait quoi ;\nmais cela nécessite une discipline sur l’usage de Git.\n\n⇒ deux notions essentielles : reproductibilité et traçabilité"
+    "text": "Quels concepts ?\n\n\nles variantes peuvent se décliner sous la notion de branches ;\n\n\n\nen traçant l’ensemble des modifications du code, Git facilite la complète reproductibilité des tâtonnements ;\n\n\n\n\nau travers de l’historique, il permet de retracer l’ensemble du cheminement ;\n\n\n\n\nle git blame permet de voir qui a fait quoi ;\n\n\n\n\nmais cela nécessite une discipline sur l’usage de Git.\n\n⇒ deux notions essentielles : reproductibilité et traçabilité"
   },
   {
     "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
     "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Gestion du cycle de vie d’un projet",
-    "text": "Gestion du cycle de vie d’un projet\n\nChangement de paradigme : le code self doit être maintenu\n\nChangement de version de R et des packages ;\nQuelles solutions connaissez-vous ?\n\n\n\n\nrenv et la notion de lockfile\nanticiper les montées de version des logiciels : on peut envisager un protocole pour cela"
+    "text": "Gestion du cycle de vie d’un projet\n\nChangement de paradigme : le code self doit être maintenu\n\nChangement de version de R et des packages ;\nQuelles solutions connaissez-vous ?\n\n\n\n\nrenv et la notion de lockfile\n\n\n\n\nanticiper les montées de version des logiciels :\n\non peut envisager un protocole pour cela"
+  },
+  {
+    "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-renv",
+    "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-renv",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Gestion du cycle de vie d’un projet: renv",
+    "text": "Gestion du cycle de vie d’un projet: renv\nExemple de renv.lock\n\n\nObserver la composition de ce fichier (100 premières lignes)\n\n\n\nrenv.lock\n\n{\n  \"R\": {\n    \"Version\": \"4.3.3\",\n    \"Repositories\": [\n      {\n        \"Name\": \"CRAN\",\n        \"URL\": \"https://packagemanager.posit.co/cran/latest\"\n      }\n    ]\n  },\n  \"Packages\": {\n    \"BH\": {\n      \"Package\": \"BH\",\n      \"Version\": \"1.84.0-0\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"a8235afbcd6316e6e91433ea47661013\"\n    },\n    \"DBI\": {\n      \"Package\": \"DBI\",\n      \"Version\": \"1.2.2\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"methods\"\n      ],\n      \"Hash\": \"164809cd72e1d5160b4cb3aa57f510fe\"\n    },\n    \"DT\": {\n      \"Package\": \"DT\",\n      \"Version\": \"0.33\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"RSPM\",\n      \"Requirements\": [\n        \"crosstalk\",\n        \"htmltools\",\n        \"htmlwidgets\",\n        \"httpuv\",\n        \"jquerylib\",\n        \"jsonlite\",\n        \"magrittr\",\n        \"promises\"\n      ],\n      \"Hash\": \"64ff3427f559ce3f2597a4fe13255cb6\"\n    },\n    \"KernSmooth\": {\n      \"Package\": \"KernSmooth\",\n      \"Version\": \"2.23-22\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"stats\"\n      ],\n      \"Hash\": \"2fecebc3047322fa5930f74fae5de70f\"\n    },\n    \"MASS\": {\n      \"Package\": \"MASS\",\n      \"Version\": \"7.3-60.0.1\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"grDevices\",\n        \"graphics\",\n        \"methods\",\n        \"stats\",\n        \"utils\"\n      ],\n      \"Hash\": \"b765b28387acc8ec9e9c1530713cb19c\"\n    },\n    \"Matrix\": {\n      \"Package\": \"Matrix\",\n      \"Version\": \"1.6-5\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"grDevices\",\n        \"graphics\",\n        \"grid\",\n        \"lattice\",\n        \"methods\",\n        \"stats\",\n        \"utils\"\n      ],\n      \"Hash\": \"8c7115cd3a0e048bda2a7cd110549f7a\"\n    },\n    \"R6\": {\n      \"Package\": \"R6\",\n      \"Version\": \"2.5.1\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"RSPM\",\n      \"Requirements\": [\n        \"R\"\n      ],\n      \"Hash\": \"470851b6d5d0ac559e9d01bb352b4021\"\n    },\n    \"RColorBrewer\": {\n\n\n\n\n\n\n\n\nCe que renv évite\n\n\nOn retrouve parfois sur internet un code similaire à celui-ci :\n# A ne pas reproduire chez vous 😨\nif (!requireNamespace(\"dplyr\", quietly = TRUE)) {\n  install.packages(\"dplyr\")\n}"
   },
   {
     "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-1",

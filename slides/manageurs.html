@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.4.555">
 
   <meta name="author" content="Lino Galiana">
   <meta name="author" content="Pierre Lamarche">
@@ -514,11 +514,22 @@ Pierre Lamarche
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Quel socle de bonnes pratiques pour les projets statistiques en <code>R</code> ?</strong></p>
+<p><strong>Quel socle de bonnes pratiques pour les projets statistiques en <i class="fa-brands fa-r-project" aria-label="r-project"></i> ?</strong></p>
 </div>
 </div>
 </div>
 </div>
+</section>
+<section id="horizon-de-cette-formation" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<h2 data-id="quarto-animate-title">Horizon de cette formation</h2>
+<p>Un point de départ commun</p>
+
+<img data-src="img/environment_messy.png" class="r-stretch"></section>
+<section id="horizon-de-cette-formation-1" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<h2 data-id="quarto-animate-title">Horizon de cette formation</h2>
+<p>Un point de départ commun <img data-src="img/environment_messy.png" class="quarto-figure quarto-figure-right" style="width:10.0%"></p>
+<p>Une structuration de projet plus viable</p>
+<p><img data-src="img/environment.png"></p>
 </section>
 <section id="vers-un-socle-de-bonnes-pratiques" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Vers un socle de bonnes pratiques ?</h2>
@@ -835,12 +846,35 @@ Pierre Lamarche
 </div>
 </div>
 </section>
-<section id="lélaboration-dune-statistique" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>L’élaboration d’une statistique</h2>
-<h4>
-Le cas d’usage classique à l’Insee
-</h4>
-<p><br></p>
+<section id="ouverture-vers-la-partie-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Ouverture vers la partie 4</h2>
+<p>Nous nous sommes concentrés sur les briques:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><span class="blue2">“<em>Code R</em>”</span></li>
+<li><span class="blue2">“<em>Données</em>”</span></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/environment.png"></p>
+</div>
+</div>
+<ul>
+<li>Mais besoin d’aller plus loin:
+<ul>
+<li><span class="blue2">“<em>Code R</em>”</span> : besoin d’un environnement standardisé (<code>renv</code>)</li>
+<li><span class="blue2">“<em>Données</em>”</span>: enjeu de localisation (réseau, <em>cloud</em>, etc)</li>
+<li><span class="blue2">“<em>Configuration</em>”</span>: enjeu de la sécurité</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="lélaboration-dune-statistique" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>L’élaboration d’une statistique</h1>
+
+</section>
+<section id="le-cas-dusage-classique-à-linsee" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Le cas d’usage classique à l’Insee</h2>
 <p>Il faut distinguer deux types de processus de production :</p>
 <ul>
 <li>celui qui est <span class="orange"><strong>entièrement automatisé</strong></span>, et où l’intervention humaine est limitée ;</li>
@@ -856,7 +890,7 @@ Le cas d’usage classique à l’Insee
 </ul>
 </div>
 </section>
-<section id="pourquoi-git-répond-il-bien-aux-enjeux-de-la-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="pourquoi-git-répond-il-bien-aux-enjeux-de-la-production" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Pourquoi <code>Git</code> répond-il bien aux enjeux de la production ?</h2>
 <div class="{h4}">
 <p><strong>Exemple avec calcul du taux de pauvreté dans <span class="blue2">SRCV</span></strong></p>
@@ -869,21 +903,38 @@ Le cas d’usage classique à l’Insee
 <li>comprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi.</li>
 </ul>
 </section>
-<section id="quels-concepts" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="quels-concepts" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Quels concepts ?</h2>
+<p><br></p>
 <ul>
 <li>les <span class="orange"><strong>variantes</strong></span> peuvent se décliner sous la notion de <span class="orange"><strong>branches</strong></span> ;</li>
+</ul>
+<div class="fragment">
+<ul>
 <li>en traçant l’ensemble des modifications du code, <code>Git</code> facilite la complète <span class="orange"><strong>reproductibilité</strong></span> des tâtonnements ;</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li>au travers de l’<span class="orange"><strong>historique</strong></span>, il permet de retracer l’ensemble du cheminement ;</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li>le <code>git blame</code> permet de voir qui a fait quoi ;</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
 <li>mais cela nécessite une <span class="orange"><strong>discipline</strong></span> sur l’usage de <code>Git</code>.</li>
 </ul>
 <p>⇒ deux notions essentielles : <span class="orange"><strong>reproductibilité</strong></span> et <span class="orange"><strong>traçabilité</strong></span></p>
+</div>
 </section>
 <section id="gestion-du-cycle-de-vie-dun-projet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Gestion du cycle de vie d’un projet</h2>
 <ul>
-<li>Changement de paradigme : <span class="orange"><strong>le code <em>self</em> doit être maintenu</strong></span>
+<li><span class="blue2"><strong>Changement de paradigme</strong></span> : <span class="orange"><strong>le code <em>self</em> doit être maintenu</strong></span>
 <ul>
 <li>Changement de version de <code>R</code> et des <em>packages</em> ;</li>
 <li>Quelles solutions connaissez-vous ?</li>
@@ -892,8 +943,146 @@ Le cas d’usage classique à l’Insee
 <div class="fragment">
 <ul>
 <li><code>renv</code> et la notion de <em>lockfile</em></li>
-<li>anticiper les montées de version des logiciels : on peut envisager un protocole pour cela</li>
 </ul>
+</div>
+<div class="fragment">
+<ul>
+<li>anticiper les montées de version des logiciels :
+<ul>
+<li>on peut envisager un protocole pour cela</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="gestion-du-cycle-de-vie-dun-projet-renv" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Gestion du cycle de vie d’un projet: <code>renv</code></h2>
+<p>Exemple de <code>renv.lock</code></p>
+<details>
+<summary>
+Observer la composition de ce fichier (100 premières lignes)
+</summary>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>renv.lock</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="renv.lock"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a></a><span class="kw">{</span></span>
+<span id="cb2-2"><a></a><span class="at">  </span><span class="fu">"R"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb2-3"><a></a><span class="at">    </span><span class="fu">"Version"</span><span class="kw">:</span><span class="at"> </span><span class="st">"4.3.3"</span><span class="kw">,</span></span>
+<span id="cb2-4"><a></a><span class="at">    </span><span class="fu">"Repositories"</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
+<span id="cb2-5"><a></a><span class="at">      </span><span class="kw">{</span></span>
+<span id="cb2-6"><a></a><span class="at">        </span><span class="fu">"Name"</span><span class="kw">:</span><span class="at"> </span><span class="st">"CRAN"</span><span class="kw">,</span></span>
+<span id="cb2-7"><a></a><span class="at">        </span><span class="fu">"URL"</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://packagemanager.posit.co/cran/latest"</span></span>
+<span id="cb2-8"><a></a><span class="at">      </span><span class="kw">}</span></span>
+<span id="cb2-9"><a></a><span class="at">    </span><span class="kw">]</span></span>
+<span id="cb2-10"><a></a><span class="at">  </span><span class="kw">},</span></span>
+<span id="cb2-11"><a></a><span class="at">  </span><span class="fu">"Packages"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb2-12"><a></a><span class="at">    </span><span class="fu">"BH"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb2-13"><a></a><span class="at">      </span><span class="fu">"Package"</span><span class="kw">:</span><span class="at"> </span><span class="st">"BH"</span><span class="kw">,</span></span>
+<span id="cb2-14"><a></a><span class="at">      </span><span class="fu">"Version"</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.84.0-0"</span><span class="kw">,</span></span>
+<span id="cb2-15"><a></a><span class="at">      </span><span class="fu">"Source"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Repository"</span><span class="kw">,</span></span>
+<span id="cb2-16"><a></a><span class="at">      </span><span class="fu">"Repository"</span><span class="kw">:</span><span class="at"> </span><span class="st">"CRAN"</span><span class="kw">,</span></span>
+<span id="cb2-17"><a></a><span class="at">      </span><span class="fu">"Hash"</span><span class="kw">:</span><span class="at"> </span><span class="st">"a8235afbcd6316e6e91433ea47661013"</span></span>
+<span id="cb2-18"><a></a><span class="at">    </span><span class="kw">},</span></span>
+<span id="cb2-19"><a></a><span class="at">    </span><span class="fu">"DBI"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb2-20"><a></a><span class="at">      </span><span class="fu">"Package"</span><span class="kw">:</span><span class="at"> </span><span class="st">"DBI"</span><span class="kw">,</span></span>
+<span id="cb2-21"><a></a><span class="at">      </span><span class="fu">"Version"</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.2.2"</span><span class="kw">,</span></span>
+<span id="cb2-22"><a></a><span class="at">      </span><span class="fu">"Source"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Repository"</span><span class="kw">,</span></span>
+<span id="cb2-23"><a></a><span class="at">      </span><span class="fu">"Repository"</span><span class="kw">:</span><span class="at"> </span><span class="st">"CRAN"</span><span class="kw">,</span></span>
+<span id="cb2-24"><a></a><span class="at">      </span><span class="fu">"Requirements"</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
+<span id="cb2-25"><a></a><span class="at">        </span><span class="st">"R"</span><span class="kw">,</span></span>
+<span id="cb2-26"><a></a><span class="at">        </span><span class="st">"methods"</span></span>
+<span id="cb2-27"><a></a><span class="at">      </span><span class="kw">],</span></span>
+<span id="cb2-28"><a></a><span class="at">      </span><span class="fu">"Hash"</span><span class="kw">:</span><span class="at"> </span><span class="st">"164809cd72e1d5160b4cb3aa57f510fe"</span></span>
+<span id="cb2-29"><a></a><span class="at">    </span><span class="kw">},</span></span>
+<span id="cb2-30"><a></a><span class="at">    </span><span class="fu">"DT"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb2-31"><a></a><span class="at">      </span><span class="fu">"Package"</span><span class="kw">:</span><span class="at"> </span><span class="st">"DT"</span><span class="kw">,</span></span>
+<span id="cb2-32"><a></a><span class="at">      </span><span class="fu">"Version"</span><span class="kw">:</span><span class="at"> </span><span class="st">"0.33"</span><span class="kw">,</span></span>
+<span id="cb2-33"><a></a><span class="at">      </span><span class="fu">"Source"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Repository"</span><span class="kw">,</span></span>
+<span id="cb2-34"><a></a><span class="at">      </span><span class="fu">"Repository"</span><span class="kw">:</span><span class="at"> </span><span class="st">"RSPM"</span><span class="kw">,</span></span>
+<span id="cb2-35"><a></a><span class="at">      </span><span class="fu">"Requirements"</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
+<span id="cb2-36"><a></a><span class="at">        </span><span class="st">"crosstalk"</span><span class="kw">,</span></span>
+<span id="cb2-37"><a></a><span class="at">        </span><span class="st">"htmltools"</span><span class="kw">,</span></span>
+<span id="cb2-38"><a></a><span class="at">        </span><span class="st">"htmlwidgets"</span><span class="kw">,</span></span>
+<span id="cb2-39"><a></a><span class="at">        </span><span class="st">"httpuv"</span><span class="kw">,</span></span>
+<span id="cb2-40"><a></a><span class="at">        </span><span class="st">"jquerylib"</span><span class="kw">,</span></span>
+<span id="cb2-41"><a></a><span class="at">        </span><span class="st">"jsonlite"</span><span class="kw">,</span></span>
+<span id="cb2-42"><a></a><span class="at">        </span><span class="st">"magrittr"</span><span class="kw">,</span></span>
+<span id="cb2-43"><a></a><span class="at">        </span><span class="st">"promises"</span></span>
+<span id="cb2-44"><a></a><span class="at">      </span><span class="kw">],</span></span>
+<span id="cb2-45"><a></a><span class="at">      </span><span class="fu">"Hash"</span><span class="kw">:</span><span class="at"> </span><span class="st">"64ff3427f559ce3f2597a4fe13255cb6"</span></span>
+<span id="cb2-46"><a></a><span class="at">    </span><span class="kw">},</span></span>
+<span id="cb2-47"><a></a><span class="at">    </span><span class="fu">"KernSmooth"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb2-48"><a></a><span class="at">      </span><span class="fu">"Package"</span><span class="kw">:</span><span class="at"> </span><span class="st">"KernSmooth"</span><span class="kw">,</span></span>
+<span id="cb2-49"><a></a><span class="at">      </span><span class="fu">"Version"</span><span class="kw">:</span><span class="at"> </span><span class="st">"2.23-22"</span><span class="kw">,</span></span>
+<span id="cb2-50"><a></a><span class="at">      </span><span class="fu">"Source"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Repository"</span><span class="kw">,</span></span>
+<span id="cb2-51"><a></a><span class="at">      </span><span class="fu">"Repository"</span><span class="kw">:</span><span class="at"> </span><span class="st">"CRAN"</span><span class="kw">,</span></span>
+<span id="cb2-52"><a></a><span class="at">      </span><span class="fu">"Requirements"</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
+<span id="cb2-53"><a></a><span class="at">        </span><span class="st">"R"</span><span class="kw">,</span></span>
+<span id="cb2-54"><a></a><span class="at">        </span><span class="st">"stats"</span></span>
+<span id="cb2-55"><a></a><span class="at">      </span><span class="kw">],</span></span>
+<span id="cb2-56"><a></a><span class="at">      </span><span class="fu">"Hash"</span><span class="kw">:</span><span class="at"> </span><span class="st">"2fecebc3047322fa5930f74fae5de70f"</span></span>
+<span id="cb2-57"><a></a><span class="at">    </span><span class="kw">},</span></span>
+<span id="cb2-58"><a></a><span class="at">    </span><span class="fu">"MASS"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb2-59"><a></a><span class="at">      </span><span class="fu">"Package"</span><span class="kw">:</span><span class="at"> </span><span class="st">"MASS"</span><span class="kw">,</span></span>
+<span id="cb2-60"><a></a><span class="at">      </span><span class="fu">"Version"</span><span class="kw">:</span><span class="at"> </span><span class="st">"7.3-60.0.1"</span><span class="kw">,</span></span>
+<span id="cb2-61"><a></a><span class="at">      </span><span class="fu">"Source"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Repository"</span><span class="kw">,</span></span>
+<span id="cb2-62"><a></a><span class="at">      </span><span class="fu">"Repository"</span><span class="kw">:</span><span class="at"> </span><span class="st">"CRAN"</span><span class="kw">,</span></span>
+<span id="cb2-63"><a></a><span class="at">      </span><span class="fu">"Requirements"</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
+<span id="cb2-64"><a></a><span class="at">        </span><span class="st">"R"</span><span class="kw">,</span></span>
+<span id="cb2-65"><a></a><span class="at">        </span><span class="st">"grDevices"</span><span class="kw">,</span></span>
+<span id="cb2-66"><a></a><span class="at">        </span><span class="st">"graphics"</span><span class="kw">,</span></span>
+<span id="cb2-67"><a></a><span class="at">        </span><span class="st">"methods"</span><span class="kw">,</span></span>
+<span id="cb2-68"><a></a><span class="at">        </span><span class="st">"stats"</span><span class="kw">,</span></span>
+<span id="cb2-69"><a></a><span class="at">        </span><span class="st">"utils"</span></span>
+<span id="cb2-70"><a></a><span class="at">      </span><span class="kw">],</span></span>
+<span id="cb2-71"><a></a><span class="at">      </span><span class="fu">"Hash"</span><span class="kw">:</span><span class="at"> </span><span class="st">"b765b28387acc8ec9e9c1530713cb19c"</span></span>
+<span id="cb2-72"><a></a><span class="at">    </span><span class="kw">},</span></span>
+<span id="cb2-73"><a></a><span class="at">    </span><span class="fu">"Matrix"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb2-74"><a></a><span class="at">      </span><span class="fu">"Package"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Matrix"</span><span class="kw">,</span></span>
+<span id="cb2-75"><a></a><span class="at">      </span><span class="fu">"Version"</span><span class="kw">:</span><span class="at"> </span><span class="st">"1.6-5"</span><span class="kw">,</span></span>
+<span id="cb2-76"><a></a><span class="at">      </span><span class="fu">"Source"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Repository"</span><span class="kw">,</span></span>
+<span id="cb2-77"><a></a><span class="at">      </span><span class="fu">"Repository"</span><span class="kw">:</span><span class="at"> </span><span class="st">"CRAN"</span><span class="kw">,</span></span>
+<span id="cb2-78"><a></a><span class="at">      </span><span class="fu">"Requirements"</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
+<span id="cb2-79"><a></a><span class="at">        </span><span class="st">"R"</span><span class="kw">,</span></span>
+<span id="cb2-80"><a></a><span class="at">        </span><span class="st">"grDevices"</span><span class="kw">,</span></span>
+<span id="cb2-81"><a></a><span class="at">        </span><span class="st">"graphics"</span><span class="kw">,</span></span>
+<span id="cb2-82"><a></a><span class="at">        </span><span class="st">"grid"</span><span class="kw">,</span></span>
+<span id="cb2-83"><a></a><span class="at">        </span><span class="st">"lattice"</span><span class="kw">,</span></span>
+<span id="cb2-84"><a></a><span class="at">        </span><span class="st">"methods"</span><span class="kw">,</span></span>
+<span id="cb2-85"><a></a><span class="at">        </span><span class="st">"stats"</span><span class="kw">,</span></span>
+<span id="cb2-86"><a></a><span class="at">        </span><span class="st">"utils"</span></span>
+<span id="cb2-87"><a></a><span class="at">      </span><span class="kw">],</span></span>
+<span id="cb2-88"><a></a><span class="at">      </span><span class="fu">"Hash"</span><span class="kw">:</span><span class="at"> </span><span class="st">"8c7115cd3a0e048bda2a7cd110549f7a"</span></span>
+<span id="cb2-89"><a></a><span class="at">    </span><span class="kw">},</span></span>
+<span id="cb2-90"><a></a><span class="at">    </span><span class="fu">"R6"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span>
+<span id="cb2-91"><a></a><span class="at">      </span><span class="fu">"Package"</span><span class="kw">:</span><span class="at"> </span><span class="st">"R6"</span><span class="kw">,</span></span>
+<span id="cb2-92"><a></a><span class="at">      </span><span class="fu">"Version"</span><span class="kw">:</span><span class="at"> </span><span class="st">"2.5.1"</span><span class="kw">,</span></span>
+<span id="cb2-93"><a></a><span class="at">      </span><span class="fu">"Source"</span><span class="kw">:</span><span class="at"> </span><span class="st">"Repository"</span><span class="kw">,</span></span>
+<span id="cb2-94"><a></a><span class="at">      </span><span class="fu">"Repository"</span><span class="kw">:</span><span class="at"> </span><span class="st">"RSPM"</span><span class="kw">,</span></span>
+<span id="cb2-95"><a></a><span class="at">      </span><span class="fu">"Requirements"</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span></span>
+<span id="cb2-96"><a></a><span class="at">        </span><span class="st">"R"</span></span>
+<span id="cb2-97"><a></a><span class="at">      </span><span class="kw">],</span></span>
+<span id="cb2-98"><a></a><span class="at">      </span><span class="fu">"Hash"</span><span class="kw">:</span><span class="at"> </span><span class="st">"470851b6d5d0ac559e9d01bb352b4021"</span></span>
+<span id="cb2-99"><a></a><span class="at">    </span><span class="kw">},</span></span>
+<span id="cb2-100"><a></a><span class="at">    </span><span class="fu">"RColorBrewer"</span><span class="kw">:</span><span class="at"> </span><span class="kw">{</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Ce que <code>renv</code> évite</strong></p>
+</div>
+<div class="callout-content">
+<p>On retrouve parfois sur internet un code similaire à celui-ci :</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># A ne pas reproduire chez vous 😨</span></span>
+<span id="cb3-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"dplyr"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
+<span id="cb3-3"><a></a>  <span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb3-4"><a></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="gestion-du-cycle-de-vie-dun-projet-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
@@ -965,19 +1154,19 @@ Le cas d’usage classique à l’Insee
 <section id="les-solutions-concrètes-pour-les-mots-de-passe" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Les solutions concrètes pour les mots de passe</h2>
 <p>Notion de boîte de dialogue qui permet d’entrer le mot de passe sans l’inscrire dans le code</p>
-<div class="sourceCode" id="cb2" data-code-line-numbers="12-18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(DBI)</span>
-<span id="cb2-2"><a></a><span class="fu">library</span>(RPostgresInsee)</span>
-<span id="cb2-3"><a></a><span class="fu">library</span>(rjson)</span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="do">## import des éléments de connexion</span></span>
-<span id="cb2-6"><a></a></span>
-<span id="cb2-7"><a></a>connexion_details <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="at">file =</span> <span class="st">"X:/HAB-LOGFIDELI/Production en self/conf_servers_fideli.json"</span>)</span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="do">## connexion au clone</span></span>
-<span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a>connexion_clone <span class="ot">&lt;-</span> <span class="fu">do.call</span>(dbConnect, <span class="at">args =</span> <span class="fu">c</span>(connexion_details<span class="sc">$</span>clone[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], </span>
-<span id="cb2-12"><a></a>                                               <span class="fu">list</span>(<span class="at">drv =</span> <span class="fu">Postgres</span>(),</span>
-<span id="cb2-13"><a></a>                                                    <span class="at">password =</span> rstudioapi<span class="sc">::</span><span class="fu">askForPassword</span>(<span class="st">"Mot de passe :"</span>))))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4" data-code-line-numbers="12-18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(DBI)</span>
+<span id="cb4-2"><a></a><span class="fu">library</span>(RPostgresInsee)</span>
+<span id="cb4-3"><a></a><span class="fu">library</span>(rjson)</span>
+<span id="cb4-4"><a></a></span>
+<span id="cb4-5"><a></a><span class="do">## import des éléments de connexion</span></span>
+<span id="cb4-6"><a></a></span>
+<span id="cb4-7"><a></a>connexion_details <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="at">file =</span> <span class="st">"X:/HAB-LOGFIDELI/Production en self/conf_servers_fideli.json"</span>)</span>
+<span id="cb4-8"><a></a></span>
+<span id="cb4-9"><a></a><span class="do">## connexion au clone</span></span>
+<span id="cb4-10"><a></a></span>
+<span id="cb4-11"><a></a>connexion_clone <span class="ot">&lt;-</span> <span class="fu">do.call</span>(dbConnect, <span class="at">args =</span> <span class="fu">c</span>(connexion_details<span class="sc">$</span>clone[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>], </span>
+<span id="cb4-12"><a></a>                                               <span class="fu">list</span>(<span class="at">drv =</span> <span class="fu">Postgres</span>(),</span>
+<span id="cb4-13"><a></a>                                                    <span class="at">password =</span> rstudioapi<span class="sc">::</span><span class="fu">askForPassword</span>(<span class="st">"Mot de passe :"</span>))))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="résultat-un-prompt-qui-récupère-le-mot-de-passe" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Résultat : un prompt qui récupère le mot de passe</h2>
@@ -1376,6 +1565,24 @@ Le cas d’usage classique à l’Insee
         // clear code selection
         e.clearSelection();
       });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/InseeFrLab\.github\.io\/formation-bonnes-pratiques-git-R\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1412,7 +1619,11 @@ Le cas d’usage classique à l’Insee
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
