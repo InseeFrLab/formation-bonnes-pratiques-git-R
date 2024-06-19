@@ -54,5 +54,23 @@ L'activité du statisticien / *datascientist* tend à se rapprocher de celle du 
 . . .
 
 ::: {.callout-note}
-**Quel socle de bonnes pratiques pour les projets statistiques en `R` ?**
+**Quel socle de bonnes pratiques pour les projets statistiques en {{< fa brands r-project >}} ?**
 :::
+
+
+## Horizon de cette formation {auto-animate=true}
+
+Un point de départ commun
+
+![](img/environment_messy.png)
+
+## Horizon de cette formation {auto-animate=true}
+
+Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align="right"}
+
+
+Une structuration de projet plus viable
+
+![](img/environment.png)
+
+

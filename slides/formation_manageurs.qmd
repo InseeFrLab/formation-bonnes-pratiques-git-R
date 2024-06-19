@@ -131,12 +131,33 @@ Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse sty
 
 {{< include elements_git/_bp_git.qmd >}}
 
+## Ouverture vers la partie 4
 
-## L'élaboration d'une statistique
+Nous nous sommes concentrés sur les briques:
 
-<h4>Le cas d'usage classique à l'Insee</h4>
+:::: {.columns}
 
-<br>
+::: {.column width="60%"}
+* ["_Code R_"]{.blue2} 
+* ["_Données_"]{.blue2}
+
+:::
+
+::: {.column width="40%"}
+![](img/environment.png)
+:::
+
+::::
+
+- Mais besoin d'aller plus loin:
+    + ["_Code R_"]{.blue2} : besoin d'un environnement standardisé (`renv`)
+    + ["_Données_"]{.blue2}: enjeu de localisation (réseau, _cloud_, etc)
+    + ["_Configuration_"]{.blue2}: enjeu de la sécurité
+
+
+# L'élaboration d'une statistique
+
+## Le cas d'usage classique à l'Insee
 
 Il faut distinguer deux types de processus de production :
 
@@ -149,7 +170,7 @@ Il faut distinguer deux types de processus de production :
   + micro-simulation avec le [__modèle INES__]{.blue2} ;
   + des processus de [__suivi conjoncturels__]{.blue2}...
   
-## Pourquoi `Git` répond-il bien aux enjeux de la production ?
+## Pourquoi `Git` répond-il bien aux enjeux de la production ? {.smaller}
 
 ::: {h4}
 __Exemple avec calcul du taux de pauvreté dans [SRCV]{.blue2}__
@@ -163,26 +184,73 @@ Les tâtonnements supposent des allers et retours sur différentes hypothèses :
 - production de différentes [__variantes__]{.orange} que l'on veut pouvoir comparer les unes aux autres ;
 - comprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi.
 
-## Quels concepts ?
+## Quels concepts ? {.smaller}
+
+<br>
 
 - les [__variantes__]{.orange} peuvent se décliner sous la notion de [__branches__]{.orange} ;
+
+. . .
+
 - en traçant l'ensemble des modifications du code, `Git` facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
+
+. . .
+
 - au travers de l'[__historique__]{.orange}, il permet de retracer l'ensemble du cheminement ;
+
+. . .
+
 - le `git blame` permet de voir qui a fait quoi ;
+
+. . .
+
 - mais cela nécessite une [__discipline__]{.orange} sur l'usage de `Git`.
 
 &#8658; deux notions essentielles : [__reproductibilité__]{.orange} et [__traçabilité__]{.orange}
 
 ## Gestion du cycle de vie d'un projet
 
-- Changement de paradigme : [**le code _self_ doit être maintenu**]{.orange}
+- [__Changement de paradigme__]{.blue2} : [**le code _self_ doit être maintenu**]{.orange}
   * Changement de version de `R` et des _packages_ ;
   * Quelles solutions connaissez-vous ?
 
 . . .
 
 - `renv` et la notion de _lockfile_
-- anticiper les montées de version des logiciels :  on peut envisager un protocole pour cela 
+
+. . .
+
+- anticiper les montées de version des logiciels : 
+  + on peut envisager un protocole pour cela 
+
+## Gestion du cycle de vie d'un projet: `renv`
+
+Exemple de `renv.lock`  
+
+<details>
+<summary>
+Observer la composition de ce fichier (100 premières lignes)
+</summary>
+```{.yaml include="renvlockexample" filename="renv.lock" end-line=100}
+```
+</details>
+
+
+
+::: {.callout-warning collapse="true"}
+## Ce que `renv` évite
+
+On retrouve parfois sur internet un code similaire à celui-ci :
+
+```r
+# A ne pas reproduire chez vous 😨
+if (!requireNamespace("dplyr", quietly = TRUE)) {
+  install.packages("dplyr")
+}
+```
+
+:::
+
 
 ## Gestion du cycle de vie d'un projet
 

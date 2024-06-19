@@ -29,3 +29,6 @@ format:
     css: styles.css
     toc: true
 
+filters:
+   - include-code-files
+
