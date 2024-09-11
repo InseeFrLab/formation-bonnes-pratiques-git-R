@@ -292,7 +292,7 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 <br>
 
-- La documentation utilitR sur les [projets RStudio](https://www.book.utilitr.org/03_fiches_thematiques/fiche_rprojects) et les [packages R](https://www.book.utilitr.org/01_r_insee/fiche_installer_packages)
+- La documentation utilitR sur les [projets RStudio](https://book.utilitr.org/03_Fiches_thematiques/Fiche_rprojects) et les [packages R](https://book.utilitr.org/01_R_Insee/Fiche_installer_packages)
 - La [bible des packages R](https://r-pkgs.org/whole-game.html)
 - Un excellent [workshop sur la reproductibilité avec R](https://eliocamp.github.io/reproducibility-with-r/materials/day1/02-projects/)
 
