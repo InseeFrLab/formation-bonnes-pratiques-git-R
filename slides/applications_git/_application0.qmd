@@ -1,4 +1,9 @@
+::: {.panel-tabset}
+
+## {{< fa brands github >}} 
+
 :::{.callout-tip collapse="true" icon=false}
+
 ## Préparation de l'environnement de travail
 
 :::{.incremental}
@@ -10,8 +15,33 @@
     + `File` → `New project` → `Version Control` → `Git`
 6. [Générer un *token*](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (jeton d'authentification) sur `GitHub`
 7. Stocker le *token* sur le `SSP Cloud` (ou un gestionnaire de mot de passe) :
-    + `Mon Compte` -> `Services externes` -> `Jeton d'accès personnel GitHub`
+    + `Mon Compte` -> `Git` -> `Token d'accès personnel pour Forge Git`
 8. Terminer la procédure de clonage en fournissant le nom d'utilisateur `GitHub` et le *token*
+
+:::
+
+:::
+
+## {{< fa brands gitlab >}} insee
+
+:::{.callout-tip collapse="true" icon=false}
+
+## Préparation de l'environnement de travail
+
+:::{.incremental}
+1. Compte déjà créé sur le [gitlab interne](https://gitlab.insee.fr/)
+2. Créer un nouveau dépôt **privé** sur `gitlab.insee.fr`
+3. Créer un compte sur [LS3](https://datalab.sspcloud.fr/home) via AUS.
+4. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `Gitlab` à une valeur suffisamment élevée
+5. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` de la plateforme `LS3`):
+    + `File` → `New project` → `Version Control` → `Git`
+6. [Générer un *token*](https://gitlab.insee.fr/mobitic/book_qualite/-/settings/access_tokens) (jeton d'authentification) sur `gitlab.insee.fr`
+7. Stocker le *token* sur `LS3` (ou un gestionnaire de mot de passe) :
+    + `Mon Compte` -> `Git` -> `Token d'accès personnel pour Forge Git`
+8. Terminer la procédure de clonage en fournissant le nom d'utilisateur `gitlab.insee.fr` (code insee en 6 caractères) et le *token*
+
+:::
+
 :::
 
 :::

@@ -158,6 +158,10 @@ un bon `.gitignore`)
 
 ## Modes d'authentification
 
+::: {.panel-tabset}
+
+## {{< fa brands github >}}
+
 :::{.incremental}
 - [**https**]{.orange}
   - `git clone https://github.com/username/projet.git`
@@ -168,6 +172,27 @@ un bon `.gitignore`)
   - `git clone git@github.com:username/projet.git`
   - (plus) complexe à initialiser
   - authentification automatique 
+:::
+
+## {{< fa brands gitlab >}} insee
+
+::: {style="font-size: 75%;"}
+
+:::{.incremental }
+
+- [**https**]{.orange}
+  - `git clone https://gitlab.insee.fr/username_or_groupname/projet.git`
+  - simple à utiliser
+  - authentification username + password (ou token) à chaque *push*
+
+- [**ssh**]{.orange}
+  - `git clone git@gitlab.insee.fr:username_or_groupname/projet.git`
+  - (plus) complexe à initialiser
+  - authentification automatique 
+:::
+
+:::
+
 :::
 
 ## Application 0 {.smaller}
