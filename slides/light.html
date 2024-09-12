@@ -856,6 +856,10 @@ _Workflow_ (version littéraire) :
 </section>
 <section id="modes-dauthentification" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Modes d’authentification</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-1-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
 <div>
 <ul>
 <li class="fragment"><span class="orange"><strong>https</strong></span>
@@ -872,9 +876,36 @@ _Workflow_ (version littéraire) :
 </ul></li>
 </ul>
 </div>
+</div>
+<div id="tabset-1-2">
+<div style="font-size: 75%;">
+<div>
+<ul>
+<li class="fragment"><span class="orange"><strong>https</strong></span>
+<ul>
+<li class="fragment"><code>git clone https://gitlab.insee.fr/username_or_groupname/projet.git</code></li>
+<li class="fragment">simple à utiliser</li>
+<li class="fragment">authentification username + password (ou token) à chaque <em>push</em></li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>ssh</strong></span>
+<ul>
+<li class="fragment"><code>git clone git@gitlab.insee.fr:username_or_groupname/projet.git</code></li>
+<li class="fragment">(plus) complexe à initialiser</li>
+<li class="fragment">authentification automatique</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="application-0" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 0</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-2-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -894,10 +925,42 @@ _Workflow_ (version littéraire) :
 <li class="fragment"><a href="https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Générer un <em>token</em></a> (jeton d’authentification) sur <code>GitHub</code></li>
 <li class="fragment">Stocker le <em>token</em> sur le <code>SSP Cloud</code> (ou un gestionnaire de mot de passe) :
 <ul>
-<li class="fragment"><code>Mon Compte</code> -&gt; <code>Services externes</code> -&gt; <code>Jeton d'accès personnel GitHub</code></li>
+<li class="fragment"><code>Mon Compte</code> -&gt; <code>Git</code> -&gt; <code>Token d'accès personnel pour Forge Git</code></li>
 </ul></li>
 <li class="fragment">Terminer la procédure de clonage en fournissant le nom d’utilisateur <code>GitHub</code> et le <em>token</em></li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Préparation de l’environnement de travail</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<ol type="1">
+<li class="fragment">Compte déjà créé sur le <a href="https://gitlab.insee.fr/">gitlab interne</a></li>
+<li class="fragment">Créer un nouveau dépôt <strong>privé</strong> sur <code>gitlab.insee.fr</code></li>
+<li class="fragment">Créer un compte sur <a href="https://datalab.sspcloud.fr/home">LS3</a> via AUS.</li>
+<li class="fragment">Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>Gitlab</code> à une valeur suffisamment élevée</li>
+<li class="fragment">Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> de la plateforme <code>LS3</code>):
+<ul>
+<li class="fragment"><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
+</ul></li>
+<li class="fragment"><a href="https://gitlab.insee.fr/mobitic/book_qualite/-/settings/access_tokens">Générer un <em>token</em></a> (jeton d’authentification) sur <code>gitlab.insee.fr</code></li>
+<li class="fragment">Stocker le <em>token</em> sur <code>LS3</code> (ou un gestionnaire de mot de passe) :
+<ul>
+<li class="fragment"><code>Mon Compte</code> -&gt; <code>Git</code> -&gt; <code>Token d'accès personnel pour Forge Git</code></li>
+</ul></li>
+<li class="fragment">Terminer la procédure de clonage en fournissant le nom d’utilisateur <code>gitlab.insee.fr</code> (code insee en 6 caractères) et le <em>token</em></li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -927,7 +990,7 @@ _Workflow_ (version littéraire) :
 </div>
 </div>
 </div>
-<p>❓ <strong>Question</strong> : à ce stade, le dépôt du projet sur <code>GitHub</code> (<code>remote</code>) a-t-il été modifié ?</p>
+<p>❓ <strong>Question</strong> : à ce stade, le dépôt du projet sur <code>GitHub</code> / <code>Gitlab</code> (<code>remote</code>) a-t-il été modifié ?</p>
 </section>
 <section id="application-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 2</h2>
@@ -940,7 +1003,7 @@ _Workflow_ (version littéraire) :
 <div>
 <ol type="1">
 <li class="fragment">Effectuer un <code>push</code> pour intégrer les changements locaux au projet distant</li>
-<li class="fragment">Parcourir l’historique du projet sur <code>GitHub</code>
+<li class="fragment">Parcourir l’historique du projet sur <code>GitHub</code> / <code>Gitlab</code>
 <ol type="a">
 <li class="fragment">Faire apparaître les différences entre deux versions consécutives du projet</li>
 <li class="fragment">Afficher une version passée du projet</li>
@@ -1015,7 +1078,7 @@ _Workflow_ (version littéraire) :
 </div>
 <div class="callout-content">
 <div>
-<p>Lors de la création du projet sur <code>GitHub</code>, nous avons demandé la création d’un fichier <code>.gitignore</code>, qui se situe à la racine du projet. Il spécifie l’ensemble des fichiers qui seront toujours exclus de l’indexation faite par <code>Git</code>.</p>
+<p>Lors de la création du projet sur <code>GitHub</code> / <code>Gitlab</code>, nous avons demandé la création d’un fichier <code>.gitignore</code>, qui se situe à la racine du projet. Il spécifie l’ensemble des fichiers qui seront toujours exclus de l’indexation faite par <code>Git</code>.</p>
 <ol type="1">
 <li class="fragment">Exclure les fichiers de type <code>*.pdf</code> et <code>*.html</code></li>
 <li class="fragment">Créer un dossier <code>data</code> à la racine du projet et créer à l’intérieur de celui-ci un fichier <code>data/raw.csv</code> avec une ligne de données quelconque</li>
