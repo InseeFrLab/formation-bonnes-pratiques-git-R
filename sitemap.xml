@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/cards/version-sensibilisation/index.html</loc>
-    <lastmod>2024-06-19T12:49:09.278Z</lastmod>
-  </url>
-  <url>
-    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/cards/version-full/index.html</loc>
-    <lastmod>2024-06-19T12:49:09.270Z</lastmod>
-  </url>
-  <url>
-    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/index.html</loc>
-    <lastmod>2024-06-19T12:49:09.282Z</lastmod>
-  </url>
-  <url>
     <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/slides/complete.html</loc>
-    <lastmod>2024-06-19T12:49:09.298Z</lastmod>
-  </url>
-  <url>
-    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/slides/light.html</loc>
-    <lastmod>2024-06-19T12:49:09.298Z</lastmod>
+    <lastmod>2024-09-12T07:34:49.300Z</lastmod>
   </url>
   <url>
     <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/slides/manageurs.html</loc>
-    <lastmod>2024-06-19T12:49:09.298Z</lastmod>
-  </url>
-  <url>
-    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/cards/version-boss/index.html</loc>
-    <lastmod>2024-06-19T12:49:09.266Z</lastmod>
+    <lastmod>2024-09-12T07:34:49.300Z</lastmod>
   </url>
   <url>
     <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/cards/version-light/index.html</loc>
-    <lastmod>2024-06-19T12:49:09.278Z</lastmod>
+    <lastmod>2024-09-12T07:34:49.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/cards/version-boss/index.html</loc>
+    <lastmod>2024-09-12T07:34:49.264Z</lastmod>
+  </url>
+  <url>
+    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/index.html</loc>
+    <lastmod>2024-09-12T07:34:49.280Z</lastmod>
+  </url>
+  <url>
+    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/cards/version-full/index.html</loc>
+    <lastmod>2024-09-12T07:34:49.268Z</lastmod>
+  </url>
+  <url>
+    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/cards/version-sensibilisation/index.html</loc>
+    <lastmod>2024-09-12T07:34:49.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://InseeFrLab.github.io/formation-bonnes-pratiques-git-R/slides/light.html</loc>
+    <lastmod>2024-09-12T07:34:49.300Z</lastmod>
   </url>
 </urlset>
