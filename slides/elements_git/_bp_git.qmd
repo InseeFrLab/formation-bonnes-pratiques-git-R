@@ -20,7 +20,7 @@ Des modèles de `.gitignore` existent sur internet, par exemple [celui-ci](https
 pour les projets {{< fa brands r-project >}}.
 
 N'hésitez pas à y ajouter des règles conservatrices (par exemple `*.csv`), 
-comme cela est expliqué dans [la documentation `utilitR`](https://www.book.utilitr.org/git.html?q=gitignore#gitignore).
+comme cela est expliqué dans [la documentation `utilitR`](https://book.utilitr.org/03_Fiches_thematiques/Fiche_git_utilisation.html#gitignore).
 
 :::
 
