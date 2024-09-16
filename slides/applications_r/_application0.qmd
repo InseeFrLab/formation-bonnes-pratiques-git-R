@@ -1,5 +1,9 @@
 ## Application 0
 
+::: {.panel-tabset}
+
+## {{< fa brands github >}} 
+
 :::{.callout-tip collapse="true" icon=false}
 ## Préparation de l'environnement de travail
 
@@ -7,7 +11,7 @@
 0. Si vous ne l'avez pas fait lors de la première partie de la formation, créer un compte sur [GitHub](https://github.com/) et [générer un *token*](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (jeton d'accès) d'authentification
 1. Créer un nouveau dépôt public sur [GitHub](https://github.com/)
 2. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitHub` à une valeur suffisamment élevée
-3. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` du `Datalab`):
+3. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` du `Datalab`) :
     + `File` → `New project` → `Version Control` → `Git`
 4. Créer un script `get_data.R` en copiant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/get_data.R), puis l'exécuter
 5. Créer le script `script.R` dans votre dépôt en copiant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/script.R)
@@ -16,3 +20,25 @@
 :::
 
 :::
+
+## {{< fa brands gitlab >}} insee
+
+:::{.callout-tip collapse="true" icon=false}
+## Préparation de l'environnement de travail
+
+
+:::{.incremental}
+0. Compte déjà créé sur le [gitlab interne](https://gitlab.insee.fr/) et [générer un *token*](https://gitlab.insee.fr/-/user_settings/personal_access_tokens) (jeton d'authentification) sur `gitlab.insee.fr` si ce n'est pas déjà fait.
+1. Créer un nouveau dépôt public sur [gitlab interne](https://gitlab.insee.fr/)
+2. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `Gitlab` à une valeur suffisamment élevée
+3. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` de `LS3`) :
+    + `File` → `New project` → `Version Control` → `Git`
+4. Créer un script `get_data.R` en copiant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/get_data.R), puis l'exécuter
+5. Créer le script `script.R` dans votre dépôt en copiant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/script.R)
+6. Ajouter la règle "individu_reg.*" au fichier `.gitignore`. Que signifie-t-elle ?
+7. *Commit*/*push* les changements
+:::
+
+:::
+
+

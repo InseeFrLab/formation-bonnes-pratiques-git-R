@@ -131,7 +131,70 @@
 
 - La [fiche utilitR sur la gestion des dépendances](https://book.utilitr.org/03_Fiches_thematiques/Fiche_gerer_dependances)
 
-# V- *Pipelines* de données
+# V- Publication reproductible
+
+## Enjeux
+
+- Produire des [**études reproductibles**]{.orange} en intégrant le code et le texte dans un même document
+
+. . .
+
+- La génération complète de l'étude est contenue dans un [**unique projet**]{.orange}
+
+. . .
+
+- [**Limiter les risques d'erreurs**]{.orange} dues aux gestes manuels
+
+. . .
+
+- Gestion native de [**différents formats**]{.orange} pour le document final (`pdf`, `html`, `odt`, etc.)
+
+## `R Markdown`
+
+::: {.incremental}
+- `R Markdown` est un *package* `R` qui permet de lier
+  - Du [**texte**]{.orange} au format `Markdown`
+  - Du [**code**]{.orange} `R` qui peut être exécuté et dont les sorties peuvent être intégrées au texte
+:::
+
+. . .
+
+- [**Dissociation du fond et de la forme**]{.orange} du document
+
+::: {.incremental}
+- Un document est [**compilé**]{.orange} en deux étapes
+  - [***knit***]{.green2} : le package `knitr` transforme le texte et les sorties `R` en un document `Markdown` standard
+  - [***convert***]{.green2} : le logiciel `pandoc` transforme le document `.md` en un format de sortie standard (`html`, `pdf`, etc.)
+:::
+
+## `Quarto`
+
+- `Quarto` est le successeur de `R Markdown`
+
+. . .
+
+- `Quarto` supporte [**différents moteurs de calcul**]{.orange} (`knitr`, `Jupyter`, `Observable`..) ce qui le rend nativement [**multi-langage**]{.orange} (`R`, `Python`, `JavaScript`..)
+
+. . .
+
+- Le fonctionnement des deux systèmes reste très proche
+
+## Anatomie d'un document reproductible
+
+![](img/qmd.png){height="500" fig-align="center"}
+
+## Ressources supplémentaires
+
+- La [documentation officielle de `R Markdown`](https://rmarkdown.rstudio.com/lesson-1.html)
+
+- La [fiche `UtilitR` sur `R Markdown`](https://book.utilitr.org/03_Fiches_thematiques/Fiche_rmarkdown.html)
+
+- La [documentation officielle de `quarto`](https://quarto.org/)
+
+
+{{< include applications_r/_application6.qmd >}}
+
+# VI- *Pipelines* de données
 
 ## Motivations
 
@@ -178,7 +241,7 @@
     
 ::: {.callout-note}
 
-Quand on part du chaine de traitement dans un fichier déja existant
+Quand on part d'une chaine de traitement dans un fichier déja existant
 (`script.R` par exemple), il faut faire la transition vers un fichier
 `_targets.R` dont la structure est particulière.
 
@@ -188,7 +251,7 @@ Quand on part du chaine de traitement dans un fichier déja existant
 
 - Structure de projet _opinionated_ :
     + ~~Long script `script.R`~~ `_targets.R`
-    + Chaîne de production: suite d'appels à des fonctions définies dans `R/functions.R`
+    + Chaîne de production : suite d'appels à des fonctions définies dans `R/functions.R`
 
 <br>
 
@@ -266,65 +329,4 @@ dans 📁 `R/functions.R`
 
 
 
-# VI- Publication reproductible
 
-## Enjeux
-
-- Produire des [**études reproductibles**]{.orange} en intégrant le code et le texte dans un même document
-
-. . .
-
-- La génération complète de l'étude est contenue dans un [**unique projet**]{.orange}
-
-. . .
-
-- [**Limiter les risques d'erreurs**]{.orange} dues aux gestes manuels
-
-. . .
-
-- Gestion native de [**différents formats**]{.orange} pour le document final (`pdf`, `html`, `odt`, etc.)
-
-## `R Markdown`
-
-::: {.incremental}
-- `R Markdown` est un *package* `R` qui permet de lier
-  - Du [**texte**]{.orange} au format `Markdown`
-  - Du [**code**]{.orange} `R` qui peut être exécuté et dont les sorties peuvent être intégrées au texte
-:::
-
-. . .
-
-- [**Dissociation du fond et de la forme**]{.orange} du document
-
-::: {.incremental}
-- Un document est [**compilé**]{.orange} en deux étapes
-  - [***knit***]{.green2} : le package `knitr` transforme le texte et les sorties `R` en un document `Markdown` standard
-  - [***convert***]{.green2} : le logiciel `pandoc` transforme le document `.md` en un format de sortie standard (`html`, `pdf`, etc.)
-:::
-
-## `Quarto`
-
-- `Quarto` est le successeur de `R Markdown`
-
-. . .
-
-- `Quarto` supporte [**différents moteurs de calcul**]{.orange} (`knitr`, `Jupyter`, `Observable`..) ce qui le rend nativement [**multi-langage**]{.orange} (`R`, `Python`, `JavaScript`..)
-
-. . .
-
-- Le fonctionnement des deux systèmes reste très proche
-
-## Anatomie d'un document reproductible
-
-![](img/qmd.png){height="500" fig-align="center"}
-
-## Ressources supplémentaires
-
-- La [documentation officielle de `R Markdown`](https://rmarkdown.rstudio.com/lesson-1.html)
-
-- La [fiche `UtilitR` sur `R Markdown`](https://book.utilitr.org/03_Fiches_thematiques/Fiche_rmarkdown.html)
-
-- La [documentation officielle de `quarto`](https://quarto.org/)
-
-
-{{< include applications_r/_application6.qmd >}}
