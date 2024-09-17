@@ -192,7 +192,7 @@
 - La [documentation officielle de `quarto`](https://quarto.org/)
 
 
-{{< include applications_r/_application6.qmd >}}
+{{< include applications_r/_application5.qmd >}}
 
 # VI- *Pipelines* de données
 
@@ -325,7 +325,7 @@ dans 📁 `R/functions.R`
 - La [fiche UtilitR dédiée à `targets`](https://book.utilitr.org/03_Fiches_thematiques/Fiche_targets)
 
 
-{{< include applications_r/_application5.qmd >}}
+{{< include applications_r/_application6.qmd >}}
 
 
 

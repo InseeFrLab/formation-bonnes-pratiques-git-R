@@ -1,22 +1,3 @@
-library(dplyr)
-library(ggplot2)
-library(forcats)
-
-read_yaml_secret <- function(path, key) {
-  return(yaml::read_yaml(path)[[key]])
-}
-read_from_parquet <- function(path) {
-  df <- arrow::read_parquet(
-    path,
-    col_select  = c(
-      "region", "aemm", "aged", "anai", "catl", "cs1", "cs2", "cs3",
-      "couple", "na38", "naf08", "pnai12", "sexe", "surf", "tp",
-      "trans", "ur"
-    )
-  )
-  return(df)
-}
-
 decennie_a_partir_annee <- function(annee) {
   return(annee - annee %% 10)
 }
@@ -46,40 +27,22 @@ stats_agregees <- function(x, stat = "moyenne", ...) {
   return(resultat)
 }
 
-
-
-retraitement_donnees <- function(df){
-  df <- df %>%
-    mutate(aged = as.numeric(aged))
-  df$sexe <- df$sexe %>%
-    as.character() %>%
-    fct_recode(Homme = "1", Femme = "2")
-  df <- df %>%
-    mutate(
-      surf = factor(surf, ordered = TRUE),
-      cs1 = factor(cs1)
-    )
-  return(df)
-}
-
-
-produce_table_age <- function(df){
-  stats_age <- df %>%
-    group_by(decennie = decennie_a_partir_annee(aged)) %>%
-    summarise(n())
-  
-  table_age <- gt::gt(stats_age) %>%
-    gt::tab_header(
-      title = "Distribution des âges dans notre population"
-    ) %>%
-    gt::fmt_number(
-      columns = `n()`,
-      sep_mark = " ",
-      decimals = 0
-    ) %>%
-    gt::cols_label(
-      decennie = "Tranche d'âge",
-      `n()` = "Population"
-    )
-  return(table_age)
+#' Créer un graphique de la part des hommes
+#'
+#' @param df un data.frame
+#' @return un graphique ggplot
+figure_part_homme_age <- function(df){
+  p <- df %>%
+    group_by(aged, sexe) %>%
+    summarise(SH_sexe = n()) %>%
+    group_by(aged) %>%
+    mutate(SH_sexe = SH_sexe / sum(SH_sexe)) %>%
+    filter(sexe == "Homme") %>%
+    ggplot() +
+    geom_bar(aes(x = aged, y = SH_sexe), stat = "identity") +
+    geom_point(
+      aes(x = aged, y = SH_sexe),
+      stat = "identity", color = "red") +
+    coord_cartesian(c(0, 100))
+  return(p)
 }

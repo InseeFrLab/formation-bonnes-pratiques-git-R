@@ -1,0 +1,80 @@
+---
+title: "Mon super rapport"
+author: "Gino Lingala"
+format: html
+execute:
+  echo: false
+---
+
+## Pyramide des âges
+
+A partir du recensement de la population, on peut déduire que la
+pyramide des âges est la suivante :
+
+```{r}
+#| message: false
+
+library(dplyr, quietly = TRUE)
+library(ggplot2)
+library(forcats)
+library(gt)
+
+source("R/functions.R", encoding = "UTF-8")
+
+```
+
+```{r}
+
+# IMPORT DONNEES ------------------
+
+df <- arrow::read_parquet(
+  "individu_reg.parquet",
+  col_select  = c(
+    "region", "aemm", "aged", "anai", "catl", "cs1", "cs2", "cs3",
+    "couple", "na38", "naf08", "pnai12", "sexe", "surf", "tp",
+    "trans", "ur"
+  )
+)
+
+# RETRAITEMENT --------------------------------
+
+df <- df %>%
+  mutate(aged = as.numeric(aged))
+
+df$sexe <- df$sexe %>%
+  as.character() %>%
+  fct_recode(Homme = "1", Femme = "2")
+
+# TABLEAU DES STATS PAR AGES ----------------------
+
+stats_age <- df %>%
+  group_by(decennie = decennie_a_partir_annee(aged)) %>%
+  summarise(n())
+
+table_age <- gt::gt(stats_age) %>%
+  gt::tab_header(
+    title = "Distribution des âges dans notre population"
+  ) %>%
+  gt::fmt_number(
+    columns = `n()`,
+    sep_mark = " ",
+    decimals = 0
+  ) %>%
+  gt::cols_label(
+    decennie = "Tranche d'âge",
+    `n()` = "Population"
+  )
+
+table_age
+```
+
+## Part des hommes
+
+Voici la part des hommes selon l'âge dans le recensement de la population : les hommes sont sous-représentés parmi les personnes âgées.
+
+```{r}
+#| message: false
+
+figure_part_homme_age(df)
+```
+

@@ -83,20 +83,3 @@ produce_table_age <- function(df){
     )
   return(table_age)
 }
-
-
-figure_part_homme_age <- function(df){
-  p <- df %>%
-    group_by(aged, sexe) %>%
-    summarise(SH_sexe = n()) %>%
-    group_by(aged) %>%
-    mutate(SH_sexe = SH_sexe / sum(SH_sexe)) %>%
-    filter(sexe == "Homme") %>%
-    ggplot() +
-    geom_bar(aes(x = aged, y = SH_sexe), stat = "identity") +
-    geom_point(
-      aes(x = aged, y = SH_sexe),
-      stat = "identity", color = "red") +
-    coord_cartesian(c(0, 100))
-  return(p)
-}
