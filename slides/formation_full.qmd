@@ -90,11 +90,11 @@ Améliorations graduelles dans l'échelle de la reproductibilité :
 
 . . .
 
-:five: *Pipelines* de données
+:five: Publication reproductible
 
 . . .
 
-:six: Publication reproductible
+:six: *Pipelines* de données
 
 {{< include _r_fundamentals.qmd >}}
 

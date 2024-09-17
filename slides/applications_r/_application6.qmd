@@ -1,14 +1,34 @@
 ## Application 6
 
 :::{.callout-tip collapse="true" icon=false}
-## Introduction à la publication reproductible
+## Modélisation d'un projet sous forme de *pipeline* de données
 
 :::{.incremental}
-1. Cliquer sur `File > New file > Quarto document`:
-    + Donner un titre et un.e auteur.e au rapport
-    + Choisir `HTML` comme format de sortie
-    + Décocher la case `Use visual markdown editor`
-2. Sauvegarder le fichier sous le nom `report.qmd`.
+0. Installer le package `targets`.
+1. Créer un fichier `_targets.R` à la racine du dépôt,
+à partir de [l'exemple](https://books.ropensci.org/targets/walkthrough.html#target-script-file) dans la documentation.
+2. Ajouter `_targets/` dans le `.gitignore`.
+3. Reporter les `library` dans le fichier `R/functions.R` et
+récupérer les noms des packages pour les mettre dans la section `tar_option_set()`.
+4. Ajouter dans `R/functions.R` les fonctions `read_yaml_secret` et `read_from_parquet`:
+
+  ```r
+  read_yaml_secret <- function(path, key) {
+    return(yaml::read_yaml(path)[[key]])
+  }
+  read_from_parquet <- function(path) {
+    df <- arrow::read_parquet(
+      path,
+      col_select  = c(
+        "region", "aemm", "aged", "anai", "catl", "cs1", "cs2", "cs3",
+        "couple", "na38", "naf08", "pnai12", "sexe", "surf", "tp",
+        "trans", "ur"
+      )
+    )
+    return(df)
+  }
+  ```
+
 :::
 
 :::
@@ -16,67 +36,89 @@
 ## Application 6
 
 :::{.callout-tip collapse="true" icon=false}
-## Introduction à la publication reproductible (suite)
+## Modélisation d'un projet sous forme de *pipeline* de données (suite)
 
 :::{.incremental}
-4. Produire une courte note présentant le tableau des âges produit précédemment :
-    + Un _chunk_ `R` qui importe le _package_ `targets`. Le contenu produit par ce _chunk_ doit être caché, il est donc nécessaire d'utiliser une [option](https://quarto.org/docs/computations/execution-options.html)
-    + Une courte phrase d'introduction
-    + Dans le fichier `.qmd`, importer l'objet `table_age` via `tar_load` et faire en sorte d'afficher ce tableau dans le document
-    
-5. Générer le rapport avec le bouton `Render` et vérifier que l'*output* correspond à celui attendu.
+
+6. En extrayant du contenu de `script.R`, créer les deux premières
+cibles (_targets_) dans `_targets.R`: 
+    + Créer les _targets_ `file_token` et `file_data` stockant les chemins de nos fichiers en entrée
+    + ⚠️ Ne pas oublier l'argument `format = 'file'` dans `tar_target`
+7. Créer les deux cibles suivantes dans `_targets.R`:
+    + Créer `token` et `data` à partir, respectivement, de `read_yaml_secret` et `read_from_parquet`.
+    + Pour `data`, utiliser l'argument `format = 'parquet'` dans `tar_target`.
+7. Visualiser les relations entre objets de notre _pipeline_ en utilisant dans la console `R` la fonction `tar_visnetwork()`.
+8. Exécuter `tar_make()` dans la console et observer le changement d'état avec `tar_visnetwork()`.
 :::
 
 :::
 
-::: {.callout-important}
-En supposant que ce document est à vocation d'une audience non technique, masquer le code ayant généré les sorties
-:::
-
-## Application 6 {.smaller}
+## Application 6
 
 :::{.callout-tip collapse="true" icon=false}
-## Introduction à la publication reproductible (suite)
+## Modélisation d'un projet sous forme de *pipeline* de données (suite)
 
-6. Dans `script.R`, nous avions créé un graphique `p.png`. 
-    + A partir des exemples de la [documentation](https://quarto.org/docs/authoring/figures.html)
-introduire cette figure
-    + La faire précéder d'une phrase d'introduction.
-    + Êtes-vous sûr que cette figure est à jour ?
-
-7. A partir de la fonction suivante à mettre dans `R/functions.R`, 
-créer une nouvelle _target_ `graph_part_hommes` dans `_targets.R`.
+9. A partir des fonctions suivantes, créer deux nouvelles cibles 
+(`clean_data` et `table_age`) qui automatisent la production
+du tableau `gt`
 
 ```r
-figure_part_homme_age <- function(df){
-  p <- df %>%
-    group_by(aged, sexe) %>%
-    summarise(SH_sexe = n()) %>%
-    group_by(aged) %>%
-    mutate(SH_sexe = SH_sexe / sum(SH_sexe)) %>%
-    filter(sexe == "Homme") %>%
-    ggplot() +
-    geom_bar(aes(x = aged, y = SH_sexe), stat = "identity") +
-    geom_point(
-      aes(x = aged, y = SH_sexe),
-      stat = "identity", color = "red") +
-    coord_cartesian(c(0, 100))
-  return(p)
+retraitement_donnees <- function(df){
+  df <- df %>%
+    mutate(aged = as.numeric(aged))
+  df$sexe <- df$sexe %>%
+    as.character() %>%
+    fct_recode(Homme = "1", Femme = "2")
+  return(df)
+}
+
+
+produce_table_age <- function(df){
+  stats_age <- df %>%
+    group_by(decennie = decennie_a_partir_annee(aged)) %>%
+    summarise(n())
+  
+  table_age <- gt::gt(stats_age) %>%
+    gt::tab_header(
+      title = "Distribution des âges dans notre population"
+    ) %>%
+    gt::fmt_number(
+      columns = `n()`,
+      sep_mark = " ",
+      decimals = 0
+    ) %>%
+    gt::cols_label(
+      decennie = "Tranche d'âge",
+      `n()` = "Population"
+    )
+  return(table_age)
 }
 ```
 
-8. Faire tourner le _pipeline_ (`tar_make`)
-9. Pour être certain que votre note utilise la dernière version du _pipeline_, introduire
-un `tar_make()` dans votre document à la suite du `library(targets)`
-10. Cliquer sur le bouton `Render` pour mettre à jour votre note
+
+10. En console, visualiser l'état du _pipeline_ avec `tar_visnetwork` puis exécuter `tar_make()`. Analyser la sortie dans la console.
+11. A l'aide de la fonction `tar_read(table_age)`, visualiser la table des âges produite.
+12. Ajouter les commandes suivantes au sein de la fonction `retraitement_donnees` pour 
+la modifier:
+
+```r
+df <- df %>%
+  mutate(
+    surf = factor(surf, ordered = TRUE),
+    cs1 = factor(cs1)
+  )
+```
+
+13. Depuis la console, inspecter le _pipeline avec `tar_visnetwork` puis exécuter `tar_make()` pour lancer le *pipeline*. Analyser la sortie.
+14. Si vous avez le temps, continuer à enrichir votre _pipeline_
 :::
 
+:::
 
 ## Checkpoint
 
 ::: {layout=[30,70]}
 
-- [report.qmd](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/report.qmd)
 - [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/functions.R)
 - [_targets.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/_targets.R)
 
