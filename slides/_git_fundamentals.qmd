@@ -259,23 +259,16 @@ un bon `.gitignore`)
 :::
 :::
 
-## Application 0 {.smaller}
 
-::: {.nonincremental}
+
 {{< include applications_git/_application0.qmd >}}
-:::
 
-## Application 1 {.smaller}
 
-::: {.nonincremental}
 {{< include applications_git/_application1.qmd >}}
-:::
 
-## Application 2 {.smaller}
 
-::: {.nonincremental}
 {{< include applications_git/_application2.qmd >}}
-:::
+
 
 ## Bonnes pratiques {auto-animate=true .smaller}
 
@@ -320,8 +313,6 @@ __Format des commits__
 
 :::
 
-## Application 3 {.smaller}
 
-::: {.nonincremental}
 {{< include applications_git/_application3.qmd >}}
-:::
+

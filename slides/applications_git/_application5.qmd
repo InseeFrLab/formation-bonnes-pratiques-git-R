@@ -1,6 +1,9 @@
+## Application 5 {.smaller}
+
 :::{.callout-tip collapse="true" icon=false}
 ## Résoudre les conflits
 
+::: {.nonincremental}
 1. On se place dans la même configuration que dans l'application précédente : un [**mainteneur**]{.blue2} et deux/trois [**développeurs**]{.blue2}
 2. Le mainteneur modifie le contenu de son fichier, puis `commit` et `push` les modifications
 3. Sans faire de `pull` préalable, les développeurs modifient également le contenu du fichier du mainteneur, puis `commit` et `push` les modifications
@@ -8,6 +11,7 @@
 `Git` nous indique qu'il faut résoudre le conflit avant de pouvoir modifier l'historique du projet.
 5. Utiliser l'interface de `RStudio` pour résoudre le conflit, en choisissant la version du fichier que vous souhaitez conserver, puis `commit`/`push` les modifications
 6. Comme dans l'application précédente, seul le développeur le plus rapide parvient à `push`. Les autres doivent répéter l'opération.
+:::
 
 :::
 

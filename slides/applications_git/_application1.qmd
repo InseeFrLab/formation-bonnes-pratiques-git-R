@@ -1,6 +1,9 @@
+## Application 1 {.smaller}
+
 :::{.callout-tip collapse="true" icon=false}
 ## Premiers commits
 
+::: {.nonincremental}
 1. Créer un dossier 📁 `scripts`
 2. Y créer les fichiers `script1.R` et `script2.R`, chacun contenant quelques commandes `R` de votre choix
 3. Ajouter ces fichiers à la zone de *staging* de Git en les cochant dans l'interface `RStudio`
@@ -9,6 +12,7 @@
 6. Analyser ce qui se passe lorsque l'on coche ces fichiers dans l'interface `RStudio`
 7. Effectuer un nouveau *commit* pour ajouter ces modifications à l'historique
 8. Visualiser l'historique du projet à partir de l'interface graphique de `RStudio`
+:::
 
 :::
 

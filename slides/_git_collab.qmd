@@ -11,11 +11,8 @@
     - Droits d'accès
     - Règles de contribution
 
-## Application 4 {.smaller}
 
-::: {.nonincremental}
 {{< include applications_git/_application4a.qmd >}}
-:::
 
 ## Divergence d'historiques : cas simple
 
@@ -69,17 +66,13 @@
 
 - [**Attention**]{.orange} : ne jamais *rebase* des commits déjà poussés sur un dépôt public ([plus d'explications](https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Rebaser-Rebasing#s_rebase_peril))
 
-## Application 4 (suite) {.smaller}
 
-::: {.nonincremental}
 {{< include applications_git/_application4b.qmd >}}
-:::
 
 ## Application 5 {.smaller}
 
-::: {.nonincremental}
 {{< include applications_git/_application5.qmd >}}
-:::
+
 
 ## Le modèle des branches {auto-animate=true}
 
@@ -96,20 +89,9 @@
 Description plus détaillée : [ici](https://docs.github.com/en/get-started/quickstart/github-flow)
 
 
-## Application 6 {.smaller}
 
-::: {.nonincremental}
 {{< include applications_git/_application6.qmd >}}
-:::
 
-## Application 7 {.smaller}
-
-::: {.nonincremental}
 {{< include applications_git/_application7.qmd >}}
-:::
 
-## Application 8 (bonus)
-
-::: {.nonincremental}
 {{< include applications_git/_application8.qmd >}}
-:::

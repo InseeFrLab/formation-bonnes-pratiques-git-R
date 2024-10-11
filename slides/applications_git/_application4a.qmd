@@ -1,6 +1,9 @@
+## Application 4 {.smaller}
+
 :::{.callout-tip collapse="true" icon=false}
 ## Synchronisation des dépôts
 
+::: {.nonincremental}
 1. Se mettre par [__groupes de 3/4 personnes__]{.orange}:
     - Une personne aura la responsabilité d’être [**mainteneur**]{.blue2}
     - Deux à trois personnes seront [**développeurs**]{.blue2}
@@ -10,5 +13,6 @@
 5. __À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du `push`.__
 C’est normal ! Le premier ayant fait un `push` a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (`pull`) avant d’avoir le droit de proposer un changement.
 6. Néanmoins, le `pull` renvoie également une erreur : `Git` ne parvient pas à résoudre la divergence d'historique. Essayons de comprendre le problème et les solutions possibles.
+:::
 
 :::
