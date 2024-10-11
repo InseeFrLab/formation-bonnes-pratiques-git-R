@@ -3,13 +3,11 @@
 :::{.callout-tip collapse="true" icon=false}
 ## Introduction à la publication reproductible
 
-:::{.incremental}
 1. Cliquer sur `File > New file > Quarto document`:
     + Donner un titre et un.e auteur.e au rapport
     + Choisir `HTML` comme format de sortie
     + Décocher la case `Use visual markdown editor`
 2. Sauvegarder le fichier sous le nom `report.qmd`.
-:::
 
 :::
 
@@ -18,14 +16,12 @@
 :::{.callout-tip collapse="true" icon=false}
 ## Introduction à la publication reproductible (suite)
 
-:::{.incremental}
 4. Produire une courte note présentant le tableau des âges produit précédemment :
     + Un _chunk_ `R` qui importe le _package_ `targets`. Le contenu produit par ce _chunk_ doit être caché, il est donc nécessaire d'utiliser une [option](https://quarto.org/docs/computations/execution-options.html)
     + Une courte phrase d'introduction
     + Dans le fichier `.qmd`, importer l'objet `table_age` via `tar_load` et faire en sorte d'afficher ce tableau dans le document
     
 5. Générer le rapport avec le bouton `Render` et vérifier que l'*output* correspond à celui attendu.
-:::
 
 :::
 

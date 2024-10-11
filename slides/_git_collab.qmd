@@ -6,8 +6,6 @@
     - `Git` {{< fa brands git-alt >}} : modèle des [__branches__]{.orange}
     - `GitHub` {{< fa brands github >}} / `GitLab` {{< fa brands gitlab >}} : [**Issues**, **Pull Requests**, **Forks**]{.orange}
 
-. . .
-
 - Ces outils ne remplacent pas une [**bonne définition de l'organisation du travail**]{.orange} en équipe
     - Choix d'un *workflow*
     - Droits d'accès
@@ -15,13 +13,14 @@
 
 ## Application 4 {.smaller}
 
+::: {.nonincremental}
 {{< include applications_git/_application4a.qmd >}}
+:::
 
 ## Divergence d'historiques : cas simple
 
 ![](img/ff.png)
 
-. . .
 
 - `Git` résout le problème via un [***fast-forward merge***]{.blue2}
     - Le commit distant est rajouté à l'historique local
@@ -31,11 +30,9 @@
 
 ![](img/divergence.png)
 
-. . .
 
 - `Git` ne peut pas résoudre de lui même la divergence
 
-. . .
 
 - Deux stratégies possibles
     - Le [**merge**]{.blue2}
@@ -45,12 +42,10 @@
 
 ![](img/merge.png)
 
-. . .
 
 - `Git` crée un [**commit de merge**]{.blue2}
     - Comportement par défaut (jusqu'à récemment)
 
-. . .
 
 - [**Inconvénient**]{.orange} : rend l'[**historique non-linéaire**]{.blue2} ([plus d'explications](https://www.atlassian.com/fr/git/tutorials/using-branches/git-merge))
 
@@ -58,7 +53,6 @@
 
 ![](img/rebase1.png)
 
-. . .
 
 - `Git` effectue 3 étapes
     - Supprime temporairement le commit local
@@ -69,21 +63,23 @@
 
 ![](img/rebase2.png)
 
-. . .
 
 - [**Avantage**]{.orange} : l'historique reste [**linéaire**]{.blue2}
 
-. . .
 
 - [**Attention**]{.orange} : ne jamais *rebase* des commits déjà poussés sur un dépôt public ([plus d'explications](https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Rebaser-Rebasing#s_rebase_peril))
 
 ## Application 4 (suite) {.smaller}
 
+::: {.nonincremental}
 {{< include applications_git/_application4b.qmd >}}
+:::
 
 ## Application 5 {.smaller}
 
+::: {.nonincremental}
 {{< include applications_git/_application5.qmd >}}
+:::
 
 ## Le modèle des branches {auto-animate=true}
 
@@ -102,12 +98,18 @@ Description plus détaillée : [ici](https://docs.github.com/en/get-started/quic
 
 ## Application 6 {.smaller}
 
+::: {.nonincremental}
 {{< include applications_git/_application6.qmd >}}
+:::
 
-## Application 7
+## Application 7 {.smaller}
 
+::: {.nonincremental}
 {{< include applications_git/_application7.qmd >}}
+:::
 
 ## Application 8 (bonus)
 
+::: {.nonincremental}
 {{< include applications_git/_application8.qmd >}}
+:::

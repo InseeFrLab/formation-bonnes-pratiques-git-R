@@ -3,7 +3,6 @@
 :::{.callout-tip collapse="true" icon=false}
 ## Modélisation d'un projet sous forme de *pipeline* de données
 
-:::{.incremental}
 0. Installer le package `targets`.
 1. Créer un fichier `_targets.R` à la racine du dépôt,
 à partir de [l'exemple](https://books.ropensci.org/targets/walkthrough.html#target-script-file) dans la documentation.
@@ -31,14 +30,10 @@ récupérer les noms des packages pour les mettre dans la section `tar_option_se
 
 :::
 
-:::
-
 ## Application 5
 
 :::{.callout-tip collapse="true" icon=false}
 ## Modélisation d'un projet sous forme de *pipeline* de données (suite)
-
-:::{.incremental}
 
 6. En extrayant du contenu de `script.R`, créer les deux premières
 cibles (_targets_) dans `_targets.R`: 
@@ -49,7 +44,6 @@ cibles (_targets_) dans `_targets.R`:
     + Pour `data`, utiliser l'argument `format = 'parquet'` dans `tar_target`.
 7. Visualiser les relations entre objets de notre _pipeline_ en utilisant dans la console `R` la fonction `tar_visnetwork()`.
 8. Exécuter `tar_make()` dans la console et observer le changement d'état avec `tar_visnetwork()`.
-:::
 
 :::
 

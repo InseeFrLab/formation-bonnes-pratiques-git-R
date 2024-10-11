@@ -6,7 +6,6 @@
 
 ## Préparation de l'environnement de travail
 
-:::{.incremental}
 1. Créer un compte [`GitHub`](https://github.com/)
 2. Créer un nouveau dépôt **privé** sur `GitHub`
 3. Créer un compte sur le [SSP Cloud](https://datalab.sspcloud.fr/home)
@@ -20,15 +19,12 @@
 
 :::
 
-:::
-
 ## {{< fa brands gitlab >}} insee
 
 :::{.callout-tip collapse="true" icon=false}
 
 ## Préparation de l'environnement de travail
 
-:::{.incremental}
 1. Compte déjà créé sur le [gitlab interne](https://gitlab.insee.fr/)
 2. Créer un nouveau dépôt **privé** sur `gitlab.insee.fr`
 3. Créer un compte sur [LS3](https://datalab.sspcloud.fr/home) via AUS.
@@ -39,8 +35,6 @@
 7. Stocker le *token* sur `LS3` (ou un gestionnaire de mot de passe) :
     + `Mon Compte` -> `Git` -> `Token d'accès personnel pour Forge Git`
 8. Terminer la procédure de clonage en fournissant le nom d'utilisateur `gitlab.insee.fr` (code insee en 6 caractères) et le *token*
-
-:::
 
 :::
 

@@ -1,10 +1,61 @@
+## Application 0 {.smaller}
+
+::: {.nonincremental}
 {{< include applications_r/_application0.qmd >}}
+:::
 
 # I- Qualité du code
 
-{{< include elements_r/_enjeux.qmd >}}
+## Enjeux
 
-{{< include elements_r/_1_standards.qmd >}}
+- D'une vision utilitariste du code à une vision du code comme [**outil de communication**]{.orange}
+
+
+- Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
+
+
+- Faciliter la [**réutilisation**]{.orange}
+
+
+- Assurer la [__transparence__]{.orange} méthodologique
+
+
+## Principes généraux
+
+1. Adopter les [**standards communautaires**]{.orange}
+
+
+2. Utiliser des [**fonctions**]{.orange}
+
+
+3. [**Documenter**]{.orange} son code
+
+
+4. Indiquer les _packages_ utilisés afin d'éviter les [**conflits**]{.orange}
+
+## :one: Adopter les standards communautaires
+
+> *"Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread"*
+>
+> [Tidyverse Style Guide](https://style.tidyverse.org/)
+
+
+- Respecter les [conventions]{.orange} du langage dans lequel il est rédigé
+
+
+- Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse style guide](https://style.tidyverse.org/index.html).
+
+
+## :one: Adopter les standards communautaires {.smaller}
+
+Deux outils pratiques aident à respecter les standards :
+
+1. [**_linter_**]{.orange} : programme qui vérifie que le code est __formellement__ conforme à un certain _guidestyle_
+    + signale problèmes formels, sans corriger 
+
+
+2. [**_formatter_**]{.orange} : programme qui reformate un code pour le rendre conforme à un certain _guidestyle_
+    + modifie directement le code
 
 . . .
 
@@ -54,7 +105,9 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 ## :three: Documenter son code
 
-{{< include elements_r/_3_documentation.qmd >}}
+- Grands principes :
+  - Documenter le [__pourquoi__]{.orange} plutôt que le [__comment__]{.orange}
+  - Privilégier l'auto-documentation via des [**nommages pertinents**]{.orange}
 
 . . .
 
@@ -72,7 +125,6 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 ::: {.callout-tip}
 ## Bien documenter... mais pas trop !
 
-. . .
 
 Bof :
 ```
@@ -81,7 +133,6 @@ if (!is.na(x) && nzchar(x)) {
   use_string(x)
 }
 ```
-. . .
 
 Mieux ! 
 
@@ -91,7 +142,6 @@ if (x_is_not_empty_string) {
   use_string(x)
 }
 ```
-. . .
 Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le « Code beau ».
 
 :::
@@ -100,15 +150,12 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 
 - Deux fonctions peuvent avoir le [__même nom__]{.orange} dans des [__packages différents__]{.orange}
 
-. . .
 
 - `R` utilise par défaut la librairie chargée le plus récemment
 
-. . .
 
 - Erreurs difficiles à repérer car il est nécessaire d'exécuter le code
 
-. . .
 
 - Recommandation : indiquer explicitement le _package_ : notation `package::fonction()`
     + Exemple : `dplyr::filter()`
@@ -129,19 +176,19 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 - Une [présentation très complète](https://mitmat.github.io/slides/2022-05-26-egu/code-data-open-science.html#1) sur le partage de code et de données avec `R`
 - L'équivalent `Python` en [3A d'ENSAE](https://ensae-reproductibilite.github.io/website/)
 
+## Application 1 {.smaller}
 
+::: {.nonincremental}
 {{< include applications_r/_application1.qmd >}}
+:::
 
 
 ## Bilan
 
-::: {.incremental}
 - Un code mal structuré
   - Limite la lisibilité du projet
   - Est très coûteux à maintenir (dette technique)
-:::
 
-. . .
 
 ::: {layout="[80,30]"}
 
@@ -155,7 +202,6 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 
 1. Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
 
-. . .
 
 2 Construire des projets [**reproductibles**]{.orange}
 
@@ -182,32 +228,25 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 1. Utiliser les [**projets RStudio**]{.orange}
 
-. . .
 
 2. Organiser son projet en [**sous-dossiers**]{.orange}
 
-. . .
 
 3. Donner des [**noms pertinents**]{.orange} aux fichiers
 
-. . .
 
 4. [**Documenter**]{.orange} son projet
 
-. . .
 
 5. (Faire de son projet un [**package**]{.orange})
 
 ## :one: Utiliser les projets RStudio
 
-::: {.incremental}
 - [**Objectif**]{.orange} : favoriser la [**reproductibilité**]{.blue2}
   - Tous les fichiers nécessaires au projet dans un même dossier
   - Le dossier contenant le projet RStudio est automatiquement utilisé comme ***working directory***
   - Utilisation de [**chemins relatifs**]{.blue2} plutôt qu'absolus.
-:::
 
-. . .
 
 - **Bonus** : en utilisant `Git`, on s'assure de toujours travailler dans un projet RStudio !
 
@@ -260,14 +299,11 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 - Le fichier `README.md`, situé à la racine du projet, est à la fois la **carte d'identité** et la **vitrine du projet**
 
-::: {.incremental}
 - Idéalement, il contient :
   - Une [**présentation**]{.orange} du contexte et des objectifs
   - Une description de son [**fonctionnement**]{.orange}
   - Un guide de [**contribution**]{.orange} (*open-source*)
-:::
 
-. . .
 
 - Quelques modèles de `README.md` complets :
   - [utilitR](https://github.com/InseeFrLab/utilitR/blob/master/README.md)
@@ -275,7 +311,6 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 ## :five: Faire de son projet un *package*
 
-::: {.incremental}
 - Un *package* est la forme maximale de [**modularité**]{.orange}
   - Contient des [**fonctions**]{.blue2} rangées dans des [**modules**]{.blue2}
   - Contient également de la [**documentation**]{.blue2}, des [**tests**]{.blue2}, des (méta-)données... 
@@ -286,7 +321,6 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 - [**Inconvénients**]{.orange}
   - Coût de [**maintenance**]{.blue2} élevé
-:::
 
 ## Ressources supplémentaires
 
@@ -296,13 +330,36 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 - La [bible des packages R](https://r-pkgs.org/whole-game.html)
 - Un excellent [workshop sur la reproductibilité avec R](https://eliocamp.github.io/reproducibility-with-r/materials/day1/02-projects/)
 
+## Application 2 {.smaller}
 
+::: {.nonincremental}
 {{< include applications_r/_application2.qmd >}}
+:::
 
 
 # III- Formats de données
 
-{{< include elements_git/_formats_data.qmd >}}
+## Enjeux
 
+- Le choix d'un format de données répond à un [**arbitrage**]{.orange} entre plusieurs critères :
+  - [**Finalité**]{.blue2} (traitement, analyse, diffusion)
+  - [**Public cible**]{.blue2}
+  - [**Volumétrie**]{.blue2}
 
+## Recommandations {.smaller}
+
+- Eviter impérativement les formats de données adhérents à un langage (`RDS`, `RData`, `fst`, `sas7bdat`, etc.).
+
+- Deux formats à privilégier :
+  - [**CSV**]{.orange} : pour la [**plupart des usages courants**]{.blue2}
+    - _Avantage_ : [**non-compressé**]{.blue2} donc facilement [**lisible**]{.blue2}
+    - _Inconvénients_ : pas de gestion des méta-données, peu adapté aux données volumineuses
+  - [**Parquet**]{.orange} : pour le traitement de [**données volumineuses**]{.blue2}
+    - [**Compressé**]{.blue2} et très [**performant**]{.blue2} en lecture/écriture
+    - Gestion native des méta-données
+
+## Application 3 {.smaller}
+
+::: {.nonincremental}
 {{< include applications_r/_application3.qmd >}}
+:::

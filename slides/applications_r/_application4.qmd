@@ -3,7 +3,6 @@
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 1 : prise en main de la librairie `renv`
 
-:::{.incremental}
 0. Installer le package [`renv`](https://rstudio.github.io/renv/articles/renv.html)
 1. Taper dans la console `renv::init()`, __lire le message__ et accepter.
 2. Observer les nouveaux élements qui sont apparus dans le projet.
@@ -33,18 +32,14 @@
 
 :::
 
-:::
-
 ## Application 4
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 2 : faire un *snapshot* de l'environnement
 
-:::{.incremental style="margin-left: 30px;"}
 5. Dans la console, faire `renv::status()` et observer le message.
 6. Effectuer `renv::snapshot()` pour intégrer les nouveaux packages au *lockfile*
 7. Faire un _commit_ / _push_ des fichiers `script.R`, `.Rprofile`, `renv.lock` et du dossier `renv/`.
-:::
 
 :::
 
@@ -53,12 +48,10 @@
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 3 : test de la portabilité (facultatif)
 
-:::{.incremental style="margin-left: 30px;"}
 8. Ouvrir un nouveau service `RStudio` sur le `SSPCloud`
 9. Cloner votre dépôt
 10. Exécuter `renv::restore()` pour installer les packages nécessaires à l'exécution du projet
 11. Vérifier que le `script.R` s'exécute correctement dans ce nouvel environnement.
-:::
 
 :::
 
