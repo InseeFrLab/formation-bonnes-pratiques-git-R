@@ -58,6 +58,7 @@
   - Un dossier `renv` et le fichier `.Rprofile` : activation automatique de l'environnement
   - Le fichier `renv.lock` : versions des *packages* installés
 
+. . .
 
 ![](img/renv_init.png){height="400" fig-align="center"}
 
@@ -67,14 +68,15 @@
   - Installations/suppressions/mises à jour de packages
   - Ecriture de scripts
 
-
 - `renv::status()` : indique les _packages_ installés/supprimés par rapport au fichier `renv.lock`
 
 ## :three: Enregistrement de l'environnement {.smaller}
 
 - `renv::snapshot()` : enregistre les versions des _packages_ installés dans le fichier `renv.lock`
+
 - Ne pas oublier de committer le fichier `renv.lock`!
 
+. . .
 
 ![](img/renv_snapshot.png){height="350" fig-align="center"}
 
@@ -86,9 +88,7 @@
 - [**Portabilité**]{.orange} : un tiers peut recréer un environnement avec les mêmes spécifications
 
 
-::: {.nonincremental}
 {{< include applications_r/_application4.qmd >}}
-:::
 
 
 ## Vers une reproductibilité optimale
@@ -233,9 +233,7 @@ dans 📁 `R/functions.R`
 - La [fiche UtilitR dédiée à `targets`](https://book.utilitr.org/03_Fiches_thematiques/Fiche_targets)
 
 
-::: {.nonincremental}
 {{< include applications_r/_application5.qmd >}}
-:::
 
 
 
@@ -290,6 +288,4 @@ dans 📁 `R/functions.R`
 - La [documentation officielle de `quarto`](https://quarto.org/)
 
 
-::: {.nonincremental}
 {{< include applications_r/_application6.qmd >}}
-:::

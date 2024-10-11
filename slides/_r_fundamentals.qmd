@@ -1,8 +1,5 @@
-## Application 0 {.smaller}
-
-::: {.nonincremental}
 {{< include applications_r/_application0.qmd >}}
-:::
+
 
 # I- Qualité du code
 
@@ -160,6 +157,8 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 - Recommandation : indiquer explicitement le _package_ : notation `package::fonction()`
     + Exemple : `dplyr::filter()`
 
+. . .
+
 :::{.callout-tip}
 ## Exemple
 - `package1` et `package2` contiennent chacun une fonction appelée `superFonction`.
@@ -176,11 +175,8 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 - Une [présentation très complète](https://mitmat.github.io/slides/2022-05-26-egu/code-data-open-science.html#1) sur le partage de code et de données avec `R`
 - L'équivalent `Python` en [3A d'ENSAE](https://ensae-reproductibilite.github.io/website/)
 
-## Application 1 {.smaller}
 
-::: {.nonincremental}
 {{< include applications_r/_application1.qmd >}}
-:::
 
 
 ## Bilan
@@ -189,12 +185,9 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
   - Limite la lisibilité du projet
   - Est très coûteux à maintenir (dette technique)
 
+. . .
 
-::: {layout="[80,30]"}
-
-![](https://www.earthdatascience.org/images/earth-analytics/clean-code/reproducible-science-is-about-being-lazy-hadley-wickham.png)
-
-:::
+![](img/reproducibility-lazy.png){fig-align="center"}
 
 # II- Structure des projets
 
@@ -202,8 +195,7 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 
 1. Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
 
-
-2 Construire des projets [**reproductibles**]{.orange}
+2. Construire des projets [**reproductibles**]{.orange}
 
 ## :warning: A ne pas reproduire chez vous
 
@@ -254,6 +246,8 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 - [**Objectif**]{.orange} : adopter une structure arbitraire, mais [**lisible**]{.blue2} et [**cohérente**]{.blue2}
 
+. . .
+
 ```
 ├── data
 │   ├── raw
@@ -276,6 +270,8 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 ## :three: Donner des noms pertinents aux fichiers
 
 - [**Objectif**]{.orange} : [**auto-documenter**]{.blue2} son projet
+
+. . .
 
 ```
 ├── data
@@ -330,11 +326,9 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 - La [bible des packages R](https://r-pkgs.org/whole-game.html)
 - Un excellent [workshop sur la reproductibilité avec R](https://eliocamp.github.io/reproducibility-with-r/materials/day1/02-projects/)
 
-## Application 2 {.smaller}
 
-::: {.nonincremental}
 {{< include applications_r/_application2.qmd >}}
-:::
+
 
 
 # III- Formats de données
@@ -358,8 +352,4 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
     - [**Compressé**]{.blue2} et très [**performant**]{.blue2} en lecture/écriture
     - Gestion native des méta-données
 
-## Application 3 {.smaller}
-
-::: {.nonincremental}
 {{< include applications_r/_application3.qmd >}}
-:::

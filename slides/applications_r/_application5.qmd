@@ -3,6 +3,7 @@
 :::{.callout-tip collapse="true" icon=false}
 ## Modélisation d'un projet sous forme de *pipeline* de données
 
+::: {.nonincremental}
 0. Installer le package `targets`.
 1. Créer un fichier `_targets.R` à la racine du dépôt,
 à partir de [l'exemple](https://books.ropensci.org/targets/walkthrough.html#target-script-file) dans la documentation.
@@ -27,6 +28,7 @@ récupérer les noms des packages pour les mettre dans la section `tar_option_se
     return(df)
   }
   ```
+:::
 
 :::
 
@@ -35,6 +37,7 @@ récupérer les noms des packages pour les mettre dans la section `tar_option_se
 :::{.callout-tip collapse="true" icon=false}
 ## Modélisation d'un projet sous forme de *pipeline* de données (suite)
 
+::: {.nonincremental}
 6. En extrayant du contenu de `script.R`, créer les deux premières
 cibles (_targets_) dans `_targets.R`: 
     + Créer les _targets_ `file_token` et `file_data` stockant les chemins de nos fichiers en entrée
@@ -44,6 +47,7 @@ cibles (_targets_) dans `_targets.R`:
     + Pour `data`, utiliser l'argument `format = 'parquet'` dans `tar_target`.
 7. Visualiser les relations entre objets de notre _pipeline_ en utilisant dans la console `R` la fonction `tar_visnetwork()`.
 8. Exécuter `tar_make()` dans la console et observer le changement d'état avec `tar_visnetwork()`.
+:::
 
 :::
 
@@ -52,6 +56,7 @@ cibles (_targets_) dans `_targets.R`:
 :::{.callout-tip collapse="true" icon=false}
 ## Modélisation d'un projet sous forme de *pipeline* de données (suite)
 
+::: {.nonincremental}
 9. A partir des fonctions suivantes, créer deux nouvelles cibles 
 (`clean_data` et `table_age`) qui automatisent la production
 du tableau `gt`
@@ -105,6 +110,8 @@ df <- df %>%
 
 13. Depuis la console, inspecter le _pipeline avec `tar_visnetwork` puis exécuter `tar_make()` pour lancer le *pipeline*. Analyser la sortie.
 14. Si vous avez le temps, continuer à enrichir votre _pipeline_
+:::
+
 :::
 
 :::
