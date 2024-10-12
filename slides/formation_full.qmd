@@ -34,7 +34,7 @@ from: markdown+emoji
 ## Introduction
 
 ::: {.nonincremental}
-* Version longue de la formation aux bonnes pratiques avec `R` et `Git` ([retour à la page d'accueil](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/))
+* Version longue de la formation aux bonnes pratiques avec `R` et `Git` ([page d'accueil](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/))
 
 
 ![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-full/eagle.png){fig-align="center" height=400}

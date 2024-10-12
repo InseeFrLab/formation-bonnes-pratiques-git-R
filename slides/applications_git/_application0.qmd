@@ -10,7 +10,7 @@
 
 ::: {.nonincremental}
 1. Créer un compte [`GitHub`](https://github.com/)
-2. Créer un nouveau dépôt **privé** sur `GitHub`
+2. Créer un nouveau dépôt **privé** sur `GitHub` en **incluant un fichier `README`**
 3. Créer un compte sur le [SSP Cloud](https://datalab.sspcloud.fr/home)
 4. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitHub` à une valeur suffisamment élevée
 5. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` du `Datalab`):

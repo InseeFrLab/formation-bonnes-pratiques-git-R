@@ -69,8 +69,6 @@
 
 {{< include applications_git/_application4b.qmd >}}
 
-## Application 5 {.smaller}
-
 {{< include applications_git/_application5.qmd >}}
 
 
