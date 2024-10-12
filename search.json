@@ -697,6 +697,13 @@
     "href": "slides/complete.html#ressources-supplémentaires-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
+    "text": "Ressources supplémentaires\n\nUne conférence d’Hadley Wickham (en anglais)\nLe cours “R in production” d’Hadley Wickham (en anglais et en construction)"
+  },
+  {
+    "objectID": "slides/complete.html#ressources-supplémentaires-5",
+    "href": "slides/complete.html#ressources-supplémentaires-5",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Ressources supplémentaires",
     "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR\nUn cours complet (en anglais) sur la reproductibilité avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\n\nTrouver de l’aide:\n\nPour toute question : le salon Slack grrr, très dynamique\nLe salon Tchap Langage R\nPour l’utilisation de R à l’Insee : le salon Tchap Insee - Outils Stats v2"
   },
   {
