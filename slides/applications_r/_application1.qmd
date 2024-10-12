@@ -1,4 +1,4 @@
-## Application 1
+## Application 1 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 1 : vérification du bon fonctionnement du code
@@ -7,7 +7,7 @@ Un code reproductible est avant toute chose un code fonctionnel ! Repérez les e
 
 :::
 
-## Application 1
+## Application 1 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 2 : premiers standards de qualité
@@ -24,7 +24,7 @@ Un code reproductible est avant toute chose un code fonctionnel ! Repérez les e
 
 :::
 
-## Application 1
+## Application 1 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 3 : une meilleure gestion des *packages* utilisés
@@ -37,7 +37,7 @@ Un code reproductible est avant toute chose un code fonctionnel ! Repérez les e
 
 :::
 
-## Application 1
+## Application 1 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 4 : (auto-)documentation du code
@@ -53,7 +53,7 @@ pour adopter une structure plus logique :
 
 :::
 
-## Application 1
+## Application 1 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 5 : une meilleure gestion des [secrets]{.orange}
@@ -71,8 +71,10 @@ pour adopter une structure plus logique :
 ## Checkpoint
 
 ::: {layout=[30,70]}
+:::{.nonincremental}
 
 - [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application1/script.R)
 
 ![](checkpoint.jpg){width=60%}
+:::
 :::

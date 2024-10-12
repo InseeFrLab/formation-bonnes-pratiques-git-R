@@ -1,4 +1,129 @@
-## Application 5
+# V- *Pipelines* de données
+
+## Motivations
+
+- Une analyse de données ou une chaîne de production font intervenir des [**étapes standardisées**]{.orange}
+
+- Ces étapes peuvent être formalisées sous forme d'un [**pipeline (*direct acyclic graph*)**]{.orange}
+
+![](img/dag_argo.png)
+
+[Source](https://medium.com/hashmapinc/building-ml-pipelines-8e27344a42d2)
+
+## Motivations
+
+-  Modéliser ces étapes sous forme de [**pipeline (*direct acyclic graph*)**]{.orange} a plusieurs avantages :
+
+  - [**Découplage**]{.blue2} des différentes étapes
+  - Facilite la [**planification**]{.blue2} du traitement
+  - Facilite la [**prise en main**]{.blue2} du projet par un tiers
+
+
+## Le package `targets`
+
+- `targets` est un *framework* de modélisation de *pipelines* spécifiquement dédié aux projets `R`.
+
+- Deux objectifs majeurs : 
+  1. [**Réduire le coût d'expérimentation**]{.orange} en sauvegardant les résultats intermédiaires (***targets***)
+  2. Garantir la [**reproductibilité**]{.orange} de la chaîne en traçant les changements de ces ***targets***
+
+## Méthode de travail avec `targets` {.smaller}
+
+- On développe dans des scripts :
+    + Fonctions dans un ou plusieurs fichiers dédiés
+    + Chaîne de production dans un fichier `_targets.R`
+
+    
+- On gère l'exécution du _pipeline_ directement dans la console
+    + `tar_visnetwork()` pour inspecter la structure du _pipeline_
+    + `tar_make` pour exécuter la chaine de production
+    
+::: {.callout-note}
+
+Quand on part du chaine de traitement dans un fichier déja existant
+(`script.R` par exemple), il faut faire la transition vers un fichier
+`_targets.R` dont la structure est particulière.
+
+:::
+
+## :one: Un projet minimaliste {.smaller}
+
+- Structure de projet _opinionated_ :
+    + ~~Long script `script.R`~~ `_targets.R`
+    + Chaîne de production: suite d'appels à des fonctions définies dans `R/functions.R`
+
+<br>
+
+```
+├── _targets.R
+├── data
+│   ├── raw
+│   │   └── data.csv
+├── R
+│   └── functions.R
+```
+
+
+<br>
+
+- Nouveau fichier: `_targets.R`
+    + Contrôle le comportement de notre chaine de traitement
+    + Enchaînement d'étapes de transformation de données selon une syntaxe particulière
+
+## :two: Le fichier `_targets.R` {.smaller}
+
+- Le fichier `_targets.R` doit satisfaire plusieurs conditions :
+  1. Charger le _package_ `targets`
+  2. Charger dans l'environnement les fonctions nécessaires
+  3. Déclarer les _packages_ nécessaires aux différentes étapes
+  4. Définir le *pipeline*.
+
+. . . 
+
+```r
+# _targets.R file
+library(targets)
+source("R/functions.R")
+tar_option_set(packages = c("readr", "dplyr", "ggplot2"))
+list(
+  tar_target(file, "data.csv", format = "file"),
+  tar_target(data, get_data(file)),
+  tar_target(model, fit_model(data)),
+  tar_target(plot, plot_model(model, data))
+)
+```
+
+::: {.callout-note}
+Les fonctions `get_data`, `fit_model` et `plot_model` sont définies
+dans 📁 `R/functions.R`
+:::
+
+## :three: Inspecter le *pipeline*
+
+- La fonction `tar_visnetwork` permet de visualiser le *pipeline*
+
+![](img/pipeline.png){height="350" fig-align="center"}
+
+## :three: Exécuter le *pipeline* {.smaller}
+
+- La fonction `tar_make` exécute le *pipeline* défini dans `_targets.R`
+
+![](img/pipeline_run1.png){height="200" fig-align="center"}
+
+- 💡 Lors des exécutions suivantes, `targets` saute automatiquement les étapes qui n'ont pas changé
+
+![](img/pipeline_run2.png){height="150" fig-align="center"}
+
+## Ressources supplémentaires
+
+- La [documentation officielle de `targets`](https://books.ropensci.org/targets/)
+
+- La [fiche UtilitR dédiée à `targets`](https://book.utilitr.org/03_Fiches_thematiques/Fiche_targets)
+
+
+
+
+## Application 5 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Modélisation d'un projet sous forme de *pipeline* de données
@@ -32,7 +157,7 @@ récupérer les noms des packages pour les mettre dans la section `tar_option_se
 
 :::
 
-## Application 5
+## Application 5 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Modélisation d'un projet sous forme de *pipeline* de données (suite)
@@ -51,7 +176,7 @@ cibles (_targets_) dans `_targets.R`:
 
 :::
 
-## Application 5
+## Application 5 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Modélisation d'un projet sous forme de *pipeline* de données (suite)
@@ -119,9 +244,11 @@ df <- df %>%
 ## Checkpoint
 
 ::: {layout=[30,70]}
+:::{.nonincremental}
 
 - [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application5/functions.R)
 - [_targets.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application5/_targets.R)
 
 ![](checkpoint.jpg){width=60%}
+:::
 :::

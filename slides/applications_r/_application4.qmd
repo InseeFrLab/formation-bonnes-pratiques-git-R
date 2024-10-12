@@ -1,4 +1,4 @@
-## Application 4
+## Application 4 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 1 : prise en main de la librairie `renv`
@@ -34,7 +34,7 @@
 
 :::
 
-## Application 4
+## Application 4 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 2 : faire un *snapshot* de l'environnement
@@ -47,7 +47,7 @@
 
 :::
 
-## Application 4
+## Application 4 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 3 : test de la portabilité (facultatif)
@@ -64,8 +64,10 @@
 ## Checkpoint
 
 ::: {layout=[30,70]}
+:::{.nonincremental}
 
 - [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application4/script.R)
 
 ![](checkpoint.jpg){width=60%}
+:::
 :::

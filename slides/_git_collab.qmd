@@ -91,5 +91,3 @@ Description plus détaillée : [ici](https://docs.github.com/en/get-started/quic
 {{< include applications_git/_application6.qmd >}}
 
 {{< include applications_git/_application7.qmd >}}
-
-{{< include applications_git/_application8.qmd >}}

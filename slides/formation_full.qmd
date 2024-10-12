@@ -75,9 +75,7 @@ from: markdown+emoji
 
 :four: Environnements reproductibles
 
-:five: *Pipelines* de données
-
-:six: Publication reproductible
+:five: `R` en production
 
 {{< include _r_fundamentals.qmd >}}
 

@@ -1,7 +1,7 @@
 ## Application 7 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
-## Contribution à un projet collaboratif
+## Contribuer à un projet collaboratif
 
 L'objectif de cette application est d'initier au mode de contribution à un dépôt collaboratif. Concrètement, vous allez ouvrir une `Issue` sur un dépôt d'un autre développeur, en proposant des modifications. Puis, comme vous êtes très motivés, vous allez soumettre une `Pull Request` qui propose une solution à l'`Issue`.
 

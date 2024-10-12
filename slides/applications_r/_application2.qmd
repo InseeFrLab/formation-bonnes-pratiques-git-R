@@ -1,4 +1,4 @@
-## Application 2
+## Application 2 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 1 : modularisation du projet
@@ -14,7 +14,7 @@
 
 :::
 
-## Application 2
+## Application 2 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 2 : création d'un *package*
@@ -34,6 +34,7 @@
 ## Checkpoint
 
 ::: {layout=[30,70]}
+:::{.nonincremental}
 
 - [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application2/script.R)
 
@@ -43,4 +44,5 @@
 
 
 ![](checkpoint.jpg){width=60%}
+:::
 :::

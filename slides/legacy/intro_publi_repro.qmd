@@ -1,4 +1,58 @@
-## Application 6
+# VI- Publication reproductible
+
+## Enjeux
+
+- Produire des [**études reproductibles**]{.orange} en intégrant le code et le texte dans un même document
+
+
+- La génération complète de l'étude est contenue dans un [**unique projet**]{.orange}
+
+
+- [**Limiter les risques d'erreurs**]{.orange} dues aux gestes manuels
+
+
+- Gestion native de [**différents formats**]{.orange} pour le document final (`pdf`, `html`, `odt`, etc.)
+
+## `R Markdown`
+
+- `R Markdown` est un *package* `R` qui permet de lier
+  - Du [**texte**]{.orange} au format `Markdown`
+  - Du [**code**]{.orange} `R` qui peut être exécuté et dont les sorties peuvent être intégrées au texte
+
+
+- [**Dissociation du fond et de la forme**]{.orange} du document
+
+- Un document est [**compilé**]{.orange} en deux étapes
+  - [***knit***]{.green2} : le package `knitr` transforme le texte et les sorties `R` en un document `Markdown` standard
+  - [***convert***]{.green2} : le logiciel `pandoc` transforme le document `.md` en un format de sortie standard (`html`, `pdf`, etc.)
+
+## `Quarto`
+
+- `Quarto` est le successeur de `R Markdown`
+
+
+- `Quarto` supporte [**différents moteurs de calcul**]{.orange} (`knitr`, `Jupyter`, `Observable`..) ce qui le rend nativement [**multi-langage**]{.orange} (`R`, `Python`, `JavaScript`..)
+
+
+- Le fonctionnement des deux systèmes reste très proche
+
+## Anatomie d'un document reproductible
+
+![](img/qmd.png){height="500" fig-align="center"}
+
+## Ressources supplémentaires
+
+- La [documentation officielle de `R Markdown`](https://rmarkdown.rstudio.com/lesson-1.html)
+
+- La [fiche `UtilitR` sur `R Markdown`](https://book.utilitr.org/03_Fiches_thematiques/Fiche_rmarkdown.html)
+
+- La [documentation officielle de `quarto`](https://quarto.org/)
+
+
+
+
+
+## Application 6 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Introduction à la publication reproductible
@@ -13,7 +67,7 @@
 
 :::
 
-## Application 6
+## Application 6 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Introduction à la publication reproductible (suite)
@@ -78,10 +132,12 @@ un `tar_make()` dans votre document à la suite du `library(targets)`
 ## Checkpoint
 
 ::: {layout=[30,70]}
+:::{.nonincremental}
 
 - [report.qmd](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/report.qmd)
 - [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/functions.R)
 - [_targets.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/_targets.R)
 
 ![](checkpoint.jpg){width=60%}
+:::{.nonincremental}:::
 :::

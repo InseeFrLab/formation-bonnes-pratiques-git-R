@@ -19,16 +19,16 @@
 
 ## Principes généraux
 
-1. Adopter les [**standards communautaires**]{.orange}
+:one: Adopter les [**standards communautaires**]{.orange}
 
 
-2. Utiliser des [**fonctions**]{.orange}
+:two: Utiliser des [**fonctions**]{.orange}
 
 
-3. [**Documenter**]{.orange} son code
+:three: [**Documenter**]{.orange} son code
 
 
-4. Indiquer les _packages_ utilisés afin d'éviter les [**conflits**]{.orange}
+:four: Indiquer les _packages_ utilisés afin d'éviter les [**conflits**]{.orange}
 
 ## :one: Adopter les standards communautaires
 
@@ -57,10 +57,12 @@ Deux outils pratiques aident à respecter les standards :
 . . .
 
 ::: {.callout-tip}
+::: {.nonincremental}
 - [Exemples d’erreurs repérées]{.blue2} par un _linter_ : 
     + lignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…
 - [Exemples d’erreurs __non__ repérées]{.blue2} par un _linter_ :
     + fonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…
+:::
 :::
 
 
@@ -93,9 +95,11 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 ::: {.callout-tip}
 ## Règles pour écrire des fonctions **pertinentes**
 
+::: {.nonincremental}
 - Une tâche = une fonction
 - Une tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple
 - Limiter l'utilisation de variables globales.
+:::
 
 :::
 
@@ -110,19 +114,22 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 ::: {.callout-tip}
 ## Comment bien documenter un script ?
 
+::: {.nonincremental}
 - [**Minimum**]{.orange} 🚦 : commentaire au début du script pour décrire ce qu'il fait
 - [**Bien**]{.orange} 👍 : commenter les parties "délicates" du code
 - [**Idéal**]{.orange} 💪 : documenter ses fonctions avec la syntaxe `roxygen2`.
+:::
 
 :::
 
 ## :three: Documenter son code
 
 ::: {.callout-tip}
-## Bien documenter... mais pas trop !
+## L'auto-documentation en pratique
 
 
-Bof :
+👎 La documentation pallie des mauvais nommages
+
 ```
 # Utilise string si x est non manquant et non vide
 if (!is.na(x) && nzchar(x)) {
@@ -130,7 +137,7 @@ if (!is.na(x) && nzchar(x)) {
 }
 ```
 
-Mieux ! 
+👍 Les nommages suffisent à comprendre le code
 
 ```
 x_is_not_empty_string <- (!is.na(x) && nzchar(x))
@@ -138,7 +145,6 @@ if (x_is_not_empty_string) {
   use_string(x)
 }
 ```
-Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le « Code beau ».
 
 :::
 
@@ -160,9 +166,13 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 
 :::{.callout-tip}
 ## Exemple
+
+::: {.nonincremental}
 - `package1` et `package2` contiennent chacun une fonction appelée `superFonction`.
 - Si `package2` est chargé après `package1`, alors `superFonction` désigne par défaut la fonction de `package2`.
 - Mieux vaut noter `package1::superFonction` et `package2::superFonction`
+:::
+
 :::
 
 
@@ -170,9 +180,8 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 
 <br>
 
-- [Un cours complet](https://eliocamp.github.io/reproducibility-with-r/) sur la reproductibilité avec `R`
+- Une [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le « code beau ».
 - Une [présentation très complète](https://mitmat.github.io/slides/2022-05-26-egu/code-data-open-science.html#1) sur le partage de code et de données avec `R`
-- L'équivalent `Python` en [3A d'ENSAE](https://ensae-reproductibilite.github.io/website/)
 
 
 {{< include applications_r/_application1.qmd >}}
@@ -243,9 +252,8 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 ## :two: Organiser son projet en sous-dossiers
 
+:::{.nonincremental}
 - [**Objectif**]{.orange} : adopter une structure arbitraire, mais [**lisible**]{.blue2} et [**cohérente**]{.blue2}
-
-. . .
 
 ```
 ├── data
@@ -265,12 +273,12 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
     ├── correlation.png
     └── report.pdf
 ```
+:::
 
 ## :three: Donner des noms pertinents aux fichiers
 
+:::{.nonincremental}
 - [**Objectif**]{.orange} : [**auto-documenter**]{.blue2} son projet
-
-. . .
 
 ```
 ├── data
@@ -289,6 +297,7 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
     ├── correlation_matrix.png
     └── report.pdf
 ```
+:::
 
 ## :four: Documenter son projet
 
@@ -323,7 +332,6 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 - La documentation utilitR sur les [projets RStudio](https://book.utilitr.org/03_Fiches_thematiques/Fiche_rprojects) et les [packages R](https://book.utilitr.org/01_R_Insee/Fiche_installer_packages)
 - La [bible des packages R](https://r-pkgs.org/whole-game.html)
-- Un excellent [workshop sur la reproductibilité avec R](https://eliocamp.github.io/reproducibility-with-r/materials/day1/02-projects/)
 
 
 {{< include applications_r/_application2.qmd >}}
