@@ -182,6 +182,7 @@ if (x_is_not_empty_string) {
 
 - Une [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le « code beau ».
 - Une [présentation très complète](https://mitmat.github.io/slides/2022-05-26-egu/code-data-open-science.html#1) sur le partage de code et de données avec `R`
+- Une [documentation](https://cran.r-project.org/web/packages/httr/vignettes/secrets.html) (en anglais) sur la gestion des secrets (*tokens*, mots de passe, etc.)
 
 
 {{< include applications_r/_application1.qmd >}}
