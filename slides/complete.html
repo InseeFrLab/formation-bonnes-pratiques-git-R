@@ -1172,9 +1172,9 @@ _Workflow_ (version littéraire) :
 <div class="callout-content">
 <div>
 <ol start="7" type="1">
-<li>Dans notre cas, on peut utiliser <em>rebase</em> sans trop de risques. Comme l’interface <code>RStudio</code> ne permet pas (encore) de sélectionner la stratégie de <code>pull</code>, on va préciser la configuration voulue via une commande passée dans le terminal
+<li>Dans notre cas, on va conserver le précédent défaut (le <em>commit</em> de <em>merge</em>). Comme l’interface <code>RStudio</code> ne permet pas (encore) de sélectionner la stratégie de <code>pull</code>, on va préciser la configuration voulue via une commande passée dans le terminal
 <ul>
-<li><code>git config pull.rebase true</code></li>
+<li><code>git config pull.rebase false</code></li>
 </ul></li>
 <li>Pour ceux dont le <code>push</code> a été refusé, effectuer un <code>pull</code> des modifications distantes via l’interface <code>RStudio</code></li>
 <li>Effectuer à nouveau un <code>push</code> de vos modifications locales</li>
@@ -1313,8 +1313,8 @@ _Workflow_ (version littéraire) :
 <ul>
 <li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
 </ul></li>
-<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/get_data.R">ce fichier</a>, puis l’exécuter</li>
-<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/script.R">ce fichier</a></li>
+<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/get_data.R">ce fichier</a>, puis l’exécuter</li>
+<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/script.R">ce fichier</a></li>
 <li>Ajouter la règle “individu_reg.*” au fichier <code>.gitignore</code>. Que signifie-t-elle ?</li>
 <li><em>Commit</em>/<em>push</em> les changements</li>
 </ol>
@@ -1341,8 +1341,7 @@ _Workflow_ (version littéraire) :
 <h2>Principes généraux</h2>
 <p><span class="emoji" data-emoji="one">1️⃣</span> Adopter les <span class="orange"><strong>standards communautaires</strong></span></p>
 <p><span class="emoji" data-emoji="two">2️⃣</span> Utiliser des <span class="orange"><strong>fonctions</strong></span></p>
-<p><span class="emoji" data-emoji="three">3️⃣</span> <span class="orange"><strong>Documenter</strong></span> son code</p>
-<p><span class="emoji" data-emoji="four">4️⃣</span> Indiquer les <em>packages</em> utilisés afin d’éviter les <span class="orange"><strong>conflits</strong></span></p>
+<p><span class="emoji" data-emoji="three">3️⃣</span> <span class="orange"><strong>(Auto)-documenter</strong></span> son code</p>
 </section>
 <section id="adopter-les-standards-communautaires" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Adopter les standards communautaires</h2>
@@ -1638,11 +1637,16 @@ if (x_is_not_empty_string) {
 <p><strong>Partie 5 : une meilleure gestion des <span class="orange">secrets</span></strong></p>
 </div>
 <div class="callout-content">
+<p>Les secrets (mots de passe, <em>tokens</em>, etc.) ne doivent pas apparaître dans le code pour deux raisons : - ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de <strong>modularité</strong>) - on risque de les <em>commit</em> sur le dépôt <code>Git</code>, ce qui crée une faille de sécurité</p>
+<p>Dans cette application, on va utiliser deux manières possibles de gérer les secrets proprement.</p>
 <div>
 <ol type="1">
-<li>Repérer le jeton d’API dans le code. Retirer le jeton d’API du code et créer à la racine du projet un fichier YAML nommé <code>secrets.yaml</code> où vous écrivez ce secret sous la forme <code>key: value</code>. <span class="red2"><span class="emoji" data-emoji="warning">⚠️</span> Attention</span> : le package <code>yaml</code> impose la création d’une ligne vierge à la fin du fichier pour être valide.</li>
-<li>Dans <code>script.R</code>, importer ce YAML (avec <code>yaml::read_yaml("secrets.yaml")</code>) pour créer une variable <code>api_token</code> ayant cette valeur.</li>
-<li>Ajouter dans <code>.gitignore</code> le fichier <code>secrets.yaml</code> et indiquer dans le <code>README.md</code> de votre projet que les secrets sont stockés dans ce fichier. <span class="red2"><span class="emoji" data-emoji="warning">⚠️</span> Attention</span> : il ne faut pas committer <code>secrets.yaml</code> car le jeton d’API est personnel et secret!</li>
+<li>Repérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.</li>
+<li>Première possibilité : demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif avec la fonction <a href="https://rdrr.io/cran/rstudioapi/man/askForPassword.html">askForPassword</a> du package <code>rstudioapi</code>. ⚠️ Cette fonction nécessite l’exécution du code dans un environnement <code>RStudio</code>, ce qui implique un usage en <em>self</em>.</li>
+<li>Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.</li>
+<li>Deuxième possibilité : utiliser une variable d’environnement. Créer un fichier <code>.Renviron</code> à la racine du projet et y ajouter une ligne <code>JETON_API=xxx</code> en remplaçant <code>xxx</code> par la valeur du jeton. Importer la valeur du jeton dans une variable <code>api_token</code> à l’aide de la fonction <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.getenv">Sys.getenv</a>.</li>
+<li>Vérifier le bon fonctionnement de la solution implémentée.</li>
+<li>Vérifier que l’exclusion du <code>.Renviron</code> est bien renseigné dans le <code>.gitignore</code>. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis <em>commit</em>/<em>push</em>.</li>
 </ol>
 </div>
 </div>
@@ -1658,7 +1662,7 @@ if (x_is_not_empty_string) {
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
 <ul>
-<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application1/script.R">script.R</a></li>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application1/script.R">script.R</a></li>
 </ul>
 <p><img data-src="checkpoint.jpg"></p>
 </div>
@@ -1876,9 +1880,9 @@ if (x_is_not_empty_string) {
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
 <ul>
-<li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application2/script.R">script.R</a></p></li>
-<li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application2/functions.R">functions.R</a></p></li>
-<li><p><a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-R/tree/main/package">Package R</a></p></li>
+<li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application2/script.R">script.R</a></p></li>
+<li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application2/functions.R">functions.R</a></p></li>
+<li><p><a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/tree/main/package">Package R</a></p></li>
 </ul>
 <p><img data-src="checkpoint.jpg"></p>
 </div>
@@ -1932,6 +1936,7 @@ if (x_is_not_empty_string) {
 <ol type="1">
 <li>Effacer la base <code>individu_reg.csv</code></li>
 <li>Modifier le script <code>get_data.R</code> pour écrire les données au format <code>Parquet</code> à l’aide de la fonction <code>arrow::write_parquet</code></li>
+<li>Exécuter le script ainsi modifié et comparer les tailles du fichier <code>csv</code> initial et du fichier <code>parquet</code></li>
 <li>Modifier la phase d’import dans <code>script.R</code> pour importer le fichier <code>Parquet</code> à l’aide de la fonction <code>arrow::read_parquet</code></li>
 </ol>
 </div>
@@ -1948,8 +1953,8 @@ if (x_is_not_empty_string) {
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
 <ul>
-<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application3/script.R">script.R</a></li>
-<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application3/get_data.R">get_data.R</a></li>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/script.R">script.R</a></li>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/get_data.R">get_data.R</a></li>
 </ul>
 <p><img data-src="checkpoint.jpg"></p>
 </div>
@@ -2136,7 +2141,7 @@ if (x_is_not_empty_string) {
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
 <ul>
-<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application4/script.R">script.R</a></li>
+<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application4/script.R">script.R</a></li>
 </ul>
 <p><img data-src="checkpoint.jpg"></p>
 </div>

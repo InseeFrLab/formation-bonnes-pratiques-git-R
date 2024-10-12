@@ -298,7 +298,7 @@
     "href": "slides/complete.html#application-4-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\n\nDans notre cas, on peut utiliser rebase sans trop de risques. Comme l’interface RStudio ne permet pas (encore) de sélectionner la stratégie de pull, on va préciser la configuration voulue via une commande passée dans le terminal\n\ngit config pull.rebase true\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes via l’interface RStudio\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push leurs modifications locales\n\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
+    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\n\nDans notre cas, on va conserver le précédent défaut (le commit de merge). Comme l’interface RStudio ne permet pas (encore) de sélectionner la stratégie de pull, on va préciser la configuration voulue via une commande passée dans le terminal\n\ngit config pull.rebase false\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes via l’interface RStudio\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push leurs modifications locales\n\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
   },
   {
     "objectID": "slides/complete.html#application-5",
@@ -375,7 +375,7 @@
     "href": "slides/complete.html#principes-généraux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Principes généraux",
-    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Utiliser des fonctions\n3️⃣ Documenter son code\n4️⃣ Indiquer les packages utilisés afin d’éviter les conflits"
+    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Utiliser des fonctions\n3️⃣ (Auto)-documenter son code"
   },
   {
     "objectID": "slides/complete.html#adopter-les-standards-communautaires",
@@ -466,7 +466,7 @@
     "href": "slides/complete.html#application-1-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\n\n\nRepérer le jeton d’API dans le code. Retirer le jeton d’API du code et créer à la racine du projet un fichier YAML nommé secrets.yaml où vous écrivez ce secret sous la forme key: value. ⚠️ Attention : le package yaml impose la création d’une ligne vierge à la fin du fichier pour être valide.\nDans script.R, importer ce YAML (avec yaml::read_yaml(\"secrets.yaml\")) pour créer une variable api_token ayant cette valeur.\nAjouter dans .gitignore le fichier secrets.yaml et indiquer dans le README.md de votre projet que les secrets sont stockés dans ce fichier. ⚠️ Attention : il ne faut pas committer secrets.yaml car le jeton d’API est personnel et secret!"
+    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\nLes secrets (mots de passe, tokens, etc.) ne doivent pas apparaître dans le code pour deux raisons : - ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de modularité) - on risque de les commit sur le dépôt Git, ce qui crée une faille de sécurité\nDans cette application, on va utiliser deux manières possibles de gérer les secrets proprement.\n\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nPremière possibilité : demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif avec la fonction askForPassword du package rstudioapi. ⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self.\nVérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : utiliser une variable d’environnement. Créer un fichier .Renviron à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton. Importer la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
   },
   {
     "objectID": "slides/complete.html#checkpoint",
@@ -585,7 +585,7 @@
     "href": "slides/complete.html#application-3-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet"
+    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script ainsi modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet"
   },
   {
     "objectID": "slides/complete.html#checkpoint-2",
@@ -1299,7 +1299,7 @@
     "href": "slides/light.html#principes-généraux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Principes généraux",
-    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Utiliser des fonctions\n3️⃣ Documenter son code\n4️⃣ Indiquer les packages utilisés afin d’éviter les conflits"
+    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Utiliser des fonctions\n3️⃣ (Auto)-documenter son code"
   },
   {
     "objectID": "slides/light.html#adopter-les-standards-communautaires",
@@ -1390,7 +1390,7 @@
     "href": "slides/light.html#application-1-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\n\n\nRepérer le jeton d’API dans le code. Retirer le jeton d’API du code et créer à la racine du projet un fichier YAML nommé secrets.yaml où vous écrivez ce secret sous la forme key: value. ⚠️ Attention : le package yaml impose la création d’une ligne vierge à la fin du fichier pour être valide.\nDans script.R, importer ce YAML (avec yaml::read_yaml(\"secrets.yaml\")) pour créer une variable api_token ayant cette valeur.\nAjouter dans .gitignore le fichier secrets.yaml et indiquer dans le README.md de votre projet que les secrets sont stockés dans ce fichier. ⚠️ Attention : il ne faut pas committer secrets.yaml car le jeton d’API est personnel et secret!"
+    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\nLes secrets (mots de passe, tokens, etc.) ne doivent pas apparaître dans le code pour deux raisons : - ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de modularité) - on risque de les commit sur le dépôt Git, ce qui crée une faille de sécurité\nDans cette application, on va utiliser deux manières possibles de gérer les secrets proprement.\n\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nPremière possibilité : demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif avec la fonction askForPassword du package rstudioapi. ⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self.\nVérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : utiliser une variable d’environnement. Créer un fichier .Renviron à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton. Importer la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
   },
   {
     "objectID": "slides/light.html#checkpoint",
@@ -1509,7 +1509,7 @@
     "href": "slides/light.html#application-3-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet"
+    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script ainsi modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet"
   },
   {
     "objectID": "slides/light.html#checkpoint-2",
