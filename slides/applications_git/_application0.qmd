@@ -1,3 +1,5 @@
+## Application 0 {.smaller}
+
 ::: {.panel-tabset}
 
 ## {{< fa brands github >}} 
@@ -6,9 +8,9 @@
 
 ## Préparation de l'environnement de travail
 
-:::{.incremental}
+::: {.nonincremental}
 1. Créer un compte [`GitHub`](https://github.com/)
-2. Créer un nouveau dépôt **privé** sur `GitHub`
+2. Créer un nouveau dépôt **privé** sur `GitHub` en **incluant un fichier `README`**
 3. Créer un compte sur le [SSP Cloud](https://datalab.sspcloud.fr/home)
 4. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitHub` à une valeur suffisamment élevée
 5. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` du `Datalab`):
@@ -17,7 +19,6 @@
 7. Stocker le *token* sur le `SSP Cloud` (ou un gestionnaire de mot de passe) :
     + `Mon Compte` -> `Git` -> `Token d'accès personnel pour Forge Git`
 8. Terminer la procédure de clonage en fournissant le nom d'utilisateur `GitHub` et le *token*
-
 :::
 
 :::
@@ -28,7 +29,7 @@
 
 ## Préparation de l'environnement de travail
 
-:::{.incremental}
+::: {.nonincremental}
 1. Compte déjà créé sur le [gitlab interne](https://gitlab.insee.fr/)
 2. Créer un nouveau dépôt **privé** sur `gitlab.insee.fr`
 3. Créer un compte sur [LS3](https://datalab.sspcloud.fr/home) via AUS.
@@ -39,7 +40,6 @@
 7. Stocker le *token* sur `LS3` (ou un gestionnaire de mot de passe) :
     + `Mon Compte` -> `Git` -> `Token d'accès personnel pour Forge Git`
 8. Terminer la procédure de clonage en fournissant le nom d'utilisateur `gitlab.insee.fr` (code insee en 6 caractères) et le *token*
-
 :::
 
 :::

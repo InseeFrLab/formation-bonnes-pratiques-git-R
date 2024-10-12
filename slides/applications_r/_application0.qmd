@@ -1,11 +1,10 @@
-## Application 0
+## Application 0 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Préparation de l'environnement de travail
 
-:::{.incremental}
-0. Si vous ne l'avez pas fait lors de la première partie de la formation, créer un compte sur [GitHub](https://github.com/) et [générer un *token*](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (jeton d'accès) d'authentification
-1. Créer un nouveau dépôt public sur [GitHub](https://github.com/)
+::: {.nonincremental}
+1. Créer un nouveau dépôt public sur `GitHub` / `GitLab`
 2. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitHub` à une valeur suffisamment élevée
 3. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` du `Datalab`):
     + `File` → `New project` → `Version Control` → `Git`

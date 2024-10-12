@@ -2,10 +2,9 @@
 
 - Pour **aller plus loin**:
     - La [documentation `utilitR`](https://book.utilitr.org/)
-    - [Un cours complet](https://eliocamp.github.io/reproducibility-with-r/) sur la reproductibilité avec `R`
+    - [Un cours complet](https://eliocamp.github.io/reproducibility-with-r/) (en anglais) sur la reproductibilité avec `R`
     - Cours [Reproductibilité et bonnes pratiques pour les projets de data science](https://ensae-reproductibilite.github.io/website/) de l'`ENSAE`
 
-. . .
 
 - **Trouver de l'aide**:
     - Pour toute question : le salon `Slack` [grrr](r-grrr.slack.com), très dynamique

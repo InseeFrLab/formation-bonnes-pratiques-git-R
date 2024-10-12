@@ -1,19 +1,68 @@
 {{< include applications_r/_application0.qmd >}}
 
+
 # I- Qualité du code
 
-{{< include elements_r/_enjeux.qmd >}}
+## Enjeux
 
-{{< include elements_r/_1_standards.qmd >}}
+- D'une vision utilitariste du code à une vision du code comme [**outil de communication**]{.orange}
+
+
+- Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
+
+
+- Faciliter la [**réutilisation**]{.orange}
+
+
+- Assurer la [__transparence__]{.orange} méthodologique
+
+
+## Principes généraux
+
+:one: Adopter les [**standards communautaires**]{.orange}
+
+
+:two: Utiliser des [**fonctions**]{.orange}
+
+
+:three: [**Documenter**]{.orange} son code
+
+
+:four: Indiquer les _packages_ utilisés afin d'éviter les [**conflits**]{.orange}
+
+## :one: Adopter les standards communautaires
+
+> *"Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread"*
+>
+> [Tidyverse Style Guide](https://style.tidyverse.org/)
+
+
+- Respecter les [conventions]{.orange} du langage dans lequel il est rédigé
+
+
+- Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse style guide](https://style.tidyverse.org/index.html).
+
+
+## :one: Adopter les standards communautaires {.smaller}
+
+Deux outils pratiques aident à respecter les standards :
+
+1. [**_linter_**]{.orange} : programme qui vérifie que le code est __formellement__ conforme à un certain _guidestyle_
+    + signale problèmes formels, sans corriger 
+
+
+2. [**_formatter_**]{.orange} : programme qui reformate un code pour le rendre conforme à un certain _guidestyle_
+    + modifie directement le code
 
 . . .
 
 ::: {.callout-tip}
-
+::: {.nonincremental}
 - [Exemples d’erreurs repérées]{.blue2} par un _linter_ : 
     + lignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…
 - [Exemples d’erreurs __non__ repérées]{.blue2} par un _linter_ :
     + fonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…
+:::
 :::
 
 
@@ -46,44 +95,49 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 ::: {.callout-tip}
 ## Règles pour écrire des fonctions **pertinentes**
 
+::: {.nonincremental}
 - Une tâche = une fonction
 - Une tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple
 - Limiter l'utilisation de variables globales.
+:::
 
 :::
 
 ## :three: Documenter son code
 
-{{< include elements_r/_3_documentation.qmd >}}
+- Grands principes :
+  - Documenter le [__pourquoi__]{.orange} plutôt que le [__comment__]{.orange}
+  - Privilégier l'auto-documentation via des [**nommages pertinents**]{.orange}
 
 . . .
 
 ::: {.callout-tip}
 ## Comment bien documenter un script ?
 
+::: {.nonincremental}
 - [**Minimum**]{.orange} 🚦 : commentaire au début du script pour décrire ce qu'il fait
 - [**Bien**]{.orange} 👍 : commenter les parties "délicates" du code
 - [**Idéal**]{.orange} 💪 : documenter ses fonctions avec la syntaxe `roxygen2`.
+:::
 
 :::
 
 ## :three: Documenter son code
 
 ::: {.callout-tip}
-## Bien documenter... mais pas trop !
+## L'auto-documentation en pratique
 
-. . .
 
-Bof :
+👎 La documentation pallie des mauvais nommages
+
 ```
 # Utilise string si x est non manquant et non vide
 if (!is.na(x) && nzchar(x)) {
   use_string(x)
 }
 ```
-. . .
 
-Mieux ! 
+👍 Les nommages suffisent à comprendre le code
 
 ```
 x_is_not_empty_string <- (!is.na(x) && nzchar(x))
@@ -91,8 +145,6 @@ if (x_is_not_empty_string) {
   use_string(x)
 }
 ```
-. . .
-Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le « Code beau ».
 
 :::
 
@@ -100,24 +152,27 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 
 - Deux fonctions peuvent avoir le [__même nom__]{.orange} dans des [__packages différents__]{.orange}
 
-. . .
 
 - `R` utilise par défaut la librairie chargée le plus récemment
 
-. . .
 
 - Erreurs difficiles à repérer car il est nécessaire d'exécuter le code
 
-. . .
 
 - Recommandation : indiquer explicitement le _package_ : notation `package::fonction()`
     + Exemple : `dplyr::filter()`
 
+. . .
+
 :::{.callout-tip}
 ## Exemple
+
+::: {.nonincremental}
 - `package1` et `package2` contiennent chacun une fonction appelée `superFonction`.
 - Si `package2` est chargé après `package1`, alors `superFonction` désigne par défaut la fonction de `package2`.
 - Mieux vaut noter `package1::superFonction` et `package2::superFonction`
+:::
+
 :::
 
 
@@ -125,9 +180,8 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 
 <br>
 
-- [Un cours complet](https://eliocamp.github.io/reproducibility-with-r/) sur la reproductibilité avec `R`
+- Une [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le « code beau ».
 - Une [présentation très complète](https://mitmat.github.io/slides/2022-05-26-egu/code-data-open-science.html#1) sur le partage de code et de données avec `R`
-- L'équivalent `Python` en [3A d'ENSAE](https://ensae-reproductibilite.github.io/website/)
 
 
 {{< include applications_r/_application1.qmd >}}
@@ -135,19 +189,13 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 
 ## Bilan
 
-::: {.incremental}
 - Un code mal structuré
   - Limite la lisibilité du projet
   - Est très coûteux à maintenir (dette technique)
-:::
 
 . . .
 
-::: {layout="[80,30]"}
-
-![](https://www.earthdatascience.org/images/earth-analytics/clean-code/reproducible-science-is-about-being-lazy-hadley-wickham.png)
-
-:::
+![](img/reproducibility-lazy.png){fig-align="center"}
 
 # II- Structure des projets
 
@@ -155,9 +203,7 @@ Voir la [présentation](https://jolicode.netlify.app/) de Maëlle Salmon sur le 
 
 1. Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
 
-. . .
-
-2 Construire des projets [**reproductibles**]{.orange}
+2. Construire des projets [**reproductibles**]{.orange}
 
 ## :warning: A ne pas reproduire chez vous
 
@@ -182,37 +228,31 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 1. Utiliser les [**projets RStudio**]{.orange}
 
-. . .
 
 2. Organiser son projet en [**sous-dossiers**]{.orange}
 
-. . .
 
 3. Donner des [**noms pertinents**]{.orange} aux fichiers
 
-. . .
 
 4. [**Documenter**]{.orange} son projet
 
-. . .
 
 5. (Faire de son projet un [**package**]{.orange})
 
 ## :one: Utiliser les projets RStudio
 
-::: {.incremental}
 - [**Objectif**]{.orange} : favoriser la [**reproductibilité**]{.blue2}
   - Tous les fichiers nécessaires au projet dans un même dossier
   - Le dossier contenant le projet RStudio est automatiquement utilisé comme ***working directory***
   - Utilisation de [**chemins relatifs**]{.blue2} plutôt qu'absolus.
-:::
 
-. . .
 
 - **Bonus** : en utilisant `Git`, on s'assure de toujours travailler dans un projet RStudio !
 
 ## :two: Organiser son projet en sous-dossiers
 
+:::{.nonincremental}
 - [**Objectif**]{.orange} : adopter une structure arbitraire, mais [**lisible**]{.blue2} et [**cohérente**]{.blue2}
 
 ```
@@ -233,9 +273,11 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
     ├── correlation.png
     └── report.pdf
 ```
+:::
 
 ## :three: Donner des noms pertinents aux fichiers
 
+:::{.nonincremental}
 - [**Objectif**]{.orange} : [**auto-documenter**]{.blue2} son projet
 
 ```
@@ -255,19 +297,17 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
     ├── correlation_matrix.png
     └── report.pdf
 ```
+:::
 
 ## :four: Documenter son projet
 
 - Le fichier `README.md`, situé à la racine du projet, est à la fois la **carte d'identité** et la **vitrine du projet**
 
-::: {.incremental}
 - Idéalement, il contient :
   - Une [**présentation**]{.orange} du contexte et des objectifs
   - Une description de son [**fonctionnement**]{.orange}
   - Un guide de [**contribution**]{.orange} (*open-source*)
-:::
 
-. . .
 
 - Quelques modèles de `README.md` complets :
   - [utilitR](https://github.com/InseeFrLab/utilitR/blob/master/README.md)
@@ -275,7 +315,6 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 ## :five: Faire de son projet un *package*
 
-::: {.incremental}
 - Un *package* est la forme maximale de [**modularité**]{.orange}
   - Contient des [**fonctions**]{.blue2} rangées dans des [**modules**]{.blue2}
   - Contient également de la [**documentation**]{.blue2}, des [**tests**]{.blue2}, des (méta-)données... 
@@ -286,7 +325,6 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 - [**Inconvénients**]{.orange}
   - Coût de [**maintenance**]{.blue2} élevé
-:::
 
 ## Ressources supplémentaires
 
@@ -294,15 +332,31 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 - La documentation utilitR sur les [projets RStudio](https://book.utilitr.org/03_Fiches_thematiques/Fiche_rprojects) et les [packages R](https://book.utilitr.org/01_R_Insee/Fiche_installer_packages)
 - La [bible des packages R](https://r-pkgs.org/whole-game.html)
-- Un excellent [workshop sur la reproductibilité avec R](https://eliocamp.github.io/reproducibility-with-r/materials/day1/02-projects/)
 
 
 {{< include applications_r/_application2.qmd >}}
 
 
+
 # III- Formats de données
 
-{{< include elements_git/_formats_data.qmd >}}
+## Enjeux
 
+- Le choix d'un format de données répond à un [**arbitrage**]{.orange} entre plusieurs critères :
+  - [**Finalité**]{.blue2} (traitement, analyse, diffusion)
+  - [**Public cible**]{.blue2}
+  - [**Volumétrie**]{.blue2}
+
+## Recommandations {.smaller}
+
+- Eviter impérativement les formats de données adhérents à un langage (`RDS`, `RData`, `fst`, `sas7bdat`, etc.).
+
+- Deux formats à privilégier :
+  - [**CSV**]{.orange} : pour la [**plupart des usages courants**]{.blue2}
+    - _Avantage_ : [**non-compressé**]{.blue2} donc facilement [**lisible**]{.blue2}
+    - _Inconvénients_ : pas de gestion des méta-données, peu adapté aux données volumineuses
+  - [**Parquet**]{.orange} : pour le traitement de [**données volumineuses**]{.blue2}
+    - [**Compressé**]{.blue2} et très [**performant**]{.blue2} en lecture/écriture
+    - Gestion native des méta-données
 
 {{< include applications_r/_application3.qmd >}}

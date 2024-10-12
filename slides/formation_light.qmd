@@ -24,7 +24,7 @@ chalkboard: # press the B key to toggle chalkboard
 format:
   # pick the light mode (onyxia-revealjs) or the dark mode (onyxia-dark-revealjs)
   onyxia-revealjs:
-  #onyxia-dark-revealjs:
+    incremental: true
     output-file: light.html
 controls: true
 css: custom.css
@@ -35,13 +35,13 @@ from: markdown+emoji
 
 ## Introduction
 
-* Version courte de la formation
-aux bonnes pratiques avec `R` et `Git`
+::: {.nonincremental}
+* Version courte de la formation aux bonnes pratiques avec `R` et `Git` ([page d'accueil](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/))
 
-![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-light/cheetah.png){fig-align="center"}
 
-[_Retour à la page d'accueil pour explorer les autres versions_](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/)
+![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-light/cheetah.png){fig-align="center" height=400}
 
+:::
 
 # Introduction
 
@@ -56,7 +56,6 @@ aux bonnes pratiques avec `R` et `Git`
 
 :one: Le [**contrôle de version**]{.orange} : pourquoi faire ?
 
-. . .
 
 :two: Le [**contrôle de version**]{.orange} avec `Git`
 
@@ -74,11 +73,7 @@ Améliorations graduelles dans l'échelle de la reproductibilité :
 
 :one: Qualité du code
 
-. . .
-
 :two: Structure des projets
-
-. . .
 
 :three: Formats de données
 

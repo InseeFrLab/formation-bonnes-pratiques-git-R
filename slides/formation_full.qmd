@@ -24,7 +24,7 @@ chalkboard: # press the B key to toggle chalkboard
 format:
   # pick the light mode (onyxia-revealjs) or the dark mode (onyxia-dark-revealjs)
   onyxia-revealjs:
-  #onyxia-dark-revealjs:
+    incremental: true
     output-file: complete.html
 controls: true
 css: custom.css
@@ -33,14 +33,12 @@ from: markdown+emoji
 
 ## Introduction
 
-* Version longue de la formation
-aux bonnes pratiques avec `R` et `Git`
-
-![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-full/eagle.png){fig-align="center"}
-
-[_Retour à la page d'accueil pour explorer les autres versions_](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/)
+::: {.nonincremental}
+* Version longue de la formation aux bonnes pratiques avec `R` et `Git` ([page d'accueil](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/))
 
 
+![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-full/eagle.png){fig-align="center" height=400}
+:::
 
 # Introduction
 
@@ -52,11 +50,9 @@ aux bonnes pratiques avec `R` et `Git`
 
 :one: Le [**contrôle de version**]{.orange} : pourquoi faire ?
 
-. . .
 
 :two: Le [**contrôle de version**]{.orange} avec `Git`
 
-. . .
 
 :three: Le [**travail collaboratif**]{.orange} avec `Git`
 
@@ -67,34 +63,19 @@ aux bonnes pratiques avec `R` et `Git`
 {{< include _git_resources.qmd >}}
 
 
-
 # Partie 2 : bonnes pratiques avec `R`
 
 ## Plan de la partie
 
-Améliorations graduelles dans l'échelle de la reproductibilité :
-
 :one: Qualité du code
-
-. . .
 
 :two: Structure des projets
 
-. . .
-
 :three: Formats de données
-
-. . .
 
 :four: Environnements reproductibles
 
-. . .
-
-:five: *Pipelines* de données
-
-. . .
-
-:six: Publication reproductible
+:five: `R` en production
 
 {{< include _r_fundamentals.qmd >}}
 

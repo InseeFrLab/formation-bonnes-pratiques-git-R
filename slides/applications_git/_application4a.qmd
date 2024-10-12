@@ -1,12 +1,14 @@
+## Application 4 {.smaller}
+
 :::{.callout-tip collapse="true" icon=false}
 ## Synchronisation des dépôts
 
-::: {.incremental}
+::: {.nonincremental}
 1. Se mettre par [__groupes de 3/4 personnes__]{.orange}:
     - Une personne aura la responsabilité d’être [**mainteneur**]{.blue2}
     - Deux à trois personnes seront [**développeurs**]{.blue2}
 2. Le mainteneur crée un dépôt sur `Github` / `Gitlab`. Il/Elle donne des droits au(x) développeur(s) du projet
-3. Créer une copie locale (clone) du projet sur son service `RStudio` du [Datalab](https://datalab.sspcloud.fr/home)
+3. Créer une copie locale (clone) du projet sur son service `RStudio`
 4. Créer un fichier `<votre_nom>-<votre_prenom>.md`. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis `commit` et `push` les modifications
 5. __À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du `push`.__
 C’est normal ! Le premier ayant fait un `push` a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (`pull`) avant d’avoir le droit de proposer un changement.

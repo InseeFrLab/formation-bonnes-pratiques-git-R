@@ -1,7 +1,9 @@
+## Application 5 {.smaller}
+
 :::{.callout-tip collapse="true" icon=false}
 ## Résoudre les conflits
 
-::: {.incremental}
+::: {.nonincremental}
 1. On se place dans la même configuration que dans l'application précédente : un [**mainteneur**]{.blue2} et deux/trois [**développeurs**]{.blue2}
 2. Le mainteneur modifie le contenu de son fichier, puis `commit` et `push` les modifications
 3. Sans faire de `pull` préalable, les développeurs modifient également le contenu du fichier du mainteneur, puis `commit` et `push` les modifications

@@ -1,15 +1,26 @@
+## Application 3 {.smaller}
+
 :::{.callout-tip collapse="true" icon=false}
 ## Le fichier `.gitignore`
 
-::: {.incremental}
-Lors de la création du projet sur `GitHub` / `Gitlab`, nous avons demandé la création d'un fichier `.gitignore`, qui se situe à la racine du projet. Il spécifie l'ensemble des fichiers qui seront toujours exclus de l'indexation faite par `Git`.
+::: {.nonincremental}
+L'objectif de cette application est de créer le fichier `.gitignore`, qui permet de spécifier l'ensemble des fichiers et/ou dossiers que l'on souhaite exclure de l'indexation faite par `Git`. Il doit se situer à la racine du projet.
 
-1. Exclure les fichiers de type `*.pdf` et `*.html`
+1. Créer un fichier texte nommé `.gitignore` **à la racine du projet** (attention à ne pas ajouter d'extension au fichier, type `.txt`) 
 2. Créer un dossier `data` à la racine du projet et créer à l'intérieur de celui-ci un fichier `data/raw.csv` avec une ligne de données quelconque
-3. Ajouter au `.gitignore` le dossier `data/`
-4. Vérifier que toutes les règles ajoutées précédemment fonctionnent comme attendu
+3. Ajouter une première règle au fichier `.gitignore` qui exclue le dossier `data/`, et vérifier que la règle fonctionne
+4. Ajouter une seconde règle excluant tous les fichiers de type `*.pdf` et `*.html`, et vérifier que la règle fonctionne
 :::
 
 :::
 
 ❓ **Question** : que se passe-t-il lorsque l'on ajoute au `.gitignore` des fichiers qui ont déjà été *commit* sur le projet Git ?
+
+. . .
+
+:::{.callout-note collapse="true" icon=false}
+## Des fichiers `.gitignore` standards
+
+Dans cette application, nous avons généré le fichier `.gitignore` manuellement. En pratique, il existe des [.gitignore standards](https://github.com/github/gitignore/tree/main) adaptés pour chaque langage de programmation, qui implémentent déjà de nombreuses règles pertinentes. Le mieux est donc de partir du [.gitignore R](https://github.com/github/gitignore/blob/main/R.gitignore) pour tout nouveau projet `R`, et de rajouter les règles spécifiques que l'on souhaite appliquer au projet. 
+
+:::
