@@ -118,3 +118,9 @@
 
 
 # V- `R` en production
+
+## Ressources supplémentaires
+
+- Une [conférence](https://www.youtube.com/watch?v=BQk2-3inViM) d'Hadley Wickham (en anglais)
+
+- Le [cours "R in production"](https://r-in-production.org/) d'Hadley Wickham (en anglais et en construction)
