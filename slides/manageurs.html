@@ -431,7 +431,7 @@ Pierre Lamarche
 <section id="introduction" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Introduction</h2>
 <ul>
-<li>Version pour les <em>manageurs</em> de la formation aux bonnes pratiques avec <code>R</code> et <code>Git</code></li>
+<li class="fragment">Version pour les <em>manageurs</em> de la formation aux bonnes pratiques avec <code>R</code> et <code>Git</code></li>
 </ul>
 
 <img data-src="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-boss/falcon.png" class="quarto-figure quarto-figure-center r-stretch"><p><a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/"><em>Retour à la page d’accueil pour explorer les autres versions</em></a></p>
@@ -444,47 +444,25 @@ Pierre Lamarche
 <section id="la-notion-de-bonnes-pratiques" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>La notion de bonnes pratiques</h2>
 <ul>
-<li><span class="blue2"><strong>Origine</strong></span> : communauté des développeurs logiciels</li>
-</ul>
-<div>
-<ul>
-<li class="fragment"><span class="blue2"><strong>Constats</strong></span> :
+<li class="fragment"><p><span class="blue2"><strong>Origine</strong></span> : communauté des développeurs logiciels</p></li>
+<li class="fragment"><p><span class="blue2"><strong>Constats</strong></span> :</p>
 <ul>
 <li class="fragment">le <span class="green2"><em>“code est plus souvent lu qu’écrit”</em></span> (<a href="https://fr.wikipedia.org/wiki/Guido_van_Rossum">Guido Van Rossum</a>)</li>
 <li class="fragment">la maintenance d’un code est très coûteuse</li>
 </ul></li>
+<li class="fragment"><p><span class="blue2"><strong>Conséquence</strong></span> : un ensemble de <span class="orange"><strong>règles informelles</strong></span>, conventionnellement acceptées comme produisant des logiciels <span class="orange"><strong>fiables</strong></span>, <span class="orange"><strong>évolutifs</strong></span> et <span class="orange"><strong>maintenables</strong></span></p></li>
 </ul>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="blue2"><strong>Conséquence</strong></span> : un ensemble de <span class="orange"><strong>règles informelles</strong></span>, conventionnellement acceptées comme produisant des logiciels <span class="orange"><strong>fiables</strong></span>, <span class="orange"><strong>évolutifs</strong></span> et <span class="orange"><strong>maintenables</strong></span></li>
-</ul>
-</div>
 </section>
 <section id="pourquoi-sintéresser-aux-bonnes-pratiques" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Pourquoi s’intéresser aux bonnes pratiques ?</h2>
 <p><br></p>
 <p>L’activité du statisticien / <em>datascientist</em> tend à se rapprocher de celle du développeur :</p>
-<div class="fragment">
 <ul>
-<li>projets <span class="orange"><strong>intenses en code</strong></span></li>
+<li class="fragment"><p>projets <span class="orange"><strong>intenses en code</strong></span></p></li>
+<li class="fragment"><p><span class="orange"><strong>projets collaboratifs</strong></span> et de grande envergure</p></li>
+<li class="fragment"><p><span class="orange"><strong>complexification</strong></span> des données et donc des <span class="orange"><strong>infrastructures</strong></span></p></li>
+<li class="fragment"><p><span class="orange"><strong>déploiement</strong></span> d’applications pour valoriser les analyses</p></li>
 </ul>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="orange"><strong>projets collaboratifs</strong></span> et de grande envergure</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="orange"><strong>complexification</strong></span> des données et donc des <span class="orange"><strong>infrastructures</strong></span></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li><span class="orange"><strong>déploiement</strong></span> d’applications pour valoriser les analyses</li>
-</ul>
-</div>
 </section>
 <section id="bonnes-pratiques-et-reproductibilité" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Bonnes pratiques et reproductibilité</h2>
@@ -494,16 +472,10 @@ Pierre Lamarche
 </figure>
 </div>
 <p><strong>Source</strong> : Peng R., Reproducible Research in Computational Science, Science (2011)</p>
-<div class="fragment">
 <ul>
-<li>Une reproductibilité parfaite est <span class="orange"><strong>coûteuse</strong></span></li>
+<li class="fragment"><p>Une reproductibilité parfaite est <span class="orange"><strong>coûteuse</strong></span></p></li>
+<li class="fragment"><p><code>Git</code> est un <span class="orange"><strong>standard atteignable</strong></span> et <span class="orange"><strong>efficient</strong></span></p></li>
 </ul>
-</div>
-<div class="fragment">
-<ul>
-<li><code>Git</code> est un <span class="orange"><strong>standard atteignable</strong></span> et <span class="orange"><strong>efficient</strong></span></li>
-</ul>
-</div>
 <div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -535,18 +507,10 @@ Pierre Lamarche
 <h2>Vers un socle de bonnes pratiques ?</h2>
 <p><br></p>
 <p><span class="emoji" data-emoji="one">1️⃣</span> <span class="orange"><strong>Qualité</strong></span> du code et <span class="orange"><strong>structure</strong></span> des projets</p>
-<div class="fragment">
 <p><span class="emoji" data-emoji="two">2️⃣</span> Les <span class="orange"><strong>formats de données</strong></span> de diffusion</p>
-</div>
-<div class="fragment">
 <p><span class="emoji" data-emoji="three">3️⃣</span> Le <span class="orange"><strong>contrôle de version</strong></span></p>
-</div>
-<div class="fragment">
 <p><span class="emoji" data-emoji="four">4️⃣</span> Normes de <span class="orange"><strong>sécurité</strong></span></p>
-</div>
-<div class="fragment">
 <p><span class="emoji" data-emoji="five">5️⃣</span> <span class="orange"><strong>Ouverture</strong></span></p>
-</div>
 </section></section>
 <section>
 <section id="partie-1-qualité-du-code-et-structure-des-projets" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -556,59 +520,32 @@ Pierre Lamarche
 <section id="enjeux" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Enjeux</h2>
 <ul>
-<li>D’une vision utilitariste du code à une vision du code comme <span class="orange"><strong>outil de communication</strong></span></li>
+<li class="fragment"><p>D’une vision utilitariste du code à une vision du code comme <span class="orange"><strong>outil de communication</strong></span></p></li>
+<li class="fragment"><p>Favoriser la <span class="orange"><strong>lisibilité</strong></span> et la <span class="orange"><strong>maintenabilité</strong></span></p></li>
+<li class="fragment"><p>Faciliter la <span class="orange"><strong>réutilisation</strong></span></p></li>
+<li class="fragment"><p>Assurer la <span class="orange"><strong>transparence</strong></span> méthodologique</p></li>
 </ul>
-<div class="fragment">
-<ul>
-<li>Favoriser la <span class="orange"><strong>lisibilité</strong></span> et la <span class="orange"><strong>maintenabilité</strong></span></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Faciliter la <span class="orange"><strong>réutilisation</strong></span></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>Assurer la <span class="orange"><strong>transparence</strong></span> méthodologique</li>
-</ul>
-</div>
 </section>
 <section id="principes-généraux" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Principes généraux</h2>
 <ol type="1">
-<li>Adopter les <span class="orange"><strong>standards communautaires</strong></span></li>
+<li class="fragment"><p>Adopter les <span class="orange"><strong>standards communautaires</strong></span></p></li>
+<li class="fragment"><p>Utiliser des <span class="orange"><strong>fonctions</strong></span></p></li>
+<li class="fragment"><p><span class="orange"><strong>Documenter</strong></span> son code</p></li>
+<li class="fragment"><p>Indiquer les <em>packages</em> utilisés afin d’éviter les <span class="orange"><strong>conflits</strong></span></p></li>
 </ol>
-<div class="fragment">
-<ol start="2" type="1">
-<li>Utiliser des <span class="orange"><strong>fonctions</strong></span></li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="3" type="1">
-<li><span class="orange"><strong>Documenter</strong></span> son code</li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="4" type="1">
-<li>Indiquer les <em>packages</em> utilisés afin d’éviter les <span class="orange"><strong>conflits</strong></span></li>
-</ol>
-</div>
 </section>
 <section id="adopter-les-standards-communautaires" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Adopter les standards communautaires</h2>
 <p>Deux outils pratiques aident à respecter les standards :</p>
 <ol type="1">
-<li><span class="orange"><strong><em>linter</em></strong></span> : programme qui vérifie que le code est <strong>formellement</strong> conforme à un certain <em>guidestyle</em>
+<li class="fragment"><span class="orange"><strong><em>linter</em></strong></span> : programme qui vérifie que le code est <strong>formellement</strong> conforme à un certain <em>guidestyle</em>
 <ul>
-<li>signale problèmes formels, sans corriger</li>
+<li class="fragment">signale problèmes formels, sans corriger</li>
 </ul></li>
-</ol>
-<div class="fragment">
-<ol start="2" type="1">
-<li><span class="orange"><strong><em>formatter</em></strong></span> : programme qui reformate un code pour le rendre conforme à un certain <em>guidestyle</em>
+<li class="fragment"><span class="orange"><strong><em>formatter</em></strong></span> : programme qui reformate un code pour le rendre conforme à un certain <em>guidestyle</em>
 <ul>
-<li>modifie directement le code</li>
+<li class="fragment">modifie directement le code</li>
 </ul></li>
 </ol>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -624,11 +561,9 @@ Pierre Lamarche
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="favoriser-la-modularité-des-projets" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Favoriser la modularité des projets</h2>
-<div>
 <ul>
 <li class="fragment">Favoriser l’utilisation de <span class="orange"><strong>fonctions</strong></span>
 <ul>
@@ -642,25 +577,20 @@ Pierre Lamarche
 <li class="fragment">Coût de <span class="blue"><strong>maintenance</strong></span> élevé</li>
 </ul></li>
 </ul>
-</div>
 </section>
 <section id="documenter-son-code" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Documenter son code</h2>
 <ul>
-<li>Grands principes :
+<li class="fragment">Grands principes :
 <ul>
-<li>Documenter le <span class="orange"><strong>pourquoi</strong></span> plutôt que le <span class="orange"><strong>comment</strong></span></li>
-<li>Privilégier l’auto-documentation via des <span class="orange"><strong>nommages pertinents</strong></span>.</li>
+<li class="fragment">Documenter le <span class="orange"><strong>pourquoi</strong></span> plutôt que le <span class="orange"><strong>comment</strong></span></li>
+<li class="fragment">Privilégier l’auto-documentation via des <span class="orange"><strong>nommages pertinents</strong></span></li>
+</ul></li>
+<li class="fragment">Documenter le projet (contexte, objectifs, fonctionnement) dans un fichier <code>README</code>
+<ul>
+<li class="fragment">Quelques modèles : <a href="https://github.com/InseeFrLab/utilitR/blob/master/README.md">utilitR</a>, <a href="https://github.com/InseeFrLab/DoReMIFaSol">DoReMIFaSol</a></li>
 </ul></li>
 </ul>
-<div class="fragment">
-<ul>
-<li>Documenter le projet (contexte, objectifs, fonctionnement) dans un fichier <code>README</code>
-<ul>
-<li>Quelques modèles : <a href="https://github.com/InseeFrLab/utilitR/blob/master/README.md">utilitR</a>, <a href="https://github.com/InseeFrLab/DoReMIFaSol">DoReMIFaSol</a></li>
-</ul></li>
-</ul>
-</div>
 </section></section>
 <section>
 <section id="partie-2-les-formats-de-données" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -669,7 +599,6 @@ Pierre Lamarche
 </section>
 <section id="enjeux-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Enjeux</h2>
-<div>
 <ul>
 <li class="fragment">Le choix d’un format de données répond à un <span class="orange"><strong>arbitrage</strong></span> entre plusieurs critères :
 <ul>
@@ -678,16 +607,12 @@ Pierre Lamarche
 <li class="fragment"><span class="blue2"><strong>Volumétrie</strong></span></li>
 </ul></li>
 </ul>
-</div>
 </section>
 <section id="recommandations" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Recommandations</h2>
 <ul>
-<li>Eviter impérativement les formats de données adhérents à un langage (<code>RDS</code>, <code>RData</code>, <code>fst</code>, <code>sas7bdat</code>, etc.).</li>
-</ul>
-<div>
-<ul>
-<li class="fragment">Deux formats à privilégier :
+<li class="fragment"><p>Eviter impérativement les formats de données adhérents à un langage (<code>RDS</code>, <code>RData</code>, <code>fst</code>, <code>sas7bdat</code>, etc.).</p></li>
+<li class="fragment"><p>Deux formats à privilégier :</p>
 <ul>
 <li class="fragment"><span class="orange"><strong>CSV</strong></span> : pour la <span class="blue2"><strong>plupart des usages courants</strong></span>
 <ul>
@@ -701,7 +626,6 @@ Pierre Lamarche
 </ul></li>
 </ul></li>
 </ul>
-</div>
 </section></section>
 <section>
 <section id="partie-3-le-contrôle-de-version" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -759,24 +683,20 @@ Pierre Lamarche
 <section id="concepts" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title">Concepts</h2>
 <h4 data-background-image="background.svg" data-background-size="contain" id="git-github-gitlab-quelles-différences"><code>Git</code>, <code>GitHub</code>, <code>GitLab</code>… quelles différences ?</h4>
-<div>
 <ul>
 <li class="fragment"><code>Git</code> est un <strong>logiciel</strong> ;</li>
 <li class="fragment">Utilisation en ligne de commandes</li>
 <li class="fragment">Différentes <span class="blue2"><strong>interfaces graphiques</strong></span> (<code>RStudio</code>, <code>VS Code</code>…)</li>
 </ul>
-</div>
 </section>
 <section id="concepts-1" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title">Concepts</h2>
 <h4 data-background-image="background.svg" data-background-size="contain" id="git-github-gitlab-quelles-différences-1"><code>Git</code>, <code>GitHub</code>, <code>GitLab</code>… quelles différences ?</h4>
-<div>
 <ul>
 <li class="fragment"><code>GitHub</code> et <code>GitLab</code> sont des <strong>forges logicielles</strong></li>
 <li class="fragment"><em>Forge</em>: espace d’archivage de code</li>
 <li class="fragment">Des fonctionalités supplémentaires : <strong>réseau social du code</strong></li>
 </ul>
-</div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -787,8 +707,8 @@ Pierre Lamarche
 </div>
 <div class="callout-content">
 <ul>
-<li><code>GitHub</code> : utilisation pour les projets <strong>open-source</strong></li>
-<li><code>GitLab</code> : utilisation pour les projets <strong>internes</strong></li>
+<li class="fragment"><code>GitHub</code> : utilisation pour les projets <strong>open-source</strong></li>
+<li class="fragment"><code>GitLab</code> : utilisation pour les projets <strong>internes</strong></li>
 </ul>
 </div>
 </div>
@@ -797,13 +717,12 @@ Pierre Lamarche
 <section id="bonnes-pratiques" class="slide level2 smaller" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title">Bonnes pratiques</h2>
 <p><strong>Que versionne-t-on ?</strong></p>
-<div>
 <ul>
 <li class="fragment">Essentiellement du <span class="orange"><strong>code source</strong></span></li>
 <li class="fragment"><span class="orange"><strong>Pas d’outputs</strong></span> (fichiers <code>.html</code>, <code>.pdf</code>, modèles…)</li>
 <li class="fragment"><span class="orange"><strong>Pas de données</strong></span>, d’informations locales ou sensibles</li>
 </ul>
-</div>
+<div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -817,6 +736,7 @@ Pierre Lamarche
 <p>Si on mélange du code et des éléments annexes (<em>output</em>, données…) dans un même dossier, il <span class="orange"><strong>faut consacrer du temps à ce fichier</strong></span>.</p>
 <p>Des modèles de <code>.gitignore</code> existent sur internet, par exemple <a href="https://www.toptal.com/developers/gitignore">celui-ci</a> pour les projets <i class="fa-brands fa-r-project" aria-label="r-project"></i>.</p>
 <p>N’hésitez pas à y ajouter des règles conservatrices (par exemple <code>*.csv</code>), comme cela est expliqué dans <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_git_utilisation.html#gitignore">la documentation <code>utilitR</code></a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -855,18 +775,18 @@ Pierre Lamarche
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li><span class="blue2">“<em>Code R</em>”</span></li>
-<li><span class="blue2">“<em>Données</em>”</span></li>
+<li class="fragment"><span class="blue2">“<em>Code R</em>”</span></li>
+<li class="fragment"><span class="blue2">“<em>Données</em>”</span></li>
 </ul>
 </div><div class="column" style="width:40%;">
 <p><img data-src="img/environment.png"></p>
 </div></div>
 <ul>
-<li>Mais besoin d’aller plus loin:
+<li class="fragment">Mais besoin d’aller plus loin:
 <ul>
-<li><span class="blue2">“<em>Code R</em>”</span> : besoin d’un environnement standardisé (<code>renv</code>)</li>
-<li><span class="blue2">“<em>Données</em>”</span>: enjeu de localisation (réseau, <em>cloud</em>, etc)</li>
-<li><span class="blue2">“<em>Configuration</em>”</span>: enjeu de la sécurité</li>
+<li class="fragment"><span class="blue2">“<em>Code R</em>”</span> : besoin d’un environnement standardisé (<code>renv</code>)</li>
+<li class="fragment"><span class="blue2">“<em>Données</em>”</span>: enjeu de localisation (réseau, <em>cloud</em>, etc)</li>
+<li class="fragment"><span class="blue2">“<em>Configuration</em>”</span>: enjeu de la sécurité</li>
 </ul></li>
 </ul>
 </section></section>
@@ -879,18 +799,14 @@ Pierre Lamarche
 <h2>Le cas d’usage classique à l’Insee</h2>
 <p>Il faut distinguer deux types de processus de production :</p>
 <ul>
-<li>celui qui est <span class="orange"><strong>entièrement automatisé</strong></span>, et où l’intervention humaine est limitée ;</li>
-</ul>
-<div class="fragment">
+<li class="fragment"><p>celui qui est <span class="orange"><strong>entièrement automatisé</strong></span>, et où l’intervention humaine est limitée ;</p></li>
+<li class="fragment"><p>celui qui nécessite du <span class="orange"><strong>travail humain postérieur</strong></span> de la part du statisticien, et donc fait l’objet de tâtonnements</p>
 <ul>
-<li>celui qui nécessite du <span class="orange"><strong>travail humain postérieur</strong></span> de la part du statisticien, et donc fait l’objet de tâtonnements
-<ul>
-<li>calcul du taux de pauvreté avec <span class="blue2"><strong>ERFS et SRCV</strong></span> ;</li>
-<li>micro-simulation avec le <span class="blue2"><strong>modèle INES</strong></span> ;</li>
-<li>des processus de <span class="blue2"><strong>suivi conjoncturels</strong></span>…</li>
+<li class="fragment">calcul du taux de pauvreté avec <span class="blue2"><strong>ERFS et SRCV</strong></span> ;</li>
+<li class="fragment">micro-simulation avec le <span class="blue2"><strong>modèle INES</strong></span> ;</li>
+<li class="fragment">des processus de <span class="blue2"><strong>suivi conjoncturels</strong></span>…</li>
 </ul></li>
 </ul>
-</div>
 </section>
 <section id="pourquoi-git-répond-il-bien-aux-enjeux-de-la-production" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Pourquoi <code>Git</code> répond-il bien aux enjeux de la production ?</h2>
@@ -900,61 +816,37 @@ Pierre Lamarche
 <p><br></p>
 <p>Les tâtonnements supposent des allers et retours sur différentes hypothèses :</p>
 <ul>
-<li>prise en compte évolutive des phénomènes affectant l’indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;</li>
-<li>production de différentes <span class="orange"><strong>variantes</strong></span> que l’on veut pouvoir comparer les unes aux autres ;</li>
-<li>comprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi.</li>
+<li class="fragment">prise en compte évolutive des phénomènes affectant l’indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;</li>
+<li class="fragment">production de différentes <span class="orange"><strong>variantes</strong></span> que l’on veut pouvoir comparer les unes aux autres ;</li>
+<li class="fragment">comprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi.</li>
 </ul>
 </section>
 <section id="quels-concepts" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Quels concepts ?</h2>
 <p><br></p>
 <ul>
-<li>les <span class="orange"><strong>variantes</strong></span> peuvent se décliner sous la notion de <span class="orange"><strong>branches</strong></span> ;</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>en traçant l’ensemble des modifications du code, <code>Git</code> facilite la complète <span class="orange"><strong>reproductibilité</strong></span> des tâtonnements ;</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>au travers de l’<span class="orange"><strong>historique</strong></span>, il permet de retracer l’ensemble du cheminement ;</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>le <code>git blame</code> permet de voir qui a fait quoi ;</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>mais cela nécessite une <span class="orange"><strong>discipline</strong></span> sur l’usage de <code>Git</code>.</li>
+<li class="fragment"><p>les <span class="orange"><strong>variantes</strong></span> peuvent se décliner sous la notion de <span class="orange"><strong>branches</strong></span> ;</p></li>
+<li class="fragment"><p>en traçant l’ensemble des modifications du code, <code>Git</code> facilite la complète <span class="orange"><strong>reproductibilité</strong></span> des tâtonnements ;</p></li>
+<li class="fragment"><p>au travers de l’<span class="orange"><strong>historique</strong></span>, il permet de retracer l’ensemble du cheminement ;</p></li>
+<li class="fragment"><p>le <code>git blame</code> permet de voir qui a fait quoi ;</p></li>
+<li class="fragment"><p>mais cela nécessite une <span class="orange"><strong>discipline</strong></span> sur l’usage de <code>Git</code>.</p></li>
 </ul>
 <p>⇒ deux notions essentielles : <span class="orange"><strong>reproductibilité</strong></span> et <span class="orange"><strong>traçabilité</strong></span></p>
-</div>
 </section>
 <section id="gestion-du-cycle-de-vie-dun-projet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Gestion du cycle de vie d’un projet</h2>
 <ul>
-<li><span class="blue2"><strong>Changement de paradigme</strong></span> : <span class="orange"><strong>le code <em>self</em> doit être maintenu</strong></span>
+<li class="fragment"><p><span class="blue2"><strong>Changement de paradigme</strong></span> : <span class="orange"><strong>le code <em>self</em> doit être maintenu</strong></span></p>
 <ul>
-<li>Changement de version de <code>R</code> et des <em>packages</em> ;</li>
-<li>Quelles solutions connaissez-vous ?</li>
+<li class="fragment">Changement de version de <code>R</code> et des <em>packages</em> ;</li>
+<li class="fragment">Quelles solutions connaissez-vous ?</li>
+</ul></li>
+<li class="fragment"><p><code>renv</code> et la notion de <em>lockfile</em></p></li>
+<li class="fragment"><p>anticiper les montées de version des logiciels :</p>
+<ul>
+<li class="fragment">on peut envisager un protocole pour cela</li>
 </ul></li>
 </ul>
-<div class="fragment">
-<ul>
-<li><code>renv</code> et la notion de <em>lockfile</em></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>anticiper les montées de version des logiciels :
-<ul>
-<li>on peut envisager un protocole pour cela</li>
-</ul></li>
-</ul>
-</div>
 </section>
 <section id="gestion-du-cycle-de-vie-dun-projet-renv" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Gestion du cycle de vie d’un projet: <code>renv</code></h2>
@@ -1090,22 +982,18 @@ Observer la composition de ce fichier (100 premières lignes)
 <section id="gestion-du-cycle-de-vie-dun-projet-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Gestion du cycle de vie d’un projet</h2>
 <ul>
-<li>Gérer le cycle de vie:
+<li class="fragment">Gérer le cycle de vie:
 <ul>
-<li>du <span class="orange"><strong>code</strong></span></li>
-<li>de son <span class="orange"><strong>environnement d’exécution</strong></span></li>
-<li>des <span class="orange"><strong>données</strong></span> mobilisées en entrée du projet et produites de manière intermédiaire.</li>
+<li class="fragment">du <span class="orange"><strong>code</strong></span></li>
+<li class="fragment">de son <span class="orange"><strong>environnement d’exécution</strong></span></li>
+<li class="fragment">des <span class="orange"><strong>données</strong></span> mobilisées en entrée du projet et produites de manière intermédiaire.</li>
+</ul></li>
+<li class="fragment">Définir responsabilités et organisation à la fois :
+<ul>
+<li class="fragment">sur la maintenance du code ;</li>
+<li class="fragment">sur <a href="https://gitlab.insee.fr">gitlab.insee.fr</a>.</li>
 </ul></li>
 </ul>
-<div class="fragment">
-<ul>
-<li>Définir responsabilités et organisation à la fois :
-<ul>
-<li>sur la maintenance du code ;</li>
-<li>sur <a href="https://gitlab.insee.fr">gitlab.insee.fr</a>.</li>
-</ul></li>
-</ul>
-</div>
 </section></section>
 <section>
 <section id="partie-4-enjeux-de-sécurité" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -1133,24 +1021,24 @@ Observer la composition de ce fichier (100 premières lignes)
 <section id="risques" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Risques 👮</h2>
 <ul>
-<li>Mot de passe et jetons d’accès à des API<br>
+<li class="fragment">Mot de passe et jetons d’accès à des API<br>
 <span class="orange"><strong>pas de mot de passe ni de jeton d’accès écrits dans le code</strong></span></li>
-<li>Risques sur les données :
+<li class="fragment">Risques sur les données :
 <ul>
-<li><strong>pas de données dans <code>Git</code></strong></li>
-<li><strong>pas de compte d’accès commun à des bases de données</strong></li>
-<li><strong>pas de données sensibles en dehors des environnements protégés</strong></li>
+<li class="fragment"><strong>pas de données dans <code>Git</code></strong></li>
+<li class="fragment"><strong>pas de compte d’accès commun à des bases de données</strong></li>
+<li class="fragment"><strong>pas de données sensibles en dehors des environnements protégés</strong></li>
 </ul></li>
 </ul>
 </section>
 <section id="jetons-daccès-à-des-api" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Jetons d’accès à des API</h2>
 <ul>
-<li>une solution à préférer au mot de passe (quand disponible)</li>
-<li>gestion fine des droits</li>
-<li>possibilité de révocation des jetons</li>
-<li>peuvent être limités dans le temps</li>
-<li>mais qui présentent des risques identiques aux mots de passe si les jetons ont des droits élevés</li>
+<li class="fragment">une solution à préférer au mot de passe (quand disponible)</li>
+<li class="fragment">gestion fine des droits</li>
+<li class="fragment">possibilité de révocation des jetons</li>
+<li class="fragment">peuvent être limités dans le temps</li>
+<li class="fragment">mais qui présentent des risques identiques aux mots de passe si les jetons ont des droits élevés</li>
 </ul>
 </section>
 <section id="les-solutions-concrètes-pour-les-mots-de-passe" class="slide level2" data-background-image="background.svg" data-background-size="contain">
@@ -1178,39 +1066,39 @@ Observer la composition de ce fichier (100 premières lignes)
 <h2>A utiliser avec un gestionnaire de mots de passe</h2>
 <p><code>KeePass</code> <img data-src="img/keepass.png" style="vertical-align: middle;" height="30"> :</p>
 <ul>
-<li>disponible dans le centre logiciel</li>
-<li>simple d’utilisation</li>
-<li>les mots de passe sont stockés dans un fichier <code>.kdbx</code> chiffré</li>
-<li>les fichiers <code>.kdbx</code> sont protégés par un mot de passe maître</li>
-<li>une aide à la génération de mots de passe forts</li>
+<li class="fragment">disponible dans le centre logiciel</li>
+<li class="fragment">simple d’utilisation</li>
+<li class="fragment">les mots de passe sont stockés dans un fichier <code>.kdbx</code> chiffré</li>
+<li class="fragment">les fichiers <code>.kdbx</code> sont protégés par un mot de passe maître</li>
+<li class="fragment">une aide à la génération de mots de passe forts</li>
 </ul>
 </section>
 <section id="droits-daccès-aux-données" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Droits d’accès aux données</h2>
 <ul>
-<li>ne pas utiliser de compte générique pour accéder à des bases de données :
+<li class="fragment">ne pas utiliser de compte générique pour accéder à des bases de données :
 <ul>
-<li>ne répond pas aux exigences de traçabilité</li>
-<li>ne répond pas aux exigences de révocation des droits d’accès</li>
+<li class="fragment">ne répond pas aux exigences de traçabilité</li>
+<li class="fragment">ne répond pas aux exigences de révocation des droits d’accès</li>
 </ul></li>
-<li>préférer :
+<li class="fragment">préférer :
 <ul>
-<li>des comptes individuels</li>
-<li>associés à une revue annuelle des droits</li>
+<li class="fragment">des comptes individuels</li>
+<li class="fragment">associés à une revue annuelle des droits</li>
 </ul></li>
 </ul>
 </section>
 <section id="stockage-des-données" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Stockage des données</h2>
 <ul>
-<li>Données sous forme de fichier :
+<li class="fragment">Données sous forme de fichier :
 <ul>
-<li>ne pas les mettre sous <code>Git</code> (utiliser le fichier <code>.gitignore</code>)</li>
-<li>veiller à ce que les données sensibles ne prolifèrent pas.</li>
+<li class="fragment">ne pas les mettre sous <code>Git</code> (utiliser le fichier <code>.gitignore</code>)</li>
+<li class="fragment">veiller à ce que les données sensibles ne prolifèrent pas.</li>
 </ul></li>
-<li>Données dans des bases de données :
+<li class="fragment">Données dans des bases de données :
 <ul>
-<li>toujours se poser la question de l’opportunité de les dupliquer sous forme de fichier</li>
+<li class="fragment">toujours se poser la question de l’opportunité de les dupliquer sous forme de fichier</li>
 </ul></li>
 </ul>
 <p>On préférera toujours avoir des données stockées dans un unique espace pour lequel les droits d’accès sont gérés individuellement.</p>
@@ -1223,52 +1111,52 @@ Observer la composition de ce fichier (100 premières lignes)
 <section id="quelques-questions-pour-commencer" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Quelques questions pour commencer</h2>
 <ul>
-<li>Pour limiter les risques de sécurité, vaut-il mieux cacher son code à ses collègues ?</li>
-<li>Quelle est la nature juridique des codes sources réalisés à l’Insee ?</li>
-<li><code>R</code>, <code>Python</code> et leurs <em>packages</em> sont gratuits, comment est-ce possible ?</li>
-<li>Connaissez-vous la science ouverte et ses standards ?</li>
+<li class="fragment">Pour limiter les risques de sécurité, vaut-il mieux cacher son code à ses collègues ?</li>
+<li class="fragment">Quelle est la nature juridique des codes sources réalisés à l’Insee ?</li>
+<li class="fragment"><code>R</code>, <code>Python</code> et leurs <em>packages</em> sont gratuits, comment est-ce possible ?</li>
+<li class="fragment">Connaissez-vous la science ouverte et ses standards ?</li>
 </ul>
 </section>
 <section id="la-sécurité-par-lobscurité" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>La sécurité par l’obscurité</h2>
 <ul>
-<li>Postulat : si on conserve ses codes sources secrets alors les failles de sécurité seront plus difficiles à détecter</li>
-<li>Ce postulat s’est avéré faux :
+<li class="fragment">Postulat : si on conserve ses codes sources secrets alors les failles de sécurité seront plus difficiles à détecter</li>
+<li class="fragment">Ce postulat s’est avéré faux :
 <ul>
-<li>des failles de sécurité sont en permanence détectées dans des logiciels propriétaires</li>
-<li>cela revient à cacher la fiabilité réelle des processus mis en oeuvre</li>
-<li>les logiciels open source sont examinés par de très nombreuses personnes et corrigés en cas de problème</li>
+<li class="fragment">des failles de sécurité sont en permanence détectées dans des logiciels propriétaires</li>
+<li class="fragment">cela revient à cacher la fiabilité réelle des processus mis en oeuvre</li>
+<li class="fragment">les logiciels open source sont examinés par de très nombreuses personnes et corrigés en cas de problème</li>
 </ul></li>
 </ul>
 </section>
 <section id="nature-juridique-des-codes-sources" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Nature juridique des codes sources</h2>
 <ul>
-<li>Les codes sources achevés (qui servent en production) ont le statut de document administratif</li>
-<li>Ils peuvent faire l’objet de demandes d’accès</li>
-<li>En cas d’accès, la publication doit se faire en open source</li>
-<li>Plutôt que de vérifier en catastrophe s’il y a des problèmes, autant s’y préparer au fur et à mesure</li>
+<li class="fragment">Les codes sources achevés (qui servent en production) ont le statut de document administratif</li>
+<li class="fragment">Ils peuvent faire l’objet de demandes d’accès</li>
+<li class="fragment">En cas d’accès, la publication doit se faire en open source</li>
+<li class="fragment">Plutôt que de vérifier en catastrophe s’il y a des problèmes, autant s’y préparer au fur et à mesure</li>
 </ul>
 </section>
 <section id="différents-niveaux-douverture-possibles" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Différents niveaux d’ouverture possibles</h2>
 <ul>
-<li>On peut déjà ouvrir les codes en interne au sein de l’Insee :
+<li class="fragment">On peut déjà ouvrir les codes en interne au sein de l’Insee :
 <ul>
-<li>meilleure compréhension mutuelle des travaux</li>
-<li>associé à GitLab, un cadre idéal pour la collaboration et la mutualisation</li>
+<li class="fragment">meilleure compréhension mutuelle des travaux</li>
+<li class="fragment">associé à GitLab, un cadre idéal pour la collaboration et la mutualisation</li>
 </ul></li>
 </ul>
 </section>
 <section id="différents-niveaux-douverture-possibles-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Différents niveaux d’ouverture possibles</h2>
 <ul>
-<li>Au-delà, la publication de certains projets en <em>open source</em> permet de valoriser le savoir-faire de l’Insee :
+<li class="fragment">Au-delà, la publication de certains projets en <em>open source</em> permet de valoriser le savoir-faire de l’Insee :
 <ul>
-<li><em>Packages</em> <code>R</code> : <code>disaggR</code>, <code>btb</code>, <code>RJDemetra</code>…</li>
-<li>Eurostat systématise l’open source pour les travaux européens</li>
-<li>une nécessité pour ne pas passer pour un passager clandestin vis-à-vis des communautés open source</li>
-<li>un moyen d’assurer la transparence de nos méthodes (cf.&nbsp;code des bonnes pratiques et les standards de la science ouverte)</li>
+<li class="fragment"><em>Packages</em> <code>R</code> : <code>disaggR</code>, <code>btb</code>, <code>RJDemetra</code>…</li>
+<li class="fragment">Eurostat systématise l’open source pour les travaux européens</li>
+<li class="fragment">une nécessité pour ne pas passer pour un passager clandestin vis-à-vis des communautés open source</li>
+<li class="fragment">un moyen d’assurer la transparence de nos méthodes (cf.&nbsp;code des bonnes pratiques et les standards de la science ouverte)</li>
 </ul></li>
 </ul>
 <p><strong>L’ensemble des bonnes pratiques qui ont été présentées sont issues de l’open source.</strong></p>

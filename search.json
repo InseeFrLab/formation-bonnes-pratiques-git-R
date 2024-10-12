@@ -4,28 +4,28 @@
     "href": "slides/complete.html#introduction",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Introduction",
-    "text": "Introduction\n\nVersion longue de la formation aux bonnes pratiques avec R et Git\n\n\nRetour à la page d’accueil pour explorer les autres versions"
+    "text": "Introduction\n\n\nVersion longue de la formation aux bonnes pratiques avec R et Git (page d’accueil)"
   },
   {
     "objectID": "slides/complete.html#la-notion-de-bonnes-pratiques",
     "href": "slides/complete.html#la-notion-de-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "La notion de bonnes pratiques",
-    "text": "La notion de bonnes pratiques\n\nOrigine : communauté des développeurs logiciels\n\n\n\nConstats :\n\nle “code est plus souvent lu qu’écrit” (Guido Van Rossum)\nla maintenance d’un code est très coûteuse\n\n\n\n\n\nConséquence : un ensemble de règles informelles, conventionnellement acceptées comme produisant des logiciels fiables, évolutifs et maintenables"
+    "text": "La notion de bonnes pratiques\n\nOrigine : communauté des développeurs logiciels\nConstats :\n\nle “code est plus souvent lu qu’écrit” (Guido Van Rossum)\nla maintenance d’un code est très coûteuse\n\nConséquence : un ensemble de règles informelles, conventionnellement acceptées comme produisant des logiciels fiables, évolutifs et maintenables"
   },
   {
     "objectID": "slides/complete.html#pourquoi-sintéresser-aux-bonnes-pratiques",
     "href": "slides/complete.html#pourquoi-sintéresser-aux-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Pourquoi s’intéresser aux bonnes pratiques ?",
-    "text": "Pourquoi s’intéresser aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur :\n\n\nprojets intenses en code\n\n\n\n\nprojets collaboratifs et de grande envergure\n\n\n\n\ncomplexification des données et donc des infrastructures\n\n\n\n\ndéploiement d’applications pour valoriser les analyses"
+    "text": "Pourquoi s’intéresser aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et donc des infrastructures\ndéploiement d’applications pour valoriser les analyses"
   },
   {
     "objectID": "slides/complete.html#bonnes-pratiques-et-reproductibilité",
     "href": "slides/complete.html#bonnes-pratiques-et-reproductibilité",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques et reproductibilité",
-    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
+    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\nUne reproductibilité parfaite est coûteuse\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
   },
   {
     "objectID": "slides/complete.html#horizon-de-cette-formation",
@@ -46,7 +46,7 @@
     "href": "slides/complete.html#plan-de-la-partie",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Plan de la partie",
-    "text": "Plan de la partie\n1️⃣ Le contrôle de version : pourquoi faire ?\n\n2️⃣ Le contrôle de version avec Git\n\n\n3️⃣ Le travail collaboratif avec Git"
+    "text": "Plan de la partie\n1️⃣ Le contrôle de version : pourquoi faire ?\n2️⃣ Le contrôle de version avec Git\n3️⃣ Le travail collaboratif avec Git"
   },
   {
     "objectID": "slides/complete.html#archiver-son-code-proprement",
@@ -123,35 +123,35 @@
     "href": "slides/complete.html#en-résumé",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "En résumé",
-    "text": "En résumé\n\nConstruire et naviguer à travers l’historique de son projet\n\n\n\nLa collaboration rendue simple et efficace\n\n\n\n\nAméliorer la reproductibilité de ses projets\n\n\n\n\nAméliorer la visibilité de ses projets"
+    "text": "En résumé\n\nConstruire et naviguer à travers l’historique de son projet\nLa collaboration rendue simple et efficace\nAméliorer la reproductibilité de ses projets\nAméliorer la visibilité de ses projets"
   },
   {
     "objectID": "slides/complete.html#git-est-complexe",
     "href": "slides/complete.html#git-est-complexe",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "⚠️ Git est complexe",
-    "text": "⚠️ Git est complexe\nL’utilisation de Git nécessite certaines notions préalables:\n\n\nFonctionnement d’un filesystem\nConnaissance basique du terminal Linux\nPotentiellement, un grand nombre de commandes\n\n\n\n\n\nSource : Ici"
+    "text": "⚠️ Git est complexe\nL’utilisation de Git nécessite certaines notions préalables:\n\nFonctionnement d’un filesystem\nConnaissance basique du terminal Linux\nPotentiellement, un grand nombre de commandes\n\n\n\n\n\nSource : iulianacosmina.com"
   },
   {
     "objectID": "slides/complete.html#git-est-complexe-1",
     "href": "slides/complete.html#git-est-complexe-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "⚠️ Git est complexe",
-    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nLors de chaque action, Git renvoie un message qui indique s’il y a eu problème (il faut lire les messages de Git!)\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
+    "text": "⚠️ Git est complexe\nMais\n\nL’usage quotidien n’implique que quelques commandes\nLes messages de Git sont très informatifs\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
   },
   {
     "objectID": "slides/complete.html#concepts",
     "href": "slides/complete.html#concepts",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Concepts",
-    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGit est un logiciel ;\nUtilisation en ligne de commandes\nDifférentes interfaces graphiques (RStudio, VS Code…)"
+    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\nGit est un logiciel ;\nUtilisation en ligne de commandes\nDifférentes interfaces graphiques (RStudio, VS Code…)"
   },
   {
     "objectID": "slides/complete.html#concepts-1",
     "href": "slides/complete.html#concepts-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Concepts",
-    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\n\nAstuce\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
+    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\nAstuce\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
   },
   {
     "objectID": "slides/complete.html#concepts-2",
@@ -200,14 +200,14 @@
     "href": "slides/complete.html#modes-dauthentification",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Modes d’authentification",
-    "text": "Modes d’authentification\n\n insee\n\n\n\n\nhttps\n\ngit clone https://github.com/username/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@github.com:username/projet.git\n(plus) complexe à initialiser\nauthentification automatique\n\n\n\n\n\n\n\n\nhttps\n\ngit clone https://gitlab.insee.fr/username_or_groupname/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@gitlab.insee.fr:username_or_groupname/projet.git\n(plus) complexe à initialiser\nauthentification automatique"
+    "text": "Modes d’authentification\n\n\n insee\n\n\n\n\nhttps\n\ngit clone https://github.com/username/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@github.com:username/projet.git\n(plus) complexe à initialiser\nauthentification automatique\n\n\n\n\n\n\n\nhttps\n\ngit clone https://gitlab.insee.fr/username_or_groupname/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@gitlab.insee.fr:username_or_groupname/projet.git\n(plus) complexe à initialiser\nauthentification automatique"
   },
   {
     "objectID": "slides/complete.html#application-0",
     "href": "slides/complete.html#application-0",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCompte déjà créé sur le gitlab interne\nCréer un nouveau dépôt privé sur gitlab.insee.fr\nCréer un compte sur LS3 via AUS.\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants Gitlab à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de la plateforme LS3):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur gitlab.insee.fr\nStocker le token sur LS3 (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur gitlab.insee.fr (code insee en 6 caractères) et le token\n\n\n\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
+    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub en incluant un fichier README\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCompte déjà créé sur le gitlab interne\nCréer un nouveau dépôt privé sur gitlab.insee.fr\nCréer un compte sur LS3 via AUS.\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants Gitlab à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de la plateforme LS3):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur gitlab.insee.fr\nStocker le token sur LS3 (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur gitlab.insee.fr (code insee en 6 caractères) et le token\n\n\n\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
   },
   {
     "objectID": "slides/complete.html#application-1",
@@ -228,7 +228,7 @@
     "href": "slides/complete.html#bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
+    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
   },
   {
     "objectID": "slides/complete.html#bonnes-pratiques-1",
@@ -242,63 +242,63 @@
     "href": "slides/complete.html#application-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n\n\nLe fichier .gitignore\n\n\n\nLors de la création du projet sur GitHub / Gitlab, nous avons demandé la création d’un fichier .gitignore, qui se situe à la racine du projet. Il spécifie l’ensemble des fichiers qui seront toujours exclus de l’indexation faite par Git.\n\nExclure les fichiers de type *.pdf et *.html\nCréer un dossier data à la racine du projet et créer à l’intérieur de celui-ci un fichier data/raw.csv avec une ligne de données quelconque\nAjouter au .gitignore le dossier data/\nVérifier que toutes les règles ajoutées précédemment fonctionnent comme attendu\n\n\n\n\n\n❓ Question : que se passe-t-il lorsque l’on ajoute au .gitignore des fichiers qui ont déjà été commit sur le projet Git ?"
+    "text": "Application 3\n\n\n\nLe fichier .gitignore\n\n\n\nL’objectif de cette application est de créer le fichier .gitignore, qui permet de spécifier l’ensemble des fichiers et/ou dossiers que l’on souhaite exclure de l’indexation faite par Git. Il doit se situer à la racine du projet.\n\nCréer un fichier texte nommé .gitignore à la racine du projet (attention à ne pas ajouter d’extension au fichier, type .txt)\nCréer un dossier data à la racine du projet et créer à l’intérieur de celui-ci un fichier data/raw.csv avec une ligne de données quelconque\nAjouter une première règle au fichier .gitignore qui exclue le dossier data/, et vérifier que la règle fonctionne\nAjouter une seconde règle excluant tous les fichiers de type *.pdf et *.html, et vérifier que la règle fonctionne\n\n\n\n\n\n❓ Question : que se passe-t-il lorsque l’on ajoute au .gitignore des fichiers qui ont déjà été commit sur le projet Git ?\n\n\n\n\nDes fichiers .gitignore standards\n\n\nDans cette application, nous avons généré le fichier .gitignore manuellement. En pratique, il existe des .gitignore standards adaptés pour chaque langage de programmation, qui implémentent déjà de nombreuses règles pertinentes. Le mieux est donc de partir du .gitignore R pour tout nouveau projet R, et de rajouter les règles spécifiques que l’on souhaite appliquer au projet."
   },
   {
     "objectID": "slides/complete.html#outils-pour-le-travail-collaboratif",
     "href": "slides/complete.html#outils-pour-le-travail-collaboratif",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Outils pour le travail collaboratif",
-    "text": "Outils pour le travail collaboratif\n\nL’éco-système Git facilite le travail collaboratif\n\nGit  : modèle des branches\nGitHub  / GitLab  : Issues, Pull Requests, Forks\n\n\n\n\nCes outils ne remplacent pas une bonne définition de l’organisation du travail en équipe\n\nChoix d’un workflow\nDroits d’accès\nRègles de contribution"
+    "text": "Outils pour le travail collaboratif\n\nL’éco-système Git facilite le travail collaboratif\n\nGit  : modèle des branches\nGitHub  / GitLab  : Issues, Pull Requests, Forks\n\nCes outils ne remplacent pas une bonne définition de l’organisation du travail en équipe\n\nChoix d’un workflow\nDroits d’accès\nRègles de contribution"
   },
   {
     "objectID": "slides/complete.html#application-4",
     "href": "slides/complete.html#application-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\n\nSe mettre par groupes de 3/4 personnes:\n\nUne personne aura la responsabilité d’être mainteneur\nDeux à trois personnes seront développeurs\n\nLe mainteneur crée un dépôt sur Github / Gitlab. Il/Elle donne des droits au(x) développeur(s) du projet\nCréer une copie locale (clone) du projet sur son service RStudio du Datalab\nCréer un fichier &lt;votre_nom&gt;-&lt;votre_prenom&gt;.md. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis commit et push les modifications\nÀ ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du push. C’est normal ! Le premier ayant fait un push a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (pull) avant d’avoir le droit de proposer un changement.\nNéanmoins, le pull renvoie également une erreur : Git ne parvient pas à résoudre la divergence d’historique. Essayons de comprendre le problème et les solutions possibles."
+    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\n\nSe mettre par groupes de 3/4 personnes:\n\nUne personne aura la responsabilité d’être mainteneur\nDeux à trois personnes seront développeurs\n\nLe mainteneur crée un dépôt sur Github / Gitlab. Il/Elle donne des droits au(x) développeur(s) du projet\nCréer une copie locale (clone) du projet sur son service RStudio\nCréer un fichier &lt;votre_nom&gt;-&lt;votre_prenom&gt;.md. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis commit et push les modifications\nÀ ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du push. C’est normal ! Le premier ayant fait un push a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (pull) avant d’avoir le droit de proposer un changement.\nNéanmoins, le pull renvoie également une erreur : Git ne parvient pas à résoudre la divergence d’historique. Essayons de comprendre le problème et les solutions possibles."
   },
   {
     "objectID": "slides/complete.html#divergence-dhistoriques-cas-simple",
     "href": "slides/complete.html#divergence-dhistoriques-cas-simple",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Divergence d’historiques : cas simple",
-    "text": "Divergence d’historiques : cas simple\n\n\n\nGit résout le problème via un fast-forward merge\n\nLe commit distant est rajouté à l’historique local\nLes dépôts sont synchronisés"
+    "text": "Divergence d’historiques : cas simple\n\n\nGit résout le problème via un fast-forward merge\n\nLe commit distant est rajouté à l’historique local\nLes dépôts sont synchronisés"
   },
   {
     "objectID": "slides/complete.html#divergence-dhistoriques-cas-compliqué",
     "href": "slides/complete.html#divergence-dhistoriques-cas-compliqué",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Divergence d’historiques : cas compliqué",
-    "text": "Divergence d’historiques : cas compliqué\n\n\n\nGit ne peut pas résoudre de lui même la divergence\n\n\n\n\nDeux stratégies possibles\n\nLe merge\nLe rebase"
+    "text": "Divergence d’historiques : cas compliqué\n\n\nGit ne peut pas résoudre de lui même la divergence\nDeux stratégies possibles\n\nLe merge\nLe rebase"
   },
   {
     "objectID": "slides/complete.html#ère-possibilité-le-merge",
     "href": "slides/complete.html#ère-possibilité-le-merge",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1ère possibilité : le merge",
-    "text": "1ère possibilité : le merge\n\n\n\nGit crée un commit de merge\n\nComportement par défaut (jusqu’à récemment)\n\n\n\n\n\nInconvénient : rend l’historique non-linéaire (plus d’explications)"
+    "text": "1ère possibilité : le merge\n\n\nGit crée un commit de merge\n\nComportement par défaut (jusqu’à récemment)\n\nInconvénient : rend l’historique non-linéaire (plus d’explications)"
   },
   {
     "objectID": "slides/complete.html#ème-possibilité-le-rebase-12",
     "href": "slides/complete.html#ème-possibilité-le-rebase-12",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2ème possibilité : le rebase (1/2)",
-    "text": "2ème possibilité : le rebase (1/2)\n\n\n\nGit effectue 3 étapes\n\nSupprime temporairement le commit local\nRéalise un fast-forward merge\nRajoute le commit local au bout de l’historique"
+    "text": "2ème possibilité : le rebase (1/2)\n\n\nGit effectue 3 étapes\n\nSupprime temporairement le commit local\nRéalise un fast-forward merge\nRajoute le commit local au bout de l’historique"
   },
   {
     "objectID": "slides/complete.html#ème-possibilité-le-rebase-22",
     "href": "slides/complete.html#ème-possibilité-le-rebase-22",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2ème possibilité : le rebase (2/2)",
-    "text": "2ème possibilité : le rebase (2/2)\n\n\n\nAvantage : l’historique reste linéaire\n\n\n\n\nAttention : ne jamais rebase des commits déjà poussés sur un dépôt public (plus d’explications)"
+    "text": "2ème possibilité : le rebase (2/2)\n\n\nAvantage : l’historique reste linéaire\nAttention : ne jamais rebase des commits déjà poussés sur un dépôt public (plus d’explications)"
   },
   {
-    "objectID": "slides/complete.html#application-4-suite",
-    "href": "slides/complete.html#application-4-suite",
+    "objectID": "slides/complete.html#application-4-1",
+    "href": "slides/complete.html#application-4-1",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 4 (suite)",
-    "text": "Application 4 (suite)\n\n\n\nSynchronisation des dépôts\n\n\n\n\nDans notre cas, on peut utiliser rebase sans trop de risques. Comme l’interface RStudio ne permet pas (encore) de sélectionner la stratégie de pull, on va préciser la configuration voulue via une commande passée dans le terminal\n\ngit config pull.rebase true\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes via l’interface RStudio\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push leurs modifications locales\n\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
+    "section": "Application 4",
+    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\n\nDans notre cas, on peut utiliser rebase sans trop de risques. Comme l’interface RStudio ne permet pas (encore) de sélectionner la stratégie de pull, on va préciser la configuration voulue via une commande passée dans le terminal\n\ngit config pull.rebase true\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes via l’interface RStudio\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push leurs modifications locales\n\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
   },
   {
     "objectID": "slides/complete.html#application-5",
@@ -340,63 +340,56 @@
     "href": "slides/complete.html#application-7",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 7",
-    "text": "Application 7\n\n\n\nUtilisation de GitLab\n\n\n\nCette application vise à prendre en matin l’interface de GitLab, éventuellement dans le cadre de votre environnement interne de travail.\n\nDans le cadre d’un GitLab interne (hors LS3), il est plus confortable d’utiliser l’authentification via clé ssh plutôt que l’authentification par token. Si vous n’en avez pas encore, générer une clé ssh et ajouter celle-ci à votre compte GitLab. Se référer pour cela à la documentation GitLab ou, idéalement, à la documentation de cette procédure sur votre environnement interne de travail.\nExplorer l’interface de GitLab pour retrouver les différents éléments que nous avons exploités sur l’interface de GitHub.\nCréer un projet dans son espace personnel sur GitLab et répéter les opérations des applications 1 et 2."
-  },
-  {
-    "objectID": "slides/complete.html#application-8-bonus",
-    "href": "slides/complete.html#application-8-bonus",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 8 (bonus)",
-    "text": "Application 8 (bonus)\n\n\n\nContribution à un projet open-source\n\n\n\n\nSur GitHub, faire un fork du dépôt git-exo\nCréer une branche intitulée &lt;votre_nom&gt;-&lt;votre_prénom&gt;\nEffectuer un commit avec les modifications de votre choix, puis pousser les changements sur votre fork\nOuvrir une Pull Request (PR) pour proposer d’intégrer vos changements sur la branche principale du dépôt git-exo\nOuvrir une Issue dans laquelle vous mentionnez la Pull Request précédemment ouverte\n\n\n\n\n\n❓ Question : pourquoi, avec un fork, est-il très important de toujours effectuer une Pull Request à partir d’une branche différente de la branche principale ?"
+    "text": "Application 7\n\n\n\nContribuer à un projet collaboratif\n\n\nL’objectif de cette application est d’initier au mode de contribution à un dépôt collaboratif. Concrètement, vous allez ouvrir une Issue sur un dépôt d’un autre développeur, en proposant des modifications. Puis, comme vous êtes très motivés, vous allez soumettre une Pull Request qui propose une solution à l’Issue.\n\n\nOuvrir une Issue sur le dépôt git-exo en suggérant une modification à apporter au fichier README.md\nSur GitHub, faire un Fork du dépôt git-exo\nCréer une branche portant un nom pertinent au vu de la modification que vous voulez apporter\nEffectuer un commit avec les modifications de votre choix, puis pousser les changements sur votre Fork\nOuvrir une Pull Request (PR) pour proposer d’intégrer vos changements dans la branche principale (main) du dépôt git-exo\nDans le corps de votre PR, indiquez close #N où N est le numéro de votre Issue. Comme ça, lorsque la PR sera acceptée, l’Issue initiale sera automatiquement fermée !\n\n\n\n\n\n❓ Question : pourquoi, avec un fork, est-il très important de toujours effectuer une Pull Request à partir d’une branche différente de la branche principale ?"
   },
   {
     "objectID": "slides/complete.html#ressources-supplémentaires",
     "href": "slides/complete.html#ressources-supplémentaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nFormation Travail collaboratif avec R\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
+    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
   },
   {
     "objectID": "slides/complete.html#plan-de-la-partie-1",
     "href": "slides/complete.html#plan-de-la-partie-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Plan de la partie",
-    "text": "Plan de la partie\nAméliorations graduelles dans l’échelle de la reproductibilité :\n1️⃣ Qualité du code\n\n2️⃣ Structure des projets\n\n\n3️⃣ Formats de données\n\n\n4️⃣ Environnements reproductibles\n\n\n5️⃣ Pipelines de données\n\n\n6️⃣ Publication reproductible"
+    "text": "Plan de la partie\n1️⃣ Qualité du code\n2️⃣ Structure des projets\n3️⃣ Formats de données\n4️⃣ Environnements reproductibles\n5️⃣ R en production"
   },
   {
     "objectID": "slides/complete.html#application-0-1",
     "href": "slides/complete.html#application-0-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nSi vous ne l’avez pas fait lors de la première partie de la formation, créer un compte sur GitHub et générer un token (jeton d’accès) d’authentification\nCréer un nouveau dépôt public sur GitHub\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements"
+    "text": "Application 0\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un nouveau dépôt public sur GitHub / GitLab\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements"
   },
   {
     "objectID": "slides/complete.html#enjeux",
     "href": "slides/complete.html#enjeux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\nD’une vision utilitariste du code à une vision du code comme outil de communication\n\n\n\nFavoriser la lisibilité et la maintenabilité\n\n\n\n\nFaciliter la réutilisation\n\n\n\n\nAssurer la transparence méthodologique"
+    "text": "Enjeux\n\nD’une vision utilitariste du code à une vision du code comme outil de communication\nFavoriser la lisibilité et la maintenabilité\nFaciliter la réutilisation\nAssurer la transparence méthodologique"
   },
   {
     "objectID": "slides/complete.html#principes-généraux",
     "href": "slides/complete.html#principes-généraux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Principes généraux",
-    "text": "Principes généraux\n\nAdopter les standards communautaires\n\n\n\nUtiliser des fonctions\n\n\n\n\nDocumenter son code\n\n\n\n\nIndiquer les packages utilisés afin d’éviter les conflits"
+    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Utiliser des fonctions\n3️⃣ Documenter son code\n4️⃣ Indiquer les packages utilisés afin d’éviter les conflits"
   },
   {
     "objectID": "slides/complete.html#adopter-les-standards-communautaires",
     "href": "slides/complete.html#adopter-les-standards-communautaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Adopter les standards communautaires",
-    "text": "1️⃣ Adopter les standards communautaires\n\n“Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread”\nTidyverse Style Guide\n\n\n\nRespecter les conventions du langage dans lequel il est rédigé\n\n\n\n\nIl existe un guide de référence pour bien coder en R : le Tidyverse style guide."
+    "text": "1️⃣ Adopter les standards communautaires\n\n“Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread”\nTidyverse Style Guide\n\n\nRespecter les conventions du langage dans lequel il est rédigé\nIl existe un guide de référence pour bien coder en R : le Tidyverse style guide."
   },
   {
     "objectID": "slides/complete.html#adopter-les-standards-communautaires-1",
     "href": "slides/complete.html#adopter-les-standards-communautaires-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Adopter les standards communautaires",
-    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\n\n\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\n\n\nAstuce\n\n\n\nExemples d’erreurs repérées par un linter :\n\nlignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…\n\nExemples d’erreurs non repérées par un linter :\n\nfonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…"
+    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\n\nAstuce\n\n\n\n\nExemples d’erreurs repérées par un linter :\n\nlignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…\n\nExemples d’erreurs non repérées par un linter :\n\nfonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…"
   },
   {
     "objectID": "slides/complete.html#adopter-les-standards-communautaires-2",
@@ -410,35 +403,35 @@
     "href": "slides/complete.html#utiliser-des-fonctions",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2️⃣ Utiliser des fonctions",
-    "text": "2️⃣ Utiliser des fonctions\n\n\n\n\n\n\nRègle d’or\n\n\nIl faut utiliser une fonction dès qu’on utilise une même portion de code plus de deux fois (don’t repeat yourself (DRY))\n\n\n\n\nLimite les risques d’erreurs liés aux copier/coller\nRend le code plus lisible et plus compact\nUn seul endroit du code à modifier lorsqu’on souhaite modifier le traitement\nFacilite la réutilisation et la documentation du code !\n\n\n\n\n\n\n\n\nRègles pour écrire des fonctions pertinentes\n\n\n\nUne tâche = une fonction\nUne tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple\nLimiter l’utilisation de variables globales."
+    "text": "2️⃣ Utiliser des fonctions\n\n\n\n\n\n\nRègle d’or\n\n\nIl faut utiliser une fonction dès qu’on utilise une même portion de code plus de deux fois (don’t repeat yourself (DRY))\n\n\n\n\nLimite les risques d’erreurs liés aux copier/coller\nRend le code plus lisible et plus compact\nUn seul endroit du code à modifier lorsqu’on souhaite modifier le traitement\nFacilite la réutilisation et la documentation du code !\n\n\n\n\n\n\n\n\nRègles pour écrire des fonctions pertinentes\n\n\n\n\nUne tâche = une fonction\nUne tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple\nLimiter l’utilisation de variables globales."
   },
   {
     "objectID": "slides/complete.html#documenter-son-code",
     "href": "slides/complete.html#documenter-son-code",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Documenter son code",
-    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents.\n\n\n\n\n\n\n\n\n\nComment bien documenter un script ?\n\n\n\nMinimum 🚦 : commentaire au début du script pour décrire ce qu’il fait\nBien 👍 : commenter les parties “délicates” du code\nIdéal 💪 : documenter ses fonctions avec la syntaxe roxygen2."
+    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents\n\n\n\n\n\n\n\n\n\nComment bien documenter un script ?\n\n\n\n\nMinimum 🚦 : commentaire au début du script pour décrire ce qu’il fait\nBien 👍 : commenter les parties “délicates” du code\nIdéal 💪 : documenter ses fonctions avec la syntaxe roxygen2."
   },
   {
     "objectID": "slides/complete.html#documenter-son-code-1",
     "href": "slides/complete.html#documenter-son-code-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Documenter son code",
-    "text": "3️⃣ Documenter son code\n\n\n\n\n\n\nBien documenter… mais pas trop !\n\n\n. . .\nBof :\n# Utilise string si x est non manquant et non vide\nif (!is.na(x) && nzchar(x)) {\n  use_string(x)\n}\n. . .\nMieux !\nx_is_not_empty_string &lt;- (!is.na(x) && nzchar(x))\nif (x_is_not_empty_string) {\n  use_string(x)\n}\n. . . Voir la présentation de Maëlle Salmon sur le « Code beau »."
+    "text": "3️⃣ Documenter son code\n\n\n\n\n\n\nL’auto-documentation en pratique\n\n\n👎 La documentation pallie des mauvais nommages\n# Utilise string si x est non manquant et non vide\nif (!is.na(x) && nzchar(x)) {\n  use_string(x)\n}\n👍 Les nommages suffisent à comprendre le code\nx_is_not_empty_string &lt;- (!is.na(x) && nzchar(x))\nif (x_is_not_empty_string) {\n  use_string(x)\n}"
   },
   {
     "objectID": "slides/complete.html#pas-dambiguïté-sur-les-packages-utilisés",
     "href": "slides/complete.html#pas-dambiguïté-sur-les-packages-utilisés",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "4️⃣ Pas d’ambiguïté sur les packages utilisés",
-    "text": "4️⃣ Pas d’ambiguïté sur les packages utilisés\n\nDeux fonctions peuvent avoir le même nom dans des packages différents\n\n\n\nR utilise par défaut la librairie chargée le plus récemment\n\n\n\n\nErreurs difficiles à repérer car il est nécessaire d’exécuter le code\n\n\n\n\nRecommandation : indiquer explicitement le package : notation package::fonction()\n\nExemple : dplyr::filter()\n\n\n\n\n\n\n\n\nExemple\n\n\n\npackage1 et package2 contiennent chacun une fonction appelée superFonction.\nSi package2 est chargé après package1, alors superFonction désigne par défaut la fonction de package2.\nMieux vaut noter package1::superFonction et package2::superFonction"
+    "text": "4️⃣ Pas d’ambiguïté sur les packages utilisés\n\nDeux fonctions peuvent avoir le même nom dans des packages différents\nR utilise par défaut la librairie chargée le plus récemment\nErreurs difficiles à repérer car il est nécessaire d’exécuter le code\nRecommandation : indiquer explicitement le package : notation package::fonction()\n\nExemple : dplyr::filter()\n\n\n\n\n\n\n\n\n\nExemple\n\n\n\n\npackage1 et package2 contiennent chacun une fonction appelée superFonction.\nSi package2 est chargé après package1, alors superFonction désigne par défaut la fonction de package2.\nMieux vaut noter package1::superFonction et package2::superFonction"
   },
   {
     "objectID": "slides/complete.html#ressources-supplémentaires-1",
     "href": "slides/complete.html#ressources-supplémentaires-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\n\nUn cours complet sur la reproductibilité avec R\nUne présentation très complète sur le partage de code et de données avec R\nL’équivalent Python en 3A d’ENSAE"
+    "text": "Ressources supplémentaires\n\n\nUne présentation de Maëlle Salmon sur le « code beau ».\nUne présentation très complète sur le partage de code et de données avec R"
   },
   {
     "objectID": "slides/complete.html#application-1-1",
@@ -487,14 +480,14 @@
     "href": "slides/complete.html#bilan",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bilan",
-    "text": "Bilan\n\n\nUn code mal structuré\n\nLimite la lisibilité du projet\nEst très coûteux à maintenir (dette technique)"
+    "text": "Bilan\n\nUn code mal structuré\n\nLimite la lisibilité du projet\nEst très coûteux à maintenir (dette technique)"
   },
   {
     "objectID": "slides/complete.html#enjeux-1",
     "href": "slides/complete.html#enjeux-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\nFavoriser la lisibilité et la maintenabilité\n\n\n2 Construire des projets reproductibles"
+    "text": "Enjeux\n\nFavoriser la lisibilité et la maintenabilité\nConstruire des projets reproductibles"
   },
   {
     "objectID": "slides/complete.html#a-ne-pas-reproduire-chez-vous",
@@ -508,49 +501,49 @@
     "href": "slides/complete.html#principes-généraux-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Principes généraux",
-    "text": "Principes généraux\n\nUtiliser les projets RStudio\n\n\n\nOrganiser son projet en sous-dossiers\n\n\n\n\nDonner des noms pertinents aux fichiers\n\n\n\n\nDocumenter son projet\n\n\n\n\n(Faire de son projet un package)"
+    "text": "Principes généraux\n\nUtiliser les projets RStudio\nOrganiser son projet en sous-dossiers\nDonner des noms pertinents aux fichiers\nDocumenter son projet\n(Faire de son projet un package)"
   },
   {
     "objectID": "slides/complete.html#utiliser-les-projets-rstudio",
     "href": "slides/complete.html#utiliser-les-projets-rstudio",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Utiliser les projets RStudio",
-    "text": "1️⃣ Utiliser les projets RStudio\n\n\nObjectif : favoriser la reproductibilité\n\nTous les fichiers nécessaires au projet dans un même dossier\nLe dossier contenant le projet RStudio est automatiquement utilisé comme working directory\nUtilisation de chemins relatifs plutôt qu’absolus.\n\n\n\n\n\nBonus : en utilisant Git, on s’assure de toujours travailler dans un projet RStudio !"
+    "text": "1️⃣ Utiliser les projets RStudio\n\nObjectif : favoriser la reproductibilité\n\nTous les fichiers nécessaires au projet dans un même dossier\nLe dossier contenant le projet RStudio est automatiquement utilisé comme working directory\nUtilisation de chemins relatifs plutôt qu’absolus.\n\nBonus : en utilisant Git, on s’assure de toujours travailler dans un projet RStudio !"
   },
   {
     "objectID": "slides/complete.html#organiser-son-projet-en-sous-dossiers",
     "href": "slides/complete.html#organiser-son-projet-en-sous-dossiers",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2️⃣ Organiser son projet en sous-dossiers",
-    "text": "2️⃣ Organiser son projet en sous-dossiers\n\nObjectif : adopter une structure arbitraire, mais lisible et cohérente\n\n├── data\n│   ├── raw\n│   │   ├── data.csv\n│   │   └── data2.csv\n│   └── derived\n│       └── partial data.csv\n├── R\n|   ├── script.R\n│   ├── script_final.R\n│   └── report.Rmd\n└── output\n    ├── fig1.png\n    ├── figure 2 (copy).png\n    ├── figure10.png\n    ├── correlation.png\n    └── report.pdf"
+    "text": "2️⃣ Organiser son projet en sous-dossiers\n\n\nObjectif : adopter une structure arbitraire, mais lisible et cohérente\n\n├── data\n│   ├── raw\n│   │   ├── data.csv\n│   │   └── data2.csv\n│   └── derived\n│       └── partial data.csv\n├── R\n|   ├── script.R\n│   ├── script_final.R\n│   └── report.Rmd\n└── output\n    ├── fig1.png\n    ├── figure 2 (copy).png\n    ├── figure10.png\n    ├── correlation.png\n    └── report.pdf"
   },
   {
     "objectID": "slides/complete.html#donner-des-noms-pertinents-aux-fichiers",
     "href": "slides/complete.html#donner-des-noms-pertinents-aux-fichiers",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Donner des noms pertinents aux fichiers",
-    "text": "3️⃣ Donner des noms pertinents aux fichiers\n\nObjectif : auto-documenter son projet\n\n├── data\n│   ├── raw\n│   │   ├── dpe_logement_202103.csv\n│   │   └── dpe_logement_202003.csv\n│   └── derived\n│       └── dpe_logement_merged_preprocessed.csv\n├── R\n|   ├── preprocessing.R\n│   ├── generate_plots.R\n│   └── report.Rmd\n└── output\n    ├── histogram_energy_diagnostic.png\n    ├── barplot_consumption_pcs.png\n    ├── correlation_matrix.png\n    └── report.pdf"
+    "text": "3️⃣ Donner des noms pertinents aux fichiers\n\n\nObjectif : auto-documenter son projet\n\n├── data\n│   ├── raw\n│   │   ├── dpe_logement_202103.csv\n│   │   └── dpe_logement_202003.csv\n│   └── derived\n│       └── dpe_logement_merged_preprocessed.csv\n├── R\n|   ├── preprocessing.R\n│   ├── generate_plots.R\n│   └── report.Rmd\n└── output\n    ├── histogram_energy_diagnostic.png\n    ├── barplot_consumption_pcs.png\n    ├── correlation_matrix.png\n    └── report.pdf"
   },
   {
     "objectID": "slides/complete.html#documenter-son-projet",
     "href": "slides/complete.html#documenter-son-projet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "4️⃣ Documenter son projet",
-    "text": "4️⃣ Documenter son projet\n\nLe fichier README.md, situé à la racine du projet, est à la fois la carte d’identité et la vitrine du projet\n\n\n\nIdéalement, il contient :\n\nUne présentation du contexte et des objectifs\nUne description de son fonctionnement\nUn guide de contribution (open-source)\n\n\n\n\n\nQuelques modèles de README.md complets :\n\nutilitR\nDoReMIFaSol"
+    "text": "4️⃣ Documenter son projet\n\nLe fichier README.md, situé à la racine du projet, est à la fois la carte d’identité et la vitrine du projet\nIdéalement, il contient :\n\nUne présentation du contexte et des objectifs\nUne description de son fonctionnement\nUn guide de contribution (open-source)\n\nQuelques modèles de README.md complets :\n\nutilitR\nDoReMIFaSol"
   },
   {
     "objectID": "slides/complete.html#faire-de-son-projet-un-package",
     "href": "slides/complete.html#faire-de-son-projet-un-package",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "5️⃣ Faire de son projet un package",
-    "text": "5️⃣ Faire de son projet un package\n\n\nUn package est la forme maximale de modularité\n\nContient des fonctions rangées dans des modules\nContient également de la documentation, des tests, des (méta-)données…\n\nAvantages\n\nIdéal pour favoriser la réutilisation du code\nDes outils de développement : devtools et usethis\n\nInconvénients\n\nCoût de maintenance élevé"
+    "text": "5️⃣ Faire de son projet un package\n\nUn package est la forme maximale de modularité\n\nContient des fonctions rangées dans des modules\nContient également de la documentation, des tests, des (méta-)données…\n\nAvantages\n\nIdéal pour favoriser la réutilisation du code\nDes outils de développement : devtools et usethis\n\nInconvénients\n\nCoût de maintenance élevé"
   },
   {
     "objectID": "slides/complete.html#ressources-supplémentaires-2",
     "href": "slides/complete.html#ressources-supplémentaires-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\n\nLa documentation utilitR sur les projets RStudio et les packages R\nLa bible des packages R\nUn excellent workshop sur la reproductibilité avec R"
+    "text": "Ressources supplémentaires\n\n\nLa documentation utilitR sur les projets RStudio et les packages R\nLa bible des packages R"
   },
   {
     "objectID": "slides/complete.html#application-2-1",
@@ -578,14 +571,14 @@
     "href": "slides/complete.html#enjeux-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
+    "text": "Enjeux\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
   },
   {
     "objectID": "slides/complete.html#recommandations",
     "href": "slides/complete.html#recommandations",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Recommandations",
-    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\n\n\n\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
+    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
   },
   {
     "objectID": "slides/complete.html#application-3-1",
@@ -606,42 +599,42 @@
     "href": "slides/complete.html#expérience-de-pensée",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Expérience de pensée",
-    "text": "Expérience de pensée\n\n\nImaginons la situation suivante :\n\nJ’installe une version de R sur mon poste\nJe développe un projet en installant les packages nécessaires\nUne fois terminé, je passe au projet suivant, et ainsi de suite.\n\nQuels problèmes puis-je rencontrer au fil des projets ?\nEst-il facile de partager un de mes projets ?"
+    "text": "Expérience de pensée\n\nImaginons la situation suivante :\n\nJ’installe une version de R sur mon poste\nJe développe un projet en installant les packages nécessaires\nUne fois terminé, je passe au projet suivant, et ainsi de suite.\n\nQuels problèmes puis-je rencontrer au fil des projets ?\nEst-il facile de partager un de mes projets ?"
   },
   {
     "objectID": "slides/complete.html#enjeux-3",
     "href": "slides/complete.html#enjeux-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\nVersion de R fixe, celle de l’installation système\n\n\n\nConflits de version : différents projets peuvent requérir différentes versions d’un même package.\n\n\n\n\nReproductibilité limitée : difficile de dire quel projet nécessite quel package.\n\n\n\n\nPortabilité limitée : difficile de préciser dans un fichier les dépendances spécifiques à un projet."
+    "text": "Enjeux\n\nVersion de R fixe, celle de l’installation système\nConflits de version : différents projets peuvent requérir différentes versions d’un même package.\nReproductibilité limitée : difficile de dire quel projet nécessite quel package.\nPortabilité limitée : difficile de préciser dans un fichier les dépendances spécifiques à un projet."
   },
   {
     "objectID": "slides/complete.html#des-environnements-reproductibles-avec-renv",
     "href": "slides/complete.html#des-environnements-reproductibles-avec-renv",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Des environnements reproductibles avec renv",
-    "text": "Des environnements reproductibles avec renv\n\nrenv permet de créer des environnements reproductibles\n\n\n\nIsolation : chaque projet dispose de sa propre librairie de packages\n\n\n\n\nReproductibilité : renv enregistre les versions exactes des packages nécessaires au projet\n\n\n\n\nPortabilité: un tiers peut exécuter le projet avec les mêmes spécifications"
+    "text": "Des environnements reproductibles avec renv\n\nrenv permet de créer des environnements reproductibles\nIsolation : chaque projet dispose de sa propre librairie de packages\nReproductibilité : renv enregistre les versions exactes des packages nécessaires au projet\nPortabilité: un tiers peut exécuter le projet avec les mêmes spécifications"
   },
   {
     "objectID": "slides/complete.html#utilisation-de-renv",
     "href": "slides/complete.html#utilisation-de-renv",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Utilisation de renv",
-    "text": "Utilisation de renv\n\nInitialisation (init) de l’environnement local du projet\n\n\n\nDéveloppement du projet\n\n\n\n\nEnregistrement (snapshot) des versions des packages installés\n\n\n\n\nRestauration (restore) d’un environnement"
+    "text": "Utilisation de renv\n\nInitialisation (init) de l’environnement local du projet\nDéveloppement du projet\nEnregistrement (snapshot) des versions des packages installés\nRestauration (restore) d’un environnement"
   },
   {
     "objectID": "slides/complete.html#initialisation-de-lenvironnement",
     "href": "slides/complete.html#initialisation-de-lenvironnement",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Initialisation de l’environnement",
-    "text": "1️⃣ Initialisation de l’environnement\n\n\nrenv::init() dans un projet RStudio crée :\n\nUn dossier renv et le fichier .Rprofile : activation automatique de l’environnement\nLe fichier renv.lock : versions des packages installés"
+    "text": "1️⃣ Initialisation de l’environnement\n\nrenv::init() dans un projet RStudio crée :\n\nUn dossier renv et le fichier .Rprofile : activation automatique de l’environnement\nLe fichier renv.lock : versions des packages installés"
   },
   {
     "objectID": "slides/complete.html#développement-du-projet",
     "href": "slides/complete.html#développement-du-projet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2️⃣ Développement du projet",
-    "text": "2️⃣ Développement du projet\n\n\nUne fois l’environnement initialisé, on développe le projet de manière habituelle :\n\nInstallations/suppressions/mises à jour de packages\nEcriture de scripts\n\n\n\n\n\nrenv::status() : indique les packages installés/supprimés par rapport au fichier renv.lock"
+    "text": "2️⃣ Développement du projet\n\nUne fois l’environnement initialisé, on développe le projet de manière habituelle :\n\nInstallations/suppressions/mises à jour de packages\nEcriture de scripts\n\nrenv::status() : indique les packages installés/supprimés par rapport au fichier renv.lock"
   },
   {
     "objectID": "slides/complete.html#enregistrement-de-lenvironnement",
@@ -655,25 +648,25 @@
     "href": "slides/complete.html#restauration-de-lenvironnement",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "4️⃣ Restauration de l’environnement",
-    "text": "4️⃣ Restauration de l’environnement\n\nrenv::restore() : installe/désinstalle les packages nécessaires pour arriver à l’état spécifié dans le fichier renv.lock\n\n\n\nPortabilité : un tiers peut recréer un environnement avec les mêmes spécifications"
-  },
-  {
-    "objectID": "slides/complete.html#application-4-1",
-    "href": "slides/complete.html#application-4-1",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 4",
-    "text": "Application 4\n\n\n\nPartie 1 : prise en main de la librairie renv\n\n\n\n\nInstaller le package renv\nTaper dans la console renv::init(), lire le message et accepter.\nObserver les nouveaux élements qui sont apparus dans le projet.\nInstaller le package gt et observer le message dans la console.\nDans la partie sur les statistiques descriptives d’âge, ajouter ce code :\nstats_age &lt;- df %&gt;%\n  group_by(decennie = decennie_a_partir_annee(age)) %&gt;%\n  summarise(n())\n\ntable_age &lt;- gt::gt(stats_age) %&gt;%\n  gt::tab_header(\n    title = \"Distribution des âges dans notre population\"\n  ) %&gt;%\n  gt::fmt_number(\n    columns = `n()`,\n    sep_mark = \" \",\n    decimals = 0\n  ) %&gt;%\n  gt::cols_label(\n    decennie = \"Tranche d'âge\",\n    `n()` = \"Population\"\n  )"
+    "text": "4️⃣ Restauration de l’environnement\n\nrenv::restore() : installe/désinstalle les packages nécessaires pour arriver à l’état spécifié dans le fichier renv.lock\nPortabilité : un tiers peut recréer un environnement avec les mêmes spécifications"
   },
   {
     "objectID": "slides/complete.html#application-4-2",
     "href": "slides/complete.html#application-4-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nPartie 2 : faire un snapshot de l’environnement\n\n\n\n\nDans la console, faire renv::status() et observer le message.\nEffectuer renv::snapshot() pour intégrer les nouveaux packages au lockfile\nFaire un commit / push des fichiers script.R, .Rprofile, renv.lock et du dossier renv/."
+    "text": "Application 4\n\n\n\nPartie 1 : prise en main de la librairie renv\n\n\n\n\nInstaller le package renv\nTaper dans la console renv::init(), lire le message et accepter.\nObserver les nouveaux élements qui sont apparus dans le projet.\nInstaller le package gt et observer le message dans la console.\nDans la partie sur les statistiques descriptives d’âge, ajouter ce code :\nstats_age &lt;- df %&gt;%\n  group_by(decennie = decennie_a_partir_annee(age)) %&gt;%\n  summarise(n())\n\ntable_age &lt;- gt::gt(stats_age) %&gt;%\n  gt::tab_header(\n    title = \"Distribution des âges dans notre population\"\n  ) %&gt;%\n  gt::fmt_number(\n    columns = `n()`,\n    sep_mark = \" \",\n    decimals = 0\n  ) %&gt;%\n  gt::cols_label(\n    decennie = \"Tranche d'âge\",\n    `n()` = \"Population\"\n  )"
   },
   {
     "objectID": "slides/complete.html#application-4-3",
     "href": "slides/complete.html#application-4-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 4",
+    "text": "Application 4\n\n\n\nPartie 2 : faire un snapshot de l’environnement\n\n\n\n\nDans la console, faire renv::status() et observer le message.\nEffectuer renv::snapshot() pour intégrer les nouveaux packages au lockfile\nFaire un commit / push des fichiers script.R, .Rprofile, renv.lock et du dossier renv/."
+  },
+  {
+    "objectID": "slides/complete.html#application-4-4",
+    "href": "slides/complete.html#application-4-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
     "text": "Application 4\n\n\n\nPartie 3 : test de la portabilité (facultatif)\n\n\n\n\nOuvrir un nouveau service RStudio sur le SSPCloud\nCloner votre dépôt\nExécuter renv::restore() pour installer les packages nécessaires à l’exécution du projet\nVérifier que le script.R s’exécute correctement dans ce nouvel environnement."
@@ -690,7 +683,7 @@
     "href": "slides/complete.html#vers-une-reproductibilité-optimale",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Vers une reproductibilité optimale",
-    "text": "Vers une reproductibilité optimale\n\n\nLimites des environnements virtuels :\n\nLes librairies système ne sont pas gérées\nLourdeur de la phase d’installation à chaque changement d’environnement\nPeu adaptés à un environnement de production\n\n\n\n\n\nLa conteneurisation (ex : Docker) apporte la solution\n\n\n\n\nIntuition : au lieu de distribuer la recette pour recréer l’environnement, distribuer directement une “machine” qui contient tout l’environnement nécessaire au projet"
+    "text": "Vers une reproductibilité optimale\n\nLimites des environnements virtuels :\n\nLes librairies système ne sont pas gérées\nLourdeur de la phase d’installation à chaque changement d’environnement\nPeu adaptés à un environnement de production\n\nLa conteneurisation (ex : Docker) apporte la solution\nIntuition : au lieu de distribuer la recette pour recréer l’environnement, distribuer directement une “machine” qui contient tout l’environnement nécessaire au projet"
   },
   {
     "objectID": "slides/complete.html#ressources-supplémentaires-3",
@@ -700,165 +693,11 @@
     "text": "Ressources supplémentaires\n\nLa documentation officielle de renv\nLa fiche utilitR sur la gestion des dépendances"
   },
   {
-    "objectID": "slides/complete.html#motivations",
-    "href": "slides/complete.html#motivations",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Motivations",
-    "text": "Motivations\n\nUne analyse de données ou une chaîne de production font intervenir des étapes standardisées\nCes étapes peuvent être formalisées sous forme d’un pipeline (direct acyclic graph)\n\n\nSource"
-  },
-  {
-    "objectID": "slides/complete.html#motivations-1",
-    "href": "slides/complete.html#motivations-1",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Motivations",
-    "text": "Motivations\n\nModéliser ces étapes sous forme de pipeline (direct acyclic graph) a plusieurs avantages :\n\n\n\nDécouplage des différentes étapes\nFacilite la planification du traitement\nFacilite la prise en main du projet par un tiers"
-  },
-  {
-    "objectID": "slides/complete.html#le-package-targets",
-    "href": "slides/complete.html#le-package-targets",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Le package targets",
-    "text": "Le package targets\n\ntargets est un framework de modélisation de pipelines spécifiquement dédié aux projets R.\n\n\n\nDeux objectifs majeurs :\n\nRéduire le coût d’expérimentation en sauvegardant les résultats intermédiaires (targets)\nGarantir la reproductibilité de la chaîne en traçant les changements de ces targets"
-  },
-  {
-    "objectID": "slides/complete.html#méthode-de-travail-avec-targets",
-    "href": "slides/complete.html#méthode-de-travail-avec-targets",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Méthode de travail avec targets",
-    "text": "Méthode de travail avec targets\n\nOn développe dans des scripts :\n\nFonctions dans un ou plusieurs fichiers dédiés\nChaîne de production dans un fichier _targets.R\n\n\n\n\nOn gère l’exécution du pipeline directement dans la console\n\ntar_visnetwork() pour inspecter la structure du pipeline\ntar_make pour exécuter la chaine de production\n\n\n\n\n\n\n\n\nNote\n\n\nQuand on part du chaine de traitement dans un fichier déja existant (script.R par exemple), il faut faire la transition vers un fichier _targets.R dont la structure est particulière."
-  },
-  {
-    "objectID": "slides/complete.html#un-projet-minimaliste",
-    "href": "slides/complete.html#un-projet-minimaliste",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "1️⃣ Un projet minimaliste",
-    "text": "1️⃣ Un projet minimaliste\n\nStructure de projet opinionated :\n\nLong script script.R _targets.R\nChaîne de production: suite d’appels à des fonctions définies dans R/functions.R\n\n\n\n├── _targets.R\n├── data\n│   ├── raw\n│   │   └── data.csv\n├── R\n│   └── functions.R\n\n\n\nNouveau fichier: _targets.R\n\nContrôle le comportement de notre chaine de traitement\nEnchaînement d’étapes de transformation de données selon une syntaxe particulière"
-  },
-  {
-    "objectID": "slides/complete.html#le-fichier-_targets.r",
-    "href": "slides/complete.html#le-fichier-_targets.r",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "2️⃣ Le fichier _targets.R",
-    "text": "2️⃣ Le fichier _targets.R\n\n\nLe fichier _targets.R doit satisfaire plusieurs conditions :\n\nCharger le package targets\nCharger dans l’environnement les fonctions nécessaires\nDéclarer les packages nécessaires aux différentes étapes\nDéfinir le pipeline.\n\n\n\n\n# _targets.R file\nlibrary(targets)\nsource(\"R/functions.R\")\ntar_option_set(packages = c(\"readr\", \"dplyr\", \"ggplot2\"))\nlist(\n  tar_target(file, \"data.csv\", format = \"file\"),\n  tar_target(data, get_data(file)),\n  tar_target(model, fit_model(data)),\n  tar_target(plot, plot_model(model, data))\n)\n\n\n\n\n\n\nNote\n\n\nLes fonctions get_data, fit_model et plot_model sont définies dans 📁 R/functions.R"
-  },
-  {
-    "objectID": "slides/complete.html#inspecter-le-pipeline",
-    "href": "slides/complete.html#inspecter-le-pipeline",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "3️⃣ Inspecter le pipeline",
-    "text": "3️⃣ Inspecter le pipeline\n\nLa fonction tar_visnetwork permet de visualiser le pipeline"
-  },
-  {
-    "objectID": "slides/complete.html#exécuter-le-pipeline",
-    "href": "slides/complete.html#exécuter-le-pipeline",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "3️⃣ Exécuter le pipeline",
-    "text": "3️⃣ Exécuter le pipeline\n\nLa fonction tar_make exécute le pipeline défini dans _targets.R\n\n\n\n\n\n\n\n💡 Lors des exécutions suivantes, targets saute automatiquement les étapes qui n’ont pas changé"
-  },
-  {
     "objectID": "slides/complete.html#ressources-supplémentaires-4",
     "href": "slides/complete.html#ressources-supplémentaires-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nLa documentation officielle de targets\nLa fiche UtilitR dédiée à targets"
-  },
-  {
-    "objectID": "slides/complete.html#application-5-1",
-    "href": "slides/complete.html#application-5-1",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 5",
-    "text": "Application 5\n\n\n\nModélisation d’un projet sous forme de pipeline de données\n\n\n\n\nInstaller le package targets.\nCréer un fichier _targets.R à la racine du dépôt, à partir de l’exemple dans la documentation.\nAjouter _targets/ dans le .gitignore.\nReporter les library dans le fichier R/functions.R et récupérer les noms des packages pour les mettre dans la section tar_option_set().\nAjouter dans R/functions.R les fonctions read_yaml_secret et read_from_parquet:\n\nread_yaml_secret &lt;- function(path, key) {\n  return(yaml::read_yaml(path)[[key]])\n}\nread_from_parquet &lt;- function(path) {\n  df &lt;- arrow::read_parquet(\n    path,\n    col_select  = c(\n      \"region\", \"aemm\", \"aged\", \"anai\", \"catl\", \"cs1\", \"cs2\", \"cs3\",\n      \"couple\", \"na38\", \"naf08\", \"pnai12\", \"sexe\", \"surf\", \"tp\",\n      \"trans\", \"ur\"\n    )\n  )\n  return(df)\n}"
-  },
-  {
-    "objectID": "slides/complete.html#application-5-2",
-    "href": "slides/complete.html#application-5-2",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 5",
-    "text": "Application 5\n\n\n\nModélisation d’un projet sous forme de pipeline de données (suite)\n\n\n\n\nEn extrayant du contenu de script.R, créer les deux premières cibles (targets) dans _targets.R:\n\nCréer les targets file_token et file_data stockant les chemins de nos fichiers en entrée\n⚠️ Ne pas oublier l’argument format = 'file' dans tar_target\n\nCréer les deux cibles suivantes dans _targets.R:\n\nCréer token et data à partir, respectivement, de read_yaml_secret et read_from_parquet.\nPour data, utiliser l’argument format = 'parquet' dans tar_target.\n\nVisualiser les relations entre objets de notre pipeline en utilisant dans la console R la fonction tar_visnetwork().\nExécuter tar_make() dans la console et observer le changement d’état avec tar_visnetwork()."
-  },
-  {
-    "objectID": "slides/complete.html#application-5-3",
-    "href": "slides/complete.html#application-5-3",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 5",
-    "text": "Application 5\n\n\n\nModélisation d’un projet sous forme de pipeline de données (suite)\n\n\n\nA partir des fonctions suivantes, créer deux nouvelles cibles (clean_data et table_age) qui automatisent la production du tableau gt\n\nretraitement_donnees &lt;- function(df){\n  df &lt;- df %&gt;%\n    mutate(aged = as.numeric(aged))\n  df$sexe &lt;- df$sexe %&gt;%\n    as.character() %&gt;%\n    fct_recode(Homme = \"1\", Femme = \"2\")\n  return(df)\n}\n\n\nproduce_table_age &lt;- function(df){\n  stats_age &lt;- df %&gt;%\n    group_by(decennie = decennie_a_partir_annee(aged)) %&gt;%\n    summarise(n())\n  \n  table_age &lt;- gt::gt(stats_age) %&gt;%\n    gt::tab_header(\n      title = \"Distribution des âges dans notre population\"\n    ) %&gt;%\n    gt::fmt_number(\n      columns = `n()`,\n      sep_mark = \" \",\n      decimals = 0\n    ) %&gt;%\n    gt::cols_label(\n      decennie = \"Tranche d'âge\",\n      `n()` = \"Population\"\n    )\n  return(table_age)\n}\n\nEn console, visualiser l’état du pipeline avec tar_visnetwork puis exécuter tar_make(). Analyser la sortie dans la console.\nA l’aide de la fonction tar_read(table_age), visualiser la table des âges produite.\nAjouter les commandes suivantes au sein de la fonction retraitement_donnees pour la modifier:\n\ndf &lt;- df %&gt;%\n  mutate(\n    surf = factor(surf, ordered = TRUE),\n    cs1 = factor(cs1)\n  )\n\nDepuis la console, inspecter le _pipeline avec tar_visnetwork puis exécuter tar_make() pour lancer le pipeline. Analyser la sortie.\nSi vous avez le temps, continuer à enrichir votre pipeline\n\n\n\n\n:::"
-  },
-  {
-    "objectID": "slides/complete.html#checkpoint-4",
-    "href": "slides/complete.html#checkpoint-4",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nfunctions.R\n_targets.R"
-  },
-  {
-    "objectID": "slides/complete.html#enjeux-4",
-    "href": "slides/complete.html#enjeux-4",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Enjeux",
-    "text": "Enjeux\n\nProduire des études reproductibles en intégrant le code et le texte dans un même document\n\n\n\nLa génération complète de l’étude est contenue dans un unique projet\n\n\n\n\nLimiter les risques d’erreurs dues aux gestes manuels\n\n\n\n\nGestion native de différents formats pour le document final (pdf, html, odt, etc.)"
-  },
-  {
-    "objectID": "slides/complete.html#r-markdown",
-    "href": "slides/complete.html#r-markdown",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "R Markdown",
-    "text": "R Markdown\n\n\nR Markdown est un package R qui permet de lier\n\nDu texte au format Markdown\nDu code R qui peut être exécuté et dont les sorties peuvent être intégrées au texte\n\n\n\n\n\nDissociation du fond et de la forme du document\n\n\n\nUn document est compilé en deux étapes\n\nknit : le package knitr transforme le texte et les sorties R en un document Markdown standard\nconvert : le logiciel pandoc transforme le document .md en un format de sortie standard (html, pdf, etc.)"
-  },
-  {
-    "objectID": "slides/complete.html#quarto",
-    "href": "slides/complete.html#quarto",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Quarto",
-    "text": "Quarto\n\nQuarto est le successeur de R Markdown\n\n\n\nQuarto supporte différents moteurs de calcul (knitr, Jupyter, Observable..) ce qui le rend nativement multi-langage (R, Python, JavaScript..)\n\n\n\n\nLe fonctionnement des deux systèmes reste très proche"
-  },
-  {
-    "objectID": "slides/complete.html#anatomie-dun-document-reproductible",
-    "href": "slides/complete.html#anatomie-dun-document-reproductible",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Anatomie d’un document reproductible",
-    "text": "Anatomie d’un document reproductible"
-  },
-  {
-    "objectID": "slides/complete.html#ressources-supplémentaires-5",
-    "href": "slides/complete.html#ressources-supplémentaires-5",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nLa documentation officielle de R Markdown\nLa fiche UtilitR sur R Markdown\nLa documentation officielle de quarto"
-  },
-  {
-    "objectID": "slides/complete.html#application-6-1",
-    "href": "slides/complete.html#application-6-1",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 6",
-    "text": "Application 6\n\n\n\nIntroduction à la publication reproductible\n\n\n\n\nCliquer sur File &gt; New file &gt; Quarto document:\n\nDonner un titre et un.e auteur.e au rapport\nChoisir HTML comme format de sortie\nDécocher la case Use visual markdown editor\n\nSauvegarder le fichier sous le nom report.qmd."
-  },
-  {
-    "objectID": "slides/complete.html#application-6-2",
-    "href": "slides/complete.html#application-6-2",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 6",
-    "text": "Application 6\n\n\n\nIntroduction à la publication reproductible (suite)\n\n\n\n\nProduire une courte note présentant le tableau des âges produit précédemment :\n\nUn chunk R qui importe le package targets. Le contenu produit par ce chunk doit être caché, il est donc nécessaire d’utiliser une option\nUne courte phrase d’introduction\nDans le fichier .qmd, importer l’objet table_age via tar_load et faire en sorte d’afficher ce tableau dans le document\n\nGénérer le rapport avec le bouton Render et vérifier que l’output correspond à celui attendu.\n\n\n\n\n\n\n\n\n\n\n\nImportant\n\n\nEn supposant que ce document est à vocation d’une audience non technique, masquer le code ayant généré les sorties"
-  },
-  {
-    "objectID": "slides/complete.html#application-6-3",
-    "href": "slides/complete.html#application-6-3",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 6",
-    "text": "Application 6\n\n\n\nIntroduction à la publication reproductible (suite)\n\n\n\nDans script.R, nous avions créé un graphique p.png.\n\nA partir des exemples de la documentation introduire cette figure\nLa faire précéder d’une phrase d’introduction.\nÊtes-vous sûr que cette figure est à jour ?\n\nA partir de la fonction suivante à mettre dans R/functions.R, créer une nouvelle target graph_part_hommes dans _targets.R.\n\nfigure_part_homme_age &lt;- function(df){\n  p &lt;- df %&gt;%\n    group_by(aged, sexe) %&gt;%\n    summarise(SH_sexe = n()) %&gt;%\n    group_by(aged) %&gt;%\n    mutate(SH_sexe = SH_sexe / sum(SH_sexe)) %&gt;%\n    filter(sexe == \"Homme\") %&gt;%\n    ggplot() +\n    geom_bar(aes(x = aged, y = SH_sexe), stat = \"identity\") +\n    geom_point(\n      aes(x = aged, y = SH_sexe),\n      stat = \"identity\", color = \"red\") +\n    coord_cartesian(c(0, 100))\n  return(p)\n}\n\nFaire tourner le pipeline (tar_make)\nPour être certain que votre note utilise la dernière version du pipeline, introduire un tar_make() dans votre document à la suite du library(targets)\nCliquer sur le bouton Render pour mettre à jour votre note"
-  },
-  {
-    "objectID": "slides/complete.html#checkpoint-5",
-    "href": "slides/complete.html#checkpoint-5",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nreport.qmd\nfunctions.R\n_targets.R"
-  },
-  {
-    "objectID": "slides/complete.html#ressources-supplémentaires-6",
-    "href": "slides/complete.html#ressources-supplémentaires-6",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR\nUn cours complet sur la reproductibilité avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Slack grrr, très dynamique\nLe salon Tchap Langage R\nPour l’utilisation de R à l’Insee : le salon Tchap Insee - Outils Stats v2"
+    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR\nUn cours complet (en anglais) sur la reproductibilité avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\n\nTrouver de l’aide:\n\nPour toute question : le salon Slack grrr, très dynamique\nLe salon Tchap Langage R\nPour l’utilisation de R à l’Insee : le salon Tchap Insee - Outils Stats v2"
   },
   {
     "objectID": "slides/manageurs.html#introduction",
@@ -872,21 +711,21 @@
     "href": "slides/manageurs.html#la-notion-de-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "La notion de bonnes pratiques",
-    "text": "La notion de bonnes pratiques\n\nOrigine : communauté des développeurs logiciels\n\n\n\nConstats :\n\nle “code est plus souvent lu qu’écrit” (Guido Van Rossum)\nla maintenance d’un code est très coûteuse\n\n\n\n\n\nConséquence : un ensemble de règles informelles, conventionnellement acceptées comme produisant des logiciels fiables, évolutifs et maintenables"
+    "text": "La notion de bonnes pratiques\n\nOrigine : communauté des développeurs logiciels\nConstats :\n\nle “code est plus souvent lu qu’écrit” (Guido Van Rossum)\nla maintenance d’un code est très coûteuse\n\nConséquence : un ensemble de règles informelles, conventionnellement acceptées comme produisant des logiciels fiables, évolutifs et maintenables"
   },
   {
     "objectID": "slides/manageurs.html#pourquoi-sintéresser-aux-bonnes-pratiques",
     "href": "slides/manageurs.html#pourquoi-sintéresser-aux-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Pourquoi s’intéresser aux bonnes pratiques ?",
-    "text": "Pourquoi s’intéresser aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur :\n\n\nprojets intenses en code\n\n\n\n\nprojets collaboratifs et de grande envergure\n\n\n\n\ncomplexification des données et donc des infrastructures\n\n\n\n\ndéploiement d’applications pour valoriser les analyses"
+    "text": "Pourquoi s’intéresser aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et donc des infrastructures\ndéploiement d’applications pour valoriser les analyses"
   },
   {
     "objectID": "slides/manageurs.html#bonnes-pratiques-et-reproductibilité",
     "href": "slides/manageurs.html#bonnes-pratiques-et-reproductibilité",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques et reproductibilité",
-    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
+    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\nUne reproductibilité parfaite est coûteuse\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
   },
   {
     "objectID": "slides/manageurs.html#horizon-de-cette-formation",
@@ -907,56 +746,56 @@
     "href": "slides/manageurs.html#vers-un-socle-de-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Vers un socle de bonnes pratiques ?",
-    "text": "Vers un socle de bonnes pratiques ?\n\n1️⃣ Qualité du code et structure des projets\n\n2️⃣ Les formats de données de diffusion\n\n\n3️⃣ Le contrôle de version\n\n\n4️⃣ Normes de sécurité\n\n\n5️⃣ Ouverture"
+    "text": "Vers un socle de bonnes pratiques ?\n\n1️⃣ Qualité du code et structure des projets\n2️⃣ Les formats de données de diffusion\n3️⃣ Le contrôle de version\n4️⃣ Normes de sécurité\n5️⃣ Ouverture"
   },
   {
     "objectID": "slides/manageurs.html#enjeux",
     "href": "slides/manageurs.html#enjeux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\nD’une vision utilitariste du code à une vision du code comme outil de communication\n\n\n\nFavoriser la lisibilité et la maintenabilité\n\n\n\n\nFaciliter la réutilisation\n\n\n\n\nAssurer la transparence méthodologique"
+    "text": "Enjeux\n\nD’une vision utilitariste du code à une vision du code comme outil de communication\nFavoriser la lisibilité et la maintenabilité\nFaciliter la réutilisation\nAssurer la transparence méthodologique"
   },
   {
     "objectID": "slides/manageurs.html#principes-généraux",
     "href": "slides/manageurs.html#principes-généraux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Principes généraux",
-    "text": "Principes généraux\n\nAdopter les standards communautaires\n\n\n\nUtiliser des fonctions\n\n\n\n\nDocumenter son code\n\n\n\n\nIndiquer les packages utilisés afin d’éviter les conflits"
+    "text": "Principes généraux\n\nAdopter les standards communautaires\nUtiliser des fonctions\nDocumenter son code\nIndiquer les packages utilisés afin d’éviter les conflits"
   },
   {
     "objectID": "slides/manageurs.html#adopter-les-standards-communautaires",
     "href": "slides/manageurs.html#adopter-les-standards-communautaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Adopter les standards communautaires",
-    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\n\n\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\nNote\n\n\nIl existe un guide de référence pour bien coder en R : le Tidyverse style guide."
+    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\nNote\n\n\nIl existe un guide de référence pour bien coder en R : le Tidyverse style guide."
   },
   {
     "objectID": "slides/manageurs.html#favoriser-la-modularité-des-projets",
     "href": "slides/manageurs.html#favoriser-la-modularité-des-projets",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2️⃣ Favoriser la modularité des projets",
-    "text": "2️⃣ Favoriser la modularité des projets\n\n\nFavoriser l’utilisation de fonctions\n\nLimite les risques d’erreur liés aux copier/coller\nRend le code plus lisible et plus compact\nUnicité de la source de vérité\n\nLes packages\n\nIdéal pour favoriser la réutilisation du code\nCoût de maintenance élevé"
+    "text": "2️⃣ Favoriser la modularité des projets\n\nFavoriser l’utilisation de fonctions\n\nLimite les risques d’erreur liés aux copier/coller\nRend le code plus lisible et plus compact\nUnicité de la source de vérité\n\nLes packages\n\nIdéal pour favoriser la réutilisation du code\nCoût de maintenance élevé"
   },
   {
     "objectID": "slides/manageurs.html#documenter-son-code",
     "href": "slides/manageurs.html#documenter-son-code",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Documenter son code",
-    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents.\n\n\n\n\nDocumenter le projet (contexte, objectifs, fonctionnement) dans un fichier README\n\nQuelques modèles : utilitR, DoReMIFaSol"
+    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents\n\nDocumenter le projet (contexte, objectifs, fonctionnement) dans un fichier README\n\nQuelques modèles : utilitR, DoReMIFaSol"
   },
   {
     "objectID": "slides/manageurs.html#enjeux-1",
     "href": "slides/manageurs.html#enjeux-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
+    "text": "Enjeux\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
   },
   {
     "objectID": "slides/manageurs.html#recommandations",
     "href": "slides/manageurs.html#recommandations",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Recommandations",
-    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\n\n\n\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
+    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
   },
   {
     "objectID": "slides/manageurs.html#archiver-son-code-proprement",
@@ -998,21 +837,21 @@
     "href": "slides/manageurs.html#concepts",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Concepts",
-    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGit est un logiciel ;\nUtilisation en ligne de commandes\nDifférentes interfaces graphiques (RStudio, VS Code…)"
+    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\nGit est un logiciel ;\nUtilisation en ligne de commandes\nDifférentes interfaces graphiques (RStudio, VS Code…)"
   },
   {
     "objectID": "slides/manageurs.html#concepts-1",
     "href": "slides/manageurs.html#concepts-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Concepts",
-    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\n\nAstuce\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
+    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\nAstuce\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
   },
   {
     "objectID": "slides/manageurs.html#bonnes-pratiques",
     "href": "slides/manageurs.html#bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
+    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
   },
   {
     "objectID": "slides/manageurs.html#bonnes-pratiques-1",
@@ -1033,7 +872,7 @@
     "href": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le cas d’usage classique à l’Insee",
-    "text": "Le cas d’usage classique à l’Insee\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé, et où l’intervention humaine est limitée ;\n\n\n\ncelui qui nécessite du travail humain postérieur de la part du statisticien, et donc fait l’objet de tâtonnements\n\ncalcul du taux de pauvreté avec ERFS et SRCV ;\nmicro-simulation avec le modèle INES ;\ndes processus de suivi conjoncturels…"
+    "text": "Le cas d’usage classique à l’Insee\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé, et où l’intervention humaine est limitée ;\ncelui qui nécessite du travail humain postérieur de la part du statisticien, et donc fait l’objet de tâtonnements\n\ncalcul du taux de pauvreté avec ERFS et SRCV ;\nmicro-simulation avec le modèle INES ;\ndes processus de suivi conjoncturels…"
   },
   {
     "objectID": "slides/manageurs.html#pourquoi-git-répond-il-bien-aux-enjeux-de-la-production",
@@ -1047,14 +886,14 @@
     "href": "slides/manageurs.html#quels-concepts",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Quels concepts ?",
-    "text": "Quels concepts ?\n\n\nles variantes peuvent se décliner sous la notion de branches ;\n\n\n\nen traçant l’ensemble des modifications du code, Git facilite la complète reproductibilité des tâtonnements ;\n\n\n\n\nau travers de l’historique, il permet de retracer l’ensemble du cheminement ;\n\n\n\n\nle git blame permet de voir qui a fait quoi ;\n\n\n\n\nmais cela nécessite une discipline sur l’usage de Git.\n\n⇒ deux notions essentielles : reproductibilité et traçabilité"
+    "text": "Quels concepts ?\n\n\nles variantes peuvent se décliner sous la notion de branches ;\nen traçant l’ensemble des modifications du code, Git facilite la complète reproductibilité des tâtonnements ;\nau travers de l’historique, il permet de retracer l’ensemble du cheminement ;\nle git blame permet de voir qui a fait quoi ;\nmais cela nécessite une discipline sur l’usage de Git.\n\n⇒ deux notions essentielles : reproductibilité et traçabilité"
   },
   {
     "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
     "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Gestion du cycle de vie d’un projet",
-    "text": "Gestion du cycle de vie d’un projet\n\nChangement de paradigme : le code self doit être maintenu\n\nChangement de version de R et des packages ;\nQuelles solutions connaissez-vous ?\n\n\n\n\nrenv et la notion de lockfile\n\n\n\n\nanticiper les montées de version des logiciels :\n\non peut envisager un protocole pour cela"
+    "text": "Gestion du cycle de vie d’un projet\n\nChangement de paradigme : le code self doit être maintenu\n\nChangement de version de R et des packages ;\nQuelles solutions connaissez-vous ?\n\nrenv et la notion de lockfile\nanticiper les montées de version des logiciels :\n\non peut envisager un protocole pour cela"
   },
   {
     "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-renv",
@@ -1068,7 +907,7 @@
     "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Gestion du cycle de vie d’un projet",
-    "text": "Gestion du cycle de vie d’un projet\n\nGérer le cycle de vie:\n\ndu code\nde son environnement d’exécution\ndes données mobilisées en entrée du projet et produites de manière intermédiaire.\n\n\n\n\nDéfinir responsabilités et organisation à la fois :\n\nsur la maintenance du code ;\nsur gitlab.insee.fr."
+    "text": "Gestion du cycle de vie d’un projet\n\nGérer le cycle de vie:\n\ndu code\nde son environnement d’exécution\ndes données mobilisées en entrée du projet et produites de manière intermédiaire.\n\nDéfinir responsabilités et organisation à la fois :\n\nsur la maintenance du code ;\nsur gitlab.insee.fr."
   },
   {
     "objectID": "slides/manageurs.html#question",
@@ -1187,28 +1026,28 @@
     "href": "slides/light.html#introduction",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Introduction",
-    "text": "Introduction\n\nVersion courte de la formation aux bonnes pratiques avec R et Git\n\n\nRetour à la page d’accueil pour explorer les autres versions"
+    "text": "Introduction\n\n\nVersion courte de la formation aux bonnes pratiques avec R et Git (page d’accueil)"
   },
   {
     "objectID": "slides/light.html#la-notion-de-bonnes-pratiques",
     "href": "slides/light.html#la-notion-de-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "La notion de bonnes pratiques",
-    "text": "La notion de bonnes pratiques\n\nOrigine : communauté des développeurs logiciels\n\n\n\nConstats :\n\nle “code est plus souvent lu qu’écrit” (Guido Van Rossum)\nla maintenance d’un code est très coûteuse\n\n\n\n\n\nConséquence : un ensemble de règles informelles, conventionnellement acceptées comme produisant des logiciels fiables, évolutifs et maintenables"
+    "text": "La notion de bonnes pratiques\n\nOrigine : communauté des développeurs logiciels\nConstats :\n\nle “code est plus souvent lu qu’écrit” (Guido Van Rossum)\nla maintenance d’un code est très coûteuse\n\nConséquence : un ensemble de règles informelles, conventionnellement acceptées comme produisant des logiciels fiables, évolutifs et maintenables"
   },
   {
     "objectID": "slides/light.html#pourquoi-sintéresser-aux-bonnes-pratiques",
     "href": "slides/light.html#pourquoi-sintéresser-aux-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Pourquoi s’intéresser aux bonnes pratiques ?",
-    "text": "Pourquoi s’intéresser aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur :\n\n\nprojets intenses en code\n\n\n\n\nprojets collaboratifs et de grande envergure\n\n\n\n\ncomplexification des données et donc des infrastructures\n\n\n\n\ndéploiement d’applications pour valoriser les analyses"
+    "text": "Pourquoi s’intéresser aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et donc des infrastructures\ndéploiement d’applications pour valoriser les analyses"
   },
   {
     "objectID": "slides/light.html#bonnes-pratiques-et-reproductibilité",
     "href": "slides/light.html#bonnes-pratiques-et-reproductibilité",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques et reproductibilité",
-    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\n\nUne reproductibilité parfaite est coûteuse\n\n\n\n\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
+    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\nUne reproductibilité parfaite est coûteuse\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
   },
   {
     "objectID": "slides/light.html#horizon-de-cette-formation",
@@ -1229,7 +1068,7 @@
     "href": "slides/light.html#plan-de-la-partie",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Plan de la partie",
-    "text": "Plan de la partie\n1️⃣ Le contrôle de version : pourquoi faire ?\n\n2️⃣ Le contrôle de version avec Git"
+    "text": "Plan de la partie\n1️⃣ Le contrôle de version : pourquoi faire ?\n2️⃣ Le contrôle de version avec Git"
   },
   {
     "objectID": "slides/light.html#archiver-son-code-proprement",
@@ -1306,35 +1145,35 @@
     "href": "slides/light.html#en-résumé",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "En résumé",
-    "text": "En résumé\n\nConstruire et naviguer à travers l’historique de son projet\n\n\n\nLa collaboration rendue simple et efficace\n\n\n\n\nAméliorer la reproductibilité de ses projets\n\n\n\n\nAméliorer la visibilité de ses projets"
+    "text": "En résumé\n\nConstruire et naviguer à travers l’historique de son projet\nLa collaboration rendue simple et efficace\nAméliorer la reproductibilité de ses projets\nAméliorer la visibilité de ses projets"
   },
   {
     "objectID": "slides/light.html#git-est-complexe",
     "href": "slides/light.html#git-est-complexe",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "⚠️ Git est complexe",
-    "text": "⚠️ Git est complexe\nL’utilisation de Git nécessite certaines notions préalables:\n\n\nFonctionnement d’un filesystem\nConnaissance basique du terminal Linux\nPotentiellement, un grand nombre de commandes\n\n\n\n\n\nSource : Ici"
+    "text": "⚠️ Git est complexe\nL’utilisation de Git nécessite certaines notions préalables:\n\nFonctionnement d’un filesystem\nConnaissance basique du terminal Linux\nPotentiellement, un grand nombre de commandes\n\n\n\n\n\nSource : iulianacosmina.com"
   },
   {
     "objectID": "slides/light.html#git-est-complexe-1",
     "href": "slides/light.html#git-est-complexe-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "⚠️ Git est complexe",
-    "text": "⚠️ Git est complexe\nMais\n\n\nL’usage quotidien n’implique que quelques commandes\nLors de chaque action, Git renvoie un message qui indique s’il y a eu problème (il faut lire les messages de Git!)\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
+    "text": "⚠️ Git est complexe\nMais\n\nL’usage quotidien n’implique que quelques commandes\nLes messages de Git sont très informatifs\nEnormément de ressources disponibles sur internet\nDes interfaces visuelles (ex: RStudio, Sublime Merge, VS Code) qui facilitent l’apprentissage\nUn petit investissement individuel pour de gros gains collectifs"
   },
   {
     "objectID": "slides/light.html#concepts",
     "href": "slides/light.html#concepts",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Concepts",
-    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGit est un logiciel ;\nUtilisation en ligne de commandes\nDifférentes interfaces graphiques (RStudio, VS Code…)"
+    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\nGit est un logiciel ;\nUtilisation en ligne de commandes\nDifférentes interfaces graphiques (RStudio, VS Code…)"
   },
   {
     "objectID": "slides/light.html#concepts-1",
     "href": "slides/light.html#concepts-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Concepts",
-    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\n\nAstuce\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
+    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\nGitHub et GitLab sont des forges logicielles\nForge: espace d’archivage de code\nDes fonctionalités supplémentaires : réseau social du code\n\n\n\n\n\n\n\nAstuce\n\n\n\nGitHub : utilisation pour les projets open-source\nGitLab : utilisation pour les projets internes"
   },
   {
     "objectID": "slides/light.html#concepts-2",
@@ -1383,14 +1222,14 @@
     "href": "slides/light.html#modes-dauthentification",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Modes d’authentification",
-    "text": "Modes d’authentification\n\n insee\n\n\n\n\nhttps\n\ngit clone https://github.com/username/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@github.com:username/projet.git\n(plus) complexe à initialiser\nauthentification automatique\n\n\n\n\n\n\n\n\nhttps\n\ngit clone https://gitlab.insee.fr/username_or_groupname/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@gitlab.insee.fr:username_or_groupname/projet.git\n(plus) complexe à initialiser\nauthentification automatique"
+    "text": "Modes d’authentification\n\n\n insee\n\n\n\n\nhttps\n\ngit clone https://github.com/username/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@github.com:username/projet.git\n(plus) complexe à initialiser\nauthentification automatique\n\n\n\n\n\n\n\nhttps\n\ngit clone https://gitlab.insee.fr/username_or_groupname/projet.git\nsimple à utiliser\nauthentification username + password (ou token) à chaque push\n\nssh\n\ngit clone git@gitlab.insee.fr:username_or_groupname/projet.git\n(plus) complexe à initialiser\nauthentification automatique"
   },
   {
     "objectID": "slides/light.html#application-0",
     "href": "slides/light.html#application-0",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCompte déjà créé sur le gitlab interne\nCréer un nouveau dépôt privé sur gitlab.insee.fr\nCréer un compte sur LS3 via AUS.\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants Gitlab à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de la plateforme LS3):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur gitlab.insee.fr\nStocker le token sur LS3 (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur gitlab.insee.fr (code insee en 6 caractères) et le token\n\n\n\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
+    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub en incluant un fichier README\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCompte déjà créé sur le gitlab interne\nCréer un nouveau dépôt privé sur gitlab.insee.fr\nCréer un compte sur LS3 via AUS.\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants Gitlab à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de la plateforme LS3):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur gitlab.insee.fr\nStocker le token sur LS3 (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur gitlab.insee.fr (code insee en 6 caractères) et le token\n\n\n\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
   },
   {
     "objectID": "slides/light.html#application-1",
@@ -1411,7 +1250,7 @@
     "href": "slides/light.html#bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
+    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
   },
   {
     "objectID": "slides/light.html#bonnes-pratiques-1",
@@ -1425,56 +1264,56 @@
     "href": "slides/light.html#application-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n\n\nLe fichier .gitignore\n\n\n\nLors de la création du projet sur GitHub / Gitlab, nous avons demandé la création d’un fichier .gitignore, qui se situe à la racine du projet. Il spécifie l’ensemble des fichiers qui seront toujours exclus de l’indexation faite par Git.\n\nExclure les fichiers de type *.pdf et *.html\nCréer un dossier data à la racine du projet et créer à l’intérieur de celui-ci un fichier data/raw.csv avec une ligne de données quelconque\nAjouter au .gitignore le dossier data/\nVérifier que toutes les règles ajoutées précédemment fonctionnent comme attendu\n\n\n\n\n\n❓ Question : que se passe-t-il lorsque l’on ajoute au .gitignore des fichiers qui ont déjà été commit sur le projet Git ?"
+    "text": "Application 3\n\n\n\nLe fichier .gitignore\n\n\n\nL’objectif de cette application est de créer le fichier .gitignore, qui permet de spécifier l’ensemble des fichiers et/ou dossiers que l’on souhaite exclure de l’indexation faite par Git. Il doit se situer à la racine du projet.\n\nCréer un fichier texte nommé .gitignore à la racine du projet (attention à ne pas ajouter d’extension au fichier, type .txt)\nCréer un dossier data à la racine du projet et créer à l’intérieur de celui-ci un fichier data/raw.csv avec une ligne de données quelconque\nAjouter une première règle au fichier .gitignore qui exclue le dossier data/, et vérifier que la règle fonctionne\nAjouter une seconde règle excluant tous les fichiers de type *.pdf et *.html, et vérifier que la règle fonctionne\n\n\n\n\n\n❓ Question : que se passe-t-il lorsque l’on ajoute au .gitignore des fichiers qui ont déjà été commit sur le projet Git ?\n\n\n\n\nDes fichiers .gitignore standards\n\n\nDans cette application, nous avons généré le fichier .gitignore manuellement. En pratique, il existe des .gitignore standards adaptés pour chaque langage de programmation, qui implémentent déjà de nombreuses règles pertinentes. Le mieux est donc de partir du .gitignore R pour tout nouveau projet R, et de rajouter les règles spécifiques que l’on souhaite appliquer au projet."
   },
   {
     "objectID": "slides/light.html#ressources-supplémentaires",
     "href": "slides/light.html#ressources-supplémentaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nFormation Travail collaboratif avec R\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
+    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
   },
   {
     "objectID": "slides/light.html#plan-de-la-partie-1",
     "href": "slides/light.html#plan-de-la-partie-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Plan de la partie",
-    "text": "Plan de la partie\nAméliorations graduelles dans l’échelle de la reproductibilité :\n1️⃣ Qualité du code\n\n2️⃣ Structure des projets\n\n\n3️⃣ Formats de données"
+    "text": "Plan de la partie\nAméliorations graduelles dans l’échelle de la reproductibilité :\n1️⃣ Qualité du code\n2️⃣ Structure des projets\n3️⃣ Formats de données"
   },
   {
     "objectID": "slides/light.html#application-0-1",
     "href": "slides/light.html#application-0-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nSi vous ne l’avez pas fait lors de la première partie de la formation, créer un compte sur GitHub et générer un token (jeton d’accès) d’authentification\nCréer un nouveau dépôt public sur GitHub\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements"
+    "text": "Application 0\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un nouveau dépôt public sur GitHub / GitLab\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements"
   },
   {
     "objectID": "slides/light.html#enjeux",
     "href": "slides/light.html#enjeux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\nD’une vision utilitariste du code à une vision du code comme outil de communication\n\n\n\nFavoriser la lisibilité et la maintenabilité\n\n\n\n\nFaciliter la réutilisation\n\n\n\n\nAssurer la transparence méthodologique"
+    "text": "Enjeux\n\nD’une vision utilitariste du code à une vision du code comme outil de communication\nFavoriser la lisibilité et la maintenabilité\nFaciliter la réutilisation\nAssurer la transparence méthodologique"
   },
   {
     "objectID": "slides/light.html#principes-généraux",
     "href": "slides/light.html#principes-généraux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Principes généraux",
-    "text": "Principes généraux\n\nAdopter les standards communautaires\n\n\n\nUtiliser des fonctions\n\n\n\n\nDocumenter son code\n\n\n\n\nIndiquer les packages utilisés afin d’éviter les conflits"
+    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Utiliser des fonctions\n3️⃣ Documenter son code\n4️⃣ Indiquer les packages utilisés afin d’éviter les conflits"
   },
   {
     "objectID": "slides/light.html#adopter-les-standards-communautaires",
     "href": "slides/light.html#adopter-les-standards-communautaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Adopter les standards communautaires",
-    "text": "1️⃣ Adopter les standards communautaires\n\n“Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread”\nTidyverse Style Guide\n\n\n\nRespecter les conventions du langage dans lequel il est rédigé\n\n\n\n\nIl existe un guide de référence pour bien coder en R : le Tidyverse style guide."
+    "text": "1️⃣ Adopter les standards communautaires\n\n“Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread”\nTidyverse Style Guide\n\n\nRespecter les conventions du langage dans lequel il est rédigé\nIl existe un guide de référence pour bien coder en R : le Tidyverse style guide."
   },
   {
     "objectID": "slides/light.html#adopter-les-standards-communautaires-1",
     "href": "slides/light.html#adopter-les-standards-communautaires-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Adopter les standards communautaires",
-    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\n\n\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\n\n\nAstuce\n\n\n\nExemples d’erreurs repérées par un linter :\n\nlignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…\n\nExemples d’erreurs non repérées par un linter :\n\nfonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…"
+    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\n\nAstuce\n\n\n\n\nExemples d’erreurs repérées par un linter :\n\nlignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…\n\nExemples d’erreurs non repérées par un linter :\n\nfonctions mal utilisées, arguments mal spécifiés, structure du code incohérente, code insuffisamment documenté…"
   },
   {
     "objectID": "slides/light.html#adopter-les-standards-communautaires-2",
@@ -1488,35 +1327,35 @@
     "href": "slides/light.html#utiliser-des-fonctions",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2️⃣ Utiliser des fonctions",
-    "text": "2️⃣ Utiliser des fonctions\n\n\n\n\n\n\nRègle d’or\n\n\nIl faut utiliser une fonction dès qu’on utilise une même portion de code plus de deux fois (don’t repeat yourself (DRY))\n\n\n\n\nLimite les risques d’erreurs liés aux copier/coller\nRend le code plus lisible et plus compact\nUn seul endroit du code à modifier lorsqu’on souhaite modifier le traitement\nFacilite la réutilisation et la documentation du code !\n\n\n\n\n\n\n\n\nRègles pour écrire des fonctions pertinentes\n\n\n\nUne tâche = une fonction\nUne tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple\nLimiter l’utilisation de variables globales."
+    "text": "2️⃣ Utiliser des fonctions\n\n\n\n\n\n\nRègle d’or\n\n\nIl faut utiliser une fonction dès qu’on utilise une même portion de code plus de deux fois (don’t repeat yourself (DRY))\n\n\n\n\nLimite les risques d’erreurs liés aux copier/coller\nRend le code plus lisible et plus compact\nUn seul endroit du code à modifier lorsqu’on souhaite modifier le traitement\nFacilite la réutilisation et la documentation du code !\n\n\n\n\n\n\n\n\nRègles pour écrire des fonctions pertinentes\n\n\n\n\nUne tâche = une fonction\nUne tâche complexe = un enchaînement de fonctions réalisant chacune une tâche simple\nLimiter l’utilisation de variables globales."
   },
   {
     "objectID": "slides/light.html#documenter-son-code",
     "href": "slides/light.html#documenter-son-code",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Documenter son code",
-    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents.\n\n\n\n\n\n\n\n\n\nComment bien documenter un script ?\n\n\n\nMinimum 🚦 : commentaire au début du script pour décrire ce qu’il fait\nBien 👍 : commenter les parties “délicates” du code\nIdéal 💪 : documenter ses fonctions avec la syntaxe roxygen2."
+    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents\n\n\n\n\n\n\n\n\n\nComment bien documenter un script ?\n\n\n\n\nMinimum 🚦 : commentaire au début du script pour décrire ce qu’il fait\nBien 👍 : commenter les parties “délicates” du code\nIdéal 💪 : documenter ses fonctions avec la syntaxe roxygen2."
   },
   {
     "objectID": "slides/light.html#documenter-son-code-1",
     "href": "slides/light.html#documenter-son-code-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Documenter son code",
-    "text": "3️⃣ Documenter son code\n\n\n\n\n\n\nBien documenter… mais pas trop !\n\n\n. . .\nBof :\n# Utilise string si x est non manquant et non vide\nif (!is.na(x) && nzchar(x)) {\n  use_string(x)\n}\n. . .\nMieux !\nx_is_not_empty_string &lt;- (!is.na(x) && nzchar(x))\nif (x_is_not_empty_string) {\n  use_string(x)\n}\n. . . Voir la présentation de Maëlle Salmon sur le « Code beau »."
+    "text": "3️⃣ Documenter son code\n\n\n\n\n\n\nL’auto-documentation en pratique\n\n\n👎 La documentation pallie des mauvais nommages\n# Utilise string si x est non manquant et non vide\nif (!is.na(x) && nzchar(x)) {\n  use_string(x)\n}\n👍 Les nommages suffisent à comprendre le code\nx_is_not_empty_string &lt;- (!is.na(x) && nzchar(x))\nif (x_is_not_empty_string) {\n  use_string(x)\n}"
   },
   {
     "objectID": "slides/light.html#pas-dambiguïté-sur-les-packages-utilisés",
     "href": "slides/light.html#pas-dambiguïté-sur-les-packages-utilisés",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "4️⃣ Pas d’ambiguïté sur les packages utilisés",
-    "text": "4️⃣ Pas d’ambiguïté sur les packages utilisés\n\nDeux fonctions peuvent avoir le même nom dans des packages différents\n\n\n\nR utilise par défaut la librairie chargée le plus récemment\n\n\n\n\nErreurs difficiles à repérer car il est nécessaire d’exécuter le code\n\n\n\n\nRecommandation : indiquer explicitement le package : notation package::fonction()\n\nExemple : dplyr::filter()\n\n\n\n\n\n\n\n\nExemple\n\n\n\npackage1 et package2 contiennent chacun une fonction appelée superFonction.\nSi package2 est chargé après package1, alors superFonction désigne par défaut la fonction de package2.\nMieux vaut noter package1::superFonction et package2::superFonction"
+    "text": "4️⃣ Pas d’ambiguïté sur les packages utilisés\n\nDeux fonctions peuvent avoir le même nom dans des packages différents\nR utilise par défaut la librairie chargée le plus récemment\nErreurs difficiles à repérer car il est nécessaire d’exécuter le code\nRecommandation : indiquer explicitement le package : notation package::fonction()\n\nExemple : dplyr::filter()\n\n\n\n\n\n\n\n\n\nExemple\n\n\n\n\npackage1 et package2 contiennent chacun une fonction appelée superFonction.\nSi package2 est chargé après package1, alors superFonction désigne par défaut la fonction de package2.\nMieux vaut noter package1::superFonction et package2::superFonction"
   },
   {
     "objectID": "slides/light.html#ressources-supplémentaires-1",
     "href": "slides/light.html#ressources-supplémentaires-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\n\nUn cours complet sur la reproductibilité avec R\nUne présentation très complète sur le partage de code et de données avec R\nL’équivalent Python en 3A d’ENSAE"
+    "text": "Ressources supplémentaires\n\n\nUne présentation de Maëlle Salmon sur le « code beau ».\nUne présentation très complète sur le partage de code et de données avec R"
   },
   {
     "objectID": "slides/light.html#application-1-1",
@@ -1565,14 +1404,14 @@
     "href": "slides/light.html#bilan",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bilan",
-    "text": "Bilan\n\n\nUn code mal structuré\n\nLimite la lisibilité du projet\nEst très coûteux à maintenir (dette technique)"
+    "text": "Bilan\n\nUn code mal structuré\n\nLimite la lisibilité du projet\nEst très coûteux à maintenir (dette technique)"
   },
   {
     "objectID": "slides/light.html#enjeux-1",
     "href": "slides/light.html#enjeux-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\nFavoriser la lisibilité et la maintenabilité\n\n\n2 Construire des projets reproductibles"
+    "text": "Enjeux\n\nFavoriser la lisibilité et la maintenabilité\nConstruire des projets reproductibles"
   },
   {
     "objectID": "slides/light.html#a-ne-pas-reproduire-chez-vous",
@@ -1586,49 +1425,49 @@
     "href": "slides/light.html#principes-généraux-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Principes généraux",
-    "text": "Principes généraux\n\nUtiliser les projets RStudio\n\n\n\nOrganiser son projet en sous-dossiers\n\n\n\n\nDonner des noms pertinents aux fichiers\n\n\n\n\nDocumenter son projet\n\n\n\n\n(Faire de son projet un package)"
+    "text": "Principes généraux\n\nUtiliser les projets RStudio\nOrganiser son projet en sous-dossiers\nDonner des noms pertinents aux fichiers\nDocumenter son projet\n(Faire de son projet un package)"
   },
   {
     "objectID": "slides/light.html#utiliser-les-projets-rstudio",
     "href": "slides/light.html#utiliser-les-projets-rstudio",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "1️⃣ Utiliser les projets RStudio",
-    "text": "1️⃣ Utiliser les projets RStudio\n\n\nObjectif : favoriser la reproductibilité\n\nTous les fichiers nécessaires au projet dans un même dossier\nLe dossier contenant le projet RStudio est automatiquement utilisé comme working directory\nUtilisation de chemins relatifs plutôt qu’absolus.\n\n\n\n\n\nBonus : en utilisant Git, on s’assure de toujours travailler dans un projet RStudio !"
+    "text": "1️⃣ Utiliser les projets RStudio\n\nObjectif : favoriser la reproductibilité\n\nTous les fichiers nécessaires au projet dans un même dossier\nLe dossier contenant le projet RStudio est automatiquement utilisé comme working directory\nUtilisation de chemins relatifs plutôt qu’absolus.\n\nBonus : en utilisant Git, on s’assure de toujours travailler dans un projet RStudio !"
   },
   {
     "objectID": "slides/light.html#organiser-son-projet-en-sous-dossiers",
     "href": "slides/light.html#organiser-son-projet-en-sous-dossiers",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "2️⃣ Organiser son projet en sous-dossiers",
-    "text": "2️⃣ Organiser son projet en sous-dossiers\n\nObjectif : adopter une structure arbitraire, mais lisible et cohérente\n\n├── data\n│   ├── raw\n│   │   ├── data.csv\n│   │   └── data2.csv\n│   └── derived\n│       └── partial data.csv\n├── R\n|   ├── script.R\n│   ├── script_final.R\n│   └── report.Rmd\n└── output\n    ├── fig1.png\n    ├── figure 2 (copy).png\n    ├── figure10.png\n    ├── correlation.png\n    └── report.pdf"
+    "text": "2️⃣ Organiser son projet en sous-dossiers\n\n\nObjectif : adopter une structure arbitraire, mais lisible et cohérente\n\n├── data\n│   ├── raw\n│   │   ├── data.csv\n│   │   └── data2.csv\n│   └── derived\n│       └── partial data.csv\n├── R\n|   ├── script.R\n│   ├── script_final.R\n│   └── report.Rmd\n└── output\n    ├── fig1.png\n    ├── figure 2 (copy).png\n    ├── figure10.png\n    ├── correlation.png\n    └── report.pdf"
   },
   {
     "objectID": "slides/light.html#donner-des-noms-pertinents-aux-fichiers",
     "href": "slides/light.html#donner-des-noms-pertinents-aux-fichiers",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Donner des noms pertinents aux fichiers",
-    "text": "3️⃣ Donner des noms pertinents aux fichiers\n\nObjectif : auto-documenter son projet\n\n├── data\n│   ├── raw\n│   │   ├── dpe_logement_202103.csv\n│   │   └── dpe_logement_202003.csv\n│   └── derived\n│       └── dpe_logement_merged_preprocessed.csv\n├── R\n|   ├── preprocessing.R\n│   ├── generate_plots.R\n│   └── report.Rmd\n└── output\n    ├── histogram_energy_diagnostic.png\n    ├── barplot_consumption_pcs.png\n    ├── correlation_matrix.png\n    └── report.pdf"
+    "text": "3️⃣ Donner des noms pertinents aux fichiers\n\n\nObjectif : auto-documenter son projet\n\n├── data\n│   ├── raw\n│   │   ├── dpe_logement_202103.csv\n│   │   └── dpe_logement_202003.csv\n│   └── derived\n│       └── dpe_logement_merged_preprocessed.csv\n├── R\n|   ├── preprocessing.R\n│   ├── generate_plots.R\n│   └── report.Rmd\n└── output\n    ├── histogram_energy_diagnostic.png\n    ├── barplot_consumption_pcs.png\n    ├── correlation_matrix.png\n    └── report.pdf"
   },
   {
     "objectID": "slides/light.html#documenter-son-projet",
     "href": "slides/light.html#documenter-son-projet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "4️⃣ Documenter son projet",
-    "text": "4️⃣ Documenter son projet\n\nLe fichier README.md, situé à la racine du projet, est à la fois la carte d’identité et la vitrine du projet\n\n\n\nIdéalement, il contient :\n\nUne présentation du contexte et des objectifs\nUne description de son fonctionnement\nUn guide de contribution (open-source)\n\n\n\n\n\nQuelques modèles de README.md complets :\n\nutilitR\nDoReMIFaSol"
+    "text": "4️⃣ Documenter son projet\n\nLe fichier README.md, situé à la racine du projet, est à la fois la carte d’identité et la vitrine du projet\nIdéalement, il contient :\n\nUne présentation du contexte et des objectifs\nUne description de son fonctionnement\nUn guide de contribution (open-source)\n\nQuelques modèles de README.md complets :\n\nutilitR\nDoReMIFaSol"
   },
   {
     "objectID": "slides/light.html#faire-de-son-projet-un-package",
     "href": "slides/light.html#faire-de-son-projet-un-package",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "5️⃣ Faire de son projet un package",
-    "text": "5️⃣ Faire de son projet un package\n\n\nUn package est la forme maximale de modularité\n\nContient des fonctions rangées dans des modules\nContient également de la documentation, des tests, des (méta-)données…\n\nAvantages\n\nIdéal pour favoriser la réutilisation du code\nDes outils de développement : devtools et usethis\n\nInconvénients\n\nCoût de maintenance élevé"
+    "text": "5️⃣ Faire de son projet un package\n\nUn package est la forme maximale de modularité\n\nContient des fonctions rangées dans des modules\nContient également de la documentation, des tests, des (méta-)données…\n\nAvantages\n\nIdéal pour favoriser la réutilisation du code\nDes outils de développement : devtools et usethis\n\nInconvénients\n\nCoût de maintenance élevé"
   },
   {
     "objectID": "slides/light.html#ressources-supplémentaires-2",
     "href": "slides/light.html#ressources-supplémentaires-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\n\nLa documentation utilitR sur les projets RStudio et les packages R\nLa bible des packages R\nUn excellent workshop sur la reproductibilité avec R"
+    "text": "Ressources supplémentaires\n\n\nLa documentation utilitR sur les projets RStudio et les packages R\nLa bible des packages R"
   },
   {
     "objectID": "slides/light.html#application-2-1",
@@ -1656,14 +1495,14 @@
     "href": "slides/light.html#enjeux-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
+    "text": "Enjeux\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
   },
   {
     "objectID": "slides/light.html#recommandations",
     "href": "slides/light.html#recommandations",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Recommandations",
-    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\n\n\n\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
+    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
   },
   {
     "objectID": "slides/light.html#application-3-1",
@@ -1684,6 +1523,6 @@
     "href": "slides/light.html#ressources-supplémentaires-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR\nUn cours complet sur la reproductibilité avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\n\n\n\n\nTrouver de l’aide:\n\nPour toute question : le salon Slack grrr, très dynamique\nLe salon Tchap Langage R\nPour l’utilisation de R à l’Insee : le salon Tchap Insee - Outils Stats v2"
+    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR\nUn cours complet (en anglais) sur la reproductibilité avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\n\nTrouver de l’aide:\n\nPour toute question : le salon Slack grrr, très dynamique\nLe salon Tchap Langage R\nPour l’utilisation de R à l’Insee : le salon Tchap Insee - Outils Stats v2"
   }
 ]
