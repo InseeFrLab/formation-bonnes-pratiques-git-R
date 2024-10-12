@@ -36,10 +36,10 @@
 4. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `Gitlab` à une valeur suffisamment élevée
 5. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` de la plateforme `LS3`):
     + `File` → `New project` → `Version Control` → `Git`
-6. [Générer un *token*](https://gitlab.insee.fr/mobitic/book_qualite/-/settings/access_tokens) (jeton d'authentification) sur `gitlab.insee.fr`
+6. [Générer un *token*](https://gitlab.insee.fr/-/user_settings/personal_access_tokens) (jeton d'authentification) sur `gitlab.insee.fr`
 7. Stocker le *token* sur `LS3` (ou un gestionnaire de mot de passe) :
     + `Mon Compte` -> `Git` -> `Token d'accès personnel pour Forge Git`
-8. Terminer la procédure de clonage en fournissant le nom d'utilisateur `gitlab.insee.fr` (code insee en 6 caractères) et le *token*
+8. Terminer la procédure de clonage en fournissant le nom d'utilisateur (IDEP) et le *token*
 :::
 
 :::

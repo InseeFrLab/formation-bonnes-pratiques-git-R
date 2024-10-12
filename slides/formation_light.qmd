@@ -69,8 +69,6 @@ from: markdown+emoji
 
 ## Plan de la partie
 
-Améliorations graduelles dans l'échelle de la reproductibilité :
-
 :one: Qualité du code
 
 :two: Structure des projets

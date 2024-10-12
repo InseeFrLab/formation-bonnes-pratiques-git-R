@@ -53,7 +53,7 @@
 ## Partie 3 : test de la portabilité (facultatif)
 
 ::: {.nonincremental}
-8. Ouvrir un nouveau service `RStudio` sur le `SSPCloud`
+8. Ouvrir un nouveau service `RStudio`
 9. Cloner votre dépôt
 10. Exécuter `renv::restore()` pour installer les packages nécessaires à l'exécution du projet
 11. Vérifier que le `script.R` s'exécute correctement dans ce nouvel environnement.
