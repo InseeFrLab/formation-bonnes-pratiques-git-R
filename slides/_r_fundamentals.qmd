@@ -57,7 +57,6 @@ Deux outils pratiques aident à respecter les standards :
 . . .
 
 ::: {.callout-tip}
-
 - [Exemples d’erreurs repérées]{.blue2} par un _linter_ : 
     + lignes de code trop longues ou mal indentées, parenthèses non équilibrées, noms de fonctions mal construits…
 - [Exemples d’erreurs __non__ repérées]{.blue2} par un _linter_ :

@@ -1,14 +1,19 @@
 ## Application 7 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
-## Utilisation de `GitLab`
+## Contribution à un projet collaboratif
+
+L'objectif de cette application est d'initier au mode de contribution à un dépôt collaboratif. Concrètement, vous allez ouvrir une `Issue` sur un dépôt d'un autre développeur, en proposant des modifications. Puis, comme vous êtes très motivés, vous allez soumettre une `Pull Request` qui propose une solution à l'`Issue`.
 
 ::: {.nonincremental}
-Cette application vise à prendre en matin l'interface de `GitLab`, éventuellement dans le cadre de votre environnement interne de travail.
-
-1. Dans le cadre d'un `GitLab` interne (hors LS3), il est plus confortable d'utiliser l'authentification via clé `ssh` plutôt que l'authentification par *token*. Si vous n'en avez pas encore, générer une clé `ssh` et ajouter celle-ci à votre compte `GitLab`. Se référer pour cela à la [documentation GitLab](https://docs.gitlab.com/ee/user/ssh.html) ou, idéalement, à la documentation de cette procédure sur votre environnement interne de travail.
-2. Explorer l'interface de `GitLab` pour retrouver les différents éléments que nous avons exploités sur l'interface de `GitHub`.
-3. Créer un projet dans son espace personnel sur `GitLab` et répéter les opérations des applications 1 et 2.
+1. Ouvrir une `Issue` sur le dépôt [`git-exo`](https://github.com/avouacr/git-exo.git) en suggérant une modification à apporter au fichier `README.md`
+2. Sur `GitHub`, faire un `Fork` du dépôt [`git-exo`](https://github.com/avouacr/git-exo.git)
+3. Créer une branche portant un nom pertinent au vu de la modification que vous voulez apporter
+4. Effectuer un `commit` avec les modifications de votre choix, puis pousser les changements sur votre `Fork`
+5. Ouvrir une `Pull Request` (`PR`) pour proposer d'intégrer vos changements dans la branche principale (`main`) du dépôt [`git-exo`](https://github.com/avouacr/git-exo.git)
+6. Dans le corps de votre `PR`, indiquez `close #N` où `N` est le numéro de votre `Issue`. Comme ça, lorsque la `PR` sera acceptée, l'`Issue` initiale sera automatiquement fermée ! 
 :::
 
 :::
+
+❓ **Question** : pourquoi, avec un `fork`, est-il très important de toujours effectuer une `Pull Request` à partir d'une branche différente de la branche principale ?

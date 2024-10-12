@@ -16,6 +16,8 @@ L'objectif de cette application est de créer le fichier `.gitignore`, qui perme
 
 ❓ **Question** : que se passe-t-il lorsque l'on ajoute au `.gitignore` des fichiers qui ont déjà été *commit* sur le projet Git ?
 
+. . .
+
 :::{.callout-note collapse="true" icon=false}
 ## Des fichiers `.gitignore` standards
 
