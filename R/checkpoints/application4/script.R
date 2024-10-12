@@ -6,7 +6,7 @@ library(dplyr)
 library(ggplot2)
 library(forcats)
 
-api_token <- yaml::read_yaml("secrets.yaml")$JETON_API
+api_token <- Sys.getenv("JETON_API")
 
 source("R/functions.R", encoding = "UTF-8")
 

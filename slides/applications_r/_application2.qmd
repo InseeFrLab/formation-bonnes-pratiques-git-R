@@ -36,11 +36,11 @@
 ::: {layout=[30,70]}
 :::{.nonincremental}
 
-- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application2/script.R)
+- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application2/script.R)
 
-- [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application2/functions.R)
+- [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application2/functions.R)
 
-- [Package R](https://github.com/InseeFrLab/formation-bonnes-pratiques-R/tree/main/package)
+- [Package R](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/tree/main/package)
 
 
 ![](checkpoint.jpg){width=60%}

@@ -58,12 +58,19 @@ pour adopter une structure plus logique :
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 5 : une meilleure gestion des [secrets]{.orange}
 
+Les secrets (mots de passe, *tokens*, etc.) ne doivent pas apparaître dans le code pour deux raisons : 
+- ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de **modularité**)
+- on risque de les *commit* sur le dépôt `Git`, ce qui crée une faille de sécurité
+
+Dans cette application, on va utiliser deux manières possibles de gérer les secrets proprement.
+
 ::: {.nonincremental}
-1. Repérer le jeton d'API dans le code. Retirer le jeton d'API du code et créer à la racine du projet un fichier YAML nommé `secrets.yaml` où vous écrivez ce secret sous la forme `key: value`.
-[:warning: Attention]{.red2} : le package `yaml` impose la création d'une ligne vierge à la fin du fichier pour être valide.
-2. Dans `script.R`, importer ce YAML (avec `yaml::read_yaml("secrets.yaml")`) pour créer une variable `api_token` ayant cette valeur.
-3. Ajouter dans `.gitignore` le fichier `secrets.yaml` et indiquer dans le `README.md` de votre projet que les secrets sont stockés dans ce fichier.
-[:warning: Attention]{.red2} : il ne faut pas committer `secrets.yaml` car le jeton d'API est personnel et secret!
+1. Repérer le jeton d'API dans le code et le retirer, en le stockant temporairement ailleurs.
+2. Première possibilité : demander à l'utilisateur d'entrer le secret à l'aide d'un pop-up interactif avec la fonction [askForPassword](https://rdrr.io/cran/rstudioapi/man/askForPassword.html) du package `rstudioapi`. ⚠️ Cette fonction nécessite l'exécution du code dans un environnement `RStudio`, ce qui implique un usage en *self*.
+3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.
+4. Deuxième possibilité : utiliser une variable d'environnement. Créer un fichier `.Renviron` à la racine du projet et y ajouter une ligne `JETON_API=xxx` en remplaçant `xxx` par la valeur du jeton. Importer la valeur du jeton dans une variable `api_token` à l'aide de la fonction [Sys.getenv](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.getenv).
+5. Vérifier le bon fonctionnement de la solution implémentée.
+6. Vérifier que l'exclusion du `.Renviron` est bien renseigné dans le `.gitignore`. Si ce n'est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis *commit*/*push*.
 :::
 
 :::
@@ -73,7 +80,7 @@ pour adopter une structure plus logique :
 ::: {layout=[30,70]}
 :::{.nonincremental}
 
-- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application1/script.R)
+- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application1/script.R)
 
 ![](checkpoint.jpg){width=60%}
 :::

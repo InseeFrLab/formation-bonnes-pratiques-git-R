@@ -134,9 +134,9 @@ un `tar_make()` dans votre document à la suite du `library(targets)`
 ::: {layout=[30,70]}
 :::{.nonincremental}
 
-- [report.qmd](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/report.qmd)
-- [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/functions.R)
-- [_targets.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application6/_targets.R)
+- [report.qmd](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application6/report.qmd)
+- [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application6/functions.R)
+- [_targets.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application6/_targets.R)
 
 ![](checkpoint.jpg){width=60%}
 :::{.nonincremental}:::

@@ -246,8 +246,8 @@ df <- df %>%
 ::: {layout=[30,70]}
 :::{.nonincremental}
 
-- [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application5/functions.R)
-- [_targets.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application5/_targets.R)
+- [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application5/functions.R)
+- [_targets.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application5/_targets.R)
 
 ![](checkpoint.jpg){width=60%}
 :::

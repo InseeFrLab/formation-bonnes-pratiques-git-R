@@ -6,7 +6,8 @@
 ::: {.nonincremental}
 1. Effacer la base `individu_reg.csv`
 2. Modifier le script `get_data.R` pour écrire les données au format `Parquet` à l'aide de la fonction `arrow::write_parquet`
-3. Modifier la phase d'import dans `script.R` pour importer le fichier `Parquet` à l'aide de la fonction `arrow::read_parquet`
+3. Exécuter le script ainsi modifié et comparer les tailles du fichier `csv` initial et du fichier `parquet`
+4. Modifier la phase d'import dans `script.R` pour importer le fichier `Parquet` à l'aide de la fonction `arrow::read_parquet`
 :::
 
 :::
@@ -16,8 +17,8 @@
 ::: {layout=[30,70]}
 :::{.nonincremental}
 
-- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application3/script.R)
-- [get_data.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-R/main/R/checkpoints/application3/get_data.R)
+- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/script.R)
+- [get_data.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/get_data.R)
 
 ![](checkpoint.jpg){width=60%}
 :::

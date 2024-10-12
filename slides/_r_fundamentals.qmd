@@ -25,10 +25,7 @@
 :two: Utiliser des [**fonctions**]{.orange}
 
 
-:three: [**Documenter**]{.orange} son code
-
-
-:four: Indiquer les _packages_ utilisés afin d'éviter les [**conflits**]{.orange}
+:three: [**(Auto)-documenter**]{.orange} son code
 
 ## :one: Adopter les standards communautaires
 
