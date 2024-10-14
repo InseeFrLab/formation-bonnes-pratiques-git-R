@@ -21,11 +21,11 @@
 
 :one: Adopter les [**standards communautaires**]{.orange}
 
-
-:two: Utiliser des [**fonctions**]{.orange}
-
+:two: Eviter la [**duplication de code**]{.orange}
 
 :three: [**(Auto)-documenter**]{.orange} son code
+
+:four: Isoler la [**configuration**]{.orange} du code
 
 ## :one: Adopter les standards communautaires
 
@@ -104,7 +104,7 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 - Grands principes :
   - Documenter le [__pourquoi__]{.orange} plutôt que le [__comment__]{.orange}
-  - Privilégier l'auto-documentation via des [**nommages pertinents**]{.orange}
+  - Privilégier l'[**auto-documentation**]{.orange}
 
 . . .
 
@@ -145,19 +145,25 @@ if (x_is_not_empty_string) {
 
 :::
 
-## :four: Pas d'ambiguïté sur les _packages_ utilisés {.smaller}
+## :four: Isoler la configuration du code
 
-- Deux fonctions peuvent avoir le [__même nom__]{.orange} dans des [__packages différents__]{.orange}
+- Rappel : on vise une structure [**modulaire**]{.orange}
 
+. . .
 
-- `R` utilise par défaut la librairie chargée le plus récemment
+![](img/environment.png)
 
+- Bien [**isoler**]{.orange} les [**packages**]{.blue2} et les [**secrets**]{.blue2}
 
-- Erreurs difficiles à repérer car il est nécessaire d'exécuter le code
+## :four: Gestion des packages {.smaller}
 
+- [**Externaliser**]{.orange} l'installation des packages nécessaires
+  - Le code ne doit [**pas modifier l'environnement**]{.blue2}
+  - [**Où ?**]{.blue2} Dans le `README` ou des fichiers spécialisés (`DESCRIPTION` ou `renv.lock`)
 
-- Recommandation : indiquer explicitement le _package_ : notation `package::fonction()`
-    + Exemple : `dplyr::filter()`
+- [**Expliciter**]{.orange} l'appel des packages avec la syntaxe `package::fonction()`
+  - Favorise la [**lisibilité**]{.blue2} du code
+  - Limite les risques de [**fonctions "masquées"**]{.blue2}
 
 . . .
 
@@ -165,12 +171,16 @@ if (x_is_not_empty_string) {
 ## Exemple
 
 ::: {.nonincremental}
-- `package1` et `package2` contiennent chacun une fonction appelée `superFonction`.
-- Si `package2` est chargé après `package1`, alors `superFonction` désigne par défaut la fonction de `package2`.
+- `package1` et `package2` contiennent chacun une fonction appelée `super_fonction`.
+- Si `package2` est chargé après `package1`, alors la fonction de `package1` est automatiquement masquée et `super_fonction` désigne par défaut la fonction de `package2`.
 - Mieux vaut noter `package1::superFonction` et `package2::superFonction`
 :::
 
 :::
+
+## :four: Gestion des secrets
+
+
 
 
 ## Ressources supplémentaires
@@ -194,6 +204,14 @@ if (x_is_not_empty_string) {
 . . .
 
 ![](img/reproducibility-lazy.png){fig-align="center"}
+
+
+
+
+
+
+
+
 
 # II- Structure des projets
 

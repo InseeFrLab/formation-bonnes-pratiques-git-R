@@ -45,7 +45,7 @@ Un code reproductible est avant toute chose un code fonctionnel ! Repérez les e
 ::: {.nonincremental}
 1. Déplacer les `library` pour les mettre tous ensemble au début du script.
 2. Le script n'est pas construit dans un ordre logique. Déplacer les parties 
-pour adopter une structure plus logique : 
+pour adopter une structure plus lisible : 
     + Gestion de l'environnement -> Définition de fonctions -> Import des données -> Retraitement des données -> Statistiques descriptives -> Graphiques -> Modélisation
 3. Donner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :
     + `# TITRE NIVEAU 1 ------------` et `## TITRE NIVEAU 2 ==========`
@@ -58,19 +58,28 @@ pour adopter une structure plus logique :
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 5 : une meilleure gestion des [secrets]{.orange}
 
+::: {.nonincremental}
 Les secrets (mots de passe, *tokens*, etc.) ne doivent pas apparaître dans le code pour deux raisons : 
+
 - ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de **modularité**)
 - on risque de les *commit* sur le dépôt `Git`, ce qui crée une faille de sécurité
 
-Dans cette application, on va utiliser deux manières possibles de gérer les secrets proprement.
+Dans cette application, on va explorer deux manières possibles de gérer les secrets proprement.
 
-::: {.nonincremental}
+**Première possibilité** : de manière **interactive**.
+
 1. Repérer le jeton d'API dans le code et le retirer, en le stockant temporairement ailleurs.
-2. Première possibilité : demander à l'utilisateur d'entrer le secret à l'aide d'un pop-up interactif avec la fonction [askForPassword](https://rdrr.io/cran/rstudioapi/man/askForPassword.html) du package `rstudioapi`. ⚠️ Cette fonction nécessite l'exécution du code dans un environnement `RStudio`, ce qui implique un usage en *self*.
+2. Utiliser la fonction [askForPassword](https://rdrr.io/cran/rstudioapi/man/askForPassword.html) du package `rstudioapi`, qui permet de demander à l'utilisateur d'entrer le secret à l'aide d'un pop-up interactif. 
+
+⚠️ Cette fonction nécessite l'exécution du code dans un environnement `RStudio`, ce qui implique un usage en *self*.
 3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.
-4. Deuxième possibilité : utiliser une variable d'environnement. Créer un fichier `.Renviron` à la racine du projet et y ajouter une ligne `JETON_API=xxx` en remplaçant `xxx` par la valeur du jeton. Importer la valeur du jeton dans une variable `api_token` à l'aide de la fonction [Sys.getenv](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.getenv).
-5. Vérifier le bon fonctionnement de la solution implémentée.
-6. Vérifier que l'exclusion du `.Renviron` est bien renseigné dans le `.gitignore`. Si ce n'est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis *commit*/*push*.
+
+**Deuxième possibilité** : via les **variables d'environnement**.
+
+4. Créer un fichier `.Renviron` (voir cette [fiche UtilitR](https://book.utilitr.org/01_R_Insee/Fiche-personnaliser-R.html#le-fichier-.renviron) pour plus d'info sur ce fichier) à la racine du projet et y ajouter une ligne `JETON_API=xxx` en remplaçant `xxx` par la valeur du jeton. 
+5. Importer la valeur du jeton dans une variable `api_token` à l'aide de la fonction [Sys.getenv](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.getenv).
+6. Vérifier le bon fonctionnement de la solution implémentée.
+7. Vérifier que l'exclusion du `.Renviron` est bien renseigné dans le `.gitignore`. Si ce n'est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis *commit*/*push*.
 :::
 
 :::
