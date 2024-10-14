@@ -585,7 +585,7 @@
     "href": "slides/complete.html#application-3-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script ainsi modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet"
+    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
   },
   {
     "objectID": "slides/complete.html#checkpoint-2",
@@ -1516,7 +1516,7 @@
     "href": "slides/light.html#application-3-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script ainsi modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet"
+    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
   },
   {
     "objectID": "slides/light.html#checkpoint-2",
