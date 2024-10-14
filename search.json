@@ -375,7 +375,7 @@
     "href": "slides/complete.html#principes-généraux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Principes généraux",
-    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Utiliser des fonctions\n3️⃣ (Auto)-documenter son code"
+    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Eviter la duplication de code\n3️⃣ (Auto)-documenter son code\n4️⃣ Isoler la configuration du code"
   },
   {
     "objectID": "slides/complete.html#adopter-les-standards-communautaires",
@@ -410,7 +410,7 @@
     "href": "slides/complete.html#documenter-son-code",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Documenter son code",
-    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents\n\n\n\n\n\n\n\n\n\nComment bien documenter un script ?\n\n\n\n\nMinimum 🚦 : commentaire au début du script pour décrire ce qu’il fait\nBien 👍 : commenter les parties “délicates” du code\nIdéal 💪 : documenter ses fonctions avec la syntaxe roxygen2."
+    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation\n\n\n\n\n\n\n\n\n\nComment bien documenter un script ?\n\n\n\n\nMinimum 🚦 : commentaire au début du script pour décrire ce qu’il fait\nBien 👍 : commenter les parties “délicates” du code\nIdéal 💪 : documenter ses fonctions avec la syntaxe roxygen2."
   },
   {
     "objectID": "slides/complete.html#documenter-son-code-1",
@@ -420,11 +420,25 @@
     "text": "3️⃣ Documenter son code\n\n\n\n\n\n\nL’auto-documentation en pratique\n\n\n👎 La documentation pallie des mauvais nommages\n# Utilise string si x est non manquant et non vide\nif (!is.na(x) && nzchar(x)) {\n  use_string(x)\n}\n👍 Les nommages suffisent à comprendre le code\nx_is_not_empty_string &lt;- (!is.na(x) && nzchar(x))\nif (x_is_not_empty_string) {\n  use_string(x)\n}"
   },
   {
-    "objectID": "slides/complete.html#pas-dambiguïté-sur-les-packages-utilisés",
-    "href": "slides/complete.html#pas-dambiguïté-sur-les-packages-utilisés",
+    "objectID": "slides/complete.html#isoler-la-configuration-du-code",
+    "href": "slides/complete.html#isoler-la-configuration-du-code",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "4️⃣ Pas d’ambiguïté sur les packages utilisés",
-    "text": "4️⃣ Pas d’ambiguïté sur les packages utilisés\n\nDeux fonctions peuvent avoir le même nom dans des packages différents\nR utilise par défaut la librairie chargée le plus récemment\nErreurs difficiles à repérer car il est nécessaire d’exécuter le code\nRecommandation : indiquer explicitement le package : notation package::fonction()\n\nExemple : dplyr::filter()\n\n\n\n\n\n\n\n\n\nExemple\n\n\n\n\npackage1 et package2 contiennent chacun une fonction appelée superFonction.\nSi package2 est chargé après package1, alors superFonction désigne par défaut la fonction de package2.\nMieux vaut noter package1::superFonction et package2::superFonction"
+    "section": "4️⃣ Isoler la configuration du code",
+    "text": "4️⃣ Isoler la configuration du code\n\nRappel : on vise une structure modulaire\n\n\n\n\nBien isoler les packages et les secrets"
+  },
+  {
+    "objectID": "slides/complete.html#gestion-des-packages",
+    "href": "slides/complete.html#gestion-des-packages",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "4️⃣ Gestion des packages",
+    "text": "4️⃣ Gestion des packages\n\nExternaliser l’installation des packages nécessaires\n\nLe code ne doit pas modifier l’environnement\nOù ? Dans le README ou des fichiers spécialisés (DESCRIPTION ou renv.lock)\n\nExpliciter l’appel des packages avec la syntaxe package::fonction()\n\nFavorise la lisibilité du code\nLimite les risques de fonctions “masquées”\n\n\n\n\n\n\n\n\n\nExemple\n\n\n\n\npackage1 et package2 contiennent chacun une fonction appelée super_fonction.\nSi package2 est chargé après package1, alors la fonction de package1 est automatiquement masquée et super_fonction désigne par défaut la fonction de package2.\nMieux vaut noter package1::superFonction et package2::superFonction"
+  },
+  {
+    "objectID": "slides/complete.html#gestion-des-secrets",
+    "href": "slides/complete.html#gestion-des-secrets",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "4️⃣ Gestion des secrets",
+    "text": "4️⃣ Gestion des secrets"
   },
   {
     "objectID": "slides/complete.html#ressources-supplémentaires-1",
@@ -459,14 +473,14 @@
     "href": "slides/complete.html#application-1-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus logique :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
+    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus lisible :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
   },
   {
     "objectID": "slides/complete.html#application-1-5",
     "href": "slides/complete.html#application-1-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\nLes secrets (mots de passe, tokens, etc.) ne doivent pas apparaître dans le code pour deux raisons : - ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de modularité) - on risque de les commit sur le dépôt Git, ce qui crée une faille de sécurité\nDans cette application, on va utiliser deux manières possibles de gérer les secrets proprement.\n\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nPremière possibilité : demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif avec la fonction askForPassword du package rstudioapi. ⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self.\nVérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : utiliser une variable d’environnement. Créer un fichier .Renviron à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton. Importer la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
+    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\n\nLes secrets (mots de passe, tokens, etc.) ne doivent pas apparaître dans le code pour deux raisons :\n\nce sont des éléments de configuration, qui doivent donc être stockés à part (principe de modularité)\non risque de les commit sur le dépôt Git, ce qui crée une faille de sécurité\n\nDans cette application, on va explorer deux manières possibles de gérer les secrets proprement.\nPremière possibilité : de manière interactive.\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nUtiliser la fonction askForPassword du package rstudioapi, qui permet de demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif.\n\n⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self. 3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : via les variables d’environnement.\n\nCréer un fichier .Renviron (voir cette fiche UtilitR pour plus d’info sur ce fichier) à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton.\nImporter la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
   },
   {
     "objectID": "slides/complete.html#checkpoint",
@@ -1306,7 +1320,7 @@
     "href": "slides/light.html#principes-généraux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Principes généraux",
-    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Utiliser des fonctions\n3️⃣ (Auto)-documenter son code"
+    "text": "Principes généraux\n1️⃣ Adopter les standards communautaires\n2️⃣ Eviter la duplication de code\n3️⃣ (Auto)-documenter son code\n4️⃣ Isoler la configuration du code"
   },
   {
     "objectID": "slides/light.html#adopter-les-standards-communautaires",
@@ -1341,7 +1355,7 @@
     "href": "slides/light.html#documenter-son-code",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "3️⃣ Documenter son code",
-    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents\n\n\n\n\n\n\n\n\n\nComment bien documenter un script ?\n\n\n\n\nMinimum 🚦 : commentaire au début du script pour décrire ce qu’il fait\nBien 👍 : commenter les parties “délicates” du code\nIdéal 💪 : documenter ses fonctions avec la syntaxe roxygen2."
+    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation\n\n\n\n\n\n\n\n\n\nComment bien documenter un script ?\n\n\n\n\nMinimum 🚦 : commentaire au début du script pour décrire ce qu’il fait\nBien 👍 : commenter les parties “délicates” du code\nIdéal 💪 : documenter ses fonctions avec la syntaxe roxygen2."
   },
   {
     "objectID": "slides/light.html#documenter-son-code-1",
@@ -1351,11 +1365,25 @@
     "text": "3️⃣ Documenter son code\n\n\n\n\n\n\nL’auto-documentation en pratique\n\n\n👎 La documentation pallie des mauvais nommages\n# Utilise string si x est non manquant et non vide\nif (!is.na(x) && nzchar(x)) {\n  use_string(x)\n}\n👍 Les nommages suffisent à comprendre le code\nx_is_not_empty_string &lt;- (!is.na(x) && nzchar(x))\nif (x_is_not_empty_string) {\n  use_string(x)\n}"
   },
   {
-    "objectID": "slides/light.html#pas-dambiguïté-sur-les-packages-utilisés",
-    "href": "slides/light.html#pas-dambiguïté-sur-les-packages-utilisés",
+    "objectID": "slides/light.html#isoler-la-configuration-du-code",
+    "href": "slides/light.html#isoler-la-configuration-du-code",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "4️⃣ Pas d’ambiguïté sur les packages utilisés",
-    "text": "4️⃣ Pas d’ambiguïté sur les packages utilisés\n\nDeux fonctions peuvent avoir le même nom dans des packages différents\nR utilise par défaut la librairie chargée le plus récemment\nErreurs difficiles à repérer car il est nécessaire d’exécuter le code\nRecommandation : indiquer explicitement le package : notation package::fonction()\n\nExemple : dplyr::filter()\n\n\n\n\n\n\n\n\n\nExemple\n\n\n\n\npackage1 et package2 contiennent chacun une fonction appelée superFonction.\nSi package2 est chargé après package1, alors superFonction désigne par défaut la fonction de package2.\nMieux vaut noter package1::superFonction et package2::superFonction"
+    "section": "4️⃣ Isoler la configuration du code",
+    "text": "4️⃣ Isoler la configuration du code\n\nRappel : on vise une structure modulaire\n\n\n\n\nBien isoler les packages et les secrets"
+  },
+  {
+    "objectID": "slides/light.html#gestion-des-packages",
+    "href": "slides/light.html#gestion-des-packages",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "4️⃣ Gestion des packages",
+    "text": "4️⃣ Gestion des packages\n\nExternaliser l’installation des packages nécessaires\n\nLe code ne doit pas modifier l’environnement\nOù ? Dans le README ou des fichiers spécialisés (DESCRIPTION ou renv.lock)\n\nExpliciter l’appel des packages avec la syntaxe package::fonction()\n\nFavorise la lisibilité du code\nLimite les risques de fonctions “masquées”\n\n\n\n\n\n\n\n\n\nExemple\n\n\n\n\npackage1 et package2 contiennent chacun une fonction appelée super_fonction.\nSi package2 est chargé après package1, alors la fonction de package1 est automatiquement masquée et super_fonction désigne par défaut la fonction de package2.\nMieux vaut noter package1::superFonction et package2::superFonction"
+  },
+  {
+    "objectID": "slides/light.html#gestion-des-secrets",
+    "href": "slides/light.html#gestion-des-secrets",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "4️⃣ Gestion des secrets",
+    "text": "4️⃣ Gestion des secrets"
   },
   {
     "objectID": "slides/light.html#ressources-supplémentaires-1",
@@ -1390,14 +1418,14 @@
     "href": "slides/light.html#application-1-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus logique :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
+    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus lisible :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
   },
   {
     "objectID": "slides/light.html#application-1-5",
     "href": "slides/light.html#application-1-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\nLes secrets (mots de passe, tokens, etc.) ne doivent pas apparaître dans le code pour deux raisons : - ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de modularité) - on risque de les commit sur le dépôt Git, ce qui crée une faille de sécurité\nDans cette application, on va utiliser deux manières possibles de gérer les secrets proprement.\n\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nPremière possibilité : demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif avec la fonction askForPassword du package rstudioapi. ⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self.\nVérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : utiliser une variable d’environnement. Créer un fichier .Renviron à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton. Importer la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
+    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\n\nLes secrets (mots de passe, tokens, etc.) ne doivent pas apparaître dans le code pour deux raisons :\n\nce sont des éléments de configuration, qui doivent donc être stockés à part (principe de modularité)\non risque de les commit sur le dépôt Git, ce qui crée une faille de sécurité\n\nDans cette application, on va explorer deux manières possibles de gérer les secrets proprement.\nPremière possibilité : de manière interactive.\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nUtiliser la fonction askForPassword du package rstudioapi, qui permet de demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif.\n\n⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self. 3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : via les variables d’environnement.\n\nCréer un fichier .Renviron (voir cette fiche UtilitR pour plus d’info sur ce fichier) à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton.\nImporter la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
   },
   {
     "objectID": "slides/light.html#checkpoint",

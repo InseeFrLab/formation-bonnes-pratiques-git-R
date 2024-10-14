@@ -1130,8 +1130,9 @@ _Workflow_ (version littéraire) :
 <section id="principes-généraux" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Principes généraux</h2>
 <p><span class="emoji" data-emoji="one">1️⃣</span> Adopter les <span class="orange"><strong>standards communautaires</strong></span></p>
-<p><span class="emoji" data-emoji="two">2️⃣</span> Utiliser des <span class="orange"><strong>fonctions</strong></span></p>
+<p><span class="emoji" data-emoji="two">2️⃣</span> Eviter la <span class="orange"><strong>duplication de code</strong></span></p>
 <p><span class="emoji" data-emoji="three">3️⃣</span> <span class="orange"><strong>(Auto)-documenter</strong></span> son code</p>
+<p><span class="emoji" data-emoji="four">4️⃣</span> Isoler la <span class="orange"><strong>configuration</strong></span> du code</p>
 </section>
 <section id="adopter-les-standards-communautaires" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Adopter les standards communautaires</h2>
@@ -1245,7 +1246,7 @@ _Workflow_ (version littéraire) :
 <li class="fragment">Grands principes :
 <ul>
 <li class="fragment">Documenter le <span class="orange"><strong>pourquoi</strong></span> plutôt que le <span class="orange"><strong>comment</strong></span></li>
-<li class="fragment">Privilégier l’auto-documentation via des <span class="orange"><strong>nommages pertinents</strong></span></li>
+<li class="fragment">Privilégier l’<span class="orange"><strong>auto-documentation</strong></span></li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -1295,15 +1296,30 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="pas-dambiguïté-sur-les-packages-utilisés" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2><span class="emoji" data-emoji="four">4️⃣</span> Pas d’ambiguïté sur les <em>packages</em> utilisés</h2>
+<section id="isoler-la-configuration-du-code" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2><span class="emoji" data-emoji="four">4️⃣</span> Isoler la configuration du code</h2>
 <ul>
-<li class="fragment"><p>Deux fonctions peuvent avoir le <span class="orange"><strong>même nom</strong></span> dans des <span class="orange"><strong>packages différents</strong></span></p></li>
-<li class="fragment"><p><code>R</code> utilise par défaut la librairie chargée le plus récemment</p></li>
-<li class="fragment"><p>Erreurs difficiles à repérer car il est nécessaire d’exécuter le code</p></li>
-<li class="fragment"><p>Recommandation : indiquer explicitement le <em>package</em> : notation <code>package::fonction()</code></p>
+<li class="fragment">Rappel : on vise une structure <span class="orange"><strong>modulaire</strong></span></li>
+</ul>
+<div class="fragment">
+<p><img data-src="img/environment.png"></p>
 <ul>
-<li class="fragment">Exemple : <code>dplyr::filter()</code></li>
+<li class="fragment">Bien <span class="orange"><strong>isoler</strong></span> les <span class="blue2"><strong>packages</strong></span> et les <span class="blue2"><strong>secrets</strong></span></li>
+</ul>
+</div>
+</section>
+<section id="gestion-des-packages" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2><span class="emoji" data-emoji="four">4️⃣</span> Gestion des packages</h2>
+<ul>
+<li class="fragment"><span class="orange"><strong>Externaliser</strong></span> l’installation des packages nécessaires
+<ul>
+<li class="fragment">Le code ne doit <span class="blue2"><strong>pas modifier l’environnement</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Où ?</strong></span> Dans le <code>README</code> ou des fichiers spécialisés (<code>DESCRIPTION</code> ou <code>renv.lock</code>)</li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Expliciter</strong></span> l’appel des packages avec la syntaxe <code>package::fonction()</code>
+<ul>
+<li class="fragment">Favorise la <span class="blue2"><strong>lisibilité</strong></span> du code</li>
+<li class="fragment">Limite les risques de <span class="blue2"><strong>fonctions “masquées”</strong></span></li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -1318,8 +1334,8 @@ if (x_is_not_empty_string) {
 <div class="callout-content">
 <div>
 <ul>
-<li><code>package1</code> et <code>package2</code> contiennent chacun une fonction appelée <code>superFonction</code>.</li>
-<li>Si <code>package2</code> est chargé après <code>package1</code>, alors <code>superFonction</code> désigne par défaut la fonction de <code>package2</code>.</li>
+<li><code>package1</code> et <code>package2</code> contiennent chacun une fonction appelée <code>super_fonction</code>.</li>
+<li>Si <code>package2</code> est chargé après <code>package1</code>, alors la fonction de <code>package1</code> est automatiquement masquée et <code>super_fonction</code> désigne par défaut la fonction de <code>package2</code>.</li>
 <li>Mieux vaut noter <code>package1::superFonction</code> et <code>package2::superFonction</code></li>
 </ul>
 </div>
@@ -1327,6 +1343,9 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </div>
+</section>
+<section id="gestion-des-secrets" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2><span class="emoji" data-emoji="four">4️⃣</span> Gestion des secrets</h2>
 </section>
 <section id="ressources-supplémentaires-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
@@ -1405,7 +1424,7 @@ if (x_is_not_empty_string) {
 <div>
 <ol type="1">
 <li>Déplacer les <code>library</code> pour les mettre tous ensemble au début du script.</li>
-<li>Le script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus logique :
+<li>Le script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus lisible :
 <ul>
 <li>Gestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation</li>
 </ul></li>
@@ -1427,14 +1446,23 @@ if (x_is_not_empty_string) {
 <p><strong>Partie 5 : une meilleure gestion des <span class="orange">secrets</span></strong></p>
 </div>
 <div class="callout-content">
-<p>Les secrets (mots de passe, <em>tokens</em>, etc.) ne doivent pas apparaître dans le code pour deux raisons : - ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de <strong>modularité</strong>) - on risque de les <em>commit</em> sur le dépôt <code>Git</code>, ce qui crée une faille de sécurité</p>
-<p>Dans cette application, on va utiliser deux manières possibles de gérer les secrets proprement.</p>
 <div>
+<p>Les secrets (mots de passe, <em>tokens</em>, etc.) ne doivent pas apparaître dans le code pour deux raisons :</p>
+<ul>
+<li>ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de <strong>modularité</strong>)</li>
+<li>on risque de les <em>commit</em> sur le dépôt <code>Git</code>, ce qui crée une faille de sécurité</li>
+</ul>
+<p>Dans cette application, on va explorer deux manières possibles de gérer les secrets proprement.</p>
+<p><strong>Première possibilité</strong> : de manière <strong>interactive</strong>.</p>
 <ol type="1">
 <li>Repérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.</li>
-<li>Première possibilité : demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif avec la fonction <a href="https://rdrr.io/cran/rstudioapi/man/askForPassword.html">askForPassword</a> du package <code>rstudioapi</code>. ⚠️ Cette fonction nécessite l’exécution du code dans un environnement <code>RStudio</code>, ce qui implique un usage en <em>self</em>.</li>
-<li>Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.</li>
-<li>Deuxième possibilité : utiliser une variable d’environnement. Créer un fichier <code>.Renviron</code> à la racine du projet et y ajouter une ligne <code>JETON_API=xxx</code> en remplaçant <code>xxx</code> par la valeur du jeton. Importer la valeur du jeton dans une variable <code>api_token</code> à l’aide de la fonction <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.getenv">Sys.getenv</a>.</li>
+<li>Utiliser la fonction <a href="https://rdrr.io/cran/rstudioapi/man/askForPassword.html">askForPassword</a> du package <code>rstudioapi</code>, qui permet de demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif.</li>
+</ol>
+<p>⚠️ Cette fonction nécessite l’exécution du code dans un environnement <code>RStudio</code>, ce qui implique un usage en <em>self</em>. 3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.</p>
+<p><strong>Deuxième possibilité</strong> : via les <strong>variables d’environnement</strong>.</p>
+<ol start="4" type="1">
+<li>Créer un fichier <code>.Renviron</code> (voir cette <a href="https://book.utilitr.org/01_R_Insee/Fiche-personnaliser-R.html#le-fichier-.renviron">fiche UtilitR</a> pour plus d’info sur ce fichier) à la racine du projet et y ajouter une ligne <code>JETON_API=xxx</code> en remplaçant <code>xxx</code> par la valeur du jeton.</li>
+<li>Importer la valeur du jeton dans une variable <code>api_token</code> à l’aide de la fonction <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.getenv">Sys.getenv</a>.</li>
 <li>Vérifier le bon fonctionnement de la solution implémentée.</li>
 <li>Vérifier que l’exclusion du <code>.Renviron</code> est bien renseigné dans le <code>.gitignore</code>. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis <em>commit</em>/<em>push</em>.</li>
 </ol>
