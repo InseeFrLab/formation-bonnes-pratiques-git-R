@@ -59,11 +59,6 @@ pour adopter une structure plus lisible :
 ## Partie 5 : une meilleure gestion des [secrets]{.orange}
 
 ::: {.nonincremental}
-Les secrets (mots de passe, *tokens*, etc.) ne doivent pas apparaître dans le code pour deux raisons : 
-
-- ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de **modularité**)
-- on risque de les *commit* sur le dépôt `Git`, ce qui crée une faille de sécurité
-
 Dans cette application, on va explorer deux manières possibles de gérer les secrets proprement.
 
 **Première possibilité** : de manière **interactive**.

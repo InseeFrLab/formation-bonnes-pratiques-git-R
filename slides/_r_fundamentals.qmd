@@ -153,7 +153,7 @@ if (x_is_not_empty_string) {
 
 ![](img/environment.png)
 
-- Bien [**isoler**]{.orange} les [**packages**]{.blue2} et les [**secrets**]{.blue2}
+- En pratique : [**isoler**]{.orange} les [**packages**]{.blue2} et les [**secrets**]{.blue2}
 
 ## :four: Gestion des packages {.smaller}
 
@@ -180,6 +180,17 @@ if (x_is_not_empty_string) {
 
 ## :four: Gestion des secrets
 
+- Les [**secrets**]{.orange} (mots de passe, *tokens*, etc.) sont des [**données sensibles**]{.orange}
+
+- Quelques [**principes de sécurité**]{.orange} essentiels
+  - Utiliser des [***tokens***]{.blue2} plutôt que des mots de passe
+  - Utiliser des [**comptes de service**]{.blue2} (quand c'est possible)
+  - Jamais de [**secrets en clair**]{.blue2} dans le code
+
+- En pratique, deux [**recommendations selon l'usage**]{.orange} 
+  - [**Demander interactivement**]{.blue2} le secret à l'utilisateur
+  - Spécifier des [**variables d'environnement**]{.blue2} via le [fichier .Renviron](https://book.utilitr.org/01_R_Insee/Fiche-personnaliser-R.html#le-fichier-.renviron) (⚠️ à ajouter au `.gitignore`)
+  
 
 
 
