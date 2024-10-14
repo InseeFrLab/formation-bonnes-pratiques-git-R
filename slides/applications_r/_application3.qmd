@@ -5,9 +5,10 @@
 
 ::: {.nonincremental}
 1. Effacer la base `individu_reg.csv`
-2. Modifier le script `get_data.R` pour écrire les données au format `Parquet` à l'aide de la fonction `arrow::write_parquet`
-3. Exécuter le script ainsi modifié et comparer les tailles du fichier `csv` initial et du fichier `parquet`
-4. Modifier la phase d'import dans `script.R` pour importer le fichier `Parquet` à l'aide de la fonction `arrow::read_parquet`
+2. Modifier le script `get_data.R` pour écrire les données au format `Parquet` à l'aide de la fonction [arrow::write_parquet](https://arrow.apache.org/docs/r/reference/write_parquet.html)
+3. Exécuter le script `get_data.R` modifié et comparer les tailles du fichier `csv` initial et du fichier `parquet`
+4. Modifier la phase d'import dans `script.R` pour importer le fichier `Parquet` à l'aide de la fonction [arrow::read_parquet](https://arrow.apache.org/docs/r/reference/read_parquet.html)
+5. Exécuter `script.R` et vérifier son bon fonctionnement
 :::
 
 :::
