@@ -424,7 +424,7 @@
     "href": "slides/complete.html#isoler-la-configuration-du-code",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "4️⃣ Isoler la configuration du code",
-    "text": "4️⃣ Isoler la configuration du code\n\nRappel : on vise une structure modulaire\n\n\n\n\nBien isoler les packages et les secrets"
+    "text": "4️⃣ Isoler la configuration du code\n\nRappel : on vise une structure modulaire\n\n\n\n\nEn pratique : isoler les packages et les secrets"
   },
   {
     "objectID": "slides/complete.html#gestion-des-packages",
@@ -438,7 +438,7 @@
     "href": "slides/complete.html#gestion-des-secrets",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "4️⃣ Gestion des secrets",
-    "text": "4️⃣ Gestion des secrets"
+    "text": "4️⃣ Gestion des secrets\n\nLes secrets (mots de passe, tokens, etc.) sont des données sensibles\nQuelques principes de sécurité essentiels\n\nUtiliser des tokens plutôt que des mots de passe\nUtiliser des comptes de service (quand c’est possible)\nJamais de secrets en clair dans le code\n\nEn pratique, deux recommendations selon l’usage\n\nDemander interactivement le secret à l’utilisateur\nSpécifier des variables d’environnement via le fichier .Renviron (⚠️ à ajouter au .gitignore)"
   },
   {
     "objectID": "slides/complete.html#ressources-supplémentaires-1",
@@ -480,7 +480,7 @@
     "href": "slides/complete.html#application-1-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\n\nLes secrets (mots de passe, tokens, etc.) ne doivent pas apparaître dans le code pour deux raisons :\n\nce sont des éléments de configuration, qui doivent donc être stockés à part (principe de modularité)\non risque de les commit sur le dépôt Git, ce qui crée une faille de sécurité\n\nDans cette application, on va explorer deux manières possibles de gérer les secrets proprement.\nPremière possibilité : de manière interactive.\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nUtiliser la fonction askForPassword du package rstudioapi, qui permet de demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif.\n\n⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self. 3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : via les variables d’environnement.\n\nCréer un fichier .Renviron (voir cette fiche UtilitR pour plus d’info sur ce fichier) à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton.\nImporter la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
+    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\n\nDans cette application, on va explorer deux manières possibles de gérer les secrets proprement.\nPremière possibilité : de manière interactive.\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nUtiliser la fonction askForPassword du package rstudioapi, qui permet de demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif.\n\n⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self. 3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : via les variables d’environnement.\n\nCréer un fichier .Renviron (voir cette fiche UtilitR pour plus d’info sur ce fichier) à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton.\nImporter la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
   },
   {
     "objectID": "slides/complete.html#checkpoint",
@@ -1369,7 +1369,7 @@
     "href": "slides/light.html#isoler-la-configuration-du-code",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "4️⃣ Isoler la configuration du code",
-    "text": "4️⃣ Isoler la configuration du code\n\nRappel : on vise une structure modulaire\n\n\n\n\nBien isoler les packages et les secrets"
+    "text": "4️⃣ Isoler la configuration du code\n\nRappel : on vise une structure modulaire\n\n\n\n\nEn pratique : isoler les packages et les secrets"
   },
   {
     "objectID": "slides/light.html#gestion-des-packages",
@@ -1383,7 +1383,7 @@
     "href": "slides/light.html#gestion-des-secrets",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "4️⃣ Gestion des secrets",
-    "text": "4️⃣ Gestion des secrets"
+    "text": "4️⃣ Gestion des secrets\n\nLes secrets (mots de passe, tokens, etc.) sont des données sensibles\nQuelques principes de sécurité essentiels\n\nUtiliser des tokens plutôt que des mots de passe\nUtiliser des comptes de service (quand c’est possible)\nJamais de secrets en clair dans le code\n\nEn pratique, deux recommendations selon l’usage\n\nDemander interactivement le secret à l’utilisateur\nSpécifier des variables d’environnement via le fichier .Renviron (⚠️ à ajouter au .gitignore)"
   },
   {
     "objectID": "slides/light.html#ressources-supplémentaires-1",
@@ -1425,7 +1425,7 @@
     "href": "slides/light.html#application-1-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\n\nLes secrets (mots de passe, tokens, etc.) ne doivent pas apparaître dans le code pour deux raisons :\n\nce sont des éléments de configuration, qui doivent donc être stockés à part (principe de modularité)\non risque de les commit sur le dépôt Git, ce qui crée une faille de sécurité\n\nDans cette application, on va explorer deux manières possibles de gérer les secrets proprement.\nPremière possibilité : de manière interactive.\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nUtiliser la fonction askForPassword du package rstudioapi, qui permet de demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif.\n\n⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self. 3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : via les variables d’environnement.\n\nCréer un fichier .Renviron (voir cette fiche UtilitR pour plus d’info sur ce fichier) à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton.\nImporter la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
+    "text": "Application 1\n\n\n\nPartie 5 : une meilleure gestion des secrets\n\n\n\nDans cette application, on va explorer deux manières possibles de gérer les secrets proprement.\nPremière possibilité : de manière interactive.\n\nRepérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.\nUtiliser la fonction askForPassword du package rstudioapi, qui permet de demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif.\n\n⚠️ Cette fonction nécessite l’exécution du code dans un environnement RStudio, ce qui implique un usage en self. 3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.\nDeuxième possibilité : via les variables d’environnement.\n\nCréer un fichier .Renviron (voir cette fiche UtilitR pour plus d’info sur ce fichier) à la racine du projet et y ajouter une ligne JETON_API=xxx en remplaçant xxx par la valeur du jeton.\nImporter la valeur du jeton dans une variable api_token à l’aide de la fonction Sys.getenv.\nVérifier le bon fonctionnement de la solution implémentée.\nVérifier que l’exclusion du .Renviron est bien renseigné dans le .gitignore. Si ce n’est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis commit/push."
   },
   {
     "objectID": "slides/light.html#checkpoint",

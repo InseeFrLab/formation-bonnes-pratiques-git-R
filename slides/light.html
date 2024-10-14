@@ -1304,7 +1304,7 @@ if (x_is_not_empty_string) {
 <div class="fragment">
 <p><img data-src="img/environment.png"></p>
 <ul>
-<li class="fragment">Bien <span class="orange"><strong>isoler</strong></span> les <span class="blue2"><strong>packages</strong></span> et les <span class="blue2"><strong>secrets</strong></span></li>
+<li class="fragment">En pratique : <span class="orange"><strong>isoler</strong></span> les <span class="blue2"><strong>packages</strong></span> et les <span class="blue2"><strong>secrets</strong></span></li>
 </ul>
 </div>
 </section>
@@ -1346,6 +1346,20 @@ if (x_is_not_empty_string) {
 </section>
 <section id="gestion-des-secrets" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="four">4️⃣</span> Gestion des secrets</h2>
+<ul>
+<li class="fragment"><p>Les <span class="orange"><strong>secrets</strong></span> (mots de passe, <em>tokens</em>, etc.) sont des <span class="orange"><strong>données sensibles</strong></span></p></li>
+<li class="fragment"><p>Quelques <span class="orange"><strong>principes de sécurité</strong></span> essentiels</p>
+<ul>
+<li class="fragment">Utiliser des <span class="blue2"><strong><em>tokens</em></strong></span> plutôt que des mots de passe</li>
+<li class="fragment">Utiliser des <span class="blue2"><strong>comptes de service</strong></span> (quand c’est possible)</li>
+<li class="fragment">Jamais de <span class="blue2"><strong>secrets en clair</strong></span> dans le code</li>
+</ul></li>
+<li class="fragment"><p>En pratique, deux <span class="orange"><strong>recommendations selon l’usage</strong></span></p>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Demander interactivement</strong></span> le secret à l’utilisateur</li>
+<li class="fragment">Spécifier des <span class="blue2"><strong>variables d’environnement</strong></span> via le <a href="https://book.utilitr.org/01_R_Insee/Fiche-personnaliser-R.html#le-fichier-.renviron">fichier .Renviron</a> (⚠️ à ajouter au <code>.gitignore</code>)</li>
+</ul></li>
+</ul>
 </section>
 <section id="ressources-supplémentaires-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
@@ -1447,11 +1461,6 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <div>
-<p>Les secrets (mots de passe, <em>tokens</em>, etc.) ne doivent pas apparaître dans le code pour deux raisons :</p>
-<ul>
-<li>ce sont des éléments de configuration, qui doivent donc être stockés à part (principe de <strong>modularité</strong>)</li>
-<li>on risque de les <em>commit</em> sur le dépôt <code>Git</code>, ce qui crée une faille de sécurité</li>
-</ul>
 <p>Dans cette application, on va explorer deux manières possibles de gérer les secrets proprement.</p>
 <p><strong>Première possibilité</strong> : de manière <strong>interactive</strong>.</p>
 <ol type="1">
