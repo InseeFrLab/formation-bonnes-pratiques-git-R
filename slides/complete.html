@@ -1676,10 +1676,12 @@ if (x_is_not_empty_string) {
 <ol type="1">
 <li>Repérer le jeton d’API dans le code et le retirer, en le stockant temporairement ailleurs.</li>
 <li>Utiliser la fonction <a href="https://rdrr.io/cran/rstudioapi/man/askForPassword.html">askForPassword</a> du package <code>rstudioapi</code>, qui permet de demander à l’utilisateur d’entrer le secret à l’aide d’un pop-up interactif.</li>
+<li>Vérifier le bon fonctionnement de la solution implémentée.</li>
 </ol>
-<p>⚠️ Cette fonction nécessite l’exécution du code dans un environnement <code>RStudio</code>, ce qui implique un usage en <em>self</em>. 3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.</p>
+<p>⚠️ Cette solution nécessite l’exécution du code dans un environnement <code>RStudio</code>, ce qui implique un usage en <em>self</em>.</p>
 <p><strong>Deuxième possibilité</strong> : via les <strong>variables d’environnement</strong>.</p>
 <ol start="4" type="1">
+<li>Supprimer la solution précédente (pop-up interactif) et redémarrer le <em>kernel R</em></li>
 <li>Créer un fichier <code>.Renviron</code> (voir cette <a href="https://book.utilitr.org/01_R_Insee/Fiche-personnaliser-R.html#le-fichier-.renviron">fiche UtilitR</a> pour plus d’info sur ce fichier) à la racine du projet et y ajouter une ligne <code>JETON_API=xxx</code> en remplaçant <code>xxx</code> par la valeur du jeton.</li>
 <li>Importer la valeur du jeton dans une variable <code>api_token</code> à l’aide de la fonction <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.getenv">Sys.getenv</a>.</li>
 <li>Vérifier le bon fonctionnement de la solution implémentée.</li>
