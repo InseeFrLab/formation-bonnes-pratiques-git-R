@@ -65,16 +65,17 @@ Dans cette application, on va explorer deux manières possibles de gérer les se
 
 1. Repérer le jeton d'API dans le code et le retirer, en le stockant temporairement ailleurs.
 2. Utiliser la fonction [askForPassword](https://rdrr.io/cran/rstudioapi/man/askForPassword.html) du package `rstudioapi`, qui permet de demander à l'utilisateur d'entrer le secret à l'aide d'un pop-up interactif. 
+3. Vérifier le bon fonctionnement de la solution implémentée.
 
-⚠️ Cette fonction nécessite l'exécution du code dans un environnement `RStudio`, ce qui implique un usage en *self*.
-3. Vérifier le bon fonctionnement de la solution implémentée. Si cela fonctionne, supprimer cette première solution pour laisser place à la seconde.
+⚠️ Cette solution nécessite l'exécution du code dans un environnement `RStudio`, ce qui implique un usage en *self*.
 
 **Deuxième possibilité** : via les **variables d'environnement**.
 
-4. Créer un fichier `.Renviron` (voir cette [fiche UtilitR](https://book.utilitr.org/01_R_Insee/Fiche-personnaliser-R.html#le-fichier-.renviron) pour plus d'info sur ce fichier) à la racine du projet et y ajouter une ligne `JETON_API=xxx` en remplaçant `xxx` par la valeur du jeton. 
-5. Importer la valeur du jeton dans une variable `api_token` à l'aide de la fonction [Sys.getenv](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.getenv).
-6. Vérifier le bon fonctionnement de la solution implémentée.
-7. Vérifier que l'exclusion du `.Renviron` est bien renseigné dans le `.gitignore`. Si ce n'est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis *commit*/*push*.
+4. Supprimer la solution précédente (pop-up interactif) et redémarrer le *kernel R*
+5. Créer un fichier `.Renviron` (voir cette [fiche UtilitR](https://book.utilitr.org/01_R_Insee/Fiche-personnaliser-R.html#le-fichier-.renviron) pour plus d'info sur ce fichier) à la racine du projet et y ajouter une ligne `JETON_API=xxx` en remplaçant `xxx` par la valeur du jeton. 
+6. Importer la valeur du jeton dans une variable `api_token` à l'aide de la fonction [Sys.getenv](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Sys.getenv).
+7. Vérifier le bon fonctionnement de la solution implémentée.
+8. Vérifier que l'exclusion du `.Renviron` est bien renseigné dans le `.gitignore`. Si ce n'est pas le cas, ajouter la règle et vérifier son bon fonctionnement, puis *commit*/*push*.
 :::
 
 :::
