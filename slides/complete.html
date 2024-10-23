@@ -1299,6 +1299,10 @@ _Workflow_ (version littéraire) :
 </section>
 <section id="application-0-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 0</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-3-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1307,7 +1311,7 @@ _Workflow_ (version littéraire) :
 <div class="callout-content">
 <div>
 <ol type="1">
-<li>Créer un nouveau dépôt public sur <code>GitHub</code> / <code>GitLab</code></li>
+<li>Créer un nouveau dépôt public sur <code>GitHub</code></li>
 <li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitHub</code> à une valeur suffisamment élevée</li>
 <li>Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> du <code>Datalab</code>):
 <ul>
@@ -1318,6 +1322,34 @@ _Workflow_ (version littéraire) :
 <li>Ajouter la règle “individu_reg.*” au fichier <code>.gitignore</code>. Que signifie-t-elle ?</li>
 <li><em>Commit</em>/<em>push</em> les changements</li>
 </ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-2">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Préparation de l’environnement de travail</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<ol type="1">
+<li>Créer un nouveau dépôt public sur <code>GitLab</code></li>
+<li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitHub</code> à une valeur suffisamment élevée</li>
+<li>Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> de <code>LS3</code>):
+<ul>
+<li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
+</ul></li>
+<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/get_data_ls3.R">ce fichier</a>, puis l’exécuter</li>
+<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/script.R">ce fichier</a></li>
+<li>Ajouter la règle “individu_reg.*” au fichier <code>.gitignore</code>. Que signifie-t-elle ?</li>
+<li><em>Commit</em>/<em>push</em> les changements</li>
+</ol>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
