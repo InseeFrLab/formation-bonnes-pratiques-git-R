@@ -585,14 +585,21 @@
     "href": "slides/complete.html#enjeux-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
+    "text": "Enjeux\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nPublic cible\nFinalité (traitement, analyse, diffusion)\nVolumétrie\nInteropérabilité"
   },
   {
-    "objectID": "slides/complete.html#recommandations",
-    "href": "slides/complete.html#recommandations",
+    "objectID": "slides/complete.html#formats-traditionnels",
+    "href": "slides/complete.html#formats-traditionnels",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Recommandations",
-    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
+    "section": "Formats traditionnels",
+    "text": "Formats traditionnels\n\nFormats de données adhérents à un langage (sas7bdat, RDS, fst, etc.)\n\nNon-interopérables -&gt; à éviter !\n\nLe format CSV\n\nInteropérable et simple d’utilisation\nPas de gestion des méta-données\nPeu adapté aux données volumineuses"
+  },
+  {
+    "objectID": "slides/complete.html#limites-du-csv",
+    "href": "slides/complete.html#limites-du-csv",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Limites du CSV",
+    "text": "Limites du CSV\n\nDes performances limitées\n\nStockage : non-compressé -&gt; espace disque élevé\nLecture : “orienté-ligne” -&gt; performances faibles"
   },
   {
     "objectID": "slides/complete.html#application-3-1",
@@ -1530,14 +1537,21 @@
     "href": "slides/light.html#enjeux-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
+    "text": "Enjeux\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nPublic cible\nFinalité (traitement, analyse, diffusion)\nVolumétrie\nInteropérabilité"
   },
   {
-    "objectID": "slides/light.html#recommandations",
-    "href": "slides/light.html#recommandations",
+    "objectID": "slides/light.html#formats-traditionnels",
+    "href": "slides/light.html#formats-traditionnels",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Recommandations",
-    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
+    "section": "Formats traditionnels",
+    "text": "Formats traditionnels\n\nFormats de données adhérents à un langage (sas7bdat, RDS, fst, etc.)\n\nNon-interopérables -&gt; à éviter !\n\nLe format CSV\n\nInteropérable et simple d’utilisation\nPas de gestion des méta-données\nPeu adapté aux données volumineuses"
+  },
+  {
+    "objectID": "slides/light.html#limites-du-csv",
+    "href": "slides/light.html#limites-du-csv",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Limites du CSV",
+    "text": "Limites du CSV\n\nDes performances limitées\n\nStockage : non-compressé -&gt; espace disque élevé\nLecture : “orienté-ligne” -&gt; performances faibles"
   },
   {
     "objectID": "slides/light.html#application-3-1",

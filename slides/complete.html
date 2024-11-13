@@ -1970,30 +1970,47 @@ if (x_is_not_empty_string) {
 <ul>
 <li class="fragment">Le choix d’un format de données répond à un <span class="orange"><strong>arbitrage</strong></span> entre plusieurs critères :
 <ul>
-<li class="fragment"><span class="blue2"><strong>Finalité</strong></span> (traitement, analyse, diffusion)</li>
 <li class="fragment"><span class="blue2"><strong>Public cible</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Finalité</strong></span> (traitement, analyse, diffusion)</li>
 <li class="fragment"><span class="blue2"><strong>Volumétrie</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Interopérabilité</strong></span></li>
 </ul></li>
 </ul>
 </section>
-<section id="recommandations" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Recommandations</h2>
+<section id="formats-traditionnels" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Formats traditionnels</h2>
 <ul>
-<li class="fragment"><p>Eviter impérativement les formats de données adhérents à un langage (<code>RDS</code>, <code>RData</code>, <code>fst</code>, <code>sas7bdat</code>, etc.).</p></li>
-<li class="fragment"><p>Deux formats à privilégier :</p>
+<li class="fragment">Formats de données adhérents à un langage (<span class="orange"><strong>sas7bdat</strong></span>, <span class="orange"><strong>RDS</strong></span>, <span class="orange"><strong>fst</strong></span>, etc.)
 <ul>
-<li class="fragment"><span class="orange"><strong>CSV</strong></span> : pour la <span class="blue2"><strong>plupart des usages courants</strong></span>
-<ul>
-<li class="fragment"><em>Avantage</em> : <span class="blue2"><strong>non-compressé</strong></span> donc facilement <span class="blue2"><strong>lisible</strong></span></li>
-<li class="fragment"><em>Inconvénients</em> : pas de gestion des méta-données, peu adapté aux données volumineuses</li>
+<li class="fragment"><span class="blue2"><strong>Non-interopérables</strong></span> -&gt; à éviter !</li>
 </ul></li>
-<li class="fragment"><span class="orange"><strong>Parquet</strong></span> : pour le traitement de <span class="blue2"><strong>données volumineuses</strong></span>
+<li class="fragment">Le format <span class="orange"><strong>CSV</strong></span>
 <ul>
-<li class="fragment"><span class="blue2"><strong>Compressé</strong></span> et très <span class="blue2"><strong>performant</strong></span> en lecture/écriture</li>
-<li class="fragment">Gestion native des méta-données</li>
-</ul></li>
+<li class="fragment"><span class="blue2"><strong>Interopérable</strong></span> et <span class="blue2"><strong>simple</strong></span> d’utilisation</li>
+<li class="fragment">Pas de gestion des <span class="blue2"><strong>méta-données</strong></span></li>
+<li class="fragment">Peu adapté aux <span class="blue2"><strong>données volumineuses</strong></span></li>
 </ul></li>
 </ul>
+</section>
+<section id="limites-du-csv" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Limites du <code>CSV</code></h2>
+<ul>
+<li class="fragment">Des <span class="orange"><strong>performances limitées</strong></span>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Stockage</strong></span> : non-compressé -&gt; <span class="blue2"><strong>espace disque élevé</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Lecture</strong></span> : “orienté-ligne” -&gt; <span class="blue2"><strong>performances faibles</strong></span></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/row-column.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="section-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2></h2>
 </section>
 <section id="application-3-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 3</h2>
