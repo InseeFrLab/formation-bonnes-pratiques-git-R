@@ -365,25 +365,39 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 
 
+
 # III- Formats de données
 
 ## Enjeux
 
 - Le choix d'un format de données répond à un [**arbitrage**]{.orange} entre plusieurs critères :
-  - [**Finalité**]{.blue2} (traitement, analyse, diffusion)
   - [**Public cible**]{.blue2}
+  - [**Finalité**]{.blue2} (traitement, analyse, diffusion)
   - [**Volumétrie**]{.blue2}
+  - [**Interopérabilité**]{.blue2}
 
-## Recommandations {.smaller}
+## Formats traditionnels
 
-- Eviter impérativement les formats de données adhérents à un langage (`RDS`, `RData`, `fst`, `sas7bdat`, etc.).
+- Formats de données adhérents à un langage ([**sas7bdat**]{.orange}, [**RDS**]{.orange}, [**fst**]{.orange}, etc.)
+  - [**Non-interopérables**]{.blue2} -> à éviter !
 
-- Deux formats à privilégier :
-  - [**CSV**]{.orange} : pour la [**plupart des usages courants**]{.blue2}
-    - _Avantage_ : [**non-compressé**]{.blue2} donc facilement [**lisible**]{.blue2}
-    - _Inconvénients_ : pas de gestion des méta-données, peu adapté aux données volumineuses
-  - [**Parquet**]{.orange} : pour le traitement de [**données volumineuses**]{.blue2}
-    - [**Compressé**]{.blue2} et très [**performant**]{.blue2} en lecture/écriture
-    - Gestion native des méta-données
+- Le format [**CSV**]{.orange}
+  - [**Interopérable**]{.blue2} et [**simple**]{.blue2} d'utilisation
+  - Pas de gestion des [**méta-données**]{.blue2}
+  - Peu adapté aux [**données volumineuses**]{.blue2}
+
+## Limites du `CSV`
+
+- Des [**performances limitées**]{.orange}
+  - [**Stockage**]{.blue2} : non-compressé -> [**espace disque élevé**]{.blue2}
+  - [**Lecture**]{.blue2} : "orienté-ligne" -> [**performances faibles**]{.blue2}
+
+. . .
+
+![](img/row-column.png){fig-align="center"}
+
+##
+
+
 
 {{< include applications_r/_application3.qmd >}}
