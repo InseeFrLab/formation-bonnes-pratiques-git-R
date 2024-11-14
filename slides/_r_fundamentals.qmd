@@ -127,7 +127,7 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 👎 La documentation pallie des mauvais nommages
 
-```
+```{.r}
 # Utilise string si x est non manquant et non vide
 if (!is.na(x) && nzchar(x)) {
   use_string(x)
@@ -136,7 +136,7 @@ if (!is.na(x) && nzchar(x)) {
 
 👍 Les nommages suffisent à comprendre le code
 
-```
+```{.r}
 x_is_not_empty_string <- (!is.na(x) && nzchar(x))
 if (x_is_not_empty_string) {
   use_string(x)
@@ -208,17 +208,26 @@ if (x_is_not_empty_string) {
 
 ## Bilan
 
+
+::::: {.columns}
+
+:::: {.column width="60%"}
+
 - Un code mal structuré
   - Limite la lisibilité du projet
   - Est très coûteux à maintenir (dette technique)
 
-. . .
+- Les petits gestes peuvent économiser un temps précieux
 
-![](img/reproducibility-lazy.png){fig-align="center"}
+::::
 
+:::: {.column width="40%"}
+::: {layout="[[-1], [1], [-1]]"}
+![](img/reproducibility-lazy-no-bg.png){fig-align="center"}
+:::
+::::
 
-
-
+:::::
 
 
 

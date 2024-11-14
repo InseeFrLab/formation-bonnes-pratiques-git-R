@@ -17,7 +17,7 @@ df <- readr::read_csv2(
 df <- df %>%
   mutate(aged = as.numeric(aged))
 
-summarise(group_by(df, aged), n())
+df %>% group_by(aged) %>% summarise(n())
 
 decennie_a_partir_annee    = function(ANNEE){ return(ANNEE - ANNEE %%
                                                        10) }
@@ -45,9 +45,8 @@ p <- # part d'homme dans chaque cohort
 ggsave("p.png", p)
 
 library(forcats)
-df$sexe <- df$sexe %>%
-  as.character() %>%
-  fct_recode(Homme = "1", Femme = "2")
+df <- df %>% mutate(sexe = as.character(sexe)) %>%
+  mutate(sexe = fct_recode(sexe, Homme = "1", Femme = "2"))
 
 #fonction de stat agregee
 fonction_de_stat_agregee<-function(a,b="moyenne",...){
@@ -73,8 +72,7 @@ api_token <- "trotskitueleski$1917"
 # modelisation
 # library(MASS)
 df3=df%>%select(surf,cs1,ur,couple,aged)%>%filter(surf!="Z")
-df3[,1]=factor(df3$surf, ordered = T)
-df3[,"cs1"]=factor(df3$cs1)
+df3 <- df3 %>% mutate(surf = factor(surf, ordered=T), cs1 = factor(cs1))
 df3 %>% 
   filter(couple == "2" & aged>40 & aged<60)
 polr(surf ~ cs1 + factor(ur), df3)

@@ -7,18 +7,25 @@
 :::{.callout-tip collapse="true" icon=false}
 ## Préparation de l'environnement de travail
 
+
+ 
+
 ::: {.nonincremental}
-1. Créer un nouveau dépôt public sur `GitHub`
-2. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitHub` à une valeur suffisamment élevée
+1. Application préliminaire: forker le dépôt d’exemple {{< fa brands github >}} [`InseeFrLab/formation-bonnes-pratiques-exo-correction`](https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction)[^1]
+2. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitHub` à une valeur suffisamment élevée (conseil: 36000)
 3. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` du `Datalab`):
     + `File` → `New project` → `Version Control` → `Git`
 4. Créer un script `get_data.R` en copiant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/get_data.R), puis l'exécuter
-5. Créer le script `script.R` dans votre dépôt en copiant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/script.R)
+5. Créer le script `script.R` dans votre dépôt en copiant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/script.R). __Ne l'exécutez pas, c'est l'objet de l'exercice suivant__.
 6. Ajouter la règle "individu_reg.*" au fichier `.gitignore`. Que signifie-t-elle ?
-7. *Commit*/*push* les changements
+7. *Commit*/*push* les changements (tous les fichiers, y compris ceux que `Git` a ajouté)
 :::
 
 :::
+
+[^1]: Forker le dépôt vous permet d'avoir les _tags_ permettant d'appliquer les _checkpoints_ si besoin. 
+La démarche pour reproduire ceci est de créer un nouveau dépôt sur `GitHub` en **incluant un fichier `README`** et un `.gitignore` (chercher le modèle `R` dans les suggestions). Mais si vous faites cela vous ne serez pas en mesure d'appliquer les _tags_ des _checkpoints_.
+
 
 ## {{< fa brands gitlab >}} insee
 
@@ -39,5 +46,6 @@
 :::
 
 
-
 :::
+
+
