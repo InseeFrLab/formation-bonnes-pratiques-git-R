@@ -2185,11 +2185,12 @@ if (x_is_not_empty_string) {
 <p><strong>Exemple d’une requête <em>lazy</em></strong></p>
 </div>
 <div class="callout-content">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>achille_dep <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"achille_logements_2022.parquet"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a></a>  <span class="fu">filter</span>(dep <span class="sc">==</span> <span class="st">"01"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">select</span>(idlogement, depcom, numerovoie, numerobis, typevoie, libellevoie) <span class="sc">|&gt;</span></span>
-<span id="cb9-4"><a></a>  <span class="fu">collect</span>() <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a></a>  <span class="fu">mutate</span>(<span class="at">adresse =</span> <span class="fu">paste0</span>(numerovoie, numerobis, <span class="st">" "</span>, typevoie, <span class="st">" "</span>, libellevoie))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>n_logements_depcom <span class="ot">&lt;-</span> achille <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">filter</span>(dep <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>)) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les partitions nécessaires</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">select</span>(idlogement, depcom) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les colonnes nécessaires</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">group_by</span>(depcom) <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">summarise</span>(<span class="at">n_logements =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span>  </span>
+<span id="cb9-6"><a></a>  <span class="fu">collect</span>()  <span class="co"># Les calculs ne sont effectués qu'à cette étape !</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
