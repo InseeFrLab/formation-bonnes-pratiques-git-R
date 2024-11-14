@@ -484,11 +484,12 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 ## Exemple d'une requête *lazy*
 
 ```R
-achille_dep <- arrow::open_dataset("achille_logements_2022.parquet") |> 
-  filter(dep == "01") |>
-  select(idlogement, depcom, numerovoie, numerobis, typevoie, libellevoie) |>
-  collect() |>
-  mutate(adresse = paste0(numerovoie, numerobis, " ", typevoie, " ", libellevoie))
+n_logements_depcom <- achille |> 
+  filter(dep %in% c("01", "02", "03")) |>  # Récupère seulement les partitions nécessaires
+  select(idlogement, depcom) |>  # Récupère seulement les colonnes nécessaires
+  group_by(depcom) |>
+  summarise(n_logements = n()) |>  
+  collect()  # Les calculs ne sont effectués qu'à cette étape !
 ```
 
 :::::
