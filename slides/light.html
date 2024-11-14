@@ -1315,15 +1315,15 @@ _Workflow_ (version littéraire) :
 </div>
 <div class="callout-content">
 <p>👎 La documentation pallie des mauvais nommages</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Utilise string si x est non manquant et non vide</span></span>
-<span id="cb2-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(x) <span class="sc">&amp;&amp;</span> <span class="fu">nzchar</span>(x)) {</span>
-<span id="cb2-3"><a></a>  <span class="fu">use_string</span>(x)</span>
-<span id="cb2-4"><a></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code># Utilise string si x est non manquant et non vide
+if (!is.na(x) &amp;&amp; nzchar(x)) {
+  use_string(x)
+}</code></pre>
 <p>👍 Les nommages suffisent à comprendre le code</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>x_is_not_empty_string <span class="ot">&lt;-</span> (<span class="sc">!</span><span class="fu">is.na</span>(x) <span class="sc">&amp;&amp;</span> <span class="fu">nzchar</span>(x))</span>
-<span id="cb3-2"><a></a><span class="cf">if</span> (x_is_not_empty_string) {</span>
-<span id="cb3-3"><a></a>  <span class="fu">use_string</span>(x)</span>
-<span id="cb3-4"><a></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre><code>x_is_not_empty_string &lt;- (!is.na(x) &amp;&amp; nzchar(x))
+if (x_is_not_empty_string) {
+  use_string(x)
+}</code></pre>
 </div>
 </div>
 </div>
@@ -1870,14 +1870,14 @@ _Workflow_ (version littéraire) :
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Exemple: recensement de la population</strong></p>
+<p><strong>Exemple: Recensement de la Population</strong></p>
 </div>
 <div class="callout-content">
 <ul>
-<li>20 millions de lignes, 88 colonnes
+<li><a href="https://www.insee.fr/fr/statistiques/8268848?sommaire=8205966">Ficher détail</a> : 20 millions de lignes, 92 variables
 <ul>
-<li>CSV: &gt; 5Go</li>
-<li>Parquet: 508Mo</li>
+<li>CSV: &gt; 4Go</li>
+<li>Parquet: &lt; 500Mo</li>
 </ul></li>
 </ul>
 </div>
@@ -1896,7 +1896,7 @@ _Workflow_ (version littéraire) :
 <li class="fragment"><span class="orange"><strong>“Orienté colonne”</strong></span>
 <ul>
 <li class="fragment">Optimisé pour les <span class="blue2"><strong>traitements analytiques</strong></span></li>
-<li class="fragment">Limite la quantité de données à mettre en RAM</li>
+<li class="fragment">Limite la quantité de données à mettre en mémoire</li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -1910,16 +1910,31 @@ _Workflow_ (version littéraire) :
 <section id="le-format-parquet-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Le format <code>Parquet</code></h2>
 <ul>
-<li class="fragment">Possibilité de <span class="orange"><strong>partitionner</strong></span> les données :
-<ul>
-<li class="fragment">Optimise la <span class="blue2"><strong>lecture</strong></span> pour certaines requêtes</li>
-</ul></li>
+<li class="fragment"><span class="orange"><strong>Partitionner</strong></span> les données pour <span class="blue2"><strong>optimiser la lecture</strong></span></li>
 </ul>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/partitions.png" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="img/partitions.png" class="quarto-figure quarto-figure-center" height="250"></p>
 </figure>
+</div>
+<div>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>L’art de bien partitionner</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>Partitionner par une/des <span class="blue2"><strong>variable(s) d’intérêt</strong></span> (ex : millésime x département)</p></li>
+<li><p><span class="blue2"><strong>Eviter</strong></span> de créer de <span class="blue2"><strong>nombreux petits (&lt; 128Mo) fichiers</strong></span></p></li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1928,7 +1943,7 @@ _Workflow_ (version littéraire) :
 <ul>
 <li class="fragment"><p>Gestion native des <span class="orange"><strong>méta-données</strong></span></p>
 <ul>
-<li class="fragment">Définition d’un <span class="blue2"><strong>schéma</strong></span></li>
+<li class="fragment">Définition automatique d’un <span class="blue2"><strong>schéma</strong></span> (noms, types)</li>
 <li class="fragment">Mise à disposition plus <span class="blue2"><strong>robuste</strong></span></li>
 </ul></li>
 <li class="fragment"><p><span class="orange"><strong>Interopérable</strong></span></p></li>
@@ -1949,6 +1964,27 @@ _Workflow_ (version littéraire) :
 <li class="fragment"><span class="blue2"><strong><em>Lazy evaluation</em></strong></span></li>
 </ul></li>
 </ul>
+<div class="fragment">
+<div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exemple d’une requête <em>lazy</em></strong></p>
+</div>
+<div class="callout-content">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>achille_dep <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"achille_logements_2022.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">filter</span>(dep <span class="sc">==</span> <span class="st">"01"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">select</span>(idlogement, depcom, numerovoie, numerobis, typevoie, libellevoie) <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">collect</span>() <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a></a>  <span class="fu">mutate</span>(<span class="at">adresse =</span> <span class="fu">paste0</span>(numerovoie, numerobis, <span class="st">" "</span>, typevoie, <span class="st">" "</span>, libellevoie))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="application-3-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 3</h2>

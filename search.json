@@ -606,35 +606,35 @@
     "href": "slides/complete.html#le-format-parquet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nStockage :\n\nCompression : entre 5 et 20 fois plus léger qu’un CSV\n\n\n\n\n\n\n\n\n\n\nExemple: recensement de la population\n\n\n\n20 millions de lignes, 88 colonnes\n\nCSV: &gt; 5Go\nParquet: 508Mo"
+    "text": "Le format Parquet\n\nStockage :\n\nCompression : entre 5 et 20 fois plus léger qu’un CSV\n\n\n\n\n\n\n\n\n\n\nExemple: Recensement de la Population\n\n\n\nFicher détail : 20 millions de lignes, 92 variables\n\nCSV: &gt; 4Go\nParquet: &lt; 500Mo"
   },
   {
     "objectID": "slides/complete.html#le-format-parquet-1",
     "href": "slides/complete.html#le-format-parquet-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nLecture :\n\nJusqu’à 34x plus rapide qu’un CSV\n\n“Orienté colonne”\n\nOptimisé pour les traitements analytiques\nLimite la quantité de données à mettre en RAM"
+    "text": "Le format Parquet\n\nLecture :\n\nJusqu’à 34x plus rapide qu’un CSV\n\n“Orienté colonne”\n\nOptimisé pour les traitements analytiques\nLimite la quantité de données à mettre en mémoire"
   },
   {
     "objectID": "slides/complete.html#le-format-parquet-2",
     "href": "slides/complete.html#le-format-parquet-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nPossibilité de partitionner les données :\n\nOptimise la lecture pour certaines requêtes"
+    "text": "Le format Parquet\n\nPartitionner les données pour optimiser la lecture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nL’art de bien partitionner\n\n\n\nPartitionner par une/des variable(s) d’intérêt (ex : millésime x département)\nEviter de créer de nombreux petits (&lt; 128Mo) fichiers"
   },
   {
     "objectID": "slides/complete.html#le-format-parquet-3",
     "href": "slides/complete.html#le-format-parquet-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nGestion native des méta-données\n\nDéfinition d’un schéma\nMise à disposition plus robuste\n\nInteropérable\nOpen-source"
+    "text": "Le format Parquet\n\nGestion native des méta-données\n\nDéfinition automatique d’un schéma (noms, types)\nMise à disposition plus robuste\n\nInteropérable\nOpen-source"
   },
   {
     "objectID": "slides/complete.html#utiliser-des-fichiers-parquet",
     "href": "slides/complete.html#utiliser-des-fichiers-parquet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Utiliser des fichiers Parquet",
-    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation"
+    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation\n\n\n\n\n\n\n\n\n\n\nExemple d’une requête lazy\n\n\nachille_dep &lt;- arrow::open_dataset(\"achille_logements_2022.parquet\") |&gt; \n  filter(dep == \"01\") |&gt;\n  select(idlogement, depcom, numerovoie, numerobis, typevoie, libellevoie) |&gt;\n  collect() |&gt;\n  mutate(adresse = paste0(numerovoie, numerobis, \" \", typevoie, \" \", libellevoie))"
   },
   {
     "objectID": "slides/complete.html#application-3-1",
@@ -1593,35 +1593,35 @@
     "href": "slides/light.html#le-format-parquet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nStockage :\n\nCompression : entre 5 et 20 fois plus léger qu’un CSV\n\n\n\n\n\n\n\n\n\n\nExemple: recensement de la population\n\n\n\n20 millions de lignes, 88 colonnes\n\nCSV: &gt; 5Go\nParquet: 508Mo"
+    "text": "Le format Parquet\n\nStockage :\n\nCompression : entre 5 et 20 fois plus léger qu’un CSV\n\n\n\n\n\n\n\n\n\n\nExemple: Recensement de la Population\n\n\n\nFicher détail : 20 millions de lignes, 92 variables\n\nCSV: &gt; 4Go\nParquet: &lt; 500Mo"
   },
   {
     "objectID": "slides/light.html#le-format-parquet-1",
     "href": "slides/light.html#le-format-parquet-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nLecture :\n\nJusqu’à 34x plus rapide qu’un CSV\n\n“Orienté colonne”\n\nOptimisé pour les traitements analytiques\nLimite la quantité de données à mettre en RAM"
+    "text": "Le format Parquet\n\nLecture :\n\nJusqu’à 34x plus rapide qu’un CSV\n\n“Orienté colonne”\n\nOptimisé pour les traitements analytiques\nLimite la quantité de données à mettre en mémoire"
   },
   {
     "objectID": "slides/light.html#le-format-parquet-2",
     "href": "slides/light.html#le-format-parquet-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nPossibilité de partitionner les données :\n\nOptimise la lecture pour certaines requêtes"
+    "text": "Le format Parquet\n\nPartitionner les données pour optimiser la lecture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nL’art de bien partitionner\n\n\n\nPartitionner par une/des variable(s) d’intérêt (ex : millésime x département)\nEviter de créer de nombreux petits (&lt; 128Mo) fichiers"
   },
   {
     "objectID": "slides/light.html#le-format-parquet-3",
     "href": "slides/light.html#le-format-parquet-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nGestion native des méta-données\n\nDéfinition d’un schéma\nMise à disposition plus robuste\n\nInteropérable\nOpen-source"
+    "text": "Le format Parquet\n\nGestion native des méta-données\n\nDéfinition automatique d’un schéma (noms, types)\nMise à disposition plus robuste\n\nInteropérable\nOpen-source"
   },
   {
     "objectID": "slides/light.html#utiliser-des-fichiers-parquet",
     "href": "slides/light.html#utiliser-des-fichiers-parquet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Utiliser des fichiers Parquet",
-    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation"
+    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation\n\n\n\n\n\n\n\n\n\n\nExemple d’une requête lazy\n\n\nachille_dep &lt;- arrow::open_dataset(\"achille_logements_2022.parquet\") |&gt; \n  filter(dep == \"01\") |&gt;\n  select(idlogement, depcom, numerovoie, numerobis, typevoie, libellevoie) |&gt;\n  collect() |&gt;\n  mutate(adresse = paste0(numerovoie, numerobis, \" \", typevoie, \" \", libellevoie))"
   },
   {
     "objectID": "slides/light.html#application-3-1",
