@@ -396,8 +396,63 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 ![](img/row-column.png){fig-align="center"}
 
-##
+## Le format `Parquet`
 
+- [**Stockage**]{.orange} :
+    - [**Compression**]{.blue2} : entre 5 et 20 fois plus léger qu'un CSV
 
+. . .
+
+::: {.nonincremental}
+::::: {.callout-note}
+## Exemple: recensement de la population
+
+- 20 millions de lignes, 88 colonnes
+    - CSV: > 5Go
+    - Parquet: 508Mo
+:::::
+:::
+
+## Le format `Parquet`
+
+- [**Lecture**]{.orange} :
+    - Jusqu’à 34x plus rapide qu’un CSV
+
+- [**"Orienté colonne"**]{.orange}
+  - Optimisé pour les [**traitements analytiques**]{.blue2}
+  - Limite la quantité de données à mettre en RAM
+
+. . .
+
+![](img/parquet-read-columns.png){fig-align="center"}
+
+## Le format `Parquet`
+
+- Possibilité de [**partitionner**]{.orange} les données :
+  - Optimise la [**lecture**]{.blue2} pour certaines requêtes
+
+. . .
+
+![](img/partitions.png){fig-align="center"}
+
+## Le format `Parquet`
+
+- Gestion native des [**méta-données**]{.orange}
+  - Définition d'un [**schéma**]{.blue2}
+  - Mise à disposition plus [**robuste**]{.blue2}
+
+- [**Interopérable**]{.orange}
+
+- [**Open-source**]{.orange}
+
+## Utiliser des fichiers `Parquet`
+
+- Deux *frameworks* de référence : [Arrow](https://book.utilitr.org/03_Fiches_thematiques/Fiche_arrow.html) et [DuckDB](https://book.utilitr.org/03_Fiches_thematiques/Fiche_duckdb.html)
+  - Orientation [**fichier**]{.blue2} (`Arrow`) VS orientation [**BDD**]{.blue2} (`DuckDB`)
+  - Très bonne [**intégration**]{.blue2} avec le `tidyverse`
+ 
+- [**Traitement en-mémoire optimisé**]{.orange}
+  - [**Orientés-colonne**]{.blue2}
+  - [***Lazy evaluation***]{.blue2}
 
 {{< include applications_r/_application3.qmd >}}

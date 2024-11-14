@@ -1,7 +1,7 @@
 ## Application 3 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
-## Manipulation des formats CSV et Parquet
+## Du CSV au Parquet
 
 ::: {.nonincremental}
 1. Effacer la base `individu_reg.csv`
