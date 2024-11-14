@@ -1311,16 +1311,16 @@ _Workflow_ (version littéraire) :
 <div class="callout-content">
 <div>
 <ol type="1">
-<li>Créer un nouveau dépôt public sur <code>GitHub</code></li>
-<li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitHub</code> à une valeur suffisamment élevée</li>
+<li>Application préliminaire: forker le dépôt d’exemple <i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction"><code>InseeFrLab/formation-bonnes-pratiques-exo-correction</code></a><sup>1</sup></li>
+<li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitHub</code> à une valeur suffisamment élevée (conseil: 36000)</li>
 <li>Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> du <code>Datalab</code>):
 <ul>
 <li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
 </ul></li>
 <li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/get_data.R">ce fichier</a>, puis l’exécuter</li>
-<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/script.R">ce fichier</a></li>
+<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/script.R">ce fichier</a>. <strong>Ne l’exécutez pas, c’est l’objet de l’exercice suivant</strong>.</li>
 <li>Ajouter la règle “individu_reg.*” au fichier <code>.gitignore</code>. Que signifie-t-elle ?</li>
-<li><em>Commit</em>/<em>push</em> les changements</li>
+<li><em>Commit</em>/<em>push</em> les changements (tous les fichiers, y compris ceux que <code>Git</code> a ajouté)</li>
 </ol>
 </div>
 </div>
@@ -1354,7 +1354,7 @@ _Workflow_ (version littéraire) :
 </div>
 </div>
 </div>
-</section></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Forker le dépôt vous permet d’avoir les <em>tags</em> permettant d’appliquer les <em>checkpoints</em> si besoin. La démarche pour reproduire ceci est de créer un nouveau dépôt sur <code>GitHub</code> en <strong>incluant un fichier <code>README</code></strong> et un <code>.gitignore</code> (chercher le modèle <code>R</code> dans les suggestions). Mais si vous faites cela vous ne serez pas en mesure d’appliquer les <em>tags</em> des <em>checkpoints</em>.</p></li></ol></aside></section></section>
 <section>
 <section id="i--qualité-du-code" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>I- Qualité du code</h1>
@@ -1525,15 +1525,15 @@ _Workflow_ (version littéraire) :
 </div>
 <div class="callout-content">
 <p>👎 La documentation pallie des mauvais nommages</p>
-<pre><code># Utilise string si x est non manquant et non vide
-if (!is.na(x) &amp;&amp; nzchar(x)) {
-  use_string(x)
-}</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Utilise string si x est non manquant et non vide</span></span>
+<span id="cb2-2"><a></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.na</span>(x) <span class="sc">&amp;&amp;</span> <span class="fu">nzchar</span>(x)) {</span>
+<span id="cb2-3"><a></a>  <span class="fu">use_string</span>(x)</span>
+<span id="cb2-4"><a></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>👍 Les nommages suffisent à comprendre le code</p>
-<pre><code>x_is_not_empty_string &lt;- (!is.na(x) &amp;&amp; nzchar(x))
-if (x_is_not_empty_string) {
-  use_string(x)
-}</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>x_is_not_empty_string <span class="ot">&lt;-</span> (<span class="sc">!</span><span class="fu">is.na</span>(x) <span class="sc">&amp;&amp;</span> <span class="fu">nzchar</span>(x))</span>
+<span id="cb3-2"><a></a><span class="cf">if</span> (x_is_not_empty_string) {</span>
+<span id="cb3-3"><a></a>  <span class="fu">use_string</span>(x)</span>
+<span id="cb3-4"><a></a>}</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1620,7 +1620,28 @@ if (x_is_not_empty_string) {
 <p><strong>Partie 1 : vérification du bon fonctionnement du code</strong></p>
 </div>
 <div class="callout-content">
-<p>Un code reproductible est avant toute chose un code fonctionnel ! Repérez les erreurs qui empêchent le script <code>script.R</code> de s’exécuter correctement, et les corriger.</p>
+<p>Un code reproductible est avant toute chose un code fonctionnel !</p>
+<p>Repérez les erreurs qui empêchent le script <code>script.R</code> de s’exécuter correctement, et les corriger.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Les pièges que cet exercice vous montre</strong></p>
+</div>
+<div class="callout-content">
+<div>
+<ul>
+<li>Les fonctions utilisées sans import des <em>packages</em></li>
+<li>Les chemins et le <em>working directory</em></li>
+<li>L’ordre des imports</li>
+<li>Les mauvaises pratiques de gestion de l’environnement (les bonnes pratiques arrivent dans les prochains exercices !)</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1635,21 +1656,21 @@ if (x_is_not_empty_string) {
 <div class="callout-content">
 <div>
 <ol type="1">
-<li>Installer les <em>packages</em> <code>R</code> <a href="https://github.com/r-lib/lintr"><code>lintr</code></a> et <a href="https://github.com/r-lib/styler"><code>styler</code></a>.</li>
-<li>Définir le <em>linter</em> à utiliser comme étant de type <code>tidyverse</code> : <code>lintr::use_lintr(type = "tidyverse")</code></li>
-<li>Diagnostiquer le script <code>script.R</code> : <code>lintr::lint("script.R")</code>.
+<li>Installer les <em>packages</em> <code>R</code> <a href="https://github.com/r-lib/lintr"><code>lintr</code></a> et <a href="https://github.com/r-lib/styler"><code>styler</code></a><sup>1</sup>.</li>
+<li>Définir le <em>linter</em> à utiliser comme étant de type <code>tidyverse</code> avec <code>lintr::use_lintr(type = "tidyverse")</code></li>
+<li>Diagnostiquer le script <code>script.R</code> avec <code>lintr::lint("script.R")</code>.
 <ul>
 <li>Comprenez-vous la nature des problèmes détectés par le <em>linter</em>?</li>
 </ul></li>
-<li>Appliquer le <em>formatter</em> au <code>script.R</code> : <code>styler::style_file("script.R")</code>.</li>
+<li>Appliquer le <em>formatter</em> au <code>script.R</code> avec <code>styler::style_file("script.R")</code>.</li>
 <li>Refaire tourner le <em>linter</em>. Il reste encore un certain nombre d’erreurs de formattage, car <code>styler</code> est un <em>formatter</em> peu intrusif.</li>
-<li>Regarder les différents problèmes repérés par le <em>linter</em>, et en corriger quelques uns (un pour chaque type de problème).</li>
+<li>Regarder les problèmes restants repérés par le <em>linter</em>, et en corriger quelques uns (un pour chaque type de problème).</li>
 </ol>
 </div>
 </div>
 </div>
 </div>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Les <code>install.packages</code> sont à faire en console et ne doivent pas être mis dans le script (justification dans la prochaine partie de cet exercice).</p></li></ol></aside></section>
 <section id="application-1-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 1</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
@@ -1664,6 +1685,15 @@ if (x_is_not_empty_string) {
 <li>L’installation des <em>packages</em> dans un script n’est pas une bonne pratique. Supprimer les instructions correspondantes.</li>
 <li>Importer le <code>tidyverse</code> au complet est rarement utile. N’importer à la place que les <em>packages</em> effectivement utilisés dans le script.</li>
 </ol>
+<details>
+<summary>
+<p>A propos du <code>rm(list = ls())</code> (le supprimer !)</p>
+</summary>
+<p>Cette commande est une mauvaise pratique.</p>
+<p>On la retrouve encore dans trop de scripts car elle est utilisée pour de mauvaises raisons. Elle ne remets pas à 0 votre environnement: elle supprime juste les données de celui-ci, sans toucher au reste (packages importés, etc.).</p>
+<p>Il vaut mieux gérer cela en changeant les options de <i class="fa-brands fa-r-project" aria-label="r-project"></i> puis redémarrer la session <i class="fa-brands fa-r-project" aria-label="r-project"></i> (<kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>F10</kbd>)</p>
+<p><img data-src="img/rdata-setup.png"></p>
+</details>
 </div>
 </div>
 </div>
@@ -1678,6 +1708,7 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <div>
+<p>L’objectif de cet exercice est de remettre de l’ordre dans le script, cela le rendra bien plus lisible.</p>
 <ol type="1">
 <li>Déplacer les <code>library</code> pour les mettre tous ensemble au début du script.</li>
 <li>Le script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus lisible :
@@ -1688,7 +1719,9 @@ if (x_is_not_empty_string) {
 <ul>
 <li><code># TITRE NIVEAU 1 ------------</code> et <code>## TITRE NIVEAU 2 ==========</code></li>
 </ul></li>
+<li>Documenter la fonction <code>fonction_de_stat_agregee</code> selon le standard <code>roxygen</code>. Vous pouvez vous aider d’une IA assistante comme <code>ChatGPT</code>, <code>Claude</code> ou <code>Copilot</code>, rien n’est sensible dans ce code (d’ailleurs rien de sensible ne doit être dans du code !). Utiliser les exemples d’utilisation de <code>fonction_de_stat_agregee</code> dans cette documentation.</li>
 </ol>
+<p><em>Au passage, vous pouvez changer les noms de certains objets pour les rendre moins cryptiques (<code>df3</code> n’est pas très clair).</em></p>
 </div>
 </div>
 </div>
@@ -1726,36 +1759,56 @@ if (x_is_not_empty_string) {
 </section>
 <section id="checkpoint" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
-<div>
-
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="quarto-layout-panel" data-layout="[30,70]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
-<ul>
-<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application1/script.R">script.R</a></li>
-</ul>
-<p><img data-src="checkpoint.jpg"></p>
+<p><strong>Checkpoint</strong></p>
+</div>
+<div class="callout-content">
+<p>En ligne de commande:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">git</span> stash</span>
+<span id="cb4-2"><a></a><span class="fu">git</span> checkout appli1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img data-src="checkpoint.jpg" style="width:30.0%"></p>
 </div>
 </div>
 </div>
 </section>
 <section id="bilan" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Bilan</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
 <li class="fragment">Un code mal structuré
 <ul>
 <li class="fragment">Limite la lisibilité du projet</li>
 <li class="fragment">Est très coûteux à maintenir (dette technique)</li>
 </ul></li>
+<li class="fragment">Les petits gestes peuvent économiser un temps précieux</li>
 </ul>
-<div class="fragment">
+</div><div class="column" style="width:40%;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[[-1], [1], [-1]]">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/reproducibility-lazy.png" class="quarto-figure quarto-figure-center"></p>
+<p><img data-src="img/reproducibility-lazy-no-bg.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
+</div>
+</div>
+</div></div>
 </section></section>
 <section>
 <section id="ii--structure-des-projets" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -1908,11 +1961,12 @@ if (x_is_not_empty_string) {
 <div>
 <ol type="1">
 <li>Déplacer toutes les fonctions dans un fichier <code>R/functions.R</code>.</li>
-<li>Donner à la fonction <code>fonction_de_stat_agregee</code> un nom plus pertinent et des noms d’arguments plus transparents.</li>
+<li>Donner à la fonction <code>fonction_de_stat_agregee</code> un nom plus pertinent et des noms d’arguments plus transparents. N’oubliez pas de mettre à jour la documentation.</li>
 <li>Dans <code>script.R</code>, appeler en début de chaîne ces fonctions avec <code>source("R/functions.R", encoding = "UTF-8")</code>.</li>
-<li>Documenter la fonction principale au <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">format attendu</a> par <code>roxygen2</code>.</li>
-<li>Ajouter les tests unitaires de la fonction comme exemples d’utilisation et les retirer de <code>script.R</code>.</li>
 <li>Tester le bon fonctionnement de <code>script.R</code>.</li>
+<li>Si votre chaîne écrit des <em>outputs</em> ou utilise des <em>inputs</em> (par exemple des données), restructurer l’aborescence du projet pour le rendre plus lisible et adaptez votre code en fonction.</li>
+<li>Renommer (voire déplacer) les scripts <code>get_data.R</code> et <code>script.R</code> pour rendre plus intelligible la chaîne de production</li>
+<li>Mettre à jour le <code>.gitignore</code> puis <em>commit</em>/<em>push</em></li>
 </ol>
 </div>
 </div>
@@ -1942,20 +1996,21 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="checkpoint-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="checkpoint-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
-<div>
-
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="quarto-layout-panel" data-layout="[30,70]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
-<ul>
-<li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application2/script.R">script.R</a></p></li>
-<li><p><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application2/functions.R">functions.R</a></p></li>
-<li><p><a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/tree/main/package">Package R</a></p></li>
-</ul>
-<p><img data-src="checkpoint.jpg"></p>
+<p><strong>Checkpoint</strong></p>
+</div>
+<div class="callout-content">
+<p>En ligne de commande:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="fu">git</span> stash</span>
+<span id="cb8-2"><a></a><span class="fu">git</span> checkout appli1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img data-src="checkpoint.jpg" style="width:30.0%"></p>
 </div>
 </div>
 </div>
@@ -2126,7 +2181,7 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="checkpoint-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="checkpoint-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
 <div>
 
@@ -2252,23 +2307,23 @@ if (x_is_not_empty_string) {
 <li><p>Observer les nouveaux élements qui sont apparus dans le projet.</p></li>
 <li><p>Installer le <a href="https://gt.rstudio.com/">package <code>gt</code></a> et observer le message dans la console.</p></li>
 <li><p>Dans la partie sur les statistiques descriptives d’âge, ajouter ce code :</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>stats_age <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a></a>  <span class="fu">group_by</span>(<span class="at">decennie =</span> <span class="fu">decennie_a_partir_annee</span>(age)) <span class="sc">%&gt;%</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
-<span id="cb7-4"><a></a></span>
-<span id="cb7-5"><a></a>table_age <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(stats_age) <span class="sc">%&gt;%</span></span>
-<span id="cb7-6"><a></a>  gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
-<span id="cb7-7"><a></a>    <span class="at">title =</span> <span class="st">"Distribution des âges dans notre population"</span></span>
-<span id="cb7-8"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb7-9"><a></a>  gt<span class="sc">::</span><span class="fu">fmt_number</span>(</span>
-<span id="cb7-10"><a></a>    <span class="at">columns =</span> <span class="st">`</span><span class="at">n()</span><span class="st">`</span>,</span>
-<span id="cb7-11"><a></a>    <span class="at">sep_mark =</span> <span class="st">" "</span>,</span>
-<span id="cb7-12"><a></a>    <span class="at">decimals =</span> <span class="dv">0</span></span>
-<span id="cb7-13"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb7-14"><a></a>  gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
-<span id="cb7-15"><a></a>    <span class="at">decennie =</span> <span class="st">"Tranche d'âge"</span>,</span>
-<span id="cb7-16"><a></a>    <span class="st">`</span><span class="at">n()</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Population"</span></span>
-<span id="cb7-17"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>stats_age <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">group_by</span>(<span class="at">decennie =</span> <span class="fu">decennie_a_partir_annee</span>(age)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a>table_age <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(stats_age) <span class="sc">%&gt;%</span></span>
+<span id="cb9-6"><a></a>  gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
+<span id="cb9-7"><a></a>    <span class="at">title =</span> <span class="st">"Distribution des âges dans notre population"</span></span>
+<span id="cb9-8"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a></a>  gt<span class="sc">::</span><span class="fu">fmt_number</span>(</span>
+<span id="cb9-10"><a></a>    <span class="at">columns =</span> <span class="st">`</span><span class="at">n()</span><span class="st">`</span>,</span>
+<span id="cb9-11"><a></a>    <span class="at">sep_mark =</span> <span class="st">" "</span>,</span>
+<span id="cb9-12"><a></a>    <span class="at">decimals =</span> <span class="dv">0</span></span>
+<span id="cb9-13"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-14"><a></a>  gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
+<span id="cb9-15"><a></a>    <span class="at">decennie =</span> <span class="st">"Tranche d'âge"</span>,</span>
+<span id="cb9-16"><a></a>    <span class="st">`</span><span class="at">n()</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Population"</span></span>
+<span id="cb9-17"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </div>
 </div>
@@ -2314,7 +2369,7 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="checkpoint-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="checkpoint-5" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
 <div>
 
@@ -2393,6 +2448,8 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
+
+
     </div>
   </div>
 

@@ -361,7 +361,7 @@
     "href": "slides/complete.html#application-0-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un nouveau dépôt public sur GitHub\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements\n\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un nouveau dépôt public sur GitLab\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de LS3):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements"
+    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nApplication préliminaire: forker le dépôt d’exemple  InseeFrLab/formation-bonnes-pratiques-exo-correction1\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée (conseil: 36000)\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier. Ne l’exécutez pas, c’est l’objet de l’exercice suivant.\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements (tous les fichiers, y compris ceux que Git a ajouté)\n\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un nouveau dépôt public sur GitLab\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de LS3):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements\n\n\n\n\n\n\n\n\nForker le dépôt vous permet d’avoir les tags permettant d’appliquer les checkpoints si besoin. La démarche pour reproduire ceci est de créer un nouveau dépôt sur GitHub en incluant un fichier README et un .gitignore (chercher le modèle R dans les suggestions). Mais si vous faites cela vous ne serez pas en mesure d’appliquer les tags des checkpoints."
   },
   {
     "objectID": "slides/complete.html#enjeux",
@@ -452,28 +452,28 @@
     "href": "slides/complete.html#application-1-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 1 : vérification du bon fonctionnement du code\n\n\nUn code reproductible est avant toute chose un code fonctionnel ! Repérez les erreurs qui empêchent le script script.R de s’exécuter correctement, et les corriger."
+    "text": "Application 1\n\n\n\nPartie 1 : vérification du bon fonctionnement du code\n\n\nUn code reproductible est avant toute chose un code fonctionnel !\nRepérez les erreurs qui empêchent le script script.R de s’exécuter correctement, et les corriger.\n\n\n\n\n\n\n\n\n\nLes pièges que cet exercice vous montre\n\n\n\n\nLes fonctions utilisées sans import des packages\nLes chemins et le working directory\nL’ordre des imports\nLes mauvaises pratiques de gestion de l’environnement (les bonnes pratiques arrivent dans les prochains exercices !)"
   },
   {
     "objectID": "slides/complete.html#application-1-2",
     "href": "slides/complete.html#application-1-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 2 : premiers standards de qualité\n\n\n\n\nInstaller les packages R lintr et styler.\nDéfinir le linter à utiliser comme étant de type tidyverse : lintr::use_lintr(type = \"tidyverse\")\nDiagnostiquer le script script.R : lintr::lint(\"script.R\").\n\nComprenez-vous la nature des problèmes détectés par le linter?\n\nAppliquer le formatter au script.R : styler::style_file(\"script.R\").\nRefaire tourner le linter. Il reste encore un certain nombre d’erreurs de formattage, car styler est un formatter peu intrusif.\nRegarder les différents problèmes repérés par le linter, et en corriger quelques uns (un pour chaque type de problème)."
+    "text": "Application 1\n\n\n\nPartie 2 : premiers standards de qualité\n\n\n\n\nInstaller les packages R lintr et styler1.\nDéfinir le linter à utiliser comme étant de type tidyverse avec lintr::use_lintr(type = \"tidyverse\")\nDiagnostiquer le script script.R avec lintr::lint(\"script.R\").\n\nComprenez-vous la nature des problèmes détectés par le linter?\n\nAppliquer le formatter au script.R avec styler::style_file(\"script.R\").\nRefaire tourner le linter. Il reste encore un certain nombre d’erreurs de formattage, car styler est un formatter peu intrusif.\nRegarder les problèmes restants repérés par le linter, et en corriger quelques uns (un pour chaque type de problème).\n\n\n\n\n\nLes install.packages sont à faire en console et ne doivent pas être mis dans le script (justification dans la prochaine partie de cet exercice)."
   },
   {
     "objectID": "slides/complete.html#application-1-3",
     "href": "slides/complete.html#application-1-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 3 : une meilleure gestion des packages utilisés\n\n\n\n\nLimiter les ambiguités sur les packages en utilisant la syntaxe package::fonction pour les packages rarement utilisés dans le script.\nL’installation des packages dans un script n’est pas une bonne pratique. Supprimer les instructions correspondantes.\nImporter le tidyverse au complet est rarement utile. N’importer à la place que les packages effectivement utilisés dans le script."
+    "text": "Application 1\n\n\n\nPartie 3 : une meilleure gestion des packages utilisés\n\n\n\n\nLimiter les ambiguités sur les packages en utilisant la syntaxe package::fonction pour les packages rarement utilisés dans le script.\nL’installation des packages dans un script n’est pas une bonne pratique. Supprimer les instructions correspondantes.\nImporter le tidyverse au complet est rarement utile. N’importer à la place que les packages effectivement utilisés dans le script.\n\n\n\nA propos du rm(list = ls()) (le supprimer !)\n\nCette commande est une mauvaise pratique.\nOn la retrouve encore dans trop de scripts car elle est utilisée pour de mauvaises raisons. Elle ne remets pas à 0 votre environnement: elle supprime juste les données de celui-ci, sans toucher au reste (packages importés, etc.).\nIl vaut mieux gérer cela en changeant les options de  puis redémarrer la session  (CTRL+SHIFT+F10)"
   },
   {
     "objectID": "slides/complete.html#application-1-4",
     "href": "slides/complete.html#application-1-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus lisible :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
+    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\nL’objectif de cet exercice est de remettre de l’ordre dans le script, cela le rendra bien plus lisible.\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus lisible :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 ==========\n\nDocumenter la fonction fonction_de_stat_agregee selon le standard roxygen. Vous pouvez vous aider d’une IA assistante comme ChatGPT, Claude ou Copilot, rien n’est sensible dans ce code (d’ailleurs rien de sensible ne doit être dans du code !). Utiliser les exemples d’utilisation de fonction_de_stat_agregee dans cette documentation.\n\nAu passage, vous pouvez changer les noms de certains objets pour les rendre moins cryptiques (df3 n’est pas très clair)."
   },
   {
     "objectID": "slides/complete.html#application-1-5",
@@ -487,14 +487,14 @@
     "href": "slides/complete.html#checkpoint",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R"
+    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli1"
   },
   {
     "objectID": "slides/complete.html#bilan",
     "href": "slides/complete.html#bilan",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bilan",
-    "text": "Bilan\n\nUn code mal structuré\n\nLimite la lisibilité du projet\nEst très coûteux à maintenir (dette technique)"
+    "text": "Bilan\n\n\n\nUn code mal structuré\n\nLimite la lisibilité du projet\nEst très coûteux à maintenir (dette technique)\n\nLes petits gestes peuvent économiser un temps précieux"
   },
   {
     "objectID": "slides/complete.html#enjeux-1",
@@ -564,7 +564,7 @@
     "href": "slides/complete.html#application-2-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 2",
-    "text": "Application 2\n\n\n\nPartie 1 : modularisation du projet\n\n\n\n\nDéplacer toutes les fonctions dans un fichier R/functions.R.\nDonner à la fonction fonction_de_stat_agregee un nom plus pertinent et des noms d’arguments plus transparents.\nDans script.R, appeler en début de chaîne ces fonctions avec source(\"R/functions.R\", encoding = \"UTF-8\").\nDocumenter la fonction principale au format attendu par roxygen2.\nAjouter les tests unitaires de la fonction comme exemples d’utilisation et les retirer de script.R.\nTester le bon fonctionnement de script.R."
+    "text": "Application 2\n\n\n\nPartie 1 : modularisation du projet\n\n\n\n\nDéplacer toutes les fonctions dans un fichier R/functions.R.\nDonner à la fonction fonction_de_stat_agregee un nom plus pertinent et des noms d’arguments plus transparents. N’oubliez pas de mettre à jour la documentation.\nDans script.R, appeler en début de chaîne ces fonctions avec source(\"R/functions.R\", encoding = \"UTF-8\").\nTester le bon fonctionnement de script.R.\nSi votre chaîne écrit des outputs ou utilise des inputs (par exemple des données), restructurer l’aborescence du projet pour le rendre plus lisible et adaptez votre code en fonction.\nRenommer (voire déplacer) les scripts get_data.R et script.R pour rendre plus intelligible la chaîne de production\nMettre à jour le .gitignore puis commit/push"
   },
   {
     "objectID": "slides/complete.html#application-2-2",
@@ -574,11 +574,11 @@
     "text": "Application 2\n\n\n\nPartie 2 : création d’un package (FACULTATIF)\n\n\n\n\nInitialiser un package avec la fonction usethis::create_package()\nPlacer dans le dossier R du package un module stat.R et y copier la fonction de statistique agrégée\nCharger le package avec la fonction devtools::load_all() et vérifier que la fonction marche correctement\nRemplir le fichier DESCRIPTION. En particulier, spécifier les dépendances nécessaires (Imports) et facultatives (Suggests)\nConstruire la documentation du package avec la fonction devtools::document(). Où est-elle stockée et sous quel format ?\nVérifier que la documentation de notre fonction est accessible avec ?ma_fonction\n(Facultatif) Initialiser un nouveau projet sur GitHub est y mettre le code du package. Vérifier que le package peut être installé en local avec la fonction devtools::install_github()."
   },
   {
-    "objectID": "slides/complete.html#checkpoint-1",
-    "href": "slides/complete.html#checkpoint-1",
+    "objectID": "slides/complete.html#checkpoint-2",
+    "href": "slides/complete.html#checkpoint-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R\nfunctions.R\nPackage R"
+    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli1"
   },
   {
     "objectID": "slides/complete.html#enjeux-2",
@@ -644,8 +644,8 @@
     "text": "Application 3\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
   },
   {
-    "objectID": "slides/complete.html#checkpoint-2",
-    "href": "slides/complete.html#checkpoint-2",
+    "objectID": "slides/complete.html#checkpoint-4",
+    "href": "slides/complete.html#checkpoint-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
     "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R\nget_data.R"
@@ -728,8 +728,8 @@
     "text": "Application 4\n\n\n\nPartie 3 : test de la portabilité (facultatif)\n\n\n\n\nOuvrir un nouveau service RStudio\nCloner votre dépôt\nExécuter renv::restore() pour installer les packages nécessaires à l’exécution du projet\nVérifier que le script.R s’exécute correctement dans ce nouvel environnement."
   },
   {
-    "objectID": "slides/complete.html#checkpoint-3",
-    "href": "slides/complete.html#checkpoint-3",
+    "objectID": "slides/complete.html#checkpoint-5",
+    "href": "slides/complete.html#checkpoint-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
     "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R"
@@ -1082,7 +1082,7 @@
     "href": "index.html#crédits",
     "title": "Formation aux bonnes pratiques `Git` et `R`",
     "section": "Crédits",
-    "text": "Crédits\nCette formation a été conçue de manière collaborative par des équipes de l’Insee et coordonnée par Romain Avouac et Lino Galiana.\nElle a bénéficié des contributions de : Romain Avouac, Julien Blasco, Thomas Faria, Lino Galiana, Pierre Lamarche, Romain Lesur Olivier Meslin, Olivier Pucher, Clément Rousset, Mohamed Seikouri et Tom Seimandi.\nLes supports et le code source (Github InseeFrLab ) sont librement réutilisables et disponibles sous licence MIT."
+    "text": "Crédits\nCette formation a été conçue de manière collaborative par des équipes de l’Insee et coordonnée par Romain Avouac et Lino Galiana.\nElle a bénéficié des contributions de : Romain Avouac, Julien Blasco, Thomas Faria, Lino Galiana, Pierre Lamarche, Romain Lesur Olivier Meslin, Julien Pramil, Olivier Pucher, Clément Rousset, Mohamed Seikouri et Tom Seimandi.\nLes supports et le code source (Github InseeFrLab ) sont librement réutilisables et disponibles sous licence MIT."
   },
   {
     "objectID": "slides/light.html#introduction",
@@ -1348,7 +1348,7 @@
     "href": "slides/light.html#application-0-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un nouveau dépôt public sur GitHub\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements\n\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un nouveau dépôt public sur GitLab\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de LS3):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements"
+    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nApplication préliminaire: forker le dépôt d’exemple  InseeFrLab/formation-bonnes-pratiques-exo-correction1\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée (conseil: 36000)\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier. Ne l’exécutez pas, c’est l’objet de l’exercice suivant.\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements (tous les fichiers, y compris ceux que Git a ajouté)\n\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\n\nCréer un nouveau dépôt public sur GitLab\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de LS3):\n\nFile → New project → Version Control → Git\n\nCréer un script get_data.R en copiant le contenu de ce fichier, puis l’exécuter\nCréer le script script.R dans votre dépôt en copiant le contenu de ce fichier\nAjouter la règle “individu_reg.*” au fichier .gitignore. Que signifie-t-elle ?\nCommit/push les changements\n\n\n\n\n\n\n\n\nForker le dépôt vous permet d’avoir les tags permettant d’appliquer les checkpoints si besoin. La démarche pour reproduire ceci est de créer un nouveau dépôt sur GitHub en incluant un fichier README et un .gitignore (chercher le modèle R dans les suggestions). Mais si vous faites cela vous ne serez pas en mesure d’appliquer les tags des checkpoints."
   },
   {
     "objectID": "slides/light.html#enjeux",
@@ -1439,28 +1439,28 @@
     "href": "slides/light.html#application-1-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 1 : vérification du bon fonctionnement du code\n\n\nUn code reproductible est avant toute chose un code fonctionnel ! Repérez les erreurs qui empêchent le script script.R de s’exécuter correctement, et les corriger."
+    "text": "Application 1\n\n\n\nPartie 1 : vérification du bon fonctionnement du code\n\n\nUn code reproductible est avant toute chose un code fonctionnel !\nRepérez les erreurs qui empêchent le script script.R de s’exécuter correctement, et les corriger.\n\n\n\n\n\n\n\n\n\nLes pièges que cet exercice vous montre\n\n\n\n\nLes fonctions utilisées sans import des packages\nLes chemins et le working directory\nL’ordre des imports\nLes mauvaises pratiques de gestion de l’environnement (les bonnes pratiques arrivent dans les prochains exercices !)"
   },
   {
     "objectID": "slides/light.html#application-1-2",
     "href": "slides/light.html#application-1-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 2 : premiers standards de qualité\n\n\n\n\nInstaller les packages R lintr et styler.\nDéfinir le linter à utiliser comme étant de type tidyverse : lintr::use_lintr(type = \"tidyverse\")\nDiagnostiquer le script script.R : lintr::lint(\"script.R\").\n\nComprenez-vous la nature des problèmes détectés par le linter?\n\nAppliquer le formatter au script.R : styler::style_file(\"script.R\").\nRefaire tourner le linter. Il reste encore un certain nombre d’erreurs de formattage, car styler est un formatter peu intrusif.\nRegarder les différents problèmes repérés par le linter, et en corriger quelques uns (un pour chaque type de problème)."
+    "text": "Application 1\n\n\n\nPartie 2 : premiers standards de qualité\n\n\n\n\nInstaller les packages R lintr et styler1.\nDéfinir le linter à utiliser comme étant de type tidyverse avec lintr::use_lintr(type = \"tidyverse\")\nDiagnostiquer le script script.R avec lintr::lint(\"script.R\").\n\nComprenez-vous la nature des problèmes détectés par le linter?\n\nAppliquer le formatter au script.R avec styler::style_file(\"script.R\").\nRefaire tourner le linter. Il reste encore un certain nombre d’erreurs de formattage, car styler est un formatter peu intrusif.\nRegarder les problèmes restants repérés par le linter, et en corriger quelques uns (un pour chaque type de problème).\n\n\n\n\n\nLes install.packages sont à faire en console et ne doivent pas être mis dans le script (justification dans la prochaine partie de cet exercice)."
   },
   {
     "objectID": "slides/light.html#application-1-3",
     "href": "slides/light.html#application-1-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 3 : une meilleure gestion des packages utilisés\n\n\n\n\nLimiter les ambiguités sur les packages en utilisant la syntaxe package::fonction pour les packages rarement utilisés dans le script.\nL’installation des packages dans un script n’est pas une bonne pratique. Supprimer les instructions correspondantes.\nImporter le tidyverse au complet est rarement utile. N’importer à la place que les packages effectivement utilisés dans le script."
+    "text": "Application 1\n\n\n\nPartie 3 : une meilleure gestion des packages utilisés\n\n\n\n\nLimiter les ambiguités sur les packages en utilisant la syntaxe package::fonction pour les packages rarement utilisés dans le script.\nL’installation des packages dans un script n’est pas une bonne pratique. Supprimer les instructions correspondantes.\nImporter le tidyverse au complet est rarement utile. N’importer à la place que les packages effectivement utilisés dans le script.\n\n\n\nA propos du rm(list = ls()) (le supprimer !)\n\nCette commande est une mauvaise pratique.\nOn la retrouve encore dans trop de scripts car elle est utilisée pour de mauvaises raisons. Elle ne remets pas à 0 votre environnement: elle supprime juste les données de celui-ci, sans toucher au reste (packages importés, etc.).\nIl vaut mieux gérer cela en changeant les options de  puis redémarrer la session  (CTRL+SHIFT+F10)"
   },
   {
     "objectID": "slides/light.html#application-1-4",
     "href": "slides/light.html#application-1-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus lisible :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 =========="
+    "text": "Application 1\n\n\n\nPartie 4 : (auto-)documentation du code\n\n\n\nL’objectif de cet exercice est de remettre de l’ordre dans le script, cela le rendra bien plus lisible.\n\nDéplacer les library pour les mettre tous ensemble au début du script.\nLe script n’est pas construit dans un ordre logique. Déplacer les parties pour adopter une structure plus lisible :\n\nGestion de l’environnement -&gt; Définition de fonctions -&gt; Import des données -&gt; Retraitement des données -&gt; Statistiques descriptives -&gt; Graphiques -&gt; Modélisation\n\nDonner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :\n\n# TITRE NIVEAU 1 ------------ et ## TITRE NIVEAU 2 ==========\n\nDocumenter la fonction fonction_de_stat_agregee selon le standard roxygen. Vous pouvez vous aider d’une IA assistante comme ChatGPT, Claude ou Copilot, rien n’est sensible dans ce code (d’ailleurs rien de sensible ne doit être dans du code !). Utiliser les exemples d’utilisation de fonction_de_stat_agregee dans cette documentation.\n\nAu passage, vous pouvez changer les noms de certains objets pour les rendre moins cryptiques (df3 n’est pas très clair)."
   },
   {
     "objectID": "slides/light.html#application-1-5",
@@ -1474,14 +1474,14 @@
     "href": "slides/light.html#checkpoint",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R"
+    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli1"
   },
   {
     "objectID": "slides/light.html#bilan",
     "href": "slides/light.html#bilan",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bilan",
-    "text": "Bilan\n\nUn code mal structuré\n\nLimite la lisibilité du projet\nEst très coûteux à maintenir (dette technique)"
+    "text": "Bilan\n\n\n\nUn code mal structuré\n\nLimite la lisibilité du projet\nEst très coûteux à maintenir (dette technique)\n\nLes petits gestes peuvent économiser un temps précieux"
   },
   {
     "objectID": "slides/light.html#enjeux-1",
@@ -1551,7 +1551,7 @@
     "href": "slides/light.html#application-2-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 2",
-    "text": "Application 2\n\n\n\nPartie 1 : modularisation du projet\n\n\n\n\nDéplacer toutes les fonctions dans un fichier R/functions.R.\nDonner à la fonction fonction_de_stat_agregee un nom plus pertinent et des noms d’arguments plus transparents.\nDans script.R, appeler en début de chaîne ces fonctions avec source(\"R/functions.R\", encoding = \"UTF-8\").\nDocumenter la fonction principale au format attendu par roxygen2.\nAjouter les tests unitaires de la fonction comme exemples d’utilisation et les retirer de script.R.\nTester le bon fonctionnement de script.R."
+    "text": "Application 2\n\n\n\nPartie 1 : modularisation du projet\n\n\n\n\nDéplacer toutes les fonctions dans un fichier R/functions.R.\nDonner à la fonction fonction_de_stat_agregee un nom plus pertinent et des noms d’arguments plus transparents. N’oubliez pas de mettre à jour la documentation.\nDans script.R, appeler en début de chaîne ces fonctions avec source(\"R/functions.R\", encoding = \"UTF-8\").\nTester le bon fonctionnement de script.R.\nSi votre chaîne écrit des outputs ou utilise des inputs (par exemple des données), restructurer l’aborescence du projet pour le rendre plus lisible et adaptez votre code en fonction.\nRenommer (voire déplacer) les scripts get_data.R et script.R pour rendre plus intelligible la chaîne de production\nMettre à jour le .gitignore puis commit/push"
   },
   {
     "objectID": "slides/light.html#application-2-2",
@@ -1561,11 +1561,11 @@
     "text": "Application 2\n\n\n\nPartie 2 : création d’un package (FACULTATIF)\n\n\n\n\nInitialiser un package avec la fonction usethis::create_package()\nPlacer dans le dossier R du package un module stat.R et y copier la fonction de statistique agrégée\nCharger le package avec la fonction devtools::load_all() et vérifier que la fonction marche correctement\nRemplir le fichier DESCRIPTION. En particulier, spécifier les dépendances nécessaires (Imports) et facultatives (Suggests)\nConstruire la documentation du package avec la fonction devtools::document(). Où est-elle stockée et sous quel format ?\nVérifier que la documentation de notre fonction est accessible avec ?ma_fonction\n(Facultatif) Initialiser un nouveau projet sur GitHub est y mettre le code du package. Vérifier que le package peut être installé en local avec la fonction devtools::install_github()."
   },
   {
-    "objectID": "slides/light.html#checkpoint-1",
-    "href": "slides/light.html#checkpoint-1",
+    "objectID": "slides/light.html#checkpoint-2",
+    "href": "slides/light.html#checkpoint-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R\nfunctions.R\nPackage R"
+    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli1"
   },
   {
     "objectID": "slides/light.html#enjeux-2",
@@ -1631,8 +1631,8 @@
     "text": "Application 3\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
   },
   {
-    "objectID": "slides/light.html#checkpoint-2",
-    "href": "slides/light.html#checkpoint-2",
+    "objectID": "slides/light.html#checkpoint-4",
+    "href": "slides/light.html#checkpoint-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
     "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R\nget_data.R"
