@@ -1,15 +1,17 @@
 ## Application 2 {.smaller}
 
+
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 1 : modularisation du projet
 
 ::: {.nonincremental}
 1. Déplacer toutes les fonctions dans un fichier `R/functions.R`.
-2. Donner à la fonction `fonction_de_stat_agregee` un nom plus pertinent et des noms d'arguments plus transparents.
+2. Donner à la fonction `fonction_de_stat_agregee` un nom plus pertinent et des noms d'arguments plus transparents. N'oubliez pas de mettre à jour la documentation.
 3. Dans `script.R`, appeler en début de chaîne ces fonctions avec `source("R/functions.R", encoding = "UTF-8")`.
-4. Documenter la fonction principale au [format attendu](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) par `roxygen2`.
-5. Ajouter les tests unitaires de la fonction comme exemples d'utilisation et les retirer de `script.R`.
-6. Tester le bon fonctionnement de `script.R`.
+4. Tester le bon fonctionnement de `script.R`.
+5. Si votre chaîne écrit des _outputs_ ou utilise des _inputs_ (par exemple des données), restructurer l'aborescence du projet pour le rendre plus lisible et adaptez votre code en fonction. 
+6. Renommer (voire déplacer) les scripts `get_data.R` et `script.R` pour rendre plus intelligible la chaîne de production 
+7. Mettre à jour le `.gitignore` puis _commit_/_push_
 :::
 
 :::
@@ -33,16 +35,16 @@
 
 ## Checkpoint
 
-::: {layout=[30,70]}
-:::{.nonincremental}
+::: {.callout-caution}
+## Checkpoint
 
-- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application2/script.R)
+En ligne de commande:
 
-- [functions.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application2/functions.R)
+```{.bash}
+git stash
+git checkout appli1
+```
 
-- [Package R](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/tree/main/package)
+![](checkpoint.jpg){width="30%"}
 
-
-![](checkpoint.jpg){width=60%}
-:::
 :::

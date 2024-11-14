@@ -3,9 +3,24 @@
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 1 : vérification du bon fonctionnement du code
 
-Un code reproductible est avant toute chose un code fonctionnel ! Repérez les erreurs qui empêchent le script `script.R` de s’exécuter correctement, et les corriger.
+Un code reproductible est avant toute chose un code fonctionnel !
+
+Repérez les erreurs qui empêchent le script `script.R` de s’exécuter correctement, et les corriger. 
 
 :::
+
+:::{.callout-important collapse="true"}
+## Les pièges que cet exercice vous montre
+
+:::: {.nonincremental}
+- Les fonctions utilisées sans import des _packages_
+- Les chemins et le _working directory_
+- L'ordre des imports
+- Les mauvaises pratiques de gestion de l'environnement (les bonnes pratiques arrivent dans les prochains exercices !)
+::::
+
+:::
+
 
 ## Application 1 {.smaller}
 
@@ -13,16 +28,18 @@ Un code reproductible est avant toute chose un code fonctionnel ! Repérez les e
 ## Partie 2 : premiers standards de qualité
 
 ::: {.nonincremental}
-1. Installer les _packages_ `R` [`lintr`](https://github.com/r-lib/lintr) et [`styler`](https://github.com/r-lib/styler).
-2. Définir le _linter_ à utiliser comme étant de type `tidyverse` : `lintr::use_lintr(type = "tidyverse")`
-3. Diagnostiquer le script `script.R` : `lintr::lint("script.R")`.
+1. Installer les _packages_ `R` [`lintr`](https://github.com/r-lib/lintr) et [`styler`](https://github.com/r-lib/styler)[^install].
+2. Définir le _linter_ à utiliser comme étant de type `tidyverse` avec `lintr::use_lintr(type = "tidyverse")`
+3. Diagnostiquer le script `script.R` avec `lintr::lint("script.R")`.
     + Comprenez-vous la nature des problèmes détectés par le _linter_?
-4. Appliquer le _formatter_ au `script.R` : `styler::style_file("script.R")`.
+4. Appliquer le _formatter_ au `script.R` avec `styler::style_file("script.R")`.
 5. Refaire tourner le _linter_. Il reste encore un certain nombre d'erreurs de formattage, car `styler` est un _formatter_ peu intrusif.
-6. Regarder les différents problèmes repérés par le _linter_, et en corriger quelques uns (un pour chaque type de problème).
+6. Regarder les problèmes restants repérés par le _linter_, et en corriger quelques uns (un pour chaque type de problème).
 :::
 
 :::
+
+[^install]: Les `install.packages` sont à faire en console et ne doivent pas être mis dans le script (justification dans la prochaine partie de cet exercice). 
 
 ## Application 1 {.smaller}
 
@@ -33,6 +50,25 @@ Un code reproductible est avant toute chose un code fonctionnel ! Repérez les e
 1. Limiter les ambiguités sur les *packages* en utilisant la syntaxe `package::fonction` pour les *packages* rarement utilisés dans le script.
 2. L'installation des *packages* dans un script n'est pas une bonne pratique. Supprimer les instructions correspondantes.
 3. Importer le `tidyverse` au complet est rarement utile. N'importer à la place que les *packages* effectivement utilisés dans le script.
+
+<details>
+<summary>
+
+A propos du `rm(list = ls())` (le supprimer !)
+
+</summary>
+
+Cette commande est une mauvaise pratique. 
+
+On la retrouve encore dans trop de scripts car elle est utilisée pour de mauvaises raisons. Elle ne remets pas à 0 votre environnement: elle supprime juste les données de celui-ci, sans toucher au reste (packages importés, etc.).
+
+Il vaut mieux gérer cela en changeant les options de {{< fa brands r-project >}} puis redémarrer la session {{< fa brands r-project >}} (<kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>F10</kbd>)
+
+![](img/rdata-setup.png)
+
+
+</details>
+
 :::
 
 :::
@@ -43,12 +79,18 @@ Un code reproductible est avant toute chose un code fonctionnel ! Repérez les e
 ## Partie 4 : (auto-)documentation du code
 
 ::: {.nonincremental}
+
+L'objectif de cet exercice est de remettre de l'ordre dans le script, cela le rendra bien plus lisible.
+
 1. Déplacer les `library` pour les mettre tous ensemble au début du script.
 2. Le script n'est pas construit dans un ordre logique. Déplacer les parties 
 pour adopter une structure plus lisible : 
     + Gestion de l'environnement -> Définition de fonctions -> Import des données -> Retraitement des données -> Statistiques descriptives -> Graphiques -> Modélisation
 3. Donner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :
     + `# TITRE NIVEAU 1 ------------` et `## TITRE NIVEAU 2 ==========`
+4. Documenter la fonction `fonction_de_stat_agregee` selon le standard `roxygen`. Vous pouvez vous aider d'une IA assistante comme `ChatGPT`, `Claude` ou `Copilot`, rien n'est sensible dans ce code (d'ailleurs rien de sensible ne doit être dans du code !). Utiliser les exemples d'utilisation de `fonction_de_stat_agregee` dans cette documentation.
+
+_Au passage, vous pouvez changer les noms de certains objets pour les rendre moins cryptiques (`df3` n'est pas très clair)._
 :::
 
 :::
@@ -82,11 +124,17 @@ Dans cette application, on va explorer deux manières possibles de gérer les se
 
 ## Checkpoint
 
-::: {layout=[30,70]}
-:::{.nonincremental}
+::: {.callout-caution}
+## Checkpoint
 
-- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application1/script.R)
+En ligne de commande:
 
-![](checkpoint.jpg){width=60%}
+```{.bash}
+git stash
+git checkout appli1
+```
+
+![](checkpoint.jpg){width="30%"}
+
 :::
-:::
+

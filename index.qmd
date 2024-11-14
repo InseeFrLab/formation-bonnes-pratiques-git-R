@@ -34,6 +34,7 @@ Elle a bénéficié des contributions de : [Romain Avouac](https://github.com/av
 [Pierre Lamarche](https://github.com/pierre-lamarche),
 [Romain Lesur](https://github.com/rlesur)
 [Olivier Meslin](https://github.com/oliviermeslin),
+[Julien Pramil](https://github.com/jpramil),
 [Olivier Pucher](https://github.com/Evargalo),
 [Clément Rousset](https://github.com/clerousset),
 Mohamed Seikouri et

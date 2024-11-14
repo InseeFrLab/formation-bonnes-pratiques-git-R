@@ -31,6 +31,7 @@ css: custom.css
 from: markdown+emoji
 ---
 
+
 ## Introduction
 
 ::: {.nonincremental}
@@ -40,7 +41,9 @@ from: markdown+emoji
 ![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-full/eagle.png){fig-align="center" height=400}
 :::
 
+
 # Introduction
+
 
 {{< include _intro.qmd >}}
 
@@ -62,7 +65,6 @@ from: markdown+emoji
 
 {{< include _git_resources.qmd >}}
 
-
 # Partie 2 : bonnes pratiques avec `R`
 
 ## Plan de la partie
@@ -82,8 +84,6 @@ from: markdown+emoji
 {{< include _r_advanced.qmd >}}
 
 {{< include _r_resources.qmd >}}
-
-
 
 
 # Conclusion
