@@ -1799,15 +1799,108 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="section-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2></h2>
+<section id="le-format-parquet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Le format <code>Parquet</code></h2>
+<ul>
+<li class="fragment"><span class="orange"><strong>Stockage</strong></span> :
+<ul>
+<li class="fragment"><span class="blue2"><strong>Compression</strong></span> : entre 5 et 20 fois plus léger qu’un CSV</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Exemple: recensement de la population</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>20 millions de lignes, 88 colonnes
+<ul>
+<li>CSV: &gt; 5Go</li>
+<li>Parquet: 508Mo</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="le-format-parquet-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Le format <code>Parquet</code></h2>
+<ul>
+<li class="fragment"><span class="orange"><strong>Lecture</strong></span> :
+<ul>
+<li class="fragment">Jusqu’à 34x plus rapide qu’un CSV</li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>“Orienté colonne”</strong></span>
+<ul>
+<li class="fragment">Optimisé pour les <span class="blue2"><strong>traitements analytiques</strong></span></li>
+<li class="fragment">Limite la quantité de données à mettre en RAM</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/parquet-read-columns.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="le-format-parquet-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Le format <code>Parquet</code></h2>
+<ul>
+<li class="fragment">Possibilité de <span class="orange"><strong>partitionner</strong></span> les données :
+<ul>
+<li class="fragment">Optimise la <span class="blue2"><strong>lecture</strong></span> pour certaines requêtes</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/partitions.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="le-format-parquet-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Le format <code>Parquet</code></h2>
+<ul>
+<li class="fragment"><p>Gestion native des <span class="orange"><strong>méta-données</strong></span></p>
+<ul>
+<li class="fragment">Définition d’un <span class="blue2"><strong>schéma</strong></span></li>
+<li class="fragment">Mise à disposition plus <span class="blue2"><strong>robuste</strong></span></li>
+</ul></li>
+<li class="fragment"><p><span class="orange"><strong>Interopérable</strong></span></p></li>
+<li class="fragment"><p><span class="orange"><strong>Open-source</strong></span></p></li>
+</ul>
+</section>
+<section id="utiliser-des-fichiers-parquet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Utiliser des fichiers <code>Parquet</code></h2>
+<ul>
+<li class="fragment">Deux <em>frameworks</em> de référence : <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_arrow.html">Arrow</a> et <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_duckdb.html">DuckDB</a>
+<ul>
+<li class="fragment">Orientation <span class="blue2"><strong>fichier</strong></span> (<code>Arrow</code>) VS orientation <span class="blue2"><strong>BDD</strong></span> (<code>DuckDB</code>)</li>
+<li class="fragment">Très bonne <span class="blue2"><strong>intégration</strong></span> avec le <code>tidyverse</code></li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Traitement en-mémoire optimisé</strong></span>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Orientés-colonne</strong></span></li>
+<li class="fragment"><span class="blue2"><strong><em>Lazy evaluation</em></strong></span></li>
+</ul></li>
+</ul>
 </section>
 <section id="application-3-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 3</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Manipulation des formats CSV et Parquet</strong></p>
+<p><strong>Du CSV au Parquet</strong></p>
 </div>
 <div class="callout-content">
 <div>

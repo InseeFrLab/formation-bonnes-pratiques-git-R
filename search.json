@@ -602,11 +602,46 @@
     "text": "Limites du CSV\n\nDes performances limitées\n\nStockage : non-compressé -&gt; espace disque élevé\nLecture : “orienté-ligne” -&gt; performances faibles"
   },
   {
+    "objectID": "slides/complete.html#le-format-parquet",
+    "href": "slides/complete.html#le-format-parquet",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le format Parquet",
+    "text": "Le format Parquet\n\nStockage :\n\nCompression : entre 5 et 20 fois plus léger qu’un CSV\n\n\n\n\n\n\n\n\n\n\nExemple: recensement de la population\n\n\n\n20 millions de lignes, 88 colonnes\n\nCSV: &gt; 5Go\nParquet: 508Mo"
+  },
+  {
+    "objectID": "slides/complete.html#le-format-parquet-1",
+    "href": "slides/complete.html#le-format-parquet-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le format Parquet",
+    "text": "Le format Parquet\n\nLecture :\n\nJusqu’à 34x plus rapide qu’un CSV\n\n“Orienté colonne”\n\nOptimisé pour les traitements analytiques\nLimite la quantité de données à mettre en RAM"
+  },
+  {
+    "objectID": "slides/complete.html#le-format-parquet-2",
+    "href": "slides/complete.html#le-format-parquet-2",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le format Parquet",
+    "text": "Le format Parquet\n\nPossibilité de partitionner les données :\n\nOptimise la lecture pour certaines requêtes"
+  },
+  {
+    "objectID": "slides/complete.html#le-format-parquet-3",
+    "href": "slides/complete.html#le-format-parquet-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le format Parquet",
+    "text": "Le format Parquet\n\nGestion native des méta-données\n\nDéfinition d’un schéma\nMise à disposition plus robuste\n\nInteropérable\nOpen-source"
+  },
+  {
+    "objectID": "slides/complete.html#utiliser-des-fichiers-parquet",
+    "href": "slides/complete.html#utiliser-des-fichiers-parquet",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Utiliser des fichiers Parquet",
+    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation"
+  },
+  {
     "objectID": "slides/complete.html#application-3-1",
     "href": "slides/complete.html#application-3-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
+    "text": "Application 3\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
   },
   {
     "objectID": "slides/complete.html#checkpoint-2",
@@ -1554,11 +1589,46 @@
     "text": "Limites du CSV\n\nDes performances limitées\n\nStockage : non-compressé -&gt; espace disque élevé\nLecture : “orienté-ligne” -&gt; performances faibles"
   },
   {
+    "objectID": "slides/light.html#le-format-parquet",
+    "href": "slides/light.html#le-format-parquet",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le format Parquet",
+    "text": "Le format Parquet\n\nStockage :\n\nCompression : entre 5 et 20 fois plus léger qu’un CSV\n\n\n\n\n\n\n\n\n\n\nExemple: recensement de la population\n\n\n\n20 millions de lignes, 88 colonnes\n\nCSV: &gt; 5Go\nParquet: 508Mo"
+  },
+  {
+    "objectID": "slides/light.html#le-format-parquet-1",
+    "href": "slides/light.html#le-format-parquet-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le format Parquet",
+    "text": "Le format Parquet\n\nLecture :\n\nJusqu’à 34x plus rapide qu’un CSV\n\n“Orienté colonne”\n\nOptimisé pour les traitements analytiques\nLimite la quantité de données à mettre en RAM"
+  },
+  {
+    "objectID": "slides/light.html#le-format-parquet-2",
+    "href": "slides/light.html#le-format-parquet-2",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le format Parquet",
+    "text": "Le format Parquet\n\nPossibilité de partitionner les données :\n\nOptimise la lecture pour certaines requêtes"
+  },
+  {
+    "objectID": "slides/light.html#le-format-parquet-3",
+    "href": "slides/light.html#le-format-parquet-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le format Parquet",
+    "text": "Le format Parquet\n\nGestion native des méta-données\n\nDéfinition d’un schéma\nMise à disposition plus robuste\n\nInteropérable\nOpen-source"
+  },
+  {
+    "objectID": "slides/light.html#utiliser-des-fichiers-parquet",
+    "href": "slides/light.html#utiliser-des-fichiers-parquet",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Utiliser des fichiers Parquet",
+    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation"
+  },
+  {
     "objectID": "slides/light.html#application-3-1",
     "href": "slides/light.html#application-3-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n\n\nManipulation des formats CSV et Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
+    "text": "Application 3\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
   },
   {
     "objectID": "slides/light.html#checkpoint-2",
