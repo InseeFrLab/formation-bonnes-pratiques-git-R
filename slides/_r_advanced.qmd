@@ -147,8 +147,48 @@
 
 ![](img/hadley.jpg){height="250" fig-align="center"}
 
+## Plan de la partie
+
+- "Not just me"
+
+- "Not just once"
+
+- "Not just my computer"
+
+## "Not just me"
+
+- Utilisation de Git
+
+- Traçabilité du projet
+
+- Travail collaboratif
+  - Outils de collaboration de l'écosystème Git
+  - Organisations hybrides self/dev/prod
+
+## "Not just me"
+
+- Penser à la maintenabilité
+
+- Bonnes pratiques de code
+
+- Standards communautaires
+  - Choix des packages : cf UtilitR
+
+## "Not just me"
+
+- Production -> stabilité
+
+- Gérer les évolutions
+  - Packages
+
+- Monitoring
+
+## "Not just once"
+
+## "Not just my computer"
+
 ## Ressources supplémentaires
 
 - Une [conférence](https://www.youtube.com/watch?v=BQk2-3inViM) d'Hadley Wickham (en anglais)
 
-- Le [cours "R in production"](https://r-in-production.org/) d'Hadley Wickham (en anglais et en construction)
+- Les notes de ["R in production"](https://r-in-production.org/) d'Hadley Wickham (en anglais et en construction)
