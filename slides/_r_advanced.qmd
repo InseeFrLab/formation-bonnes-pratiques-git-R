@@ -119,6 +119,34 @@
 
 # V- `R` en production
 
+## `R` : un langage de production ?
+
+- R est un langage statistique, dédié à l'analyse interactive
+
+- Moins d'outils de développement que dans d'autre langages (Python)
+
+- L'éco-système tidyverse s'oriente de plus en plus vers des outils production-ready
+  - Objectif : présenter les outils et les possibilités
+
+## De quoi parle-t-on ?
+
+- Production informatique
+
+- Production statistique
+
+- Self de production
+
+## Les trois commandemements d'Hadley
+
+- Le code de production a trois caractéristiques
+  - "Not just me"
+  - "Not just once"
+  - "Not just my computer"
+
+. . .
+
+![](img/hadley.jpg){height="250" fig-align="center"}
+
 ## Ressources supplémentaires
 
 - Une [conférence](https://www.youtube.com/watch?v=BQk2-3inViM) d'Hadley Wickham (en anglais)
