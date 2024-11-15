@@ -172,6 +172,7 @@
 - Bonnes pratiques de code
 
 - Standards communautaires
+  - Formats de données interopérables : `Parquet`
   - Choix des packages : cf UtilitR
 
 ## "Not just me"
@@ -181,9 +182,41 @@
 - Gérer les évolutions
   - Packages
 
+- Tests unitaires
+  - `testthat`
+
 - Monitoring
 
 ## "Not just once"
+
+- Les dépendances changent
+
+- Spécifier et distribuer l'environnement
+  - renv + Git
+
+## "Not just once"
+
+- L'environnement change (OS, librairies système, version de R, etc.)
+
+- Conteneurisation pour spécifier plus globalement
+  - LS3
+
+## "Not just once"
+
+- Les données changent
+
+- Factoriser pour éviter la duplication
+
+- Modélisation sous forme de DAG
+  - Dans le code
+  - Targets
+
+## "Not just once"
+
+- Les données changent
+
+- Contrôle de qualité/validité
+  - `pointblank`
 
 ## "Not just my computer"
 
