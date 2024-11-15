@@ -1,6 +1,6 @@
 # IV- Environnements reproductibles
 
-## Expérience de pensée
+## Enjeux
 
 - Imaginons la situation suivante :
   - J'installe une version de `R` sur mon poste
@@ -150,8 +150,7 @@
 ## "Not just me"
 
 - Utilisation de Git
-
-- Traçabilité du projet
+  - Traçabilité du projet
 
 - Travail collaboratif
   - Outils de collaboration de l'écosystème Git
@@ -168,7 +167,7 @@
 
 - Standards communautaires
   - Formats de données interopérables : `Parquet`
-  - Choix des packages : cf UtilitR
+  - Choix des packages (cf. [fiche UtilitR](https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html))
 
 ## "Not just me"
 
@@ -208,10 +207,9 @@
 ## "Not just once"
 
 - Les données changent
-  - 
+  - Contrôle de qualité/validité
 
-- Contrôle de qualité/validité
-  - `pointblank`
+- `pointblank`
 
 ## "Not just once"
 
