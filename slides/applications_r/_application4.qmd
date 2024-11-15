@@ -40,9 +40,9 @@
 ## Partie 2 : faire un *snapshot* de l'environnement
 
 ::: {.nonincremental}
-5. Dans la console, faire `renv::status()` et observer le message.
+5. Dans la console, faire `renv::status()` et observer le message
 6. Effectuer `renv::snapshot()` pour intégrer les nouveaux packages au *lockfile*
-7. Faire un _commit_ / _push_ des fichiers `script.R`, `.Rprofile`, `renv.lock` et du dossier `renv/`.
+7. Faire un _commit_ / _push_ des fichiers `script.R`, `.Rprofile`, `renv.lock` et du dossier `renv/`
 :::
 
 :::
@@ -50,13 +50,13 @@
 ## Application 4 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
-## Partie 3 : test de la portabilité (facultatif)
+## Partie 3 : test de la portabilité
 
 ::: {.nonincremental}
-8. Ouvrir un nouveau service `RStudio`
-9. Cloner votre dépôt
-10. Exécuter `renv::restore()` pour installer les packages nécessaires à l'exécution du projet
-11. Vérifier que le `script.R` s'exécute correctement dans ce nouvel environnement.
+8. Ouvrir un nouveau projet `RStudio` et cloner à nouveau votre dépôt (sous un nom différent)
+9. Exécuter `renv::restore()` pour installer les packages nécessaires à l'exécution du projet
+10. Vérifier que le `script.R` s'exécute correctement dans ce nouveau projet
+11. (facultatif) Pour se convaincre de la portabilité de la solution, ouvrir un nouveau service `RStudio` et refaire les étapes 8 à 10
 :::
 
 :::
