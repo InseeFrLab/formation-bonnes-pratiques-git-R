@@ -147,14 +147,6 @@
 
 ![](img/hadley.jpg){height="250" fig-align="center"}
 
-## Plan de la partie
-
-- "Not just me"
-
-- "Not just once"
-
-- "Not just my computer"
-
 ## "Not just me"
 
 - Utilisation de Git
@@ -177,6 +169,10 @@
 - Standards communautaires
   - Formats de données interopérables : `Parquet`
   - Choix des packages : cf UtilitR
+
+## "Not just me"
+
+- Revues de code
 
 ## "Not just once"
 
@@ -204,8 +200,7 @@
 ## "Not just once"
 
 - Les données changent
-
-- Factoriser pour éviter la duplication
+  - Factoriser pour éviter la duplication
 
 - Passage d'une experimentation chaotique -> prod linéaire
   - Dans le code, ou Targets
@@ -213,6 +208,7 @@
 ## "Not just once"
 
 - Les données changent
+  - 
 
 - Contrôle de qualité/validité
   - `pointblank`
@@ -229,7 +225,38 @@
 
 ## "Not just my computer"
 
+- Evolution vers des infrastructures de production
 
+![](img/evo-infra.png){height="400" fig-align="center"}
+
+## "Not just my computer"
+
+
+- Desktop -> Server
+
+- Windows -> Linux
+
+## "Not just my computer"
+
+- Evolution de la nature des traitements
+  - Interactif -> batch
+
+- Plus difficile à debugger
+  - Le loggin devient nécessaire -> [logger](https://cran.r-project.org/web/packages/logger/vignettes/Intro.html)
+
+## "Not just my computer"
+
+- Evolution des modes de stockage de données
+  - Stockage local
+  - Lecteurs réseaux partagés
+  - Cloud (S3 / MinIO)
+
+- 
+
+## "Not just my computer"
+
+- Authentification
+  - Utilisateur -> service
 
 ## Ressources supplémentaires
 
