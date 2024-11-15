@@ -485,7 +485,7 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 ```R
 n_logements_depcom <- achille |> 
-  filter(dep %in% c("01", "02", "03")) |>  # Récupère seulement les partitions nécessaires
+  filter(dep %in% c("01", "02", "03")) |>  # Récupère seulement les données nécessaires
   select(idlogement, depcom) |>  # Récupère seulement les colonnes nécessaires
   group_by(depcom) |>
   summarise(n_logements = n()) |>  
