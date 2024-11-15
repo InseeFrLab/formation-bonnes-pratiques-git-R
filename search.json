@@ -637,11 +637,46 @@
     "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation\n\n\n\n\n\n\n\n\n\n\nExemple d’une requête lazy\n\n\nn_logements_depcom &lt;- achille |&gt; \n  filter(dep %in% c(\"01\", \"02\", \"03\")) |&gt;  # Récupère seulement les données nécessaires\n  select(idlogement, depcom) |&gt;  # Récupère seulement les colonnes nécessaires\n  group_by(depcom) |&gt;\n  summarise(n_logements = n()) |&gt;  \n  collect()  # Les calculs ne sont effectués qu'à cette étape !"
   },
   {
-    "objectID": "slides/complete.html#application-3-1",
-    "href": "slides/complete.html#application-3-1",
+    "objectID": "slides/complete.html#application-3-préparation",
+    "href": "slides/complete.html#application-3-préparation",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 3",
-    "text": "Application 3\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
+    "section": "Application 3 (préparation)",
+    "text": "Application 3 (préparation)\n\n\n\n\nPartie 0: préparation de l’exercice\n\n\n\nRemplacer le contenu du script download_data en copiant-collant le contenu de ce fichier. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.\nCréer le script R/benchmarking_functions.R en copiant-collant le contenu de ce fichier\nCréer un nouveau script R qui servira de bac à sable pour tester le format Parquet.\nCréer les variables qui seront utiles pour les prochaines questions\n\ncolumns_subset &lt;- c(\n  \"REGION\", \"AGED\", \"ANAI\", \"CATL\", \"COUPLE\",\n  \"SEXE\", \"SURF\", \"TP\", \"TRANS\"\n)\n\nfilename_sample_csv &lt;- \"data/RPindividus_24.csv\"\nfilename_sample_parquet &lt;- gsub(\"csv\", \"parquet\", filename_sample_csv)\nfilename_full_parquet &lt;- gsub(\"_24\", \"\", filename_sample_parquet)\nfilename_full_csv &lt;- gsub(\"parquet\", \"csv\", filename_full_parquet)"
+  },
+  {
+    "objectID": "slides/complete.html#application-3-partie-1",
+    "href": "slides/complete.html#application-3-partie-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 1)",
+    "text": "Application 3 (partie 1)\n\n\n\n\nPartie 1: Ouvrir un fichier Parquet et comprendre la logique de la lecture par bloc\n\n\nLecture du fichier avec read_parquet du package arrow:\n\nLire les données dont le chemin est stocké dans filename_sample_parquet. Pour mesurer le temps d’exécution, vous pouvez utiliser le squelette de code suggéré ci-dessous 👇️.\nFaire la même chose mais cette fois, ajouter un filtre ex post avec les colonnes (select(any_of(columns_subset))). Mesurez-vous une différence dans les temps de traitement ?\n\nLecture du fichier avec open_dataset du package arrow:\n\nCette fois, lire le fichier avec open_dataset(filename_sample_parquet). Regarder la classe de cet objet.\nFaire un head(5) après open_dataset. Observer l’objet obtenu (sortie en console, classe).\nMaintenant regarder lorsque vous ajouter collect() après cette chaîne.\nMesurer le temps d’exécution de open_dataset(filename_sample_parquet) %&gt;% collect(). Ajouter le filtre select(any_of(columns_subset)). Sa place influence-t-elle la vitesse de votre processus ?\n\nComparaison à la lecture d’un CSV:\n\nUtiliser readr::read_csv pour lire le fichier (chemin filename_sample_csv) avec et sans l’argument col_select. Avez-vous des gains de performance si vous ne lisez le fichier qu’avec ces colonnes ?\n\n\n\nMesurer le temps d’exécution\n\nstart_time &lt;- Sys.time()\n# lecture du fichier ici\nend_time &lt;- Sys.time()\ndiff_time &lt;- end_time - start_time\n\n\n\n\n\n❓️ Quelle méthode retenir pour lire un Parquet avec Arrow ?"
+  },
+  {
+    "objectID": "slides/complete.html#application-3-partie-2",
+    "href": "slides/complete.html#application-3-partie-2",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 2)",
+    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2: Un format léger et efficace\n\n\nDans cet exercice, vous devrez utiliser open_dataset pour lire les Parquet.\n\nObserver l’espace disque de chaque fichier par le biais de l’explorateur de fichiers\nMesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable filename_full_parquet.\n\nFaire ceci avec et sans le filtre des colonnes1.\nLa croissance du temps de traitement vous apparaît-elle énorme ?\n\nAjouter après cette étape de lecture du fichier le filter filter(REGION == \"24\"). Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?\n\nGénéralisation des tests de performance:\n\nReprendre le contenu de ce fichier.\n\nInstaller les packages nécessaires (ils sont listés au début du script)\nExécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du profiling permettant de mesurer la répartition du temps de différents processus.\n\nQuand tout a fini de tourner, regarder le tableau obtenu.\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ?\nNe pas faire ceci maintenant avec le CSV, le benchmark arrive prochainement."
+  },
+  {
+    "objectID": "slides/complete.html#application-3-partie-2-1",
+    "href": "slides/complete.html#application-3-partie-2-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 2)",
+    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2bis (optionnelle): Pour mieux comprendre le predicate pushdown (optionnel)\n\n\nduckdb fournit une méthode EXPLAIN ANALYZE pratique pour comprendre les optimisations faites à la lecture d’un fichier Parquet.\n\nPrendre le contenu de ce script\nExécuter les différentes requêtes et regarder les diagrammes obtenus.\nComprenez-vous l’ordre du plan d’exécution et l’effet sur les besoins de R ?\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ? Comment faire si on veut régulièrement filtrer nos données à partir de niveaux des variables ?"
+  },
+  {
+    "objectID": "slides/complete.html#application-3-partie-3",
+    "href": "slides/complete.html#application-3-partie-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 3)",
+    "text": "Application 3 (partie 3)\n\n\n\n\nPartie 3: le Parquet partitionné\n\n\nTO DO"
+  },
+  {
+    "objectID": "slides/complete.html#old",
+    "href": "slides/complete.html#old",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "OLD",
+    "text": "OLD\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
   },
   {
     "objectID": "slides/complete.html#checkpoint-4",
@@ -1624,11 +1659,46 @@
     "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation\n\n\n\n\n\n\n\n\n\n\nExemple d’une requête lazy\n\n\nn_logements_depcom &lt;- achille |&gt; \n  filter(dep %in% c(\"01\", \"02\", \"03\")) |&gt;  # Récupère seulement les données nécessaires\n  select(idlogement, depcom) |&gt;  # Récupère seulement les colonnes nécessaires\n  group_by(depcom) |&gt;\n  summarise(n_logements = n()) |&gt;  \n  collect()  # Les calculs ne sont effectués qu'à cette étape !"
   },
   {
-    "objectID": "slides/light.html#application-3-1",
-    "href": "slides/light.html#application-3-1",
+    "objectID": "slides/light.html#application-3-préparation",
+    "href": "slides/light.html#application-3-préparation",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 3",
-    "text": "Application 3\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
+    "section": "Application 3 (préparation)",
+    "text": "Application 3 (préparation)\n\n\n\n\nPartie 0: préparation de l’exercice\n\n\n\nRemplacer le contenu du script download_data en copiant-collant le contenu de ce fichier. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.\nCréer le script R/benchmarking_functions.R en copiant-collant le contenu de ce fichier\nCréer un nouveau script R qui servira de bac à sable pour tester le format Parquet.\nCréer les variables qui seront utiles pour les prochaines questions\n\ncolumns_subset &lt;- c(\n  \"REGION\", \"AGED\", \"ANAI\", \"CATL\", \"COUPLE\",\n  \"SEXE\", \"SURF\", \"TP\", \"TRANS\"\n)\n\nfilename_sample_csv &lt;- \"data/RPindividus_24.csv\"\nfilename_sample_parquet &lt;- gsub(\"csv\", \"parquet\", filename_sample_csv)\nfilename_full_parquet &lt;- gsub(\"_24\", \"\", filename_sample_parquet)\nfilename_full_csv &lt;- gsub(\"parquet\", \"csv\", filename_full_parquet)"
+  },
+  {
+    "objectID": "slides/light.html#application-3-partie-1",
+    "href": "slides/light.html#application-3-partie-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 1)",
+    "text": "Application 3 (partie 1)\n\n\n\n\nPartie 1: Ouvrir un fichier Parquet et comprendre la logique de la lecture par bloc\n\n\nLecture du fichier avec read_parquet du package arrow:\n\nLire les données dont le chemin est stocké dans filename_sample_parquet. Pour mesurer le temps d’exécution, vous pouvez utiliser le squelette de code suggéré ci-dessous 👇️.\nFaire la même chose mais cette fois, ajouter un filtre ex post avec les colonnes (select(any_of(columns_subset))). Mesurez-vous une différence dans les temps de traitement ?\n\nLecture du fichier avec open_dataset du package arrow:\n\nCette fois, lire le fichier avec open_dataset(filename_sample_parquet). Regarder la classe de cet objet.\nFaire un head(5) après open_dataset. Observer l’objet obtenu (sortie en console, classe).\nMaintenant regarder lorsque vous ajouter collect() après cette chaîne.\nMesurer le temps d’exécution de open_dataset(filename_sample_parquet) %&gt;% collect(). Ajouter le filtre select(any_of(columns_subset)). Sa place influence-t-elle la vitesse de votre processus ?\n\nComparaison à la lecture d’un CSV:\n\nUtiliser readr::read_csv pour lire le fichier (chemin filename_sample_csv) avec et sans l’argument col_select. Avez-vous des gains de performance si vous ne lisez le fichier qu’avec ces colonnes ?\n\n\n\nMesurer le temps d’exécution\n\nstart_time &lt;- Sys.time()\n# lecture du fichier ici\nend_time &lt;- Sys.time()\ndiff_time &lt;- end_time - start_time\n\n\n\n\n\n❓️ Quelle méthode retenir pour lire un Parquet avec Arrow ?"
+  },
+  {
+    "objectID": "slides/light.html#application-3-partie-2",
+    "href": "slides/light.html#application-3-partie-2",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 2)",
+    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2: Un format léger et efficace\n\n\nDans cet exercice, vous devrez utiliser open_dataset pour lire les Parquet.\n\nObserver l’espace disque de chaque fichier par le biais de l’explorateur de fichiers\nMesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable filename_full_parquet.\n\nFaire ceci avec et sans le filtre des colonnes1.\nLa croissance du temps de traitement vous apparaît-elle énorme ?\n\nAjouter après cette étape de lecture du fichier le filter filter(REGION == \"24\"). Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?\n\nGénéralisation des tests de performance:\n\nReprendre le contenu de ce fichier.\n\nInstaller les packages nécessaires (ils sont listés au début du script)\nExécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du profiling permettant de mesurer la répartition du temps de différents processus.\n\nQuand tout a fini de tourner, regarder le tableau obtenu.\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ?\nNe pas faire ceci maintenant avec le CSV, le benchmark arrive prochainement."
+  },
+  {
+    "objectID": "slides/light.html#application-3-partie-2-1",
+    "href": "slides/light.html#application-3-partie-2-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 2)",
+    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2bis (optionnelle): Pour mieux comprendre le predicate pushdown (optionnel)\n\n\nduckdb fournit une méthode EXPLAIN ANALYZE pratique pour comprendre les optimisations faites à la lecture d’un fichier Parquet.\n\nPrendre le contenu de ce script\nExécuter les différentes requêtes et regarder les diagrammes obtenus.\nComprenez-vous l’ordre du plan d’exécution et l’effet sur les besoins de R ?\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ? Comment faire si on veut régulièrement filtrer nos données à partir de niveaux des variables ?"
+  },
+  {
+    "objectID": "slides/light.html#application-3-partie-3",
+    "href": "slides/light.html#application-3-partie-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 3)",
+    "text": "Application 3 (partie 3)\n\n\n\n\nPartie 3: le Parquet partitionné\n\n\nTO DO"
+  },
+  {
+    "objectID": "slides/light.html#old",
+    "href": "slides/light.html#old",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "OLD",
+    "text": "OLD\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
   },
   {
     "objectID": "slides/light.html#checkpoint-4",

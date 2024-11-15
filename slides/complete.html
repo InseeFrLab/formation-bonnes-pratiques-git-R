@@ -2197,8 +2197,147 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="application-3-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 3</h2>
+<section id="application-3-préparation" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3 (préparation)</h2>
+<div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 0: préparation de l’exercice</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Remplacer le contenu du script <code>download_data</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/download_data.R">ce fichier</a>. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.</li>
+<li>Créer le script <code>R/benchmarking_functions.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark_functions.R">ce fichier</a></li>
+<li>Créer un nouveau script <code>R</code> qui servira de bac à sable pour tester le format <code>Parquet</code>.</li>
+<li>Créer les variables qui seront utiles pour les prochaines questions</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb10-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
+<span id="cb10-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span></span>
+<span id="cb10-4"><a></a>)</span>
+<span id="cb10-5"><a></a></span>
+<span id="cb10-6"><a></a>filename_sample_csv <span class="ot">&lt;-</span> <span class="st">"data/RPindividus_24.csv"</span></span>
+<span id="cb10-7"><a></a>filename_sample_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"csv"</span>, <span class="st">"parquet"</span>, filename_sample_csv)</span>
+<span id="cb10-8"><a></a>filename_full_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"_24"</span>, <span class="st">""</span>, filename_sample_parquet)</span>
+<span id="cb10-9"><a></a>filename_full_csv <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"parquet"</span>, <span class="st">"csv"</span>, filename_full_parquet)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-3-partie-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3 (partie 1)</h2>
+<div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 1: Ouvrir un fichier <code>Parquet</code> et comprendre la logique de la lecture par bloc</strong></p>
+</div>
+<div class="callout-content">
+<p>Lecture du fichier avec <code>read_parquet</code> du <em>package</em> <code>arrow</code>:</p>
+<ul>
+<li>Lire les données dont le chemin est stocké dans <code>filename_sample_parquet</code>. Pour mesurer le temps d’exécution, vous pouvez utiliser le squelette de code suggéré ci-dessous 👇️.</li>
+<li>Faire la même chose mais cette fois, ajouter un filtre <em>ex post</em> avec les colonnes (<code>select(any_of(columns_subset))</code>). Mesurez-vous une différence dans les temps de traitement ?</li>
+</ul>
+<p>Lecture du fichier avec <code>open_dataset</code> du <em>package</em> <code>arrow</code>:</p>
+<ul>
+<li>Cette fois, lire le fichier avec <code>open_dataset(filename_sample_parquet)</code>. Regarder la classe de cet objet.</li>
+<li>Faire un <code>head(5)</code> après <code>open_dataset</code>. Observer l’objet obtenu (sortie en console, classe).</li>
+<li>Maintenant regarder lorsque vous ajouter <code>collect()</code> après cette chaîne.</li>
+<li>Mesurer le temps d’exécution de <code>open_dataset(filename_sample_parquet) %&gt;% collect()</code>. Ajouter le filtre <code>select(any_of(columns_subset))</code>. Sa place influence-t-elle la vitesse de votre processus ?</li>
+</ul>
+<p>Comparaison à la lecture d’un CSV:</p>
+<ul>
+<li>Utiliser <code>readr::read_csv</code> pour lire le fichier (chemin <code>filename_sample_csv</code>) avec et sans l’argument <code>col_select</code>. Avez-vous des gains de performance si vous ne lisez le fichier qu’avec ces colonnes ?</li>
+</ul>
+<details>
+<summary>
+Mesurer le temps d’exécution
+</summary>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb11-2"><a></a><span class="co"># lecture du fichier ici</span></span>
+<span id="cb11-3"><a></a>end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb11-4"><a></a>diff_time <span class="ot">&lt;-</span> end_time <span class="sc">-</span> start_time</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+<p><em>❓️ Quelle méthode retenir pour lire un <code>Parquet</code> avec <code>Arrow</code> ?</em></p>
+</section>
+<section id="application-3-partie-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3 (partie 2)</h2>
+<div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 2: Un format léger et efficace</strong></p>
+</div>
+<div class="callout-content">
+<p>Dans cet exercice, vous devrez utiliser <code>open_dataset</code> pour lire les <code>Parquet</code>.</p>
+<ul>
+<li>Observer l’espace disque de chaque fichier par le biais de l’explorateur de fichiers</li>
+<li>Mesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable <code>filename_full_parquet</code>.
+<ul>
+<li>Faire ceci avec et sans le filtre des colonnes<sup>1</sup>.</li>
+<li>La croissance du temps de traitement vous apparaît-elle énorme ?</li>
+</ul></li>
+<li>Ajouter après cette étape de lecture du fichier le filter <code>filter(REGION == "24")</code>. Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?</li>
+</ul>
+<p>Généralisation des tests de performance:</p>
+<ul>
+<li>Reprendre le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark.R">ce fichier</a>.
+<ul>
+<li>Installer les packages nécessaires (ils sont listés au début du script)</li>
+<li>Exécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du <em>profiling</em> permettant de mesurer la répartition du temps de différents processus.</li>
+</ul></li>
+<li>Quand tout a fini de tourner, regarder le tableau obtenu.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><em>❓️ Dans quel ordre sont faits les filtres par <code>Arrow</code> ?</em></p>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Ne pas faire ceci maintenant avec le CSV, le <em>benchmark</em> arrive prochainement.</p></li></ol></aside></section>
+<section id="application-3-partie-2-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3 (partie 2)</h2>
+<div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 2bis (optionnelle): Pour mieux comprendre le <em>predicate pushdown</em> (optionnel)</strong></p>
+</div>
+<div class="callout-content">
+<p><code>duckdb</code> fournit une méthode <code>EXPLAIN ANALYZE</code> pratique pour comprendre les optimisations faites à la lecture d’un fichier <code>Parquet</code>.</p>
+<ul>
+<li>Prendre le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark_optional.R">ce script</a></li>
+<li>Exécuter les différentes requêtes et regarder les diagrammes obtenus.</li>
+<li>Comprenez-vous l’ordre du plan d’exécution et l’effet sur les besoins de <code>R</code> ?</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p><em>❓️ Dans quel ordre sont faits les filtres par <code>Arrow</code> ? Comment faire si on veut régulièrement filtrer nos données à partir de niveaux des variables ?</em></p>
+</section>
+<section id="application-3-partie-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3 (partie 3)</h2>
+<div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 3: le Parquet partitionné</strong></p>
+</div>
+<div class="callout-content">
+<p>TO DO</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="old" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>OLD</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2344,23 +2483,23 @@ if (x_is_not_empty_string) {
 <li><p>Observer les nouveaux élements qui sont apparus dans le projet.</p></li>
 <li><p>Installer le <a href="https://gt.rstudio.com/">package <code>gt</code></a> et observer le message dans la console.</p></li>
 <li><p>Dans la partie sur les statistiques descriptives d’âge, ajouter ce code :</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>stats_age <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a></a>  <span class="fu">group_by</span>(<span class="at">decennie =</span> <span class="fu">decennie_a_partir_annee</span>(age)) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
-<span id="cb10-4"><a></a></span>
-<span id="cb10-5"><a></a>table_age <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(stats_age) <span class="sc">%&gt;%</span></span>
-<span id="cb10-6"><a></a>  gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
-<span id="cb10-7"><a></a>    <span class="at">title =</span> <span class="st">"Distribution des âges dans notre population"</span></span>
-<span id="cb10-8"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb10-9"><a></a>  gt<span class="sc">::</span><span class="fu">fmt_number</span>(</span>
-<span id="cb10-10"><a></a>    <span class="at">columns =</span> <span class="st">`</span><span class="at">n()</span><span class="st">`</span>,</span>
-<span id="cb10-11"><a></a>    <span class="at">sep_mark =</span> <span class="st">" "</span>,</span>
-<span id="cb10-12"><a></a>    <span class="at">decimals =</span> <span class="dv">0</span></span>
-<span id="cb10-13"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb10-14"><a></a>  gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
-<span id="cb10-15"><a></a>    <span class="at">decennie =</span> <span class="st">"Tranche d'âge"</span>,</span>
-<span id="cb10-16"><a></a>    <span class="st">`</span><span class="at">n()</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Population"</span></span>
-<span id="cb10-17"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>stats_age <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">group_by</span>(<span class="at">decennie =</span> <span class="fu">decennie_a_partir_annee</span>(age)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
+<span id="cb12-4"><a></a></span>
+<span id="cb12-5"><a></a>table_age <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(stats_age) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a></a>  gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
+<span id="cb12-7"><a></a>    <span class="at">title =</span> <span class="st">"Distribution des âges dans notre population"</span></span>
+<span id="cb12-8"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-9"><a></a>  gt<span class="sc">::</span><span class="fu">fmt_number</span>(</span>
+<span id="cb12-10"><a></a>    <span class="at">columns =</span> <span class="st">`</span><span class="at">n()</span><span class="st">`</span>,</span>
+<span id="cb12-11"><a></a>    <span class="at">sep_mark =</span> <span class="st">" "</span>,</span>
+<span id="cb12-12"><a></a>    <span class="at">decimals =</span> <span class="dv">0</span></span>
+<span id="cb12-13"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-14"><a></a>  gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
+<span id="cb12-15"><a></a>    <span class="at">decennie =</span> <span class="st">"Tranche d'âge"</span>,</span>
+<span id="cb12-16"><a></a>    <span class="st">`</span><span class="at">n()</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Population"</span></span>
+<span id="cb12-17"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </div>
 </div>
