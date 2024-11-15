@@ -119,6 +119,14 @@
 
 # V- `R` en production
 
+## De quoi parle-t-on ?
+
+- Production informatique
+
+- Production statistique
+
+- Self de production
+
 ## `R` : un langage de production ?
 
 - R est un langage statistique, dédié à l'analyse interactive
@@ -127,14 +135,6 @@
 
 - L'éco-système tidyverse s'oriente de plus en plus vers des outils production-ready
   - Objectif : présenter les outils et les possibilités
-
-## De quoi parle-t-on ?
-
-- Production informatique
-
-- Production statistique
-
-- Self de production
 
 ## Les trois commandemements d'Hadley
 
@@ -170,20 +170,17 @@
 - Penser à la maintenabilité
 
 - Bonnes pratiques de code
+  - Qualité du code
+  - Structure des projets
+  - Documentation
 
 - Standards communautaires
   - Formats de données interopérables : `Parquet`
   - Choix des packages : cf UtilitR
 
-## "Not just me"
+## "Not just once"
 
-- Production -> stabilité
-
-- Gérer les évolutions
-  - Packages
-
-- Tests unitaires
-  - `testthat`
+- Production -> anticiper les changements et y répondre
 
 - Monitoring
 
@@ -191,15 +188,18 @@
 
 - Les dépendances changent
 
+- Gérer les évolutions
+  - Packages
+
 - Spécifier et distribuer l'environnement
   - renv + Git
 
 ## "Not just once"
 
-- L'environnement change (OS, librairies système, version de R, etc.)
+- L'environnement change (OS, librairies système, packages, version de R, etc.)
 
-- Conteneurisation pour spécifier plus globalement
-  - LS3
+- Conteneurisation pour fixer de manière plus robuste
+  - LS3 -> non-persistence = coût d'entrée mais gains de prod ++
 
 ## "Not just once"
 
@@ -207,9 +207,8 @@
 
 - Factoriser pour éviter la duplication
 
-- Modélisation sous forme de DAG
-  - Dans le code
-  - Targets
+- Passage d'une experimentation chaotique -> prod linéaire
+  - Dans le code, ou Targets
 
 ## "Not just once"
 
@@ -218,7 +217,19 @@
 - Contrôle de qualité/validité
   - `pointblank`
 
+## "Not just once"
+
+- Automatisation
+  - Batchs périodiques
+  - Mise à jour d'une doc
+  - Déploiements de nouvelles version d'un Shiny
+
+- Intégration continue
+  - Accroît encore les bénéfices de Git
+
 ## "Not just my computer"
+
+
 
 ## Ressources supplémentaires
 
