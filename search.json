@@ -634,7 +634,7 @@
     "href": "slides/complete.html#utiliser-des-fichiers-parquet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Utiliser des fichiers Parquet",
-    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation\n\n\n\n\n\n\n\n\n\n\nExemple d’une requête lazy\n\n\nn_logements_depcom &lt;- achille |&gt; \n  filter(dep %in% c(\"01\", \"02\", \"03\")) |&gt;  # Récupère seulement les partitions nécessaires\n  select(idlogement, depcom) |&gt;  # Récupère seulement les colonnes nécessaires\n  group_by(depcom) |&gt;\n  summarise(n_logements = n()) |&gt;  \n  collect()  # Les calculs ne sont effectués qu'à cette étape !"
+    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation\n\n\n\n\n\n\n\n\n\n\nExemple d’une requête lazy\n\n\nn_logements_depcom &lt;- achille |&gt; \n  filter(dep %in% c(\"01\", \"02\", \"03\")) |&gt;  # Récupère seulement les données nécessaires\n  select(idlogement, depcom) |&gt;  # Récupère seulement les colonnes nécessaires\n  group_by(depcom) |&gt;\n  summarise(n_logements = n()) |&gt;  \n  collect()  # Les calculs ne sont effectués qu'à cette étape !"
   },
   {
     "objectID": "slides/complete.html#application-3-1",
@@ -1621,7 +1621,7 @@
     "href": "slides/light.html#utiliser-des-fichiers-parquet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Utiliser des fichiers Parquet",
-    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation\n\n\n\n\n\n\n\n\n\n\nExemple d’une requête lazy\n\n\nn_logements_depcom &lt;- achille |&gt; \n  filter(dep %in% c(\"01\", \"02\", \"03\")) |&gt;  # Récupère seulement les partitions nécessaires\n  select(idlogement, depcom) |&gt;  # Récupère seulement les colonnes nécessaires\n  group_by(depcom) |&gt;\n  summarise(n_logements = n()) |&gt;  \n  collect()  # Les calculs ne sont effectués qu'à cette étape !"
+    "text": "Utiliser des fichiers Parquet\n\nDeux frameworks de référence : Arrow et DuckDB\n\nOrientation fichier (Arrow) VS orientation BDD (DuckDB)\nTrès bonne intégration avec le tidyverse\n\nTraitement en-mémoire optimisé\n\nOrientés-colonne\nLazy evaluation\n\n\n\n\n\n\n\n\n\n\nExemple d’une requête lazy\n\n\nn_logements_depcom &lt;- achille |&gt; \n  filter(dep %in% c(\"01\", \"02\", \"03\")) |&gt;  # Récupère seulement les données nécessaires\n  select(idlogement, depcom) |&gt;  # Récupère seulement les colonnes nécessaires\n  group_by(depcom) |&gt;\n  summarise(n_logements = n()) |&gt;  \n  collect()  # Les calculs ne sont effectués qu'à cette étape !"
   },
   {
     "objectID": "slides/light.html#application-3-1",

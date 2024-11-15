@@ -1976,7 +1976,7 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>n_logements_depcom <span class="ot">&lt;-</span> achille <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a></a>  <span class="fu">filter</span>(dep <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>)) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les partitions nécessaires</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">filter</span>(dep <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>)) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les données nécessaires</span></span>
 <span id="cb9-3"><a></a>  <span class="fu">select</span>(idlogement, depcom) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les colonnes nécessaires</span></span>
 <span id="cb9-4"><a></a>  <span class="fu">group_by</span>(depcom) <span class="sc">|&gt;</span></span>
 <span id="cb9-5"><a></a>  <span class="fu">summarise</span>(<span class="at">n_logements =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span>  </span>
