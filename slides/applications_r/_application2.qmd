@@ -42,7 +42,7 @@ En ligne de commande:
 
 ```{.bash}
 git stash
-git checkout appli1
+git checkout appli2
 ```
 
 ![](checkpoint.jpg){width="30%"}
