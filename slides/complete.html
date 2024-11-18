@@ -2009,7 +2009,7 @@ if (x_is_not_empty_string) {
 <div class="callout-content">
 <p>En ligne de commande:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="fu">git</span> stash</span>
-<span id="cb8-2"><a></a><span class="fu">git</span> checkout appli1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a></a><span class="fu">git</span> checkout appli2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img data-src="checkpoint.jpg" style="width:30.0%"></p>
 </div>
 </div>
@@ -2285,15 +2285,6 @@ Mesurer le temps d’exécution
 </ul></li>
 <li>Ajouter après cette étape de lecture du fichier le filter <code>filter(REGION == "24")</code>. Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?</li>
 </ul>
-<p>Généralisation des tests de performance:</p>
-<ul>
-<li>Reprendre le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark.R">ce fichier</a>.
-<ul>
-<li>Installer les packages nécessaires (ils sont listés au début du script)</li>
-<li>Exécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du <em>profiling</em> permettant de mesurer la répartition du temps de différents processus.</li>
-</ul></li>
-<li>Quand tout a fini de tourner, regarder le tableau obtenu.</li>
-</ul>
 </div>
 </div>
 </div>
@@ -2330,46 +2321,118 @@ Mesurer le temps d’exécution
 <p><strong>Partie 3: le Parquet partitionné</strong></p>
 </div>
 <div class="callout-content">
-<p>TO DO</p>
+<ul>
+<li>Utiliser le code ci-dessous pour partitionner le fichier <code>Parquet</code> par <em>“REGION”</em> et <em>“DEPT”</em></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">open_dataset</span>(filename_full_parquet) <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a></a>  <span class="fu">group_by</span>(REGION, DEPT) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">write_dataset</span>(<span class="st">"./data/RPindividus"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Observer l’arborescence de fichiers</li>
+<li>Utiliser <code>Arrow</code> pour lire les données de la Corse du Sud (code région 94, code département 2A) à partir de ce fichier partitionné</li>
+</ul>
 </div>
 </div>
 </div>
+</div>
+<div>
+<p><em>❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques:</em></p>
+<ul>
+<li><em>Que faudrait-il faire ?</em></li>
+<li><em>Quelle est la limite ?</em></li>
+</ul>
 </div>
 </section>
-<section id="old" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>OLD</h2>
+<section id="application-3-partie-4" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3 (partie 4)</h2>
+<div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Du CSV au Parquet</strong></p>
+<p><strong>Partie 4: Généralisation des tests de performance (optionnel)</strong></p>
 </div>
 <div class="callout-content">
+<ul>
+<li>Reprendre le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark.R">ce fichier</a>.
+<ul>
+<li>Installer les packages nécessaires (ils sont listés au début du script)</li>
+<li>Exécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du <em>profiling</em> permettant de mesurer la répartition du temps de différents processus.</li>
+</ul></li>
+<li>Quand tout a fini de tourner, regarder le tableau obtenu.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<img data-src="img/tableau-perf-parquet.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="application-3-partie-5" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3 (partie 5)</h2>
 <div>
-<ol type="1">
-<li>Effacer la base <code>individu_reg.csv</code></li>
-<li>Modifier le script <code>get_data.R</code> pour écrire les données au format <code>Parquet</code> à l’aide de la fonction <a href="https://arrow.apache.org/docs/r/reference/write_parquet.html">arrow::write_parquet</a></li>
-<li>Exécuter le script <code>get_data.R</code> modifié et comparer les tailles du fichier <code>csv</code> initial et du fichier <code>parquet</code></li>
-<li>Modifier la phase d’import dans <code>script.R</code> pour importer le fichier <code>Parquet</code> à l’aide de la fonction <a href="https://arrow.apache.org/docs/r/reference/read_parquet.html">arrow::read_parquet</a></li>
-<li>Exécuter <code>script.R</code> et vérifier son bon fonctionnement</li>
-</ol>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 5: mise à jour de la chaîne de production</strong></p>
+</div>
+<div class="callout-content">
+<p>Nous allons mettre à jour les données utilisées pour notre chaîne de production:</p>
+<ul>
+<li>Lire les données à partir du morceau de code proposé</li>
+<li>Changer la partie modélisation pour ne pas faire tourner celle-ci sur un gros modèle (proposition ci-dessous)</li>
+<li>Vérifier que le code tourne de A à Z et changer celui-ci marginalement si ce n’est pas le cas</li>
+</ul>
+<details>
+<summary>
+Modification du code pour l’import de données
+</summary>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb13-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
+<span id="cb13-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span></span>
+<span id="cb13-4"><a></a>)</span>
+<span id="cb13-5"><a></a></span>
+<span id="cb13-6"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<span id="cb13-7"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
+<span id="cb13-8"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
+<span id="cb13-9"><a></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-10"><a></a>  <span class="fu">filter</span>(REGION <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-11"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-12"><a></a>  <span class="fu">collect</span>()</span>
+<span id="cb13-13"><a></a></span>
+<span id="cb13-14"><a></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb13-15"><a></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">%&gt;%</span></span>
+<span id="cb13-16"><a></a>  <span class="fu">as_tibble</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<details>
+<summary>
+Changement proposé pour la partie modélisation
+</summary>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>echantillon_modelisation <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">filter</span>(surf <span class="sc">!=</span> <span class="st">"Z"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">sample_n</span>(<span class="dv">1000</span>)</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a>MASS<span class="sc">::</span><span class="fu">polr</span>(surf <span class="sc">~</span> couple <span class="sc">+</span> sexe, echantillon_modelisation)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </div>
 </div>
 </div>
+<p><em>❓️ Cette mise à jour des données utilisées vous est-elle apparue plus simple que les changements de l’application 1 ?</em></p>
 </section>
 <section id="checkpoint-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
-<div>
-
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="quarto-layout-panel" data-layout="[30,70]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
-<ul>
-<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/script.R">script.R</a></li>
-<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/get_data.R">get_data.R</a></li>
-</ul>
-<p><img data-src="checkpoint.jpg"></p>
+<p><strong>Checkpoint</strong></p>
+</div>
+<div class="callout-content">
+<p>En ligne de commande:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="fu">git</span> stash</span>
+<span id="cb15-2"><a></a><span class="fu">git</span> checkout appli3</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img data-src="checkpoint.jpg" style="width:30.0%"></p>
 </div>
 </div>
 </div>
@@ -2483,23 +2546,23 @@ Mesurer le temps d’exécution
 <li><p>Observer les nouveaux élements qui sont apparus dans le projet.</p></li>
 <li><p>Installer le <a href="https://gt.rstudio.com/">package <code>gt</code></a> et observer le message dans la console.</p></li>
 <li><p>Dans la partie sur les statistiques descriptives d’âge, ajouter ce code :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>stats_age <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">group_by</span>(<span class="at">decennie =</span> <span class="fu">decennie_a_partir_annee</span>(age)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
-<span id="cb12-4"><a></a></span>
-<span id="cb12-5"><a></a>table_age <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(stats_age) <span class="sc">%&gt;%</span></span>
-<span id="cb12-6"><a></a>  gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
-<span id="cb12-7"><a></a>    <span class="at">title =</span> <span class="st">"Distribution des âges dans notre population"</span></span>
-<span id="cb12-8"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-9"><a></a>  gt<span class="sc">::</span><span class="fu">fmt_number</span>(</span>
-<span id="cb12-10"><a></a>    <span class="at">columns =</span> <span class="st">`</span><span class="at">n()</span><span class="st">`</span>,</span>
-<span id="cb12-11"><a></a>    <span class="at">sep_mark =</span> <span class="st">" "</span>,</span>
-<span id="cb12-12"><a></a>    <span class="at">decimals =</span> <span class="dv">0</span></span>
-<span id="cb12-13"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-14"><a></a>  gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
-<span id="cb12-15"><a></a>    <span class="at">decennie =</span> <span class="st">"Tranche d'âge"</span>,</span>
-<span id="cb12-16"><a></a>    <span class="st">`</span><span class="at">n()</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Population"</span></span>
-<span id="cb12-17"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>stats_age <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">group_by</span>(<span class="at">decennie =</span> <span class="fu">decennie_a_partir_annee</span>(age)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
+<span id="cb16-4"><a></a></span>
+<span id="cb16-5"><a></a>table_age <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(stats_age) <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a></a>  gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
+<span id="cb16-7"><a></a>    <span class="at">title =</span> <span class="st">"Distribution des âges dans notre population"</span></span>
+<span id="cb16-8"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-9"><a></a>  gt<span class="sc">::</span><span class="fu">fmt_number</span>(</span>
+<span id="cb16-10"><a></a>    <span class="at">columns =</span> <span class="st">`</span><span class="at">n()</span><span class="st">`</span>,</span>
+<span id="cb16-11"><a></a>    <span class="at">sep_mark =</span> <span class="st">" "</span>,</span>
+<span id="cb16-12"><a></a>    <span class="at">decimals =</span> <span class="dv">0</span></span>
+<span id="cb16-13"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb16-14"><a></a>  gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
+<span id="cb16-15"><a></a>    <span class="at">decennie =</span> <span class="st">"Tranche d'âge"</span>,</span>
+<span id="cb16-16"><a></a>    <span class="st">`</span><span class="at">n()</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Population"</span></span>
+<span id="cb16-17"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ol>
 </div>
 </div>
@@ -2545,7 +2608,7 @@ Mesurer le temps d’exécution
 </div>
 </div>
 </section>
-<section id="checkpoint-5" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="checkpoint-6" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
 <div>
 

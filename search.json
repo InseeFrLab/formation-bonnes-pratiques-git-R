@@ -578,7 +578,7 @@
     "href": "slides/complete.html#checkpoint-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli1"
+    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli2"
   },
   {
     "objectID": "slides/complete.html#enjeux-2",
@@ -655,7 +655,7 @@
     "href": "slides/complete.html#application-3-partie-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3 (partie 2)",
-    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2: Un format léger et efficace\n\n\nDans cet exercice, vous devrez utiliser open_dataset pour lire les Parquet.\n\nObserver l’espace disque de chaque fichier par le biais de l’explorateur de fichiers\nMesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable filename_full_parquet.\n\nFaire ceci avec et sans le filtre des colonnes1.\nLa croissance du temps de traitement vous apparaît-elle énorme ?\n\nAjouter après cette étape de lecture du fichier le filter filter(REGION == \"24\"). Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?\n\nGénéralisation des tests de performance:\n\nReprendre le contenu de ce fichier.\n\nInstaller les packages nécessaires (ils sont listés au début du script)\nExécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du profiling permettant de mesurer la répartition du temps de différents processus.\n\nQuand tout a fini de tourner, regarder le tableau obtenu.\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ?\nNe pas faire ceci maintenant avec le CSV, le benchmark arrive prochainement."
+    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2: Un format léger et efficace\n\n\nDans cet exercice, vous devrez utiliser open_dataset pour lire les Parquet.\n\nObserver l’espace disque de chaque fichier par le biais de l’explorateur de fichiers\nMesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable filename_full_parquet.\n\nFaire ceci avec et sans le filtre des colonnes1.\nLa croissance du temps de traitement vous apparaît-elle énorme ?\n\nAjouter après cette étape de lecture du fichier le filter filter(REGION == \"24\"). Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ?\nNe pas faire ceci maintenant avec le CSV, le benchmark arrive prochainement."
   },
   {
     "objectID": "slides/complete.html#application-3-partie-2-1",
@@ -669,21 +669,28 @@
     "href": "slides/complete.html#application-3-partie-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3 (partie 3)",
-    "text": "Application 3 (partie 3)\n\n\n\n\nPartie 3: le Parquet partitionné\n\n\nTO DO"
+    "text": "Application 3 (partie 3)\n\n\n\n\nPartie 3: le Parquet partitionné\n\n\n\nUtiliser le code ci-dessous pour partitionner le fichier Parquet par “REGION” et “DEPT”\n\nopen_dataset(filename_full_parquet) %&gt;%\n  group_by(REGION, DEPT) %&gt;%\n  write_dataset(\"./data/RPindividus\")\n\nObserver l’arborescence de fichiers\nUtiliser Arrow pour lire les données de la Corse du Sud (code région 94, code département 2A) à partir de ce fichier partitionné\n\n\n\n\n\n\n❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques:\n\nQue faudrait-il faire ?\nQuelle est la limite ?"
   },
   {
-    "objectID": "slides/complete.html#old",
-    "href": "slides/complete.html#old",
+    "objectID": "slides/complete.html#application-3-partie-4",
+    "href": "slides/complete.html#application-3-partie-4",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "OLD",
-    "text": "OLD\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
+    "section": "Application 3 (partie 4)",
+    "text": "Application 3 (partie 4)\n\n\n\n\nPartie 4: Généralisation des tests de performance (optionnel)\n\n\n\nReprendre le contenu de ce fichier.\n\nInstaller les packages nécessaires (ils sont listés au début du script)\nExécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du profiling permettant de mesurer la répartition du temps de différents processus.\n\nQuand tout a fini de tourner, regarder le tableau obtenu."
+  },
+  {
+    "objectID": "slides/complete.html#application-3-partie-5",
+    "href": "slides/complete.html#application-3-partie-5",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 5)",
+    "text": "Application 3 (partie 5)\n\n\n\n\nPartie 5: mise à jour de la chaîne de production\n\n\nNous allons mettre à jour les données utilisées pour notre chaîne de production:\n\nLire les données à partir du morceau de code proposé\nChanger la partie modélisation pour ne pas faire tourner celle-ci sur un gros modèle (proposition ci-dessous)\nVérifier que le code tourne de A à Z et changer celui-ci marginalement si ce n’est pas le cas\n\n\n\nModification du code pour l’import de données\n\ncolumns_subset &lt;- c(\n  \"REGION\", \"AGED\", \"ANAI\", \"CATL\", \"COUPLE\",\n  \"SEXE\", \"SURF\", \"TP\", \"TRANS\"\n)\n\ndf &lt;- open_dataset(\n  \"./data/RPindividus\",\n  hive_style = TRUE\n) %&gt;%\n  filter(REGION == 24) %&gt;%\n  select(any_of(columns_subset)) %&gt;%\n  collect()\n\ndf &lt;- df %&gt;%\n  rename_with(tolower) %&gt;%\n  as_tibble()\n\n\n\nChangement proposé pour la partie modélisation\n\nechantillon_modelisation &lt;- df %&gt;%\n  filter(surf != \"Z\") %&gt;%\n  sample_n(1000)\n\nMASS::polr(surf ~ couple + sexe, echantillon_modelisation)\n\n\n\n\n\n❓️ Cette mise à jour des données utilisées vous est-elle apparue plus simple que les changements de l’application 1 ?"
   },
   {
     "objectID": "slides/complete.html#checkpoint-4",
     "href": "slides/complete.html#checkpoint-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R\nget_data.R"
+    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli3"
   },
   {
     "objectID": "slides/complete.html#expérience-de-pensée",
@@ -763,8 +770,8 @@
     "text": "Application 4\n\n\n\nPartie 3 : test de la portabilité (facultatif)\n\n\n\n\nOuvrir un nouveau service RStudio\nCloner votre dépôt\nExécuter renv::restore() pour installer les packages nécessaires à l’exécution du projet\nVérifier que le script.R s’exécute correctement dans ce nouvel environnement."
   },
   {
-    "objectID": "slides/complete.html#checkpoint-5",
-    "href": "slides/complete.html#checkpoint-5",
+    "objectID": "slides/complete.html#checkpoint-6",
+    "href": "slides/complete.html#checkpoint-6",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
     "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R"
@@ -1600,7 +1607,7 @@
     "href": "slides/light.html#checkpoint-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli1"
+    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli2"
   },
   {
     "objectID": "slides/light.html#enjeux-2",
@@ -1677,7 +1684,7 @@
     "href": "slides/light.html#application-3-partie-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3 (partie 2)",
-    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2: Un format léger et efficace\n\n\nDans cet exercice, vous devrez utiliser open_dataset pour lire les Parquet.\n\nObserver l’espace disque de chaque fichier par le biais de l’explorateur de fichiers\nMesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable filename_full_parquet.\n\nFaire ceci avec et sans le filtre des colonnes1.\nLa croissance du temps de traitement vous apparaît-elle énorme ?\n\nAjouter après cette étape de lecture du fichier le filter filter(REGION == \"24\"). Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?\n\nGénéralisation des tests de performance:\n\nReprendre le contenu de ce fichier.\n\nInstaller les packages nécessaires (ils sont listés au début du script)\nExécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du profiling permettant de mesurer la répartition du temps de différents processus.\n\nQuand tout a fini de tourner, regarder le tableau obtenu.\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ?\nNe pas faire ceci maintenant avec le CSV, le benchmark arrive prochainement."
+    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2: Un format léger et efficace\n\n\nDans cet exercice, vous devrez utiliser open_dataset pour lire les Parquet.\n\nObserver l’espace disque de chaque fichier par le biais de l’explorateur de fichiers\nMesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable filename_full_parquet.\n\nFaire ceci avec et sans le filtre des colonnes1.\nLa croissance du temps de traitement vous apparaît-elle énorme ?\n\nAjouter après cette étape de lecture du fichier le filter filter(REGION == \"24\"). Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ?\nNe pas faire ceci maintenant avec le CSV, le benchmark arrive prochainement."
   },
   {
     "objectID": "slides/light.html#application-3-partie-2-1",
@@ -1691,21 +1698,28 @@
     "href": "slides/light.html#application-3-partie-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3 (partie 3)",
-    "text": "Application 3 (partie 3)\n\n\n\n\nPartie 3: le Parquet partitionné\n\n\nTO DO"
+    "text": "Application 3 (partie 3)\n\n\n\n\nPartie 3: le Parquet partitionné\n\n\n\nUtiliser le code ci-dessous pour partitionner le fichier Parquet par “REGION” et “DEPT”\n\nopen_dataset(filename_full_parquet) %&gt;%\n  group_by(REGION, DEPT) %&gt;%\n  write_dataset(\"./data/RPindividus\")\n\nObserver l’arborescence de fichiers\nUtiliser Arrow pour lire les données de la Corse du Sud (code région 94, code département 2A) à partir de ce fichier partitionné\n\n\n\n\n\n\n❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques:\n\nQue faudrait-il faire ?\nQuelle est la limite ?"
   },
   {
-    "objectID": "slides/light.html#old",
-    "href": "slides/light.html#old",
+    "objectID": "slides/light.html#application-3-partie-4",
+    "href": "slides/light.html#application-3-partie-4",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "OLD",
-    "text": "OLD\n\n\n\nDu CSV au Parquet\n\n\n\n\nEffacer la base individu_reg.csv\nModifier le script get_data.R pour écrire les données au format Parquet à l’aide de la fonction arrow::write_parquet\nExécuter le script get_data.R modifié et comparer les tailles du fichier csv initial et du fichier parquet\nModifier la phase d’import dans script.R pour importer le fichier Parquet à l’aide de la fonction arrow::read_parquet\nExécuter script.R et vérifier son bon fonctionnement"
+    "section": "Application 3 (partie 4)",
+    "text": "Application 3 (partie 4)\n\n\n\n\nPartie 4: Généralisation des tests de performance (optionnel)\n\n\n\nReprendre le contenu de ce fichier.\n\nInstaller les packages nécessaires (ils sont listés au début du script)\nExécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du profiling permettant de mesurer la répartition du temps de différents processus.\n\nQuand tout a fini de tourner, regarder le tableau obtenu."
+  },
+  {
+    "objectID": "slides/light.html#application-3-partie-5",
+    "href": "slides/light.html#application-3-partie-5",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 3 (partie 5)",
+    "text": "Application 3 (partie 5)\n\n\n\n\nPartie 5: mise à jour de la chaîne de production\n\n\nNous allons mettre à jour les données utilisées pour notre chaîne de production:\n\nLire les données à partir du morceau de code proposé\nChanger la partie modélisation pour ne pas faire tourner celle-ci sur un gros modèle (proposition ci-dessous)\nVérifier que le code tourne de A à Z et changer celui-ci marginalement si ce n’est pas le cas\n\n\n\nModification du code pour l’import de données\n\ncolumns_subset &lt;- c(\n  \"REGION\", \"AGED\", \"ANAI\", \"CATL\", \"COUPLE\",\n  \"SEXE\", \"SURF\", \"TP\", \"TRANS\"\n)\n\ndf &lt;- open_dataset(\n  \"./data/RPindividus\",\n  hive_style = TRUE\n) %&gt;%\n  filter(REGION == 24) %&gt;%\n  select(any_of(columns_subset)) %&gt;%\n  collect()\n\ndf &lt;- df %&gt;%\n  rename_with(tolower) %&gt;%\n  as_tibble()\n\n\n\nChangement proposé pour la partie modélisation\n\nechantillon_modelisation &lt;- df %&gt;%\n  filter(surf != \"Z\") %&gt;%\n  sample_n(1000)\n\nMASS::polr(surf ~ couple + sexe, echantillon_modelisation)\n\n\n\n\n\n❓️ Cette mise à jour des données utilisées vous est-elle apparue plus simple que les changements de l’application 1 ?"
   },
   {
     "objectID": "slides/light.html#checkpoint-4",
     "href": "slides/light.html#checkpoint-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nscript.R\nget_data.R"
+    "text": "Checkpoint\n\n\n\n\n\n\nCheckpoint\n\n\nEn ligne de commande:\ngit stash\ngit checkout appli3"
   },
   {
     "objectID": "slides/light.html#ressources-supplémentaires-3",
