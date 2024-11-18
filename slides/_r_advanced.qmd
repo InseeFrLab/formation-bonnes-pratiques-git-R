@@ -121,27 +121,32 @@
 
 ## De quoi parle-t-on ?
 
-- Production informatique
+- [**Production statistique**]{.orange} : chiffres, données, analyses produits par l'Insee
 
-- Production statistique
+- [**Production informatique**]{.orange} : processus déployés par la DSI sur des [**infrastructures avec "garantie de service"**]{.blue2}
 
-- Self de production
+- [**Self de production**]{.orange} : processus déployés sur une [**infra "self"**]{.blue2} (AUS, LS3) contribuant à la production statistique
+
+- [**Code de production**]{.orange} : code respectant des [**standards de qualité**]{.blue2} qui le rendent [**efficace**]{.blue2} et [**maintenable**]{.blue2}
 
 ## `R` : un langage de production ?
 
-- R est un langage statistique, dédié à l'analyse interactive
+- `R` a émergé dans la [**communauté statistique**]{.orange}
+  - Primauté des outils d'[**analyse interactive**]{.blue2}
+  - [**Outils de développement**]{.blue2} limités
 
-- Moins d'outils de développement que dans d'autre langages (Python)
+- L'[**éco-système tidyverse**]{.orange} s'oriente vers des outils [***production-ready***]{.blue2}
 
-- L'éco-système tidyverse s'oriente de plus en plus vers des outils production-ready
-  - Objectif : présenter les outils et les possibilités
+. . .
 
-## Les trois commandemements d'Hadley
+![](img/tidyverse.png){height="250" fig-align="center"}
 
-- Le code de production a trois caractéristiques
-  - "Not just me"
-  - "Not just once"
-  - "Not just my computer"
+## Les trois commandemements d'Hadley Wickham
+
+- Le [**code de production**]{.orange} a trois caractéristiques
+  - [**"Not just me"**]{.blue2}
+  - [**"Not just once"**]{.blue2}
+  - [**"Not just my computer"**]{.blue2}
 
 . . .
 
