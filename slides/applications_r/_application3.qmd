@@ -74,12 +74,6 @@ Dans cet exercice, vous devrez utiliser `open_dataset` pour lire les `Parquet`.
     + La croissance du temps de traitement vous apparaît-elle énorme ? 
 * Ajouter après cette étape de lecture du fichier le filter `filter(REGION == "24")`. Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?   
 
-Généralisation des tests de performance:
-
-* Reprendre le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark.R). 
-    * Installer les packages nécessaires (ils sont listés au début du script)
-    * Exécuter le script. Pendant que l'import en CSV tourne (c'est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du _profiling_ permettant de mesurer la répartition du temps de différents processus.
-* Quand tout a fini de tourner, regarder le tableau obtenu.
 :::
 
 _❓️ Dans quel ordre sont faits les filtres par `Arrow` ?_
@@ -106,33 +100,101 @@ _❓️ Dans quel ordre sont faits les filtres par `Arrow` ? Comment faire si on
 :::{.callout-tip .nonincremental collapse="true" icon=false}
 # Partie 3: le Parquet partitionné
 
-TO DO 
+* Utiliser le code ci-dessous pour partitionner le fichier `Parquet` par _"REGION"_ et _"DEPT"_
+
+```{.r}
+open_dataset(filename_full_parquet) %>%
+  group_by(REGION, DEPT) %>%
+  write_dataset("./data/RPindividus")
+```
+
+* Observer l'arborescence de fichiers
+* Utiliser `Arrow` pour lire les données de la Corse du Sud (code région 94, code département 2A) à partir de ce fichier partitionné
+
+:::
+
+_❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques: que faudrait-il faire ? Quelle est la limite ?_
+
+
+## Application 3 (partie 4) {.smaller}
+
+:::{.callout-tip .nonincremental collapse="true" icon=false}
+# Partie 4: Généralisation des tests de performance (optionnel)
+
+* Reprendre le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark.R). 
+    * Installer les packages nécessaires (ils sont listés au début du script)
+    * Exécuter le script. Pendant que l'import en CSV tourne (c'est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du _profiling_ permettant de mesurer la répartition du temps de différents processus.
+* Quand tout a fini de tourner, regarder le tableau obtenu.
 :::
 
 
-## OLD
+## Application 3 (partie 4) {.smaller}
 
-:::{.callout-tip collapse="true" icon=false}
-## Du CSV au Parquet
+:::{.callout-tip .nonincremental collapse="true" icon=false}
+# Partie 5: mise à jour de la chaîne de production
 
-::: {.nonincremental}
-1. Effacer la base `individu_reg.csv`
-2. Modifier le script `get_data.R` pour écrire les données au format `Parquet` à l'aide de la fonction [arrow::write_parquet](https://arrow.apache.org/docs/r/reference/write_parquet.html)
-3. Exécuter le script `get_data.R` modifié et comparer les tailles du fichier `csv` initial et du fichier `parquet`
-4. Modifier la phase d'import dans `script.R` pour importer le fichier `Parquet` à l'aide de la fonction [arrow::read_parquet](https://arrow.apache.org/docs/r/reference/read_parquet.html)
-5. Exécuter `script.R` et vérifier son bon fonctionnement
-:::
+* Lire les données à partir du morceau de code proposé
+* Changer la partie modélisation pour ne pas faire tourner celle-ci sur un gros modèle (proposition ci-dessous)
+* Vérifier que le code tourne de A à Z et changer celui-ci marginalement si ce n'est pas le cas
 
-:::
+<details>
+
+<summary>
+Modification du code pour l'import de données
+</summary>
+
+```{.r}
+columns_subset <- c(
+  "REGION", "AGED", "ANAI", "CATL", "COUPLE",
+  "SEXE", "SURF", "TP", "TRANS"
+)
+
+df <- open_dataset(
+  "./data/RPindividus",
+  hive_style = TRUE
+) %>%
+  filter(REGION == 24) %>%
+  select(any_of(columns_subset)) %>%
+  collect()
+
+df <- df %>%
+  rename_with(tolower) %>%
+  as_tibble()
+```
+
+</details>
+
+
+<details>
+
+<summary>
+Changement proposé pour la partie modélisation
+</summary>
+
+
+```{.r}
+echantillon_modelisation <- df %>%
+  filter(surf != "Z") %>%
+  sample_n(1000)
+
+MASS::polr(surf ~ couple + sexe, echantillon_modelisation)
+```
+
+</details>
+
 
 ## Checkpoint
 
-::: {layout=[30,70]}
-:::{.nonincremental}
+::: {.callout-caution}
+## Checkpoint
 
-- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/script.R)
-- [get_data.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/get_data.R)
+En ligne de commande:
 
-![](checkpoint.jpg){width=60%}
-:::
+```{.bash}
+git stash
+git checkout appli3
+```
+
+![](checkpoint.jpg){width="30%"}
+
 :::

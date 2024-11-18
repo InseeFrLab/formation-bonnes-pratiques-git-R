@@ -8,7 +8,6 @@
 ## Préparation de l'environnement de travail
 
 
- 
 
 ::: {.nonincremental}
 1. Application préliminaire: forker le dépôt d’exemple {{< fa brands github >}} [`InseeFrLab/formation-bonnes-pratiques-exo-correction`](https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction)[^1]
