@@ -137,10 +137,12 @@ _❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certai
 ![](img/tableau-perf-parquet.png){fig-align="center"}
 
 
-## Application 3 (partie 4) {.smaller}
+## Application 3 (partie 5) {.smaller}
 
 :::{.callout-tip .nonincremental collapse="true" icon=false}
 # Partie 5: mise à jour de la chaîne de production
+
+Nous allons mettre à jour les données utilisées pour notre chaîne de production:
 
 * Lire les données à partir du morceau de code proposé
 * Changer la partie modélisation pour ne pas faire tourner celle-ci sur un gros modèle (proposition ci-dessous)
@@ -193,6 +195,9 @@ MASS::polr(surf ~ couple + sexe, echantillon_modelisation)
 
 :::
 
+
+
+_❓️ Cette mise à jour des données utilisées vous est-elle apparue plus simple que les changements de l'application 1 ?_
 
 
 ## Checkpoint
