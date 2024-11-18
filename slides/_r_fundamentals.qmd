@@ -127,7 +127,7 @@ portion de code plus de deux fois ([**_don't repeat yourself_ (DRY)**]{.red2})
 
 👎 La documentation pallie des mauvais nommages
 
-```{.r}
+```
 # Utilise string si x est non manquant et non vide
 if (!is.na(x) && nzchar(x)) {
   use_string(x)
@@ -136,7 +136,7 @@ if (!is.na(x) && nzchar(x)) {
 
 👍 Les nommages suffisent à comprendre le code
 
-```{.r}
+```
 x_is_not_empty_string <- (!is.na(x) && nzchar(x))
 if (x_is_not_empty_string) {
   use_string(x)
@@ -208,7 +208,6 @@ if (x_is_not_empty_string) {
 
 ## Bilan
 
-
 ::::: {.columns}
 
 :::: {.column width="60%"}
@@ -228,6 +227,10 @@ if (x_is_not_empty_string) {
 ::::
 
 :::::
+
+
+
+
 
 
 
@@ -414,11 +417,11 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 ::: {.nonincremental}
 ::::: {.callout-note}
-## Exemple: recensement de la population
+## Exemple: Recensement de la Population
 
-- 20 millions de lignes, 88 colonnes
-    - CSV: > 5Go
-    - Parquet: 508Mo
+- [Ficher détail](https://www.insee.fr/fr/statistiques/8268848?sommaire=8205966) : 20 millions de lignes, 92 variables
+    - CSV: > 4Go
+    - Parquet: < 500Mo
 :::::
 :::
 
@@ -429,7 +432,7 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 - [**"Orienté colonne"**]{.orange}
   - Optimisé pour les [**traitements analytiques**]{.blue2}
-  - Limite la quantité de données à mettre en RAM
+  - Limite la quantité de données à mettre en mémoire
 
 . . .
 
@@ -437,17 +440,27 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 ## Le format `Parquet`
 
-- Possibilité de [**partitionner**]{.orange} les données :
-  - Optimise la [**lecture**]{.blue2} pour certaines requêtes
+- [**Partitionner**]{.orange} les données pour [**optimiser la lecture**]{.blue2}
 
 . . .
 
-![](img/partitions.png){fig-align="center"}
+![](img/partitions.png){fig-align="center" height="250"}
+
+::: {.nonincremental}
+::::: {.callout-warning}
+## L'art de bien partitionner
+
+- Partitionner par une/des [**variable(s) d'intérêt**]{.blue2} (ex : millésime x département)
+
+- [**Eviter**]{.blue2} de créer de [**nombreux petits (< 128Mo) fichiers**]{.blue2}
+
+:::::
+:::
 
 ## Le format `Parquet`
 
 - Gestion native des [**méta-données**]{.orange}
-  - Définition d'un [**schéma**]{.blue2}
+  - Définition automatique d'un [**schéma**]{.blue2} (noms, types)
   - Mise à disposition plus [**robuste**]{.blue2}
 
 - [**Interopérable**]{.orange}
@@ -463,5 +476,23 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 - [**Traitement en-mémoire optimisé**]{.orange}
   - [**Orientés-colonne**]{.blue2}
   - [***Lazy evaluation***]{.blue2}
+
+. . .
+
+::: {.nonincremental}
+::::: {.callout-note}
+## Exemple d'une requête *lazy*
+
+```R
+n_logements_depcom <- achille |> 
+  filter(dep %in% c("01", "02", "03")) |>  # Récupère seulement les données nécessaires
+  select(idlogement, depcom) |>  # Récupère seulement les colonnes nécessaires
+  group_by(depcom) |>
+  summarise(n_logements = n()) |>  
+  collect()  # Les calculs ne sont effectués qu'à cette étape !
+```
+
+:::::
+:::
 
 {{< include applications_r/_application3.qmd >}}
