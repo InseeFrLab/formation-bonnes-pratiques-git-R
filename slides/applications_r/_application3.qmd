@@ -97,7 +97,7 @@ _❓️ Dans quel ordre sont faits les filtres par `Arrow` ? Comment faire si on
 
 ## Application 3 (partie 3) {.smaller}
 
-:::{.callout-tip .nonincremental collapse="true" icon=false}
+::: {.callout-tip .nonincremental collapse="true" icon=false}
 # Partie 3: le Parquet partitionné
 
 * Utiliser le code ci-dessous pour partitionner le fichier `Parquet` par _"REGION"_ et _"DEPT"_
@@ -113,8 +113,14 @@ open_dataset(filename_full_parquet) %>%
 
 :::
 
-_❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques: que faudrait-il faire ? Quelle est la limite ?_
+::: {.nonincremental}
 
+_❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques:_
+
+* _Que faudrait-il faire ?_
+* _Quelle est la limite ?_
+
+:::
 
 ## Application 3 (partie 4) {.smaller}
 
@@ -126,6 +132,9 @@ _❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certai
     * Exécuter le script. Pendant que l'import en CSV tourne (c'est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du _profiling_ permettant de mesurer la répartition du temps de différents processus.
 * Quand tout a fini de tourner, regarder le tableau obtenu.
 :::
+
+
+![](img/tableau-perf-parquet.png){fig-align="center"}
 
 
 ## Application 3 (partie 4) {.smaller}
@@ -181,6 +190,9 @@ MASS::polr(surf ~ couple + sexe, echantillon_modelisation)
 ```
 
 </details>
+
+:::
+
 
 
 ## Checkpoint

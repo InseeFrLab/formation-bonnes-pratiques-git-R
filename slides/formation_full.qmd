@@ -86,7 +86,6 @@ from: markdown+emoji
 {{< include _r_resources.qmd >}}
 
 
-
 # Conclusion
 
 {{< include _conclusion.qmd >}}
