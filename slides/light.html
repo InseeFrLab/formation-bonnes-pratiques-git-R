@@ -1101,15 +1101,15 @@ _Workflow_ (version littéraire) :
 <div class="callout-content">
 <div>
 <ol type="1">
-<li>Application préliminaire: forker le dépôt d’exemple <i class="fa-brands fa-github" aria-label="github"></i> <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction"><code>InseeFrLab/formation-bonnes-pratiques-exo-correction</code></a><sup>1</sup></li>
+<li>Créer un dépôt sur <code>Github</code> <i class="fa-brands fa-github" aria-label="github"></i> en <strong>incluant un fichier <code>README</code></strong> et un <code>.gitignore</code> (chercher le modèle <code>R</code> dans les suggestions)</li>
 <li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitHub</code> à une valeur suffisamment élevée (conseil: 36000)</li>
 <li>Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> du <code>Datalab</code>):
 <ul>
 <li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
 </ul></li>
-<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/get_data.R">ce fichier</a>, puis l’exécuter</li>
-<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/script.R">ce fichier</a>. <strong>Ne l’exécutez pas, c’est l’objet de l’exercice suivant</strong>.</li>
-<li>Ajouter la règle “individu_reg.*” au fichier <code>.gitignore</code>. Que signifie-t-elle ?</li>
+<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/main/get_data.R">ce fichier</a>, puis l’exécuter</li>
+<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/main/script.R">ce fichier</a>. <strong>Ne l’exécutez pas, c’est l’objet de l’exercice suivant</strong>.</li>
+<li>Ajouter la règle “RPindividus*” au fichier <code>.gitignore</code>. Que signifie-t-elle ?</li>
 <li><em>Commit</em>/<em>push</em> les changements (tous les fichiers, y compris ceux que <code>Git</code> a ajouté)</li>
 </ol>
 </div>
@@ -1144,7 +1144,7 @@ _Workflow_ (version littéraire) :
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Forker le dépôt vous permet d’avoir les <em>tags</em> permettant d’appliquer les <em>checkpoints</em> si besoin. La démarche pour reproduire ceci est de créer un nouveau dépôt sur <code>GitHub</code> en <strong>incluant un fichier <code>README</code></strong> et un <code>.gitignore</code> (chercher le modèle <code>R</code> dans les suggestions). Mais si vous faites cela vous ne serez pas en mesure d’appliquer les <em>tags</em> des <em>checkpoints</em>.</p></li></ol></aside></section></section>
+</section></section>
 <section>
 <section id="i--qualité-du-code" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>I- Qualité du code</h1>
@@ -1411,7 +1411,10 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <p>Un code reproductible est avant toute chose un code fonctionnel !</p>
-<p>Repérez les erreurs qui empêchent le script <code>script.R</code> de s’exécuter correctement, et les corriger.</p>
+<ul>
+<li class="fragment">Repérez les erreurs qui empêchent le script <code>script.R</code> de s’exécuter correctement, et les corriger.</li>
+<li class="fragment">Redémarrer votre session avec <code>Session</code> &gt; <code>New Session</code> (ou <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>F10</kbd>)</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1460,7 +1463,7 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Les <code>install.packages</code> sont à faire en console et ne doivent pas être mis dans le script (justification dans la prochaine partie de cet exercice).</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Les <code>install.packages</code> sont à faire en console et ne doivent pas être mis dans le script (justification dans la prochaine partie de cet exercice).</p></li></ol></aside></section>
 <section id="application-1-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 1</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
@@ -1509,7 +1512,6 @@ if (x_is_not_empty_string) {
 <ul>
 <li><code># TITRE NIVEAU 1 ------------</code> et <code>## TITRE NIVEAU 2 ==========</code></li>
 </ul></li>
-<li>Documenter la fonction <code>fonction_de_stat_agregee</code> selon le standard <code>roxygen</code>. Vous pouvez vous aider d’une IA assistante comme <code>ChatGPT</code>, <code>Claude</code> ou <code>Copilot</code>, rien n’est sensible dans ce code (d’ailleurs rien de sensible ne doit être dans du code !). Utiliser les exemples d’utilisation de <code>fonction_de_stat_agregee</code> dans cette documentation.</li>
 </ol>
 <p><em>Au passage, vous pouvez changer les noms de certains objets pour les rendre moins cryptiques (<code>df3</code> n’est pas très clair).</em></p>
 </div>
@@ -1549,6 +1551,7 @@ if (x_is_not_empty_string) {
 </section>
 <section id="checkpoint" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
+<div class="noincremental">
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1558,10 +1561,13 @@ if (x_is_not_empty_string) {
 <p><strong>Checkpoint</strong></p>
 </div>
 <div class="callout-content">
-<p>En ligne de commande:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">git</span> stash</span>
-<span id="cb4-2"><a></a><span class="fu">git</span> checkout appli1</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img data-src="checkpoint.jpg" style="width:30.0%"></p>
+<ul>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/get_data.R"><code>get_data.R</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/script.R"><code>script.R</code></a></li>
+<li class="fragment">Le <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/.gitignore"><code>.gitignore</code></a></li>
+</ul>
+<p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
+</div>
 </div>
 </div>
 </div>
@@ -1569,12 +1575,12 @@ if (x_is_not_empty_string) {
 <section id="bilan" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Bilan</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column noincremental" style="width:60%;">
 <ul>
 <li class="fragment">Un code mal structuré
 <ul>
-<li class="fragment">Limite la lisibilité du projet</li>
-<li class="fragment">Est très coûteux à maintenir (dette technique)</li>
+<li class="fragment">Limite la <span class="blue2"><strong>lisibilité du projet</strong></span></li>
+<li class="fragment">Est très <span class="blue2"><strong>coûteux à maintenir</strong></span> (dette technique)</li>
 </ul></li>
 <li class="fragment">Les petits gestes peuvent économiser un temps précieux</li>
 </ul>
@@ -1751,12 +1757,16 @@ if (x_is_not_empty_string) {
 <div>
 <ol type="1">
 <li>Déplacer toutes les fonctions dans un fichier <code>R/functions.R</code>.</li>
-<li>Donner à la fonction <code>fonction_de_stat_agregee</code> un nom plus pertinent et des noms d’arguments plus transparents. N’oubliez pas de mettre à jour la documentation.</li>
+<li>Donner à la fonction <code>fonction_de_stat_agregee</code> un nom plus pertinent et des noms d’arguments plus transparents.
+<ul>
+<li>Documenter la fonction <code>fonction_de_stat_agregee</code> selon le standard <code>roxygen</code>. Vous pouvez vous aider d’une IA assistante comme <code>ChatGPT</code>, <code>Claude</code> ou <code>Copilot</code>, rien n’est sensible dans ce code (d’ailleurs rien de sensible ne doit être dans du code !).</li>
+<li>Utiliser les exemples d’utilisation de <code>fonction_de_stat_agregee</code> dans cette documentation.</li>
+</ul></li>
 <li>Dans <code>script.R</code>, appeler en début de chaîne ces fonctions avec <code>source("R/functions.R", encoding = "UTF-8")</code>.</li>
 <li>Tester le bon fonctionnement de <code>script.R</code>.</li>
 <li>Si votre chaîne écrit des <em>outputs</em> ou utilise des <em>inputs</em> (par exemple des données), restructurer l’aborescence du projet pour le rendre plus lisible et adaptez votre code en fonction.</li>
-<li>Renommer (voire déplacer) les scripts <code>get_data.R</code> et <code>script.R</code> pour rendre plus intelligible la chaîne de production</li>
-<li>Mettre à jour le <code>.gitignore</code> puis <em>commit</em>/<em>push</em></li>
+<li>Renommer (voire déplacer) les scripts <code>get_data.R</code> et <code>script.R</code> pour rendre plus intelligible la chaîne de production.</li>
+<li>Mettre à jour le <code>.gitignore</code> puis <em>commit</em>/<em>push</em>.</li>
 </ol>
 </div>
 </div>
@@ -1797,10 +1807,11 @@ if (x_is_not_empty_string) {
 <p><strong>Checkpoint</strong></p>
 </div>
 <div class="callout-content">
-<p>En ligne de commande:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="fu">git</span> stash</span>
-<span id="cb8-2"><a></a><span class="fu">git</span> checkout appli2</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img data-src="checkpoint.jpg" style="width:30.0%"></p>
+<ul>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli2/script.R"><code>script.R</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli2/R/functions.R"><code>R/functions.R</code></a></li>
+</ul>
+<p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
 </div>
 </div>
 </div>
@@ -1975,12 +1986,12 @@ if (x_is_not_empty_string) {
 <p><strong>Exemple d’une requête <em>lazy</em></strong></p>
 </div>
 <div class="callout-content">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>n_logements_depcom <span class="ot">&lt;-</span> achille <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a></a>  <span class="fu">filter</span>(dep <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>)) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les données nécessaires</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">select</span>(idlogement, depcom) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les colonnes nécessaires</span></span>
-<span id="cb9-4"><a></a>  <span class="fu">group_by</span>(depcom) <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a></a>  <span class="fu">summarise</span>(<span class="at">n_logements =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span>  </span>
-<span id="cb9-6"><a></a>  <span class="fu">collect</span>()  <span class="co"># Les calculs ne sont effectués qu'à cette étape !</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>n_logements_depcom <span class="ot">&lt;-</span> achille <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">filter</span>(dep <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>)) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les données nécessaires</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">select</span>(idlogement, depcom) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les colonnes nécessaires</span></span>
+<span id="cb7-4"><a></a>  <span class="fu">group_by</span>(depcom) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a></a>  <span class="fu">summarise</span>(<span class="at">n_logements =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span>  </span>
+<span id="cb7-6"><a></a>  <span class="fu">collect</span>()  <span class="co"># Les calculs ne sont effectués qu'à cette étape !</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2002,15 +2013,15 @@ if (x_is_not_empty_string) {
 <li>Créer un nouveau script <code>R</code> qui servira de bac à sable pour tester le format <code>Parquet</code>.</li>
 <li>Créer les variables qui seront utiles pour les prochaines questions</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb10-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
-<span id="cb10-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span></span>
-<span id="cb10-4"><a></a>)</span>
-<span id="cb10-5"><a></a></span>
-<span id="cb10-6"><a></a>filename_sample_csv <span class="ot">&lt;-</span> <span class="st">"data/RPindividus_24.csv"</span></span>
-<span id="cb10-7"><a></a>filename_sample_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"csv"</span>, <span class="st">"parquet"</span>, filename_sample_csv)</span>
-<span id="cb10-8"><a></a>filename_full_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"_24"</span>, <span class="st">""</span>, filename_sample_parquet)</span>
-<span id="cb10-9"><a></a>filename_full_csv <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"parquet"</span>, <span class="st">"csv"</span>, filename_full_parquet)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb8-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
+<span id="cb8-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span></span>
+<span id="cb8-4"><a></a>)</span>
+<span id="cb8-5"><a></a></span>
+<span id="cb8-6"><a></a>filename_sample_csv <span class="ot">&lt;-</span> <span class="st">"data/RPindividus_24.csv"</span></span>
+<span id="cb8-7"><a></a>filename_sample_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"csv"</span>, <span class="st">"parquet"</span>, filename_sample_csv)</span>
+<span id="cb8-8"><a></a>filename_full_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"_24"</span>, <span class="st">""</span>, filename_sample_parquet)</span>
+<span id="cb8-9"><a></a>filename_full_csv <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"parquet"</span>, <span class="st">"csv"</span>, filename_full_parquet)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2045,10 +2056,10 @@ if (x_is_not_empty_string) {
 <summary>
 Mesurer le temps d’exécution
 </summary>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb11-2"><a></a><span class="co"># lecture du fichier ici</span></span>
-<span id="cb11-3"><a></a>end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb11-4"><a></a>diff_time <span class="ot">&lt;-</span> end_time <span class="sc">-</span> start_time</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb9-2"><a></a><span class="co"># lecture du fichier ici</span></span>
+<span id="cb9-3"><a></a>end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb9-4"><a></a>diff_time <span class="ot">&lt;-</span> end_time <span class="sc">-</span> start_time</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -2073,14 +2084,14 @@ Mesurer le temps d’exécution
 <li>Faire ceci avec et sans le filtre des colonnes<sup>1</sup>.</li>
 <li>La croissance du temps de traitement vous apparaît-elle énorme ?</li>
 </ul></li>
-<li>Ajouter après cette étape de lecture du fichier le filter <code>filter(REGION == "24")</code>. Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?</li>
+<li>Ajouter après cette étape de lecture <code>filter(REGION == 24)</code>. Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 <p><em>❓️ Dans quel ordre sont faits les filtres par <code>Arrow</code> ?</em></p>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Ne pas faire ceci maintenant avec le CSV, le <em>benchmark</em> arrive prochainement.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Ne pas faire ceci maintenant avec le CSV, le <em>benchmark</em> arrive prochainement.</p></li></ol></aside></section>
 <section id="application-3-partie-2-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 3 (partie 2)</h2>
 <div>
@@ -2114,9 +2125,9 @@ Mesurer le temps d’exécution
 <ul>
 <li>Utiliser le code ci-dessous pour partitionner le fichier <code>Parquet</code> par <em>“REGION”</em> et <em>“DEPT”</em></li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">open_dataset</span>(filename_full_parquet) <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">group_by</span>(REGION, DEPT) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">write_dataset</span>(<span class="st">"./data/RPindividus"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">open_dataset</span>(filename_full_parquet) <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">group_by</span>(REGION, DEPT) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a></a>  <span class="fu">write_dataset</span>(<span class="st">"./data/RPindividus"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Observer l’arborescence de fichiers</li>
 <li>Utiliser <code>Arrow</code> pour lire les données de la Corse du Sud (code région 94, code département 2A) à partir de ce fichier partitionné</li>
@@ -2133,81 +2144,45 @@ Mesurer le temps d’exécution
 </ul>
 </div>
 </section>
+<section id="application-3-partie-3-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3 (partie 3)</h2>
+<p>Quand on généralise cette démarche de <em>benchmark</em>, on obtient le tableau de performance suivant</p>
+
+<img data-src="img/tableau-perf-parquet.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="application-3-partie-4" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 3 (partie 4)</h2>
 <div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 4: Généralisation des tests de performance (optionnel)</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>Reprendre le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark.R">ce fichier</a>.
-<ul>
-<li>Installer les packages nécessaires (ils sont listés au début du script)</li>
-<li>Exécuter le script. Pendant que l’import en CSV tourne (c’est assez long), explorer les fenêtres interactives qui se sont ouvertes issues du <em>profiling</em> permettant de mesurer la répartition du temps de différents processus.</li>
-</ul></li>
-<li>Quand tout a fini de tourner, regarder le tableau obtenu.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-
-<img data-src="img/tableau-perf-parquet.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="application-3-partie-5" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 3 (partie 5)</h2>
-<div>
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Partie 5: mise à jour de la chaîne de production</strong></p>
+<p><strong>Partie 4: mise à jour de la chaîne de production</strong></p>
 </div>
 <div class="callout-content">
 <p>Nous allons mettre à jour les données utilisées pour notre chaîne de production:</p>
 <ul>
 <li>Lire les données à partir du morceau de code proposé</li>
-<li>Changer la partie modélisation pour ne pas faire tourner celle-ci sur un gros modèle (proposition ci-dessous)</li>
 <li>Vérifier que le code tourne de A à Z et changer celui-ci marginalement si ce n’est pas le cas</li>
 </ul>
 <details>
 <summary>
 Modification du code pour l’import de données
 </summary>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb13-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
-<span id="cb13-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span></span>
-<span id="cb13-4"><a></a>)</span>
-<span id="cb13-5"><a></a></span>
-<span id="cb13-6"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
-<span id="cb13-7"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
-<span id="cb13-8"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
-<span id="cb13-9"><a></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-10"><a></a>  <span class="fu">filter</span>(REGION <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-11"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
-<span id="cb13-12"><a></a>  <span class="fu">collect</span>()</span>
-<span id="cb13-13"><a></a></span>
-<span id="cb13-14"><a></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb13-15"><a></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">%&gt;%</span></span>
-<span id="cb13-16"><a></a>  <span class="fu">as_tibble</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb11-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
+<span id="cb11-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span>, <span class="st">"IPONDI"</span></span>
+<span id="cb11-4"><a></a>)</span>
+<span id="cb11-5"><a></a></span>
+<span id="cb11-6"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<span id="cb11-7"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
+<span id="cb11-8"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
+<span id="cb11-9"><a></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a></a>  <span class="fu">filter</span>(REGION <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-11"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-12"><a></a>  <span class="fu">collect</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <details>
-<summary>
-Changement proposé pour la partie modélisation
-</summary>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>echantillon_modelisation <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">filter</span>(surf <span class="sc">!=</span> <span class="st">"Z"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a></a>  <span class="fu">sample_n</span>(<span class="dv">1000</span>)</span>
-<span id="cb14-4"><a></a></span>
-<span id="cb14-5"><a></a>MASS<span class="sc">::</span><span class="fu">polr</span>(surf <span class="sc">~</span> couple <span class="sc">+</span> sexe, echantillon_modelisation)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</div>
-</div>
-</div>
+<p>:::</p>
 <p><em>❓️ Cette mise à jour des données utilisées vous est-elle apparue plus simple que les changements de l’application 1 ?</em></p>
-</section>
 <section id="checkpoint-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
 <div class="callout callout-caution callout-titled callout-style-default">
@@ -2219,10 +2194,12 @@ Changement proposé pour la partie modélisation
 <p><strong>Checkpoint</strong></p>
 </div>
 <div class="callout-content">
-<p>En ligne de commande:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="fu">git</span> stash</span>
-<span id="cb15-2"><a></a><span class="fu">git</span> checkout appli3</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img data-src="checkpoint.jpg" style="width:30.0%"></p>
+<p>https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli2/script.R</p>
+<ul>
+<li>Le script <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli3/main.R"><code>main.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli3/R/functions.R"><code>R/functions.R</code></a></li>
+</ul>
+<p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
 </div>
 </div>
 </div>
@@ -2230,26 +2207,26 @@ Changement proposé pour la partie modélisation
 <section id="ressources-supplémentaires-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
-<li class="fragment">Pour <strong>aller plus loin</strong>:
+<li>Pour <strong>aller plus loin</strong>:
 <ul>
-<li class="fragment">La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a></li>
-<li class="fragment"><a href="https://eliocamp.github.io/reproducibility-with-r/">Un cours complet</a> (en anglais) sur la reproductibilité avec <code>R</code></li>
-<li class="fragment">Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></li>
+<li>La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a></li>
+<li><a href="https://eliocamp.github.io/reproducibility-with-r/">Un cours complet</a> (en anglais) sur la reproductibilité avec <code>R</code></li>
+<li>Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></li>
 </ul></li>
-<li class="fragment"><strong>Trouver de l’aide</strong>:
+<li><strong>Trouver de l’aide</strong>:
 <ul>
-<li class="fragment">Pour toute question : le salon <code>Slack</code> <a href="r-grrr.slack.com">grrr</a>, très dynamique</li>
-<li class="fragment">Le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr">Langage R</a></li>
-<li class="fragment">Pour l’utilisation de <code>R</code> à l’Insee : le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr">Insee - Outils Stats v2</a></li>
+<li>Pour toute question : le salon <code>Slack</code> <a href="r-grrr.slack.com">grrr</a>, très dynamique</li>
+<li>Le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr">Langage R</a></li>
+<li>Pour l’utilisation de <code>R</code> à l’Insee : le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr">Insee - Outils Stats v2</a></li>
 </ul></li>
 </ul>
-</section></section>
+</section>
 <section id="conclusion" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Conclusion</h1>
 <ul>
-<li class="fragment"><p>Les <span class="blue2"><strong>bonnes pratiques</strong></span> favorisent la <span class="orange"><strong>reproductibilité</strong></span> et la <span class="orange"><strong>réutilisation</strong></span> des projets statistiques</p></li>
-<li class="fragment"><p>Des <span class="orange"><strong>outils</strong></span> permettent d’appliquer les <span class="blue2"><strong>bonnes pratiques</strong></span></p></li>
-<li class="fragment"><p>Le <span class="orange"><strong>coût</strong></span> est d’autant plus faible que l’on se place <span class="orange"><strong>en amont du projet</strong></span></p></li>
+<li><p>Les <span class="blue2"><strong>bonnes pratiques</strong></span> favorisent la <span class="orange"><strong>reproductibilité</strong></span> et la <span class="orange"><strong>réutilisation</strong></span> des projets statistiques</p></li>
+<li><p>Des <span class="orange"><strong>outils</strong></span> permettent d’appliquer les <span class="blue2"><strong>bonnes pratiques</strong></span></p></li>
+<li><p>Le <span class="orange"><strong>coût</strong></span> est d’autant plus faible que l’on se place <span class="orange"><strong>en amont du projet</strong></span></p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -2259,6 +2236,11 @@ Changement proposé pour la partie modélisation
 </div>
 </section>
 
+</details></div>
+</div>
+</div>
+</div>
+</section></section>
 
     </div>
   </div>
