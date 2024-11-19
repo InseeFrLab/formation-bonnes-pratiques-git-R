@@ -2390,11 +2390,15 @@ Modification du code pour l’import de données
 <span id="cb11-11"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
 <span id="cb11-12"><a></a>  <span class="fu">collect</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<details>
-<p>:::</p>
+</div>
+</div>
+</div>
+</div>
 <p><em>❓️ Cette mise à jour des données utilisées vous est-elle apparue plus simple que les changements de l’application 1 ?</em></p>
+</section>
 <section id="checkpoint-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
+<div class="noincremental">
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2404,16 +2408,17 @@ Modification du code pour l’import de données
 <p><strong>Checkpoint</strong></p>
 </div>
 <div class="callout-content">
-<p>https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli2/script.R</p>
 <ul>
-<li>Le script <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli3/main.R"><code>main.R</code></a></li>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli3/R/functions.R"><code>R/functions.R</code></a></li>
+<li class="fragment">Le script <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli3/main.R"><code>main.R</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli3/R/functions.R"><code>R/functions.R</code></a></li>
 </ul>
 <p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
 </div>
 </div>
 </div>
-</section>
+</div>
+</section></section>
+<section>
 <section id="iv--environnements-reproductibles" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>IV- Environnements reproductibles</h1>
 
@@ -2421,50 +2426,50 @@ Modification du code pour l’import de données
 <section id="expérience-de-pensée" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Expérience de pensée</h2>
 <ul>
-<li><p>Imaginons la situation suivante :</p>
+<li class="fragment"><p>Imaginons la situation suivante :</p>
 <ul>
-<li>J’installe une version de <code>R</code> sur mon poste</li>
-<li>Je développe un projet en installant les <em>packages</em> nécessaires</li>
-<li>Une fois terminé, je passe au projet suivant, et ainsi de suite.</li>
+<li class="fragment">J’installe une version de <code>R</code> sur mon poste</li>
+<li class="fragment">Je développe un projet en installant les <em>packages</em> nécessaires</li>
+<li class="fragment">Une fois terminé, je passe au projet suivant, et ainsi de suite.</li>
 </ul></li>
-<li><p>Quels <span class="orange"><strong>problèmes</strong></span> puis-je rencontrer au fil des projets ?</p></li>
-<li><p>Est-il facile de <span class="orange"><strong>partager</strong></span> un de mes projets ?</p></li>
+<li class="fragment"><p>Quels <span class="orange"><strong>problèmes</strong></span> puis-je rencontrer au fil des projets ?</p></li>
+<li class="fragment"><p>Est-il facile de <span class="orange"><strong>partager</strong></span> un de mes projets ?</p></li>
 </ul>
 </section>
 <section id="enjeux-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Enjeux</h2>
 <ul>
-<li><p><span class="orange"><strong>Version de</strong></span> <span class="blue2"><strong>R</strong></span> <span class="orange"><strong>fixe</strong></span>, celle de l’installation système</p></li>
-<li><p><span class="orange"><strong>Conflits de version</strong></span> : différents projets peuvent requérir différentes versions d’un même <em>package</em>.</p></li>
-<li><p><span class="orange"><strong>Reproductibilité limitée</strong></span> : difficile de dire quel projet nécessite quel <em>package</em>.</p></li>
-<li><p><span class="orange"><strong>Portabilité limitée</strong></span> : difficile de préciser dans un fichier les dépendances spécifiques à un projet.</p></li>
+<li class="fragment"><p><span class="orange"><strong>Version de</strong></span> <span class="blue2"><strong>R</strong></span> <span class="orange"><strong>fixe</strong></span>, celle de l’installation système</p></li>
+<li class="fragment"><p><span class="orange"><strong>Conflits de version</strong></span> : différents projets peuvent requérir différentes versions d’un même <em>package</em>.</p></li>
+<li class="fragment"><p><span class="orange"><strong>Reproductibilité limitée</strong></span> : difficile de dire quel projet nécessite quel <em>package</em>.</p></li>
+<li class="fragment"><p><span class="orange"><strong>Portabilité limitée</strong></span> : difficile de préciser dans un fichier les dépendances spécifiques à un projet.</p></li>
 </ul>
 </section>
 <section id="des-environnements-reproductibles-avec-renv" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Des environnements reproductibles avec <code>renv</code></h2>
 <ul>
-<li><p><code>renv</code> permet de créer des <strong>env</strong>ironnements <strong>r</strong>eproductibles</p></li>
-<li><p><span class="orange"><strong>Isolation</strong></span> : chaque projet dispose de sa propre librairie de packages</p></li>
-<li><p><span class="orange"><strong>Reproductibilité</strong></span> : <code>renv</code> enregistre les versions exactes des <em>packages</em> nécessaires au projet</p></li>
-<li><p><span class="orange"><strong>Portabilité</strong></span>: un tiers peut exécuter le projet avec les mêmes spécifications</p></li>
+<li class="fragment"><p><code>renv</code> permet de créer des <strong>env</strong>ironnements <strong>r</strong>eproductibles</p></li>
+<li class="fragment"><p><span class="orange"><strong>Isolation</strong></span> : chaque projet dispose de sa propre librairie de packages</p></li>
+<li class="fragment"><p><span class="orange"><strong>Reproductibilité</strong></span> : <code>renv</code> enregistre les versions exactes des <em>packages</em> nécessaires au projet</p></li>
+<li class="fragment"><p><span class="orange"><strong>Portabilité</strong></span>: un tiers peut exécuter le projet avec les mêmes spécifications</p></li>
 </ul>
 </section>
 <section id="utilisation-de-renv" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Utilisation de <code>renv</code></h2>
 <ol type="1">
-<li><p><span class="orange"><strong>Initialisation</strong></span> (<code>init</code>) de l’environnement local du projet</p></li>
-<li><p><span class="orange"><strong>Développement</strong></span> du projet</p></li>
-<li><p><span class="orange"><strong>Enregistrement</strong></span> (<code>snapshot</code>) des versions des <em>packages</em> installés</p></li>
-<li><p><span class="orange"><strong>Restauration</strong></span> (<code>restore</code>) d’un environnement</p></li>
+<li class="fragment"><p><span class="orange"><strong>Initialisation</strong></span> (<code>init</code>) de l’environnement local du projet</p></li>
+<li class="fragment"><p><span class="orange"><strong>Développement</strong></span> du projet</p></li>
+<li class="fragment"><p><span class="orange"><strong>Enregistrement</strong></span> (<code>snapshot</code>) des versions des <em>packages</em> installés</p></li>
+<li class="fragment"><p><span class="orange"><strong>Restauration</strong></span> (<code>restore</code>) d’un environnement</p></li>
 </ol>
 </section>
 <section id="initialisation-de-lenvironnement" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="one">1️⃣</span> Initialisation de l’environnement</h2>
 <ul>
-<li><code>renv::init()</code> dans un projet RStudio crée :
+<li class="fragment"><code>renv::init()</code> dans un projet RStudio crée :
 <ul>
-<li>Un dossier <code>renv</code> et le fichier <code>.Rprofile</code> : activation automatique de l’environnement</li>
-<li>Le fichier <code>renv.lock</code> : versions des <em>packages</em> installés</li>
+<li class="fragment">Un dossier <code>renv</code> et le fichier <code>.Rprofile</code> : activation automatique de l’environnement</li>
+<li class="fragment">Le fichier <code>renv.lock</code> : versions des <em>packages</em> installés</li>
 </ul></li>
 </ul>
 <div class="fragment">
@@ -2478,19 +2483,19 @@ Modification du code pour l’import de données
 <section id="développement-du-projet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="two">2️⃣</span> Développement du projet</h2>
 <ul>
-<li>Une fois l’environnement initialisé, on développe le projet de manière habituelle :
+<li class="fragment">Une fois l’environnement initialisé, on développe le projet de manière habituelle :
 <ul>
-<li>Installations/suppressions/mises à jour de packages</li>
-<li>Ecriture de scripts</li>
+<li class="fragment">Installations/suppressions/mises à jour de packages</li>
+<li class="fragment">Ecriture de scripts</li>
 </ul></li>
-<li><code>renv::status()</code> : indique les <em>packages</em> installés/supprimés par rapport au fichier <code>renv.lock</code></li>
+<li class="fragment"><code>renv::status()</code> : indique les <em>packages</em> installés/supprimés par rapport au fichier <code>renv.lock</code></li>
 </ul>
 </section>
 <section id="enregistrement-de-lenvironnement" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="three">3️⃣</span> Enregistrement de l’environnement</h2>
 <ul>
-<li><p><code>renv::snapshot()</code> : enregistre les versions des <em>packages</em> installés dans le fichier <code>renv.lock</code></p></li>
-<li><p>Ne pas oublier de committer le fichier <code>renv.lock</code>!</p></li>
+<li class="fragment"><p><code>renv::snapshot()</code> : enregistre les versions des <em>packages</em> installés dans le fichier <code>renv.lock</code></p></li>
+<li class="fragment"><p>Ne pas oublier de committer le fichier <code>renv.lock</code>!</p></li>
 </ul>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
@@ -2503,43 +2508,81 @@ Modification du code pour l’import de données
 <section id="restauration-de-lenvironnement" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2><span class="emoji" data-emoji="four">4️⃣</span> Restauration de l’environnement</h2>
 <ul>
-<li><p><code>renv::restore()</code> : installe/désinstalle les <em>packages</em> nécessaires pour arriver à l’état spécifié dans le fichier <code>renv.lock</code></p></li>
-<li><p><span class="orange"><strong>Portabilité</strong></span> : un tiers peut recréer un environnement avec les mêmes spécifications</p></li>
+<li class="fragment"><p><code>renv::restore()</code> : installe/désinstalle les <em>packages</em> nécessaires pour arriver à l’état spécifié dans le fichier <code>renv.lock</code></p></li>
+<li class="fragment"><p><span class="orange"><strong>Portabilité</strong></span> : un tiers peut recréer un environnement avec les mêmes spécifications</p></li>
 </ul>
 </section>
 <section id="application-4-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 4</h2>
+<div class="noincremental">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Partie 1 : prise en main de la librairie <code>renv</code></strong></p>
 </div>
 <div class="callout-content">
-<div>
-<ol start="0" type="1">
-<li><p>Installer le package <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a></p></li>
-<li><p>Taper dans la console <code>renv::init()</code>, <strong>lire le message</strong> et accepter.</p></li>
-<li><p>Observer les nouveaux élements qui sont apparus dans le projet.</p></li>
-<li><p>Installer le <a href="https://gt.rstudio.com/">package <code>gt</code></a> et observer le message dans la console.</p></li>
-<li><p>Dans la partie sur les statistiques descriptives d’âge, ajouter ce code :</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>stats_age <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">group_by</span>(<span class="at">decennie =</span> <span class="fu">decennie_a_partir_annee</span>(age)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">summarise</span>(<span class="fu">n</span>())</span>
-<span id="cb12-4"><a></a></span>
-<span id="cb12-5"><a></a>table_age <span class="ot">&lt;-</span> gt<span class="sc">::</span><span class="fu">gt</span>(stats_age) <span class="sc">%&gt;%</span></span>
-<span id="cb12-6"><a></a>  gt<span class="sc">::</span><span class="fu">tab_header</span>(</span>
-<span id="cb12-7"><a></a>    <span class="at">title =</span> <span class="st">"Distribution des âges dans notre population"</span></span>
-<span id="cb12-8"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-9"><a></a>  gt<span class="sc">::</span><span class="fu">fmt_number</span>(</span>
-<span id="cb12-10"><a></a>    <span class="at">columns =</span> <span class="st">`</span><span class="at">n()</span><span class="st">`</span>,</span>
-<span id="cb12-11"><a></a>    <span class="at">sep_mark =</span> <span class="st">" "</span>,</span>
-<span id="cb12-12"><a></a>    <span class="at">decimals =</span> <span class="dv">0</span></span>
-<span id="cb12-13"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-14"><a></a>  gt<span class="sc">::</span><span class="fu">cols_label</span>(</span>
-<span id="cb12-15"><a></a>    <span class="at">decennie =</span> <span class="st">"Tranche d'âge"</span>,</span>
-<span id="cb12-16"><a></a>    <span class="st">`</span><span class="at">n()</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"Population"</span></span>
-<span id="cb12-17"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<ol type="1">
+<li class="fragment">Installer le package <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a></li>
+<li class="fragment">Taper dans la console <code>renv::init()</code>, <strong>lire le message</strong> et accepter.</li>
+<li class="fragment">Observer les nouveaux fichiers et dossiers qui sont apparus dans le projet.</li>
+<li class="fragment">Taper <code>library(sf)</code> dans la console <code>R</code> et observer la réponse de <code>R</code>. Comprenez-vous pourquoi ?</li>
+<li class="fragment">Dans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte
+<ul>
+<li class="fragment">S’il manque un <em>package</em> pour la faire, l’installer</li>
+</ul></li>
 </ol>
+<details>
+<summary>
+Nouvelle statistique descriptive à ajouter
+</summary>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># PART DES SENIORS DANS LA POPULATION ---------------------------</span></span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a><span class="co"># France geojson</span></span>
+<span id="cb12-4"><a></a>departements <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(</span>
+<span id="cb12-5"><a></a>  <span class="st">"https://minio.lab.sspcloud.fr/projet-formation/bonnes-pratiques/data/france.geojson"</span></span>
+<span id="cb12-6"><a></a>)</span>
+<span id="cb12-7"><a></a></span>
+<span id="cb12-8"><a></a><span class="co"># PART DES SENIORS FRANCE ENTIERE =====================================</span></span>
+<span id="cb12-9"><a></a></span>
+<span id="cb12-10"><a></a>part_seniors <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<span id="cb12-11"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
+<span id="cb12-12"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
+<span id="cb12-13"><a></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-14"><a></a>  <span class="fu">mutate</span>(<span class="at">plus_60 =</span> AGED <span class="sc">&gt;</span> <span class="dv">60</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-15"><a></a>  <span class="fu">group_by</span>(DEPT, plus_60) <span class="sc">%&gt;%</span></span>
+<span id="cb12-16"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb12-17"><a></a>    <span class="at">population_totale =</span> <span class="fu">sum</span>(IPONDI)</span>
+<span id="cb12-18"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-19"><a></a>  <span class="fu">group_by</span>(DEPT) <span class="sc">%&gt;%</span></span>
+<span id="cb12-20"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-21"><a></a>    <span class="at">population_60_ans =</span> population_totale,</span>
+<span id="cb12-22"><a></a>    <span class="at">pourcentage_60_plus =</span> population_totale<span class="sc">/</span><span class="fu">sum</span>(population_totale),</span>
+<span id="cb12-23"><a></a>    <span class="at">population_totale =</span> <span class="fu">sum</span>(population_totale)</span>
+<span id="cb12-24"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-25"><a></a>  <span class="fu">filter</span>(plus_60 <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-26"><a></a>  <span class="fu">select</span>(DEPT, population_totale, population_60_ans, pourcentage_60_plus) <span class="sc">%&gt;%</span></span>
+<span id="cb12-27"><a></a>  <span class="fu">collect</span>()</span>
+<span id="cb12-28"><a></a></span>
+<span id="cb12-29"><a></a></span>
+<span id="cb12-30"><a></a><span class="co"># CARTE =====================================</span></span>
+<span id="cb12-31"><a></a></span>
+<span id="cb12-32"><a></a>departements_60_plus_sf <span class="ot">&lt;-</span> departements <span class="sc">%&gt;%</span></span>
+<span id="cb12-33"><a></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb12-34"><a></a>    part_seniors,</span>
+<span id="cb12-35"><a></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INSEE_DEP"</span> <span class="ot">=</span> <span class="st">"DEPT"</span>)</span>
+<span id="cb12-36"><a></a>  )</span>
+<span id="cb12-37"><a></a></span>
+<span id="cb12-38"><a></a></span>
+<span id="cb12-39"><a></a><span class="fu">ggplot</span>(departements_60_plus_sf) <span class="sc">+</span></span>
+<span id="cb12-40"><a></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> pourcentage_60_plus)) <span class="sc">+</span> </span>
+<span id="cb12-41"><a></a>  <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>, <span class="at">palette =</span> <span class="st">"PuBuGn"</span>, <span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb12-42"><a></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> </span>
+<span id="cb12-43"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb12-44"><a></a>    <span class="at">title =</span> <span class="st">"Part des personnes de plus de 60 ans par département"</span>,</span>
+<span id="cb12-45"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Insee, Fichiers détails du recensement de la population"</span>,</span>
+<span id="cb12-46"><a></a>    <span class="at">fill =</span> <span class="st">"Part (%)"</span></span>
+<span id="cb12-47"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </div>
 </div>
@@ -2586,16 +2629,21 @@ Modification du code pour l’import de données
 </section>
 <section id="checkpoint-6" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
-<div>
-
+<div class="noincremental">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="quarto-layout-panel" data-layout="[30,70]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 30.0%;justify-content: center;">
+<p><strong>Checkpoint</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li><a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application4/script.R">script.R</a></li>
+<li class="fragment">Le script <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli4/main.R"><code>main.R</code></a></li>
 </ul>
-<p><img data-src="checkpoint.jpg"></p>
+<p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
+</div>
 </div>
 </div>
 </div>
@@ -2603,24 +2651,24 @@ Modification du code pour l’import de données
 <section id="vers-une-reproductibilité-optimale" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Vers une reproductibilité optimale</h2>
 <ul>
-<li><p><span class="orange"><strong>Limites</strong></span> des environnements virtuels :</p>
+<li class="fragment"><p><span class="orange"><strong>Limites</strong></span> des environnements virtuels :</p>
 <ul>
-<li>Les <span class="blue2"><strong>librairies système</strong></span> ne sont pas gérées</li>
-<li>Lourdeur de la phase d’installation à chaque changement d’environnement</li>
-<li>Peu adaptés à un environnement de production</li>
+<li class="fragment">Les <span class="blue2"><strong>librairies système</strong></span> ne sont pas gérées</li>
+<li class="fragment">Lourdeur de la phase d’installation à chaque changement d’environnement</li>
+<li class="fragment">Peu adaptés à un environnement de production</li>
 </ul></li>
-<li><p>La <span class="orange"><strong>conteneurisation</strong></span> (ex : <code>Docker</code>) apporte la solution</p></li>
-<li><p><span class="orange"><strong>Intuition</strong></span> : au lieu de distribuer la recette pour recréer l’environnement, <span class="blue2"><strong>distribuer directement une “machine” qui contient <em>tout</em> l’environnement nécessaire au projet</strong></span></p></li>
+<li class="fragment"><p>La <span class="orange"><strong>conteneurisation</strong></span> (ex : <code>Docker</code>) apporte la solution</p></li>
+<li class="fragment"><p><span class="orange"><strong>Intuition</strong></span> : au lieu de distribuer la recette pour recréer l’environnement, <span class="blue2"><strong>distribuer directement une “machine” qui contient <em>tout</em> l’environnement nécessaire au projet</strong></span></p></li>
 </ul>
 </section>
 <section id="ressources-supplémentaires-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
-<li><p>La <a href="https://rstudio.github.io/renv/articles/renv.html">documentation officielle de <code>renv</code></a></p></li>
-<li><p>La <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_gerer_dependances">fiche utilitR sur la gestion des dépendances</a></p></li>
+<li class="fragment"><p>La <a href="https://rstudio.github.io/renv/articles/renv.html">documentation officielle de <code>renv</code></a></p></li>
+<li class="fragment"><p>La <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_gerer_dependances">fiche utilitR sur la gestion des dépendances</a></p></li>
 </ul>
-</section>
-
+</section></section>
+<section>
 <section id="v--r-en-production" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>V- <code>R</code> en production</h1>
 
@@ -2628,34 +2676,33 @@ Modification du code pour l’import de données
 <section id="ressources-supplémentaires-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
-<li><p>Une <a href="https://www.youtube.com/watch?v=BQk2-3inViM">conférence</a> d’Hadley Wickham (en anglais)</p></li>
-<li><p>Le <a href="https://r-in-production.org/">cours “R in production”</a> d’Hadley Wickham (en anglais et en construction)</p></li>
+<li class="fragment"><p>Une <a href="https://www.youtube.com/watch?v=BQk2-3inViM">conférence</a> d’Hadley Wickham (en anglais)</p></li>
+<li class="fragment"><p>Le <a href="https://r-in-production.org/">cours “R in production”</a> d’Hadley Wickham (en anglais et en construction)</p></li>
 </ul>
 </section>
 <section id="ressources-supplémentaires-5" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
-<li>Pour <strong>aller plus loin</strong>:
+<li class="fragment">Pour <strong>aller plus loin</strong>:
 <ul>
-<li>La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a></li>
-<li><a href="https://eliocamp.github.io/reproducibility-with-r/">Un cours complet</a> (en anglais) sur la reproductibilité avec <code>R</code></li>
-<li>Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></li>
+<li class="fragment">La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a></li>
+<li class="fragment"><a href="https://eliocamp.github.io/reproducibility-with-r/">Un cours complet</a> (en anglais) sur la reproductibilité avec <code>R</code></li>
+<li class="fragment">Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></li>
 </ul></li>
-<li><strong>Trouver de l’aide</strong>:
+<li class="fragment"><strong>Trouver de l’aide</strong>:
 <ul>
-<li>Pour toute question : le salon <code>Slack</code> <a href="r-grrr.slack.com">grrr</a>, très dynamique</li>
-<li>Le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr">Langage R</a></li>
-<li>Pour l’utilisation de <code>R</code> à l’Insee : le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr">Insee - Outils Stats v2</a></li>
+<li class="fragment">Pour toute question : le salon <code>Slack</code> <a href="r-grrr.slack.com">grrr</a>, très dynamique</li>
+<li class="fragment">Le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr">Langage R</a></li>
+<li class="fragment">Pour l’utilisation de <code>R</code> à l’Insee : le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr">Insee - Outils Stats v2</a></li>
 </ul></li>
 </ul>
-</section>
-
+</section></section>
 <section id="conclusion" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Conclusion</h1>
 <ul>
-<li><p>Les <span class="blue2"><strong>bonnes pratiques</strong></span> favorisent la <span class="orange"><strong>reproductibilité</strong></span> et la <span class="orange"><strong>réutilisation</strong></span> des projets statistiques</p></li>
-<li><p>Des <span class="orange"><strong>outils</strong></span> permettent d’appliquer les <span class="blue2"><strong>bonnes pratiques</strong></span></p></li>
-<li><p>Le <span class="orange"><strong>coût</strong></span> est d’autant plus faible que l’on se place <span class="orange"><strong>en amont du projet</strong></span></p></li>
+<li class="fragment"><p>Les <span class="blue2"><strong>bonnes pratiques</strong></span> favorisent la <span class="orange"><strong>reproductibilité</strong></span> et la <span class="orange"><strong>réutilisation</strong></span> des projets statistiques</p></li>
+<li class="fragment"><p>Des <span class="orange"><strong>outils</strong></span> permettent d’appliquer les <span class="blue2"><strong>bonnes pratiques</strong></span></p></li>
+<li class="fragment"><p>Le <span class="orange"><strong>coût</strong></span> est d’autant plus faible que l’on se place <span class="orange"><strong>en amont du projet</strong></span></p></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -2665,11 +2712,6 @@ Modification du code pour l’import de données
 </div>
 </section>
 
-</details></div>
-</div>
-</div>
-</div>
-</section></section>
 
     </div>
   </div>
