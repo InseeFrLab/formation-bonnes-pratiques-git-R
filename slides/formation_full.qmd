@@ -65,6 +65,7 @@ from: markdown+emoji
 
 {{< include _git_resources.qmd >}}
 
+
 # Partie 2 : bonnes pratiques avec `R`
 
 ## Plan de la partie
