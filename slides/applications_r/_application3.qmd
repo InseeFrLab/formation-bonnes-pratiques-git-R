@@ -164,8 +164,6 @@ df <- open_dataset(
 </details>
 
 
-<details>
-
 :::
 
 
@@ -175,11 +173,8 @@ _❓️ Cette mise à jour des données utilisées vous est-elle apparue plus si
 
 ## Checkpoint
 
-::: {.callout-caution}
+::: {.callout-caution .noincremental}
 ## Checkpoint
-
-https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli2/script.R
-
 
 * Le script [`main.R`](https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli3/main.R)
 * Le script [`R/functions.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli3/R/functions.R)
