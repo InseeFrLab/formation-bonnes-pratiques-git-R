@@ -1,7 +1,7 @@
 ## Application 4 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
-## Partie 1 : prise en main de la librairie `renv`
+## Partie 1 : Prise en main de la librairie `renv`
 
 ::: {.nonincremental}
 0. Installer le package [`renv`](https://rstudio.github.io/renv/articles/renv.html)
@@ -37,7 +37,7 @@
 ## Application 4 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
-## Partie 2 : faire un *snapshot* de l'environnement
+## Partie 2 : Faire un *snapshot* de l'environnement
 
 ::: {.nonincremental}
 5. Dans la console, faire `renv::status()` et observer le message
@@ -50,7 +50,7 @@
 ## Application 4 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
-## Partie 3 : test de la portabilité
+## Partie 3 : Test de portabilité
 
 ::: {.nonincremental}
 8. Ouvrir un nouveau projet `RStudio` et cloner à nouveau votre dépôt (sous un nom différent)

@@ -132,8 +132,8 @@
 ## `R` : un langage de production ?
 
 - `R` a émergé dans la [**communauté statistique**]{.orange}
-  - Primauté des outils d'[**analyse interactive**]{.blue2}
-  - [**Outils de développement**]{.blue2} limités
+  - Outils d'[**analyse interactive**]{.blue2} très développés
+  - Outils de [**développement**]{.blue2} limités
 
 - L'[**éco-système tidyverse**]{.orange} s'oriente vers des outils [***production-ready***]{.blue2}
 
@@ -154,29 +154,25 @@
 
 ## "Not just me"
 
-- Utilisation de Git
-  - Traçabilité du projet
+- Penser son projet en termes de [**maintenabilité**]{.orange}
 
-- Travail collaboratif
-  - Outils de collaboration de l'écosystème Git
-  - Organisations hybrides self/dev/prod
+- [**Bonnes pratiques**]{.orange} de développement
+  - `Git` pour la [**traçabilité**]{.blue2} des choix
+  - [**Qualité**]{.blue2} du code (structure, documentation)
 
-## "Not just me"
-
-- Penser à la maintenabilité
-
-- Bonnes pratiques de code
-  - Qualité du code
-  - Structure des projets
-  - Documentation
-
-- Standards communautaires
-  - Formats de données interopérables : `Parquet`
-  - Choix des packages (cf. [fiche UtilitR](https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html))
+- Adopter les [**standards communautaires**]{.orange}
+  - Formats de données [**interopérables**]{.blue2} : `Parquet`
+  - Choix des [**packages**]{.blue2} (voir [fiche UtilitR](https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html))
 
 ## "Not just me"
 
-- Revues de code
+- Organiser le [**travail collaboratif**]{.orange}
+  - S'accorder sur une [**organisation**]{.blue2}
+  - [**Ecosystème Git**]{.blue2} -> outils qui facilitent
+
+- Traiter le code comme un [**élément méthodologique**]{.orange}
+  - [**Revue de code**]{.blue2}
+  - Programmation en [**binôme**]{.blue2}
 
 ## "Not just once"
 
