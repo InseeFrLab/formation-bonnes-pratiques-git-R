@@ -152,6 +152,17 @@
 
 ![](img/hadley.jpg){height="250" fig-align="center"}
 
+## Les trois commandemements d'Hadley Wickham
+
+::: {.nonincremental}
+- Le [**code de production**]{.orange} a trois caractéristiques
+  - [**"Not just me"**]{.blue2}
+  - <span style="color: lightgrey;"><strong>"Not just once"</strong></span>
+  - <span style="color: lightgrey;"><strong>"Not just my computer"</strong></span>
+
+![](img/hadley.jpg){height="250" fig-align="center"}
+:::
+
 ## "Not just me"
 
 - Penser son projet en termes de [**maintenabilité**]{.orange}
@@ -174,28 +185,47 @@
   - [**Revue de code**]{.blue2}
   - Programmation en [**binôme**]{.blue2}
 
-## "Not just once"
+## Les trois commandemements d'Hadley Wickham
 
-- Production -> anticiper les changements et y répondre
+::: {.nonincremental}
+- Le [**code de production**]{.orange} a trois caractéristiques
+  - <span style="color: lightgrey;"><strong>"Not just me"</strong></span>
+  - [**"Not just once"**]{.blue2}
+  - <span style="color: lightgrey;"><strong>"Not just my computer"</strong></span>
 
-- Monitoring
-
-## "Not just once"
-
-- Les dépendances changent
-
-- Gérer les évolutions
-  - Packages
-
-- Spécifier et distribuer l'environnement
-  - renv + Git
+![](img/hadley.jpg){height="250" fig-align="center"}
+:::
 
 ## "Not just once"
 
-- L'environnement change (OS, librairies système, packages, version de R, etc.)
+- Une tâche de [**production**]{.orange} est [**répétée**]{.orange} dans le temps
+  - Opportunité d'[**automatiser**]{.blue2} les traitements
 
-- Conteneurisation pour fixer de manière plus robuste
+- [**Problème**]{.orange} : le monde "autour du code" évolue
+  - Nécessité de [**gérer les évolutions**]{.blue2}
+
+## "Not just once"
+
+- Les [**dépendances**]{.orange} changent (fonctionnalités, *bugs*, failles de sécurité...)
+
+- Arbitrage entre [**évolutivité**]{.orange} et [**stabilité**]{.orange}
+  - L'évolution des [**dépendances**]{.blue2} est inhérente à la [**maintenance**]{.blue2} d'une chaîne de production
+
+- On limite les risques en [**spécifiant**]{.orange} et en [**distribuant l'environnement**]{.orange}
+  - [**Fixer**]{.blue2} les versions des packages utilisés : `renv`
+  - [**Versionner**]{.blue2} sa chaîne de production : tags `Git`
+
+## "Not just once"
+
+- L'[**environnement**]{.orange} change (OS, librairies système, version de R...)
+  - Difficulté principale du [**passage en production**]{.blue2}
+
+- La [**conteneurisation**]{.orange} permet de [**fixer l'environnement**]{.orange}
   - LS3 -> non-persistence = coût d'entrée mais gains de prod ++
+
+. . .
+
+![](img/containers-portability.png){height="250" fig-align="center"}
 
 ## "Not just once"
 
@@ -222,9 +252,22 @@
 - Intégration continue
   - Accroît encore les bénéfices de Git
 
+## Les trois commandemements d'Hadley Wickham
+
+::: {.nonincremental}
+- Le [**code de production**]{.orange} a trois caractéristiques
+  - <span style="color: lightgrey;"><strong>"Not just me"</strong></span>
+  - <span style="color: lightgrey;"><strong>"Not just once"</strong></span>
+  - [**"Not just my computer"**]{.blue2}
+
+![](img/hadley.jpg){height="250" fig-align="center"}
+:::
+
 ## "Not just my computer"
 
-- Evolution vers des infrastructures de production
+- Evolution continue vers des infrastructures de [**self "*production-ready*"**]{.orange}
+
+. . .
 
 ![](img/evo-infra.png){height="400" fig-align="center"}
 
@@ -261,4 +304,4 @@
 
 - Une [conférence](https://www.youtube.com/watch?v=BQk2-3inViM) d'Hadley Wickham (en anglais)
 
-- Les notes de ["R in production"](https://r-in-production.org/) d'Hadley Wickham (en anglais et en construction)
+- Le cours (en construction) ["R in production"](https://r-in-production.org/) d'Hadley Wickham (en anglais)
