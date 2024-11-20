@@ -198,11 +198,34 @@
 
 ## "Not just once"
 
-- Une tâche de [**production**]{.orange} est [**répétée**]{.orange} dans le temps
-  - Opportunité d'[**automatiser**]{.blue2} les traitements
+- Penser son projet en termes de [**reproductibilité**]{.orange}
+
+- Une tâche de [**production**]{.orange}
+  - Est [**répétée**]{.blue2} dans le temps
+  - Peut [**changer d'environnement**]{.blue2} (dev, test, prod)
 
 - [**Problème**]{.orange} : le monde "autour du code" évolue
-  - Nécessité de [**gérer les évolutions**]{.blue2}
+  - [**Automatiser**]{.blue2} ce qui peut l'être
+  - [**Spécifier**]{.blue2} et [**contrôler**]{.blue2} l'environnement
+
+## "Not just once"
+
+- Les [**données**]{.orange} changent
+  - [**Factoriser**]{.blue2} le code avec des [**fonctions**]{.blue2}
+  - [**Modéliser**]{.blue2} sa chaîne sous forme de [**DAG**]{.blue2}
+
+. . .
+
+![](img/dag.png){height="250" fig-align="center"}
+
+- [**En pratique**]{.orange} : dans le code ou avec [Targets](https://books.ropensci.org/targets/)
+
+## "Not just once"
+
+- Les données changent
+  - Contrôle de qualité/validité
+
+- `pointblank`
 
 ## "Not just once"
 
@@ -217,30 +240,15 @@
 
 ## "Not just once"
 
-- L'[**environnement**]{.orange} change (OS, librairies système, version de R...)
+- L'[**environnement**]{.orange} change (OS, libs système, version de R...)
   - Difficulté principale du [**passage en production**]{.blue2}
 
 - La [**conteneurisation**]{.orange} permet de [**fixer l'environnement**]{.orange}
-  - LS3 -> non-persistence = coût d'entrée mais gains de prod ++
+  - Favorise la [**portabilité**]{.blue2}
 
 . . .
 
 ![](img/containers-portability.png){height="250" fig-align="center"}
-
-## "Not just once"
-
-- Les données changent
-  - Factoriser pour éviter la duplication
-
-- Passage d'une experimentation chaotique -> prod linéaire
-  - Dans le code, ou Targets
-
-## "Not just once"
-
-- Les données changent
-  - Contrôle de qualité/validité
-
-- `pointblank`
 
 ## "Not just once"
 
