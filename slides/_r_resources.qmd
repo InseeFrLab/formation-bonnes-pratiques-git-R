@@ -5,3 +5,7 @@
 - Cours [Reproductibilité et bonnes pratiques pour les projets de data science](https://ensae-reproductibilite.github.io/website/) de l'`ENSAE`
 
 - [Un cours complet](https://eliocamp.github.io/reproducibility-with-r/) (en anglais) sur la reproductibilité avec `R`
+
+- Conférence ["R in production"](https://www.youtube.com/watch?v=BQk2-3inViM) d'Hadley Wickham (en anglais)
+
+- Le cours (en construction) ["R in production"](https://r-in-production.org/) d'Hadley Wickham (en anglais)
