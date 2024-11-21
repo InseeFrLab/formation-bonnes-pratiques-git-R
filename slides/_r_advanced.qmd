@@ -168,7 +168,7 @@
 - Penser son projet en termes de [**maintenabilité**]{.orange}
 
 - Adopter les [**standards communautaires**]{.orange}
-  - `Git` pour la [**traçabilité**]{.blue2} des choix
+  - [**Git**]{.blue2} pour la [**traçabilité**]{.blue2} des choix
   - [**Qualité**]{.blue2} du code (structure, documentation)
   - Choix des [**packages**]{.blue2} (voir [fiche UtilitR](https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html))
 
@@ -176,7 +176,7 @@
 
 - Organiser le [**travail collaboratif**]{.orange}
   - S'accorder sur une [**organisation**]{.blue2}
-  - [**Ecosystème `Git`**]{.blue2} -> outils qui facilitent
+  - Des outils facilitant via l'[**écosystème `Git`**]{.blue2}
 
 - Traiter le code comme un [**élément méthodologique**]{.orange}
   - [**Revue de code**]{.blue2}
@@ -192,9 +192,9 @@
   - Performances en [**stockage**]{.blue2} et en [**lecture**]{.blue2}
 
 - Pour la documentation / publication : [quarto](https://quarto.org/)
-  - Intègre [**code**]{.blue2} et [**texte**]{.blue2} -> [**reproductibilité**]{.blue2}
+  - Intègre [**code**]{.blue2} et [**texte**]{.blue2} pour la [**reproductibilité**]{.blue2}
   - Publication [**multi-formats**]{.blue2} (`pdf`, `odt`, `html`)
-  - Mise à jour automatique avec l'[**intégration continue**]{.blue2}
+  - Mise à jour automatique via l'[**intégration continue**]{.blue2}
 
 ## Les trois commandements d'Hadley Wickham
 
@@ -213,7 +213,7 @@
 
 - Une tâche de [**production**]{.orange}
   - Est [**répétée**]{.blue2} dans le temps
-  - Peut [**changer d'environnement**]{.blue2} (dev, test, prod)
+  - Peut [**changer d'environnement**]{.blue2} (dev, test, prod...)
 
 - [**Problème**]{.orange} : le monde "autour du code" évolue
   - [**Spécifier**]{.blue2} et [**contrôler**]{.blue2} l'environnement
@@ -246,7 +246,7 @@
 - Les [**dépendances**]{.orange} changent (fonctionnalités, *bugs*, failles de sécurité...)
 
 - Arbitrage entre [**évolutivité**]{.orange} et [**stabilité**]{.orange}
-  - L'évolution des [**dépendances**]{.blue2} est inhérente à la [**maintenance**]{.blue2} d'une chaîne de production
+  - L'[**évolution des dépendances**]{.blue2} est inhérente à la [**maintenance**]{.blue2} d'une chaîne de production
 
 - On limite les risques en [**spécifiant l'environnement**]{.orange}
   - [**Fixer**]{.blue2} les versions des packages utilisés : [renv](https://rstudio.github.io/renv/articles/renv.html)
@@ -258,7 +258,7 @@
   - Difficulté principale du [**passage en production**]{.blue2}
 
 - La [**conteneurisation**]{.orange} permet de [**fixer l'environnement**]{.orange}
-  - Favorise la [**reproductibilité**]{.blue2} et la [**portabilité**]{.blue2}
+  - Favorise la [**portabilité**]{.blue2}
 
 . . .
 
@@ -266,13 +266,15 @@
 
 ## "Not just once"
 
-- Automatisation
-  - Batchs périodiques
-  - Mise à jour d'une doc
-  - Déploiements de nouvelles version d'un Shiny
+- Concevoir sa chaîne comme un [***pipeline* de données**]{.orange}
+  - [**Reproductibilité**]{.orange} : étapes [**intégrées**]{.blue2} "de bout en bout"
+  - [**Stabilité**]{.orange} : contrôle des [**évolutions**]{.blue2}
+  - [**Portabilité**]{.orange} : fluidifie le [**changement d'architecture**]{.blue2}
 
-- Intégration continue
-  - Accroît encore les bénéfices de Git
+- Avantage supplémentaire : [**automatisation**]{.orange}
+
+- Outil : [**intégration continue**]{.orange} via `GitHub` / `GitLab`
+  - Accroît encore les bénéfices d'utiliser `Git` ! 
 
 ## Les trois commandements d'Hadley Wickham
 
