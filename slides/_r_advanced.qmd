@@ -297,6 +297,42 @@
 
 ## "Not just my computer"
 
+- OK, mais pourquoi 🤔 ?
+
+- Pourquoi migrer vers des [**infrastructures centralisées**]{.orange} ?
+  - [**Centralisation**]{.orange} : permet le [**passage à l'échelle**]{.blue2}
+  - [**Sécurité**]{.orange} : évite la [**dissémination**]{.blue2} de données
+
+- Pourquoi migrer vers des [**infrastructures Kubernetes**]{.orange} ?
+  - Tout ce qu'on pouvait faire avant... [**en mieux**]{.blue2}
+  - [**Nouveaux usages**]{.orange} : déploiements (applications, API), calcul distribué, traitements ordonnancés...
+  - [**Autonomie**]{.orange} (environnement, stockage, etc.)
+
+## "Not just my computer" {auto-animate=true}
+
+Un point de départ commun
+
+![](img/environment_messy.png)
+
+## "Not just my computer" {auto-animate=true}
+
+Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align="right"}
+
+Une structuration de projet plus viable
+
+![](img/environment.png)
+
+## "Not just my computer" {auto-animate=true}
+
+Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align="right"}
+
+Une structuration de projet plus viable ![](img/environment.png){width="10%" fig-align="right"}
+
+Facilitée par [**l'éco-système *cloud***]{.orange} et [**Onyxia**]{.orange}
+
+![](img/environment_cloud.png)
+
+## "Not just my computer"
 
 - Desktop -> Server
 
