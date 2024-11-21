@@ -2,7 +2,7 @@
 
 <div id="badges">
   <a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/">
-    <img src="https://img.shields.io/badge/Site du cours-red?style=for-the-badge&logo=firefox&logoColor=white" alt="Website"/>
+    <img src="https://img.shields.io/badge/Site de la formation-red?style=for-the-badge&logo=firefox&logoColor=white" alt="Website"/>
   </a>
 </div>
 
