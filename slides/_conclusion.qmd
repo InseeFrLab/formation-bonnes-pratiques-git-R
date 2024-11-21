@@ -1,8 +1,8 @@
 
-- Les [**bonnes pratiques**]{.blue2} favorisent la [**reproductibilité**]{.orange} et la [**réutilisation**]{.orange} des projets statistiques
+- Bonnes pratiques : [**standards communautaires**]{.orange} qui favorisent la [**reproductibilité**]{.blue2} et la [**maintenabilité**]{.blue2}
 
+- De multiples [**outils**]{.orange} pour simplifier leur mise en oeuvre
 
-- Des [**outils**]{.orange} permettent d'appliquer les [**bonnes pratiques**]{.blue2}
+- Un [**coût**]{.orange} d'autant plus faible que l'on se place [**en amont**]{.orange}
 
-
-- Le [**coût**]{.orange} est d'autant plus faible que l'on se place [**en amont du projet**]{.orange}
+- Le mouvement de [**modernisation du self**]{.orange} est l'occasion d'une [**montée en compétence collective**]{.blue2}

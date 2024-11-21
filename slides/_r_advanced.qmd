@@ -236,8 +236,8 @@
 - Le [**code**]{.orange} / les [**données**]{.orange} changent... et [**cassent**]{.orange}
 
 - Spécifier les [**attendus**]{.orange}
-  - [**Tests unitaires**]{.blue2} : vérifie le bon [**comportement**]{.blue2} du code
-  - [**Validation de données**]{.blue2} : vérifie l'[**intégrité**]{.blue2} et la [**qualité**]{.blue2} des données
+  - [**Tests unitaires**]{.orange} : vérifie le bon [**comportement**]{.blue2} du code
+  - [**Validation de données**]{.orange} : vérifie l'[**intégrité**]{.blue2} et la [**qualité**]{.blue2} des données
 
 - Outils : [testthat](https://testthat.r-lib.org/) et [pointblank](https://rstudio.github.io/pointblank/)
 
