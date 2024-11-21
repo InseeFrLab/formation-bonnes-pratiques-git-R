@@ -328,34 +328,43 @@ Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align=
 
 Une structuration de projet plus viable ![](img/environment.png){width="10%" fig-align="right"}
 
-Facilitée par [**l'éco-système *cloud***]{.orange} et [**Onyxia**]{.orange}
+Facilitée par [**l'éco-système *cloud***]{.orange}
 
 ![](img/environment_cloud.png)
 
 ## "Not just my computer"
 
-- Desktop -> Server
+- Qu'est-ce qui change 🤔 ?
+  
+- Sur le plan [**technique**]{.orange}, à peu près tout
+  - Du monde [***desktop***]{.blue2} au monde [***server***]{.blue2}
+  - Du monde [***Windows***]{.blue2} au monde [***Linux***]{.blue2}
 
-- Windows -> Linux
-
-## "Not just my computer"
-
-- Evolution de la nature des traitements
-  - Interactif -> batch
-
-- Plus difficile à debugger
-  - Le loggin devient nécessaire -> [logger](https://cran.r-project.org/web/packages/logger/vignettes/Intro.html)
+- En pratique, [**Onyxia**]{.orange} facilite la [**transition**]{.orange}
 
 ## "Not just my computer"
 
-- Evolution des modes de stockage de données
+- Monde conteneurisé -> non-persistence -> Git non négociable
+
+## "Not just my computer"
+
+- Evolution du [**mode de stockage de données**]{.orange}
   - Stockage local
   - Lecteurs réseaux partagés
   - Cloud (S3 / MinIO)
-
-- 
 
 ## "Not just my computer"
 
 - Authentification
   - Utilisateur -> service
+
+## "Not just my computer"
+
+- Evolution de la [**nature des traitements**]{.orange}
+  - Traitements [**interactifs**]{.blue2} pour le [**développement**]{.blue2}
+  - Traitements [**batch**]{.blue2} pour le [**déploiement**]{.blue2}
+
+- Le [**débogage**]{.orange} devient plus difficile
+  - Nécessité du [***logging***]{.blue2}
+  
+- Outil : [logger](https://cran.r-project.org/web/packages/logger/vignettes/Intro.html)
