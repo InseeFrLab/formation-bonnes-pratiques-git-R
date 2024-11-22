@@ -188,21 +188,28 @@
 
 - Traiter le code comme un [**élément méthodologique**]{.orange}
   - [**Revue de code**]{.blue2}
-  - Programmation en [**binôme**]{.blue2}
+
+. . .
+
+::: {style="font-size: 70%; text-align: justify"}
+> "Les développeurs, quel que soit leur rôle, y voient de multiples avantages et un contexte dans lequel ils peuvent se former mutuellement, maintenir l'intégrité des bases de code de leurs équipes et créer, établir et faire évoluer des normes qui garantissent la lisibilité et la cohérence du code."
+>
+> Sadowski et al., *Modern code review: a case study at google* (2018)
+:::
 
 ## "Not just me"
 
 - Penser à l'expérience des [**utilisateurs finaux**]{.orange}
 
 - Pour la mise à disposition de données : [Parquet](https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_fichiers_parquet.html)
-  - Format [**interopérable**]{.blue2}
-  - [**Méta-données**]{.blue2} livrées avec les données
+  - [**Interopérable**]{.blue2} et [**méta-données**]{.blue2} incluses
   - Performances en [**stockage**]{.blue2} et en [**lecture**]{.blue2}
 
 - Pour la documentation / publication : [quarto](https://quarto.org/)
   - Intègre [**code**]{.blue2} et [**texte**]{.blue2} pour la [**reproductibilité**]{.blue2}
   - Publication [**multi-formats**]{.blue2} (`pdf`, `odt`, `html`)
-  - Mise à jour automatique via l'[**intégration continue**]{.blue2}
+
+- Exemple "2 en 1" : [utiliser les données RP en `Parquet`](https://ssphub.netlify.app/post/parquetrp/)
 
 ## Les trois commandements d'Hadley
 
