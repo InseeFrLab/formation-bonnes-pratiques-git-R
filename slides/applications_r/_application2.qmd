@@ -6,15 +6,19 @@
 
 ::: {.nonincremental}
 1. Déplacer toutes les fonctions dans un fichier `R/functions.R`.
-2. Donner à la fonction `fonction_de_stat_agregee` un nom plus pertinent et des noms d'arguments plus transparents. N'oubliez pas de mettre à jour la documentation.
+2. Donner à la fonction `fonction_de_stat_agregee` un nom plus pertinent et des noms d'arguments plus transparents. 
+    + Documenter la fonction `fonction_de_stat_agregee` selon le standard `roxygen`. Vous pouvez vous aider d'une IA assistante comme `ChatGPT`, `Claude` ou `Copilot`, rien n'est sensible dans ce code (d'ailleurs rien de sensible ne doit être dans du code !). 
+    + Utiliser les exemples d'utilisation de `fonction_de_stat_agregee` dans cette documentation.
 3. Dans `script.R`, appeler en début de chaîne ces fonctions avec `source("R/functions.R", encoding = "UTF-8")`.
 4. Tester le bon fonctionnement de `script.R`.
 5. Si votre chaîne écrit des _outputs_ ou utilise des _inputs_ (par exemple des données), restructurer l'aborescence du projet pour le rendre plus lisible et adaptez votre code en fonction. 
-6. Renommer (voire déplacer) les scripts `get_data.R` et `script.R` pour rendre plus intelligible la chaîne de production 
-7. Mettre à jour le `.gitignore` puis _commit_/_push_
+6. Renommer (voire déplacer) les scripts `get_data.R` et `script.R` pour rendre plus intelligible la chaîne de production.
+7. Mettre à jour le `.gitignore` puis _commit_/_push_.
 :::
 
 :::
+
+
 
 ## Application 2 {.smaller}
 
@@ -38,13 +42,9 @@
 ::: {.callout-caution}
 ## Checkpoint
 
-En ligne de commande:
+* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli2/script.R)
+* Le script [`R/functions.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli2/R/functions.R)
 
-```{.bash}
-git stash
-git checkout appli1
-```
-
-![](checkpoint.jpg){width="30%"}
+![](checkpoint.jpg){width="40%"}{fig-align="center"}
 
 :::

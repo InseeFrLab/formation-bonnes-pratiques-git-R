@@ -44,7 +44,9 @@ from: markdown+emoji
 
 {{< include _intro.qmd >}}
 
+
 # Partie 1 : contrôle de version avec `Git`
+
 
 ## Plan de la partie
 
@@ -61,6 +63,7 @@ from: markdown+emoji
 {{< include _git_collab.qmd >}}
 
 {{< include _git_resources.qmd >}}
+
 
 # Partie 2 : bonnes pratiques avec `R`
 

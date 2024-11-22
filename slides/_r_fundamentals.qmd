@@ -210,11 +210,11 @@ if (x_is_not_empty_string) {
 
 ::::: {.columns}
 
-:::: {.column width="60%"}
+:::: {.column .noincremental width="60%"}
 
 - Un code mal structuré
-  - Limite la lisibilité du projet
-  - Est très coûteux à maintenir (dette technique)
+  - Limite la [__lisibilité du projet__]{.blue2}
+  - Est très [__coûteux à maintenir__]{.blue2} (dette technique)
 
 - Les petits gestes peuvent économiser un temps précieux
 

@@ -1,26 +1,185 @@
-## Application 3 {.smaller}
+## Application 3 (préparation) {.smaller}
 
-:::{.callout-tip collapse="true" icon=false}
-## Du CSV au Parquet
+:::{.callout-tip .nonincremental collapse="true" icon=false}
+# Partie 0: préparation de l'exercice
+* Remplacer le contenu du script `download_data` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/download_data.R). Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.
+* Créer le script `R/benchmarking_functions.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark_functions.R)
+* Créer un nouveau script `R` qui servira de bac à sable pour tester le format `Parquet`.
+* Créer les variables qui seront utiles pour les prochaines questions
+
+```{.r}
+columns_subset <- c(
+  "REGION", "AGED", "ANAI", "CATL", "COUPLE",
+  "SEXE", "SURF", "TP", "TRANS"
+)
+
+filename_sample_csv <- "data/RPindividus_24.csv"
+filename_sample_parquet <- gsub("csv", "parquet", filename_sample_csv)
+filename_full_parquet <- gsub("_24", "", filename_sample_parquet)
+filename_full_csv <- gsub("parquet", "csv", filename_full_parquet)
+```
+
+:::
+
+## Application 3 (partie 1) {.smaller}
+
+::: {.callout-tip .nonincremental collapse="true" icon=false}
+## Partie 1: Ouvrir un fichier `Parquet` et comprendre la logique de la lecture par bloc
+
+Lecture du fichier avec `read_parquet` du _package_ `arrow`:
+
+* Lire les données dont le chemin est stocké dans `filename_sample_parquet`. Pour mesurer le temps d'exécution, vous pouvez utiliser le squelette de code suggéré ci-dessous 👇️.
+* Faire la même chose mais cette fois, ajouter un filtre _ex post_ avec les colonnes (`select(any_of(columns_subset))`). Mesurez-vous une différence dans les temps de traitement ?
+
+Lecture du fichier avec `open_dataset` du _package_ `arrow`:
+
+* Cette fois, lire le fichier avec `open_dataset(filename_sample_parquet)`. Regarder la classe de cet objet. 
+* Faire un `head(5)` après `open_dataset`. Observer l'objet obtenu (sortie en console, classe).
+* Maintenant regarder lorsque vous ajouter `collect()` après cette chaîne.
+* Mesurer le temps d'exécution de `open_dataset(filename_sample_parquet) %>% collect()`. Ajouter le filtre `select(any_of(columns_subset))`. Sa place influence-t-elle la vitesse de votre processus ? 
+
+Comparaison à la lecture d'un CSV: 
+
+* Utiliser `readr::read_csv` pour lire le fichier (chemin `filename_sample_csv`) avec et sans l'argument `col_select`. Avez-vous des gains de performance si vous ne lisez le fichier qu'avec ces colonnes ? 
+
+<details>
+
+<summary>
+Mesurer le temps d'exécution
+</summary>
+
+```{.r}
+start_time <- Sys.time()
+# lecture du fichier ici
+end_time <- Sys.time()
+diff_time <- end_time - start_time
+```
+
+</details>
+
+:::
+
+_❓️ Quelle méthode retenir pour lire un `Parquet` avec `Arrow` ?_
+
+## Application 3 (partie 2) {.smaller}
+
+::: {.callout-tip .nonincremental collapse="true" icon=false}
+## Partie 2: Un format léger et efficace
+
+Dans cet exercice, vous devrez utiliser `open_dataset` pour lire les `Parquet`. 
+
+* Observer l'espace disque de chaque fichier par le biais de l'explorateur de fichiers
+* Mesurer le temps d'exécution de la lecture du fichier dont le chemin est stocké dans la variable `filename_full_parquet`. 
+    + Faire ceci avec et sans le filtre des colonnes[^csv].
+    + La croissance du temps de traitement vous apparaît-elle énorme ? 
+* Ajouter après cette étape de lecture `filter(REGION == 24)`. Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?   
+
+:::
+
+_❓️ Dans quel ordre sont faits les filtres par `Arrow` ?_
+
+[^csv]: Ne pas faire ceci maintenant avec le CSV, le _benchmark_ arrive prochainement.
+
+## Application 3 (partie 2) {.smaller}
+
+::: {.callout-tip .nonincremental collapse="true" icon=false}
+## Partie 2bis (optionnelle): Pour mieux comprendre le _predicate pushdown_ (optionnel)
+
+`duckdb` fournit une méthode `EXPLAIN ANALYZE` pratique pour comprendre les optimisations faites à la lecture d'un fichier `Parquet`.
+
+* Prendre le contenu de [ce script](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark_optional.R)
+* Exécuter les différentes requêtes et regarder les diagrammes obtenus. 
+* Comprenez-vous l'ordre du plan d'exécution et l'effet sur les besoins de `R` ?
+
+:::
+
+_❓️ Dans quel ordre sont faits les filtres par `Arrow` ? Comment faire si on veut régulièrement filtrer nos données à partir de niveaux des variables ?_
+
+## Application 3 (partie 3) {.smaller}
+
+::: {.callout-tip .nonincremental collapse="true" icon=false}
+# Partie 3: le Parquet partitionné
+
+* Utiliser le code ci-dessous pour partitionner le fichier `Parquet` par _"REGION"_ et _"DEPT"_
+
+```{.r}
+open_dataset(filename_full_parquet) %>%
+  group_by(REGION, DEPT) %>%
+  write_dataset("./data/RPindividus")
+```
+
+* Observer l'arborescence de fichiers
+* Utiliser `Arrow` pour lire les données de la Corse du Sud (code région 94, code département 2A) à partir de ce fichier partitionné
+
+:::
 
 ::: {.nonincremental}
-1. Effacer la base `individu_reg.csv`
-2. Modifier le script `get_data.R` pour écrire les données au format `Parquet` à l'aide de la fonction [arrow::write_parquet](https://arrow.apache.org/docs/r/reference/write_parquet.html)
-3. Exécuter le script `get_data.R` modifié et comparer les tailles du fichier `csv` initial et du fichier `parquet`
-4. Modifier la phase d'import dans `script.R` pour importer le fichier `Parquet` à l'aide de la fonction [arrow::read_parquet](https://arrow.apache.org/docs/r/reference/read_parquet.html)
-5. Exécuter `script.R` et vérifier son bon fonctionnement
-:::
+
+_❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques:_
+
+* _Que faudrait-il faire ?_
+* _Quelle est la limite ?_
 
 :::
+
+## Application 3 (partie 3) {.smaller}
+
+Quand on généralise cette démarche de _benchmark_, on obtient le tableau de performance suivant
+
+![](img/tableau-perf-parquet.png){fig-align="center"}
+
+
+## Application 3 (partie 4) {.smaller}
+
+:::{.callout-tip .nonincremental collapse="true" icon=false}
+# Partie 4: mise à jour de la chaîne de production
+
+Nous allons mettre à jour les données utilisées pour notre chaîne de production:
+
+* Lire les données à partir du morceau de code proposé
+* Vérifier que le code tourne de A à Z et changer celui-ci marginalement si ce n'est pas le cas
+
+<details>
+
+<summary>
+Modification du code pour l'import de données
+</summary>
+
+```{.r}
+columns_subset <- c(
+  "REGION", "AGED", "ANAI", "CATL", "COUPLE",
+  "SEXE", "SURF", "TP", "TRANS", "IPONDI"
+)
+
+df <- open_dataset(
+  "./data/RPindividus",
+  hive_style = TRUE
+) %>%
+  filter(REGION == 24) %>%
+  select(any_of(columns_subset)) %>%
+  collect()
+
+```
+
+</details>
+
+
+:::
+
+
+
+_❓️ Cette mise à jour des données utilisées vous est-elle apparue plus simple que les changements de l'application 1 ?_
+
 
 ## Checkpoint
 
-::: {layout=[30,70]}
-:::{.nonincremental}
+::: {.callout-caution .noincremental}
+## Checkpoint
 
-- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/script.R)
-- [get_data.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application3/get_data.R)
+* Le script [`main.R`](https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli3/main.R)
+* Le script [`R/functions.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli3/R/functions.R)
 
-![](checkpoint.jpg){width=60%}
-:::
+
+![](checkpoint.jpg){width="40%"}{fig-align="center"}
+
 :::

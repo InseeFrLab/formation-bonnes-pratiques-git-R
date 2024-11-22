@@ -5,7 +5,8 @@
 
 Un code reproductible est avant toute chose un code fonctionnel !
 
-Repérez les erreurs qui empêchent le script `script.R` de s’exécuter correctement, et les corriger. 
+* Repérez les erreurs qui empêchent le script `script.R` de s’exécuter correctement, et les corriger.
+* Redémarrer votre session avec `Session` > `New Session` (ou <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>F10</kbd>)
 
 :::
 
@@ -88,7 +89,6 @@ pour adopter une structure plus lisible :
     + Gestion de l'environnement -> Définition de fonctions -> Import des données -> Retraitement des données -> Statistiques descriptives -> Graphiques -> Modélisation
 3. Donner des titres aux parties/sous-parties en utilisant les standards de documentation reconnus par RStudio :
     + `# TITRE NIVEAU 1 ------------` et `## TITRE NIVEAU 2 ==========`
-4. Documenter la fonction `fonction_de_stat_agregee` selon le standard `roxygen`. Vous pouvez vous aider d'une IA assistante comme `ChatGPT`, `Claude` ou `Copilot`, rien n'est sensible dans ce code (d'ailleurs rien de sensible ne doit être dans du code !). Utiliser les exemples d'utilisation de `fonction_de_stat_agregee` dans cette documentation.
 
 _Au passage, vous pouvez changer les noms de certains objets pour les rendre moins cryptiques (`df3` n'est pas très clair)._
 :::
@@ -124,17 +124,14 @@ Dans cette application, on va explorer deux manières possibles de gérer les se
 
 ## Checkpoint
 
-::: {.callout-caution}
+::: {.callout-caution .noincremental}
 ## Checkpoint
 
-En ligne de commande:
+* Le script [`get_data.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/get_data.R)
+* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/script.R)
+* Le [`.gitignore`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/.gitignore)
 
-```{.bash}
-git stash
-git checkout appli1
-```
-
-![](checkpoint.jpg){width="30%"}
+![](checkpoint.jpg){width="40%"}{fig-align="center"}
 
 :::
 

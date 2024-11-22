@@ -1,36 +1,73 @@
 ## Application 4 {.smaller}
 
-:::{.callout-tip collapse="true" icon=false}
-## Partie 1 : Prise en main de la librairie `renv`
+:::{.callout-tip collapse="true" icon=false .noincremental}
+## Partie 1 : prise en main de la librairie `renv`
 
-::: {.nonincremental}
-0. Installer le package [`renv`](https://rstudio.github.io/renv/articles/renv.html)
-1. Taper dans la console `renv::init()`, __lire le message__ et accepter.
-2. Observer les nouveaux élements qui sont apparus dans le projet.
-3. Installer le [package `gt`](https://gt.rstudio.com/) et observer le message dans la console.
-4. Dans la partie sur les statistiques descriptives d'âge, ajouter ce code :
+1. Installer le package [`renv`](https://rstudio.github.io/renv/articles/renv.html)
+2. Taper dans la console `renv::init()`, __lire le message__ et accepter.
+3. Observer les nouveaux fichiers et dossiers qui sont apparus dans le projet.
+4. Taper `library(sf)` dans la console `R` et observer la réponse de `R`. Comprenez-vous pourquoi ?
+4. Dans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte
+    + S'il manque un _package_ pour la faire, l'installer
 
-    ```r
-    stats_age <- df %>%
-      group_by(decennie = decennie_a_partir_annee(age)) %>%
-      summarise(n())
-    
-    table_age <- gt::gt(stats_age) %>%
-      gt::tab_header(
-        title = "Distribution des âges dans notre population"
-      ) %>%
-      gt::fmt_number(
-        columns = `n()`,
-        sep_mark = " ",
-        decimals = 0
-      ) %>%
-      gt::cols_label(
-        decennie = "Tranche d'âge",
-        `n()` = "Population"
-      )
+<details>
 
-    ```
-:::
+
+<summary>
+Nouvelle statistique descriptive à ajouter
+</summary>
+
+```{.r}
+# PART DES SENIORS DANS LA POPULATION ---------------------------
+
+# France geojson
+departements <- sf::st_read(
+  "https://minio.lab.sspcloud.fr/projet-formation/bonnes-pratiques/data/france.geojson"
+)
+
+# PART DES SENIORS FRANCE ENTIERE =====================================
+
+part_seniors <- open_dataset(
+  "./data/RPindividus",
+  hive_style = TRUE
+) %>%
+  mutate(plus_60 = AGED > 60) %>%
+  group_by(DEPT, plus_60) %>%
+  summarise(
+    population_totale = sum(IPONDI)
+  ) %>%
+  group_by(DEPT) %>%
+  mutate(
+    population_60_ans = population_totale,
+    pourcentage_60_plus = population_totale/sum(population_totale),
+    population_totale = sum(population_totale)
+  ) %>%
+  filter(plus_60 == TRUE) %>%
+  select(DEPT, population_totale, population_60_ans, pourcentage_60_plus) %>%
+  collect()
+
+
+# CARTE =====================================
+
+departements_60_plus_sf <- departements %>%
+  inner_join(
+    part_seniors,
+    by = c("INSEE_DEP" = "DEPT")
+  )
+
+
+ggplot(departements_60_plus_sf) +
+  geom_sf(aes(fill = pourcentage_60_plus)) + 
+  scale_fill_fermenter(n.breaks = 5, palette = "PuBuGn", direction = 1) + 
+  theme_void() + 
+  labs(
+    title = "Part des personnes de plus de 60 ans par département",
+    caption = "Source: Insee, Fichiers détails du recensement de la population",
+    fill = "Part (%)"
+  )
+```
+
+</details>
 
 :::
 
@@ -63,11 +100,11 @@
 
 ## Checkpoint
 
-::: {layout=[30,70]}
-:::{.nonincremental}
+::: {.callout-caution .noincremental}
+## Checkpoint
 
-- [script.R](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/checkpoints/application4/script.R)
+* Le script [`main.R`](https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli4/main.R)
 
-![](checkpoint.jpg){width=60%}
-:::
+![](checkpoint.jpg){width="40%"}{fig-align="center"}
+
 :::
