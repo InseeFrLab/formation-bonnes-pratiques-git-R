@@ -333,14 +333,16 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 ![](img/environment_cloud.png)
 
 ## "Not just my computer"
-
-- Qu'est-ce qui change 🤔 ?
   
-- Sur le plan [**technique**]{.orange}, à peu près tout
+- Qu'est-ce qui change 🤔 ? [**Techniquement**]{.orange}, quasi tout !
   - Du monde [***desktop***]{.blue2} au monde [***server***]{.blue2}
   - Du monde [***Windows***]{.blue2} au monde [***Linux***]{.blue2}
 
 - En pratique, [**Onyxia**]{.orange} facilite la [**transition**]{.orange}
+
+. . .
+
+![](img/onyxia-catalog.png){height="250" fig-align="center"}
 
 ## "Not just my computer"
 
@@ -355,11 +357,6 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 
 ## "Not just my computer"
 
-- Authentification
-  - Utilisateur -> service
-
-## "Not just my computer"
-
 - Evolution de la [**nature des traitements**]{.orange}
   - Traitements [**interactifs**]{.blue2} pour le [**développement**]{.blue2}
   - Traitements [**batch**]{.blue2} pour le [**déploiement**]{.blue2}
@@ -368,3 +365,8 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
   - Nécessité du [***logging***]{.blue2}
   
 - Outil : [logger](https://cran.r-project.org/web/packages/logger/vignettes/Intro.html)
+
+## "Not just my computer"
+
+- Authentification
+  - Utilisateur -> service
