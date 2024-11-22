@@ -347,7 +347,7 @@
     "href": "slides/complete.html#ressources-supplémentaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
+    "text": "Ressources supplémentaires\n\nLa documentation utilitR propose plusieurs chapitres sur Git\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\nLa Bible de l’usage de Git"
   },
   {
     "objectID": "slides/complete.html#plan-de-la-partie-1",
@@ -620,7 +620,7 @@
     "href": "slides/complete.html#le-format-parquet-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nPartitionner les données pour optimiser la lecture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nL’art de bien partitionner\n\n\n\nPartitionner par une/des variable(s) d’intérêt (ex : millésime x département)\nEviter de créer de nombreux petits (&lt; 128Mo) fichiers"
+    "text": "Le format Parquet\n\nPartitionner les données pour optimiser la lecture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nL’art de bien partitionner\n\n\n\nPartitionner par une/des variable(s) d’intérêt\nEviter de créer de nombreux petits (&lt; 128Mo) fichiers"
   },
   {
     "objectID": "slides/complete.html#le-format-parquet-3",
@@ -693,15 +693,15 @@
     "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script main.R\nLe script R/functions.R\n\n{fig-align=“center”}"
   },
   {
-    "objectID": "slides/complete.html#expérience-de-pensée",
-    "href": "slides/complete.html#expérience-de-pensée",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Expérience de pensée",
-    "text": "Expérience de pensée\n\nImaginons la situation suivante :\n\nJ’installe une version de R sur mon poste\nJe développe un projet en installant les packages nécessaires\nUne fois terminé, je passe au projet suivant, et ainsi de suite.\n\nQuels problèmes puis-je rencontrer au fil des projets ?\nEst-il facile de partager un de mes projets ?"
-  },
-  {
     "objectID": "slides/complete.html#enjeux-3",
     "href": "slides/complete.html#enjeux-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Enjeux",
+    "text": "Enjeux\n\nImaginons la situation suivante :\n\nJ’installe une version de R sur mon poste\nJe développe un projet en installant les packages nécessaires\nUne fois terminé, je passe au projet suivant, et ainsi de suite.\n\nQuels problèmes puis-je rencontrer au fil des projets ?\nEst-il facile de partager un de mes projets ?"
+  },
+  {
+    "objectID": "slides/complete.html#enjeux-4",
+    "href": "slides/complete.html#enjeux-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
     "text": "Enjeux\n\nVersion de R fixe, celle de l’installation système\nConflits de version : différents projets peuvent requérir différentes versions d’un même package.\nReproductibilité limitée : difficile de dire quel projet nécessite quel package.\nPortabilité limitée : difficile de préciser dans un fichier les dépendances spécifiques à un projet."
@@ -760,14 +760,14 @@
     "href": "slides/complete.html#application-4-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nPartie 2 : faire un snapshot de l’environnement\n\n\n\n\nDans la console, faire renv::status() et observer le message.\nEffectuer renv::snapshot() pour intégrer les nouveaux packages au lockfile\nFaire un commit / push des fichiers script.R, .Rprofile, renv.lock et du dossier renv/."
+    "text": "Application 4\n\n\n\nPartie 2 : Faire un snapshot de l’environnement\n\n\n\n\nDans la console, faire renv::status() et observer le message\nEffectuer renv::snapshot() pour intégrer les nouveaux packages au lockfile\nFaire un commit / push des fichiers script.R, .Rprofile, renv.lock et du dossier renv/"
   },
   {
     "objectID": "slides/complete.html#application-4-4",
     "href": "slides/complete.html#application-4-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nPartie 3 : test de la portabilité (facultatif)\n\n\n\n\nOuvrir un nouveau service RStudio\nCloner votre dépôt\nExécuter renv::restore() pour installer les packages nécessaires à l’exécution du projet\nVérifier que le script.R s’exécute correctement dans ce nouvel environnement."
+    "text": "Application 4\n\n\n\nPartie 3 : Test de portabilité\n\n\n\n\nOuvrir un nouveau projet RStudio et cloner à nouveau votre dépôt (sous un nom différent)\nExécuter renv::restore() pour installer les packages nécessaires à l’exécution du projet\nVérifier que le script.R s’exécute correctement dans ce nouveau projet\n(facultatif) Pour se convaincre de la portabilité de la solution, ouvrir un nouveau service RStudio et refaire les étapes 8 à 10"
   },
   {
     "objectID": "slides/complete.html#checkpoint-6",
@@ -791,18 +791,207 @@
     "text": "Ressources supplémentaires\n\nLa documentation officielle de renv\nLa fiche utilitR sur la gestion des dépendances"
   },
   {
+    "objectID": "slides/complete.html#de-quoi-parle-t-on",
+    "href": "slides/complete.html#de-quoi-parle-t-on",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "De quoi parle-t-on ?",
+    "text": "De quoi parle-t-on ?\n\nProduction statistique : chiffres, données, analyses produits par l’Insee\nProduction informatique : processus déployés par la DSI sur des infrastructures avec “garantie de service”\nSelf de production : processus déployés sur une infra “self” (AUS, LS3) contribuant à la production statistique\nCode de production : code respectant des standards de qualité qui le rendent efficace et maintenable"
+  },
+  {
+    "objectID": "slides/complete.html#r-un-langage-de-production",
+    "href": "slides/complete.html#r-un-langage-de-production",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "R : un langage de production ?",
+    "text": "R : un langage de production ?\n\nR a émergé dans la communauté statistique\n\nOutils d’analyse interactive très développés\nOutils de développement limités\n\nL’éco-système tidyverse s’oriente vers des outils production-ready"
+  },
+  {
+    "objectID": "slides/complete.html#les-trois-commandements-dhadley-wickham",
+    "href": "slides/complete.html#les-trois-commandements-dhadley-wickham",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Les trois commandements d’Hadley Wickham",
+    "text": "Les trois commandements d’Hadley Wickham\n\nLe code de production a trois caractéristiques\n\n“Not just me”\n“Not just once”\n“Not just my computer”"
+  },
+  {
+    "objectID": "slides/complete.html#les-trois-commandements-dhadley-wickham-1",
+    "href": "slides/complete.html#les-trois-commandements-dhadley-wickham-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Les trois commandements d’Hadley Wickham",
+    "text": "Les trois commandements d’Hadley Wickham\n\n\nLe code de production a trois caractéristiques\n\n“Not just me”\n“Not just once”\n“Not just my computer”"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-me",
+    "href": "slides/complete.html#not-just-me",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just me”",
+    "text": "“Not just me”\n\nPenser son projet en termes de maintenabilité\nAdopter les standards communautaires\n\nGit pour la traçabilité des choix\nQualité du code (structure, documentation)\nChoix des packages (voir fiche UtilitR)"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-me-1",
+    "href": "slides/complete.html#not-just-me-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just me”",
+    "text": "“Not just me”\n\nOrganiser le travail collaboratif\n\nS’accorder sur une organisation\nDes outils facilitant via l’écosystème Git\n\nTraiter le code comme un élément méthodologique\n\nRevue de code\nProgrammation en binôme"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-me-2",
+    "href": "slides/complete.html#not-just-me-2",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just me”",
+    "text": "“Not just me”\n\nPenser à l’expérience des utilisateurs finaux\nPour la mise à disposition de données : Parquet\n\nFormat interopérable\nMéta-données livrées avec les données\nPerformances en stockage et en lecture\n\nPour la documentation / publication : quarto\n\nIntègre code et texte pour la reproductibilité\nPublication multi-formats (pdf, odt, html)\nMise à jour automatique via l’intégration continue"
+  },
+  {
+    "objectID": "slides/complete.html#les-trois-commandements-dhadley-wickham-2",
+    "href": "slides/complete.html#les-trois-commandements-dhadley-wickham-2",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Les trois commandements d’Hadley Wickham",
+    "text": "Les trois commandements d’Hadley Wickham\n\n\nLe code de production a trois caractéristiques\n\n“Not just me”\n“Not just once”\n“Not just my computer”"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-once",
+    "href": "slides/complete.html#not-just-once",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just once”",
+    "text": "“Not just once”\n\nPenser son projet en termes de reproductibilité\nUne tâche de production\n\nEst répétée dans le temps\nPeut changer d’environnement (dev, test, prod…)\n\nProblème : le monde “autour du code” évolue\n\nSpécifier et contrôler l’environnement\nAutomatiser ce qui peut l’être"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-once-1",
+    "href": "slides/complete.html#not-just-once-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just once”",
+    "text": "“Not just once”\n\nLes données changent\n\nFactoriser le code avec des fonctions\nModéliser sa chaîne sous forme de DAG\n\n\n\n\n\n\n\n\n\nOutil : {targets}"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-once-2",
+    "href": "slides/complete.html#not-just-once-2",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just once”",
+    "text": "“Not just once”\n\nLe code / les données changent… et cassent\nSpécifier les attendus\n\nTests unitaires : vérifie le bon comportement du code\nValidation de données : vérifie l’intégrité et la qualité des données\n\nOutils : testthat et pointblank"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-once-3",
+    "href": "slides/complete.html#not-just-once-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just once”",
+    "text": "“Not just once”\n\nLes dépendances changent (fonctionnalités, bugs, failles de sécurité…)\nArbitrage entre évolutivité et stabilité\n\nL’évolution des dépendances est inhérente à la maintenance d’une chaîne de production\n\nOn limite les risques en spécifiant l’environnement\n\nFixer les versions des packages utilisés : renv\nVersionner sa chaîne de production : tags Git"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-once-4",
+    "href": "slides/complete.html#not-just-once-4",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just once”",
+    "text": "“Not just once”\n\nL’environnement change (OS, libs système, R…)\n\nDifficulté principale du passage en production\n\nLa conteneurisation permet de fixer l’environnement\n\nFavorise la portabilité"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-once-5",
+    "href": "slides/complete.html#not-just-once-5",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just once”",
+    "text": "“Not just once”\n\nConcevoir sa chaîne comme un pipeline de données\n\nReproductibilité : étapes intégrées “de bout en bout”\nStabilité : contrôle des évolutions\nPortabilité : fluidifie le changement d’architecture\n\nAvantage supplémentaire : automatisation\nOutil : intégration continue via GitHub / GitLab\n\nAccroît encore les bénéfices d’utiliser Git !"
+  },
+  {
+    "objectID": "slides/complete.html#les-trois-commandements-dhadley-wickham-3",
+    "href": "slides/complete.html#les-trois-commandements-dhadley-wickham-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Les trois commandements d’Hadley Wickham",
+    "text": "Les trois commandements d’Hadley Wickham\n\n\nLe code de production a trois caractéristiques\n\n“Not just me”\n“Not just once”\n“Not just my computer”"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-my-computer",
+    "href": "slides/complete.html#not-just-my-computer",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just my computer”",
+    "text": "“Not just my computer”\n\nEvolution continue vers des infrastructures de self “production-ready”"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-my-computer-1",
+    "href": "slides/complete.html#not-just-my-computer-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just my computer”",
+    "text": "“Not just my computer”\n\nOK, mais pourquoi 🤔 ?\nPourquoi migrer vers des infrastructures centralisées ?\n\nCentralisation : permet le passage à l’échelle\nSécurité : évite la dissémination de données\n\nPourquoi migrer vers des infrastructures Kubernetes ?\n\nTout ce qu’on pouvait faire avant… en mieux\nNouveaux usages : déploiements (applications, API), calcul distribué, traitements ordonnancés…\nAutonomie (environnement, stockage, etc.)"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-my-computer-2",
+    "href": "slides/complete.html#not-just-my-computer-2",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just my computer”",
+    "text": "“Not just my computer”\nUn point de départ commun"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-my-computer-3",
+    "href": "slides/complete.html#not-just-my-computer-3",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just my computer”",
+    "text": "“Not just my computer”\nUn point de départ commun \nUne structuration de projet plus viable"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-my-computer-4",
+    "href": "slides/complete.html#not-just-my-computer-4",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just my computer”",
+    "text": "“Not just my computer”\nUn point de départ commun \nUne structuration de projet plus viable \nFacilitée par l’éco-système cloud"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-my-computer-5",
+    "href": "slides/complete.html#not-just-my-computer-5",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just my computer”",
+    "text": "“Not just my computer”\n\nQu’est-ce qui change 🤔 ?\nTechniquement, quasi tout !\n\nDu monde desktop au monde server\nDu monde Windows au monde Linux\n\nEn pratique, Onyxia facilite la transition"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-my-computer-6",
+    "href": "slides/complete.html#not-just-my-computer-6",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just my computer”",
+    "text": "“Not just my computer”\n\nQu’est-ce qui change 🤔 ?\nMonde conteneurisé : les traitements sont éphémères\n\n“Coût” de l’autonomie et de la mutualisation\nMais source de reproductibilité !"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-my-computer-7",
+    "href": "slides/complete.html#not-just-my-computer-7",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just my computer”",
+    "text": "“Not just my computer”\n\nQu’est-ce qui change 🤔 ?\n\nEvolution du mode de stockage de données\n\nInfrastructures “bureau virtuel” : lecteurs partagés\n\nLe “bureau virtuel” simule le filesystem traditionnel\n\nInfrastructures cloud : stockage objet (S3 / MinIO)\n\nStockage très peu coûteux\nAutonomie : bucket personnel / de projet\nFonctionnement différent des filesystems"
+  },
+  {
+    "objectID": "slides/complete.html#not-just-my-computer-8",
+    "href": "slides/complete.html#not-just-my-computer-8",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "“Not just my computer”",
+    "text": "“Not just my computer”\n\nQu’est-ce qui change 🤔 ?\nEvolution de la nature des traitements\n\nTraitements interactifs pour le développement\nTraitements batch pour le déploiement\n\nLe débogage devient moins immédiat\n\nNécessité du logging : logger"
+  },
+  {
+    "objectID": "slides/complete.html#dépasser-le-mur-de-la-production",
+    "href": "slides/complete.html#dépasser-le-mur-de-la-production",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Dépasser le “mur de la production”",
+    "text": "Dépasser le “mur de la production”\n\nUne organisation limitée par l’hétérogénéité des environnements"
+  },
+  {
+    "objectID": "slides/complete.html#dépasser-le-mur-de-la-production-1",
+    "href": "slides/complete.html#dépasser-le-mur-de-la-production-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Dépasser le “mur de la production”",
+    "text": "Dépasser le “mur de la production”\n\nL’opportunité d’organisations plus continues"
+  },
+  {
     "objectID": "slides/complete.html#ressources-supplémentaires-4",
     "href": "slides/complete.html#ressources-supplémentaires-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nUne conférence d’Hadley Wickham (en anglais)\nLe cours “R in production” d’Hadley Wickham (en anglais et en construction)"
+    "text": "Ressources supplémentaires\n\nLa documentation utilitR\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\nUn cours complet (en anglais) sur la reproductibilité avec R\nConférence “R in production” d’Hadley Wickham (en anglais)\nLe cours (en construction) “R in production” d’Hadley Wickham (en anglais)"
   },
   {
-    "objectID": "slides/complete.html#ressources-supplémentaires-5",
-    "href": "slides/complete.html#ressources-supplémentaires-5",
+    "objectID": "slides/complete.html#conclusion-1",
+    "href": "slides/complete.html#conclusion-1",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR\nUn cours complet (en anglais) sur la reproductibilité avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\n\nTrouver de l’aide:\n\nPour toute question : le salon Slack grrr, très dynamique\nLe salon Tchap Langage R\nPour l’utilisation de R à l’Insee : le salon Tchap Insee - Outils Stats v2"
+    "section": "Conclusion",
+    "text": "Conclusion\n\nDes standards communautaires qui favorisent la reproductibilité et la maintenabilité\nDe multiples outils pour simplifier leur mise en oeuvre\nUn coût d’autant plus faible que l’on se place en amont\nLe mouvement de modernisation du self est l’occasion d’une montée en compétence collective"
+  },
+  {
+    "objectID": "slides/complete.html#ressources-communautaires",
+    "href": "slides/complete.html#ressources-communautaires",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Ressources communautaires",
+    "text": "Ressources communautaires\n\nCanaux de discussion\n\nA l’Insee\n\nPour toute question sur Git : Insee-Git-Gitlab\nPour toute question stat/self : Insee - Outils Stats v2\nPour toute question spécifique à AUS/LS3 : Insee-DSI-Plateformes-Internes-Datascience\n\nPlus largement sur R\n\nSur Tchap : Langage R (Tchap)\nSur Slack : r-grrr\n\n\nDocumentation\n\nService datascience Insee\nUtilitR\n\nFormation\n\nEspace formation du SSP Cloud\n\n\n\n\n\nBonnes pratiques pour les projets statistiques (retour au site principal ; )"
   },
   {
     "objectID": "slides/manageurs.html#introduction",
@@ -1376,7 +1565,7 @@
     "href": "slides/light.html#ressources-supplémentaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR propose plusieurs chapitres sur Git\nLa Bible de l’usage de Git\n\nTrouver de l’aide:\n\nPour toute question : le salon Tchap Insee-Git-Gitlab\nA l’Insee : la documentation utilisateurs pour l’utilisation de Git sur AUS\nSollicitez vos collègues utilisateurs de Git !"
+    "text": "Ressources supplémentaires\n\nLa documentation utilitR propose plusieurs chapitres sur Git\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\nLa Bible de l’usage de Git"
   },
   {
     "objectID": "slides/light.html#plan-de-la-partie-1",
@@ -1649,7 +1838,7 @@
     "href": "slides/light.html#le-format-parquet-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le format Parquet",
-    "text": "Le format Parquet\n\nPartitionner les données pour optimiser la lecture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nL’art de bien partitionner\n\n\n\nPartitionner par une/des variable(s) d’intérêt (ex : millésime x département)\nEviter de créer de nombreux petits (&lt; 128Mo) fichiers"
+    "text": "Le format Parquet\n\nPartitionner les données pour optimiser la lecture\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nL’art de bien partitionner\n\n\n\nPartitionner par une/des variable(s) d’intérêt\nEviter de créer de nombreux petits (&lt; 128Mo) fichiers"
   },
   {
     "objectID": "slides/light.html#le-format-parquet-3",
@@ -1726,6 +1915,20 @@
     "href": "slides/light.html#ressources-supplémentaires-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources supplémentaires",
-    "text": "Ressources supplémentaires\n\nPour aller plus loin:\n\nLa documentation utilitR\nUn cours complet (en anglais) sur la reproductibilité avec R\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\n\nTrouver de l’aide:\n\nPour toute question : le salon Slack grrr, très dynamique\nLe salon Tchap Langage R\nPour l’utilisation de R à l’Insee : le salon Tchap Insee - Outils Stats v2"
+    "text": "Ressources supplémentaires\n\nLa documentation utilitR\nCours Reproductibilité et bonnes pratiques pour les projets de data science de l’ENSAE\nUn cours complet (en anglais) sur la reproductibilité avec R\nConférence “R in production” d’Hadley Wickham (en anglais)\nLe cours (en construction) “R in production” d’Hadley Wickham (en anglais)"
+  },
+  {
+    "objectID": "slides/light.html#conclusion-2",
+    "href": "slides/light.html#conclusion-2",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nDes standards communautaires qui favorisent la reproductibilité et la maintenabilité\nDe multiples outils pour simplifier leur mise en oeuvre\nUn coût d’autant plus faible que l’on se place en amont\nLe mouvement de modernisation du self est l’occasion d’une montée en compétence collective"
+  },
+  {
+    "objectID": "slides/light.html#ressources-communautaires",
+    "href": "slides/light.html#ressources-communautaires",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Ressources communautaires",
+    "text": "Ressources communautaires\n\nCanaux de discussion\n\nA l’Insee\n\nPour toute question sur Git : Insee-Git-Gitlab\nPour toute question stat/self : Insee - Outils Stats v2\nPour toute question spécifique à AUS/LS3 : Insee-DSI-Plateformes-Internes-Datascience\n\nPlus largement sur R\n\nSur Tchap : Langage R (Tchap)\nSur Slack : r-grrr\n\n\nDocumentation\n\nService datascience Insee\nUtilitR\n\nFormation\n\nEspace formation du SSP Cloud\n\n\n\n\n\nBonnes pratiques pour les projets statistiques (retour au site principal ; )"
   }
 ]

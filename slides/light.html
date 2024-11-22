@@ -12,7 +12,7 @@
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <meta name="author" content="Romain Avouac, Thomas Faria, Lino Galiana, Olivier Meslin, Tom Seimandi">
+  <meta name="author" content="Romain Avouac, Lino Galiana">
   <title>Formation aux bonnes pratiques `Git` et `R` – Bonnes pratiques pour les projets statistiques</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -494,7 +494,7 @@
 <h2 data-id="quarto-animate-title">Horizon de cette formation</h2>
 <p>Un point de départ commun <img data-src="img/environment_messy.png" class="quarto-figure quarto-figure-right" style="width:10.0%"></p>
 <p>Une structuration de projet plus viable</p>
-<p><img data-src="img/environment.png"></p>
+<p><img data-src="img/environment_clean.png"></p>
 </section></section>
 <section>
 <section id="partie-1-contrôle-de-version-avec-git" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -1060,20 +1060,12 @@ _Workflow_ (version littéraire) :
 </div>
 </div>
 </section>
-<section id="ressources-supplémentaires" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="ressources-supplémentaires" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
-<li class="fragment">Pour <strong>aller plus loin</strong>:
-<ul>
-<li class="fragment">La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a> propose plusieurs chapitres sur <code>Git</code></li>
-<li class="fragment">La <a href="https://git-scm.com/book/en/v2">Bible</a> de l’usage de <code>Git</code></li>
-</ul></li>
-<li class="fragment"><strong>Trouver de l’aide</strong>:
-<ul>
-<li class="fragment">Pour toute question : le salon Tchap <a href="https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr">Insee-Git-Gitlab</a></li>
-<li class="fragment">A l’Insee : la <a href="https://datascience.gitlab-pages.insee.fr/site-documentaire/ausv3/logiciels-carte/Git/">documentation utilisateurs</a> pour l’utilisation de <code>Git</code> sur <code>AUS</code></li>
-<li class="fragment">Sollicitez vos collègues utilisateurs de <code>Git</code> !</li>
-</ul></li>
+<li class="fragment"><p>La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a> propose plusieurs chapitres sur <code>Git</code></p></li>
+<li class="fragment"><p>Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></p></li>
+<li class="fragment"><p>La <a href="https://git-scm.com/book/en/v2">Bible</a> de l’usage de <code>Git</code></p></li>
 </ul>
 </section></section>
 <section>
@@ -1334,7 +1326,7 @@ if (x_is_not_empty_string) {
 <li class="fragment">Rappel : on vise une structure <span class="orange"><strong>modulaire</strong></span></li>
 </ul>
 <div class="fragment">
-<p><img data-src="img/environment.png"></p>
+<p><img data-src="img/environment_clean.png"></p>
 <ul>
 <li class="fragment">En pratique : <span class="orange"><strong>isoler</strong></span> les <span class="blue2"><strong>packages</strong></span> et les <span class="blue2"><strong>secrets</strong></span></li>
 </ul>
@@ -1940,7 +1932,7 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ul>
-<li><p>Partitionner par une/des <span class="blue2"><strong>variable(s) d’intérêt</strong></span> (ex : millésime x département)</p></li>
+<li><p>Partitionner par une/des <span class="blue2"><strong>variable(s) d’intérêt</strong></span></p></li>
 <li><p><span class="blue2"><strong>Eviter</strong></span> de créer de <span class="blue2"><strong>nombreux petits (&lt; 128Mo) fichiers</strong></span></p></li>
 </ul>
 </div>
@@ -2208,29 +2200,61 @@ Modification du code pour l’import de données
 </div>
 </div>
 </section>
-<section id="ressources-supplémentaires-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="ressources-supplémentaires-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
-<li class="fragment">Pour <strong>aller plus loin</strong>:
-<ul>
-<li class="fragment">La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a></li>
-<li class="fragment"><a href="https://eliocamp.github.io/reproducibility-with-r/">Un cours complet</a> (en anglais) sur la reproductibilité avec <code>R</code></li>
-<li class="fragment">Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></li>
-</ul></li>
-<li class="fragment"><strong>Trouver de l’aide</strong>:
-<ul>
-<li class="fragment">Pour toute question : le salon <code>Slack</code> <a href="r-grrr.slack.com">grrr</a>, très dynamique</li>
-<li class="fragment">Le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr">Langage R</a></li>
-<li class="fragment">Pour l’utilisation de <code>R</code> à l’Insee : le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr">Insee - Outils Stats v2</a></li>
-</ul></li>
+<li class="fragment"><p>La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a></p></li>
+<li class="fragment"><p>Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></p></li>
+<li class="fragment"><p><a href="https://eliocamp.github.io/reproducibility-with-r/">Un cours complet</a> (en anglais) sur la reproductibilité avec <code>R</code></p></li>
+<li class="fragment"><p>Conférence <a href="https://www.youtube.com/watch?v=BQk2-3inViM">“R in production”</a> d’Hadley Wickham (en anglais)</p></li>
+<li class="fragment"><p>Le cours (en construction) <a href="https://r-in-production.org/">“R in production”</a> d’Hadley Wickham (en anglais)</p></li>
 </ul>
 </section></section>
 <section id="conclusion" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Conclusion</h1>
+
+</section>
+
+<section>
+<section id="conclusion-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
+<h1>Conclusion</h1>
+
+</section>
+<section id="conclusion-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Conclusion</h2>
 <ul>
-<li class="fragment"><p>Les <span class="blue2"><strong>bonnes pratiques</strong></span> favorisent la <span class="orange"><strong>reproductibilité</strong></span> et la <span class="orange"><strong>réutilisation</strong></span> des projets statistiques</p></li>
-<li class="fragment"><p>Des <span class="orange"><strong>outils</strong></span> permettent d’appliquer les <span class="blue2"><strong>bonnes pratiques</strong></span></p></li>
-<li class="fragment"><p>Le <span class="orange"><strong>coût</strong></span> est d’autant plus faible que l’on se place <span class="orange"><strong>en amont du projet</strong></span></p></li>
+<li class="fragment"><p>Des <span class="orange"><strong>standards communautaires</strong></span> qui favorisent la <span class="blue2"><strong>reproductibilité</strong></span> et la <span class="blue2"><strong>maintenabilité</strong></span></p></li>
+<li class="fragment"><p>De multiples <span class="orange"><strong>outils</strong></span> pour simplifier leur mise en oeuvre</p></li>
+<li class="fragment"><p>Un <span class="orange"><strong>coût</strong></span> d’autant plus faible que l’on se place <span class="orange"><strong>en amont</strong></span></p></li>
+<li class="fragment"><p>Le mouvement de <span class="orange"><strong>modernisation du self</strong></span> est l’occasion d’une <span class="blue2"><strong>montée en compétence collective</strong></span></p></li>
+</ul>
+</section>
+<section id="ressources-communautaires" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Ressources communautaires</h2>
+<ul>
+<li class="fragment"><span class="orange"><strong>Canaux de discussion</strong></span>
+<ul>
+<li class="fragment">A l’Insee
+<ul>
+<li class="fragment">Pour toute question sur <span class="blue2"><strong>Git</strong></span> : <a href="https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr">Insee-Git-Gitlab</a></li>
+<li class="fragment">Pour toute question <span class="blue2"><strong>stat/self</strong></span> : <a href="https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr">Insee - Outils Stats v2</a></li>
+<li class="fragment">Pour toute question spécifique à <span class="blue2"><strong>AUS/LS3</strong></span> : <a href="https://matrix.to/#/!bxlTbQgAEcLkRjoNPi:agent.finances.tchap.gouv.fr?via=agent.finances.tchap.gouv.fr&amp;via=agent.agriculture.tchap.gouv.fr&amp;via=agent.interieur.tchap.gouv.fr">Insee-DSI-Plateformes-Internes-Datascience</a></li>
+</ul></li>
+<li class="fragment">Plus largement sur <span class="blue2"><strong>R</strong></span>
+<ul>
+<li class="fragment">Sur <code>Tchap</code> : <a href="https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr">Langage R (Tchap)</a></li>
+<li class="fragment">Sur <code>Slack</code> : <a href="https://r-grrr.slack.com">r-grrr</a></li>
+</ul></li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Documentation</strong></span>
+<ul>
+<li class="fragment"><a href="https://datascience.gitlab-pages.insee.fr/site-documentaire/accueil/">Service datascience Insee</a></li>
+<li class="fragment"><a href="https://book.utilitr.org/">UtilitR</a></li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Formation</strong></span>
+<ul>
+<li class="fragment"><a href="https://www.sspcloud.fr/formation">Espace formation du SSP Cloud</a></li>
+</ul></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -2238,8 +2262,7 @@ Modification du code pour l’import de données
 <p>Bonnes pratiques pour les projets statistiques (<a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/">retour au site principal</a> ; <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R"><i class="fa-brands fa-github"></i></a>)</p>
 </div>
 </div>
-</section>
-
+</section></section>
 
     </div>
   </div>

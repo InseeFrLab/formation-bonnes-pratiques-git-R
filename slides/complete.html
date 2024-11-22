@@ -12,7 +12,7 @@
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <meta name="author" content="Romain Avouac, Thomas Faria, Lino Galiana, Olivier Meslin, Tom Seimandi">
+  <meta name="author" content="Romain Avouac, Lino Galiana">
   <title>Formation aux bonnes pratiques `Git` et `R` – Bonnes pratiques pour les projets statistiques</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -494,7 +494,7 @@
 <h2 data-id="quarto-animate-title">Horizon de cette formation</h2>
 <p>Un point de départ commun <img data-src="img/environment_messy.png" class="quarto-figure quarto-figure-right" style="width:10.0%"></p>
 <p>Une structuration de projet plus viable</p>
-<p><img data-src="img/environment.png"></p>
+<p><img data-src="img/environment_clean.png"></p>
 </section></section>
 <section>
 <section id="partie-1-contrôle-de-version-avec-git" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -1268,20 +1268,12 @@ _Workflow_ (version littéraire) :
 </div>
 <p>❓ <strong>Question</strong> : pourquoi, avec un <code>fork</code>, est-il très important de toujours effectuer une <code>Pull Request</code> à partir d’une branche différente de la branche principale ?</p>
 </section>
-<section id="ressources-supplémentaires" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="ressources-supplémentaires" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
-<li class="fragment">Pour <strong>aller plus loin</strong>:
-<ul>
-<li class="fragment">La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a> propose plusieurs chapitres sur <code>Git</code></li>
-<li class="fragment">La <a href="https://git-scm.com/book/en/v2">Bible</a> de l’usage de <code>Git</code></li>
-</ul></li>
-<li class="fragment"><strong>Trouver de l’aide</strong>:
-<ul>
-<li class="fragment">Pour toute question : le salon Tchap <a href="https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr">Insee-Git-Gitlab</a></li>
-<li class="fragment">A l’Insee : la <a href="https://datascience.gitlab-pages.insee.fr/site-documentaire/ausv3/logiciels-carte/Git/">documentation utilisateurs</a> pour l’utilisation de <code>Git</code> sur <code>AUS</code></li>
-<li class="fragment">Sollicitez vos collègues utilisateurs de <code>Git</code> !</li>
-</ul></li>
+<li class="fragment"><p>La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a> propose plusieurs chapitres sur <code>Git</code></p></li>
+<li class="fragment"><p>Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></p></li>
+<li class="fragment"><p>La <a href="https://git-scm.com/book/en/v2">Bible</a> de l’usage de <code>Git</code></p></li>
 </ul>
 </section></section>
 <section>
@@ -1544,7 +1536,7 @@ if (x_is_not_empty_string) {
 <li class="fragment">Rappel : on vise une structure <span class="orange"><strong>modulaire</strong></span></li>
 </ul>
 <div class="fragment">
-<p><img data-src="img/environment.png"></p>
+<p><img data-src="img/environment_clean.png"></p>
 <ul>
 <li class="fragment">En pratique : <span class="orange"><strong>isoler</strong></span> les <span class="blue2"><strong>packages</strong></span> et les <span class="blue2"><strong>secrets</strong></span></li>
 </ul>
@@ -2150,7 +2142,7 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ul>
-<li><p>Partitionner par une/des <span class="blue2"><strong>variable(s) d’intérêt</strong></span> (ex : millésime x département)</p></li>
+<li><p>Partitionner par une/des <span class="blue2"><strong>variable(s) d’intérêt</strong></span></p></li>
 <li><p><span class="blue2"><strong>Eviter</strong></span> de créer de <span class="blue2"><strong>nombreux petits (&lt; 128Mo) fichiers</strong></span></p></li>
 </ul>
 </div>
@@ -2423,8 +2415,8 @@ Modification du code pour l’import de données
 <h1>IV- Environnements reproductibles</h1>
 
 </section>
-<section id="expérience-de-pensée" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Expérience de pensée</h2>
+<section id="enjeux-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Enjeux</h2>
 <ul>
 <li class="fragment"><p>Imaginons la situation suivante :</p>
 <ul>
@@ -2436,7 +2428,7 @@ Modification du code pour l’import de données
 <li class="fragment"><p>Est-il facile de <span class="orange"><strong>partager</strong></span> un de mes projets ?</p></li>
 </ul>
 </section>
-<section id="enjeux-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="enjeux-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Enjeux</h2>
 <ul>
 <li class="fragment"><p><span class="orange"><strong>Version de</strong></span> <span class="blue2"><strong>R</strong></span> <span class="orange"><strong>fixe</strong></span>, celle de l’installation système</p></li>
@@ -2593,14 +2585,14 @@ Nouvelle statistique descriptive à ajouter
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 2 : faire un <em>snapshot</em> de l’environnement</strong></p>
+<p><strong>Partie 2 : Faire un <em>snapshot</em> de l’environnement</strong></p>
 </div>
 <div class="callout-content">
 <div>
 <ol start="5" type="1">
-<li>Dans la console, faire <code>renv::status()</code> et observer le message.</li>
+<li>Dans la console, faire <code>renv::status()</code> et observer le message</li>
 <li>Effectuer <code>renv::snapshot()</code> pour intégrer les nouveaux packages au <em>lockfile</em></li>
-<li>Faire un <em>commit</em> / <em>push</em> des fichiers <code>script.R</code>, <code>.Rprofile</code>, <code>renv.lock</code> et du dossier <code>renv/</code>.</li>
+<li>Faire un <em>commit</em> / <em>push</em> des fichiers <code>script.R</code>, <code>.Rprofile</code>, <code>renv.lock</code> et du dossier <code>renv/</code></li>
 </ol>
 </div>
 </div>
@@ -2612,15 +2604,15 @@ Nouvelle statistique descriptive à ajouter
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 3 : test de la portabilité (facultatif)</strong></p>
+<p><strong>Partie 3 : Test de portabilité</strong></p>
 </div>
 <div class="callout-content">
 <div>
 <ol start="8" type="1">
-<li>Ouvrir un nouveau service <code>RStudio</code></li>
-<li>Cloner votre dépôt</li>
+<li>Ouvrir un nouveau projet <code>RStudio</code> et cloner à nouveau votre dépôt (sous un nom différent)</li>
 <li>Exécuter <code>renv::restore()</code> pour installer les packages nécessaires à l’exécution du projet</li>
-<li>Vérifier que le <code>script.R</code> s’exécute correctement dans ce nouvel environnement.</li>
+<li>Vérifier que le <code>script.R</code> s’exécute correctement dans ce nouveau projet</li>
+<li>(facultatif) Pour se convaincre de la portabilité de la solution, ouvrir un nouveau service <code>RStudio</code> et refaire les étapes 8 à 10</li>
 </ol>
 </div>
 </div>
@@ -2673,36 +2665,444 @@ Nouvelle statistique descriptive à ajouter
 <h1>V- <code>R</code> en production</h1>
 
 </section>
+<section id="de-quoi-parle-t-on" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>De quoi parle-t-on ?</h2>
+<ul>
+<li class="fragment"><p><span class="orange"><strong>Production statistique</strong></span> : chiffres, données, analyses produits par l’Insee</p></li>
+<li class="fragment"><p><span class="orange"><strong>Production informatique</strong></span> : processus déployés par la DSI sur des <span class="blue2"><strong>infrastructures avec “garantie de service”</strong></span></p></li>
+<li class="fragment"><p><span class="orange"><strong>Self de production</strong></span> : processus déployés sur une <span class="blue2"><strong>infra “self”</strong></span> (AUS, LS3) contribuant à la production statistique</p></li>
+<li class="fragment"><p><span class="orange"><strong>Code de production</strong></span> : code respectant des <span class="blue2"><strong>standards de qualité</strong></span> qui le rendent <span class="blue2"><strong>efficace</strong></span> et <span class="blue2"><strong>maintenable</strong></span></p></li>
+</ul>
+</section>
+<section id="r-un-langage-de-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2><code>R</code> : un langage de production ?</h2>
+<ul>
+<li class="fragment"><code>R</code> a émergé dans la <span class="orange"><strong>communauté statistique</strong></span>
+<ul>
+<li class="fragment">Outils d’<span class="blue2"><strong>analyse interactive</strong></span> très développés</li>
+<li class="fragment">Outils de <span class="blue2"><strong>développement</strong></span> limités</li>
+</ul></li>
+<li class="fragment">L’<span class="orange"><strong>éco-système tidyverse</strong></span> s’oriente vers des outils <span class="blue2"><strong><em>production-ready</em></strong></span></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/tidyverse.png" class="quarto-figure quarto-figure-center" height="250"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="les-trois-commandements-dhadley-wickham" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Les trois commandements d’Hadley Wickham</h2>
+<ul>
+<li class="fragment">Le <span class="orange"><strong>code de production</strong></span> a trois caractéristiques
+<ul>
+<li class="fragment"><span class="blue2"><strong>“Not just me”</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>“Not just once”</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>“Not just my computer”</strong></span></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/hadley.jpg" class="quarto-figure quarto-figure-center" height="250"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="les-trois-commandements-dhadley-wickham-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Les trois commandements d’Hadley Wickham</h2>
+<div>
+<ul>
+<li>Le <span class="orange"><strong>code de production</strong></span> a trois caractéristiques
+<ul>
+<li><span class="blue2"><strong>“Not just me”</strong></span></li>
+<li><span style="color: lightgrey;"><strong>“Not just once”</strong></span></li>
+<li><span style="color: lightgrey;"><strong>“Not just my computer”</strong></span></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/hadley.jpg" class="quarto-figure quarto-figure-center" height="250"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="not-just-me" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just me”</h2>
+<ul>
+<li class="fragment"><p>Penser son projet en termes de <span class="orange"><strong>maintenabilité</strong></span></p></li>
+<li class="fragment"><p>Adopter les <span class="orange"><strong>standards communautaires</strong></span></p>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Git</strong></span> pour la <span class="blue2"><strong>traçabilité</strong></span> des choix</li>
+<li class="fragment"><span class="blue2"><strong>Qualité</strong></span> du code (structure, documentation)</li>
+<li class="fragment">Choix des <span class="blue2"><strong>packages</strong></span> (voir <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html">fiche UtilitR</a>)</li>
+</ul></li>
+</ul>
+</section>
+<section id="not-just-me-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just me”</h2>
+<ul>
+<li class="fragment">Organiser le <span class="orange"><strong>travail collaboratif</strong></span>
+<ul>
+<li class="fragment">S’accorder sur une <span class="blue2"><strong>organisation</strong></span></li>
+<li class="fragment">Des outils facilitant via l’<span class="blue2"><strong>écosystème <code>Git</code></strong></span></li>
+</ul></li>
+<li class="fragment">Traiter le code comme un <span class="orange"><strong>élément méthodologique</strong></span>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Revue de code</strong></span></li>
+<li class="fragment">Programmation en <span class="blue2"><strong>binôme</strong></span></li>
+</ul></li>
+</ul>
+</section>
+<section id="not-just-me-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just me”</h2>
+<ul>
+<li class="fragment"><p>Penser à l’expérience des <span class="orange"><strong>utilisateurs finaux</strong></span></p></li>
+<li class="fragment"><p>Pour la mise à disposition de données : <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_fichiers_parquet.html">Parquet</a></p>
+<ul>
+<li class="fragment">Format <span class="blue2"><strong>interopérable</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Méta-données</strong></span> livrées avec les données</li>
+<li class="fragment">Performances en <span class="blue2"><strong>stockage</strong></span> et en <span class="blue2"><strong>lecture</strong></span></li>
+</ul></li>
+<li class="fragment"><p>Pour la documentation / publication : <a href="https://quarto.org/">quarto</a></p>
+<ul>
+<li class="fragment">Intègre <span class="blue2"><strong>code</strong></span> et <span class="blue2"><strong>texte</strong></span> pour la <span class="blue2"><strong>reproductibilité</strong></span></li>
+<li class="fragment">Publication <span class="blue2"><strong>multi-formats</strong></span> (<code>pdf</code>, <code>odt</code>, <code>html</code>)</li>
+<li class="fragment">Mise à jour automatique via l’<span class="blue2"><strong>intégration continue</strong></span></li>
+</ul></li>
+</ul>
+</section>
+<section id="les-trois-commandements-dhadley-wickham-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Les trois commandements d’Hadley Wickham</h2>
+<div>
+<ul>
+<li>Le <span class="orange"><strong>code de production</strong></span> a trois caractéristiques
+<ul>
+<li><span style="color: lightgrey;"><strong>“Not just me”</strong></span></li>
+<li><span class="blue2"><strong>“Not just once”</strong></span></li>
+<li><span style="color: lightgrey;"><strong>“Not just my computer”</strong></span></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/hadley.jpg" class="quarto-figure quarto-figure-center" height="250"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="not-just-once" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just once”</h2>
+<ul>
+<li class="fragment"><p>Penser son projet en termes de <span class="orange"><strong>reproductibilité</strong></span></p></li>
+<li class="fragment"><p>Une tâche de <span class="orange"><strong>production</strong></span></p>
+<ul>
+<li class="fragment">Est <span class="blue2"><strong>répétée</strong></span> dans le temps</li>
+<li class="fragment">Peut <span class="blue2"><strong>changer d’environnement</strong></span> (dev, test, prod…)</li>
+</ul></li>
+<li class="fragment"><p><span class="orange"><strong>Problème</strong></span> : le monde “autour du code” évolue</p>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Spécifier</strong></span> et <span class="blue2"><strong>contrôler</strong></span> l’environnement</li>
+<li class="fragment"><span class="blue2"><strong>Automatiser</strong></span> ce qui peut l’être</li>
+</ul></li>
+</ul>
+</section>
+<section id="not-just-once-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just once”</h2>
+<ul>
+<li class="fragment">Les <span class="orange"><strong>données</strong></span> changent
+<ul>
+<li class="fragment"><span class="blue2"><strong>Factoriser</strong></span> le code avec des <span class="blue2"><strong>fonctions</strong></span></li>
+<li class="fragment"><span class="blue2"><strong>Modéliser</strong></span> sa chaîne sous forme de <span class="blue2"><strong>DAG</strong></span></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/dag.png" class="quarto-figure quarto-figure-center" height="250"></p>
+</figure>
+</div>
+<ul>
+<li class="fragment">Outil : <a href="https://books.ropensci.org/targets/">{targets}</a></li>
+</ul>
+</div>
+</section>
+<section id="not-just-once-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just once”</h2>
+<ul>
+<li class="fragment"><p>Le <span class="orange"><strong>code</strong></span> / les <span class="orange"><strong>données</strong></span> changent… et <span class="orange"><strong>cassent</strong></span></p></li>
+<li class="fragment"><p>Spécifier les <span class="orange"><strong>attendus</strong></span></p>
+<ul>
+<li class="fragment"><span class="orange"><strong>Tests unitaires</strong></span> : vérifie le bon <span class="blue2"><strong>comportement</strong></span> du code</li>
+<li class="fragment"><span class="orange"><strong>Validation de données</strong></span> : vérifie l’<span class="blue2"><strong>intégrité</strong></span> et la <span class="blue2"><strong>qualité</strong></span> des données</li>
+</ul></li>
+<li class="fragment"><p>Outils : <a href="https://testthat.r-lib.org/">testthat</a> et <a href="https://rstudio.github.io/pointblank/">pointblank</a></p></li>
+</ul>
+</section>
+<section id="not-just-once-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just once”</h2>
+<ul>
+<li class="fragment"><p>Les <span class="orange"><strong>dépendances</strong></span> changent (fonctionnalités, <em>bugs</em>, failles de sécurité…)</p></li>
+<li class="fragment"><p>Arbitrage entre <span class="orange"><strong>évolutivité</strong></span> et <span class="orange"><strong>stabilité</strong></span></p>
+<ul>
+<li class="fragment">L’<span class="blue2"><strong>évolution des dépendances</strong></span> est inhérente à la <span class="blue2"><strong>maintenance</strong></span> d’une chaîne de production</li>
+</ul></li>
+<li class="fragment"><p>On limite les risques en <span class="orange"><strong>spécifiant l’environnement</strong></span></p>
+<ul>
+<li class="fragment"><span class="blue2"><strong>Fixer</strong></span> les versions des packages utilisés : <a href="https://rstudio.github.io/renv/articles/renv.html">renv</a></li>
+<li class="fragment"><span class="blue2"><strong>Versionner</strong></span> sa chaîne de production : tags <a href="https://git-scm.com/doc">Git</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="not-just-once-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just once”</h2>
+<ul>
+<li class="fragment">L’<span class="orange"><strong>environnement</strong></span> change (OS, libs système, <code>R</code>…)
+<ul>
+<li class="fragment">Difficulté principale du <span class="blue2"><strong>passage en production</strong></span></li>
+</ul></li>
+<li class="fragment">La <span class="orange"><strong>conteneurisation</strong></span> permet de <span class="orange"><strong>fixer l’environnement</strong></span>
+<ul>
+<li class="fragment">Favorise la <span class="blue2"><strong>portabilité</strong></span></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/containers-portability.png" class="quarto-figure quarto-figure-center" height="250"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="not-just-once-5" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just once”</h2>
+<ul>
+<li class="fragment"><p>Concevoir sa chaîne comme un <span class="orange"><strong><em>pipeline</em> de données</strong></span></p>
+<ul>
+<li class="fragment"><span class="orange"><strong>Reproductibilité</strong></span> : étapes <span class="blue2"><strong>intégrées</strong></span> “de bout en bout”</li>
+<li class="fragment"><span class="orange"><strong>Stabilité</strong></span> : contrôle des <span class="blue2"><strong>évolutions</strong></span></li>
+<li class="fragment"><span class="orange"><strong>Portabilité</strong></span> : fluidifie le <span class="blue2"><strong>changement d’architecture</strong></span></li>
+</ul></li>
+<li class="fragment"><p>Avantage supplémentaire : <span class="orange"><strong>automatisation</strong></span></p></li>
+<li class="fragment"><p>Outil : <span class="orange"><strong>intégration continue</strong></span> via <code>GitHub</code> / <code>GitLab</code></p>
+<ul>
+<li class="fragment">Accroît encore les bénéfices d’utiliser <code>Git</code> !</li>
+</ul></li>
+</ul>
+</section>
+<section id="les-trois-commandements-dhadley-wickham-3" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Les trois commandements d’Hadley Wickham</h2>
+<div>
+<ul>
+<li>Le <span class="orange"><strong>code de production</strong></span> a trois caractéristiques
+<ul>
+<li><span style="color: lightgrey;"><strong>“Not just me”</strong></span></li>
+<li><span style="color: lightgrey;"><strong>“Not just once”</strong></span></li>
+<li><span class="blue2"><strong>“Not just my computer”</strong></span></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/hadley.jpg" class="quarto-figure quarto-figure-center" height="250"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="not-just-my-computer" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just my computer”</h2>
+<ul>
+<li class="fragment">Evolution continue vers des infrastructures de <span class="orange"><strong>self “<em>production-ready</em>”</strong></span></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/evo-infra.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="not-just-my-computer-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just my computer”</h2>
+<ul>
+<li class="fragment"><p>OK, mais pourquoi 🤔 ?</p></li>
+<li class="fragment"><p>Pourquoi migrer vers des <span class="orange"><strong>infrastructures centralisées</strong></span> ?</p>
+<ul>
+<li class="fragment"><span class="orange"><strong>Centralisation</strong></span> : permet le <span class="blue2"><strong>passage à l’échelle</strong></span></li>
+<li class="fragment"><span class="orange"><strong>Sécurité</strong></span> : évite la <span class="blue2"><strong>dissémination</strong></span> de données</li>
+</ul></li>
+<li class="fragment"><p>Pourquoi migrer vers des <span class="orange"><strong>infrastructures Kubernetes</strong></span> ?</p>
+<ul>
+<li class="fragment">Tout ce qu’on pouvait faire avant… <span class="blue2"><strong>en mieux</strong></span></li>
+<li class="fragment"><span class="orange"><strong>Nouveaux usages</strong></span> : déploiements (applications, API), calcul distribué, traitements ordonnancés…</li>
+<li class="fragment"><span class="orange"><strong>Autonomie</strong></span> (environnement, stockage, etc.)</li>
+</ul></li>
+</ul>
+</section>
+<section id="not-just-my-computer-2" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<h2 data-id="quarto-animate-title">“Not just my computer”</h2>
+<p>Un point de départ commun</p>
+
+<img data-src="img/environment_messy.png" class="r-stretch"></section>
+<section id="not-just-my-computer-3" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<h2 data-id="quarto-animate-title">“Not just my computer”</h2>
+<p>Un point de départ commun <img data-src="img/environment_messy.png" class="quarto-figure quarto-figure-right" style="width:10.0%"></p>
+<p>Une structuration de projet plus viable</p>
+<p><img data-src="img/environment_clean.png"></p>
+</section>
+<section id="not-just-my-computer-4" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<h2 data-id="quarto-animate-title">“Not just my computer”</h2>
+<p>Un point de départ commun <img data-src="img/environment_messy.png" class="quarto-figure quarto-figure-right" style="width:10.0%"></p>
+<p>Une structuration de projet plus viable <img data-src="img/environment_clean.png" class="quarto-figure quarto-figure-right" style="width:10.0%"></p>
+<p>Facilitée par <span class="orange"><strong>l’éco-système <em>cloud</em></strong></span></p>
+<p><img data-src="img/environment_cloud.png"></p>
+</section>
+<section id="not-just-my-computer-5" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just my computer”</h2>
+<ul>
+<li class="fragment"><p>Qu’est-ce qui change 🤔 ?</p></li>
+<li class="fragment"><p><span class="orange"><strong>Techniquement</strong></span>, quasi tout !</p>
+<ul>
+<li class="fragment">Du monde <span class="blue2"><strong><em>desktop</em></strong></span> au monde <span class="blue2"><strong><em>server</em></strong></span></li>
+<li class="fragment">Du monde <span class="blue2"><strong><em>Windows</em></strong></span> au monde <span class="blue2"><strong><em>Linux</em></strong></span></li>
+</ul></li>
+<li class="fragment"><p>En pratique, <span class="orange"><strong>Onyxia</strong></span> facilite la <span class="orange"><strong>transition</strong></span></p></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/onyxia-catalog.png" class="quarto-figure quarto-figure-center" height="250"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="not-just-my-computer-6" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just my computer”</h2>
+<ul>
+<li class="fragment"><p>Qu’est-ce qui change 🤔 ?</p></li>
+<li class="fragment"><p><span class="orange"><strong>Monde conteneurisé</strong></span> : les traitements sont <span class="orange"><strong>éphémères</strong></span></p>
+<ul>
+<li class="fragment">“Coût” de l’<span class="blue2"><strong>autonomie</strong></span> et de la <span class="blue2"><strong>mutualisation</strong></span></li>
+<li class="fragment">Mais source de <span class="blue2"><strong>reproductibilité</strong></span> !</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/environment_clean.png" class="quarto-figure quarto-figure-center" height="300"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="not-just-my-computer-7" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just my computer”</h2>
+<ul>
+<li class="fragment">Qu’est-ce qui change 🤔 ?
+<ul>
+<li class="fragment">Evolution du <span class="orange"><strong>mode de stockage de données</strong></span></li>
+</ul></li>
+<li class="fragment">Infrastructures <span class="orange"><strong>“bureau virtuel”</strong></span> : <span class="blue2"><strong>lecteurs partagés</strong></span>
+<ul>
+<li class="fragment">Le “bureau virtuel” simule le <span class="blue2"><strong><em>filesystem</em> traditionnel</strong></span></li>
+</ul></li>
+<li class="fragment">Infrastructures <span class="orange"><strong>cloud</strong></span> : <span class="orange"><strong>stockage objet</strong></span> (<code>S3</code> / <code>MinIO</code>)
+<ul>
+<li class="fragment">Stockage <span class="blue2"><strong>très peu coûteux</strong></span></li>
+<li class="fragment"><span class="orange"><strong>Autonomie</strong></span> : <span class="blue2"><strong><em>bucket</em></strong></span> personnel / de projet</li>
+<li class="fragment">Fonctionnement différent des <span class="blue2"><strong><em>filesystems</em></strong></span></li>
+</ul></li>
+</ul>
+</section>
+<section id="not-just-my-computer-8" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>“Not just my computer”</h2>
+<ul>
+<li class="fragment"><p>Qu’est-ce qui change 🤔 ?</p></li>
+<li class="fragment"><p>Evolution de la <span class="orange"><strong>nature des traitements</strong></span></p>
+<ul>
+<li class="fragment">Traitements <span class="blue2"><strong>interactifs</strong></span> pour le <span class="blue2"><strong>développement</strong></span></li>
+<li class="fragment">Traitements <span class="blue2"><strong>batch</strong></span> pour le <span class="blue2"><strong>déploiement</strong></span></li>
+</ul></li>
+<li class="fragment"><p>Le <span class="orange"><strong>débogage</strong></span> devient moins immédiat</p>
+<ul>
+<li class="fragment">Nécessité du <span class="blue2"><strong><em>logging</em></strong></span> : <a href="https://cran.r-project.org/web/packages/logger/vignettes/Intro.html">logger</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="dépasser-le-mur-de-la-production" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Dépasser le “mur de la production”</h2>
+<ul>
+<li class="fragment">Une organisation limitée par l’<span class="orange"><strong>hétérogénéité des environnements</strong></span></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/mur-prod.png" class="quarto-figure quarto-figure-center" height="400"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="dépasser-le-mur-de-la-production-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Dépasser le “mur de la production”</h2>
+<ul>
+<li class="fragment">L’opportunité d’organisations <span class="orange"><strong>plus continues</strong></span></li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ideal.png" class="quarto-figure quarto-figure-center" height="450"></p>
+</figure>
+</div>
+</div>
+</section>
 <section id="ressources-supplémentaires-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
-<li class="fragment"><p>Une <a href="https://www.youtube.com/watch?v=BQk2-3inViM">conférence</a> d’Hadley Wickham (en anglais)</p></li>
-<li class="fragment"><p>Le <a href="https://r-in-production.org/">cours “R in production”</a> d’Hadley Wickham (en anglais et en construction)</p></li>
-</ul>
-</section>
-<section id="ressources-supplémentaires-5" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Ressources supplémentaires</h2>
-<ul>
-<li class="fragment">Pour <strong>aller plus loin</strong>:
-<ul>
-<li class="fragment">La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a></li>
-<li class="fragment"><a href="https://eliocamp.github.io/reproducibility-with-r/">Un cours complet</a> (en anglais) sur la reproductibilité avec <code>R</code></li>
-<li class="fragment">Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></li>
-</ul></li>
-<li class="fragment"><strong>Trouver de l’aide</strong>:
-<ul>
-<li class="fragment">Pour toute question : le salon <code>Slack</code> <a href="r-grrr.slack.com">grrr</a>, très dynamique</li>
-<li class="fragment">Le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr">Langage R</a></li>
-<li class="fragment">Pour l’utilisation de <code>R</code> à l’Insee : le salon <code>Tchap</code> <a href="https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr">Insee - Outils Stats v2</a></li>
-</ul></li>
+<li class="fragment"><p>La <a href="https://book.utilitr.org/">documentation <code>utilitR</code></a></p></li>
+<li class="fragment"><p>Cours <a href="https://ensae-reproductibilite.github.io/website/">Reproductibilité et bonnes pratiques pour les projets de data science</a> de l’<code>ENSAE</code></p></li>
+<li class="fragment"><p><a href="https://eliocamp.github.io/reproducibility-with-r/">Un cours complet</a> (en anglais) sur la reproductibilité avec <code>R</code></p></li>
+<li class="fragment"><p>Conférence <a href="https://www.youtube.com/watch?v=BQk2-3inViM">“R in production”</a> d’Hadley Wickham (en anglais)</p></li>
+<li class="fragment"><p>Le cours (en construction) <a href="https://r-in-production.org/">“R in production”</a> d’Hadley Wickham (en anglais)</p></li>
 </ul>
 </section></section>
+<section>
 <section id="conclusion" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Conclusion</h1>
+
+</section>
+<section id="conclusion-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Conclusion</h2>
 <ul>
-<li class="fragment"><p>Les <span class="blue2"><strong>bonnes pratiques</strong></span> favorisent la <span class="orange"><strong>reproductibilité</strong></span> et la <span class="orange"><strong>réutilisation</strong></span> des projets statistiques</p></li>
-<li class="fragment"><p>Des <span class="orange"><strong>outils</strong></span> permettent d’appliquer les <span class="blue2"><strong>bonnes pratiques</strong></span></p></li>
-<li class="fragment"><p>Le <span class="orange"><strong>coût</strong></span> est d’autant plus faible que l’on se place <span class="orange"><strong>en amont du projet</strong></span></p></li>
+<li class="fragment"><p>Des <span class="orange"><strong>standards communautaires</strong></span> qui favorisent la <span class="blue2"><strong>reproductibilité</strong></span> et la <span class="blue2"><strong>maintenabilité</strong></span></p></li>
+<li class="fragment"><p>De multiples <span class="orange"><strong>outils</strong></span> pour simplifier leur mise en oeuvre</p></li>
+<li class="fragment"><p>Un <span class="orange"><strong>coût</strong></span> d’autant plus faible que l’on se place <span class="orange"><strong>en amont</strong></span></p></li>
+<li class="fragment"><p>Le mouvement de <span class="orange"><strong>modernisation du self</strong></span> est l’occasion d’une <span class="blue2"><strong>montée en compétence collective</strong></span></p></li>
+</ul>
+</section>
+<section id="ressources-communautaires" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Ressources communautaires</h2>
+<ul>
+<li class="fragment"><span class="orange"><strong>Canaux de discussion</strong></span>
+<ul>
+<li class="fragment">A l’Insee
+<ul>
+<li class="fragment">Pour toute question sur <span class="blue2"><strong>Git</strong></span> : <a href="https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr">Insee-Git-Gitlab</a></li>
+<li class="fragment">Pour toute question <span class="blue2"><strong>stat/self</strong></span> : <a href="https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr">Insee - Outils Stats v2</a></li>
+<li class="fragment">Pour toute question spécifique à <span class="blue2"><strong>AUS/LS3</strong></span> : <a href="https://matrix.to/#/!bxlTbQgAEcLkRjoNPi:agent.finances.tchap.gouv.fr?via=agent.finances.tchap.gouv.fr&amp;via=agent.agriculture.tchap.gouv.fr&amp;via=agent.interieur.tchap.gouv.fr">Insee-DSI-Plateformes-Internes-Datascience</a></li>
+</ul></li>
+<li class="fragment">Plus largement sur <span class="blue2"><strong>R</strong></span>
+<ul>
+<li class="fragment">Sur <code>Tchap</code> : <a href="https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr">Langage R (Tchap)</a></li>
+<li class="fragment">Sur <code>Slack</code> : <a href="https://r-grrr.slack.com">r-grrr</a></li>
+</ul></li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Documentation</strong></span>
+<ul>
+<li class="fragment"><a href="https://datascience.gitlab-pages.insee.fr/site-documentaire/accueil/">Service datascience Insee</a></li>
+<li class="fragment"><a href="https://book.utilitr.org/">UtilitR</a></li>
+</ul></li>
+<li class="fragment"><span class="orange"><strong>Formation</strong></span>
+<ul>
+<li class="fragment"><a href="https://www.sspcloud.fr/formation">Espace formation du SSP Cloud</a></li>
+</ul></li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -2710,8 +3110,7 @@ Nouvelle statistique descriptive à ajouter
 <p>Bonnes pratiques pour les projets statistiques (<a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/">retour au site principal</a> ; <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R"><i class="fa-brands fa-github"></i></a>)</p>
 </div>
 </div>
-</section>
-
+</section></section>
 
     </div>
   </div>
