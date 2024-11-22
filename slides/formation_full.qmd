@@ -4,10 +4,7 @@ subtitle: |
   **[Une formation aux bonnes pratiques avec Git et R]{.orange}**
 author: |
   [Romain Avouac](https://github.com/avouacr),
-  [Thomas Faria](https://github.com/ThomasFaria),
-  [Lino Galiana](https://www.linogaliana.fr/),
-  [Olivier Meslin](https://github.com/oliviermeslin),
-  [Tom Seimandi](https://github.com/tomseimandi/)
+  [Lino Galiana](https://www.linogaliana.fr/)
 # date: 
 slide-number: true
 footer: |
@@ -89,6 +86,5 @@ from: markdown+emoji
 {{< include _r_resources.qmd >}}
 
 
-# Conclusion
 
 {{< include _conclusion.qmd >}}

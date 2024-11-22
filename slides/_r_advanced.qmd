@@ -1,6 +1,6 @@
 # IV- Environnements reproductibles
 
-## Expérience de pensée
+## Enjeux
 
 - Imaginons la situation suivante :
   - J'installe une version de `R` sur mon poste
@@ -119,8 +119,281 @@
 
 # V- `R` en production
 
-## Ressources supplémentaires
+## De quoi parle-t-on ?
 
-- Une [conférence](https://www.youtube.com/watch?v=BQk2-3inViM) d'Hadley Wickham (en anglais)
+- [**Production statistique**]{.orange} : chiffres, données, analyses produits par l'Insee
 
-- Le [cours "R in production"](https://r-in-production.org/) d'Hadley Wickham (en anglais et en construction)
+- [**Production informatique**]{.orange} : processus déployés par la DSI sur des [**infrastructures avec "garantie de service"**]{.blue2}
+
+- [**Self de production**]{.orange} : processus déployés sur une [**infra "self"**]{.blue2} (AUS, LS3) contribuant à la production statistique
+
+- [**Code de production**]{.orange} : code respectant des [**standards de qualité**]{.blue2} qui le rendent [**efficace**]{.blue2} et [**maintenable**]{.blue2}
+
+## `R` : un langage de production ?
+
+- `R` a émergé dans la [**communauté statistique**]{.orange}
+  - Outils d'[**analyse interactive**]{.blue2} très développés
+  - Outils de [**développement**]{.blue2} limités
+
+- L'[**éco-système tidyverse**]{.orange} s'oriente vers des outils [***production-ready***]{.blue2}
+
+. . .
+
+![](img/tidyverse.png){height="250" fig-align="center"}
+
+## Les trois commandements d'Hadley Wickham
+
+- Le [**code de production**]{.orange} a trois caractéristiques
+  - [**"Not just me"**]{.blue2}
+  - [**"Not just once"**]{.blue2}
+  - [**"Not just my computer"**]{.blue2}
+
+. . .
+
+![](img/hadley.jpg){height="250" fig-align="center"}
+
+## Les trois commandements d'Hadley Wickham
+
+::: {.nonincremental}
+- Le [**code de production**]{.orange} a trois caractéristiques
+  - [**"Not just me"**]{.blue2}
+  - <span style="color: lightgrey;"><strong>"Not just once"</strong></span>
+  - <span style="color: lightgrey;"><strong>"Not just my computer"</strong></span>
+
+![](img/hadley.jpg){height="250" fig-align="center"}
+:::
+
+## "Not just me"
+
+- Penser son projet en termes de [**maintenabilité**]{.orange}
+
+- Adopter les [**standards communautaires**]{.orange}
+  - [**Git**]{.blue2} pour la [**traçabilité**]{.blue2} des choix
+  - [**Qualité**]{.blue2} du code (structure, documentation)
+  - Choix des [**packages**]{.blue2} (voir [fiche UtilitR](https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html))
+
+## "Not just me"
+
+- Organiser le [**travail collaboratif**]{.orange}
+  - S'accorder sur une [**organisation**]{.blue2}
+  - Des outils facilitant via l'[**écosystème `Git`**]{.blue2}
+
+- Traiter le code comme un [**élément méthodologique**]{.orange}
+  - [**Revue de code**]{.blue2}
+  - Programmation en [**binôme**]{.blue2}
+
+## "Not just me"
+
+- Penser à l'expérience des [**utilisateurs finaux**]{.orange}
+
+- Pour la mise à disposition de données : [Parquet](https://book.utilitr.org/03_Fiches_thematiques/Fiche_import_fichiers_parquet.html)
+  - Format [**interopérable**]{.blue2}
+  - [**Méta-données**]{.blue2} livrées avec les données
+  - Performances en [**stockage**]{.blue2} et en [**lecture**]{.blue2}
+
+- Pour la documentation / publication : [quarto](https://quarto.org/)
+  - Intègre [**code**]{.blue2} et [**texte**]{.blue2} pour la [**reproductibilité**]{.blue2}
+  - Publication [**multi-formats**]{.blue2} (`pdf`, `odt`, `html`)
+  - Mise à jour automatique via l'[**intégration continue**]{.blue2}
+
+## Les trois commandements d'Hadley Wickham
+
+::: {.nonincremental}
+- Le [**code de production**]{.orange} a trois caractéristiques
+  - <span style="color: lightgrey;"><strong>"Not just me"</strong></span>
+  - [**"Not just once"**]{.blue2}
+  - <span style="color: lightgrey;"><strong>"Not just my computer"</strong></span>
+
+![](img/hadley.jpg){height="250" fig-align="center"}
+:::
+
+## "Not just once"
+
+- Penser son projet en termes de [**reproductibilité**]{.orange}
+
+- Une tâche de [**production**]{.orange}
+  - Est [**répétée**]{.blue2} dans le temps
+  - Peut [**changer d'environnement**]{.blue2} (dev, test, prod...)
+
+- [**Problème**]{.orange} : le monde "autour du code" évolue
+  - [**Spécifier**]{.blue2} et [**contrôler**]{.blue2} l'environnement
+  - [**Automatiser**]{.blue2} ce qui peut l'être
+
+## "Not just once"
+
+- Les [**données**]{.orange} changent
+  - [**Factoriser**]{.blue2} le code avec des [**fonctions**]{.blue2}
+  - [**Modéliser**]{.blue2} sa chaîne sous forme de [**DAG**]{.blue2}
+
+. . .
+
+![](img/dag.png){height="250" fig-align="center"}
+
+- Outil : [{targets}](https://books.ropensci.org/targets/)
+
+## "Not just once"
+
+- Le [**code**]{.orange} / les [**données**]{.orange} changent... et [**cassent**]{.orange}
+
+- Spécifier les [**attendus**]{.orange}
+  - [**Tests unitaires**]{.orange} : vérifie le bon [**comportement**]{.blue2} du code
+  - [**Validation de données**]{.orange} : vérifie l'[**intégrité**]{.blue2} et la [**qualité**]{.blue2} des données
+
+- Outils : [testthat](https://testthat.r-lib.org/) et [pointblank](https://rstudio.github.io/pointblank/)
+
+## "Not just once"
+
+- Les [**dépendances**]{.orange} changent (fonctionnalités, *bugs*, failles de sécurité...)
+
+- Arbitrage entre [**évolutivité**]{.orange} et [**stabilité**]{.orange}
+  - L'[**évolution des dépendances**]{.blue2} est inhérente à la [**maintenance**]{.blue2} d'une chaîne de production
+
+- On limite les risques en [**spécifiant l'environnement**]{.orange}
+  - [**Fixer**]{.blue2} les versions des packages utilisés : [renv](https://rstudio.github.io/renv/articles/renv.html)
+  - [**Versionner**]{.blue2} sa chaîne de production : tags [Git](https://git-scm.com/doc)
+
+## "Not just once"
+
+- L'[**environnement**]{.orange} change (OS, libs système, `R`...)
+  - Difficulté principale du [**passage en production**]{.blue2}
+
+- La [**conteneurisation**]{.orange} permet de [**fixer l'environnement**]{.orange}
+  - Favorise la [**portabilité**]{.blue2}
+
+. . .
+
+![](img/containers-portability.png){height="250" fig-align="center"}
+
+## "Not just once"
+
+- Concevoir sa chaîne comme un [***pipeline* de données**]{.orange}
+  - [**Reproductibilité**]{.orange} : étapes [**intégrées**]{.blue2} "de bout en bout"
+  - [**Stabilité**]{.orange} : contrôle des [**évolutions**]{.blue2}
+  - [**Portabilité**]{.orange} : fluidifie le [**changement d'architecture**]{.blue2}
+
+- Avantage supplémentaire : [**automatisation**]{.orange}
+
+- Outil : [**intégration continue**]{.orange} via `GitHub` / `GitLab`
+  - Accroît encore les bénéfices d'utiliser `Git` ! 
+
+## Les trois commandements d'Hadley Wickham
+
+::: {.nonincremental}
+- Le [**code de production**]{.orange} a trois caractéristiques
+  - <span style="color: lightgrey;"><strong>"Not just me"</strong></span>
+  - <span style="color: lightgrey;"><strong>"Not just once"</strong></span>
+  - [**"Not just my computer"**]{.blue2}
+
+![](img/hadley.jpg){height="250" fig-align="center"}
+:::
+
+## "Not just my computer"
+
+- Evolution continue vers des infrastructures de [**self "*production-ready*"**]{.orange}
+
+. . .
+
+![](img/evo-infra.png){height="400" fig-align="center"}
+
+## "Not just my computer"
+
+- OK, mais pourquoi 🤔 ?
+
+- Pourquoi migrer vers des [**infrastructures centralisées**]{.orange} ?
+  - [**Centralisation**]{.orange} : permet le [**passage à l'échelle**]{.blue2}
+  - [**Sécurité**]{.orange} : évite la [**dissémination**]{.blue2} de données
+
+- Pourquoi migrer vers des [**infrastructures Kubernetes**]{.orange} ?
+  - Tout ce qu'on pouvait faire avant... [**en mieux**]{.blue2}
+  - [**Nouveaux usages**]{.orange} : déploiements (applications, API), calcul distribué, traitements ordonnancés...
+  - [**Autonomie**]{.orange} (environnement, stockage, etc.)
+
+## "Not just my computer" {auto-animate=true}
+
+Un point de départ commun
+
+![](img/environment_messy.png)
+
+## "Not just my computer" {auto-animate=true}
+
+Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align="right"}
+
+Une structuration de projet plus viable
+
+![](img/environment_clean.png)
+
+## "Not just my computer" {auto-animate=true}
+
+Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align="right"}
+
+Une structuration de projet plus viable ![](img/environment_clean.png){width="10%" fig-align="right"}
+
+Facilitée par [**l'éco-système *cloud***]{.orange}
+
+![](img/environment_cloud.png)
+
+## "Not just my computer"
+  
+- Qu'est-ce qui change 🤔 ? 
+
+- [**Techniquement**]{.orange}, quasi tout !
+  - Du monde [***desktop***]{.blue2} au monde [***server***]{.blue2}
+  - Du monde [***Windows***]{.blue2} au monde [***Linux***]{.blue2}
+
+- En pratique, [**Onyxia**]{.orange} facilite la [**transition**]{.orange}
+
+. . .
+
+![](img/onyxia-catalog.png){height="250" fig-align="center"}
+
+## "Not just my computer"
+
+- Qu'est-ce qui change 🤔 ?
+
+- [**Monde conteneurisé**]{.orange} : les traitements sont [**éphémères**]{.orange}
+  - "Coût" de l'[**autonomie**]{.blue2} et de la [**mutualisation**]{.blue2} 
+  - Mais source de [**reproductibilité**]{.blue2} !
+
+. . .
+
+![](img/environment_clean.png){height="300" fig-align="center"}
+
+## "Not just my computer"
+
+- Qu'est-ce qui change 🤔 ? 
+  - Evolution du [**mode de stockage de données**]{.orange}
+
+- Infrastructures [**"bureau virtuel"**]{.orange} : [**lecteurs partagés**]{.blue2}
+  - Le "bureau virtuel" simule le [***filesystem* traditionnel**]{.blue2}
+
+- Infrastructures [**cloud**]{.orange} : [**stockage objet**]{.orange} (`S3` / `MinIO`)
+  - Stockage [**très peu coûteux**]{.blue2} 
+  - [**Autonomie**]{.orange} : [***bucket***]{.blue2} personnel / de projet
+  - Fonctionnement différent des [***filesystems***]{.blue2}
+
+## "Not just my computer"
+
+- Qu'est-ce qui change 🤔 ? 
+
+- Evolution de la [**nature des traitements**]{.orange}
+  - Traitements [**interactifs**]{.blue2} pour le [**développement**]{.blue2}
+  - Traitements [**batch**]{.blue2} pour le [**déploiement**]{.blue2}
+
+- Le [**débogage**]{.orange} devient moins immédiat
+  - Nécessité du [***logging***]{.blue2} : [logger](https://cran.r-project.org/web/packages/logger/vignettes/Intro.html)
+
+## Dépasser le "mur de la production"
+
+- Une organisation limitée par l'[**hétérogénéité des environnements**]{.orange}
+
+. . .
+
+![](img/mur-prod.png){height="400" fig-align="center"}
+
+## Dépasser le "mur de la production"
+
+- L'opportunité d'organisations [**plus continues**]{.orange}
+
+. . .
+
+![](img/ideal.png){height="450" fig-align="center"}

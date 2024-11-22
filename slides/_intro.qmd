@@ -56,6 +56,6 @@ Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align=
 
 Une structuration de projet plus viable
 
-![](img/environment.png)
+![](img/environment_clean.png)
 
 

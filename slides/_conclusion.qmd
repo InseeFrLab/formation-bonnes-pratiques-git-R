@@ -1,8 +1,29 @@
+# Conclusion
 
-- Les [**bonnes pratiques**]{.blue2} favorisent la [**reproductibilité**]{.orange} et la [**réutilisation**]{.orange} des projets statistiques
+## Conclusion
 
+- Des [**standards communautaires**]{.orange} qui favorisent la [**reproductibilité**]{.blue2} et la [**maintenabilité**]{.blue2}
 
-- Des [**outils**]{.orange} permettent d'appliquer les [**bonnes pratiques**]{.blue2}
+- De multiples [**outils**]{.orange} pour simplifier leur mise en oeuvre
 
+- Un [**coût**]{.orange} d'autant plus faible que l'on se place [**en amont**]{.orange}
 
-- Le [**coût**]{.orange} est d'autant plus faible que l'on se place [**en amont du projet**]{.orange}
+- Le mouvement de [**modernisation du self**]{.orange} est l'occasion d'une [**montée en compétence collective**]{.blue2}
+
+## Ressources communautaires {.smaller}
+
+- [**Canaux de discussion**]{.orange}
+    - A l'Insee
+        - Pour toute question sur [**Git**]{.blue2} : [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
+        - Pour toute question [**stat/self**]{.blue2} : [Insee - Outils Stats v2](https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr)
+        - Pour toute question spécifique à [**AUS/LS3**]{.blue2} : [Insee-DSI-Plateformes-Internes-Datascience](https://matrix.to/#/!bxlTbQgAEcLkRjoNPi:agent.finances.tchap.gouv.fr?via=agent.finances.tchap.gouv.fr&via=agent.agriculture.tchap.gouv.fr&via=agent.interieur.tchap.gouv.fr)
+    - Plus largement sur [**R**]{.blue2}
+        - Sur `Tchap` : [Langage R (Tchap)](https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr)
+        - Sur `Slack` : [r-grrr](https://r-grrr.slack.com)
+
+- [**Documentation**]{.orange} 
+    - [Service datascience Insee](https://datascience.gitlab-pages.insee.fr/site-documentaire/accueil/)
+    - [UtilitR](https://book.utilitr.org/)
+
+- [**Formation**]{.orange} 
+    - [Espace formation du SSP Cloud](https://www.sspcloud.fr/formation)

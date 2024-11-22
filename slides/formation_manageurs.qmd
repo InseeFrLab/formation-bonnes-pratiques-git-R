@@ -293,7 +293,7 @@ Nous nous sommes concentrés sur les briques:
 :::
 
 ::: {.column width="40%"}
-![](img/environment.png)
+![](img/environment_clean.png)
 :::
 
 ::::

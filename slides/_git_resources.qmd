@@ -1,11 +1,7 @@
-## Ressources supplémentaires {.smaller}
+## Ressources supplémentaires
 
-- Pour **aller plus loin**:
-    - La [documentation `utilitR`](https://book.utilitr.org/) propose plusieurs chapitres sur `Git`
-    - La [Bible](https://git-scm.com/book/en/v2) de l'usage de `Git`
+- La [documentation `utilitR`](https://book.utilitr.org/) propose plusieurs chapitres sur `Git`
 
+- Cours [Reproductibilité et bonnes pratiques pour les projets de data science](https://ensae-reproductibilite.github.io/website/) de l'`ENSAE`
 
-- **Trouver de l'aide**:
-    - Pour toute question : le salon Tchap [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
-    - A l'Insee : la [documentation utilisateurs](https://datascience.gitlab-pages.insee.fr/site-documentaire/ausv3/logiciels-carte/Git/) pour l'utilisation de `Git` sur `AUS`
-    - Sollicitez vos collègues utilisateurs de `Git` !
+- La [Bible](https://git-scm.com/book/en/v2) de l'usage de `Git`

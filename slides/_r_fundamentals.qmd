@@ -151,7 +151,7 @@ if (x_is_not_empty_string) {
 
 . . .
 
-![](img/environment.png)
+![](img/environment_clean.png)
 
 - En pratique : [**isoler**]{.orange} les [**packages**]{.blue2} et les [**secrets**]{.blue2}
 
@@ -450,7 +450,7 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 ::::: {.callout-warning}
 ## L'art de bien partitionner
 
-- Partitionner par une/des [**variable(s) d'intérêt**]{.blue2} (ex : millésime x département)
+- Partitionner par une/des [**variable(s) d'intérêt**]{.blue2}
 
 - [**Eviter**]{.blue2} de créer de [**nombreux petits (< 128Mo) fichiers**]{.blue2}
 
