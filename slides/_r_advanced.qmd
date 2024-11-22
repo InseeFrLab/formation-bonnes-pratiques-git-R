@@ -121,11 +121,11 @@
 
 ## De quoi parle-t-on ?
 
-- [**Production statistique**]{.orange} : chiffres, données, analyses produits par l'Insee
+- [**Production statistique**]{.orange} : chiffres, données, analyses produits par l'Insee / les SSM
 
 - [**Production informatique**]{.orange} : processus déployés par la DSI sur des [**infrastructures avec "garantie de service"**]{.blue2}
 
-- [**Self de production**]{.orange} : processus déployés sur une [**infra "self"**]{.blue2} (AUS, LS3) contribuant à la production statistique
+- [**Self de production**]{.orange} : processus déployés sur une [**infrastructure "self"**]{.blue2} contribuant à la production statistique
 
 - [**Code de production**]{.orange} : code respectant des [**standards de qualité**]{.blue2} qui le rendent [**efficace**]{.blue2} et [**maintenable**]{.blue2}
 
@@ -336,7 +336,7 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
   
 - Qu'est-ce qui change 🤔 ? 
 
-- [**Techniquement**]{.orange}, quasi tout !
+- [**Techniquement**]{.orange}, tout... ou presque !
   - Du monde [***desktop***]{.blue2} au monde [***server***]{.blue2}
   - Du monde [***Windows***]{.blue2} au monde [***Linux***]{.blue2}
 
