@@ -125,7 +125,7 @@
 
 - [**Production informatique**]{.orange} : processus déployés par la DSI sur des [**infrastructures avec "garantie de service"**]{.blue2}
 
-- [**Self de production**]{.orange} : processus déployés sur une [**infrastructure "self"**]{.blue2} contribuant à la production statistique
+- [**Self de production**]{.orange} : processus déployés sur une [**infra "self"**]{.blue2} contribuant à la [**production statistique**]{.blue2}
 
 - [**Code de production**]{.orange} : code respectant des [**standards de qualité**]{.blue2} qui le rendent [**efficace**]{.blue2} et [**maintenable**]{.blue2}
 
@@ -141,7 +141,7 @@
 
 ![](img/tidyverse.png){height="250" fig-align="center"}
 
-## Les trois commandements d'Hadley Wickham
+## Les trois commandements d'Hadley
 
 - Le [**code de production**]{.orange} a trois caractéristiques
   - [**"Not just me"**]{.blue2}
@@ -152,7 +152,7 @@
 
 ![](img/hadley.jpg){height="250" fig-align="center"}
 
-## Les trois commandements d'Hadley Wickham
+## Les trois commandements d'Hadley
 
 ::: {.nonincremental}
 - Le [**code de production**]{.orange} a trois caractéristiques
@@ -196,7 +196,7 @@
   - Publication [**multi-formats**]{.blue2} (`pdf`, `odt`, `html`)
   - Mise à jour automatique via l'[**intégration continue**]{.blue2}
 
-## Les trois commandements d'Hadley Wickham
+## Les trois commandements d'Hadley
 
 ::: {.nonincremental}
 - Le [**code de production**]{.orange} a trois caractéristiques
@@ -276,7 +276,7 @@
 - Outil : [**intégration continue**]{.orange} via `GitHub` / `GitLab`
   - Accroît encore les bénéfices d'utiliser `Git` ! 
 
-## Les trois commandements d'Hadley Wickham
+## Les trois commandements d'Hadley
 
 ::: {.nonincremental}
 - Le [**code de production**]{.orange} a trois caractéristiques
@@ -369,7 +369,7 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 - Infrastructures [**cloud**]{.orange} : [**stockage objet**]{.orange} (`S3` / `MinIO`)
   - Stockage [**très peu coûteux**]{.blue2} 
   - [**Autonomie**]{.orange} : [***bucket***]{.blue2} personnel / de projet
-  - Fonctionnement différent des [***filesystems***]{.blue2}
+  - [**Fonctionnement différent**]{.blue2} des *filesystems*
 
 ## "Not just my computer"
 
