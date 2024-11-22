@@ -320,13 +320,13 @@ Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align=
 
 Une structuration de projet plus viable
 
-![](img/environment.png)
+![](img/environment_clean.png)
 
 ## "Not just my computer" {auto-animate=true}
 
 Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align="right"}
 
-Une structuration de projet plus viable ![](img/environment.png){width="10%" fig-align="right"}
+Une structuration de projet plus viable ![](img/environment_clean.png){width="10%" fig-align="right"}
 
 Facilitée par [**l'éco-système *cloud***]{.orange}
 
@@ -348,18 +348,28 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 
 ## "Not just my computer"
 
-- Qu'est-ce qui change 🤔 ? 
+- Qu'est-ce qui change 🤔 ?
 
-- Monde conteneurisé -> non-persistence -> Git non négociable
+- [**Monde conteneurisé**]{.orange} : les traitements sont [**éphémères**]{.orange}
+  - "Coût" de l'[**autonomie**]{.blue2} et de la [**mutualisation**]{.blue2} 
+  - Mais source de [**reproductibilité**]{.blue2} !
+
+. . .
+
+![](img/environment_clean.png){height="300" fig-align="center"}
 
 ## "Not just my computer"
 
 - Qu'est-ce qui change 🤔 ? 
+  - Evolution du [**mode de stockage de données**]{.orange}
 
-- Evolution du [**mode de stockage de données**]{.orange}
-  - Stockage local
-  - Lecteurs réseaux partagés
-  - Cloud (S3 / MinIO)
+- Infrastructures [**"bureau virtuel"**]{.orange} : [**lecteurs partagés**]{.blue2}
+  - Le "bureau virtuel" simule le [***filesystem* traditionnel**]{.blue2}
+
+- Infrastructures [**cloud**]{.orange} : [**stockage objet**]{.orange} (`S3` / `MinIO`)
+  - Stockage [**très peu coûteux**]{.blue2} 
+  - [**Autonomie**]{.orange} : [***bucket***]{.blue2} personnel / de projet
+  - Fonctionnement différent des [***filesystems***]{.blue2}
 
 ## "Not just my computer"
 

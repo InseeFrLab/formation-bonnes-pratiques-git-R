@@ -151,7 +151,7 @@ if (x_is_not_empty_string) {
 
 . . .
 
-![](img/environment.png)
+![](img/environment_clean.png)
 
 - En pratique : [**isoler**]{.orange} les [**packages**]{.blue2} et les [**secrets**]{.blue2}
 
