@@ -334,7 +334,9 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 
 ## "Not just my computer"
   
-- Qu'est-ce qui change 🤔 ? [**Techniquement**]{.orange}, quasi tout !
+- Qu'est-ce qui change 🤔 ? 
+
+- [**Techniquement**]{.orange}, quasi tout !
   - Du monde [***desktop***]{.blue2} au monde [***server***]{.blue2}
   - Du monde [***Windows***]{.blue2} au monde [***Linux***]{.blue2}
 
@@ -346,9 +348,13 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 
 ## "Not just my computer"
 
+- Qu'est-ce qui change 🤔 ? 
+
 - Monde conteneurisé -> non-persistence -> Git non négociable
 
 ## "Not just my computer"
+
+- Qu'est-ce qui change 🤔 ? 
 
 - Evolution du [**mode de stockage de données**]{.orange}
   - Stockage local
@@ -357,16 +363,27 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 
 ## "Not just my computer"
 
+- Qu'est-ce qui change 🤔 ? 
+
 - Evolution de la [**nature des traitements**]{.orange}
   - Traitements [**interactifs**]{.blue2} pour le [**développement**]{.blue2}
   - Traitements [**batch**]{.blue2} pour le [**déploiement**]{.blue2}
 
-- Le [**débogage**]{.orange} devient plus difficile
-  - Nécessité du [***logging***]{.blue2}
-  
-- Outil : [logger](https://cran.r-project.org/web/packages/logger/vignettes/Intro.html)
+- Le [**débogage**]{.orange} devient moins immédiat
+  - Nécessité du [***logging***]{.blue2} : [logger](https://cran.r-project.org/web/packages/logger/vignettes/Intro.html)
 
-## "Not just my computer"
+## Dépasser le "mur de la production"
 
-- Authentification
-  - Utilisateur -> service
+- Une organisation limitée par l'[**hétérogénéité des environnements**]{.orange}
+
+. . .
+
+![](img/mur-prod.png){height="400" fig-align="center"}
+
+## Dépasser le "mur de la production"
+
+- L'opportunité d'organisations [**plus continues**]{.orange}
+
+. . .
+
+![](img/ideal.png){height="450" fig-align="center"}
