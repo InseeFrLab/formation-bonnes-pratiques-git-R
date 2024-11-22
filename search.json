@@ -795,7 +795,7 @@
     "href": "slides/complete.html#de-quoi-parle-t-on",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "De quoi parle-t-on ?",
-    "text": "De quoi parle-t-on ?\n\nProduction statistique : chiffres, données, analyses produits par l’Insee\nProduction informatique : processus déployés par la DSI sur des infrastructures avec “garantie de service”\nSelf de production : processus déployés sur une infra “self” (AUS, LS3) contribuant à la production statistique\nCode de production : code respectant des standards de qualité qui le rendent efficace et maintenable"
+    "text": "De quoi parle-t-on ?\n\nProduction statistique : chiffres, données, analyses produits par l’Insee / les SSM\nProduction informatique : processus déployés par la DSI sur des infrastructures avec “garantie de service”\nSelf de production : processus déployés sur une infrastructure “self” contribuant à la production statistique\nCode de production : code respectant des standards de qualité qui le rendent efficace et maintenable"
   },
   {
     "objectID": "slides/complete.html#r-un-langage-de-production",
@@ -935,7 +935,7 @@
     "href": "slides/complete.html#not-just-my-computer-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "“Not just my computer”",
-    "text": "“Not just my computer”\n\nQu’est-ce qui change 🤔 ?\nTechniquement, quasi tout !\n\nDu monde desktop au monde server\nDu monde Windows au monde Linux\n\nEn pratique, Onyxia facilite la transition"
+    "text": "“Not just my computer”\n\nQu’est-ce qui change 🤔 ?\nTechniquement, tout… ou presque !\n\nDu monde desktop au monde server\nDu monde Windows au monde Linux\n\nEn pratique, Onyxia facilite la transition"
   },
   {
     "objectID": "slides/complete.html#not-just-my-computer-6",
