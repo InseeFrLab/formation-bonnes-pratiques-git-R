@@ -823,7 +823,7 @@
     "href": "slides/complete.html#not-just-me",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "“Not just me”",
-    "text": "“Not just me”\n\nPenser son projet en termes de maintenabilité\nAdopter les standards communautaires\n\nGit pour la traçabilité des choix\nQualité du code (structure, documentation)\nChoix des packages (voir fiche UtilitR)"
+    "text": "“Not just me”\n\nPenser son projet en termes de maintenabilité\nAdopter les standards communautaires\n\nGit pour la traçabilité des choix\nQualité du code (structure, documentation)\nChoix des packages (voir fiche UtilitR)\n\n\n\n\n\n“Le simple fait qu’un package fasse (ou semble faire) ce que vous voulez n’est pas une raison suffisante de l’utiliser, surtout si votre programme doit rester fonctionnel pendant une longue période. Déterminer si on peut utiliser un package revient à faire un arbitrage entre avantages et inconvénients, et à évaluer le risque d’instabilité d’un package.”\nUtilitR"
   },
   {
     "objectID": "slides/complete.html#not-just-me-1",
