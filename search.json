@@ -830,14 +830,14 @@
     "href": "slides/complete.html#not-just-me-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "“Not just me”",
-    "text": "“Not just me”\n\nOrganiser le travail collaboratif\n\nS’accorder sur une organisation\nDes outils facilitant via l’écosystème Git\n\nTraiter le code comme un élément méthodologique\n\nRevue de code\nProgrammation en binôme"
+    "text": "“Not just me”\n\nOrganiser le travail collaboratif\n\nS’accorder sur une organisation\nDes outils facilitant via l’écosystème Git\n\nTraiter le code comme un élément méthodologique\n\nRevue de code\n\n\n\n\n\n“Les développeurs, quel que soit leur rôle, y voient de multiples avantages et un contexte dans lequel ils peuvent se former mutuellement, maintenir l’intégrité des bases de code de leurs équipes et créer, établir et faire évoluer des normes qui garantissent la lisibilité et la cohérence du code.”\nSadowski et al., Modern code review: a case study at google (2018)"
   },
   {
     "objectID": "slides/complete.html#not-just-me-2",
     "href": "slides/complete.html#not-just-me-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "“Not just me”",
-    "text": "“Not just me”\n\nPenser à l’expérience des utilisateurs finaux\nPour la mise à disposition de données : Parquet\n\nFormat interopérable\nMéta-données livrées avec les données\nPerformances en stockage et en lecture\n\nPour la documentation / publication : quarto\n\nIntègre code et texte pour la reproductibilité\nPublication multi-formats (pdf, odt, html)\nMise à jour automatique via l’intégration continue"
+    "text": "“Not just me”\n\nPenser à l’expérience des utilisateurs finaux\nPour la mise à disposition de données : Parquet\n\nInteropérable et méta-données incluses\nPerformances en stockage et en lecture\n\nPour la documentation / publication : quarto\n\nIntègre code et texte pour la reproductibilité\nPublication multi-formats (pdf, odt, html)\n\nExemple “2 en 1” : utiliser les données RP en Parquet"
   },
   {
     "objectID": "slides/complete.html#les-trois-commandements-dhadley-2",
