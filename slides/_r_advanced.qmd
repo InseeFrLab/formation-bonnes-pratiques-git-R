@@ -172,6 +172,14 @@
   - [**Qualité**]{.blue2} du code (structure, documentation)
   - Choix des [**packages**]{.blue2} (voir [fiche UtilitR](https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html))
 
+. . .
+
+::: {style="font-size: 70%; text-align: justify"}
+> "Le simple fait qu’un package fasse (ou semble faire) ce que vous voulez n’est pas une raison suffisante de l’utiliser, surtout si votre programme doit rester fonctionnel pendant une longue période. Déterminer si on peut utiliser un package revient à faire un arbitrage entre avantages et inconvénients, et à évaluer le risque d’instabilité d’un package."
+>
+> [UtilitR](https://book.utilitr.org/03_Fiches_thematiques/Fiche_comment_choisir_un_package.html)
+:::
+
 ## "Not just me"
 
 - Organiser le [**travail collaboratif**]{.orange}
