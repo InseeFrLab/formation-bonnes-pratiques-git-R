@@ -461,6 +461,6 @@ Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et l
 :::{.callout-tip collapse="true" icon=false .noincremental}
 ## Partie 6 : automatiser la mise à disposition
 
-On dispose finalement d'une chaîne **orchestrée de bout en bout, robuste et bien documentée**. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitHub` / `GitLab`.
+On dispose finalement d'une chaîne **orchestrée, robuste et bien documentée**. Afin d'en faire une chaîne vraiment intégrée de bout en bout, on va **automatiser** les étapes, de sorte à ce que les modifications apportées au projet se répércutent sur ses sorties. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitHub` / `GitLab`.
 
 :::
