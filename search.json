@@ -487,7 +487,7 @@
     "href": "slides/complete.html#checkpoint",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script get_data.R\nLe script script.R\nLe .gitignore\n\n{fig-align=“center”}"
+    "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script script.R\nLe .gitignore\n\n{fig-align=“center”}"
   },
   {
     "objectID": "slides/complete.html#bilan",
@@ -641,7 +641,7 @@
     "href": "slides/complete.html#application-3-préparation",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3 (préparation)",
-    "text": "Application 3 (préparation)\n\n\n\n\nPartie 0: préparation de l’exercice\n\n\n\nRemplacer le contenu du script download_data en copiant-collant le contenu de ce fichier. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.\nCréer le script R/benchmarking_functions.R en copiant-collant le contenu de ce fichier\nCréer un nouveau script R qui servira de bac à sable pour tester le format Parquet.\nCréer les variables qui seront utiles pour les prochaines questions\n\ncolumns_subset &lt;- c(\n  \"REGION\", \"AGED\", \"ANAI\", \"CATL\", \"COUPLE\",\n  \"SEXE\", \"SURF\", \"TP\", \"TRANS\"\n)\n\nfilename_sample_csv &lt;- \"data/RPindividus_24.csv\"\nfilename_sample_parquet &lt;- gsub(\"csv\", \"parquet\", filename_sample_csv)\nfilename_full_parquet &lt;- gsub(\"_24\", \"\", filename_sample_parquet)\nfilename_full_csv &lt;- gsub(\"parquet\", \"csv\", filename_full_parquet)"
+    "text": "Application 3 (préparation)\n\n\n\n\nPartie 0: préparation de l’exercice\n\n\n\nRemplacer le contenu du script R/get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.\nCréer le script R/benchmarking_functions.R en copiant-collant le contenu de ce fichier\nCréer un nouveau script R qui servira de bac à sable pour tester le format Parquet.\nCréer les variables qui seront utiles pour les prochaines questions\n\ncolumns_subset &lt;- c(\n  \"REGION\", \"AGED\", \"ANAI\", \"CATL\", \"COUPLE\",\n  \"SEXE\", \"SURF\", \"TP\", \"TRANS\"\n)\n\nfilename_sample_csv &lt;- \"data/RPindividus_24.csv\"\nfilename_sample_parquet &lt;- gsub(\"csv\", \"parquet\", filename_sample_csv)\nfilename_full_parquet &lt;- gsub(\"_24\", \"\", filename_sample_parquet)\nfilename_full_csv &lt;- gsub(\"parquet\", \"csv\", filename_full_parquet)"
   },
   {
     "objectID": "slides/complete.html#application-3-partie-1",
@@ -656,13 +656,6 @@
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3 (partie 2)",
     "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2: Un format léger et efficace\n\n\nDans cet exercice, vous devrez utiliser open_dataset pour lire les Parquet.\n\nObserver l’espace disque de chaque fichier par le biais de l’explorateur de fichiers\nMesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable filename_full_parquet.\n\nFaire ceci avec et sans le filtre des colonnes1.\nLa croissance du temps de traitement vous apparaît-elle énorme ?\n\nAjouter après cette étape de lecture filter(REGION == 24). Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ?\nNe pas faire ceci maintenant avec le CSV, le benchmark arrive prochainement."
-  },
-  {
-    "objectID": "slides/complete.html#application-3-partie-2-1",
-    "href": "slides/complete.html#application-3-partie-2-1",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 3 (partie 2)",
-    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2bis (optionnelle): Pour mieux comprendre le predicate pushdown (optionnel)\n\n\nduckdb fournit une méthode EXPLAIN ANALYZE pratique pour comprendre les optimisations faites à la lecture d’un fichier Parquet.\n\nPrendre le contenu de ce script\nExécuter les différentes requêtes et regarder les diagrammes obtenus.\nComprenez-vous l’ordre du plan d’exécution et l’effet sur les besoins de R ?\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ? Comment faire si on veut régulièrement filtrer nos données à partir de niveaux des variables ?"
   },
   {
     "objectID": "slides/complete.html#application-3-partie-3",
@@ -1705,7 +1698,7 @@
     "href": "slides/light.html#checkpoint",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script get_data.R\nLe script script.R\nLe .gitignore\n\n{fig-align=“center”}"
+    "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script script.R\nLe .gitignore\n\n{fig-align=“center”}"
   },
   {
     "objectID": "slides/light.html#bilan",
@@ -1859,7 +1852,7 @@
     "href": "slides/light.html#application-3-préparation",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3 (préparation)",
-    "text": "Application 3 (préparation)\n\n\n\n\nPartie 0: préparation de l’exercice\n\n\n\nRemplacer le contenu du script download_data en copiant-collant le contenu de ce fichier. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.\nCréer le script R/benchmarking_functions.R en copiant-collant le contenu de ce fichier\nCréer un nouveau script R qui servira de bac à sable pour tester le format Parquet.\nCréer les variables qui seront utiles pour les prochaines questions\n\ncolumns_subset &lt;- c(\n  \"REGION\", \"AGED\", \"ANAI\", \"CATL\", \"COUPLE\",\n  \"SEXE\", \"SURF\", \"TP\", \"TRANS\"\n)\n\nfilename_sample_csv &lt;- \"data/RPindividus_24.csv\"\nfilename_sample_parquet &lt;- gsub(\"csv\", \"parquet\", filename_sample_csv)\nfilename_full_parquet &lt;- gsub(\"_24\", \"\", filename_sample_parquet)\nfilename_full_csv &lt;- gsub(\"parquet\", \"csv\", filename_full_parquet)"
+    "text": "Application 3 (préparation)\n\n\n\n\nPartie 0: préparation de l’exercice\n\n\n\nRemplacer le contenu du script R/get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.\nCréer le script R/benchmarking_functions.R en copiant-collant le contenu de ce fichier\nCréer un nouveau script R qui servira de bac à sable pour tester le format Parquet.\nCréer les variables qui seront utiles pour les prochaines questions\n\ncolumns_subset &lt;- c(\n  \"REGION\", \"AGED\", \"ANAI\", \"CATL\", \"COUPLE\",\n  \"SEXE\", \"SURF\", \"TP\", \"TRANS\"\n)\n\nfilename_sample_csv &lt;- \"data/RPindividus_24.csv\"\nfilename_sample_parquet &lt;- gsub(\"csv\", \"parquet\", filename_sample_csv)\nfilename_full_parquet &lt;- gsub(\"_24\", \"\", filename_sample_parquet)\nfilename_full_csv &lt;- gsub(\"parquet\", \"csv\", filename_full_parquet)"
   },
   {
     "objectID": "slides/light.html#application-3-partie-1",
@@ -1874,13 +1867,6 @@
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3 (partie 2)",
     "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2: Un format léger et efficace\n\n\nDans cet exercice, vous devrez utiliser open_dataset pour lire les Parquet.\n\nObserver l’espace disque de chaque fichier par le biais de l’explorateur de fichiers\nMesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable filename_full_parquet.\n\nFaire ceci avec et sans le filtre des colonnes1.\nLa croissance du temps de traitement vous apparaît-elle énorme ?\n\nAjouter après cette étape de lecture filter(REGION == 24). Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ?\nNe pas faire ceci maintenant avec le CSV, le benchmark arrive prochainement."
-  },
-  {
-    "objectID": "slides/light.html#application-3-partie-2-1",
-    "href": "slides/light.html#application-3-partie-2-1",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 3 (partie 2)",
-    "text": "Application 3 (partie 2)\n\n\n\n\nPartie 2bis (optionnelle): Pour mieux comprendre le predicate pushdown (optionnel)\n\n\nduckdb fournit une méthode EXPLAIN ANALYZE pratique pour comprendre les optimisations faites à la lecture d’un fichier Parquet.\n\nPrendre le contenu de ce script\nExécuter les différentes requêtes et regarder les diagrammes obtenus.\nComprenez-vous l’ordre du plan d’exécution et l’effet sur les besoins de R ?\n\n\n\n\n\n❓️ Dans quel ordre sont faits les filtres par Arrow ? Comment faire si on veut régulièrement filtrer nos données à partir de niveaux des variables ?"
   },
   {
     "objectID": "slides/light.html#application-3-partie-3",

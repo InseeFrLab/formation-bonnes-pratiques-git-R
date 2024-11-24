@@ -1309,8 +1309,8 @@ _Workflow_ (version littéraire) :
 <ul>
 <li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
 </ul></li>
-<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/main/get_data.R">ce fichier</a>, puis l’exécuter</li>
-<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/main/script.R">ce fichier</a>. <strong>Ne l’exécutez pas, c’est l’objet de l’exercice suivant</strong>.</li>
+<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/get_data.R">ce fichier</a>, puis l’exécuter</li>
+<li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/script.R">ce fichier</a>. <strong>Ne l’exécutez pas, c’est l’objet de l’exercice suivant</strong>.</li>
 <li>Ajouter la règle “RPindividus*” au fichier <code>.gitignore</code>. Que signifie-t-elle ?</li>
 <li><em>Commit</em>/<em>push</em> les changements (tous les fichiers, y compris ceux que <code>Git</code> a ajouté)</li>
 </ol>
@@ -1764,9 +1764,8 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/get_data.R"><code>get_data.R</code></a></li>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/script.R"><code>script.R</code></a></li>
-<li class="fragment">Le <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/.gitignore"><code>.gitignore</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/script.R"><code>script.R</code></a></li>
+<li class="fragment">Le <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/.gitignore"><code>.gitignore</code></a></li>
 </ul>
 <p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
 </div>
@@ -2010,8 +2009,8 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli2/script.R"><code>script.R</code></a></li>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli2/R/functions.R"><code>R/functions.R</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/script.R"><code>script.R</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/functions.R"><code>R/functions.R</code></a></li>
 </ul>
 <p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
 </div>
@@ -2210,8 +2209,8 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ul>
-<li>Remplacer le contenu du script <code>download_data</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/download_data.R">ce fichier</a>. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.</li>
-<li>Créer le script <code>R/benchmarking_functions.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark_functions.R">ce fichier</a></li>
+<li>Remplacer le contenu du script <code>R/get_data.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R">ce fichier</a>. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.</li>
+<li>Créer le script <code>R/benchmarking_functions.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_functions.R">ce fichier</a></li>
 <li>Créer un nouveau script <code>R</code> qui servira de bac à sable pour tester le format <code>Parquet</code>.</li>
 <li>Créer les variables qui seront utiles pour les prochaines questions</li>
 </ul>
@@ -2294,27 +2293,6 @@ Mesurer le temps d’exécution
 </div>
 <p><em>❓️ Dans quel ordre sont faits les filtres par <code>Arrow</code> ?</em></p>
 <aside><ol class="aside-footnotes"><li id="fn2"><p>Ne pas faire ceci maintenant avec le CSV, le <em>benchmark</em> arrive prochainement.</p></li></ol></aside></section>
-<section id="application-3-partie-2-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 3 (partie 2)</h2>
-<div>
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Partie 2bis (optionnelle): Pour mieux comprendre le <em>predicate pushdown</em> (optionnel)</strong></p>
-</div>
-<div class="callout-content">
-<p><code>duckdb</code> fournit une méthode <code>EXPLAIN ANALYZE</code> pratique pour comprendre les optimisations faites à la lecture d’un fichier <code>Parquet</code>.</p>
-<ul>
-<li>Prendre le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark_optional.R">ce script</a></li>
-<li>Exécuter les différentes requêtes et regarder les diagrammes obtenus.</li>
-<li>Comprenez-vous l’ordre du plan d’exécution et l’effet sur les besoins de <code>R</code> ?</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<p><em>❓️ Dans quel ordre sont faits les filtres par <code>Arrow</code> ? Comment faire si on veut régulièrement filtrer nos données à partir de niveaux des variables ?</em></p>
-</section>
 <section id="application-3-partie-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 3 (partie 3)</h2>
 <div>
@@ -2401,8 +2379,8 @@ Modification du code pour l’import de données
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli3/main.R"><code>main.R</code></a></li>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli3/R/functions.R"><code>R/functions.R</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/main.R"><code>main.R</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/functions.R"><code>R/functions.R</code></a></li>
 </ul>
 <p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
 </div>
@@ -2632,7 +2610,7 @@ Nouvelle statistique descriptive à ajouter
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli4/main.R"><code>main.R</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main.R"><code>main.R</code></a></li>
 </ul>
 <p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
 </div>
