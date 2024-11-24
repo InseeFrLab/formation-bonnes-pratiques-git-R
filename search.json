@@ -795,7 +795,7 @@
     "href": "slides/complete.html#de-quoi-parle-t-on",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "De quoi parle-t-on ?",
-    "text": "De quoi parle-t-on ?\n\nProduction statistique : chiffres, données, analyses produits par l’Insee / les SSM\nProduction informatique : processus déployés par la DSI sur des infrastructures avec “garantie de service”\nSelf de production : processus déployés sur une infra “self” contribuant à la production statistique\nCode de production : code respectant des standards de qualité qui le rendent efficace et maintenable"
+    "text": "De quoi parle-t-on ?\n\nProduction statistique : chiffres, données, analyses produits par l’Insee / les SSM\nProduction informatique : processus maintenus par la DSI sur des infrastructures avec “garantie de service”\nSelf de production : processus maintenus par le métier sur une infrastructure “self”\nCode de production : code respectant des standards de qualité qui le rendent efficace et maintenable"
   },
   {
     "objectID": "slides/complete.html#r-un-langage-de-production",
