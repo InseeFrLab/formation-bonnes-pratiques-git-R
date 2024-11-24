@@ -1,14 +1,12 @@
-# Chaine de production sur le fichier recensement diffusé par l'Insee
-
-# GESTION ENVIRONNEMENT ----------------------
-
 library(dplyr)
 library(ggplot2)
 library(forcats)
 
+
 api_token <- Sys.getenv("JETON_API")
 
-# FONCTIONS ---------------------------------
+
+# FUNCTIONS -----------------------------------------------
 
 decennie_a_partir_annee <- function(annee) {
   return(annee - annee %% 10)
@@ -30,73 +28,81 @@ fonction_de_stat_agregee(rnorm(10), "ecart-type")
 fonction_de_stat_agregee(rnorm(10), "variance")
 
 
-# IMPORT DONNEES -----------------------------
 
-df <- readr::read_csv2(
-  "individu_reg.csv",
-  col_select = c("region", "aemm", "aged", "anai", "catl", "cs1", "cs2",
-                 "cs3", "couple", "na38", "naf08", "pnai12", "sexe",
-                 "surf", "tp", "trans", "ur")
+# IMPORT ET STRUCTURATION DONNEES -------------
+
+
+df <- readr::read_csv(
+  "RPindividus_24.csv",
+  col_select = c(
+    "REGION", "AGED", "ANAI", "CATL", "COUPLE",
+    "SEXE", "SURF", "TP", "TRANS", "IPONDI"
+  )
 )
 
-# RETRAITEMENT --------------------------------
 
 df <- df %>%
-  mutate(aged = as.numeric(aged))
-
-df$sexe <- df$sexe %>%
-  as.character() %>%
-  fct_recode(Homme = "1", Femme = "2")
+  mutate(SEXE = as.character(SEXE)) %>%
+  mutate(SEXE = fct_recode(SEXE, Homme = "1", Femme = "2"))
 
 
-# STATISTIQUES DESCRIPTIVES --------------------
 
-summarise(group_by(df, aged), n())
+# STATISTIQUES AGREGEES ---------------------------------------
 
-fonction_de_stat_agregee(df %>% filter(sexe == "Homme") %>% pull(aged))
-fonction_de_stat_agregee(df %>% filter(sexe == "Femme") %>% pull(aged))
-
-## stats trans par statut =====================
-
-df3 <- df %>%
-  group_by(couple, trans) %>%
-  summarise(x = n()) %>%
-  group_by(couple) %>%
-  mutate(y = 100 * x / sum(x))
+fonction_de_stat_agregee(df %>% filter(SEXE == "Homme") %>% pull(AGED))
+fonction_de_stat_agregee(df %>% filter(SEXE == "Femme") %>% pull(AGED))
 
 
-# GRAPHIQUES -----------------------------------
+# PYRAMIDE AGES =============================
+
+pyramide_ages <- df %>%
+  group_by(AGED) %>%
+  summarise(n = sum(IPONDI))
 
 ggplot(df) +
-  geom_histogram(aes(x = 5 * floor(aged / 5)), stat = "count")
+  geom_histogram(
+    aes(x = 5 * floor(as.numeric(AGED) / 5), weight = IPONDI),
+    stat = "count"
+  )
 
-# part d'homme dans chaque cohort
-p <- df %>%
-  group_by(aged, sexe) %>%
-  summarise(SH_sexe = n()) %>%
-  group_by(aged) %>%
+
+# STATS MODALITES DE TRANSPORT ===============
+
+transport_par_statut_couple <- df %>%
+  group_by(COUPLE, TRANS) %>%
+  summarise(x = sum(IPONDI)) %>%
+  group_by(COUPLE) %>%
+  mutate(y = 100 * x / sum(x))
+transport_par_statut_couple
+
+# PART HOMMES DANS CHAQUE COHORTE ============================
+
+
+part_hommes_chaque_cohorte <- df %>%
+  select(AGED, SEXE, IPONDI) %>%
+  group_by(AGED, SEXE) %>%
+  summarise(SH_sexe = sum(IPONDI)) %>%
+  group_by(AGED) %>%
   mutate(SH_sexe = SH_sexe / sum(SH_sexe)) %>%
-  filter(sexe == "Homme") %>%
-  ggplot() +
-  geom_bar(aes(x = aged, y = SH_sexe), stat = "identity") +
-  geom_point(
-    aes(x = aged, y = SH_sexe),
-    stat = "identity", color = "red") +
+  filter(SEXE == "Homme")
+
+
+p <- ggplot(part_hommes_chaque_cohorte) +
+  geom_bar(aes(x = AGED, y = SH_sexe), stat = "identity") +
+  geom_point(aes(x = AGED, y = SH_sexe), stat = "identity", color = "red") +
   coord_cartesian(c(0, 100))
+
 
 ggsave("p.png", p)
 
 
-# MODELISATION -------------------------------
+# MODELISATION --------------------------------
 
-df3 <- df %>%
-  select(surf, cs1, ur, couple, aged) %>%
-  filter(surf != "Z")
+data_modelisation <- df %>%
+  filter(SURF != "Z") %>%
+  mutate(SURF = factor(SURF, ordered = TRUE)) %>%
+  filter(between(AGED, 40, 60)) %>%
+  sample_n(1000)
 
-df3 <- df3 %>%
-  mutate(
-    surf = factor(df3$surf, ordered = TRUE),
-    cs1 = factor(cs1)
-  )
 
-MASS::polr(surf ~ cs1 + factor(ur), df3)
+MASS::polr(SURF ~ factor(COUPLE) + factor(TP), data_modelisation)

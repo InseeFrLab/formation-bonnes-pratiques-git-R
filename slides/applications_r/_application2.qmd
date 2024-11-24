@@ -42,8 +42,8 @@
 ::: {.callout-caution}
 ## Checkpoint
 
-* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli2/script.R)
-* Le script [`R/functions.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli2/R/functions.R)
+* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/script.R)
+* Le script [`R/functions.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/functions.R)
 
 ![](checkpoint.jpg){width="40%"}{fig-align="center"}
 

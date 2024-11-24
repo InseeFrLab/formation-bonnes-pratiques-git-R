@@ -1,3 +1,4 @@
+library(arrow)
 library(dplyr)
 library(ggplot2)
 library(forcats)
@@ -11,13 +12,18 @@ source("R/functions.R", encoding = "UTF-8")
 # IMPORT ET STRUCTURATION DONNEES -------------
 
 
-df <- readr::read_csv(
-  "data/RPindividus_24.csv",
-  col_select = c(
-    "REGION", "AGED", "ANAI", "CATL", "COUPLE",
-    "SEXE", "SURF", "TP", "TRANS", "IPONDI"
-  )
+columns_subset <- c(
+  "REGION", "AGED", "ANAI", "CATL", "COUPLE",
+  "SEXE", "SURF", "TP", "TRANS", "IPONDI"
 )
+
+df <- open_dataset(
+  "./data/RPindividus",
+  hive_style = TRUE
+) %>%
+  filter(REGION == 24) %>%
+  select(any_of(columns_subset)) %>%
+  collect()
 
 
 df <- df %>%
@@ -28,8 +34,9 @@ df <- df %>%
 
 # STATISTIQUES AGREGEES ---------------------------------------
 
-fonction_de_stat_agregee(df %>% filter(SEXE == "Homme") %>% pull(AGED))
-fonction_de_stat_agregee(df %>% filter(SEXE == "Femme") %>% pull(AGED))
+
+stat_desc_variable(df %>% filter(SEXE == "Homme") %>% pull(AGED))
+stat_desc_variable(df %>% filter(SEXE == "Femme") %>% pull(AGED))
 
 
 # PYRAMIDE AGES =============================
@@ -53,6 +60,7 @@ transport_par_statut_couple <- df %>%
   summarise(x = sum(IPONDI)) %>%
   group_by(COUPLE) %>%
   mutate(y = 100 * x / sum(x))
+
 transport_par_statut_couple
 
 

@@ -2,8 +2,8 @@
 
 :::{.callout-tip .nonincremental collapse="true" icon=false}
 # Partie 0: préparation de l'exercice
-* Remplacer le contenu du script `download_data` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/download_data.R). Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.
-* Créer le script `R/benchmarking_functions.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark_functions.R)
+* Remplacer le contenu du script `R/get_data.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R). Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.
+* Créer le script `R/benchmarking_functions.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_functions.R)
 * Créer un nouveau script `R` qui servira de bac à sable pour tester le format `Parquet`.
 * Créer les variables qui seront utiles pour les prochaines questions
 
@@ -79,21 +79,6 @@ Dans cet exercice, vous devrez utiliser `open_dataset` pour lire les `Parquet`.
 _❓️ Dans quel ordre sont faits les filtres par `Arrow` ?_
 
 [^csv]: Ne pas faire ceci maintenant avec le CSV, le _benchmark_ arrive prochainement.
-
-## Application 3 (partie 2) {.smaller}
-
-::: {.callout-tip .nonincremental collapse="true" icon=false}
-## Partie 2bis (optionnelle): Pour mieux comprendre le _predicate pushdown_ (optionnel)
-
-`duckdb` fournit une méthode `EXPLAIN ANALYZE` pratique pour comprendre les optimisations faites à la lecture d'un fichier `Parquet`.
-
-* Prendre le contenu de [ce script](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/heads/dev/R/benchmark_optional.R)
-* Exécuter les différentes requêtes et regarder les diagrammes obtenus. 
-* Comprenez-vous l'ordre du plan d'exécution et l'effet sur les besoins de `R` ?
-
-:::
-
-_❓️ Dans quel ordre sont faits les filtres par `Arrow` ? Comment faire si on veut régulièrement filtrer nos données à partir de niveaux des variables ?_
 
 ## Application 3 (partie 3) {.smaller}
 
@@ -176,8 +161,8 @@ _❓️ Cette mise à jour des données utilisées vous est-elle apparue plus si
 ::: {.callout-caution .noincremental}
 ## Checkpoint
 
-* Le script [`main.R`](https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli3/main.R)
-* Le script [`R/functions.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli3/R/functions.R)
+* Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/main.R)
+* Le script [`R/functions.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/functions.R)
 
 
 ![](checkpoint.jpg){width="40%"}{fig-align="center"}
