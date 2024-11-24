@@ -412,3 +412,55 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 . . .
 
 ![](img/ideal.png){height="450" fig-align="center"}
+
+
+
+
+
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false .noincremental}
+## Partie 1 : transition vers le stockage `S3`
+
+Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de transitionner vers un stockage *cloud*, en l'occurence le stockage de type `S3`.
+
+:::
+
+:::{.callout-tip collapse="true" icon=false .noincremental}
+## Partie 2 : orchestrer sa chaîne de production
+
+Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d'un unique *script*. De manière générale, on a plutôt envie de modéliser les étapes d'une chaîne comme une série de fonctions, avec une fonction "cheffe d'orchestre" qui appelle les autres dans le bon ordre.
+
+NB : on aurait pu également utiliser un **orchestrateur** dédié pour effectuer cette tâche, comme le package [targets](https://books.ropensci.org/targets/). Les plus curieux d'entre vous pourront aller voir [le chapitre et les exercices](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/data_pipelines.qmd) qui lui étaient auparavant dédiés dans cette formation.
+
+:::
+
+:::{.callout-tip collapse="true" icon=false .noincremental}
+## Partie 3 : ajout de contrôles de qualité des données
+
+Un critère de qualité majeur d'une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on va ajouter des contrôles sur la qualité des données, en entrée et en sortie de la chaîne.
+
+:::
+
+:::{.callout-tip collapse="true" icon=false .noincremental}
+## Partie 4 : tests unitaires et versionnage de la chaîne
+
+Notre chaîne tourne à présent de manière robuste. Pour autant, ce n'est pas un objet fixe : on peut vouloir lui apporter des corrections ou des améliorations fonctionnelles. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va :
+- versionner la chaîne, afin de certifier le code qui la fait tourner sans erreur à un moment T
+- implémenter des tests unitaires, qui permettent de continuer à modifier la chaîne sans risquer de **régressions**
+
+:::
+
+:::{.callout-tip collapse="true" icon=false .noincremental}
+## Partie 5 : un rapport reproductible pour documenter sa chaîne de production
+
+Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisationde ses produits est de documenter son fonctionnement. Le format [quarto](https://quarto.org) — successeur de `R Markdown` — permet de reproduire facilement des **rapports reproductibles, qui intègrent code et texte**. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus **interactif** (`html`) aux plus classiques (`pdf`, `odt`, etc.).
+
+:::
+
+:::{.callout-tip collapse="true" icon=false .noincremental}
+## Partie 6 : automatiser la mise à disposition
+
+On dispose finalement d'une chaîne **orchestrée de bout en bout, robuste et bien documentée**. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitHub` / `GitLab`.
+
+:::
