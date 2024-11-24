@@ -19,13 +19,13 @@ decennie_a_partir_annee <- function(annee) {
 #' - Pour `"variance"`, la fonction utilise [var()].
 #'
 #' @examples
-#' calculer_stat_agregee(rnorm(10))
-#' calculer_stat_agregee(rnorm(10), "ecart-type")
-#' calculer_stat_agregee(rnorm(10), "variance")
+#' stat_desc_variable(rnorm(10))
+#' stat_desc_variable(rnorm(10), "ecart-type")
+#' stat_desc_variable(rnorm(10), "variance")
 #'
 #' @export
 
-calculer_stat_agregee <- function(x, statistique = "moyenne", ...) {
+stat_desc_variable <- function(x, statistique = "moyenne", ...) {
   
   stopifnot(is.numeric(x), 
             is.character(statistique), 

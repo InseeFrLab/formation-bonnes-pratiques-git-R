@@ -127,11 +127,9 @@ Dans cette application, on va explorer deux manières possibles de gérer les se
 ::: {.callout-caution .noincremental}
 ## Checkpoint
 
-* Le script [`get_data.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/get_data.R)
-* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/script.R)
-* Le [`.gitignore`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/refs/tags/appli1/.gitignore)
+* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/script.R)
+* Le [`.gitignore`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/.gitignore)
 
 ![](checkpoint.jpg){width="40%"}{fig-align="center"}
 
 :::
-

@@ -103,7 +103,7 @@ ggplot(departements_60_plus_sf) +
 ::: {.callout-caution .noincremental}
 ## Checkpoint
 
-* Le script [`main.R`](https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli4/main.R)
+* Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main.R)
 
 ![](checkpoint.jpg){width="40%"}{fig-align="center"}
 
