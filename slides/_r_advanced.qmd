@@ -417,14 +417,21 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 
 
 
-## Application 5 {.smaller}
+## Application 5: partie 1 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false .noincremental}
 ## Partie 1 : transition vers le stockage `S3`
 
+1. Changer les imports de données
+2. Ecrire une source de données finale dans S3
+
+<!-------
 Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de transitionner vers un stockage *cloud*, en l'occurence le stockage de type `S3`.
+------>
 
 :::
+
+## Application 5: partie 2 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false .noincremental}
 ## Partie 2 : orchestrer sa chaîne de production
