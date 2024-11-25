@@ -6,7 +6,7 @@ options(timeout = max(300, getOption("timeout")))
 
 filename_table_individu <- "data/RPindividus.parquet"
 system(
-  "mc cp s3/projet-formation/bonnes-pratiques/data/RPindividus.parquet data/RPindividus.parquet"
+  "mc cp s3/public/ssplab-formation/RPindividus.parquet data/RPindividus.parquet"
 )
 
 # ALTERNATIVE EN CSV POUR LES BENCHMARKS -------------------------
