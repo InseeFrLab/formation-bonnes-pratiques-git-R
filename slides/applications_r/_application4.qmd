@@ -1,5 +1,9 @@
 ## Application 4 {.smaller}
 
+::: {.panel-tabset}
+
+## {{< fa brands github >}}
+
 :::{.callout-tip collapse="true" icon=false .noincremental}
 ## Partie 1 : prise en main de la librairie `renv`
 
@@ -71,6 +75,91 @@ ggplot(departements_60_plus_sf) +
 
 :::
 
+## {{< fa brands gitlab >}} insee
+
+:::{.callout-tip collapse="true" icon=false .noincremental}
+## Partie 1 : prise en main de la librairie `renv`
+
+1. Installer le package [`renv`](https://rstudio.github.io/renv/articles/renv.html)
+2. Taper dans la console `renv::init()`, __lire le message__ et accepter.
+3. Observer les nouveaux fichiers et dossiers qui sont apparus dans le projet.
+4. Taper `library(sf)` dans la console `R` et observer la réponse de `R`. Comprenez-vous pourquoi ?
+4. Dans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte
+    + S'il manque un _package_ pour la faire, l'installer
+
+<details>
+
+
+<summary>
+Nouvelle statistique descriptive à ajouter
+</summary>
+
+```{.r}
+# PART DES SENIORS DANS LA POPULATION ---------------------------
+
+# France geojson
+departements <- aws.s3::s3read_using(
+  FUN = sf::st_read, 
+  object = "france.geojson", 
+  bucket = "public/ssplab-formation",
+  opts = list("region" = "")
+  )
+
+# PART DES SENIORS FRANCE ENTIERE =====================================
+
+part_seniors <- open_dataset(
+  "./data/RPindividus",
+  hive_style = TRUE
+) %>%
+  mutate(plus_60 = AGED > 60) %>%
+  group_by(DEPT, plus_60) %>%
+  summarise(
+    population_totale = sum(IPONDI)
+  ) %>%
+  group_by(DEPT) %>%
+  mutate(
+    population_60_ans = population_totale,
+    pourcentage_60_plus = population_totale/sum(population_totale),
+    population_totale = sum(population_totale)
+  ) %>%
+  filter(plus_60 == TRUE) %>%
+  select(DEPT, population_totale, population_60_ans, pourcentage_60_plus) %>%
+  collect()
+
+
+# CARTE =====================================
+
+departements_60_plus_sf <- departements %>%
+  inner_join(
+    part_seniors,
+    by = c("INSEE_DEP" = "DEPT")
+  )
+
+
+ggplot(departements_60_plus_sf) +
+  geom_sf(aes(fill = pourcentage_60_plus)) + 
+  scale_fill_fermenter(n.breaks = 5, palette = "PuBuGn", direction = 1) + 
+  theme_void() + 
+  labs(
+    title = "Part des personnes de plus de 60 ans par département",
+    caption = "Source: Insee, Fichiers détails du recensement de la population",
+    fill = "Part (%)"
+  )
+```
+
+</details>
+
+:::
+
+
+:::
+
+
+
+
+
+
+
 ## Application 4 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false}
@@ -93,18 +182,34 @@ ggplot(departements_60_plus_sf) +
 8. Ouvrir un nouveau projet `RStudio` et cloner à nouveau votre dépôt (sous un nom différent)
 9. Exécuter `renv::restore()` pour installer les packages nécessaires à l'exécution du projet
 10. Vérifier que le `script.R` s'exécute correctement dans ce nouveau projet
-11. (facultatif) Pour se convaincre de la portabilité de la solution, ouvrir un nouveau service `RStudio` et refaire les étapes 8 à 10
 :::
 
 :::
 
 ## Checkpoint
+
+::: {.panel-tabset}
+
+## {{< fa brands github >}}
 
 ::: {.callout-caution .noincremental}
 ## Checkpoint
 
-* Le script [`main.R`](https://github.com/InseeFrLab/formation-bonnes-pratiques-exo-correction/blob/appli4/main.R)
+* Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main.R)
 
-![](checkpoint.jpg){width="40%"}{fig-align="center"}
+![](checkpoint.jpg){width=40% fig-align="center"}
+
+:::
+
+## {{< fa brands gitlab >}} insee
+
+::: {.callout-caution .noincremental}
+## Checkpoint
+
+* Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main_ls3.R)
+
+![](checkpoint.jpg){width=40% fig-align="center"}
+
+:::
 
 :::

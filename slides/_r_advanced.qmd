@@ -123,9 +123,9 @@
 
 - [**Production statistique**]{.orange} : chiffres, données, analyses produits par l'Insee / les SSM
 
-- [**Production informatique**]{.orange} : processus déployés par la DSI sur des [**infrastructures avec "garantie de service"**]{.blue2}
+- [**Production informatique**]{.orange} : processus maintenus par la [**DSI**]{.blue2} sur des [**infrastructures avec "garantie de service"**]{.blue2}
 
-- [**Self de production**]{.orange} : processus déployés sur une [**infra "self"**]{.blue2} contribuant à la [**production statistique**]{.blue2}
+- [**Self de production**]{.orange} : processus maintenus par le [**métier**]{.blue2} sur une [**infrastructure "self"**]{.blue2}
 
 - [**Code de production**]{.orange} : code respectant des [**standards de qualité**]{.blue2} qui le rendent [**efficace**]{.blue2} et [**maintenable**]{.blue2}
 
