@@ -422,6 +422,10 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 :::: {.callout-tip .noincremental collapse="true" icon=false}
 ## Partie 1 : transition vers le stockage `S3`
 
+<!-------
+Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de transitionner vers un stockage *cloud*, en l'occurence le stockage de type `S3`.
+---------->
+
 ::: {.noincremental}
 1. En début de script, créer les chemins où les données pourront être trouvées (voir ci-dessous)
 2. Créer un connecteur `Arrow` entre votre session `R` et l'espace de stockage `S3`
@@ -490,12 +494,6 @@ path_within_bucket <- "/ssplab-formation"
 </details>
 
 
-2. 
-
-<!-------
-Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de transitionner vers un stockage *cloud*, en l'occurence le stockage de type `S3`.
------->
-
 ::::
 
 ## Application 5: partie 2 {.smaller}
@@ -503,11 +501,23 @@ Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* da
 :::{.callout-tip collapse="true" icon=false .noincremental}
 ## Partie 2 : orchestrer sa chaîne de production
 
-Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d'un unique *script*. De manière générale, on a plutôt envie de modéliser les étapes d'une chaîne comme une série de fonctions, avec une fonction "cheffe d'orchestre" qui appelle les autres dans le bon ordre.
+Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d'un unique *script*. 
 
-NB : on aurait pu également utiliser un **orchestrateur** dédié pour effectuer cette tâche, comme le package [targets](https://books.ropensci.org/targets/). Les plus curieux d'entre vous pourront aller voir [le chapitre et les exercices](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/data_pipelines.qmd) qui lui étaient auparavant dédiés dans cette formation.
+De manière générale, on a plutôt envie de modéliser les étapes d'une chaîne comme une série de fonctions, avec une fonction "cheffe d'orchestre" qui appelle les autres dans le bon ordre.
+
 
 :::
+
+
+::: {.tip}
+## `targets`: un orchestrateur formel
+
+On aurait pu également utiliser un **orchestrateur** dédié pour effectuer cette tâche, comme le package [targets](https://books.ropensci.org/targets/). Les plus curieux d'entre vous pourront aller voir [le chapitre et les exercices](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/data_pipelines.qmd) qui lui étaient auparavant dédiés dans cette formation.
+
+:::
+
+## Application 5: partie 3 {.smaller}
+
 
 :::{.callout-tip collapse="true" icon=false .noincremental}
 ## Partie 3 : ajout de contrôles de qualité des données
