@@ -50,6 +50,7 @@ from: markdown+emoji
 # Partie 1 : contrôle de version avec `Git`
 
 
+
 ## Plan de la partie
 
 :one: Le [**contrôle de version**]{.orange} : pourquoi faire ?
