@@ -6,47 +6,46 @@
 ## {{< fa brands github >}}
 
 :::{.callout-tip .nonincremental collapse="true" icon=false}
-# Partie 0: préparation de l'exercice
-* Remplacer le contenu du script `R/get_data.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R). Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.
-* Créer le script `R/benchmarking_functions.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_functions.R)
-* Créer un nouveau script `R` qui servira de bac à sable pour tester le format `Parquet`.
-* Créer les variables qui seront utiles pour les prochaines questions
+# Partie 1 : du `CSV` au `Parquet`
+
+Tout au long de cette application, nous allons voir comment utiliser le format `Parquet` de manière la plus efficiente. Afin de comparer les différents formats et méthodes d'utilisation, nous allons comparer le temps d'exécution et l'usage mémoire d'une requête standard. Commençons par comparer les formats `CSV` et `Parquet`.
+
+* Remplacer le contenu du script `get_data.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R). Exécuter ce script, il importe les fichiers nécessaires dans cette application
+* Pour effectuer les comparaisons de performance, on va utiliser la fonction [bench::mark](https://bench.r-lib.org/#benchmark). Analyser la documentation pour comprendre ce que la fonction attend en entrée. 
+* La requête suivante permet de calculer les données pour construire une pyramide des âges sur un département donné, à partir du fichier `CSV` du recensement. Encapsuler la requête dans une fonction `req_csv` (sans argument).
 
 ```{.r}
-columns_subset <- c(
-  "REGION", "AGED", "ANAI", "CATL", "COUPLE",
-  "SEXE", "SURF", "TP", "TRANS"
-)
-
-filename_sample_csv <- "data/RPindividus_24.csv"
-filename_sample_parquet <- gsub("csv", "parquet", filename_sample_csv)
-filename_full_parquet <- gsub("_24", "", filename_sample_parquet)
-filename_full_csv <- gsub("parquet", "csv", filename_full_parquet)
+res <- readr::read_csv("data/RPindividus_24.csv") %>% 
+    filter(DEPT == "36") %>%
+    group_by(AGED, DEPT) %>%
+    summarise(n_indiv = sum(IPONDI))
 ```
+
+* Sur le même modèle, construire une fonction `req_read_parquet` basée cette fois sur le fichier `data/RPindividus_24.parquet` chargé avec la fonction [read_parquet](https://arrow.apache.org/docs/r/reference/read_parquet.html) d'`Arrow`
+* Comparer les performances (temps d'exécution et allocation mémoire) de ces deux méthodes grâce à la [bench::mark](https://bench.r-lib.org/#benchmark), à laquelle on passera les paramètres `iterations = 1` (comparaison à partir d'une seule itération) et `check = FALSE` (autorise les outputs des deux fonctions à être différents).
 
 :::
 
 ## {{< fa brands gitlab >}} insee
 
 :::{.callout-tip .nonincremental collapse="true" icon=false}
-# Partie 0: préparation de l'exercice
-* Remplacer le contenu du script `R/get_data.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R). Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.
-* Créer le script `R/benchmarking_functions.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_functions.R)
-* Créer un nouveau script `R` qui servira de bac à sable pour tester le format `Parquet`.
-* Créer les variables qui seront utiles pour les prochaines questions
+# Partie 1 : du `CSV` au `Parquet`
+
+Tout au long de cette application, nous allons voir comment utiliser le format `Parquet` de manière la plus efficiente. Afin de comparer les différents formats et méthodes d'utilisation, nous allons comparer le temps d'exécution et l'usage mémoire d'une requête standard. Commençons par comparer les formats `CSV` et `Parquet`.
+
+* Remplacer le contenu du script `get_data_ls3.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data_ls3.R). Exécuter ce script, il importe les fichiers nécessaires dans cette application
+* Pour effectuer les comparaisons de performance, on va utiliser la fonction [bench::mark](https://bench.r-lib.org/#benchmark). Analyser la documentation pour comprendre ce que la fonction attend en entrée. 
+* La requête suivante permet de calculer les données pour construire une pyramide des âges sur un département donné, à partir du fichier `CSV` du recensement. Encapsuler la requête dans une fonction `req_csv` (sans argument).
 
 ```{.r}
-columns_subset <- c(
-  "REGION", "AGED", "ANAI", "CATL", "COUPLE",
-  "SEXE", "SURF", "TP", "TRANS"
-)
-
-filename_sample_csv <- "data/RPindividus_24.csv"
-filename_sample_parquet <- gsub("csv", "parquet", filename_sample_csv)
-filename_full_parquet <- gsub("_24", "", filename_sample_parquet)
-filename_full_csv <- gsub("parquet", "csv", filename_full_parquet)
+res <- readr::read_csv("data/RPindividus_24.csv") %>% 
+    filter(DEPT == "36") %>%
+    group_by(AGED, DEPT) %>%
+    summarise(n_indiv = sum(IPONDI))
 ```
 
+* Sur le même modèle, construire une fonction `req_read_parquet` basée cette fois sur le fichier `data/RPindividus_24.parquet` chargé avec la fonction [read_parquet](https://arrow.apache.org/docs/r/reference/read_parquet.html) d'`Arrow`
+* Comparer les performances (temps d'exécution et allocation mémoire) de ces deux méthodes grâce à la [bench::mark](https://bench.r-lib.org/#benchmark), à laquelle on passera les paramètres `iterations = 1` (comparaison à partir d'une seule itération) et `check = FALSE` (autorise les outputs des deux fonctions à être différents).
 :::
 
 :::
@@ -137,12 +136,6 @@ _❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certai
 * _Quelle est la limite ?_
 
 :::
-
-## Application 3 (partie 3) {.smaller}
-
-Quand on généralise cette démarche de _benchmark_, on obtient le tableau de performance suivant
-
-![](img/tableau-perf-parquet.png){fig-align="center"}
 
 
 ## Application 3 (partie 4) {.smaller}
