@@ -30,7 +30,7 @@
 
 ::: {.nonincremental}
 1. Créer un nouveau dépôt public sur `GitLab`
-2. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitHub` à une valeur suffisamment élevée
+2. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitLab` à une valeur suffisamment élevée
 3. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` de `LS3`):
     + `File` → `New project` → `Version Control` → `Git`
 4. Créer un script `get_data.R` en copiant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/get_data_ls3.R), puis l'exécuter
