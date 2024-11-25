@@ -48,7 +48,7 @@ res <- readr::read_csv("data/RPindividus_24.csv") %>%
 
 :::
 
-
+_❓️ Quelle semble être la limite de la fonction `read_parquet` ?_
 
 ## Application 3 {.smaller}
 
@@ -98,7 +98,7 @@ _❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certai
 :::{.callout-tip .nonincremental collapse="true" icon=false}
 # Partie 4 : mise à jour de la chaîne de production
 
-Fort de comparatif, nous allons maintenant mettre à jour les données utilisées pour notre chaîne de production.
+Forts de ce comparatif, nous allons maintenant mettre à jour les données utilisées pour notre chaîne de production.
 
 * Modifier le script `script.R` pour importer les données d'entrée de votre chaîne à partir de la table `Parquet` partitionnée par département
 * Vérifier que le code tourne de A à Z et l'adapter si ce n'est pas le cas
