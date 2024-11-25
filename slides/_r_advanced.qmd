@@ -505,6 +505,15 @@ Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pr
 
 De manière générale, on a plutôt envie de modéliser les étapes d'une chaîne comme une série de fonctions, avec une fonction "cheffe d'orchestre" qui appelle les autres dans le bon ordre.
 
+1. Créer les scripts suivants:
+
+* `R/functions_import.R` ([contenu]())
+* `R/functions_stats_desc.R`
+* `R/functions_models.R`
+
+2. Modifier `main.R` pour tenir compte de la modularisation
+
+3. Passer la souris sur une des nouvelles fonctions et faire <kbd>F1</kbd>
 
 :::
 
