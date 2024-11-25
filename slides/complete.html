@@ -3245,7 +3245,7 @@ Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* da
 <div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>departements <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
 <span id="cb17-2"><a></a>  <span class="at">FUN =</span> sf<span class="sc">::</span>st_read, </span>
 <span id="cb17-3"><a></a>  <span class="at">object =</span> <span class="st">"france.geojson"</span>, </span>
-<span id="cb17-4"><a></a>  <span class="at">bucket =</span> <span class="st">"public/ssplab-formation"</span>,</span>
+<span id="cb17-4"><a></a>  <span class="at">bucket =</span> <span class="fu">paste0</span>(bucket_formation, <span class="st">"/"</span>, path_within_bucket),</span>
 <span id="cb17-5"><a></a>  <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
 <span id="cb17-6"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
