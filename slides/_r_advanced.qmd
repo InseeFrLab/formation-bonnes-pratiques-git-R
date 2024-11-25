@@ -450,13 +450,13 @@ df <- open_dataset(
 4. Si nécessaire, remplacer l'import du geojson 
 
 ```{.r}
-df <- open_dataset(
-  bucket_path,
-  hive_style = TRUE
-) %>%
-  filter(REGION == 24) %>%
-  select(any_of(columns_subset)) %>%
-  collect()
+departements <- aws.s3::s3read_using(
+  FUN = sf::st_read, 
+  object = "france.geojson", 
+  bucket = "public/ssplab-formation",
+  opts = list("region" = "")
+  )
+
 ```
 
 :::
