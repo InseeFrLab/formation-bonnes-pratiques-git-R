@@ -419,17 +419,84 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 
 ## Application 5: partie 1 {.smaller}
 
-:::{.callout-tip collapse="true" icon=false .noincremental}
+:::: {.callout-tip .noincremental collapse="true" icon=false}
 ## Partie 1 : transition vers le stockage `S3`
 
-1. Changer les imports de données
-2. Ecrire une source de données finale dans S3
+::: {.noincremental}
+1. En début de script, créer les chemins où les données pourront être trouvées (voir ci-dessous)
+2. Créer un connecteur `Arrow` entre votre session `R` et l'espace de stockage `S3`
+
+```{.r}
+bucket <- s3_bucket(bucket_formation, endpoint_override = Sys.getenv("AWS_S3_ENDPOINT"))
+bucket_path <- bucket$path(paste0(path_within_bucket, "/RPindividus"))
+```
+
+3. Dans `main.R`, modifier les codes utilisant `open_dataset` pour remplacer les chemins par la variable `bucket_path`.
+
+```{.r}
+df <- open_dataset(
+  bucket_path,
+  hive_style = TRUE
+) %>%
+  filter(REGION == 24) %>%
+  select(any_of(columns_subset)) %>%
+  collect()
+```
+
+4. Si nécessaire, remplacer l'import du geojson 
+
+```{.r}
+df <- open_dataset(
+  bucket_path,
+  hive_style = TRUE
+) %>%
+  filter(REGION == 24) %>%
+  select(any_of(columns_subset)) %>%
+  collect()
+```
+
+:::
+
+<br>
+
+<details>
+
+<summary>
+Connecteur pour la question 1
+</summary>
+
+::: {.panel-tabset}
+
+## {{< fa brands github >}} 
+
+
+```{.r}
+bucket_formation <- "projet-formation"
+path_within_bucket <- "/bonnes-pratiques/data"
+```
+
+## {{< fa brands gitlab >}} insee
+
+
+```{.r}
+bucket_formation <- "public"
+path_within_bucket <- "/ssplab-formation"
+```
+
+:::
+
+
+
+</details>
+
+
+2. 
 
 <!-------
 Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de transitionner vers un stockage *cloud*, en l'occurence le stockage de type `S3`.
 ------>
 
-:::
+::::
 
 ## Application 5: partie 2 {.smaller}
 
