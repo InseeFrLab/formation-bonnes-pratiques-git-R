@@ -1329,7 +1329,7 @@ _Workflow_ (version littéraire) :
 <div>
 <ol type="1">
 <li>Créer un nouveau dépôt public sur <code>GitLab</code></li>
-<li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitHub</code> à une valeur suffisamment élevée</li>
+<li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitLab</code> à une valeur suffisamment élevée</li>
 <li>Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> de <code>LS3</code>):
 <ul>
 <li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
@@ -1767,7 +1767,11 @@ if (x_is_not_empty_string) {
 <li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/script.R"><code>script.R</code></a></li>
 <li class="fragment">Le <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/.gitignore"><code>.gitignore</code></a></li>
 </ul>
-<p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -2012,7 +2016,11 @@ if (x_is_not_empty_string) {
 <li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/script.R"><code>script.R</code></a></li>
 <li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/functions.R"><code>R/functions.R</code></a></li>
 </ul>
-<p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -2201,6 +2209,10 @@ if (x_is_not_empty_string) {
 </section>
 <section id="application-3-préparation" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 3 (préparation)</h2>
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-4-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
 <div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -2227,6 +2239,37 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </div>
+</div>
+<div id="tabset-4-2">
+<div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 0: préparation de l’exercice</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Remplacer le contenu du script <code>R/get_data.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R">ce fichier</a>. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.</li>
+<li>Créer le script <code>R/benchmarking_functions.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_functions.R">ce fichier</a></li>
+<li>Créer un nouveau script <code>R</code> qui servira de bac à sable pour tester le format <code>Parquet</code>.</li>
+<li>Créer les variables qui seront utiles pour les prochaines questions</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
+<span id="cb9-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span></span>
+<span id="cb9-4"><a></a>)</span>
+<span id="cb9-5"><a></a></span>
+<span id="cb9-6"><a></a>filename_sample_csv <span class="ot">&lt;-</span> <span class="st">"data/RPindividus_24.csv"</span></span>
+<span id="cb9-7"><a></a>filename_sample_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"csv"</span>, <span class="st">"parquet"</span>, filename_sample_csv)</span>
+<span id="cb9-8"><a></a>filename_full_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"_24"</span>, <span class="st">""</span>, filename_sample_parquet)</span>
+<span id="cb9-9"><a></a>filename_full_csv <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"parquet"</span>, <span class="st">"csv"</span>, filename_full_parquet)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="application-3-partie-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 3 (partie 1)</h2>
@@ -2234,22 +2277,22 @@ if (x_is_not_empty_string) {
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 1: Ouvrir un fichier <code>Parquet</code> et comprendre la logique de la lecture par bloc</strong></p>
+<p><strong>Partie 1 : Ouvrir un fichier <code>Parquet</code> et comprendre la logique de la lecture par bloc</strong></p>
 </div>
 <div class="callout-content">
-<p>Lecture du fichier avec <code>read_parquet</code> du <em>package</em> <code>arrow</code>:</p>
+<p>Lecture du fichier avec <code>read_parquet</code> du <em>package</em> <code>arrow</code> :</p>
 <ul>
 <li>Lire les données dont le chemin est stocké dans <code>filename_sample_parquet</code>. Pour mesurer le temps d’exécution, vous pouvez utiliser le squelette de code suggéré ci-dessous 👇️.</li>
 <li>Faire la même chose mais cette fois, ajouter un filtre <em>ex post</em> avec les colonnes (<code>select(any_of(columns_subset))</code>). Mesurez-vous une différence dans les temps de traitement ?</li>
 </ul>
-<p>Lecture du fichier avec <code>open_dataset</code> du <em>package</em> <code>arrow</code>:</p>
+<p>Lecture du fichier avec <code>open_dataset</code> du <em>package</em> <code>arrow</code> :</p>
 <ul>
 <li>Cette fois, lire le fichier avec <code>open_dataset(filename_sample_parquet)</code>. Regarder la classe de cet objet.</li>
 <li>Faire un <code>head(5)</code> après <code>open_dataset</code>. Observer l’objet obtenu (sortie en console, classe).</li>
 <li>Maintenant regarder lorsque vous ajouter <code>collect()</code> après cette chaîne.</li>
 <li>Mesurer le temps d’exécution de <code>open_dataset(filename_sample_parquet) %&gt;% collect()</code>. Ajouter le filtre <code>select(any_of(columns_subset))</code>. Sa place influence-t-elle la vitesse de votre processus ?</li>
 </ul>
-<p>Comparaison à la lecture d’un CSV:</p>
+<p>Comparaison à la lecture d’un CSV :</p>
 <ul>
 <li>Utiliser <code>readr::read_csv</code> pour lire le fichier (chemin <code>filename_sample_csv</code>) avec et sans l’argument <code>col_select</code>. Avez-vous des gains de performance si vous ne lisez le fichier qu’avec ces colonnes ?</li>
 </ul>
@@ -2257,10 +2300,10 @@ if (x_is_not_empty_string) {
 <summary>
 Mesurer le temps d’exécution
 </summary>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb9-2"><a></a><span class="co"># lecture du fichier ici</span></span>
-<span id="cb9-3"><a></a>end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb9-4"><a></a>diff_time <span class="ot">&lt;-</span> end_time <span class="sc">-</span> start_time</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb10-2"><a></a><span class="co"># lecture du fichier ici</span></span>
+<span id="cb10-3"><a></a>end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
+<span id="cb10-4"><a></a>diff_time <span class="ot">&lt;-</span> end_time <span class="sc">-</span> start_time</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -2274,7 +2317,7 @@ Mesurer le temps d’exécution
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 2: Un format léger et efficace</strong></p>
+<p><strong>Partie 2 : Un format léger et efficace</strong></p>
 </div>
 <div class="callout-content">
 <p>Dans cet exercice, vous devrez utiliser <code>open_dataset</code> pour lire les <code>Parquet</code>.</p>
@@ -2299,15 +2342,15 @@ Mesurer le temps d’exécution
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 3: le Parquet partitionné</strong></p>
+<p><strong>Partie 3 : le Parquet partitionné</strong></p>
 </div>
 <div class="callout-content">
 <ul>
 <li>Utiliser le code ci-dessous pour partitionner le fichier <code>Parquet</code> par <em>“REGION”</em> et <em>“DEPT”</em></li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">open_dataset</span>(filename_full_parquet) <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a></a>  <span class="fu">group_by</span>(REGION, DEPT) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">write_dataset</span>(<span class="st">"./data/RPindividus"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">open_dataset</span>(filename_full_parquet) <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">group_by</span>(REGION, DEPT) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">write_dataset</span>(<span class="st">"./data/RPindividus"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Observer l’arborescence de fichiers</li>
 <li>Utiliser <code>Arrow</code> pour lire les données de la Corse du Sud (code région 94, code département 2A) à partir de ce fichier partitionné</li>
@@ -2317,7 +2360,7 @@ Mesurer le temps d’exécution
 </div>
 </div>
 <div>
-<p><em>❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques:</em></p>
+<p><em>❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques :</em></p>
 <ul>
 <li><em>Que faudrait-il faire ?</em></li>
 <li><em>Quelle est la limite ?</em></li>
@@ -2335,7 +2378,7 @@ Mesurer le temps d’exécution
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 4: mise à jour de la chaîne de production</strong></p>
+<p><strong>Partie 4 : mise à jour de la chaîne de production</strong></p>
 </div>
 <div class="callout-content">
 <p>Nous allons mettre à jour les données utilisées pour notre chaîne de production:</p>
@@ -2347,18 +2390,18 @@ Mesurer le temps d’exécution
 <summary>
 Modification du code pour l’import de données
 </summary>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb11-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
-<span id="cb11-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span>, <span class="st">"IPONDI"</span></span>
-<span id="cb11-4"><a></a>)</span>
-<span id="cb11-5"><a></a></span>
-<span id="cb11-6"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
-<span id="cb11-7"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
-<span id="cb11-8"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
-<span id="cb11-9"><a></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-10"><a></a>  <span class="fu">filter</span>(REGION <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-11"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
-<span id="cb11-12"><a></a>  <span class="fu">collect</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb12-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
+<span id="cb12-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span>, <span class="st">"IPONDI"</span></span>
+<span id="cb12-4"><a></a>)</span>
+<span id="cb12-5"><a></a></span>
+<span id="cb12-6"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<span id="cb12-7"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
+<span id="cb12-8"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
+<span id="cb12-9"><a></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-10"><a></a>  <span class="fu">filter</span>(REGION <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-11"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a></a>  <span class="fu">collect</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -2382,7 +2425,11 @@ Modification du code pour l’import de données
 <li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/main.R"><code>main.R</code></a></li>
 <li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/functions.R"><code>R/functions.R</code></a></li>
 </ul>
-<p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -2484,6 +2531,10 @@ Modification du code pour l’import de données
 </section>
 <section id="application-4-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 4</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-5-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
 <div class="noincremental">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -2505,54 +2556,135 @@ Modification du code pour l’import de données
 <summary>
 Nouvelle statistique descriptive à ajouter
 </summary>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># PART DES SENIORS DANS LA POPULATION ---------------------------</span></span>
-<span id="cb12-2"><a></a></span>
-<span id="cb12-3"><a></a><span class="co"># France geojson</span></span>
-<span id="cb12-4"><a></a>departements <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(</span>
-<span id="cb12-5"><a></a>  <span class="st">"https://minio.lab.sspcloud.fr/projet-formation/bonnes-pratiques/data/france.geojson"</span></span>
-<span id="cb12-6"><a></a>)</span>
-<span id="cb12-7"><a></a></span>
-<span id="cb12-8"><a></a><span class="co"># PART DES SENIORS FRANCE ENTIERE =====================================</span></span>
-<span id="cb12-9"><a></a></span>
-<span id="cb12-10"><a></a>part_seniors <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
-<span id="cb12-11"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
-<span id="cb12-12"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
-<span id="cb12-13"><a></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-14"><a></a>  <span class="fu">mutate</span>(<span class="at">plus_60 =</span> AGED <span class="sc">&gt;</span> <span class="dv">60</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-15"><a></a>  <span class="fu">group_by</span>(DEPT, plus_60) <span class="sc">%&gt;%</span></span>
-<span id="cb12-16"><a></a>  <span class="fu">summarise</span>(</span>
-<span id="cb12-17"><a></a>    <span class="at">population_totale =</span> <span class="fu">sum</span>(IPONDI)</span>
-<span id="cb12-18"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-19"><a></a>  <span class="fu">group_by</span>(DEPT) <span class="sc">%&gt;%</span></span>
-<span id="cb12-20"><a></a>  <span class="fu">mutate</span>(</span>
-<span id="cb12-21"><a></a>    <span class="at">population_60_ans =</span> population_totale,</span>
-<span id="cb12-22"><a></a>    <span class="at">pourcentage_60_plus =</span> population_totale<span class="sc">/</span><span class="fu">sum</span>(population_totale),</span>
-<span id="cb12-23"><a></a>    <span class="at">population_totale =</span> <span class="fu">sum</span>(population_totale)</span>
-<span id="cb12-24"><a></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb12-25"><a></a>  <span class="fu">filter</span>(plus_60 <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-26"><a></a>  <span class="fu">select</span>(DEPT, population_totale, population_60_ans, pourcentage_60_plus) <span class="sc">%&gt;%</span></span>
-<span id="cb12-27"><a></a>  <span class="fu">collect</span>()</span>
-<span id="cb12-28"><a></a></span>
-<span id="cb12-29"><a></a></span>
-<span id="cb12-30"><a></a><span class="co"># CARTE =====================================</span></span>
-<span id="cb12-31"><a></a></span>
-<span id="cb12-32"><a></a>departements_60_plus_sf <span class="ot">&lt;-</span> departements <span class="sc">%&gt;%</span></span>
-<span id="cb12-33"><a></a>  <span class="fu">inner_join</span>(</span>
-<span id="cb12-34"><a></a>    part_seniors,</span>
-<span id="cb12-35"><a></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INSEE_DEP"</span> <span class="ot">=</span> <span class="st">"DEPT"</span>)</span>
-<span id="cb12-36"><a></a>  )</span>
-<span id="cb12-37"><a></a></span>
-<span id="cb12-38"><a></a></span>
-<span id="cb12-39"><a></a><span class="fu">ggplot</span>(departements_60_plus_sf) <span class="sc">+</span></span>
-<span id="cb12-40"><a></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> pourcentage_60_plus)) <span class="sc">+</span> </span>
-<span id="cb12-41"><a></a>  <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>, <span class="at">palette =</span> <span class="st">"PuBuGn"</span>, <span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
-<span id="cb12-42"><a></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> </span>
-<span id="cb12-43"><a></a>  <span class="fu">labs</span>(</span>
-<span id="cb12-44"><a></a>    <span class="at">title =</span> <span class="st">"Part des personnes de plus de 60 ans par département"</span>,</span>
-<span id="cb12-45"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Insee, Fichiers détails du recensement de la population"</span>,</span>
-<span id="cb12-46"><a></a>    <span class="at">fill =</span> <span class="st">"Part (%)"</span></span>
-<span id="cb12-47"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># PART DES SENIORS DANS LA POPULATION ---------------------------</span></span>
+<span id="cb13-2"><a></a></span>
+<span id="cb13-3"><a></a><span class="co"># France geojson</span></span>
+<span id="cb13-4"><a></a>departements <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_read</span>(</span>
+<span id="cb13-5"><a></a>  <span class="st">"https://minio.lab.sspcloud.fr/projet-formation/bonnes-pratiques/data/france.geojson"</span></span>
+<span id="cb13-6"><a></a>)</span>
+<span id="cb13-7"><a></a></span>
+<span id="cb13-8"><a></a><span class="co"># PART DES SENIORS FRANCE ENTIERE =====================================</span></span>
+<span id="cb13-9"><a></a></span>
+<span id="cb13-10"><a></a>part_seniors <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<span id="cb13-11"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
+<span id="cb13-12"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
+<span id="cb13-13"><a></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-14"><a></a>  <span class="fu">mutate</span>(<span class="at">plus_60 =</span> AGED <span class="sc">&gt;</span> <span class="dv">60</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-15"><a></a>  <span class="fu">group_by</span>(DEPT, plus_60) <span class="sc">%&gt;%</span></span>
+<span id="cb13-16"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb13-17"><a></a>    <span class="at">population_totale =</span> <span class="fu">sum</span>(IPONDI)</span>
+<span id="cb13-18"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb13-19"><a></a>  <span class="fu">group_by</span>(DEPT) <span class="sc">%&gt;%</span></span>
+<span id="cb13-20"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb13-21"><a></a>    <span class="at">population_60_ans =</span> population_totale,</span>
+<span id="cb13-22"><a></a>    <span class="at">pourcentage_60_plus =</span> population_totale<span class="sc">/</span><span class="fu">sum</span>(population_totale),</span>
+<span id="cb13-23"><a></a>    <span class="at">population_totale =</span> <span class="fu">sum</span>(population_totale)</span>
+<span id="cb13-24"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb13-25"><a></a>  <span class="fu">filter</span>(plus_60 <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-26"><a></a>  <span class="fu">select</span>(DEPT, population_totale, population_60_ans, pourcentage_60_plus) <span class="sc">%&gt;%</span></span>
+<span id="cb13-27"><a></a>  <span class="fu">collect</span>()</span>
+<span id="cb13-28"><a></a></span>
+<span id="cb13-29"><a></a></span>
+<span id="cb13-30"><a></a><span class="co"># CARTE =====================================</span></span>
+<span id="cb13-31"><a></a></span>
+<span id="cb13-32"><a></a>departements_60_plus_sf <span class="ot">&lt;-</span> departements <span class="sc">%&gt;%</span></span>
+<span id="cb13-33"><a></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb13-34"><a></a>    part_seniors,</span>
+<span id="cb13-35"><a></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INSEE_DEP"</span> <span class="ot">=</span> <span class="st">"DEPT"</span>)</span>
+<span id="cb13-36"><a></a>  )</span>
+<span id="cb13-37"><a></a></span>
+<span id="cb13-38"><a></a></span>
+<span id="cb13-39"><a></a><span class="fu">ggplot</span>(departements_60_plus_sf) <span class="sc">+</span></span>
+<span id="cb13-40"><a></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> pourcentage_60_plus)) <span class="sc">+</span> </span>
+<span id="cb13-41"><a></a>  <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>, <span class="at">palette =</span> <span class="st">"PuBuGn"</span>, <span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb13-42"><a></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> </span>
+<span id="cb13-43"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-44"><a></a>    <span class="at">title =</span> <span class="st">"Part des personnes de plus de 60 ans par département"</span>,</span>
+<span id="cb13-45"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Insee, Fichiers détails du recensement de la population"</span>,</span>
+<span id="cb13-46"><a></a>    <span class="at">fill =</span> <span class="st">"Part (%)"</span></span>
+<span id="cb13-47"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="noincremental">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 1 : prise en main de la librairie <code>renv</code></strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li class="fragment">Installer le package <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a></li>
+<li class="fragment">Taper dans la console <code>renv::init()</code>, <strong>lire le message</strong> et accepter.</li>
+<li class="fragment">Observer les nouveaux fichiers et dossiers qui sont apparus dans le projet.</li>
+<li class="fragment">Taper <code>library(sf)</code> dans la console <code>R</code> et observer la réponse de <code>R</code>. Comprenez-vous pourquoi ?</li>
+<li class="fragment">Dans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte
+<ul>
+<li class="fragment">S’il manque un <em>package</em> pour la faire, l’installer</li>
+</ul></li>
+</ol>
+<details>
+<summary>
+Nouvelle statistique descriptive à ajouter
+</summary>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># PART DES SENIORS DANS LA POPULATION ---------------------------</span></span>
+<span id="cb14-2"><a></a></span>
+<span id="cb14-3"><a></a><span class="co"># France geojson</span></span>
+<span id="cb14-4"><a></a>departements <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
+<span id="cb14-5"><a></a>  <span class="at">FUN =</span> sf<span class="sc">::</span>st_read, </span>
+<span id="cb14-6"><a></a>  <span class="at">object =</span> <span class="st">"france.geojson"</span>, </span>
+<span id="cb14-7"><a></a>  <span class="at">bucket =</span> <span class="st">"public/ssplab-formation"</span>,</span>
+<span id="cb14-8"><a></a>  <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
+<span id="cb14-9"><a></a>  )</span>
+<span id="cb14-10"><a></a></span>
+<span id="cb14-11"><a></a><span class="co"># PART DES SENIORS FRANCE ENTIERE =====================================</span></span>
+<span id="cb14-12"><a></a></span>
+<span id="cb14-13"><a></a>part_seniors <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<span id="cb14-14"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
+<span id="cb14-15"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
+<span id="cb14-16"><a></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-17"><a></a>  <span class="fu">mutate</span>(<span class="at">plus_60 =</span> AGED <span class="sc">&gt;</span> <span class="dv">60</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-18"><a></a>  <span class="fu">group_by</span>(DEPT, plus_60) <span class="sc">%&gt;%</span></span>
+<span id="cb14-19"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb14-20"><a></a>    <span class="at">population_totale =</span> <span class="fu">sum</span>(IPONDI)</span>
+<span id="cb14-21"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb14-22"><a></a>  <span class="fu">group_by</span>(DEPT) <span class="sc">%&gt;%</span></span>
+<span id="cb14-23"><a></a>  <span class="fu">mutate</span>(</span>
+<span id="cb14-24"><a></a>    <span class="at">population_60_ans =</span> population_totale,</span>
+<span id="cb14-25"><a></a>    <span class="at">pourcentage_60_plus =</span> population_totale<span class="sc">/</span><span class="fu">sum</span>(population_totale),</span>
+<span id="cb14-26"><a></a>    <span class="at">population_totale =</span> <span class="fu">sum</span>(population_totale)</span>
+<span id="cb14-27"><a></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb14-28"><a></a>  <span class="fu">filter</span>(plus_60 <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-29"><a></a>  <span class="fu">select</span>(DEPT, population_totale, population_60_ans, pourcentage_60_plus) <span class="sc">%&gt;%</span></span>
+<span id="cb14-30"><a></a>  <span class="fu">collect</span>()</span>
+<span id="cb14-31"><a></a></span>
+<span id="cb14-32"><a></a></span>
+<span id="cb14-33"><a></a><span class="co"># CARTE =====================================</span></span>
+<span id="cb14-34"><a></a></span>
+<span id="cb14-35"><a></a>departements_60_plus_sf <span class="ot">&lt;-</span> departements <span class="sc">%&gt;%</span></span>
+<span id="cb14-36"><a></a>  <span class="fu">inner_join</span>(</span>
+<span id="cb14-37"><a></a>    part_seniors,</span>
+<span id="cb14-38"><a></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"INSEE_DEP"</span> <span class="ot">=</span> <span class="st">"DEPT"</span>)</span>
+<span id="cb14-39"><a></a>  )</span>
+<span id="cb14-40"><a></a></span>
+<span id="cb14-41"><a></a></span>
+<span id="cb14-42"><a></a><span class="fu">ggplot</span>(departements_60_plus_sf) <span class="sc">+</span></span>
+<span id="cb14-43"><a></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill =</span> pourcentage_60_plus)) <span class="sc">+</span> </span>
+<span id="cb14-44"><a></a>  <span class="fu">scale_fill_fermenter</span>(<span class="at">n.breaks =</span> <span class="dv">5</span>, <span class="at">palette =</span> <span class="st">"PuBuGn"</span>, <span class="at">direction =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb14-45"><a></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> </span>
+<span id="cb14-46"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-47"><a></a>    <span class="at">title =</span> <span class="st">"Part des personnes de plus de 60 ans par département"</span>,</span>
+<span id="cb14-48"><a></a>    <span class="at">caption =</span> <span class="st">"Source: Insee, Fichiers détails du recensement de la population"</span>,</span>
+<span id="cb14-49"><a></a>    <span class="at">fill =</span> <span class="st">"Part (%)"</span></span>
+<span id="cb14-50"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2590,7 +2722,6 @@ Nouvelle statistique descriptive à ajouter
 <li>Ouvrir un nouveau projet <code>RStudio</code> et cloner à nouveau votre dépôt (sous un nom différent)</li>
 <li>Exécuter <code>renv::restore()</code> pour installer les packages nécessaires à l’exécution du projet</li>
 <li>Vérifier que le <code>script.R</code> s’exécute correctement dans ce nouveau projet</li>
-<li>(facultatif) Pour se convaincre de la portabilité de la solution, ouvrir un nouveau service <code>RStudio</code> et refaire les étapes 8 à 10</li>
 </ol>
 </div>
 </div>
@@ -2599,6 +2730,10 @@ Nouvelle statistique descriptive à ajouter
 </section>
 <section id="checkpoint-6" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-6-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
 <div class="noincremental">
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
@@ -2612,7 +2747,38 @@ Nouvelle statistique descriptive à ajouter
 <ul>
 <li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main.R"><code>main.R</code></a></li>
 </ul>
-<p><img data-src="checkpoint.jpg" style="width:40.0%">{fig-align=“center”}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-6-2">
+<div class="noincremental">
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Checkpoint</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main_ls3.R"><code>main.R</code></a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
