@@ -3211,6 +3211,152 @@ Nouvelle statistique descriptive à ajouter
 </div>
 </div>
 </section>
+<section id="application-5-partie-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 5: partie 1</h2>
+<div class="noincremental">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 1 : transition vers le stockage <code>S3</code></strong></p>
+</div>
+<div class="callout-content">
+<!-------
+Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de transitionner vers un stockage *cloud*, en l'occurence le stockage de type `S3`.
+---------->
+<div class="noincremental">
+<ol type="1">
+<li class="fragment">En début de script, créer les chemins où les données pourront être trouvées (voir ci-dessous)</li>
+<li class="fragment">Créer un connecteur <code>Arrow</code> entre votre session <code>R</code> et l’espace de stockage <code>S3</code></li>
+</ol>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>bucket <span class="ot">&lt;-</span> <span class="fu">s3_bucket</span>(bucket_formation, <span class="at">endpoint_override =</span> <span class="fu">Sys.getenv</span>(<span class="st">"AWS_S3_ENDPOINT"</span>))</span>
+<span id="cb15-2"><a></a>bucket_path <span class="ot">&lt;-</span> bucket<span class="sc">$</span><span class="fu">path</span>(<span class="fu">paste0</span>(path_within_bucket, <span class="st">"/RPindividus"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li class="fragment">Dans <code>main.R</code>, modifier les codes utilisant <code>open_dataset</code> pour remplacer les chemins par la variable <code>bucket_path</code>.</li>
+</ol>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<span id="cb16-2"><a></a>  bucket_path,</span>
+<span id="cb16-3"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
+<span id="cb16-4"><a></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a></a>  <span class="fu">filter</span>(REGION <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-6"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-7"><a></a>  <span class="fu">collect</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li class="fragment">Si nécessaire, remplacer l’import du geojson</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>departements <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
+<span id="cb17-2"><a></a>  <span class="at">FUN =</span> sf<span class="sc">::</span>st_read, </span>
+<span id="cb17-3"><a></a>  <span class="at">object =</span> <span class="st">"france.geojson"</span>, </span>
+<span id="cb17-4"><a></a>  <span class="at">bucket =</span> <span class="st">"public/ssplab-formation"</span>,</span>
+<span id="cb17-5"><a></a>  <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
+<span id="cb17-6"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<details>
+<summary>
+Connecteur pour la question 1
+</summary>
+<div class="panel-tabset">
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-7-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<div class="tab-content">
+<div id="tabset-7-1">
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"projet-formation"</span></span>
+<span id="cb18-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/bonnes-pratiques/data"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-7-2">
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"public"</span></span>
+<span id="cb19-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/ssplab-formation"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="application-5-partie-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 5: partie 2</h2>
+<div class="noincremental">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 2 : orchestrer sa chaîne de production</strong></p>
+</div>
+<div class="callout-content">
+<p>Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d’un unique <em>script</em>.</p>
+<p>De manière générale, on a plutôt envie de modéliser les étapes d’une chaîne comme une série de fonctions, avec une fonction “cheffe d’orchestre” qui appelle les autres dans le bon ordre.</p>
+<ol type="1">
+<li class="fragment">Créer les scripts suivants:</li>
+</ol>
+<ul>
+<li class="fragment"><code>R/functions_import.R</code> (<a href="">contenu</a>)</li>
+<li class="fragment"><code>R/functions_stats_desc.R</code></li>
+<li class="fragment"><code>R/functions_models.R</code></li>
+</ul>
+<ol start="2" type="1">
+<li class="fragment"><p>Modifier <code>main.R</code> pour tenir compte de la modularisation</p></li>
+<li class="fragment"><p>Passer la souris sur une des nouvelles fonctions et faire <kbd>F1</kbd></p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="targets-un-orchestrateur-formel" class="slide level2 tip" data-background-image="background.svg" data-background-size="contain">
+<h2><code>targets</code>: un orchestrateur formel</h2>
+<p>On aurait pu également utiliser un <strong>orchestrateur</strong> dédié pour effectuer cette tâche, comme le package <a href="https://books.ropensci.org/targets/">targets</a>. Les plus curieux d’entre vous pourront aller voir <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/data_pipelines.qmd">le chapitre et les exercices</a> qui lui étaient auparavant dédiés dans cette formation.</p>
+</section>
+<section id="application-5-partie-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 5: partie 3</h2>
+<div class="noincremental">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 3 : ajout de contrôles de qualité des données</strong></p>
+</div>
+<div class="callout-content">
+<p>Un critère de qualité majeur d’une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on va ajouter des contrôles sur la qualité des données, en entrée et en sortie de la chaîne.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="noincremental">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 4 : tests unitaires et versionnage de la chaîne</strong></p>
+</div>
+<div class="callout-content">
+<p>Notre chaîne tourne à présent de manière robuste. Pour autant, ce n’est pas un objet fixe : on peut vouloir lui apporter des corrections ou des améliorations fonctionnelles. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va : - versionner la chaîne, afin de certifier le code qui la fait tourner sans erreur à un moment T - implémenter des tests unitaires, qui permettent de continuer à modifier la chaîne sans risquer de <strong>régressions</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="noincremental">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 5 : un rapport reproductible pour documenter sa chaîne de production</strong></p>
+</div>
+<div class="callout-content">
+<p>Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisationde ses produits est de documenter son fonctionnement. Le format <a href="https://quarto.org">quarto</a> — successeur de <code>R Markdown</code> — permet de reproduire facilement des <strong>rapports reproductibles, qui intègrent code et texte</strong>. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus <strong>interactif</strong> (<code>html</code>) aux plus classiques (<code>pdf</code>, <code>odt</code>, etc.).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="noincremental">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 6 : automatiser la mise à disposition</strong></p>
+</div>
+<div class="callout-content">
+<p>On dispose finalement d’une chaîne <strong>orchestrée, robuste et bien documentée</strong>. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va <strong>automatiser</strong> les étapes, de sorte à ce que les modifications apportées au projet se répércutent sur ses sorties. Pour cela, on va utiliser les outils de l’<strong>intégration continue</strong> proposés par <code>GitHub</code> / <code>GitLab</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="ressources-supplémentaires-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
 <ul>
