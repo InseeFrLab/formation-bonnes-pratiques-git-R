@@ -1762,8 +1762,8 @@ if (x_is_not_empty_string) {
 <li class="fragment"><p><span class="orange"><strong>Open-source</strong></span></p></li>
 </ul>
 </section>
-<section id="utiliser-des-fichiers-parquet" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Utiliser des fichiers <code>Parquet</code></h2>
+<section id="le-format-parquet-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Le format <code>Parquet</code></h2>
 <ul>
 <li class="fragment">Deux <em>frameworks</em> de référence : <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_arrow.html">Arrow</a> et <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_duckdb.html">DuckDB</a>
 <ul>
@@ -1799,8 +1799,21 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="application-3-préparation" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 3 (préparation)</h2>
+<section id="le-format-parquet-5" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Le format <code>Parquet</code></h2>
+<ul>
+<li class="fragment"><code>Parquet</code> gagne sur tous les tableaux</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/tableau-perf-parquet.png" class="quarto-figure quarto-figure-center" height="500"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="application-3-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3</h2>
 <div class="panel-tabset">
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-4-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
 <div class="tab-content">
@@ -1809,24 +1822,12 @@ if (x_is_not_empty_string) {
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 0: préparation de l’exercice</strong></p>
+<p><strong>Partie 0 : préparation</strong></p>
 </div>
 <div class="callout-content">
 <ul>
-<li>Remplacer le contenu du script <code>R/get_data.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R">ce fichier</a>. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.</li>
-<li>Créer le script <code>R/benchmarking_functions.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_functions.R">ce fichier</a></li>
-<li>Créer un nouveau script <code>R</code> qui servira de bac à sable pour tester le format <code>Parquet</code>.</li>
-<li>Créer les variables qui seront utiles pour les prochaines questions</li>
+<li>Remplacer le contenu du script <code>get_data.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R">ce fichier</a>. Exécuter ce script, il importe les fichiers nécessaires pour cette application.</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb8-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
-<span id="cb8-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span></span>
-<span id="cb8-4"><a></a>)</span>
-<span id="cb8-5"><a></a></span>
-<span id="cb8-6"><a></a>filename_sample_csv <span class="ot">&lt;-</span> <span class="st">"data/RPindividus_24.csv"</span></span>
-<span id="cb8-7"><a></a>filename_sample_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"csv"</span>, <span class="st">"parquet"</span>, filename_sample_csv)</span>
-<span id="cb8-8"><a></a>filename_full_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"_24"</span>, <span class="st">""</span>, filename_sample_parquet)</span>
-<span id="cb8-9"><a></a>filename_full_csv <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"parquet"</span>, <span class="st">"csv"</span>, filename_full_parquet)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1837,24 +1838,12 @@ if (x_is_not_empty_string) {
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 0: préparation de l’exercice</strong></p>
+<p><strong>Partie 0 : préparation</strong></p>
 </div>
 <div class="callout-content">
 <ul>
-<li>Remplacer le contenu du script <code>R/get_data.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data_ls3.R">ce fichier</a>. Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.</li>
-<li>Créer le script <code>R/benchmarking_functions.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_functions.R">ce fichier</a></li>
-<li>Créer un nouveau script <code>R</code> qui servira de bac à sable pour tester le format <code>Parquet</code>.</li>
-<li>Créer les variables qui seront utiles pour les prochaines questions</li>
+<li>Remplacer le contenu du script <code>get_data_ls3.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data_ls3.R">ce fichier</a>. Exécuter ce script, il importe les fichiers nécessaires pour cette application.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb9-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
-<span id="cb9-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span></span>
-<span id="cb9-4"><a></a>)</span>
-<span id="cb9-5"><a></a></span>
-<span id="cb9-6"><a></a>filename_sample_csv <span class="ot">&lt;-</span> <span class="st">"data/RPindividus_24.csv"</span></span>
-<span id="cb9-7"><a></a>filename_sample_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"csv"</span>, <span class="st">"parquet"</span>, filename_sample_csv)</span>
-<span id="cb9-8"><a></a>filename_full_parquet <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"_24"</span>, <span class="st">""</span>, filename_sample_parquet)</span>
-<span id="cb9-9"><a></a>filename_full_csv <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"parquet"</span>, <span class="st">"csv"</span>, filename_full_parquet)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1863,109 +1852,90 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="application-3-partie-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 3 (partie 1)</h2>
+<section id="application-3-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3</h2>
 <div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 1 : Ouvrir un fichier <code>Parquet</code> et comprendre la logique de la lecture par bloc</strong></p>
+<p><strong>Partie 1 : Du <code>CSV</code> au <code>Parquet</code></strong></p>
 </div>
 <div class="callout-content">
-<p>Lecture du fichier avec <code>read_parquet</code> du <em>package</em> <code>arrow</code> :</p>
+<p>Tout au long de cette application, nous allons voir comment utiliser le format <code>Parquet</code> de manière la plus efficiente. Afin de comparer les différents formats et méthodes d’utilisation, nous allons <strong>comparer le temps d’exécution et l’usage mémoire d’une requête standard</strong>. Commençons par comparer les formats <code>CSV</code> et <code>Parquet</code>.</p>
 <ul>
-<li>Lire les données dont le chemin est stocké dans <code>filename_sample_parquet</code>. Pour mesurer le temps d’exécution, vous pouvez utiliser le squelette de code suggéré ci-dessous 👇️.</li>
-<li>Faire la même chose mais cette fois, ajouter un filtre <em>ex post</em> avec les colonnes (<code>select(any_of(columns_subset))</code>). Mesurez-vous une différence dans les temps de traitement ?</li>
+<li>Remplacer le contenu du script <code>get_data.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R">ce fichier</a>. Exécuter ce script, il importe les fichiers nécessaires dans cette application</li>
+<li>Pour effectuer les comparaisons de performance, on va utiliser la fonction <a href="https://bench.r-lib.org/#benchmark">bench::mark</a>. Analyser la documentation pour comprendre ce que la fonction attend en entrée.</li>
+<li>La requête suivante permet de calculer les données pour construire une pyramide des âges sur un département donné, à partir du fichier <code>CSV</code> du recensement. Encapsuler la requête dans une fonction <code>req_csv</code> (sans argument).</li>
 </ul>
-<p>Lecture du fichier avec <code>open_dataset</code> du <em>package</em> <code>arrow</code> :</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>res <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/RPindividus_24.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a></a>    <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"36"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a></a>    <span class="fu">group_by</span>(AGED, DEPT) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a></a>    <span class="fu">summarise</span>(<span class="at">n_indiv =</span> <span class="fu">sum</span>(IPONDI))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Cette fois, lire le fichier avec <code>open_dataset(filename_sample_parquet)</code>. Regarder la classe de cet objet.</li>
-<li>Faire un <code>head(5)</code> après <code>open_dataset</code>. Observer l’objet obtenu (sortie en console, classe).</li>
-<li>Maintenant regarder lorsque vous ajouter <code>collect()</code> après cette chaîne.</li>
-<li>Mesurer le temps d’exécution de <code>open_dataset(filename_sample_parquet) %&gt;% collect()</code>. Ajouter le filtre <code>select(any_of(columns_subset))</code>. Sa place influence-t-elle la vitesse de votre processus ?</li>
+<li>Sur le même modèle, construire une fonction <code>req_read_parquet</code> basée cette fois sur le fichier <code>data/RPindividus_24.parquet</code> chargé avec la fonction <a href="https://arrow.apache.org/docs/r/reference/read_parquet.html">read_parquet</a> d’<code>Arrow</code></li>
+<li>Comparer les performances (temps d’exécution et allocation mémoire) de ces deux méthodes grâce à la fonction <a href="https://bench.r-lib.org/#benchmark">bench::mark</a>, à laquelle on passera les paramètres <code>iterations = 1</code> (comparaison à partir d’une seule itération) et <code>check = FALSE</code> (autorise les outputs des deux fonctions à être différents).</li>
 </ul>
-<p>Comparaison à la lecture d’un CSV :</p>
+</div>
+</div>
+</div>
+</div>
+<p><em>❓️ Quelle semble être la limite de la fonction <code>read_parquet</code> ?</em></p>
+</section>
+<section id="application-3-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3</h2>
+<div>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Partie 2 : Exploiter la <em>lazy evaluation</em> et les optimisations d’<code>Arrow</code></strong></p>
+</div>
+<div class="callout-content">
+<p>La partie précédente a montré un <strong>gain de temps considérable</strong> du passage de <code>CSV</code> à <code>Parquet</code>. Néanmoins, l’<strong>utilisation mémoire était encore très élevée</strong> alors qu’on utilise de fait qu’une infime partie du fichier. Dans cette partie, on va voir comment utiliser la <strong><em>lazy evaluation</em></strong> et les <strong>optimisations du plan d’exécution</strong> effectuées par <code>Arrow</code> pour exploiter pleinement la puissance du format <code>Parquet</code>.</p>
 <ul>
-<li>Utiliser <code>readr::read_csv</code> pour lire le fichier (chemin <code>filename_sample_csv</code>) avec et sans l’argument <code>col_select</code>. Avez-vous des gains de performance si vous ne lisez le fichier qu’avec ces colonnes ?</li>
+<li>Utiliser la fonction <a href="https://arrow.apache.org/docs/r/reference/open_dataset.html">arrow::open_dataset</a> pour ouvrir le fichier <code>data/RPindividus_24.parquet</code>. Regarder la classe de l’objet obtenu.</li>
+<li>Afficher les 5 premières lignes de la table avec la fonction <code>head()</code>. Observer l’objet obtenu (sortie en console, classe).</li>
+<li>Ajouter une étape <code>collect()</code> à la fin de cette chaîne. Comprenez-vous la différence ?</li>
+<li>Construire une fonction <code>req_open_dataset</code> sur le modèle de celles de la partie précédente, qui importe cette fois les données avec la fonction <a href="https://arrow.apache.org/docs/r/reference/open_dataset.html">arrow::open_dataset</a></li>
+<li>Comparer les performances (temps d’exécution et allocation mémoire) des trois méthodes (<code>CSV</code>, <code>read_parquet</code> et <code>open_dataset</code>) grâce à la fonction <a href="https://bench.r-lib.org/#benchmark">bench::mark</a></li>
 </ul>
-<details>
-<summary>
-Mesurer le temps d’exécution
-</summary>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>start_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb10-2"><a></a><span class="co"># lecture du fichier ici</span></span>
-<span id="cb10-3"><a></a>end_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
-<span id="cb10-4"><a></a>diff_time <span class="ot">&lt;-</span> end_time <span class="sc">-</span> start_time</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </div>
 </div>
 </div>
 <p><em>❓️ Quelle méthode retenir pour lire un <code>Parquet</code> avec <code>Arrow</code> ?</em></p>
 </section>
-<section id="application-3-partie-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 3 (partie 2)</h2>
+<section id="application-3-4" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3</h2>
 <div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 2 : Un format léger et efficace</strong></p>
+<p><strong>Partie 3 : Le <code>Parquet</code> partitionné</strong></p>
 </div>
 <div class="callout-content">
-<p>Dans cet exercice, vous devrez utiliser <code>open_dataset</code> pour lire les <code>Parquet</code>.</p>
+<p>La <em>lazy evaluation</em> et les optimisations d’<code>Arrow</code> apportent des gain de performance considérables. Mais on peut encore faire mieux ! Lorsqu’on sait qu’on va être amené à <strong>filter régulièrement les données selon une variable d’intérêt</strong>, on a tout intérêt à <strong>partitionner</strong> le fichier <code>Parquet</code> selon cette variable.</p>
 <ul>
-<li>Observer l’espace disque de chaque fichier par le biais de l’explorateur de fichiers</li>
-<li>Mesurer le temps d’exécution de la lecture du fichier dont le chemin est stocké dans la variable <code>filename_full_parquet</code>.
-<ul>
-<li>Faire ceci avec et sans le filtre des colonnes<sup>1</sup>.</li>
-<li>La croissance du temps de traitement vous apparaît-elle énorme ?</li>
-</ul></li>
-<li>Ajouter après cette étape de lecture <code>filter(REGION == 24)</code>. Comprenez-vous pourquoi vous ne bénéficiez pas de gain de performance ?</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<p><em>❓️ Dans quel ordre sont faits les filtres par <code>Arrow</code> ?</em></p>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Ne pas faire ceci maintenant avec le CSV, le <em>benchmark</em> arrive prochainement.</p></li></ol></aside></section>
-<section id="application-3-partie-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 3 (partie 3)</h2>
-<div>
-<div class="callout callout-tip no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Partie 3 : le Parquet partitionné</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>Utiliser le code ci-dessous pour partitionner le fichier <code>Parquet</code> par <em>“REGION”</em> et <em>“DEPT”</em></li>
-</ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">open_dataset</span>(filename_full_parquet) <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a></a>  <span class="fu">group_by</span>(REGION, DEPT) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a></a>  <span class="fu">write_dataset</span>(<span class="st">"./data/RPindividus"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Observer l’arborescence de fichiers</li>
-<li>Utiliser <code>Arrow</code> pour lire les données de la Corse du Sud (code région 94, code département 2A) à partir de ce fichier partitionné</li>
+<li>Parcourir la documentation de la fonction <a href="https://arrow.apache.org/docs/r/reference/write_dataset.html">arrow::write_dataset</a> pour comprendre comment spécifier la clé de partitionnement d’un fichier <code>Parquet</code>. Plusieurs méthodes sont possibles !</li>
+<li>Dans une même chaîne, importer la table individus complète du recensement <code>data/RPindividus.parquet</code> avec la fonction <a href="https://arrow.apache.org/docs/r/reference/open_dataset.html">arrow::open_dataset</a> et l’exporter en une table <code>data/RPindividus_dept.parquet</code> partitionnée par le département (<code>DEPT</code>)</li>
+<li>Observer l’arborescence de fichiers de la table exportée</li>
+<li>Modifier la fonction <code>req_open_dataset</code> de la partie précédente pour partir de la table complète (non-partitionnée) <code>data/RPindividus.parquet</code> au lieu de l’échantillon</li>
+<li>Construire une fonction <code>req_open_dataset_part</code> sur le modèle de <code>req_open_dataset</code>, qui importe cette fois les données partitionnées <code>data/RPindividus_dept.parquet</code>. Ne pas oublier de spécifier le paramètre <code>hive_style = TRUE</code>.</li>
+<li>Comparer les performances (temps d’exécution et allocation mémoire) des deux méthodes grâce à la fonction <a href="https://bench.r-lib.org/#benchmark">bench::mark</a></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 <div>
-<p><em>❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques :</em></p>
+<p><em>❓️ Dans le cadre d’une mise à disposition de données en <code>Parquet</code> auprès d’utilisateurs :</em></p>
 <ul>
-<li><em>Que faudrait-il faire ?</em></li>
-<li><em>Quelle est la limite ?</em></li>
+<li><em>Comment bien choisir la/les clé(s) de partitionnement ?</em></li>
+<li><em>Quelle est la limite à garder en tête ?</em></li>
 </ul>
 </div>
 </section>
-<section id="application-3-partie-3-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 3 (partie 3)</h2>
-<p>Quand on généralise cette démarche de <em>benchmark</em>, on obtient le tableau de performance suivant</p>
-
-<img data-src="img/tableau-perf-parquet.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="application-3-partie-4" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 3 (partie 4)</h2>
+<section id="application-3-5" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 3</h2>
 <div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -1973,33 +1943,16 @@ Mesurer le temps d’exécution
 <p><strong>Partie 4 : mise à jour de la chaîne de production</strong></p>
 </div>
 <div class="callout-content">
-<p>Nous allons mettre à jour les données utilisées pour notre chaîne de production :</p>
+<p>Convaincus par ce comparatif, nous allons maintenant mettre à jour le format des données utilisées pour notre chaîne de production.</p>
 <ul>
-<li>Lire les données à partir du morceau de code proposé</li>
-<li>Vérifier que le code tourne de A à Z et changer celui-ci marginalement si ce n’est pas le cas</li>
+<li>Modifier le script <code>script.R</code> pour importer les données d’entrée de votre chaîne à partir de la table <code>Parquet</code> partitionnée par département</li>
+<li>Vérifier que le code tourne de A à Z et l’adapter si ce n’est pas le cas</li>
 </ul>
-<details>
-<summary>
-Modification du code pour l’import de données
-</summary>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>columns_subset <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb12-2"><a></a>  <span class="st">"REGION"</span>, <span class="st">"AGED"</span>, <span class="st">"ANAI"</span>, <span class="st">"CATL"</span>, <span class="st">"COUPLE"</span>,</span>
-<span id="cb12-3"><a></a>  <span class="st">"SEXE"</span>, <span class="st">"SURF"</span>, <span class="st">"TP"</span>, <span class="st">"TRANS"</span>, <span class="st">"IPONDI"</span></span>
-<span id="cb12-4"><a></a>)</span>
-<span id="cb12-5"><a></a></span>
-<span id="cb12-6"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
-<span id="cb12-7"><a></a>  <span class="st">"./data/RPindividus"</span>,</span>
-<span id="cb12-8"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
-<span id="cb12-9"><a></a>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-10"><a></a>  <span class="fu">filter</span>(REGION <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-11"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-12"><a></a>  <span class="fu">collect</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 </div>
 </div>
 </div>
-<p><em>❓️ Cette mise à jour des données utilisées vous est-elle apparue plus simple que les changements de l’application 1 ?</em></p>
+<p><em>❓️ Cette mise à jour des données utilisées en source de la chaîne de production vous semble-t-elle complexe ? Pourquoi ?</em></p>
 </section>
 <section id="checkpoint-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
@@ -2014,8 +1967,7 @@ Modification du code pour l’import de données
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/main.R"><code>main.R</code></a></li>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/functions.R"><code>R/functions.R</code></a></li>
+<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/script.R"><code>script.R</code></a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
