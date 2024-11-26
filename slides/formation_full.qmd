@@ -29,6 +29,7 @@ from: markdown+emoji
 ---
 
 
+
 ## Introduction
 
 ::: {.nonincremental}
@@ -42,10 +43,12 @@ from: markdown+emoji
 # Introduction
 
 
+
 {{< include _intro.qmd >}}
 
 
 # Partie 1 : contrôle de version avec `Git`
+
 
 
 ## Plan de la partie
