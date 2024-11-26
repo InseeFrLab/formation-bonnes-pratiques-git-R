@@ -3023,7 +3023,9 @@ Solution
 <p><strong>Partie 3 : ajout de contrôles de qualité des données</strong></p>
 </div>
 <div class="callout-content">
+<div class="justify">
 <p>Un critère de qualité majeur d’une chaîne de production est sa <strong>robustesse</strong>. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on peut <strong>ajouter des <em>contrôles sur la qualité des données</em>, en entrée et/ou en sortie de la chaîne</strong>.</p>
+</div>
 <ul>
 <li>Parcourir la documentation du package <a href="https://rstudio.github.io/pointblank/index.html">pointblank</a> pour comprendre sa philosophie générale et les fonctions de validation qu’il propose</li>
 <li>On propose d’implémenter le <em>pipeline</em> de validation suivant à la table individus du recensement. Essayer de comprendre chacune des étapes, en s’aidant de la documentation de <a href="https://rstudio.github.io/pointblank/index.html">pointblank</a> si nécessaire</li>
@@ -3077,10 +3079,26 @@ Solution
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 4 : tests unitaires et versionnage de la chaîne</strong></p>
+<p><strong>Partie 4 : versionnage de la chaîne</strong></p>
 </div>
 <div class="callout-content">
-<p>Notre chaîne tourne à présent de manière robuste. Pour autant, ce n’est pas un objet fixe : on peut vouloir lui apporter des corrections ou des améliorations fonctionnelles. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va : - versionner la chaîne, afin de certifier le code qui la fait tourner sans erreur à un moment T - implémenter des tests unitaires, qui permettent de continuer à modifier la chaîne sans risquer de <strong>régressions</strong></p>
+<div class="justify">
+<p>Notre chaîne tourne à présent de manière robuste. Pour autant, ce n’est pas un objet fixe : on peut vouloir lui apporter des <strong>corrections</strong> ou des <strong>améliorations fonctionnelles</strong>. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va <strong>versionner la chaîne</strong>, afin de certifier le code qui la fait tourner sans erreur à un moment donné.</p>
+</div>
+<ul>
+<li>Vérifier que notre chaîne tourne correctement de bout en bout, c’est à dire que le script point d’entrée <code>main.R</code> s’exécute sans erreur. Si ce n’est pas le cas, corriger les erreurs restantes.</li>
+<li>Une fois que c’est le cas, <em>commit/push</em> les changements</li>
+<li>Appliquer un <em>tag</em> pour marquer le dernier commit d’un <strong>marqueur immuable</strong>. On peut par exemple utiliser la convention du <a href="https://semver.org/">versionnage sémantique</a> et donner pour tag <code>v1.0.0</code>. Mais d’autres conventions sont possibles (ex : millésime de la chaîne en production).</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="fu">git</span> tag <span class="at">-a</span> v1.0.0 <span class="at">-m</span> <span class="st">"Chaîne de production 2024 validée et fonctionnelle."</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Un tag annoté contient un ensemble d’informations utiles, les afficher avec la commande <code>git show v1.0.0</code></li>
+<li><em>Push</em> le tag sur le dépôt distant</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a></a><span class="fu">git</span> push origin v1.0.0</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Vérifier qu’il apparaît dans l’interface et qu’on retrouve ses informations</li>
+</ul>
 </div>
 </div>
 </div>
