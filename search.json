@@ -669,7 +669,7 @@
     "href": "slides/complete.html#application-3-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n insee\n\n\n\n\n\n\nPartie 0 : préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application.\n\n\n\n\n\n\n\n\n\n\n\nPartie 0 : préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application."
+    "text": "Application 3\n\n insee\n\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application.\n\n\n\n\n\n\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application."
   },
   {
     "objectID": "slides/complete.html#application-3-2",
@@ -767,28 +767,35 @@
     "href": "slides/complete.html#application-4-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n insee\n\n\n\n\n\n\nPartie 1 : prise en main de la librairie renv\n\n\n\nInstaller le package renv\nTaper dans la console renv::init(), lire le message et accepter.\nObserver les nouveaux fichiers et dossiers qui sont apparus dans le projet.\nTaper library(sf) dans la console R et observer la réponse de R. Comprenez-vous pourquoi ?\nDans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte\n\nS’il manque un package pour la faire, l’installer\n\n\n\n\nNouvelle statistique descriptive à ajouter\n\n# PART DES SENIORS DANS LA POPULATION ---------------------------\n\n# France geojson\ndepartements &lt;- sf::st_read(\n  \"https://minio.lab.sspcloud.fr/projet-formation/bonnes-pratiques/data/france.geojson\"\n)\n\n# PART DES SENIORS FRANCE ENTIERE =====================================\n\npart_seniors &lt;- open_dataset(\n  \"./data/RPindividus\",\n  hive_style = TRUE\n) %&gt;%\n  mutate(plus_60 = AGED &gt; 60) %&gt;%\n  group_by(DEPT, plus_60) %&gt;%\n  summarise(\n    population_totale = sum(IPONDI)\n  ) %&gt;%\n  group_by(DEPT) %&gt;%\n  mutate(\n    population_60_ans = population_totale,\n    pourcentage_60_plus = population_totale/sum(population_totale),\n    population_totale = sum(population_totale)\n  ) %&gt;%\n  filter(plus_60 == TRUE) %&gt;%\n  select(DEPT, population_totale, population_60_ans, pourcentage_60_plus) %&gt;%\n  collect()\n\n\n# CARTE =====================================\n\ndepartements_60_plus_sf &lt;- departements %&gt;%\n  inner_join(\n    part_seniors,\n    by = c(\"INSEE_DEP\" = \"DEPT\")\n  )\n\n\nggplot(departements_60_plus_sf) +\n  geom_sf(aes(fill = pourcentage_60_plus)) + \n  scale_fill_fermenter(n.breaks = 5, palette = \"PuBuGn\", direction = 1) + \n  theme_void() + \n  labs(\n    title = \"Part des personnes de plus de 60 ans par département\",\n    caption = \"Source: Insee, Fichiers détails du recensement de la population\",\n    fill = \"Part (%)\"\n  )\n\n\n\n\n\n\n\n\n\n\n\nPartie 1 : prise en main de la librairie renv\n\n\n\nInstaller le package renv\nTaper dans la console renv::init(), lire le message et accepter.\nObserver les nouveaux fichiers et dossiers qui sont apparus dans le projet.\nTaper library(sf) dans la console R et observer la réponse de R. Comprenez-vous pourquoi ?\nDans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte\n\nS’il manque un package pour la faire, l’installer\n\n\n\n\nNouvelle statistique descriptive à ajouter\n\n# PART DES SENIORS DANS LA POPULATION ---------------------------\n\n# France geojson\ndepartements &lt;- aws.s3::s3read_using(\n  FUN = sf::st_read, \n  object = \"france.geojson\", \n  bucket = \"public/ssplab-formation\",\n  opts = list(\"region\" = \"\")\n  )\n\n# PART DES SENIORS FRANCE ENTIERE =====================================\n\npart_seniors &lt;- open_dataset(\n  \"./data/RPindividus\",\n  hive_style = TRUE\n) %&gt;%\n  mutate(plus_60 = AGED &gt; 60) %&gt;%\n  group_by(DEPT, plus_60) %&gt;%\n  summarise(\n    population_totale = sum(IPONDI)\n  ) %&gt;%\n  group_by(DEPT) %&gt;%\n  mutate(\n    population_60_ans = population_totale,\n    pourcentage_60_plus = population_totale/sum(population_totale),\n    population_totale = sum(population_totale)\n  ) %&gt;%\n  filter(plus_60 == TRUE) %&gt;%\n  select(DEPT, population_totale, population_60_ans, pourcentage_60_plus) %&gt;%\n  collect()\n\n\n# CARTE =====================================\n\ndepartements_60_plus_sf &lt;- departements %&gt;%\n  inner_join(\n    part_seniors,\n    by = c(\"INSEE_DEP\" = \"DEPT\")\n  )\n\n\nggplot(departements_60_plus_sf) +\n  geom_sf(aes(fill = pourcentage_60_plus)) + \n  scale_fill_fermenter(n.breaks = 5, palette = \"PuBuGn\", direction = 1) + \n  theme_void() + \n  labs(\n    title = \"Part des personnes de plus de 60 ans par département\",\n    caption = \"Source: Insee, Fichiers détails du recensement de la population\",\n    fill = \"Part (%)\"\n  )"
+    "text": "Application 4\n\n insee\n\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application.\n\n\n\n\n\n\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application."
   },
   {
     "objectID": "slides/complete.html#application-4-3",
     "href": "slides/complete.html#application-4-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nPartie 2 : Faire un snapshot de l’environnement\n\n\n\n\nDans la console, faire renv::status() et observer le message\nEffectuer renv::snapshot() pour intégrer les nouveaux packages au lockfile\nFaire un commit / push des fichiers script.R, .Rprofile, renv.lock et du dossier renv/"
+    "text": "Application 4\n\n\n\n\nPartie 1 : Initialisation de l’environnement virtuel\n\n\n\nVérifier tout d’abord que vous arrivez à charger le package sf avec la fonction library().\nInitialiser l’environnement virtuel avec la commande renv::init(), lire le message et accepter.\nObserver les nouveaux fichiers et dossiers qui sont apparus dans le projet. En particulier, comment renv a-t-il choisi les packages à ajouter au fichier renv.lock ?\nEssayer de charger à nouveau le package sf. Comprenez-vous pourquoi celui-ci n’est plus disponible ?"
   },
   {
     "objectID": "slides/complete.html#application-4-4",
     "href": "slides/complete.html#application-4-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nPartie 3 : Test de portabilité\n\n\n\n\nOuvrir un nouveau projet RStudio et cloner à nouveau votre dépôt (sous un nom différent)\nExécuter renv::restore() pour installer les packages nécessaires à l’exécution du projet\nVérifier que le script.R s’exécute correctement dans ce nouveau projet"
+    "text": "Application 4\n\n\n\n\nPartie 2 : Mise à jour du fichier renv.lock\n\n\n\nDans la partie sur les statistiques descriptives du script script.R, ajouter ce morceau de code, qui produit une carte à l’aide du package sf\nDans la console, faire renv::status() et observer le message\nInstaller le package sf\nEffectuer à nouveau renv::status() et observer le message\nIntégrer les nouveaux packages au fichier renv.lock avec la commande renv::snapshot()\nEffectuer à nouveau renv::status() et observer le message\nFaire un commit / push des différents fichiers qui ont été modifiés"
+  },
+  {
+    "objectID": "slides/complete.html#application-4-5",
+    "href": "slides/complete.html#application-4-5",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 4",
+    "text": "Application 4\n\n\n\n\nPartie 3 : Test de portabilité\n\n\n\nOuvrir un nouveau projet RStudio et cloner à nouveau votre dépôt (sous un nom différent)\nExécuter renv::restore() pour installer les packages nécessaires à l’exécution du projet\nVérifier que le script.R s’exécute correctement dans ce nouveau projet"
   },
   {
     "objectID": "slides/complete.html#checkpoint-6",
     "href": "slides/complete.html#checkpoint-6",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Checkpoint",
-    "text": "Checkpoint\n\n insee\n\n\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script main.R\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script main.R"
+    "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script script.R"
   },
   {
     "objectID": "slides/complete.html#vers-une-reproductibilité-optimale",
@@ -1579,7 +1586,7 @@
     "href": "slides/light.html#application-3-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 3",
-    "text": "Application 3\n\n insee\n\n\n\n\n\n\nPartie 0 : préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application.\n\n\n\n\n\n\n\n\n\n\n\nPartie 0 : préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application."
+    "text": "Application 3\n\n insee\n\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application.\n\n\n\n\n\n\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application."
   },
   {
     "objectID": "slides/light.html#application-3-2",
