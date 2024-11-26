@@ -85,10 +85,10 @@ La *lazy evaluation* et les optimisations d'`Arrow` apportent des gain de perfor
 
 ::: {.nonincremental}
 
-_❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certains types de ménages en fonction de caractéristiques :_
+_❓️ Dans le cadre d'une mise à disposition de données en `Parquet` auprès d'utilisateurs :_
 
-* _Que faudrait-il faire ?_
-* _Quelle est la limite ?_
+* _Comment bien choisir la/les clé(s) de partitionnement ?_
+* _Quelle est la limite à garder en tête ?_
 
 :::
 
@@ -98,14 +98,14 @@ _❓️ Imaginons que les utilisateurs voudraient aussi se restreindre à certai
 :::{.callout-tip .nonincremental collapse="true" icon=false}
 # Partie 4 : mise à jour de la chaîne de production
 
-Forts de ce comparatif, nous allons maintenant mettre à jour les données utilisées pour notre chaîne de production.
+Convaincus par ce comparatif, nous allons maintenant mettre à jour le format des données utilisées pour notre chaîne de production.
 
 * Modifier le script `script.R` pour importer les données d'entrée de votre chaîne à partir de la table `Parquet` partitionnée par département
 * Vérifier que le code tourne de A à Z et l'adapter si ce n'est pas le cas
 
 :::
 
-_❓️ Cette mise à jour des données utilisées vous est-elle apparue plus simple que les changements de l'application 1 ?_
+_❓️ Cette mise à jour des données utilisées en source de la chaîne de production vous semble-t-elle complexe ? Pourquoi ?_
 
 
 ## Checkpoint
