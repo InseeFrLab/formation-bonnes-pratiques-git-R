@@ -6,7 +6,7 @@
 ## {{< fa brands github >}}
 
 :::{.callout-tip .nonincremental collapse="true" icon=false}
-# Partie 0 : préparation
+# Partie 0 : Préparation
 
 * Remplacer le contenu du script `get_data.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R). Exécuter ce script, il importe les fichiers nécessaires pour cette application.
 
@@ -15,7 +15,7 @@
 ## {{< fa brands gitlab >}} insee
 
 :::{.callout-tip .nonincremental collapse="true" icon=false}
-# Partie 0 : préparation
+# Partie 0 : Préparation
 
 * Remplacer le contenu du script `get_data.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data_ls3.R). Exécuter ce script, il importe les fichiers nécessaires pour cette application.
 

@@ -17,10 +17,7 @@ columns_subset <- c(
   "SEXE", "SURF", "TP", "TRANS", "IPONDI"
 )
 
-df <- open_dataset(
-  "data/RPindividus",
-  hive_style = TRUE
-) %>%
+df <- open_dataset("data/RPindividus", hive_style = TRUE) %>%
   filter(REGION == 24) %>%
   select(any_of(columns_subset)) %>%
   collect()
@@ -87,17 +84,12 @@ ggsave("output/p.png", p)
 
 # PART DES SENIORS DANS LA POPULATION ---------------------------
 
-# France geojson
-departements <- sf::st_read(
-  "https://minio.lab.sspcloud.fr/projet-formation/bonnes-pratiques/data/france.geojson"
-)
+# Contours géographiques de la France
+departements <- sf::st_read("data/france.geojson")
 
 # PART DES SENIORS FRANCE ENTIERE =====================================
 
-part_seniors <- open_dataset(
-  "data/RPindividus",
-  hive_style = TRUE
-) %>%
+part_seniors <- df %>%
   mutate(plus_60 = AGED > 60) %>%
   group_by(DEPT, plus_60) %>%
   summarise(
