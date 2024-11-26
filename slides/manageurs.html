@@ -447,18 +447,18 @@ Pierre Lamarche
 <h2 data-id="quarto-animate-title"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
 <p>ou encore ça :</p>
 <div class="sourceCode" id="cb1" data-code-line-numbers="12-18"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb1-1" class="hljs-ln-code"><a></a>prior <span class="op">&lt;-</span> read_csv(prior_path)</span>
-<span id="cb1-2" class="hljs-ln-code"><a></a>prior <span class="op">&lt;-</span> prior <span class="op">%&gt;%</span></span>
-<span id="cb1-3" class="hljs-ln-code"><a></a>    select(<span class="bu">id</span>, proba_inter, proba_build, proba_rfl) <span class="op">%&gt;%</span></span>
-<span id="cb1-4" class="hljs-ln-code"><a></a>    separate(<span class="bu">id</span>, into <span class="op">=</span> c(<span class="st">'nidt'</span>, <span class="st">'grid_id'</span>), sep <span class="op">=</span> <span class="st">":"</span>) <span class="op">%&gt;%</span></span>
-<span id="cb1-5" class="hljs-ln-code"><a></a>    group_by(nidt) <span class="op">%&gt;%</span></span>
+<span id="cb1-2" class="hljs-ln-code"><a></a>prior <span class="op">&lt;-</span> prior <span class="op">|&gt;</span></span>
+<span id="cb1-3" class="hljs-ln-code"><a></a>    select(<span class="bu">id</span>, proba_inter, proba_build, proba_rfl) <span class="op">|&gt;</span></span>
+<span id="cb1-4" class="hljs-ln-code"><a></a>    separate(<span class="bu">id</span>, into <span class="op">=</span> c(<span class="st">'nidt'</span>, <span class="st">'grid_id'</span>), sep <span class="op">=</span> <span class="st">":"</span>) <span class="op">|&gt;</span></span>
+<span id="cb1-5" class="hljs-ln-code"><a></a>    group_by(nidt) <span class="op">|&gt;</span></span>
 <span id="cb1-6" class="hljs-ln-code"><a></a>    mutate(</span>
 <span id="cb1-7" class="hljs-ln-code"><a></a>        proba_build <span class="op">=</span> proba_build<span class="op">/</span><span class="bu">sum</span>(proba_build),</span>
 <span id="cb1-8" class="hljs-ln-code"><a></a>        proba_rfl <span class="op">=</span> proba_rfl<span class="op">/</span><span class="bu">sum</span>(proba_rfl),</span>
-<span id="cb1-9" class="hljs-ln-code"><a></a>        ) <span class="op">%&gt;%</span></span>
+<span id="cb1-9" class="hljs-ln-code"><a></a>        ) <span class="op">|&gt;</span></span>
 <span id="cb1-10" class="hljs-ln-code"><a></a>    unite(col <span class="op">=</span> <span class="st">"id"</span>, nidt, grid_id, sep <span class="op">=</span> <span class="st">":"</span>)</span>
 <span id="cb1-11" class="hljs-ln-code"><a></a></span>
 <span id="cb1-12" class="hljs-ln-code"><a></a><span class="co"># Test</span></span>
-<span id="cb1-13" class="hljs-ln-code"><a></a><span class="co"># prior_test &lt;- prior %&gt;%</span></span>
+<span id="cb1-13" class="hljs-ln-code"><a></a><span class="co"># prior_test &lt;- prior |&gt;</span></span>
 <span id="cb1-14" class="hljs-ln-code"><a></a><span class="co">#    mutate(</span></span>
 <span id="cb1-15" class="hljs-ln-code"><a></a><span class="co">#        proba_inter = round(proba_inter, 4)</span></span>
 <span id="cb1-16" class="hljs-ln-code"><a></a><span class="co">#        proba_build = round(proba_build, 4)</span></span>
