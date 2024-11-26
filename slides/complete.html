@@ -1554,7 +1554,7 @@ if (x_is_not_empty_string) {
 </section>
 <section id="checkpoint" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
-<div class="noincremental">
+<div>
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1565,8 +1565,8 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/script.R"><code>script.R</code></a></li>
-<li class="fragment">Le <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/.gitignore"><code>.gitignore</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/script.R"><code>script.R</code></a></li>
+<li>Le <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application1/.gitignore"><code>.gitignore</code></a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1581,14 +1581,14 @@ if (x_is_not_empty_string) {
 <section id="bilan" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Bilan</h2>
 <div class="columns">
-<div class="column noincremental" style="width:60%;">
+<div class="column" style="width:60%;">
 <ul>
-<li class="fragment">Un code mal structuré
+<li>Un code mal structuré
 <ul>
-<li class="fragment">Limite la <span class="blue2"><strong>lisibilité du projet</strong></span></li>
-<li class="fragment">Est très <span class="blue2"><strong>coûteux à maintenir</strong></span> (dette technique)</li>
+<li>Limite la <span class="blue2"><strong>lisibilité du projet</strong></span></li>
+<li>Est très <span class="blue2"><strong>coûteux à maintenir</strong></span> (dette technique)</li>
 </ul></li>
-<li class="fragment">Les petits gestes peuvent économiser un temps précieux</li>
+<li>Les petits gestes peuvent économiser un temps précieux</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div>
@@ -1805,6 +1805,7 @@ if (x_is_not_empty_string) {
 </section>
 <section id="checkpoint-2" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
+<div>
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1815,13 +1816,14 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/script.R"><code>script.R</code></a></li>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/functions.R"><code>R/functions.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/script.R"><code>script.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/functions.R"><code>R/functions.R</code></a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -2037,7 +2039,6 @@ if (x_is_not_empty_string) {
 <div class="callout-content">
 <ul>
 <li>Remplacer le contenu du script <code>get_data.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R">ce fichier</a>. Exécuter ce script, il importe les fichiers nécessaires pour cette application.</li>
-<li>Créer un script <code>benchmark_parquet.R</code> afin de réaliser les comparaisons de performance des parties suivantes de l’application</li>
 </ul>
 </div>
 </div>
@@ -2053,8 +2054,7 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ul>
-<li>Remplacer le contenu du script <code>get_data_ls3.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data_ls3.R">ce fichier</a>. Exécuter ce script, il importe les fichiers nécessaires pour cette application.</li>
-<li>Créer un script <code>benchmark_parquet.R</code> afin de réaliser les comparaisons de performance des parties suivantes de l’application</li>
+<li>Remplacer le contenu du script <code>get_data.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data_ls3.R">ce fichier</a>. Exécuter ce script, il importe les fichiers nécessaires pour cette application.</li>
 </ul>
 </div>
 </div>
@@ -2075,7 +2075,7 @@ if (x_is_not_empty_string) {
 <div class="callout-content">
 <p>Tout au long de cette application, nous allons voir comment utiliser le format <code>Parquet</code> de manière la plus efficiente. Afin de comparer les différents formats et méthodes d’utilisation, nous allons <strong>comparer le temps d’exécution et l’usage mémoire d’une requête standard</strong>. Commençons par comparer les formats <code>CSV</code> et <code>Parquet</code>.</p>
 <ul>
-<li>Remplacer le contenu du script <code>get_data.R</code> en copiant-collant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R">ce fichier</a>. Exécuter ce script, il importe les fichiers nécessaires dans cette application</li>
+<li>Créer un script <code>benchmark_parquet.R</code> afin de réaliser les différentes comparaisons de performance de l’application</li>
 <li>Pour effectuer les comparaisons de performance, on va utiliser la fonction <a href="https://bench.r-lib.org/#benchmark">bench::mark</a>. Analyser la documentation pour comprendre ce que la fonction attend en entrée.</li>
 <li>La requête suivante permet de calculer les données pour construire une pyramide des âges sur un département donné, à partir du fichier <code>CSV</code> du recensement. Encapsuler la requête dans une fonction <code>req_csv</code> (sans argument).</li>
 </ul>
@@ -2128,10 +2128,10 @@ if (x_is_not_empty_string) {
 <p>La <em>lazy evaluation</em> et les optimisations d’<code>Arrow</code> apportent des gain de performance considérables. Mais on peut encore faire mieux ! Lorsqu’on sait qu’on va être amené à <strong>filter régulièrement les données selon une variable d’intérêt</strong>, on a tout intérêt à <strong>partitionner</strong> le fichier <code>Parquet</code> selon cette variable.</p>
 <ul>
 <li>Parcourir la documentation de la fonction <a href="https://arrow.apache.org/docs/r/reference/write_dataset.html">arrow::write_dataset</a> pour comprendre comment spécifier la clé de partitionnement d’un fichier <code>Parquet</code>. Plusieurs méthodes sont possibles !</li>
-<li>Dans une même chaîne, importer la table individus complète du recensement <code>data/RPindividus.parquet</code> avec la fonction <a href="https://arrow.apache.org/docs/r/reference/open_dataset.html">arrow::open_dataset</a> et l’exporter en une table <code>data/RPindividus_partitionne.parquet</code> partitionnée par la région (<code>REGION</code>) et le département (<code>DEPT</code>)</li>
+<li>Importer la table individus complète du recensement <code>data/RPindividus.parquet</code> avec la fonction <a href="https://arrow.apache.org/docs/r/reference/open_dataset.html">arrow::open_dataset</a> et l’exporter en une table <code>data/RPindividus_partitionne.parquet</code> partitionnée par la région (<code>REGION</code>) et le département (<code>DEPT</code>)</li>
 <li>Observer l’arborescence de fichiers de la table exportée</li>
 <li>Modifier la fonction <code>req_open_dataset</code> de la partie précédente pour partir de la table complète (non-partitionnée) <code>data/RPindividus.parquet</code> au lieu de l’échantillon</li>
-<li>Construire une fonction <code>req_open_dataset_partitionne</code> sur le modèle de <code>req_open_dataset</code>, qui importe cette fois les données partitionnées <code>data/RPindividus_dept.parquet</code>. Ne pas oublier de spécifier le paramètre <code>hive_style = TRUE</code>.</li>
+<li>Construire une fonction <code>req_open_dataset_partitionne</code> sur le modèle de <code>req_open_dataset</code>, qui importe cette fois les données partitionnées <code>data/RPindividus_partitionne.parquet</code>. Ne pas oublier de spécifier le paramètre <code>hive_style = TRUE</code>.</li>
 <li>Comparer les performances (temps d’exécution et allocation mémoire) des deux méthodes grâce à la fonction <a href="https://bench.r-lib.org/#benchmark">bench::mark</a></li>
 </ul>
 </div>
@@ -2139,11 +2139,7 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 <div>
-<p><em>❓️ Dans le cadre d’une mise à disposition de données en <code>Parquet</code> :</em></p>
-<ul>
-<li><em>Comment bien choisir la/les clé(s) de partitionnement ?</em></li>
-<li><em>Quelle est la limite à garder en tête ?</em></li>
-</ul>
+<p><em>❓️ Dans le cadre d’une mise à disposition de données en <code>Parquet</code>, comment bien choisir la/les clé(s) de partitionnement ? Quelle est la limite à garder en tête ?</em></p>
 </div>
 </section>
 <section id="application-3-5" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
@@ -2157,19 +2153,18 @@ if (x_is_not_empty_string) {
 <div class="callout-content">
 <p>Convaincus par ce comparatif, nous allons maintenant mettre à jour le format des données utilisées pour notre chaîne de production.</p>
 <ul>
-<li>Modifier le script <code>script.R</code> pour importer les données d’entrée de votre chaîne à partir de la table <code>Parquet</code> partitionnée par département</li>
-<li>Vérifier que le code tourne de A à Z et l’adapter si ce n’est pas le cas</li>
-<li></li>
+<li>Modifier le script <code>script.R</code> pour importer les données d’entrée de votre chaîne à partir de la table <code>Parquet</code> partitionnée <code>data/RPindividus_partitionne.parquet</code></li>
+<li>Vérifier que le script complet s’exécute correctement et l’adapter si ce n’est pas le cas</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<p><em>❓️ Cette mise à jour des données utilisées en source de la chaîne de production vous semble-t-elle complexe ? Pourquoi ?</em></p>
+<p><em>❓️ Cette mise à jour des données utilisées en source de la chaîne de production vous a-t-elle paru compliquée ? Pourquoi ?</em></p>
 </section>
 <section id="checkpoint-4" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Checkpoint</h2>
-<div class="noincremental">
+<div>
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2180,8 +2175,8 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_parquet.R"><code>benchmark_parquet.R</code></a></li>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/script.R"><code>script.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_parquet.R"><code>benchmark_parquet.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/script.R"><code>script.R</code></a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2293,7 +2288,7 @@ if (x_is_not_empty_string) {
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-5-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1">
-<div class="noincremental">
+<div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2301,13 +2296,13 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <ol type="1">
-<li class="fragment">Installer le package <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a></li>
-<li class="fragment">Taper dans la console <code>renv::init()</code>, <strong>lire le message</strong> et accepter.</li>
-<li class="fragment">Observer les nouveaux fichiers et dossiers qui sont apparus dans le projet.</li>
-<li class="fragment">Taper <code>library(sf)</code> dans la console <code>R</code> et observer la réponse de <code>R</code>. Comprenez-vous pourquoi ?</li>
-<li class="fragment">Dans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte
+<li>Installer le package <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a></li>
+<li>Taper dans la console <code>renv::init()</code>, <strong>lire le message</strong> et accepter.</li>
+<li>Observer les nouveaux fichiers et dossiers qui sont apparus dans le projet.</li>
+<li>Taper <code>library(sf)</code> dans la console <code>R</code> et observer la réponse de <code>R</code>. Comprenez-vous pourquoi ?</li>
+<li>Dans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte
 <ul>
-<li class="fragment">S’il manque un <em>package</em> pour la faire, l’installer</li>
+<li>S’il manque un <em>package</em> pour la faire, l’installer</li>
 </ul></li>
 </ol>
 <details>
@@ -2368,7 +2363,7 @@ Nouvelle statistique descriptive à ajouter
 </div>
 </div>
 <div id="tabset-5-2">
-<div class="noincremental">
+<div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2376,13 +2371,13 @@ Nouvelle statistique descriptive à ajouter
 </div>
 <div class="callout-content">
 <ol type="1">
-<li class="fragment">Installer le package <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a></li>
-<li class="fragment">Taper dans la console <code>renv::init()</code>, <strong>lire le message</strong> et accepter.</li>
-<li class="fragment">Observer les nouveaux fichiers et dossiers qui sont apparus dans le projet.</li>
-<li class="fragment">Taper <code>library(sf)</code> dans la console <code>R</code> et observer la réponse de <code>R</code>. Comprenez-vous pourquoi ?</li>
-<li class="fragment">Dans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte
+<li>Installer le package <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a></li>
+<li>Taper dans la console <code>renv::init()</code>, <strong>lire le message</strong> et accepter.</li>
+<li>Observer les nouveaux fichiers et dossiers qui sont apparus dans le projet.</li>
+<li>Taper <code>library(sf)</code> dans la console <code>R</code> et observer la réponse de <code>R</code>. Comprenez-vous pourquoi ?</li>
+<li>Dans la partie sur les statistiques descriptives, ajouter ce code qui produit une carte
 <ul>
-<li class="fragment">S’il manque un <em>package</em> pour la faire, l’installer</li>
+<li>S’il manque un <em>package</em> pour la faire, l’installer</li>
 </ul></li>
 </ol>
 <details>
@@ -2492,7 +2487,7 @@ Nouvelle statistique descriptive à ajouter
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-6-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
-<div class="noincremental">
+<div>
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2503,7 +2498,7 @@ Nouvelle statistique descriptive à ajouter
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main.R"><code>main.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main.R"><code>main.R</code></a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -2516,7 +2511,7 @@ Nouvelle statistique descriptive à ajouter
 </div>
 </div>
 <div id="tabset-6-2">
-<div class="noincremental">
+<div>
 <div class="callout callout-caution callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2527,7 +2522,7 @@ Nouvelle statistique descriptive à ajouter
 </div>
 <div class="callout-content">
 <ul>
-<li class="fragment">Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main_ls3.R"><code>main.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main_ls3.R"><code>main.R</code></a></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -3073,7 +3068,7 @@ Connecteur pour la question 1
 </section>
 <section id="application-5-partie-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 5: partie 3</h2>
-<div class="noincremental">
+<div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -3085,7 +3080,7 @@ Connecteur pour la question 1
 </div>
 </div>
 </div>
-<div class="noincremental">
+<div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -3097,7 +3092,7 @@ Connecteur pour la question 1
 </div>
 </div>
 </div>
-<div class="noincremental">
+<div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -3109,7 +3104,7 @@ Connecteur pour la question 1
 </div>
 </div>
 </div>
-<div class="noincremental">
+<div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
