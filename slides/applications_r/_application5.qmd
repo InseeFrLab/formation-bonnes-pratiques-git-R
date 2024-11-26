@@ -4,7 +4,7 @@
 ## Partie 1 : Transition vers le stockage `S3`
 
 ::: {.justify}
-Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de transitionner vers un stockage *cloud*, en l'occurence le stockage de type `S3`.
+Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de **faire la transition vers un stockage *cloud***, en l'occurence le stockage de type `S3`.
 :::
 
 * En début de script, créer les chemins où les données pourront être trouvées sur `S3`
@@ -89,35 +89,60 @@ departements <- aws.s3::s3read_using(
 ## Partie 2 : Orchestrer sa chaîne de production
 
 ::: {.justify}
-Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d'un unique *script*. De manière générale, on a plutôt envie de **modéliser les étapes d'une chaîne comme une série de fonctions, avec un script "chef d'orchestre"** qui les appelle dans le bon ordre.
+Notre chaîne de production est encore sous la forme d'un unique *script*, exécuté interactivement. L'objectif de cette partie est de **modéliser notre chaîne avec un script "chef d'orchestre" qui appelle différentes fonctions**. Par ailleurs, on veut pouvoir exécuter ce script en mode **batch**.
 :::
 
-* Créer les scripts suivants et inspecter leur contenu respectif :
-  + `R/functions_import.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R))
-  + `R/functions_stats_desc.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R))
-  + `R/functions_models.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R))
+* Créer les scripts `R/functions_import.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R)), `R/functions_stats_desc.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R)), `R/functions_models.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R)) et inspecter leur contenu
 
 * Modifier `script.R` pour qu'il appelle les fonctions des scripts précédemment créés, avec les paramètres pertinents
 
-* Renommer `script.R` en `main.R`, une convention qui permet de comprendre que le script est le **"point d'entrée"** du projet
+* Renommer `script.R` en `main.R`, une convention qui permet de comprendre que le script est le **"point d'entrée"**
 
-* En vue de sortir du mode interactif et aller vers le **mode batch**, exécuter le script `main.R` via le terminal avec les commandes suivante :
+* En vue de sortir du mode interactif et aller vers le **mode batch**, exécuter le script `main.R` via le terminal :
 
 ```bash
 cd nom_du_projet
 Rscript main.R &> main.log  # Redirige stdout et stderr vers un fichier
 ```
 
-* Analyser les *logs* générés dans le fichier `main.log`
+* Analyser les *logs* générés dans le fichier `main.log`. Comment les rendre plus pertinents ?
 
 :::::::
 
 
 
-::: {.callout-note .nonincremental}
+::: {.callout-note .nonincremental .justify}
 ## `targets`: un orchestrateur formel
 
 On aurait pu également utiliser un **orchestrateur** dédié pour effectuer cette tâche, comme le package [targets](https://books.ropensci.org/targets/). Les plus curieux d'entre vous pourront aller voir [le chapitre et les exercices](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/targets.qmd) qui lui étaient auparavant dédiés dans cette formation.
+
+:::
+
+
+## Checkpoint
+
+::: {.callout-caution .nonincremental}
+## Checkpoint
+
+::: {.panel-tabset}
+
+## {{< fa brands github >}} 
+
+* Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_ls3.R)
+* Le script [`R/functions_import.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R)
+* Le script [`R/functions_models.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R)
+* Le script [`R/functions_stats_desc.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R)
+
+## {{< fa brands gitlab >}} insee
+
+* Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R)
+* Le script [`R/functions_import.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R)
+* Le script [`R/functions_models.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R)
+* Le script [`R/functions_stats_desc.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R)
+
+:::
+
+![](checkpoint.jpg){width=40% fig-align="center"}
 
 :::
 

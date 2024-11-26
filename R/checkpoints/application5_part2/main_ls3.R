@@ -5,8 +5,8 @@ library(forcats)
 
 
 api_token <- Sys.getenv("JETON_API")
-bucket_formation <- "projet-formation"
-path_within_bucket <- "/bonnes-pratiques/data"
+bucket_formation <- "public"
+path_within_bucket <- "/ssplab-formation"
 
 
 source("R/functions_import.R", encoding = "UTF-8")
