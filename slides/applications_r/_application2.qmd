@@ -40,7 +40,7 @@
 
 ## Checkpoint
 
-::: {.callout-caution}
+::: {.callout-caution .nonincremental}
 ## Checkpoint
 
 * Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application2/script.R)

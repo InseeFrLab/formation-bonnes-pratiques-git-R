@@ -48,7 +48,7 @@ import_time_parquet <- function(path, col_names = NULL) {
 
 
 import_time_parquet_partioned <- function(
-    path = "./data/RPindividus.parquet",
+    path = "data/RPindividus.parquet",
     col_names = NULL
 ){
   

@@ -529,14 +529,14 @@ On aurait pu également utiliser un **orchestrateur** dédié pour effectuer cet
 ## Application 5: partie 3 {.smaller}
 
 
-:::{.callout-tip collapse="true" icon=false .noincremental}
+:::{.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 3 : ajout de contrôles de qualité des données
 
 Un critère de qualité majeur d'une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on va ajouter des contrôles sur la qualité des données, en entrée et en sortie de la chaîne.
 
 :::
 
-:::{.callout-tip collapse="true" icon=false .noincremental}
+:::{.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 4 : tests unitaires et versionnage de la chaîne
 
 Notre chaîne tourne à présent de manière robuste. Pour autant, ce n'est pas un objet fixe : on peut vouloir lui apporter des corrections ou des améliorations fonctionnelles. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va :
@@ -545,14 +545,14 @@ Notre chaîne tourne à présent de manière robuste. Pour autant, ce n'est pas 
 
 :::
 
-:::{.callout-tip collapse="true" icon=false .noincremental}
+:::{.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 5 : un rapport reproductible pour documenter sa chaîne de production
 
 Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisationde ses produits est de documenter son fonctionnement. Le format [quarto](https://quarto.org) — successeur de `R Markdown` — permet de reproduire facilement des **rapports reproductibles, qui intègrent code et texte**. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus **interactif** (`html`) aux plus classiques (`pdf`, `odt`, etc.).
 
 :::
 
-:::{.callout-tip collapse="true" icon=false .noincremental}
+:::{.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 6 : automatiser la mise à disposition
 
 On dispose finalement d'une chaîne **orchestrée, robuste et bien documentée**. Afin d'en faire une chaîne vraiment intégrée de bout en bout, on va **automatiser** les étapes, de sorte à ce que les modifications apportées au projet se répércutent sur ses sorties. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitHub` / `GitLab`.

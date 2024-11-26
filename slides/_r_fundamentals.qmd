@@ -210,7 +210,7 @@ if (x_is_not_empty_string) {
 
 ::::: {.columns}
 
-:::: {.column .noincremental width="60%"}
+:::: {.column .nonincremental width="60%"}
 
 - Un code mal structuré
   - Limite la [__lisibilité du projet__]{.blue2}

@@ -4,7 +4,7 @@
 
 ## {{< fa brands github >}}
 
-:::{.callout-tip collapse="true" icon=false .noincremental}
+:::{.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 1 : prise en main de la librairie `renv`
 
 1. Installer le package [`renv`](https://rstudio.github.io/renv/articles/renv.html)
@@ -77,7 +77,7 @@ ggplot(departements_60_plus_sf) +
 
 ## {{< fa brands gitlab >}} insee
 
-:::{.callout-tip collapse="true" icon=false .noincremental}
+:::{.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 1 : prise en main de la librairie `renv`
 
 1. Installer le package [`renv`](https://rstudio.github.io/renv/articles/renv.html)
@@ -192,7 +192,7 @@ ggplot(departements_60_plus_sf) +
 
 ## {{< fa brands github >}}
 
-::: {.callout-caution .noincremental}
+::: {.callout-caution .nonincremental}
 ## Checkpoint
 
 * Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main.R)
@@ -203,7 +203,7 @@ ggplot(departements_60_plus_sf) +
 
 ## {{< fa brands gitlab >}} insee
 
-::: {.callout-caution .noincremental}
+::: {.callout-caution .nonincremental}
 ## Checkpoint
 
 * Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application4/main_ls3.R)

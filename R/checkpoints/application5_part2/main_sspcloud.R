@@ -10,9 +10,9 @@ path_within_bucket <- "/bonnes-pratiques/data"
 
 
 source("R/functions.R", encoding = "UTF-8")
-source("./R/functions_import.R", encoding = "UTF-8")
-source("./R/functions_stats_desc.R", encoding = "UTF-8")
-source("./R/functions_models.R", encoding = "UTF-8")
+source("R/functions_import.R", encoding = "UTF-8")
+source("R/functions_stats_desc.R", encoding = "UTF-8")
+source("R/functions_models.R", encoding = "UTF-8")
 
 
 # ENVIRONNEMENT DE STOCKAGE -------------------

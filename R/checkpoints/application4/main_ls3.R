@@ -18,7 +18,7 @@ columns_subset <- c(
 )
 
 df <- open_dataset(
-  "./data/RPindividus",
+  "data/RPindividus",
   hive_style = TRUE
 ) %>%
   filter(REGION == 24) %>%
@@ -98,7 +98,7 @@ departements <- aws.s3::s3read_using(
 # PART DES SENIORS FRANCE ENTIERE =====================================
 
 part_seniors <- open_dataset(
-  "./data/RPindividus",
+  "data/RPindividus",
   hive_style = TRUE
 ) %>%
   mutate(plus_60 = AGED > 60) %>%
