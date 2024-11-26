@@ -28,8 +28,8 @@ df <- df |>
 
 # STATISTIQUES AGREGEES ---------------------------------------
 
-fonction_de_stat_agregee(df |> filter(SEXE == "Homme") |> pull(AGED))
-fonction_de_stat_agregee(df |> filter(SEXE == "Femme") |> pull(AGED))
+calculer_stat_agregee(df |> filter(SEXE == "Homme") |> pull(AGED))
+calculer_stat_agregee(df |> filter(SEXE == "Femme") |> pull(AGED))
 
 
 # PYRAMIDE AGES =============================

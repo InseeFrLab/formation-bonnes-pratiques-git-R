@@ -1,6 +1,6 @@
 ## Application 5 {.smaller}
 
-:::: {.callout-tip .nonincremental collapse="true" icon=false}
+:::: {.callout-tip .nonincremental collapse="true" icon=false .nonincremental}
 ## Partie 1 : Transition vers le stockage `S3`
 
 ::: {.justify}
@@ -81,32 +81,40 @@ departements <- aws.s3::s3read_using(
 :::
 
 
+
+
 ## Application 5 {.smaller}
 
-:::: {.callout-tip collapse="true" icon=false}
+:::: {.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 2 : Orchestrer sa chaîne de production
 
-Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d'un unique *script*. 
-
-De manière générale, on a plutôt envie de modéliser les étapes d'une chaîne comme une série de fonctions, avec une fonction "cheffe d'orchestre" qui appelle les autres dans le bon ordre.
-
-::: {.nonincremental}
-
-1. Créer les scripts suivants:
-  * `R/functions_import.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R))
-  * `R/functions_stats_desc.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R))
-  * `R/functions_models.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R))
-
-2. Modifier `main.R` pour tenir compte de la modularisation ([version {{< fa brands github >}} + sspcloud](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R) ou [version {{< fa brands gitlab >}} + LS3](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R))
-
-3. Passer la souris sur une des nouvelles fonctions et faire <kbd>F1</kbd>
-
+::: {.justify}
+Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d'un unique *script*. De manière générale, on a plutôt envie de **modéliser les étapes d'une chaîne comme une série de fonctions, avec un script "chef d'orchestre"** qui les appelle dans le bon ordre.
 :::
 
-::::
+* Créer les scripts suivants et inspecter leur contenu respectif :
+  + `R/functions_import.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R))
+  + `R/functions_stats_desc.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R))
+  + `R/functions_models.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R))
+
+* Modifier `script.R` pour qu'il appelle les fonctions des scripts précédemment créés, avec les paramètres pertinents
+
+* Renommer `script.R` en `main.R`, une convention qui permet de comprendre que le script est le **"point d'entrée"** du projet
+
+* En vue de sortir du mode interactif et aller vers le **mode batch**, exécuter le script `main.R` via le terminal avec les commandes suivante :
+
+```bash
+cd nom_du_projet
+Rscript main.R &> main.log  # Redirige stdout et stderr vers un fichier
+```
+
+* Analyser les *logs* générés dans le fichier `main.log`
+
+:::::::
 
 
-::: {.callout-note}
+
+::: {.callout-note .nonincremental}
 ## `targets`: un orchestrateur formel
 
 On aurait pu également utiliser un **orchestrateur** dédié pour effectuer cette tâche, comme le package [targets](https://books.ropensci.org/targets/). Les plus curieux d'entre vous pourront aller voir [le chapitre et les exercices](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/targets.qmd) qui lui étaient auparavant dédiés dans cette formation.

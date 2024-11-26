@@ -41,8 +41,8 @@ df <- df |>
 # STATISTIQUES AGREGEES ---------------------------------------
 
 
-stat_desc_variable(df |> filter(SEXE == "Homme") |> pull(AGED))
-stat_desc_variable(df |> filter(SEXE == "Femme") |> pull(AGED))
+calculer_stat_agregee(df |> filter(SEXE == "Homme") |> pull(AGED))
+calculer_stat_agregee(df |> filter(SEXE == "Femme") |> pull(AGED))
 
 
 # PYRAMIDE AGES =============================
