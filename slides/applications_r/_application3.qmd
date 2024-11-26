@@ -116,6 +116,7 @@ _❓️ Cette mise à jour des données utilisées en source de la chaîne de pr
 ::: {.callout-caution .noincremental}
 ## Checkpoint
 
+* Le script [`benchmark_parquet.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_parquet.R)
 * Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/script.R)
 
 ![](checkpoint.jpg){width=40% fig-align="center"}
