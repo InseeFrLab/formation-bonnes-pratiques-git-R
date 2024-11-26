@@ -1,0 +1,11 @@
+pages:
+  rules:
+    - changes:
+      - rapport.html
+  script:
+    - mkdir public
+    - mv rapport.html public/index.html
+    - mv rapport_files public/
+  artifacts:
+    paths:
+    - public

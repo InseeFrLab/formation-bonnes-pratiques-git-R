@@ -245,7 +245,7 @@ quarto render rapport.qmd --to html
   + Changer le format de rendu de `html` à `pdf`
   + Remplacer la ligne `head(df, 100) |> datatable(rownames = FALSE)` en `head(df, 5)` (la première est une sortie `HTML` interactive, qui ne peut donc naturellement pas être affichée dans un `pdf` statique)
   + Utiliser à nouveau le bouton `Render` et vérifier le contenu du fichier `pdf` produit
-* *Commit/push* le fichier `rapport.qmd`. Attention aux nombreux fichiers produits par le rendering ! Utiliser le `.gitignore` pour ne pas risquer de *commit* les mauvais fichiers par inadvertance
+* *Commit/push* les fichiers `rapport.qmd`, `rapport.html` et le dossier `rapport_files`. Attention aux nombreux fichiers produits par le rendering ! Utiliser le `.gitignore` pour ne pas risquer de *commit* les mauvais fichiers par inadvertance
 
 :::
 
@@ -255,8 +255,17 @@ quarto render rapport.qmd --to html
 ## Application 5 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false .nonincremental}
-## Partie 6 : automatiser la mise à disposition
+## Partie 6 (optionnelle) : automatiser la mise à disposition
 
-On dispose finalement d'une chaîne **orchestrée, robuste et bien documentée**. Afin d'en faire une chaîne vraiment intégrée de bout en bout, on va **automatiser** les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitHub` / `GitLab`.
+::: {.justify}
+On dispose finalement d'une chaîne **orchestrée, robuste et bien documentée**. Afin d'en faire une chaîne vraiment intégrée de bout en bout, on va **automatiser** les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitLab`.
+:::
+
+* Créer un fichier vierge `.gitlab-ci.yml` à la racine du projet et y ajouter le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part6/.gitlab-ci.yml)
+* Analyser la structure du document
+* *Commit/push* le fichier sur votre dépôt
+* Ouvrir l'interface `GitLab` et vérifier qu'un *job* d'intégration continue s'est lancé
+* Si le *job* s'est terminé sans erreur, ouvrir la page du rapport déployé
+* Effectuer un changement sur le fichier `rapport.qmd`, *render* à nouveau, *commit* les changements, et vérifier que les changements se répercutent à la page déployée
 
 :::
