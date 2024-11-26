@@ -3113,7 +3113,24 @@ Solution
 <p><strong>Partie 5 : un rapport reproductible pour documenter sa chaîne de production</strong></p>
 </div>
 <div class="callout-content">
-<p>Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisationde ses produits est de documenter son fonctionnement. Le format <a href="https://quarto.org">quarto</a> — successeur de <code>R Markdown</code> — permet de reproduire facilement des <strong>rapports reproductibles, qui intègrent code et texte</strong>. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus <strong>interactif</strong> (<code>html</code>) aux plus classiques (<code>pdf</code>, <code>odt</code>, etc.).</p>
+<div class="justify">
+<p>Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisation de sa chaîne est de documenter son fonctionnement. Le format <a href="https://quarto.org">quarto</a> — successeur de <code>R Markdown</code> — permet de reproduire facilement des <strong>rapports reproductibles, qui intègrent code et texte</strong>. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus <strong>interactif</strong> (<code>html</code>) aux plus classiques (<code>pdf</code>, <code>odt</code>, etc.).</p>
+</div>
+<ul>
+<li>Créer un fichier vierge <code>rapport.qmd</code> et y ajouter le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part5/rapport.qmd">ce fichier</a></li>
+<li>Analyser la structure du document. En particulier, essayer de comprendre la signification des paramètres <code>echo</code> et <code>warning</code> de l’en-tête en vous aidant de la <a href="https://quarto.org/docs/computations/execution-options.html">documentation</a></li>
+<li>Utiliser le bouton <code>Render</code> de l’interface <code>Rstudio</code>, équivalent à la commande suivante dans le terminal :</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a></a><span class="ex">quarto</span> render rapport.qmd <span class="at">--to</span> html</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Ouvrir le rendu interactif au format <code>HTML</code></li>
+<li>Une des forces de <code>quarto</code> est de pouvoir générer des sorties de différents types à très peu de frais. Pour vous en convaincre :
+<ul>
+<li>Changer le format de rendu de <code>html</code> à <code>pdf</code></li>
+<li>Remplacer la ligne <code>head(df, 100) |&gt; datatable(rownames = FALSE)</code> en <code>head(df, 5)</code> (la première est une sortie <code>HTML</code> interactive, qui ne peut donc naturellement pas être affichée dans un <code>pdf</code> statique)</li>
+<li>Utiliser à nouveau le bouton <code>Render</code> et vérifier le contenu du fichier <code>pdf</code> produit</li>
+</ul></li>
+</ul>
 </div>
 </div>
 </div>
@@ -3128,7 +3145,7 @@ Solution
 <p><strong>Partie 6 : automatiser la mise à disposition</strong></p>
 </div>
 <div class="callout-content">
-<p>On dispose finalement d’une chaîne <strong>orchestrée, robuste et bien documentée</strong>. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va <strong>automatiser</strong> les étapes, de sorte à ce que les modifications apportées au projet se répércutent sur ses sorties. Pour cela, on va utiliser les outils de l’<strong>intégration continue</strong> proposés par <code>GitHub</code> / <code>GitLab</code>.</p>
+<p>On dispose finalement d’une chaîne <strong>orchestrée, robuste et bien documentée</strong>. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va <strong>automatiser</strong> les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l’<strong>intégration continue</strong> proposés par <code>GitHub</code> / <code>GitLab</code>.</p>
 </div>
 </div>
 </div>

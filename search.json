@@ -1047,14 +1047,14 @@
     "href": "slides/complete.html#application-5-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 5",
-    "text": "Application 5\n\n\n\n\nPartie 5 : un rapport reproductible pour documenter sa chaîne de production\n\n\nUne bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisationde ses produits est de documenter son fonctionnement. Le format quarto — successeur de R Markdown — permet de reproduire facilement des rapports reproductibles, qui intègrent code et texte. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus interactif (html) aux plus classiques (pdf, odt, etc.)."
+    "text": "Application 5\n\n\n\n\nPartie 5 : un rapport reproductible pour documenter sa chaîne de production\n\n\n\nUne bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisation de sa chaîne est de documenter son fonctionnement. Le format quarto — successeur de R Markdown — permet de reproduire facilement des rapports reproductibles, qui intègrent code et texte. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus interactif (html) aux plus classiques (pdf, odt, etc.).\n\n\nCréer un fichier vierge rapport.qmd et y ajouter le contenu de ce fichier\nAnalyser la structure du document. En particulier, essayer de comprendre la signification des paramètres echo et warning de l’en-tête en vous aidant de la documentation\nUtiliser le bouton Render de l’interface Rstudio, équivalent à la commande suivante dans le terminal :\n\nquarto render rapport.qmd --to html\n\nOuvrir le rendu interactif au format HTML\nUne des forces de quarto est de pouvoir générer des sorties de différents types à très peu de frais. Pour vous en convaincre :\n\nChanger le format de rendu de html à pdf\nRemplacer la ligne head(df, 100) |&gt; datatable(rownames = FALSE) en head(df, 5) (la première est une sortie HTML interactive, qui ne peut donc naturellement pas être affichée dans un pdf statique)\nUtiliser à nouveau le bouton Render et vérifier le contenu du fichier pdf produit"
   },
   {
     "objectID": "slides/complete.html#application-5-6",
     "href": "slides/complete.html#application-5-6",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 5",
-    "text": "Application 5\n\n\n\n\nPartie 6 : automatiser la mise à disposition\n\n\nOn dispose finalement d’une chaîne orchestrée, robuste et bien documentée. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va automatiser les étapes, de sorte à ce que les modifications apportées au projet se répércutent sur ses sorties. Pour cela, on va utiliser les outils de l’intégration continue proposés par GitHub / GitLab."
+    "text": "Application 5\n\n\n\n\nPartie 6 : automatiser la mise à disposition\n\n\nOn dispose finalement d’une chaîne orchestrée, robuste et bien documentée. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va automatiser les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l’intégration continue proposés par GitHub / GitLab."
   },
   {
     "objectID": "slides/complete.html#ressources-supplémentaires-4",
