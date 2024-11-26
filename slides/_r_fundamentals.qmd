@@ -467,7 +467,7 @@ Source : [eliocamp.github.io](https://eliocamp.github.io/reproducibility-with-r/
 
 - [**Open-source**]{.orange}
 
-## Utiliser des fichiers `Parquet`
+## Le format `Parquet`
 
 - Deux *frameworks* de référence : [Arrow](https://book.utilitr.org/03_Fiches_thematiques/Fiche_arrow.html) et [DuckDB](https://book.utilitr.org/03_Fiches_thematiques/Fiche_duckdb.html)
   - Orientation [**fichier**]{.blue2} (`Arrow`) VS orientation [**BDD**]{.blue2} (`DuckDB`)
@@ -494,5 +494,13 @@ n_logements_depcom <- achille |>
 
 :::::
 :::
+
+## Le format `Parquet`
+
+- `Parquet` gagne sur tous les tableaux
+
+. . .
+
+![](img/tableau-perf-parquet.png){fig-align="center" height="500"}
 
 {{< include applications_r/_application3.qmd >}}
