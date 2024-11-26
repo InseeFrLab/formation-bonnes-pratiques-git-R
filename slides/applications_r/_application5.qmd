@@ -153,7 +153,9 @@ On aurait pu également utiliser un **orchestrateur** dédié pour effectuer cet
 :::{.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 3 : ajout de contrôles de qualité des données
 
+::: {.justify}
 Un critère de qualité majeur d'une chaîne de production est sa **robustesse**. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on peut **ajouter des *contrôles sur la qualité des données*, en entrée et/ou en sortie de la chaîne**.
+:::
 
 * Parcourir la documentation du package [pointblank](https://rstudio.github.io/pointblank/index.html) pour comprendre sa philosophie générale et les fonctions de validation qu'il propose
 * On propose d'implémenter le *pipeline* de validation suivant à la table individus du recensement. Essayer de comprendre chacune des étapes, en s'aidant de la documentation de [pointblank](https://rstudio.github.io/pointblank/index.html) si nécessaire
@@ -193,11 +195,28 @@ df |>
 ## Application 5 {.smaller}
 
 :::{.callout-tip collapse="true" icon=false .nonincremental}
-## Partie 4 : tests unitaires et versionnage de la chaîne
+## Partie 4 : versionnage de la chaîne
 
-Notre chaîne tourne à présent de manière robuste. Pour autant, ce n'est pas un objet fixe : on peut vouloir lui apporter des corrections ou des améliorations fonctionnelles. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va :
-- versionner la chaîne, afin de certifier le code qui la fait tourner sans erreur à un moment T
-- implémenter des tests unitaires, qui permettent de continuer à modifier la chaîne sans risquer de **régressions**
+::: {.justify}
+Notre chaîne tourne à présent de manière robuste. Pour autant, ce n'est pas un objet fixe : on peut vouloir lui apporter des **corrections** ou des **améliorations fonctionnelles**. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va **versionner la chaîne**, afin de certifier le code qui la fait tourner sans erreur à un moment donné.
+:::
+
+* Vérifier que notre chaîne tourne correctement de bout en bout, c'est à dire que le script point d'entrée `main.R` s'exécute sans erreur. Si ce n'est pas le cas, corriger les erreurs restantes.
+* Une fois que c'est le cas, *commit/push* les changements
+* Appliquer un *tag* pour marquer le dernier commit d'un **marqueur immuable**. On peut par exemple utiliser la convention du [versionnage sémantique](https://semver.org/) et donner pour tag `v1.0.0`. Mais d'autres conventions sont possibles (ex : millésime de la chaîne en production).
+
+```bash
+git tag -a v1.0.0 -m "Chaîne de production 2024 validée et fonctionnelle."
+```
+
+* Un tag annoté contient un ensemble d'informations utiles, les afficher avec la commande `git show v1.0.0`
+* *Push* le tag sur le dépôt distant
+
+```bash
+git push origin v1.0.0
+```
+
+* Vérifier qu'il apparaît dans l'interface et qu'on retrouve ses informations
 
 :::
 
