@@ -30,7 +30,7 @@ filename_full_csv <- gsub("parquet", "csv", filename_full_parquet)
 
 :::{.callout-tip .nonincremental collapse="true" icon=false}
 # Partie 0: préparation de l'exercice
-* Remplacer le contenu du script `R/get_data.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R). Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.
+* Remplacer le contenu du script `R/get_data.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data_ls3.R). Exécuter ce script, il crée les fichiers nécessaires pour ces exercices.
 * Créer le script `R/benchmarking_functions.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/benchmark_functions.R)
 * Créer un nouveau script `R` qui servira de bac à sable pour tester le format `Parquet`.
 * Créer les variables qui seront utiles pour les prochaines questions
@@ -150,7 +150,7 @@ Quand on généralise cette démarche de _benchmark_, on obtient le tableau de p
 :::{.callout-tip .nonincremental collapse="true" icon=false}
 # Partie 4 : mise à jour de la chaîne de production
 
-Nous allons mettre à jour les données utilisées pour notre chaîne de production:
+Nous allons mettre à jour les données utilisées pour notre chaîne de production :
 
 * Lire les données à partir du morceau de code proposé
 * Vérifier que le code tourne de A à Z et changer celui-ci marginalement si ce n'est pas le cas
