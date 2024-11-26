@@ -26,13 +26,14 @@
 ## Partie 2 : création d'un *package* (FACULTATIF)
 
 ::: {.nonincremental}
-1. Initialiser un *package* avec la fonction `usethis::create_package()`
-2. Placer dans le dossier `R` du *package* un module `stat.R` et y copier la fonction de statistique agrégée
-3. Charger le package avec la fonction `devtools::load_all()` et vérifier que la fonction marche correctement
+1. Fermer le Rproj en cours ("Close Project" en haut à droite).
+2. Initialiser un *package* avec la fonction `usethis::create_package()` (par défaut dans le *working directory*)
+3. Placer dans le dossier `R` du *package* un module `stat.R` et y copier la fonction de statistique agrégée
 4. Remplir le fichier `DESCRIPTION`. En particulier, spécifier les dépendances nécessaires (`Imports`) et facultatives (`Suggests`)
 5. Construire la documentation du *package* avec la fonction `devtools::document()`. Où est-elle stockée et sous quel format ?
-6. Vérifier que la documentation de notre fonction est accessible avec `?ma_fonction`
-7. (Facultatif) Initialiser un nouveau projet sur `GitHub` est y mettre le code du *package*. Vérifier que le *package* peut être installé en local avec la fonction `devtools::install_github()`.
+6. Charger le package avec la fonction `devtools::load_all()` et vérifier que la fonction marche correctement
+7. Vérifier que la documentation de notre fonction est accessible avec `?ma_fonction`
+8. (Facultatif) Initialiser un nouveau projet sur `GitHub` est y mettre le code du *package*. Vérifier que le *package* peut être installé en local avec la fonction `devtools::install_github()`.
 :::
 
 :::
