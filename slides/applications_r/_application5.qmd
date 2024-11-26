@@ -245,6 +245,7 @@ quarto render rapport.qmd --to html
   + Changer le format de rendu de `html` à `pdf`
   + Remplacer la ligne `head(df, 100) |> datatable(rownames = FALSE)` en `head(df, 5)` (la première est une sortie `HTML` interactive, qui ne peut donc naturellement pas être affichée dans un `pdf` statique)
   + Utiliser à nouveau le bouton `Render` et vérifier le contenu du fichier `pdf` produit
+* *Commit/push* le fichier `rapport.qmd`. Attention aux nombreux fichiers produits par le rendering ! Utiliser le `.gitignore` pour ne pas risquer de *commit* les mauvais fichiers par inadvertance
 
 :::
 
