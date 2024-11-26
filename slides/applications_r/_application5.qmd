@@ -1,0 +1,163 @@
+## Application 5 {.smaller}
+
+:::: {.callout-tip .nonincremental collapse="true" icon=false}
+## Partie 1 : Transition vers le stockage `S3`
+
+::: {.justify}
+Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de transitionner vers un stockage *cloud*, en l'occurence le stockage de type `S3`.
+:::
+
+* En début de script, créer les chemins où les données pourront être trouvées sur `S3`
+
+::: {.panel-tabset}
+
+## {{< fa brands github >}} 
+
+
+```{.r}
+bucket_formation <- "projet-formation"
+path_within_bucket <- "/bonnes-pratiques/data"
+```
+
+## {{< fa brands gitlab >}} insee
+
+
+```{.r}
+bucket_formation <- "public"
+path_within_bucket <- "/ssplab-formation"
+```
+
+:::
+
+* Créer un connecteur `Arrow` entre votre session `R` et le *bucket* de la formation sur `S3`
+
+```{.r}
+bucket <- s3_bucket(bucket_formation, endpoint_override = Sys.getenv("AWS_S3_ENDPOINT"))
+bucket_path <- bucket$path(paste0(path_within_bucket, "/RPindividus"))
+```
+
+* Analyser la structure du chemin des données, contenu dans la variable `bucket_path` 
+
+* Dans `script.R`, modifier les codes utilisant [arrow::open_dataset](https://arrow.apache.org/docs/r/reference/open_dataset.html) pour importer le fichier `data/RPindividus_partitionne.parquet` directement depuis `S3`. 
+
+* De même, modifier l'import du fichier `france.geojson` pour qu'il soit importé directement depuis `S3` grâce à la fonction [aws.s3::s3read_using](https://rdrr.io/cran/aws.s3/man/s3read_using.html)
+
+<details>
+<summary>
+Solution
+</summary>
+```{.r}
+departements <- aws.s3::s3read_using(
+  FUN = sf::st_read, 
+  object = "france.geojson", 
+  bucket = paste0(bucket_formation, "/", path_within_bucket),
+  opts = list("region" = "")
+  )
+```
+</details>
+
+::::
+
+
+## Checkpoint
+
+::: {.callout-caution .nonincremental}
+## Checkpoint
+
+::: {.panel-tabset}
+
+## {{< fa brands github >}} 
+
+* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part1/script_sspcloud.R)
+
+## {{< fa brands gitlab >}} insee
+
+* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part1/script_ls3.R)
+
+:::
+
+![](checkpoint.jpg){width=40% fig-align="center"}
+
+:::
+
+
+## Application 5 {.smaller}
+
+:::: {.callout-tip collapse="true" icon=false}
+## Partie 2 : Orchestrer sa chaîne de production
+
+Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d'un unique *script*. 
+
+De manière générale, on a plutôt envie de modéliser les étapes d'une chaîne comme une série de fonctions, avec une fonction "cheffe d'orchestre" qui appelle les autres dans le bon ordre.
+
+::: {.nonincremental}
+
+1. Créer les scripts suivants:
+  * `R/functions_import.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R))
+  * `R/functions_stats_desc.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R))
+  * `R/functions_models.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R))
+
+2. Modifier `main.R` pour tenir compte de la modularisation ([version {{< fa brands github >}} + sspcloud](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R) ou [version {{< fa brands gitlab >}} + LS3](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R))
+
+3. Passer la souris sur une des nouvelles fonctions et faire <kbd>F1</kbd>
+
+:::
+
+::::
+
+
+::: {.callout-note}
+## `targets`: un orchestrateur formel
+
+On aurait pu également utiliser un **orchestrateur** dédié pour effectuer cette tâche, comme le package [targets](https://books.ropensci.org/targets/). Les plus curieux d'entre vous pourront aller voir [le chapitre et les exercices](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/targets.qmd) qui lui étaient auparavant dédiés dans cette formation.
+
+:::
+
+
+
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false .nonincremental}
+## Partie 3 : ajout de contrôles de qualité des données
+
+Un critère de qualité majeur d'une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on va ajouter des contrôles sur la qualité des données, en entrée et en sortie de la chaîne.
+
+:::
+
+
+
+
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false .nonincremental}
+## Partie 4 : tests unitaires et versionnage de la chaîne
+
+Notre chaîne tourne à présent de manière robuste. Pour autant, ce n'est pas un objet fixe : on peut vouloir lui apporter des corrections ou des améliorations fonctionnelles. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va :
+- versionner la chaîne, afin de certifier le code qui la fait tourner sans erreur à un moment T
+- implémenter des tests unitaires, qui permettent de continuer à modifier la chaîne sans risquer de **régressions**
+
+:::
+
+
+
+
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false .nonincremental}
+## Partie 5 : un rapport reproductible pour documenter sa chaîne de production
+
+Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisationde ses produits est de documenter son fonctionnement. Le format [quarto](https://quarto.org) — successeur de `R Markdown` — permet de reproduire facilement des **rapports reproductibles, qui intègrent code et texte**. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus **interactif** (`html`) aux plus classiques (`pdf`, `odt`, etc.).
+
+:::
+
+
+
+
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false .nonincremental}
+## Partie 6 : automatiser la mise à disposition
+
+On dispose finalement d'une chaîne **orchestrée, robuste et bien documentée**. Afin d'en faire une chaîne vraiment intégrée de bout en bout, on va **automatiser** les étapes, de sorte à ce que les modifications apportées au projet se répércutent sur ses sorties. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitHub` / `GitLab`.
+
+:::

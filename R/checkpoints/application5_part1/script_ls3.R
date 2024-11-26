@@ -22,16 +22,10 @@ columns_subset <- c(
 bucket <- s3_bucket(bucket_formation, endpoint_override = Sys.getenv("AWS_S3_ENDPOINT"))
 bucket_path <- bucket$path(paste0(path_within_bucket, "/RPindividus"))
 
-df <- open_dataset(
-  bucket_path,
-  hive_style = TRUE
-) |>
+df <- open_dataset(bucket_path, hive_style = TRUE) |>
   filter(REGION == 24) |>
   select(any_of(columns_subset)) |>
   collect()
-
-
-
 
 df <- df |>
   mutate(SEXE = as.character(SEXE)) |>

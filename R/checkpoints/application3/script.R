@@ -17,10 +17,7 @@ columns_subset <- c(
   "SEXE", "SURF", "TP", "TRANS", "IPONDI"
 )
 
-df <- open_dataset(
-  "data/RPindividus_partitionne.parquet",
-  hive_style = TRUE
-) |>
+df <- open_dataset("data/RPindividus_partitionne.parquet", hive_style = TRUE) |>
   filter(REGION == 24) |>
   select(any_of(columns_subset)) |>
   collect()
