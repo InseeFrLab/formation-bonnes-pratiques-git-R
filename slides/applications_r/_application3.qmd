@@ -9,6 +9,7 @@
 # Partie 0 : préparation
 
 * Remplacer le contenu du script `get_data.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data.R). Exécuter ce script, il importe les fichiers nécessaires pour cette application.
+* Créer un script `benchmark_parquet.R` afin de réaliser les comparaisons de performance des parties suivantes de l'application
 
 :::
 
@@ -18,6 +19,7 @@
 # Partie 0 : préparation
 
 * Remplacer le contenu du script `get_data_ls3.R` en copiant-collant le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application3/get_data_ls3.R). Exécuter ce script, il importe les fichiers nécessaires pour cette application.
+* Créer un script `benchmark_parquet.R` afin de réaliser les comparaisons de performance des parties suivantes de l'application
 
 :::
 
@@ -75,17 +77,17 @@ _❓️ Quelle méthode retenir pour lire un `Parquet` avec `Arrow` ?_
 La *lazy evaluation* et les optimisations d'`Arrow` apportent des gain de performance considérables. Mais on peut encore faire mieux ! Lorsqu'on sait qu'on va être amené à **filter régulièrement les données selon une variable d'intérêt**, on a tout intérêt à **partitionner** le fichier `Parquet` selon cette variable.
 
 * Parcourir la documentation de la fonction [arrow::write_dataset](https://arrow.apache.org/docs/r/reference/write_dataset.html) pour comprendre comment spécifier la clé de partitionnement d'un fichier `Parquet`. Plusieurs méthodes sont possibles !
-* Dans une même chaîne, importer la table individus complète du recensement `data/RPindividus.parquet` avec la fonction [arrow::open_dataset](https://arrow.apache.org/docs/r/reference/open_dataset.html) et l'exporter en une table `data/RPindividus_dept.parquet` partitionnée par le département (`DEPT`)
+* Dans une même chaîne, importer la table individus complète du recensement `data/RPindividus.parquet` avec la fonction [arrow::open_dataset](https://arrow.apache.org/docs/r/reference/open_dataset.html) et l'exporter en une table `data/RPindividus_partitionne.parquet` partitionnée par la région (`REGION`) et le département (`DEPT`)
 * Observer l'arborescence de fichiers de la table exportée
 * Modifier la fonction `req_open_dataset` de la partie précédente pour partir de la table complète (non-partitionnée) `data/RPindividus.parquet` au lieu de l'échantillon
-* Construire une fonction `req_open_dataset_part` sur le modèle de `req_open_dataset`, qui importe cette fois les données partitionnées `data/RPindividus_dept.parquet`. Ne pas oublier de spécifier le paramètre `hive_style = TRUE`.
+* Construire une fonction `req_open_dataset_partitionne` sur le modèle de `req_open_dataset`, qui importe cette fois les données partitionnées `data/RPindividus_dept.parquet`. Ne pas oublier de spécifier le paramètre `hive_style = TRUE`.
 * Comparer les performances (temps d'exécution et allocation mémoire) des deux méthodes grâce à la fonction [bench::mark](https://bench.r-lib.org/#benchmark)
 
 :::
 
 ::: {.nonincremental}
 
-_❓️ Dans le cadre d'une mise à disposition de données en `Parquet` auprès d'utilisateurs :_
+_❓️ Dans le cadre d'une mise à disposition de données en `Parquet` :_
 
 * _Comment bien choisir la/les clé(s) de partitionnement ?_
 * _Quelle est la limite à garder en tête ?_
@@ -102,6 +104,7 @@ Convaincus par ce comparatif, nous allons maintenant mettre à jour le format de
 
 * Modifier le script `script.R` pour importer les données d'entrée de votre chaîne à partir de la table `Parquet` partitionnée par département
 * Vérifier que le code tourne de A à Z et l'adapter si ce n'est pas le cas
+*
 
 :::
 

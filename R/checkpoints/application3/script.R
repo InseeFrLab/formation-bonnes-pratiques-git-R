@@ -18,7 +18,7 @@ columns_subset <- c(
 )
 
 df <- open_dataset(
-  "./data/RPindividus",
+  "data/RPindividus_partitionne.parquet",
   hive_style = TRUE
 ) %>%
   filter(REGION == 24) %>%
