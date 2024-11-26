@@ -510,7 +510,7 @@ De manière générale, on a plutôt envie de modéliser les étapes d'une chaî
   * `R/functions_stats_desc.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R))
   * `R/functions_models.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R))
 
-2. Modifier `main.R` pour tenir compte de la modularisation ([version {{< fa brands github >}} + sspcloud](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R) ou [version {{< fa brands gitlab >}} + LS3](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R))
+2. Modifier `main.R` pour tenir compte de la modularisation ([version {{< fa brands github >}} + sspcloud](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R) ou [version {{< fa brands gitlab >}} + LS3](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud_ls3.R))
 
 3. Passer la souris sur une des nouvelles fonctions et faire <kbd>F1</kbd>
 
