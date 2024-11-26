@@ -17,7 +17,7 @@ source("R/functions.R", encoding = "UTF-8")
 
 columns_subset <- c(
   "REGION", "AGED", "ANAI", "CATL", "COUPLE",
-  "SEXE", "SURF", "TP", "TRANS", "IPONDI"
+  "SEXE", "SURF", "TP", "TRANS", "IPONDI", "NUMMI"
 )
 
 bucket <- s3_bucket(bucket_formation, endpoint_override = Sys.getenv("AWS_S3_ENDPOINT"))

@@ -24,7 +24,7 @@ bucket_path <- bucket$path(paste0(path_within_bucket, "/RPindividus"))
 
 columns_subset <- c(
   "REGION", "AGED", "ANAI", "CATL", "COUPLE",
-  "SEXE", "SURF", "TP", "TRANS", "IPONDI"
+  "SEXE", "SURF", "TP", "TRANS", "IPONDI", "NUMMI"
 )
 
 

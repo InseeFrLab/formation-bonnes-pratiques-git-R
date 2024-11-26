@@ -14,7 +14,7 @@ source("R/functions.R", encoding = "UTF-8")
 
 columns_subset <- c(
   "REGION", "AGED", "ANAI", "CATL", "COUPLE",
-  "SEXE", "SURF", "TP", "TRANS", "IPONDI"
+  "SEXE", "SURF", "TP", "TRANS", "IPONDI", "NUMMI"
 )
 
 df <- open_dataset("data/RPindividus_partitionne.parquet", hive_style = TRUE) |>
