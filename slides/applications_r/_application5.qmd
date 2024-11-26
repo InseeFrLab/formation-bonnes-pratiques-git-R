@@ -228,7 +228,23 @@ git push origin v1.0.0
 :::{.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 5 : un rapport reproductible pour documenter sa chaîne de production
 
-Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisationde ses produits est de documenter son fonctionnement. Le format [quarto](https://quarto.org) — successeur de `R Markdown` — permet de reproduire facilement des **rapports reproductibles, qui intègrent code et texte**. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus **interactif** (`html`) aux plus classiques (`pdf`, `odt`, etc.).
+::: {.justify}
+Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisation de sa chaîne est de documenter son fonctionnement. Le format [quarto](https://quarto.org) — successeur de `R Markdown` — permet de reproduire facilement des **rapports reproductibles, qui intègrent code et texte**. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus **interactif** (`html`) aux plus classiques (`pdf`, `odt`, etc.).
+:::
+
+* Créer un fichier vierge `rapport.qmd` et y ajouter le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part5/rapport.qmd)
+* Analyser la structure du document. En particulier, essayer de comprendre la signification des paramètres `echo` et `warning` de l'en-tête en vous aidant de la [documentation](https://quarto.org/docs/computations/execution-options.html)
+* Utiliser le bouton `Render` de l'interface `Rstudio`, équivalent à la commande suivante dans le terminal :
+
+```bash
+quarto render rapport.qmd --to html
+```
+
+* Ouvrir le rendu interactif au format `HTML`
+* Une des forces de `quarto` est de pouvoir générer des sorties de différents types à très peu de frais. Pour vous en convaincre :
+  + Changer le format de rendu de `html` à `pdf`
+  + Remplacer la ligne `head(df, 100) |> datatable(rownames = FALSE)` en `head(df, 5)` (la première est une sortie `HTML` interactive, qui ne peut donc naturellement pas être affichée dans un `pdf` statique)
+  + Utiliser à nouveau le bouton `Render` et vérifier le contenu du fichier `pdf` produit
 
 :::
 
@@ -240,6 +256,6 @@ Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et l
 :::{.callout-tip collapse="true" icon=false .nonincremental}
 ## Partie 6 : automatiser la mise à disposition
 
-On dispose finalement d'une chaîne **orchestrée, robuste et bien documentée**. Afin d'en faire une chaîne vraiment intégrée de bout en bout, on va **automatiser** les étapes, de sorte à ce que les modifications apportées au projet se répércutent sur ses sorties. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitHub` / `GitLab`.
+On dispose finalement d'une chaîne **orchestrée, robuste et bien documentée**. Afin d'en faire une chaîne vraiment intégrée de bout en bout, on va **automatiser** les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitHub` / `GitLab`.
 
 :::
