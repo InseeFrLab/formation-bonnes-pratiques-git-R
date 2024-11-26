@@ -3130,7 +3130,7 @@ Solution
 <li>Remplacer la ligne <code>head(df, 100) |&gt; datatable(rownames = FALSE)</code> en <code>head(df, 5)</code> (la première est une sortie <code>HTML</code> interactive, qui ne peut donc naturellement pas être affichée dans un <code>pdf</code> statique)</li>
 <li>Utiliser à nouveau le bouton <code>Render</code> et vérifier le contenu du fichier <code>pdf</code> produit</li>
 </ul></li>
-<li><em>Commit/push</em> le fichier <code>rapport.qmd</code>. Attention aux nombreux fichiers produits par le rendering ! Utiliser le <code>.gitignore</code> pour ne pas risquer de <em>commit</em> les mauvais fichiers par inadvertance</li>
+<li><em>Commit/push</em> les fichiers <code>rapport.qmd</code>, <code>rapport.html</code> et le dossier <code>rapport_files</code>. Attention aux nombreux fichiers produits par le rendering ! Utiliser le <code>.gitignore</code> pour ne pas risquer de <em>commit</em> les mauvais fichiers par inadvertance</li>
 </ul>
 </div>
 </div>
@@ -3143,10 +3143,20 @@ Solution
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 6 : automatiser la mise à disposition</strong></p>
+<p><strong>Partie 6 (optionnelle) : automatiser la mise à disposition</strong></p>
 </div>
 <div class="callout-content">
-<p>On dispose finalement d’une chaîne <strong>orchestrée, robuste et bien documentée</strong>. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va <strong>automatiser</strong> les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l’<strong>intégration continue</strong> proposés par <code>GitHub</code> / <code>GitLab</code>.</p>
+<div class="justify">
+<p>On dispose finalement d’une chaîne <strong>orchestrée, robuste et bien documentée</strong>. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va <strong>automatiser</strong> les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l’<strong>intégration continue</strong> proposés par <code>GitLab</code>.</p>
+</div>
+<ul>
+<li>Créer un fichier vierge <code>.gitlab-ci.yml</code> à la racine du projet et y ajouter le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part6/.gitlab-ci.yml">ce fichier</a></li>
+<li>Analyser la structure du document</li>
+<li><em>Commit/push</em> le fichier sur votre dépôt</li>
+<li>Ouvrir l’interface <code>GitLab</code> et vérifier qu’un <em>job</em> d’intégration continue s’est lancé</li>
+<li>Si le <em>job</em> s’est terminé sans erreur, ouvrir la page du rapport déployé</li>
+<li>Effectuer un changement sur le fichier <code>rapport.qmd</code>, <em>render</em> à nouveau, <em>commit</em> les changements, et vérifier que les changements se répercutent à la page déployée</li>
+</ul>
 </div>
 </div>
 </div>
