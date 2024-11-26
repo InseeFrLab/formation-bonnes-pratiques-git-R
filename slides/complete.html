@@ -2930,31 +2930,37 @@ Solution
 </section>
 <section id="application-5-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 5</h2>
+<div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Partie 2 : Orchestrer sa chaîne de production</strong></p>
 </div>
 <div class="callout-content">
-<p>Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d’un unique <em>script</em>.</p>
-<p>De manière générale, on a plutôt envie de modéliser les étapes d’une chaîne comme une série de fonctions, avec une fonction “cheffe d’orchestre” qui appelle les autres dans le bon ordre.</p>
-<div>
-<ol type="1">
-<li>Créer les scripts suivants:</li>
-</ol>
+<div class="justify">
+<p>Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d’un unique <em>script</em>. De manière générale, on a plutôt envie de <strong>modéliser les étapes d’une chaîne comme une série de fonctions, avec un script “chef d’orchestre”</strong> qui les appelle dans le bon ordre.</p>
+</div>
+<ul>
+<li><p>Créer les scripts suivants et inspecter leur contenu respectif :</p>
 <ul>
 <li><code>R/functions_import.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R">contenu</a>)</li>
 <li><code>R/functions_stats_desc.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R">contenu</a>)</li>
 <li><code>R/functions_models.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R">contenu</a>)</li>
+</ul></li>
+<li><p>Modifier <code>script.R</code> pour qu’il appelle les fonctions des scripts précédemment créés, avec les paramètres pertinents</p></li>
+<li><p>Renommer <code>script.R</code> en <code>main.R</code>, une convention qui permet de comprendre que le script est le <strong>“point d’entrée”</strong> du projet</p></li>
+<li><p>En vue de sortir du mode interactif et aller vers le <strong>mode batch</strong>, exécuter le script <code>main.R</code> via le terminal avec les commandes suivante :</p></li>
 </ul>
-<ol start="2" type="1">
-<li><p>Modifier <code>main.R</code> pour tenir compte de la modularisation (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R">version <i class="fa-brands fa-github" aria-label="github"></i> + sspcloud</a> ou <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R">version <i class="fa-brands fa-gitlab" aria-label="gitlab"></i> + LS3</a>)</p></li>
-<li><p>Passer la souris sur une des nouvelles fonctions et faire <kbd>F1</kbd></p></li>
-</ol>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="bu">cd</span> nom_du_projet</span>
+<span id="cb13-2"><a></a><span class="ex">Rscript</span> main.R <span class="op">&amp;&gt;</span> main.log  <span class="co"># Redirige stdout et stderr vers un fichier</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Analyser les <em>logs</em> générés dans le fichier <code>main.log</code></li>
+</ul>
 </div>
 </div>
 </div>
 </div>
+<div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2965,6 +2971,7 @@ Solution
 </div>
 <div class="callout-content">
 <p>On aurait pu également utiliser un <strong>orchestrateur</strong> dédié pour effectuer cette tâche, comme le package <a href="https://books.ropensci.org/targets/">targets</a>. Les plus curieux d’entre vous pourront aller voir <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/targets.qmd">le chapitre et les exercices</a> qui lui étaient auparavant dédiés dans cette formation.</p>
+</div>
 </div>
 </div>
 </div>
