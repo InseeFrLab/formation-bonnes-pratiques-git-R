@@ -3023,7 +3023,49 @@ Solution
 <p><strong>Partie 3 : ajout de contrôles de qualité des données</strong></p>
 </div>
 <div class="callout-content">
-<p>Un critère de qualité majeur d’une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on va ajouter des contrôles sur la qualité des données, en entrée et en sortie de la chaîne.</p>
+<p>Un critère de qualité majeur d’une chaîne de production est sa <strong>robustesse</strong>. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on peut <strong>ajouter des <em>contrôles sur la qualité des données</em>, en entrée et/ou en sortie de la chaîne</strong>.</p>
+<ul>
+<li>Parcourir la documentation du package <a href="https://rstudio.github.io/pointblank/index.html">pointblank</a> pour comprendre sa philosophie générale et les fonctions de validation qu’il propose</li>
+<li>On propose d’implémenter le <em>pipeline</em> de validation suivant à la table individus du recensement. Essayer de comprendre chacune des étapes, en s’aidant de la documentation de <a href="https://rstudio.github.io/pointblank/index.html">pointblank</a> si nécessaire</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">row_count_match</span>(<span class="at">count =</span> <span class="dv">683166</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">col_is_integer</span>(<span class="fu">c</span>(AGED, ANAI)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a></a>  <span class="fu">col_is_numeric</span>(IPONDI) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a></a>  <span class="fu">col_vals_in_set</span>(<span class="fu">c</span>(SEXE, COUPLE), <span class="at">set =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a></a>  <span class="fu">col_vals_gt</span>(IPONDI, <span class="at">value =</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-7"><a></a>  <span class="fu">col_vals_between</span>(AGED, <span class="at">left =</span> <span class="dv">0</span>, <span class="at">right =</span> <span class="dv">115</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-8"><a></a>  <span class="fu">rows_distinct</span>(<span class="at">columns =</span> <span class="st">"NUMMI"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Implémenter le <em>pipeline</em> de validation décrit ci-dessus juste après l’import de la table individus du recensement, dans la fonction <code>import_recensement_subset</code></li>
+<li>Tester l’exécution de la fonction. Certaines étapes vont fonctionner, certaines vont renvoyer une erreur. A vous de décider des choix à opérer pour que le <em>pipeline</em> de validation fonctionne : modifier les contrôles, ou bien modifier les données avant les contrôles</li>
+<li>Une fois que la fonction complète s’exécute sans erreur, tester que la chaîne complète <code>main.R</code> s’exécute correctement</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="checkpoint-12" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Checkpoint</h2>
+<div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Checkpoint</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part3/R/functions_import.R"><code>R/functions_import.R</code></a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>

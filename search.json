@@ -1026,7 +1026,14 @@
     "href": "slides/complete.html#application-5-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 5",
-    "text": "Application 5\n\n\n\n\nPartie 3 : ajout de contrôles de qualité des données\n\n\nUn critère de qualité majeur d’une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on va ajouter des contrôles sur la qualité des données, en entrée et en sortie de la chaîne."
+    "text": "Application 5\n\n\n\n\nPartie 3 : ajout de contrôles de qualité des données\n\n\nUn critère de qualité majeur d’une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on peut ajouter des contrôles sur la qualité des données, en entrée et/ou en sortie de la chaîne.\n\nParcourir la documentation du package pointblank pour comprendre sa philosophie générale et les fonctions de validation qu’il propose\nOn propose d’implémenter le pipeline de validation suivant à la table individus du recensement. Essayer de comprendre chacune des étapes, en s’aidant de la documentation de pointblank si nécessaire\n\ndf |&gt;\n  row_count_match(count = 683166) |&gt;\n  col_is_integer(c(AGED, ANAI)) |&gt; \n  col_is_numeric(IPONDI) |&gt;\n  col_vals_in_set(c(SEXE, COUPLE), set = c(\"1\", \"2\")) |&gt;\n  col_vals_gt(IPONDI, value = 0) |&gt; \n  col_vals_between(AGED, left = 0, right = 115) |&gt; \n  rows_distinct(columns = \"NUMMI\")\n\nImplémenter le pipeline de validation décrit ci-dessus juste après l’import de la table individus du recensement, dans la fonction import_recensement_subset\nTester l’exécution de la fonction. Certaines étapes vont fonctionner, certaines vont renvoyer une erreur. A vous de décider des choix à opérer pour que le pipeline de validation fonctionne : modifier les contrôles, ou bien modifier les données avant les contrôles\nUne fois que la fonction complète s’exécute sans erreur, tester que la chaîne complète main.R s’exécute correctement"
+  },
+  {
+    "objectID": "slides/complete.html#checkpoint-12",
+    "href": "slides/complete.html#checkpoint-12",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Checkpoint",
+    "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script R/functions_import.R"
   },
   {
     "objectID": "slides/complete.html#application-5-4",
