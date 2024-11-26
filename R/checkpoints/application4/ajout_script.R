@@ -8,26 +8,26 @@ departements <- sf::st_read("data/france.geojson")
 part_seniors <- open_dataset(
   "RPindividus_partitionne.parquet",
   hive_style = TRUE
-) %>%
-  mutate(plus_60 = AGED > 60) %>%
-  group_by(DEPT, plus_60) %>%
+) |>
+  mutate(plus_60 = AGED > 60) |>
+  group_by(DEPT, plus_60) |>
   summarise(
     population_totale = sum(IPONDI)
-  ) %>%
-  group_by(DEPT) %>%
+  ) |>
+  group_by(DEPT) |>
   mutate(
     population_60_ans = population_totale,
     pourcentage_60_plus = population_totale/sum(population_totale),
     population_totale = sum(population_totale)
-  ) %>%
-  filter(plus_60 == TRUE) %>%
-  select(DEPT, population_totale, population_60_ans, pourcentage_60_plus) %>%
+  ) |>
+  filter(plus_60 == TRUE) |>
+  select(DEPT, population_totale, population_60_ans, pourcentage_60_plus) |>
   collect()
 
 
 # CARTE =====================================
 
-departements_60_plus_sf <- departements %>%
+departements_60_plus_sf <- departements |>
   inner_join(
     part_seniors,
     by = c("INSEE_DEP" = "DEPT")

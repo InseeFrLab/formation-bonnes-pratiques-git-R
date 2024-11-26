@@ -47,8 +47,8 @@ part_seniors <- compute_part_seniors_by_dep(bucket_path)
 # STATISTIQUES AGREGEES ---------------------------------------
 
 
-stat_desc_variable(df %>% filter(SEXE == "Homme") %>% pull(AGED))
-stat_desc_variable(df %>% filter(SEXE == "Femme") %>% pull(AGED))
+stat_desc_variable(df |> filter(SEXE == "Homme") |> pull(AGED))
+stat_desc_variable(df |> filter(SEXE == "Femme") |> pull(AGED))
 
 
 # Pyramide des âges

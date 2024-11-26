@@ -1,9 +1,9 @@
 modelisation_recensement <- function(df){
   
-  data_modelisation <- df %>%
-    filter(SURF != "Z") %>%
-    mutate(SURF = factor(SURF, ordered = TRUE)) %>%
-    filter(between(AGED, 40, 60)) %>%
+  data_modelisation <- df |>
+    filter(SURF != "Z") |>
+    mutate(SURF = factor(SURF, ordered = TRUE)) |>
+    filter(between(AGED, 40, 60)) |>
     sample_n(1000)
   
   

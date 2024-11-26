@@ -440,9 +440,9 @@ bucket_path <- bucket$path(paste0(path_within_bucket, "/RPindividus"))
 df <- open_dataset(
   bucket_path,
   hive_style = TRUE
-) %>%
-  filter(REGION == 24) %>%
-  select(any_of(columns_subset)) %>%
+) |>
+  filter(REGION == 24) |>
+  select(any_of(columns_subset)) |>
   collect()
 ```
 

@@ -15,12 +15,12 @@ rp <- arrow::open_dataset(filename_table_individu)
 
 # Echantillon
 
-rp24 <- rp %>%
+rp24 <- rp |>
   filter(REGION == "24")
 
-rp24 %>% 
-  collect() %>% 
-  as_tibble() %>% 
+rp24 |> 
+  collect() |> 
+  as_tibble() |> 
   readr::write_csv("data/RPindividus_24.csv")
 
 arrow::write_parquet(rp24, "data/RPindividus_24.parquet")
@@ -47,6 +47,6 @@ arrow::write_parquet(rp24, "data/RPindividus_24.parquet")
 
 # Pour info, le CSV du RP complet a été créé de cette manière:
 # readr::write_csv(
-#   rp %>% collect() %>% as_tibble(),
+#   rp |> collect() |> as_tibble(),
 #   "data/RPindividus.csv"
 # )

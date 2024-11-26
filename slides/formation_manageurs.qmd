@@ -181,18 +181,18 @@ ou encore ça :
 
 ```{.python code-line-numbers="12-18"}
 prior <- read_csv(prior_path)
-prior <- prior %>%
-    select(id, proba_inter, proba_build, proba_rfl) %>%
-    separate(id, into = c('nidt', 'grid_id'), sep = ":") %>%
-    group_by(nidt) %>%
+prior <- prior |>
+    select(id, proba_inter, proba_build, proba_rfl) |>
+    separate(id, into = c('nidt', 'grid_id'), sep = ":") |>
+    group_by(nidt) |>
     mutate(
         proba_build = proba_build/sum(proba_build),
         proba_rfl = proba_rfl/sum(proba_rfl),
-        ) %>%
+        ) |>
     unite(col = "id", nidt, grid_id, sep = ":")
 
 # Test
-# prior_test <- prior %>%
+# prior_test <- prior |>
 #    mutate(
 #        proba_inter = round(proba_inter, 4)
 #        proba_build = round(proba_build, 4)

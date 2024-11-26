@@ -37,9 +37,9 @@ Tout au long de cette application, nous allons voir comment utiliser le format `
 * La requête suivante permet de calculer les données pour construire une pyramide des âges sur un département donné, à partir du fichier `CSV` du recensement. Encapsuler la requête dans une fonction `req_csv` (sans argument).
 
 ```{.r}
-res <- readr::read_csv("data/RPindividus_24.csv") %>% 
-    filter(DEPT == "36") %>%
-    group_by(AGED, DEPT) %>%
+res <- readr::read_csv("data/RPindividus_24.csv") |> 
+    filter(DEPT == "36") |>
+    group_by(AGED, DEPT) |>
     summarise(n_indiv = sum(IPONDI))
 ```
 
