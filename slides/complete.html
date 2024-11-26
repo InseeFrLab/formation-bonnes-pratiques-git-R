@@ -2847,7 +2847,7 @@ if (x_is_not_empty_string) {
 </div>
 <div class="callout-content">
 <div class="justify">
-<p>Tout au long de la formation, on se plaçait déjà dans le paradigme <em>cloud</em> dans la mesure où l’on développait dans des <strong>conteneurs</strong> hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière “traditionnelle”, en important/exportant les fichiers depuis/vers le stockage <strong>local</strong> au conteneur. L’objectif de cet exercice est de transitionner vers un stockage <em>cloud</em>, en l’occurence le stockage de type <code>S3</code>.</p>
+<p>Tout au long de la formation, on se plaçait déjà dans le paradigme <em>cloud</em> dans la mesure où l’on développait dans des <strong>conteneurs</strong> hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière “traditionnelle”, en important/exportant les fichiers depuis/vers le stockage <strong>local</strong> au conteneur. L’objectif de cet exercice est de <strong>faire la transition vers un stockage <em>cloud</em></strong>, en l’occurence le stockage de type <code>S3</code>.</p>
 </div>
 <ul>
 <li>En début de script, créer les chemins où les données pourront être trouvées sur <code>S3</code></li>
@@ -2938,29 +2938,24 @@ Solution
 </div>
 <div class="callout-content">
 <div class="justify">
-<p>Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d’un unique <em>script</em>. De manière générale, on a plutôt envie de <strong>modéliser les étapes d’une chaîne comme une série de fonctions, avec un script “chef d’orchestre”</strong> qui les appelle dans le bon ordre.</p>
+<p>Notre chaîne de production est encore sous la forme d’un unique <em>script</em>, exécuté interactivement. L’objectif de cette partie est de <strong>modéliser notre chaîne avec un script “chef d’orchestre” qui appelle différentes fonctions</strong>. Par ailleurs, on veut pouvoir exécuter ce script en mode <strong>batch</strong>.</p>
 </div>
 <ul>
-<li><p>Créer les scripts suivants et inspecter leur contenu respectif :</p>
-<ul>
-<li><code>R/functions_import.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R">contenu</a>)</li>
-<li><code>R/functions_stats_desc.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R">contenu</a>)</li>
-<li><code>R/functions_models.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R">contenu</a>)</li>
-</ul></li>
+<li><p>Créer les scripts <code>R/functions_import.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R">contenu</a>), <code>R/functions_stats_desc.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R">contenu</a>), <code>R/functions_models.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R">contenu</a>) et inspecter leur contenu</p></li>
 <li><p>Modifier <code>script.R</code> pour qu’il appelle les fonctions des scripts précédemment créés, avec les paramètres pertinents</p></li>
-<li><p>Renommer <code>script.R</code> en <code>main.R</code>, une convention qui permet de comprendre que le script est le <strong>“point d’entrée”</strong> du projet</p></li>
-<li><p>En vue de sortir du mode interactif et aller vers le <strong>mode batch</strong>, exécuter le script <code>main.R</code> via le terminal avec les commandes suivante :</p></li>
+<li><p>Renommer <code>script.R</code> en <code>main.R</code>, une convention qui permet de comprendre que le script est le <strong>“point d’entrée”</strong></p></li>
+<li><p>En vue de sortir du mode interactif et aller vers le <strong>mode batch</strong>, exécuter le script <code>main.R</code> via le terminal :</p></li>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="bu">cd</span> nom_du_projet</span>
 <span id="cb13-2"><a></a><span class="ex">Rscript</span> main.R <span class="op">&amp;&gt;</span> main.log  <span class="co"># Redirige stdout et stderr vers un fichier</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Analyser les <em>logs</em> générés dans le fichier <code>main.log</code></li>
+<li>Analyser les <em>logs</em> générés dans le fichier <code>main.log</code>. Comment les rendre plus pertinents ?</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div>
+<div class="justify">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2971,6 +2966,49 @@ Solution
 </div>
 <div class="callout-content">
 <p>On aurait pu également utiliser un <strong>orchestrateur</strong> dédié pour effectuer cette tâche, comme le package <a href="https://books.ropensci.org/targets/">targets</a>. Les plus curieux d’entre vous pourront aller voir <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/targets.qmd">le chapitre et les exercices</a> qui lui étaient auparavant dédiés dans cette formation.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="checkpoint-10" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Checkpoint</h2>
+<div>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Checkpoint</strong></p>
+</div>
+<div class="callout-content">
+<div class="panel-tabset">
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-8-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<div class="tab-content">
+<div id="tabset-8-1">
+<ul>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_ls3.R"><code>main.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R"><code>R/functions_import.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R"><code>R/functions_models.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R"><code>R/functions_stats_desc.R</code></a></li>
+</ul>
+</div>
+<div id="tabset-8-2">
+<ul>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R"><code>main.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R"><code>R/functions_import.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R"><code>R/functions_models.R</code></a></li>
+<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R"><code>R/functions_stats_desc.R</code></a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
