@@ -1694,95 +1694,137 @@
     "text": "Introduction\n\nVersion pour les manageurs de la formation aux bonnes pratiques avec R et Git\n\n\nRetour à la page d’accueil pour explorer les autres versions"
   },
   {
-    "objectID": "slides/manageurs.html#la-notion-de-bonnes-pratiques",
-    "href": "slides/manageurs.html#la-notion-de-bonnes-pratiques",
+    "objectID": "slides/manageurs.html#pourquoi-les-bonnes-pratiques",
+    "href": "slides/manageurs.html#pourquoi-les-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "La notion de bonnes pratiques",
-    "text": "La notion de bonnes pratiques\n\nOrigine : communauté des développeurs logiciels\nConstats :\n\nle “code est plus souvent lu qu’écrit” (Guido Van Rossum)\nla maintenance d’un code est très coûteuse\n\nConséquence : un ensemble de règles informelles, conventionnellement acceptées comme produisant des logiciels fiables, évolutifs et maintenables"
+    "section": "Pourquoi les bonnes pratiques ?",
+    "text": "Pourquoi les bonnes pratiques ?\n\nOrigine : communauté des développeurs logiciels\nConstats :\n\nle “code est plus souvent lu qu’écrit” (Guido Van Rossum)\nla maintenance d’un code est très coûteuse\n\nConséquence : un ensemble de règles informelles, conventionnellement acceptées comme produisant des logiciels fiables, évolutifs et maintenables"
   },
   {
-    "objectID": "slides/manageurs.html#pourquoi-sintéresser-aux-bonnes-pratiques",
-    "href": "slides/manageurs.html#pourquoi-sintéresser-aux-bonnes-pratiques",
+    "objectID": "slides/manageurs.html#pourquoi-intéresser-les-statisticiens-aux-bonnes-pratiques",
+    "href": "slides/manageurs.html#pourquoi-intéresser-les-statisticiens-aux-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Pourquoi s’intéresser aux bonnes pratiques ?",
-    "text": "Pourquoi s’intéresser aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et donc des infrastructures\ndéploiement d’applications pour valoriser les analyses"
+    "section": "Pourquoi intéresser les statisticiens aux bonnes pratiques ?",
+    "text": "Pourquoi intéresser les statisticiens aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et donc des infrastructures\ndéploiement d’applications pour valoriser les analyses"
   },
   {
-    "objectID": "slides/manageurs.html#bonnes-pratiques-et-reproductibilité",
-    "href": "slides/manageurs.html#bonnes-pratiques-et-reproductibilité",
+    "objectID": "slides/manageurs.html#pourquoi-intéresser-les-managers-aux-bonnes-pratiques",
+    "href": "slides/manageurs.html#pourquoi-intéresser-les-managers-aux-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Bonnes pratiques et reproductibilité",
-    "text": "Bonnes pratiques et reproductibilité\n\n\n\n\n\nSource : Peng R., Reproducible Research in Computational Science, Science (2011)\n\nUne reproductibilité parfaite est coûteuse\nGit est un standard atteignable et efficient\n\n\n\n\n\n\n\n\nNote\n\n\nQuel socle de bonnes pratiques pour les projets statistiques en  ?"
+    "section": "Pourquoi intéresser les managers aux bonnes pratiques ?",
+    "text": "Pourquoi intéresser les managers aux bonnes pratiques ?\n\nProjets en production (automatisée ou ponctuelle) impliquent:\n\nLa coordination entre plusieurs acteurs (aux niveaux techniques différents)\nLa répétition d’opérations dans le temps\nDes évolutions sur des maillons de chaînes, sans la déstabiliser\n\n\n\n\nLe tout dans un environnement changeant (données, infrastructures, équipes…)\n\n\n\n\nBonnes pratiques (Git et R): manière de réduire le poids de la maintenance\n\nSans brider la phase d’expérimentation\n\n\n\n\n\nErreur de ne pas penser ensemble les enjeux organisationnels, humains et techniques\n\nDerrière le sujet technique, opportunité pour faire évoluer l’organisation…\n… pour produire des statistiques plus nombreuses, de meilleure qualité, en souffrant moins\n\n\needd"
   },
   {
-    "objectID": "slides/manageurs.html#horizon-de-cette-formation",
-    "href": "slides/manageurs.html#horizon-de-cette-formation",
+    "objectID": "slides/manageurs.html#enjeux-de-la-formation-bonnes-pratiques",
+    "href": "slides/manageurs.html#enjeux-de-la-formation-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Horizon de cette formation",
-    "text": "Horizon de cette formation\nUn point de départ commun"
+    "section": "Enjeux de la formation bonnes pratiques",
+    "text": "Enjeux de la formation bonnes pratiques\nUn point de départ commun"
   },
   {
-    "objectID": "slides/manageurs.html#horizon-de-cette-formation-1",
-    "href": "slides/manageurs.html#horizon-de-cette-formation-1",
+    "objectID": "slides/manageurs.html#enjeux-de-la-formation-bonnes-pratiques-1",
+    "href": "slides/manageurs.html#enjeux-de-la-formation-bonnes-pratiques-1",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Horizon de cette formation",
-    "text": "Horizon de cette formation\nUn point de départ commun \nUne structuration de projet plus viable"
+    "section": "Enjeux de la formation bonnes pratiques",
+    "text": "Enjeux de la formation bonnes pratiques\nUn point de départ commun \nUne structuration de projet plus viable"
   },
   {
-    "objectID": "slides/manageurs.html#vers-un-socle-de-bonnes-pratiques",
-    "href": "slides/manageurs.html#vers-un-socle-de-bonnes-pratiques",
+    "objectID": "slides/manageurs.html#messages-clés-de-la-formation-aux-agents",
+    "href": "slides/manageurs.html#messages-clés-de-la-formation-aux-agents",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Vers un socle de bonnes pratiques ?",
-    "text": "Vers un socle de bonnes pratiques ?\n\n1️⃣ Qualité du code et structure des projets\n2️⃣ Les formats de données de diffusion\n3️⃣ Le contrôle de version\n4️⃣ Normes de sécurité\n5️⃣ Ouverture"
+    "section": "Messages clés de la formation aux agents",
+    "text": "Messages clés de la formation aux agents\n\n\nDes standards communautaires qui favorisent la reproductibilité et la maintenabilité\nDe multiples outils pour simplifier leur mise en oeuvre\nUn coût d’autant plus faible que l’on se place en amont\nLe mouvement de modernisation du self est l’occasion d’une montée en compétence collective"
+  },
+  {
+    "objectID": "slides/manageurs.html#lignes-directrices-de-la-formation-aux-agents",
+    "href": "slides/manageurs.html#lignes-directrices-de-la-formation-aux-agents",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Lignes directrices de la formation aux agents",
+    "text": "Lignes directrices de la formation aux agents\n\n\n1️⃣ Versionner son projet pour historiciser et archiver proprement\n\n\n\n2️⃣ Construire des codes de qualité (lisibles, reproductibles, auto-documentés…)\n\n\n\n\n3️⃣ Adopter une structure modulaire et évolutive\n\n\n\n\n4️⃣ Utiliser des formats de données adaptés\n\n\n\n\n5️⃣ Comment construire des environnements reproductibles\n\n\n\n\n6️⃣ Enjeux de la mise en production de projets statistiques"
+  },
+  {
+    "objectID": "slides/manageurs.html#ressources-communautaires",
+    "href": "slides/manageurs.html#ressources-communautaires",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Ressources communautaires",
+    "text": "Ressources communautaires\n\nCanaux de discussion\n\nA l’Insee\n\nPour toute question sur Git : Insee-Git-Gitlab\nPour toute question stat/self : Insee - Outils Stats v2\nPour toute question spécifique à AUS/LS3 : Insee-DSI-Plateformes-Internes-Datascience\n\nPlus largement sur R\n\nSur Tchap : Langage R (Tchap)\nSur Slack : r-grrr\n\n\nDocumentation\n\nService datascience Insee\nUtilitR\n\nFormation: Espace formation du SSP Cloud\nRéseau data science: SSPHub"
+  },
+  {
+    "objectID": "slides/manageurs.html#plan",
+    "href": "slides/manageurs.html#plan",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Plan",
+    "text": "Plan\n\nPrésentation des enjeux avec des exemples concrets\nQualité et structure des projets\nPourquoi et comment faire du bon Git ?\nFormat et sécurité des données\nOuverture à l’open source"
+  },
+  {
+    "objectID": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
+    "href": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Le cas d’usage classique à l’Insee",
+    "text": "Le cas d’usage classique à l’Insee\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé, et où l’intervention humaine est limitée ;\ncelui qui nécessite du travail humain postérieur de la part du statisticien, et donc fait l’objet de tâtonnements\n\ncalcul du taux de pauvreté avec ERFS et SRCV ;\nmicro-simulation avec le modèle INES ;\ndes processus de suivi conjoncturels…"
+  },
+  {
+    "objectID": "slides/manageurs.html#pourquoi-git-répond-il-bien-aux-enjeux-de-la-production",
+    "href": "slides/manageurs.html#pourquoi-git-répond-il-bien-aux-enjeux-de-la-production",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Pourquoi Git répond-il bien aux enjeux de la production ?",
+    "text": "Pourquoi Git répond-il bien aux enjeux de la production ?\n\nExemple avec calcul du taux de pauvreté dans SRCV\n\n\nLes tâtonnements supposent des allers et retours sur différentes hypothèses :\n\nprise en compte évolutive des phénomènes affectant l’indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;\nproduction de différentes variantes que l’on veut pouvoir comparer les unes aux autres ;\ncomprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi."
+  },
+  {
+    "objectID": "slides/manageurs.html#quels-concepts",
+    "href": "slides/manageurs.html#quels-concepts",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Quels concepts ?",
+    "text": "Quels concepts ?\n\n\n\nles variantes peuvent se décliner sous la notion de branches ;\nen traçant l’ensemble des modifications du code, Git facilite la complète reproductibilité des tâtonnements ;\nau travers de l’historique, il permet de retracer l’ensemble du cheminement ;\nle git blame permet de voir qui a fait quoi ;\nmais cela nécessite une discipline sur l’usage de Git.\n\n\n⇒ deux notions essentielles : reproductibilité et traçabilité"
+  },
+  {
+    "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
+    "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Gestion du cycle de vie d’un projet",
+    "text": "Gestion du cycle de vie d’un projet\n\nChangement de paradigme : le code self doit être maintenu\n\nChangement de version de R et des packages ;\nQuelles solutions connaissez-vous ?\n\nrenv et la notion de lockfile\nanticiper les montées de version des logiciels :\n\non peut envisager un protocole pour cela"
+  },
+  {
+    "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-renv",
+    "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-renv",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Gestion du cycle de vie d’un projet: renv",
+    "text": "Gestion du cycle de vie d’un projet: renv\nExemple de renv.lock\n\n\nObserver la composition de ce fichier (100 premières lignes)\n\n\n\nrenv.lock\n\n{\n  \"R\": {\n    \"Version\": \"4.3.3\",\n    \"Repositories\": [\n      {\n        \"Name\": \"CRAN\",\n        \"URL\": \"https://packagemanager.posit.co/cran/latest\"\n      }\n    ]\n  },\n  \"Packages\": {\n    \"BH\": {\n      \"Package\": \"BH\",\n      \"Version\": \"1.84.0-0\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"a8235afbcd6316e6e91433ea47661013\"\n    },\n    \"DBI\": {\n      \"Package\": \"DBI\",\n      \"Version\": \"1.2.2\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"methods\"\n      ],\n      \"Hash\": \"164809cd72e1d5160b4cb3aa57f510fe\"\n    },\n    \"DT\": {\n      \"Package\": \"DT\",\n      \"Version\": \"0.33\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"RSPM\",\n      \"Requirements\": [\n        \"crosstalk\",\n        \"htmltools\",\n        \"htmlwidgets\",\n        \"httpuv\",\n        \"jquerylib\",\n        \"jsonlite\",\n        \"magrittr\",\n        \"promises\"\n      ],\n      \"Hash\": \"64ff3427f559ce3f2597a4fe13255cb6\"\n    },\n    \"KernSmooth\": {\n      \"Package\": \"KernSmooth\",\n      \"Version\": \"2.23-22\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"stats\"\n      ],\n      \"Hash\": \"2fecebc3047322fa5930f74fae5de70f\"\n    },\n    \"MASS\": {\n      \"Package\": \"MASS\",\n      \"Version\": \"7.3-60.0.1\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"grDevices\",\n        \"graphics\",\n        \"methods\",\n        \"stats\",\n        \"utils\"\n      ],\n      \"Hash\": \"b765b28387acc8ec9e9c1530713cb19c\"\n    },\n    \"Matrix\": {\n      \"Package\": \"Matrix\",\n      \"Version\": \"1.6-5\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"grDevices\",\n        \"graphics\",\n        \"grid\",\n        \"lattice\",\n        \"methods\",\n        \"stats\",\n        \"utils\"\n      ],\n      \"Hash\": \"8c7115cd3a0e048bda2a7cd110549f7a\"\n    },\n    \"R6\": {\n      \"Package\": \"R6\",\n      \"Version\": \"2.5.1\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"RSPM\",\n      \"Requirements\": [\n        \"R\"\n      ],\n      \"Hash\": \"470851b6d5d0ac559e9d01bb352b4021\"\n    },\n    \"RColorBrewer\": {\n\n\n\n\n\n\n\n\nCe que renv évite\n\n\nOn retrouve parfois sur internet un code similaire à celui-ci :\n# A ne pas reproduire chez vous 😨\nif (!requireNamespace(\"dplyr\", quietly = TRUE)) {\n  install.packages(\"dplyr\")\n}"
+  },
+  {
+    "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-1",
+    "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Gestion du cycle de vie d’un projet",
+    "text": "Gestion du cycle de vie d’un projet\n\nGérer le cycle de vie:\n\ndu code\nde son environnement d’exécution\ndes données mobilisées en entrée du projet et produites de manière intermédiaire.\n\nDéfinir responsabilités et organisation à la fois :\n\nsur la maintenance du code ;\nsur gitlab.insee.fr."
   },
   {
     "objectID": "slides/manageurs.html#enjeux",
     "href": "slides/manageurs.html#enjeux",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux",
-    "text": "Enjeux\n\nD’une vision utilitariste du code à une vision du code comme outil de communication\nFavoriser la lisibilité et la maintenabilité\nFaciliter la réutilisation\nAssurer la transparence méthodologique"
+    "text": "Enjeux\n\nD’une vision utilitariste du code à une vision du code comme outil de communication\nFavoriser la lisibilité et la maintenabilité\nAssurer la transparence méthodologique\nLa modularité pour éviter les monolithes"
   },
   {
-    "objectID": "slides/manageurs.html#principes-généraux",
-    "href": "slides/manageurs.html#principes-généraux",
+    "objectID": "slides/manageurs.html#les-outils-à-recommander-aux-agents",
+    "href": "slides/manageurs.html#les-outils-à-recommander-aux-agents",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Principes généraux",
-    "text": "Principes généraux\n\nAdopter les standards communautaires\nUtiliser des fonctions\nDocumenter son code\nIndiquer les packages utilisés afin d’éviter les conflits"
+    "section": "Les outils à recommander aux agents",
+    "text": "Les outils à recommander aux agents\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\nNote\n\n\nIl existe un guide de référence pour bien coder en R : le Tidyverse style guide."
   },
   {
-    "objectID": "slides/manageurs.html#adopter-les-standards-communautaires",
-    "href": "slides/manageurs.html#adopter-les-standards-communautaires",
+    "objectID": "slides/manageurs.html#la-modularité-des-projets",
+    "href": "slides/manageurs.html#la-modularité-des-projets",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "1️⃣ Adopter les standards communautaires",
-    "text": "1️⃣ Adopter les standards communautaires\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\nNote\n\n\nIl existe un guide de référence pour bien coder en R : le Tidyverse style guide."
+    "section": "La modularité des projets",
+    "text": "La modularité des projets\n\nFavoriser l’utilisation de fonctions\n\nLimite les risques d’erreur liés aux copier/coller\nRend le code plus lisible et plus compact\nUnicité de la source de vérité\n\nLes packages\n\nIdéal pour favoriser la réutilisation du code\nCoût de maintenance élevé"
   },
   {
-    "objectID": "slides/manageurs.html#favoriser-la-modularité-des-projets",
-    "href": "slides/manageurs.html#favoriser-la-modularité-des-projets",
+    "objectID": "slides/manageurs.html#bien-documenter",
+    "href": "slides/manageurs.html#bien-documenter",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "2️⃣ Favoriser la modularité des projets",
-    "text": "2️⃣ Favoriser la modularité des projets\n\nFavoriser l’utilisation de fonctions\n\nLimite les risques d’erreur liés aux copier/coller\nRend le code plus lisible et plus compact\nUnicité de la source de vérité\n\nLes packages\n\nIdéal pour favoriser la réutilisation du code\nCoût de maintenance élevé"
-  },
-  {
-    "objectID": "slides/manageurs.html#documenter-son-code",
-    "href": "slides/manageurs.html#documenter-son-code",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "3️⃣ Documenter son code",
-    "text": "3️⃣ Documenter son code\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents\n\nDocumenter le projet (contexte, objectifs, fonctionnement) dans un fichier README\n\nQuelques modèles : utilitR, DoReMIFaSol"
-  },
-  {
-    "objectID": "slides/manageurs.html#enjeux-1",
-    "href": "slides/manageurs.html#enjeux-1",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Enjeux",
-    "text": "Enjeux\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
-  },
-  {
-    "objectID": "slides/manageurs.html#recommandations",
-    "href": "slides/manageurs.html#recommandations",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Recommandations",
-    "text": "Recommandations\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
+    "section": "Bien documenter",
+    "text": "Bien documenter\n\nGrands principes :\n\nDocumenter le pourquoi plutôt que le comment\nPrivilégier l’auto-documentation via des nommages pertinents\n\nDocumenter le projet (contexte, objectifs, fonctionnement) dans un fichier README\n\nQuelques modèles : utilitR, DoReMIFaSol"
   },
   {
     "objectID": "slides/manageurs.html#archiver-son-code-proprement",
@@ -1838,7 +1880,7 @@
     "href": "slides/manageurs.html#bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Bonnes pratiques",
-    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles\n\n\n\n\n\n\n\n\nNote\n\n\nPour définir des règles qui évitent de committer tel ou tel fichier, on utilise un fichier nommé .gitignore.\nSi on mélange du code et des éléments annexes (output, données…) dans un même dossier, il faut consacrer du temps à ce fichier.\nDes modèles de .gitignore existent sur internet, par exemple celui-ci pour les projets .\nN’hésitez pas à y ajouter des règles conservatrices (par exemple *.csv), comme cela est expliqué dans la documentation utilitR."
+    "text": "Bonnes pratiques\nQue versionne-t-on ?\n\nEssentiellement du code source\nPas d’outputs (fichiers .html, .pdf, modèles…)\nPas de données, d’informations locales ou sensibles"
   },
   {
     "objectID": "slides/manageurs.html#bonnes-pratiques-1",
@@ -1848,60 +1890,46 @@
     "text": "Bonnes pratiques\nFormat des commits\n\n\n\n\n\n\n\nFréquence\n\nAussi souvent que possible\nLe lot de modifications doit “avoir du sens”\n\nMessages\n\nCourts et informatifs (comme un titre de mail)\nDécrire le pourquoi plutôt que le comment dans le texte"
   },
   {
-    "objectID": "slides/manageurs.html#ouverture-vers-la-partie-4",
-    "href": "slides/manageurs.html#ouverture-vers-la-partie-4",
+    "objectID": "slides/manageurs.html#comment-faire-de-la-gestion-de-projets-avec-gitlab",
+    "href": "slides/manageurs.html#comment-faire-de-la-gestion-de-projets-avec-gitlab",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Ouverture vers la partie 4",
-    "text": "Ouverture vers la partie 4\nNous nous sommes concentrés sur les briques:\n\n\n\n“Code R”\n“Données”\n\n\n\n\n\nMais besoin d’aller plus loin:\n\n“Code R” : besoin d’un environnement standardisé (renv)\n“Données”: enjeu de localisation (réseau, cloud, etc)\n“Configuration”: enjeu de la sécurité"
+    "section": "Comment faire de la gestion de projets avec Gitlab ?",
+    "text": "Comment faire de la gestion de projets avec Gitlab ?\n\n\nAllons voir un projet sur Gitlab  !"
   },
   {
-    "objectID": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
-    "href": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
+    "objectID": "slides/manageurs.html#ouverture-vers-la-suite",
+    "href": "slides/manageurs.html#ouverture-vers-la-suite",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Le cas d’usage classique à l’Insee",
-    "text": "Le cas d’usage classique à l’Insee\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé, et où l’intervention humaine est limitée ;\ncelui qui nécessite du travail humain postérieur de la part du statisticien, et donc fait l’objet de tâtonnements\n\ncalcul du taux de pauvreté avec ERFS et SRCV ;\nmicro-simulation avec le modèle INES ;\ndes processus de suivi conjoncturels…"
+    "section": "Ouverture vers la suite",
+    "text": "Ouverture vers la suite\nNous nous sommes concentrés sur la brique:\n\n\n\n“Code R”\n\n\n\n\n\nMais besoin d’aller plus loin:\n\n“Code R” : besoin d’un environnement standardisé (renv)\n“Données”: enjeu du format et de la localisation (réseau, cloud, etc)\n“Configuration”: enjeu de la sécurité"
   },
   {
-    "objectID": "slides/manageurs.html#pourquoi-git-répond-il-bien-aux-enjeux-de-la-production",
-    "href": "slides/manageurs.html#pourquoi-git-répond-il-bien-aux-enjeux-de-la-production",
+    "objectID": "slides/manageurs.html#enjeux-du-choix-dun-format",
+    "href": "slides/manageurs.html#enjeux-du-choix-dun-format",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Pourquoi Git répond-il bien aux enjeux de la production ?",
-    "text": "Pourquoi Git répond-il bien aux enjeux de la production ?\n\nExemple avec calcul du taux de pauvreté dans SRCV\n\n\nLes tâtonnements supposent des allers et retours sur différentes hypothèses :\n\nprise en compte évolutive des phénomènes affectant l’indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;\nproduction de différentes variantes que l’on veut pouvoir comparer les unes aux autres ;\ncomprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi."
+    "section": "Enjeux du choix d’un format",
+    "text": "Enjeux du choix d’un format\n\nLe choix d’un format de données répond à un arbitrage entre plusieurs critères :\n\nFinalité (traitement, analyse, diffusion)\nPublic cible\nVolumétrie"
   },
   {
-    "objectID": "slides/manageurs.html#quels-concepts",
-    "href": "slides/manageurs.html#quels-concepts",
+    "objectID": "slides/manageurs.html#recommandations-de-format",
+    "href": "slides/manageurs.html#recommandations-de-format",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Quels concepts ?",
-    "text": "Quels concepts ?\n\n\nles variantes peuvent se décliner sous la notion de branches ;\nen traçant l’ensemble des modifications du code, Git facilite la complète reproductibilité des tâtonnements ;\nau travers de l’historique, il permet de retracer l’ensemble du cheminement ;\nle git blame permet de voir qui a fait quoi ;\nmais cela nécessite une discipline sur l’usage de Git.\n\n⇒ deux notions essentielles : reproductibilité et traçabilité"
+    "section": "Recommandations de format",
+    "text": "Recommandations de format\n\nEviter impérativement les formats de données adhérents à un langage (RDS, RData, fst, sas7bdat, etc.).\nDeux formats à privilégier :\n\nCSV : pour la plupart des usages courants\n\nAvantage : non-compressé donc facilement lisible\nInconvénients : pas de gestion des méta-données, peu adapté aux données volumineuses\n\nParquet : pour le traitement de données volumineuses\n\nCompressé et très performant en lecture/écriture\nGestion native des méta-données"
   },
   {
-    "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
-    "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
+    "objectID": "slides/manageurs.html#recommandations-de-format-1",
+    "href": "slides/manageurs.html#recommandations-de-format-1",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Gestion du cycle de vie d’un projet",
-    "text": "Gestion du cycle de vie d’un projet\n\nChangement de paradigme : le code self doit être maintenu\n\nChangement de version de R et des packages ;\nQuelles solutions connaissez-vous ?\n\nrenv et la notion de lockfile\nanticiper les montées de version des logiciels :\n\non peut envisager un protocole pour cela"
+    "section": "Recommandations de format",
+    "text": "Recommandations de format\n\nExemple sur les données du recensement:"
   },
   {
-    "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-renv",
-    "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-renv",
+    "objectID": "slides/manageurs.html#la-sécurité-question",
+    "href": "slides/manageurs.html#la-sécurité-question",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Gestion du cycle de vie d’un projet: renv",
-    "text": "Gestion du cycle de vie d’un projet: renv\nExemple de renv.lock\n\n\nObserver la composition de ce fichier (100 premières lignes)\n\n\n\nrenv.lock\n\n{\n  \"R\": {\n    \"Version\": \"4.3.3\",\n    \"Repositories\": [\n      {\n        \"Name\": \"CRAN\",\n        \"URL\": \"https://packagemanager.posit.co/cran/latest\"\n      }\n    ]\n  },\n  \"Packages\": {\n    \"BH\": {\n      \"Package\": \"BH\",\n      \"Version\": \"1.84.0-0\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Hash\": \"a8235afbcd6316e6e91433ea47661013\"\n    },\n    \"DBI\": {\n      \"Package\": \"DBI\",\n      \"Version\": \"1.2.2\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"methods\"\n      ],\n      \"Hash\": \"164809cd72e1d5160b4cb3aa57f510fe\"\n    },\n    \"DT\": {\n      \"Package\": \"DT\",\n      \"Version\": \"0.33\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"RSPM\",\n      \"Requirements\": [\n        \"crosstalk\",\n        \"htmltools\",\n        \"htmlwidgets\",\n        \"httpuv\",\n        \"jquerylib\",\n        \"jsonlite\",\n        \"magrittr\",\n        \"promises\"\n      ],\n      \"Hash\": \"64ff3427f559ce3f2597a4fe13255cb6\"\n    },\n    \"KernSmooth\": {\n      \"Package\": \"KernSmooth\",\n      \"Version\": \"2.23-22\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"stats\"\n      ],\n      \"Hash\": \"2fecebc3047322fa5930f74fae5de70f\"\n    },\n    \"MASS\": {\n      \"Package\": \"MASS\",\n      \"Version\": \"7.3-60.0.1\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"grDevices\",\n        \"graphics\",\n        \"methods\",\n        \"stats\",\n        \"utils\"\n      ],\n      \"Hash\": \"b765b28387acc8ec9e9c1530713cb19c\"\n    },\n    \"Matrix\": {\n      \"Package\": \"Matrix\",\n      \"Version\": \"1.6-5\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"CRAN\",\n      \"Requirements\": [\n        \"R\",\n        \"grDevices\",\n        \"graphics\",\n        \"grid\",\n        \"lattice\",\n        \"methods\",\n        \"stats\",\n        \"utils\"\n      ],\n      \"Hash\": \"8c7115cd3a0e048bda2a7cd110549f7a\"\n    },\n    \"R6\": {\n      \"Package\": \"R6\",\n      \"Version\": \"2.5.1\",\n      \"Source\": \"Repository\",\n      \"Repository\": \"RSPM\",\n      \"Requirements\": [\n        \"R\"\n      ],\n      \"Hash\": \"470851b6d5d0ac559e9d01bb352b4021\"\n    },\n    \"RColorBrewer\": {\n\n\n\n\n\n\n\n\nCe que renv évite\n\n\nOn retrouve parfois sur internet un code similaire à celui-ci :\n# A ne pas reproduire chez vous 😨\nif (!requireNamespace(\"dplyr\", quietly = TRUE)) {\n  install.packages(\"dplyr\")\n}"
-  },
-  {
-    "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-1",
-    "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-1",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Gestion du cycle de vie d’un projet",
-    "text": "Gestion du cycle de vie d’un projet\n\nGérer le cycle de vie:\n\ndu code\nde son environnement d’exécution\ndes données mobilisées en entrée du projet et produites de manière intermédiaire.\n\nDéfinir responsabilités et organisation à la fois :\n\nsur la maintenance du code ;\nsur gitlab.insee.fr."
-  },
-  {
-    "objectID": "slides/manageurs.html#question",
-    "href": "slides/manageurs.html#question",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Question",
-    "text": "Question\n\n\n\n\n\n\n\nQuestion\n\n\nQuels sont, selon vous, les principaux risques de sécurité liés au développement en self ?"
+    "section": "La sécurité: question",
+    "text": "La sécurité: question\n\n\n\n\n\n\n\nQuestion\n\n\nQuels sont, selon vous, les principaux risques de sécurité liés au développement en self ?"
   },
   {
     "objectID": "slides/manageurs.html#risques",
