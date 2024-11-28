@@ -45,6 +45,244 @@ aux bonnes pratiques avec `R` et `Git`
 
 # Introduction
 
+## Pourquoi les bonnes pratiques ?
+
+- [**Origine**]{.blue2} : communauté des développeurs logiciels
+
+- [**Constats**]{.blue2} :
+    - le [_"code est plus souvent lu qu'écrit"_]{.green2} ([Guido Van Rossum](https://fr.wikipedia.org/wiki/Guido_van_Rossum))
+    - la maintenance d'un code est très coûteuse
+
+- [**Conséquence**]{.blue2} : un ensemble de [**règles informelles**]{.orange},
+conventionnellement acceptées comme produisant des logiciels [**fiables**]{.orange}, [**évolutifs**]{.orange} et [**maintenables**]{.orange}
+
+
+## Pourquoi intéresser les statisticiens aux bonnes pratiques ? {.smaller}
+
+<br>
+
+L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur :
+
+- projets [**intenses en code**]{.orange}
+
+- [**projets collaboratifs**]{.orange} et de grande envergure
+
+- [**complexification**]{.orange} des données et donc des [**infrastructures**]{.orange}
+
+- [**déploiement**]{.orange} d'applications pour valoriser les analyses
+
+
+## Pourquoi intéresser les managers aux bonnes pratiques ? {.smaller}
+
+
+- [__Projets en production__]{.orange} (automatisée ou ponctuelle) impliquent:
+  - La [__coordination__]{.blue2} entre plusieurs acteurs (aux niveaux techniques différents)
+  - La [__répétition__]{.blue2} d'opérations dans le temps 
+  - Des [__évolutions__]{.blue2} sur des maillons de chaînes, sans la déstabiliser
+
+. . .
+
+- Le tout dans un __[environnement changeant]{.orange}__ (données, infrastructures, équipes...)
+
+. . .
+
+- Bonnes pratiques (`Git` et `R`): manière de réduire le [__poids de la maintenance__]{.orange}
+  - Sans brider la phase d'expérimentation
+
+. . .
+
+- Erreur de ne pas penser ensemble les [__enjeux organisationnels, humains et techniques__]{.orange}
+  - Derrière le sujet technique, opportunité pour faire évoluer l'organisation...
+  - ... pour produire des statistiques plus nombreuses, de meilleure qualité, en souffrant moins
+
+
+
+
+eedd
+
+
+## Enjeux de la formation bonnes pratiques {auto-animate=true}
+
+Un point de départ commun
+
+![](img/environment_messy.png)
+
+## Enjeux de la formation bonnes pratiques {auto-animate=true}
+
+Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align="right"}
+
+
+Une structuration de projet plus viable
+
+![](img/environment_clean.png)
+
+
+## Messages clés de la formation aux agents
+
+<br>
+
+- Des [**standards communautaires**]{.orange} qui favorisent la [**reproductibilité**]{.blue2} et la [**maintenabilité**]{.blue2}
+
+- De multiples [**outils**]{.orange} pour simplifier leur mise en oeuvre
+
+- Un [**coût**]{.orange} d'autant plus faible que l'on se place [**en amont**]{.orange}
+
+- Le mouvement de [**modernisation du self**]{.orange} est l'occasion d'une [**montée en compétence collective**]{.blue2}
+
+
+## Lignes directrices de la formation aux agents
+
+
+* 1️⃣ Versionner son projet pour historiciser et archiver proprement
+
+. . .
+
+* 2️⃣ Construire des [__codes de qualité__]{.orange} (lisibles, reproductibles, auto-documentés...)
+
+. . .
+
+* 3️⃣ Adopter une [__structure modulaire__]{.orange} et évolutive
+
+. . .
+
+* 4️⃣ Utiliser des [__formats de données__]{.orange} adaptés
+
+. . .
+
+* 5️⃣ Comment construire des [__environnements reproductibles__]{.orange} 
+
+. . .
+
+* 6️⃣ Enjeux de la  [__mise en production__]{.orange}  de projets statistiques
+
+
+## Ressources communautaires {.smaller}
+
+- [**Canaux de discussion**]{.orange}
+    - A l'Insee
+        - Pour toute question sur [**Git**]{.blue2} : [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
+        - Pour toute question [**stat/self**]{.blue2} : [Insee - Outils Stats v2](https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr)
+        - Pour toute question spécifique à [**AUS/LS3**]{.blue2} : [Insee-DSI-Plateformes-Internes-Datascience](https://matrix.to/#/!bxlTbQgAEcLkRjoNPi:agent.finances.tchap.gouv.fr?via=agent.finances.tchap.gouv.fr&via=agent.agriculture.tchap.gouv.fr&via=agent.interieur.tchap.gouv.fr)
+    - Plus largement sur [**R**]{.blue2}
+        - Sur `Tchap` : [Langage R (Tchap)](https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr)
+        - Sur `Slack` : [r-grrr](https://r-grrr.slack.com)
+
+- [**Documentation**]{.orange} 
+    - [Service datascience Insee](https://datascience.gitlab-pages.insee.fr/site-documentaire/accueil/)
+    - [UtilitR](https://book.utilitr.org/)
+
+- [**Formation**]{.orange}: [Espace formation du SSP Cloud](https://www.sspcloud.fr/formation)
+
+- [**Réseau data science**]{.orange}: [`SSPHub`](https://ssphub.netlify.app/)
+
+
+# Illustration: l'élaboration d'une statistique
+
+## Le cas d'usage classique à l'Insee
+
+Il faut distinguer deux types de processus de production :
+
+- celui qui est [**entièrement automatisé**]{.orange}, et où l'intervention humaine est limitée ;
+
+
+- celui qui nécessite du [__travail humain postérieur__]{.orange} de la part du statisticien, et donc fait l'objet de tâtonnements
+  + calcul du taux de pauvreté avec [__ERFS et SRCV__]{.blue2} ;
+  + micro-simulation avec le [__modèle INES__]{.blue2} ;
+  + des processus de [__suivi conjoncturels__]{.blue2}...
+  
+## Pourquoi `Git` répond-il bien aux enjeux de la production ? {.smaller}
+
+::: {h4}
+__Exemple avec calcul du taux de pauvreté dans [SRCV]{.blue2}__
+:::
+
+<br>
+
+Les tâtonnements supposent des allers et retours sur différentes hypothèses :
+
+- prise en compte évolutive des phénomènes affectant l'indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;
+- production de différentes [__variantes__]{.orange} que l'on veut pouvoir comparer les unes aux autres ;
+- comprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi.
+
+## Quels concepts ? {.smaller}
+
+<br>
+
+- les [__variantes__]{.orange} peuvent se décliner sous la notion de [__branches__]{.orange} ;
+
+
+- en traçant l'ensemble des modifications du code, `Git` facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
+
+
+- au travers de l'[__historique__]{.orange}, il permet de retracer l'ensemble du cheminement ;
+
+
+- le `git blame` permet de voir qui a fait quoi ;
+
+
+- mais cela nécessite une [__discipline__]{.orange} sur l'usage de `Git`.
+
+&#8658; deux notions essentielles : [__reproductibilité__]{.orange} et [__traçabilité__]{.orange}
+
+## Gestion du cycle de vie d'un projet
+
+- [__Changement de paradigme__]{.blue2} : [**le code _self_ doit être maintenu**]{.orange}
+  * Changement de version de `R` et des _packages_ ;
+  * Quelles solutions connaissez-vous ?
+
+
+- `renv` et la notion de _lockfile_
+
+
+- anticiper les montées de version des logiciels : 
+  + on peut envisager un protocole pour cela 
+
+## Gestion du cycle de vie d'un projet: `renv`
+
+Exemple de `renv.lock`  
+
+<details>
+<summary>
+Observer la composition de ce fichier (100 premières lignes)
+</summary>
+```{.yaml include="renvlockexample" filename="renv.lock" end-line=100}
+```
+</details>
+
+
+
+::: {.callout-warning collapse="true"}
+## Ce que `renv` évite
+
+On retrouve parfois sur internet un code similaire à celui-ci :
+
+```r
+# A ne pas reproduire chez vous 😨
+if (!requireNamespace("dplyr", quietly = TRUE)) {
+  install.packages("dplyr")
+}
+```
+
+:::
+
+
+## Gestion du cycle de vie d'un projet
+
+- Gérer le cycle de vie:
+  - du [__code__]{.orange}
+  - de son [__environnement d’exécution__]{.orange}
+  - des [__données__]{.orange} mobilisées en entrée du projet et produites de manière intermédiaire.
+
+
+- Définir responsabilités et organisation à la fois :
+    + sur la maintenance du code ;
+    + sur [gitlab.insee.fr](https://gitlab.insee.fr).
+
+
+
+
+# OLD
+
 {{< include _intro.qmd >}}
 
 
@@ -304,107 +542,6 @@ Nous nous sommes concentrés sur les briques:
     + ["_Configuration_"]{.blue2}: enjeu de la sécurité
 
 
-# L'élaboration d'une statistique
-
-## Le cas d'usage classique à l'Insee
-
-Il faut distinguer deux types de processus de production :
-
-- celui qui est [**entièrement automatisé**]{.orange}, et où l'intervention humaine est limitée ;
-
-
-- celui qui nécessite du [__travail humain postérieur__]{.orange} de la part du statisticien, et donc fait l'objet de tâtonnements
-  + calcul du taux de pauvreté avec [__ERFS et SRCV__]{.blue2} ;
-  + micro-simulation avec le [__modèle INES__]{.blue2} ;
-  + des processus de [__suivi conjoncturels__]{.blue2}...
-  
-## Pourquoi `Git` répond-il bien aux enjeux de la production ? {.smaller}
-
-::: {h4}
-__Exemple avec calcul du taux de pauvreté dans [SRCV]{.blue2}__
-:::
-
-<br>
-
-Les tâtonnements supposent des allers et retours sur différentes hypothèses :
-
-- prise en compte évolutive des phénomènes affectant l'indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;
-- production de différentes [__variantes__]{.orange} que l'on veut pouvoir comparer les unes aux autres ;
-- comprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi.
-
-## Quels concepts ? {.smaller}
-
-<br>
-
-- les [__variantes__]{.orange} peuvent se décliner sous la notion de [__branches__]{.orange} ;
-
-
-- en traçant l'ensemble des modifications du code, `Git` facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
-
-
-- au travers de l'[__historique__]{.orange}, il permet de retracer l'ensemble du cheminement ;
-
-
-- le `git blame` permet de voir qui a fait quoi ;
-
-
-- mais cela nécessite une [__discipline__]{.orange} sur l'usage de `Git`.
-
-&#8658; deux notions essentielles : [__reproductibilité__]{.orange} et [__traçabilité__]{.orange}
-
-## Gestion du cycle de vie d'un projet
-
-- [__Changement de paradigme__]{.blue2} : [**le code _self_ doit être maintenu**]{.orange}
-  * Changement de version de `R` et des _packages_ ;
-  * Quelles solutions connaissez-vous ?
-
-
-- `renv` et la notion de _lockfile_
-
-
-- anticiper les montées de version des logiciels : 
-  + on peut envisager un protocole pour cela 
-
-## Gestion du cycle de vie d'un projet: `renv`
-
-Exemple de `renv.lock`  
-
-<details>
-<summary>
-Observer la composition de ce fichier (100 premières lignes)
-</summary>
-```{.yaml include="renvlockexample" filename="renv.lock" end-line=100}
-```
-</details>
-
-
-
-::: {.callout-warning collapse="true"}
-## Ce que `renv` évite
-
-On retrouve parfois sur internet un code similaire à celui-ci :
-
-```r
-# A ne pas reproduire chez vous 😨
-if (!requireNamespace("dplyr", quietly = TRUE)) {
-  install.packages("dplyr")
-}
-```
-
-:::
-
-
-## Gestion du cycle de vie d'un projet
-
-- Gérer le cycle de vie:
-  - du [__code__]{.orange}
-  - de son [__environnement d’exécution__]{.orange}
-  - des [__données__]{.orange} mobilisées en entrée du projet et produites de manière intermédiaire.
-
-
-- Définir responsabilités et organisation à la fois :
-    + sur la maintenance du code ;
-    + sur [gitlab.insee.fr](https://gitlab.insee.fr).
 
 
 # Partie 4: Enjeux de sécurité
