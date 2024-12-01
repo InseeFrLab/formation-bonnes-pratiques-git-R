@@ -61,7 +61,7 @@ conventionnellement acceptées comme produisant des logiciels [**fiables**]{.ora
 
 <br>
 
-L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur :
+L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur (notion de [*citizen developpers*]{.orange  }) :
 
 - projets [**intenses en code**]{.orange}
 
@@ -160,7 +160,7 @@ Une structuration de projet plus viable
 ## Ressources communautaires {.smaller}
 
 - [**Canaux de discussion**]{.orange}
-    - A l'Insee
+    - À l'Insee
         - Pour toute question sur [**Git**]{.blue2} : [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
         - Pour toute question [**stat/self**]{.blue2} : [Insee - Outils Stats v2](https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr)
         - Pour toute question spécifique à [**AUS/LS3**]{.blue2} : [Insee-DSI-Plateformes-Internes-Datascience](https://matrix.to/#/!bxlTbQgAEcLkRjoNPi:agent.finances.tchap.gouv.fr?via=agent.finances.tchap.gouv.fr&via=agent.agriculture.tchap.gouv.fr&via=agent.interieur.tchap.gouv.fr)
@@ -172,9 +172,9 @@ Une structuration de projet plus viable
     - [Service datascience Insee](https://datascience.gitlab-pages.insee.fr/site-documentaire/accueil/)
     - [UtilitR](https://book.utilitr.org/)
 
-- [**Formation**]{.orange}: [Espace formation du SSP Cloud](https://www.sspcloud.fr/formation)
+- [**Formation**]{.orange} : [Espace formation du SSP Cloud](https://www.sspcloud.fr/formation)
 
-- [**Réseau data science**]{.orange}: [`SSPHub`](https://ssphub.netlify.app/)
+- [**Réseau data science**]{.orange} : [`SSPHub`](https://ssphub.netlify.app/)
 
 
 ## Plan
@@ -195,7 +195,8 @@ Il faut distinguer deux types de processus de production :
 - celui qui est [**entièrement automatisé**]{.orange}, et où l'intervention humaine est limitée ;
 
 
-- celui qui nécessite du [__travail humain postérieur__]{.orange} de la part du statisticien, et donc fait l'objet de tâtonnements
+- celui qui nécessite du [__travail humain__]{.orange} (vérifications _ex post_ non automatisables, etc.) de la part du statisticien, et donc fait l'objet de tâtonnements :
+
   + calcul du taux de pauvreté avec [__ERFS et SRCV__]{.blue2} ;
   + micro-simulation avec le [__modèle INES__]{.blue2} ;
   + des processus de [__suivi conjoncturels__]{.blue2}...
