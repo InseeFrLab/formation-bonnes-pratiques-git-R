@@ -1663,7 +1663,7 @@
     "href": "slides/manageurs.html#pourquoi-intéresser-les-statisticiens-aux-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Pourquoi intéresser les statisticiens aux bonnes pratiques ?",
-    "text": "Pourquoi intéresser les statisticiens aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur (notion de citizen developpers) :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et donc des infrastructures\ndéploiement d’applications pour valoriser les analyses"
+    "text": "Pourquoi intéresser les statisticiens aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur (notion de citizen developers) :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et donc des infrastructures\ndéploiement d’applications pour valoriser les analyses"
   },
   {
     "objectID": "slides/manageurs.html#pourquoi-intéresser-les-managers-aux-bonnes-pratiques",
@@ -1886,8 +1886,8 @@
     "objectID": "slides/manageurs.html#la-sécurité-question",
     "href": "slides/manageurs.html#la-sécurité-question",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "La sécurité: question",
-    "text": "La sécurité: question\n\n\n\n\n\n\n\nQuestion\n\n\nQuels sont, selon vous, les principaux risques de sécurité liés au développement en self ?"
+    "section": "La sécurité : question",
+    "text": "La sécurité : question\n\n\n\n\n\n\n\nQuestion\n\n\nQuels sont, selon vous, les principaux risques de sécurité liés au développement en self ?"
   },
   {
     "objectID": "slides/manageurs.html#risques",
