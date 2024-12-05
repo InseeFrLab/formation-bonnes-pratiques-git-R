@@ -36,7 +36,7 @@ from: markdown+emoji
 ## Introduction
 
 * Version pour les _manageurs_ de la formation
-aux bonnes pratiques avec `R` et `Git`
+aux bonnes pratiques avec {{< fa brands r-project >}} et {{< fa brands git >}}
 
 ![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-boss/falcon.png){fig-align="center"}
 
@@ -61,7 +61,7 @@ conventionnellement acceptées comme produisant des logiciels [**fiables**]{.ora
 
 <br>
 
-L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur :
+L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur (notion de [*citizen developpers*]{.orange  }) :
 
 - projets [**intenses en code**]{.orange}
 
@@ -86,7 +86,7 @@ L'activité du statisticien / *datascientist* tend à se rapprocher de celle du 
 
 . . .
 
-- Bonnes pratiques (`Git` et `R`): manière de réduire le [__poids de la maintenance__]{.orange}
+- Bonnes pratiques ({{< fa brands git >}} et {{< fa brands r-project >}}): manière de réduire le [__poids de la maintenance__]{.orange}
   - Sans brider la phase d'expérimentation
 
 . . .
@@ -160,11 +160,11 @@ Une structuration de projet plus viable
 ## Ressources communautaires {.smaller}
 
 - [**Canaux de discussion**]{.orange}
-    - A l'Insee
+    - À l'Insee
         - Pour toute question sur [**Git**]{.blue2} : [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
         - Pour toute question [**stat/self**]{.blue2} : [Insee - Outils Stats v2](https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr)
         - Pour toute question spécifique à [**AUS/LS3**]{.blue2} : [Insee-DSI-Plateformes-Internes-Datascience](https://matrix.to/#/!bxlTbQgAEcLkRjoNPi:agent.finances.tchap.gouv.fr?via=agent.finances.tchap.gouv.fr&via=agent.agriculture.tchap.gouv.fr&via=agent.interieur.tchap.gouv.fr)
-    - Plus largement sur [**R**]{.blue2}
+    - Plus largement sur {{< fa brands r-project >}}
         - Sur `Tchap` : [Langage R (Tchap)](https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr)
         - Sur `Slack` : [r-grrr](https://r-grrr.slack.com)
 
@@ -172,16 +172,16 @@ Une structuration de projet plus viable
     - [Service datascience Insee](https://datascience.gitlab-pages.insee.fr/site-documentaire/accueil/)
     - [UtilitR](https://book.utilitr.org/)
 
-- [**Formation**]{.orange}: [Espace formation du SSP Cloud](https://www.sspcloud.fr/formation)
+- [**Formation**]{.orange} : [Espace formation du SSP Cloud](https://www.sspcloud.fr/formation)
 
-- [**Réseau data science**]{.orange}: [`SSPHub`](https://ssphub.netlify.app/)
+- [**Réseau data science**]{.orange} : [`SSPHub`](https://ssphub.netlify.app/)
 
 
 ## Plan
 
 1. Présentation des enjeux avec des exemples concrets
 2. Qualité et structure des projets
-3. Pourquoi et comment faire du bon `Git` ?
+3. Pourquoi et comment faire du bon {{< fa brands git >}} ?
 4. Format et sécurité des données
 5. Ouverture à l'_open source_
 
@@ -195,12 +195,13 @@ Il faut distinguer deux types de processus de production :
 - celui qui est [**entièrement automatisé**]{.orange}, et où l'intervention humaine est limitée ;
 
 
-- celui qui nécessite du [__travail humain postérieur__]{.orange} de la part du statisticien, et donc fait l'objet de tâtonnements
+- celui qui nécessite du [__travail humain__]{.orange} (vérifications _ex post_ non automatisables, etc.) de la part du statisticien, et donc fait l'objet de tâtonnements :
+
   + calcul du taux de pauvreté avec [__ERFS et SRCV__]{.blue2} ;
   + micro-simulation avec le [__modèle INES__]{.blue2} ;
   + des processus de [__suivi conjoncturels__]{.blue2}...
   
-## Pourquoi `Git` répond-il bien aux enjeux de la production ? {.smaller}
+## Pourquoi {{< fa brands git >}} répond-il bien aux enjeux de la production ? {.smaller}
 
 ::: {h4}
 __Exemple avec calcul du taux de pauvreté dans [SRCV]{.blue2}__
@@ -223,7 +224,7 @@ Les tâtonnements supposent des allers et retours sur différentes hypothèses :
 - les [__variantes__]{.orange} peuvent se décliner sous la notion de [__branches__]{.orange} ;
 
 
-- en traçant l'ensemble des modifications du code, `Git` facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
+- en traçant l'ensemble des modifications du code, {{< fa brands git >}} facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
 
 
 - au travers de l'[__historique__]{.orange}, il permet de retracer l'ensemble du cheminement ;
@@ -232,7 +233,7 @@ Les tâtonnements supposent des allers et retours sur différentes hypothèses :
 - le `git blame` permet de voir qui a fait quoi ;
 
 
-- mais cela nécessite une [__discipline__]{.orange} sur l'usage de `Git`.
+- mais cela nécessite une [__discipline__]{.orange} sur l'usage de {{< fa brands git >}}.
 
 :::
 
@@ -241,7 +242,7 @@ Les tâtonnements supposent des allers et retours sur différentes hypothèses :
 ## Gestion du cycle de vie d'un projet
 
 - [__Changement de paradigme__]{.blue2} : [**le code _self_ doit être maintenu**]{.orange}
-  * Changement de version de `R` et des _packages_ ;
+  * Changement de version de {{< fa brands r-project >}} et des _packages_ ;
   * Quelles solutions connaissez-vous ?
 
 
@@ -319,7 +320,7 @@ Deux outils pratiques aident à respecter les standards :
     + modifie directement le code
 
 ::: {.callout-note}
-Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse style guide](https://style.tidyverse.org/index.html).
+Il existe un **guide de référence** pour bien coder en {{< fa brands r-project >}} : le [Tidyverse style guide](https://style.tidyverse.org/index.html).
 :::
 
 
@@ -406,7 +407,7 @@ Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionne
 
 #### `Git`, `GitHub`, `GitLab`... quelles différences ?
 
-- `Git` est un **logiciel** ;
+- {{< fa brands git >}} est un **logiciel** ;
 - Utilisation en ligne de commandes
 - Différentes [__interfaces graphiques__]{.blue2} (`RStudio`, `VS Code`...)
 
@@ -527,7 +528,7 @@ Nous nous sommes concentrés sur la brique:
 - Mot de passe et jetons d'accès à des API  
   [**pas de mot de passe ni de jeton d'accès écrits dans le code**]{.orange}
 - Risques sur les données :
-  * **pas de données dans `Git`**
+  * **pas de données dans {{< fa brands git >}}**
   * **pas de compte d'accès commun à des bases de données**
   * **pas de données sensibles en dehors des environnements protégés**
 
@@ -585,7 +586,7 @@ connexion_clone <- do.call(dbConnect, args = c(connexion_details$clone[2:4],
 ## Stockage des données
 
 - Données sous forme de fichier :
-  * ne pas les mettre sous `Git` (utiliser le fichier `.gitignore`)
+  * ne pas les mettre sous {{< fa brands git >}} (utiliser le fichier `.gitignore`)
   * veiller à ce que les données sensibles ne prolifèrent pas.
 - Données dans des bases de données :
   * toujours se poser la question de l'opportunité de les dupliquer sous forme de fichier
@@ -598,7 +599,7 @@ On préférera toujours avoir des données stockées dans un unique espace pour 
 
 - Pour limiter les risques de sécurité, vaut-il mieux cacher son code à ses collègues ?
 - Quelle est la nature juridique des codes sources réalisés à l'Insee ?
-- `R`, `Python` et leurs _packages_ sont gratuits, comment est-ce possible ?
+- {{< fa brands r-project >}}, {{< fa brands python >}} et leurs _packages_ sont gratuits, comment est-ce possible ?
 - Connaissez-vous la science ouverte et ses standards ?
 
 ## La sécurité par l'obscurité
@@ -625,7 +626,7 @@ On préférera toujours avoir des données stockées dans un unique espace pour 
 ## Différents niveaux d'ouverture possibles
 
 - Au-delà, la publication de certains projets en _open source_ permet de valoriser le savoir-faire de l'Insee :
-  - _Packages_ `R` : `disaggR`, `btb`, `RJDemetra`...
+  - _Packages_ {{< fa brands r-project >}} : `disaggR`, `btb`, `RJDemetra`...
   - Eurostat systématise l'open source pour les travaux européens
   - une nécessité pour ne pas passer pour un passager clandestin vis-à-vis des communautés open source
   - un moyen d'assurer la transparence de nos méthodes (cf. code des bonnes pratiques et les standards de la science ouverte)
