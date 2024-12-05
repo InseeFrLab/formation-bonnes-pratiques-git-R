@@ -2837,125 +2837,94 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="application-5-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 5</h2>
+<section id="application-5-partie-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 5: partie 1</h2>
 <div>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 1 : Transition vers le stockage <code>S3</code></strong></p>
+<p><strong>Partie 1 : transition vers le stockage <code>S3</code></strong></p>
 </div>
 <div class="callout-content">
-<div class="justify">
-<p>Tout au long de la formation, on se plaçait déjà dans le paradigme <em>cloud</em> dans la mesure où l’on développait dans des <strong>conteneurs</strong> hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière “traditionnelle”, en important/exportant les fichiers depuis/vers le stockage <strong>local</strong> au conteneur. L’objectif de cet exercice est de <strong>faire la transition vers un stockage <em>cloud</em></strong>, en l’occurence le stockage de type <code>S3</code>.</p>
-</div>
-<ul>
-<li>En début de script, créer les chemins où les données pourront être trouvées sur <code>S3</code></li>
-</ul>
+<!-------
+Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de transitionner vers un stockage *cloud*, en l'occurence le stockage de type `S3`.
+---------->
+<ol type="1">
+<li>En début de script, créer les chemins où les données pourront être trouvées (voir ci-dessous)</li>
+<li>Créer un connecteur <code>Arrow</code> entre votre session <code>R</code> et l’espace de stockage <code>S3</code></li>
+</ol>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>bucket <span class="ot">&lt;-</span> <span class="fu">s3_bucket</span>(bucket_formation, <span class="at">endpoint_override =</span> <span class="fu">Sys.getenv</span>(<span class="st">"AWS_S3_ENDPOINT"</span>))</span>
+<span id="cb9-2"><a></a>bucket_path <span class="ot">&lt;-</span> bucket<span class="sc">$</span><span class="fu">path</span>(<span class="fu">paste0</span>(path_within_bucket, <span class="st">"/RPindividus"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Dans <code>main.R</code>, modifier les codes utilisant <code>open_dataset</code> pour remplacer les chemins par la variable <code>bucket_path</code>.</li>
+</ol>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<span id="cb10-2"><a></a>  bucket_path,</span>
+<span id="cb10-3"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
+<span id="cb10-4"><a></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a></a>  <span class="fu">filter</span>(REGION <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a></a>  <span class="fu">collect</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Si nécessaire, remplacer l’import du geojson</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>departements <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
+<span id="cb11-2"><a></a>  <span class="at">FUN =</span> sf<span class="sc">::</span>st_read, </span>
+<span id="cb11-3"><a></a>  <span class="at">object =</span> <span class="st">"france.geojson"</span>, </span>
+<span id="cb11-4"><a></a>  <span class="at">bucket =</span> <span class="fu">paste0</span>(bucket_formation, <span class="st">"/"</span>, path_within_bucket),</span>
+<span id="cb11-5"><a></a>  <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
+<span id="cb11-6"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<details>
+<summary>
+Connecteur pour la question 1
+</summary>
 <div class="panel-tabset">
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-6-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"projet-formation"</span></span>
-<span id="cb9-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/bonnes-pratiques/data"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"projet-formation"</span></span>
+<span id="cb12-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/bonnes-pratiques/data"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="tabset-6-2">
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"public"</span></span>
-<span id="cb10-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/ssplab-formation"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"public"</span></span>
+<span id="cb13-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/ssplab-formation"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<ul>
-<li>Créer un connecteur <code>Arrow</code> entre votre session <code>R</code> et le <em>bucket</em> de la formation sur <code>S3</code></li>
-</ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>bucket <span class="ot">&lt;-</span> <span class="fu">s3_bucket</span>(bucket_formation, <span class="at">endpoint_override =</span> <span class="fu">Sys.getenv</span>(<span class="st">"AWS_S3_ENDPOINT"</span>))</span>
-<span id="cb11-2"><a></a>bucket_path <span class="ot">&lt;-</span> bucket<span class="sc">$</span><span class="fu">path</span>(<span class="fu">paste0</span>(path_within_bucket, <span class="st">"/RPindividus"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><p>Analyser la structure du chemin des données, contenu dans la variable <code>bucket_path</code></p></li>
-<li><p>Dans <code>script.R</code>, modifier les codes utilisant <a href="https://arrow.apache.org/docs/r/reference/open_dataset.html">arrow::open_dataset</a> pour importer le fichier <code>data/RPindividus_partitionne.parquet</code> directement depuis <code>S3</code>.</p></li>
-<li><p>De même, modifier l’import du fichier <code>france.geojson</code> pour qu’il soit importé directement depuis <code>S3</code> grâce à la fonction <a href="https://rdrr.io/cran/aws.s3/man/s3read_using.html">aws.s3::s3read_using</a></p></li>
-</ul>
-<details>
-<summary>
-Solution
-</summary>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>departements <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
-<span id="cb12-2"><a></a>  <span class="at">FUN =</span> sf<span class="sc">::</span>st_read, </span>
-<span id="cb12-3"><a></a>  <span class="at">object =</span> <span class="st">"france.geojson"</span>, </span>
-<span id="cb12-4"><a></a>  <span class="at">bucket =</span> <span class="fu">paste0</span>(bucket_formation, <span class="st">"/"</span>, path_within_bucket),</span>
-<span id="cb12-5"><a></a>  <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
-<span id="cb12-6"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="checkpoint-8" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Checkpoint</h2>
-<div>
-<div class="callout callout-caution callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Checkpoint</strong></p>
-</div>
-<div class="callout-content">
-<div class="panel-tabset">
-<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-7-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
-<div class="tab-content">
-<div id="tabset-7-1">
-<ul>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part1/script_sspcloud.R"><code>script.R</code></a></li>
-</ul>
-</div>
-<div id="tabset-7-2">
-<ul>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part1/script_ls3.R"><code>script.R</code></a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="application-5-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 5</h2>
-<div>
+<section id="application-5-partie-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 5: partie 2</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 2 : Orchestrer sa chaîne de production</strong></p>
+<p><strong>Partie 2 : orchestrer sa chaîne de production</strong></p>
 </div>
 <div class="callout-content">
-<div class="justify">
-<p>Notre chaîne de production est encore sous la forme d’un unique <em>script</em>, exécuté interactivement. L’objectif de cette partie est de <strong>modéliser notre chaîne avec un script “chef d’orchestre” qui appelle différentes fonctions</strong>. Par ailleurs, on veut pouvoir exécuter ce script en mode <strong>batch</strong>.</p>
-</div>
+<p>Au fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d’un unique <em>script</em>.</p>
+<p>De manière générale, on a plutôt envie de modéliser les étapes d’une chaîne comme une série de fonctions, avec une fonction “cheffe d’orchestre” qui appelle les autres dans le bon ordre.</p>
+<div>
+<ol type="1">
+<li>Créer les scripts suivants:</li>
+</ol>
 <ul>
-<li><p>Créer les scripts <code>R/functions_import.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R">contenu</a>), <code>R/functions_stats_desc.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R">contenu</a>), <code>R/functions_models.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R">contenu</a>) et inspecter leur contenu</p></li>
-<li><p>Modifier <code>script.R</code> pour qu’il appelle les fonctions des scripts précédemment créés, avec les paramètres pertinents</p></li>
-<li><p>Renommer <code>script.R</code> en <code>main.R</code>, une convention qui permet de comprendre que le script est le <strong>“point d’entrée”</strong></p></li>
-<li><p>En vue de sortir du mode interactif et aller vers le <strong>mode batch</strong>, exécuter le script <code>main.R</code> via le terminal :</p></li>
+<li><code>R/functions_import.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R">contenu</a>)</li>
+<li><code>R/functions_stats_desc.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R">contenu</a>)</li>
+<li><code>R/functions_models.R</code> (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R">contenu</a>)</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="bu">cd</span> nom_du_projet</span>
-<span id="cb13-2"><a></a><span class="ex">Rscript</span> main.R <span class="op">&amp;&gt;</span> main.log  <span class="co"># Redirige stdout et stderr vers un fichier</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Analyser les <em>logs</em> générés dans le fichier <code>main.log</code>. Comment les rendre plus pertinents ?</li>
-</ul>
+<ol start="2" type="1">
+<li><p>Modifier <code>main.R</code> pour tenir compte de la modularisation (<a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R">version <i class="fa-brands fa-github" aria-label="github"></i> + sspcloud</a> ou <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud_ls3.R">version <i class="fa-brands fa-gitlab" aria-label="gitlab"></i> + LS3</a>)</p></li>
+<li><p>Passer la souris sur une des nouvelles fonctions et faire <kbd>F1</kbd></p></li>
+</ol>
 </div>
 </div>
 </div>
 </div>
-<div class="justify">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2965,198 +2934,57 @@ Solution
 <p><strong><code>targets</code>: un orchestrateur formel</strong></p>
 </div>
 <div class="callout-content">
-<p>On aurait pu également utiliser un <strong>orchestrateur</strong> dédié pour effectuer cette tâche, comme le package <a href="https://books.ropensci.org/targets/">targets</a>. Les plus curieux d’entre vous pourront aller voir <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/targets.qmd">le chapitre et les exercices</a> qui lui étaient auparavant dédiés dans cette formation.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="checkpoint-10" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Checkpoint</h2>
-<div>
-<div class="callout callout-caution callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Checkpoint</strong></p>
-</div>
-<div class="callout-content">
-<div class="panel-tabset">
-<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-8-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
-<div class="tab-content">
-<div id="tabset-8-1">
-<ul>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_ls3.R"><code>main.R</code></a></li>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R"><code>R/functions_import.R</code></a></li>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R"><code>R/functions_models.R</code></a></li>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R"><code>R/functions_stats_desc.R</code></a></li>
-</ul>
-</div>
-<div id="tabset-8-2">
-<ul>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R"><code>main.R</code></a></li>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R"><code>R/functions_import.R</code></a></li>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R"><code>R/functions_models.R</code></a></li>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R"><code>R/functions_stats_desc.R</code></a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
+<p>On aurait pu également utiliser un <strong>orchestrateur</strong> dédié pour effectuer cette tâche, comme le package <a href="https://books.ropensci.org/targets/">targets</a>. Les plus curieux d’entre vous pourront aller voir <a href="https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/data_pipelines.qmd">le chapitre et les exercices</a> qui lui étaient auparavant dédiés dans cette formation.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="application-5-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 5</h2>
-<div>
+<section id="application-5-partie-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 5: partie 3</h2>
+<div class="noincremental">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Partie 3 : ajout de contrôles de qualité des données</strong></p>
 </div>
 <div class="callout-content">
-<div class="justify">
-<p>Un critère de qualité majeur d’une chaîne de production est sa <strong>robustesse</strong>. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on peut <strong>ajouter des <em>contrôles sur la qualité des données</em>, en entrée et/ou en sortie de la chaîne</strong>.</p>
-</div>
-<ul>
-<li>Parcourir la documentation du package <a href="https://rstudio.github.io/pointblank/index.html">pointblank</a> pour comprendre sa philosophie générale et les fonctions de validation qu’il propose</li>
-<li>On propose d’implémenter le <em>pipeline</em> de validation suivant à la table individus du recensement. Essayer de comprendre chacune des étapes, en s’aidant de la documentation de <a href="https://rstudio.github.io/pointblank/index.html">pointblank</a> si nécessaire</li>
-</ul>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>df <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">row_count_match</span>(<span class="at">count =</span> <span class="dv">683166</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a></a>  <span class="fu">col_is_integer</span>(<span class="fu">c</span>(AGED, ANAI)) <span class="sc">|&gt;</span> </span>
-<span id="cb14-4"><a></a>  <span class="fu">col_is_numeric</span>(IPONDI) <span class="sc">|&gt;</span></span>
-<span id="cb14-5"><a></a>  <span class="fu">col_vals_in_set</span>(<span class="fu">c</span>(SEXE, COUPLE), <span class="at">set =</span> <span class="fu">c</span>(<span class="st">"1"</span>, <span class="st">"2"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb14-6"><a></a>  <span class="fu">col_vals_gt</span>(IPONDI, <span class="at">value =</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb14-7"><a></a>  <span class="fu">col_vals_between</span>(AGED, <span class="at">left =</span> <span class="dv">0</span>, <span class="at">right =</span> <span class="dv">115</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb14-8"><a></a>  <span class="fu">rows_distinct</span>(<span class="at">columns =</span> <span class="st">"NUMMI"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Implémenter le <em>pipeline</em> de validation décrit ci-dessus juste après l’import de la table individus du recensement, dans la fonction <code>import_recensement_subset</code></li>
-<li>Tester l’exécution de la fonction. Certaines étapes vont fonctionner, certaines vont renvoyer une erreur. A vous de décider des choix à opérer pour que le <em>pipeline</em> de validation fonctionne : modifier les contrôles, ou bien modifier les données avant les contrôles</li>
-<li>Une fois que la fonction complète s’exécute sans erreur, tester que la chaîne complète <code>main.R</code> s’exécute correctement</li>
-</ul>
+<p>Un critère de qualité majeur d’une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on va ajouter des contrôles sur la qualité des données, en entrée et en sortie de la chaîne.</p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="checkpoint-12" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Checkpoint</h2>
-<div>
-<div class="callout callout-caution callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Checkpoint</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>Le script <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part3/R/functions_import.R"><code>R/functions_import.R</code></a></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="checkpoint.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="application-5-4" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 5</h2>
-<div>
+<div class="noincremental">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 4 : versionnage de la chaîne</strong></p>
+<p><strong>Partie 4 : tests unitaires et versionnage de la chaîne</strong></p>
 </div>
 <div class="callout-content">
-<div class="justify">
-<p>Notre chaîne tourne à présent de manière robuste. Pour autant, ce n’est pas un objet fixe : on peut vouloir lui apporter des <strong>corrections</strong> ou des <strong>améliorations fonctionnelles</strong>. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va <strong>versionner la chaîne</strong>, afin de certifier le code qui la fait tourner sans erreur à un moment donné.</p>
-</div>
-<ul>
-<li>Vérifier que notre chaîne tourne correctement de bout en bout, c’est à dire que le script point d’entrée <code>main.R</code> s’exécute sans erreur. Si ce n’est pas le cas, corriger les erreurs restantes.</li>
-<li>Une fois que c’est le cas, <em>commit/push</em> les changements</li>
-<li>Appliquer un <em>tag</em> pour marquer le dernier commit d’un <strong>marqueur immuable</strong>. On peut par exemple utiliser la convention du <a href="https://semver.org/">versionnage sémantique</a> et donner pour tag <code>v1.0.0</code>. Mais d’autres conventions sont possibles (ex : millésime de la chaîne en production).</li>
-</ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="fu">git</span> tag <span class="at">-a</span> v1.0.0 <span class="at">-m</span> <span class="st">"Chaîne de production 2024 validée et fonctionnelle."</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Un tag annoté contient un ensemble d’informations utiles, les afficher avec la commande <code>git show v1.0.0</code></li>
-<li><em>Push</em> le tag sur le dépôt distant</li>
-</ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a></a><span class="fu">git</span> push origin v1.0.0</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Vérifier qu’il apparaît dans l’interface et qu’on retrouve ses informations</li>
-</ul>
+<p>Notre chaîne tourne à présent de manière robuste. Pour autant, ce n’est pas un objet fixe : on peut vouloir lui apporter des corrections ou des améliorations fonctionnelles. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va : - versionner la chaîne, afin de certifier le code qui la fait tourner sans erreur à un moment T - implémenter des tests unitaires, qui permettent de continuer à modifier la chaîne sans risquer de <strong>régressions</strong></p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="application-5-5" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 5</h2>
-<div>
+<div class="noincremental">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Partie 5 : un rapport reproductible pour documenter sa chaîne de production</strong></p>
 </div>
 <div class="callout-content">
-<div class="justify">
-<p>Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisation de sa chaîne est de documenter son fonctionnement. Le format <a href="https://quarto.org">quarto</a> — successeur de <code>R Markdown</code> — permet de reproduire facilement des <strong>rapports reproductibles, qui intègrent code et texte</strong>. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus <strong>interactif</strong> (<code>html</code>) aux plus classiques (<code>pdf</code>, <code>odt</code>, etc.).</p>
-</div>
-<ul>
-<li>Créer un fichier vierge <code>rapport.qmd</code> et y ajouter le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part5/rapport.qmd">ce fichier</a></li>
-<li>Analyser la structure du document. En particulier, essayer de comprendre la signification des paramètres <code>echo</code> et <code>warning</code> de l’en-tête en vous aidant de la <a href="https://quarto.org/docs/computations/execution-options.html">documentation</a></li>
-<li>Utiliser le bouton <code>Render</code> de l’interface <code>Rstudio</code>, équivalent à la commande suivante dans le terminal :</li>
-</ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a></a><span class="ex">quarto</span> render rapport.qmd <span class="at">--to</span> html</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Ouvrir le rendu interactif au format <code>HTML</code></li>
-<li>Une des forces de <code>quarto</code> est de pouvoir générer des sorties de différents types à très peu de frais. Pour vous en convaincre :
-<ul>
-<li>Changer le format de rendu de <code>html</code> à <code>pdf</code></li>
-<li>Remplacer la ligne <code>head(df, 100) |&gt; datatable(rownames = FALSE)</code> en <code>head(df, 5)</code> (la première est une sortie <code>HTML</code> interactive, qui ne peut donc naturellement pas être affichée dans un <code>pdf</code> statique)</li>
-<li>Utiliser à nouveau le bouton <code>Render</code> et vérifier le contenu du fichier <code>pdf</code> produit</li>
-</ul></li>
-<li><em>Commit/push</em> les fichiers <code>rapport.qmd</code>, <code>rapport.html</code> et le dossier <code>rapport_files</code>. Attention aux nombreux fichiers produits par le rendering ! Utiliser le <code>.gitignore</code> pour ne pas risquer de <em>commit</em> les mauvais fichiers par inadvertance</li>
-</ul>
+<p>Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisationde ses produits est de documenter son fonctionnement. Le format <a href="https://quarto.org">quarto</a> — successeur de <code>R Markdown</code> — permet de reproduire facilement des <strong>rapports reproductibles, qui intègrent code et texte</strong>. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus <strong>interactif</strong> (<code>html</code>) aux plus classiques (<code>pdf</code>, <code>odt</code>, etc.).</p>
 </div>
 </div>
 </div>
 </div>
-</section>
-<section id="application-5-6" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 5</h2>
-<div>
+<div class="noincremental">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Partie 6 (optionnelle) : automatiser la mise à disposition</strong></p>
+<p><strong>Partie 6 : automatiser la mise à disposition</strong></p>
 </div>
 <div class="callout-content">
-<div class="justify">
-<p>On dispose finalement d’une chaîne <strong>orchestrée, robuste et bien documentée</strong>. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va <strong>automatiser</strong> les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l’<strong>intégration continue</strong> proposés par <code>GitLab</code>.</p>
-</div>
-<ul>
-<li>Créer un fichier vierge <code>.gitlab-ci.yml</code> à la racine du projet et y ajouter le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part6/.gitlab-ci.yml">ce fichier</a></li>
-<li>Analyser la structure du document</li>
-<li><em>Commit/push</em> le fichier sur votre dépôt</li>
-<li>Ouvrir l’interface <code>GitLab</code> et vérifier qu’un <em>job</em> d’intégration continue s’est lancé</li>
-<li>Si le <em>job</em> s’est terminé sans erreur, ouvrir la page du rapport déployé</li>
-<li>Effectuer un changement sur le fichier <code>rapport.qmd</code>, <em>render</em> à nouveau, <em>commit</em> les changements, et vérifier que les changements se répercutent à la page déployée</li>
-</ul>
+<p>On dispose finalement d’une chaîne <strong>orchestrée, robuste et bien documentée</strong>. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va <strong>automatiser</strong> les étapes, de sorte à ce que les modifications apportées au projet se répércutent sur ses sorties. Pour cela, on va utiliser les outils de l’<strong>intégration continue</strong> proposés par <code>GitHub</code> / <code>GitLab</code>.</p>
 </div>
 </div>
 </div>

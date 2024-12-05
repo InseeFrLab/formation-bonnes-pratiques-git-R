@@ -994,67 +994,25 @@
     "text": "Dépasser le “mur de la production”\n\nL’opportunité d’organisations plus continues"
   },
   {
-    "objectID": "slides/complete.html#application-5-1",
-    "href": "slides/complete.html#application-5-1",
+    "objectID": "slides/complete.html#application-5-partie-1",
+    "href": "slides/complete.html#application-5-partie-1",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 5",
-    "text": "Application 5\n\n\n\n\nPartie 1 : Transition vers le stockage S3\n\n\n\nTout au long de la formation, on se plaçait déjà dans le paradigme cloud dans la mesure où l’on développait dans des conteneurs hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière “traditionnelle”, en important/exportant les fichiers depuis/vers le stockage local au conteneur. L’objectif de cet exercice est de faire la transition vers un stockage cloud, en l’occurence le stockage de type S3.\n\n\nEn début de script, créer les chemins où les données pourront être trouvées sur S3\n\n\n insee\n\n\nbucket_formation &lt;- \"projet-formation\"\npath_within_bucket &lt;- \"/bonnes-pratiques/data\"\n\n\nbucket_formation &lt;- \"public\"\npath_within_bucket &lt;- \"/ssplab-formation\"\n\n\n\n\nCréer un connecteur Arrow entre votre session R et le bucket de la formation sur S3\n\nbucket &lt;- s3_bucket(bucket_formation, endpoint_override = Sys.getenv(\"AWS_S3_ENDPOINT\"))\nbucket_path &lt;- bucket$path(paste0(path_within_bucket, \"/RPindividus\"))\n\nAnalyser la structure du chemin des données, contenu dans la variable bucket_path\nDans script.R, modifier les codes utilisant arrow::open_dataset pour importer le fichier data/RPindividus_partitionne.parquet directement depuis S3.\nDe même, modifier l’import du fichier france.geojson pour qu’il soit importé directement depuis S3 grâce à la fonction aws.s3::s3read_using\n\n\n\nSolution\n\ndepartements &lt;- aws.s3::s3read_using(\n  FUN = sf::st_read, \n  object = \"france.geojson\", \n  bucket = paste0(bucket_formation, \"/\", path_within_bucket),\n  opts = list(\"region\" = \"\")\n  )"
+    "section": "Application 5: partie 1",
+    "text": "Application 5: partie 1\n\n\n\n\nPartie 1 : transition vers le stockage S3\n\n\n\n\nEn début de script, créer les chemins où les données pourront être trouvées (voir ci-dessous)\nCréer un connecteur Arrow entre votre session R et l’espace de stockage S3\n\nbucket &lt;- s3_bucket(bucket_formation, endpoint_override = Sys.getenv(\"AWS_S3_ENDPOINT\"))\nbucket_path &lt;- bucket$path(paste0(path_within_bucket, \"/RPindividus\"))\n\nDans main.R, modifier les codes utilisant open_dataset pour remplacer les chemins par la variable bucket_path.\n\ndf &lt;- open_dataset(\n  bucket_path,\n  hive_style = TRUE\n) %&gt;%\n  filter(REGION == 24) %&gt;%\n  select(any_of(columns_subset)) %&gt;%\n  collect()\n\nSi nécessaire, remplacer l’import du geojson\n\ndepartements &lt;- aws.s3::s3read_using(\n  FUN = sf::st_read, \n  object = \"france.geojson\", \n  bucket = paste0(bucket_formation, \"/\", path_within_bucket),\n  opts = list(\"region\" = \"\")\n  )\n\n\n\nConnecteur pour la question 1\n\n\n insee\n\n\nbucket_formation &lt;- \"projet-formation\"\npath_within_bucket &lt;- \"/bonnes-pratiques/data\"\n\n\nbucket_formation &lt;- \"public\"\npath_within_bucket &lt;- \"/ssplab-formation\""
   },
   {
-    "objectID": "slides/complete.html#checkpoint-8",
-    "href": "slides/complete.html#checkpoint-8",
+    "objectID": "slides/complete.html#application-5-partie-2",
+    "href": "slides/complete.html#application-5-partie-2",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\n insee\n\n\n\nLe script script.R\n\n\n\n\nLe script script.R"
+    "section": "Application 5: partie 2",
+    "text": "Application 5: partie 2\n\n\n\nPartie 2 : orchestrer sa chaîne de production\n\n\nAu fil des chapitres précédents, nous avons appliqué un ensemble de bonnes pratiques à notre chaîne de production pour accroître sa qualité et sa maintenabilité. Néanmoins, celle-ci est encore sous la forme d’un unique script.\nDe manière générale, on a plutôt envie de modéliser les étapes d’une chaîne comme une série de fonctions, avec une fonction “cheffe d’orchestre” qui appelle les autres dans le bon ordre.\n\n\nCréer les scripts suivants:\n\n\nR/functions_import.R (contenu)\nR/functions_stats_desc.R (contenu)\nR/functions_models.R (contenu)\n\n\nModifier main.R pour tenir compte de la modularisation (version  + sspcloud ou version  + LS3)\nPasser la souris sur une des nouvelles fonctions et faire F1\n\n\n\n\n\n\n\n\n\n\n\ntargets: un orchestrateur formel\n\n\nOn aurait pu également utiliser un orchestrateur dédié pour effectuer cette tâche, comme le package targets. Les plus curieux d’entre vous pourront aller voir le chapitre et les exercices qui lui étaient auparavant dédiés dans cette formation."
   },
   {
-    "objectID": "slides/complete.html#application-5-2",
-    "href": "slides/complete.html#application-5-2",
+    "objectID": "slides/complete.html#application-5-partie-3",
+    "href": "slides/complete.html#application-5-partie-3",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 5",
-    "text": "Application 5\n\n\n\n\nPartie 2 : Orchestrer sa chaîne de production\n\n\n\nNotre chaîne de production est encore sous la forme d’un unique script, exécuté interactivement. L’objectif de cette partie est de modéliser notre chaîne avec un script “chef d’orchestre” qui appelle différentes fonctions. Par ailleurs, on veut pouvoir exécuter ce script en mode batch.\n\n\nCréer les scripts R/functions_import.R (contenu), R/functions_stats_desc.R (contenu), R/functions_models.R (contenu) et inspecter leur contenu\nModifier script.R pour qu’il appelle les fonctions des scripts précédemment créés, avec les paramètres pertinents\nRenommer script.R en main.R, une convention qui permet de comprendre que le script est le “point d’entrée”\nEn vue de sortir du mode interactif et aller vers le mode batch, exécuter le script main.R via le terminal :\n\ncd nom_du_projet\nRscript main.R &&gt; main.log  # Redirige stdout et stderr vers un fichier\n\nAnalyser les logs générés dans le fichier main.log. Comment les rendre plus pertinents ?\n\n\n\n\n\n\n\n\n\n\n\n\ntargets: un orchestrateur formel\n\n\nOn aurait pu également utiliser un orchestrateur dédié pour effectuer cette tâche, comme le package targets. Les plus curieux d’entre vous pourront aller voir le chapitre et les exercices qui lui étaient auparavant dédiés dans cette formation."
-  },
-  {
-    "objectID": "slides/complete.html#checkpoint-10",
-    "href": "slides/complete.html#checkpoint-10",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\n insee\n\n\n\nLe script main.R\nLe script R/functions_import.R\nLe script R/functions_models.R\nLe script R/functions_stats_desc.R\n\n\n\n\nLe script main.R\nLe script R/functions_import.R\nLe script R/functions_models.R\nLe script R/functions_stats_desc.R"
-  },
-  {
-    "objectID": "slides/complete.html#application-5-3",
-    "href": "slides/complete.html#application-5-3",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 5",
-    "text": "Application 5\n\n\n\n\nPartie 3 : ajout de contrôles de qualité des données\n\n\n\nUn critère de qualité majeur d’une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on peut ajouter des contrôles sur la qualité des données, en entrée et/ou en sortie de la chaîne.\n\n\nParcourir la documentation du package pointblank pour comprendre sa philosophie générale et les fonctions de validation qu’il propose\nOn propose d’implémenter le pipeline de validation suivant à la table individus du recensement. Essayer de comprendre chacune des étapes, en s’aidant de la documentation de pointblank si nécessaire\n\ndf |&gt;\n  row_count_match(count = 683166) |&gt;\n  col_is_integer(c(AGED, ANAI)) |&gt; \n  col_is_numeric(IPONDI) |&gt;\n  col_vals_in_set(c(SEXE, COUPLE), set = c(\"1\", \"2\")) |&gt;\n  col_vals_gt(IPONDI, value = 0) |&gt; \n  col_vals_between(AGED, left = 0, right = 115) |&gt; \n  rows_distinct(columns = \"NUMMI\")\n\nImplémenter le pipeline de validation décrit ci-dessus juste après l’import de la table individus du recensement, dans la fonction import_recensement_subset\nTester l’exécution de la fonction. Certaines étapes vont fonctionner, certaines vont renvoyer une erreur. A vous de décider des choix à opérer pour que le pipeline de validation fonctionne : modifier les contrôles, ou bien modifier les données avant les contrôles\nUne fois que la fonction complète s’exécute sans erreur, tester que la chaîne complète main.R s’exécute correctement"
-  },
-  {
-    "objectID": "slides/complete.html#checkpoint-12",
-    "href": "slides/complete.html#checkpoint-12",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Checkpoint",
-    "text": "Checkpoint\n\n\n\n\n\n\n\nCheckpoint\n\n\n\nLe script R/functions_import.R"
-  },
-  {
-    "objectID": "slides/complete.html#application-5-4",
-    "href": "slides/complete.html#application-5-4",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 5",
-    "text": "Application 5\n\n\n\n\nPartie 4 : versionnage de la chaîne\n\n\n\nNotre chaîne tourne à présent de manière robuste. Pour autant, ce n’est pas un objet fixe : on peut vouloir lui apporter des corrections ou des améliorations fonctionnelles. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va versionner la chaîne, afin de certifier le code qui la fait tourner sans erreur à un moment donné.\n\n\nVérifier que notre chaîne tourne correctement de bout en bout, c’est à dire que le script point d’entrée main.R s’exécute sans erreur. Si ce n’est pas le cas, corriger les erreurs restantes.\nUne fois que c’est le cas, commit/push les changements\nAppliquer un tag pour marquer le dernier commit d’un marqueur immuable. On peut par exemple utiliser la convention du versionnage sémantique et donner pour tag v1.0.0. Mais d’autres conventions sont possibles (ex : millésime de la chaîne en production).\n\ngit tag -a v1.0.0 -m \"Chaîne de production 2024 validée et fonctionnelle.\"\n\nUn tag annoté contient un ensemble d’informations utiles, les afficher avec la commande git show v1.0.0\nPush le tag sur le dépôt distant\n\ngit push origin v1.0.0\n\nVérifier qu’il apparaît dans l’interface et qu’on retrouve ses informations"
-  },
-  {
-    "objectID": "slides/complete.html#application-5-5",
-    "href": "slides/complete.html#application-5-5",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 5",
-    "text": "Application 5\n\n\n\n\nPartie 5 : un rapport reproductible pour documenter sa chaîne de production\n\n\n\nUne bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisation de sa chaîne est de documenter son fonctionnement. Le format quarto — successeur de R Markdown — permet de reproduire facilement des rapports reproductibles, qui intègrent code et texte. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus interactif (html) aux plus classiques (pdf, odt, etc.).\n\n\nCréer un fichier vierge rapport.qmd et y ajouter le contenu de ce fichier\nAnalyser la structure du document. En particulier, essayer de comprendre la signification des paramètres echo et warning de l’en-tête en vous aidant de la documentation\nUtiliser le bouton Render de l’interface Rstudio, équivalent à la commande suivante dans le terminal :\n\nquarto render rapport.qmd --to html\n\nOuvrir le rendu interactif au format HTML\nUne des forces de quarto est de pouvoir générer des sorties de différents types à très peu de frais. Pour vous en convaincre :\n\nChanger le format de rendu de html à pdf\nRemplacer la ligne head(df, 100) |&gt; datatable(rownames = FALSE) en head(df, 5) (la première est une sortie HTML interactive, qui ne peut donc naturellement pas être affichée dans un pdf statique)\nUtiliser à nouveau le bouton Render et vérifier le contenu du fichier pdf produit\n\nCommit/push les fichiers rapport.qmd, rapport.html et le dossier rapport_files. Attention aux nombreux fichiers produits par le rendering ! Utiliser le .gitignore pour ne pas risquer de commit les mauvais fichiers par inadvertance"
-  },
-  {
-    "objectID": "slides/complete.html#application-5-6",
-    "href": "slides/complete.html#application-5-6",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 5",
-    "text": "Application 5\n\n\n\n\nPartie 6 (optionnelle) : automatiser la mise à disposition\n\n\n\nOn dispose finalement d’une chaîne orchestrée, robuste et bien documentée. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va automatiser les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l’intégration continue proposés par GitLab.\n\n\nCréer un fichier vierge .gitlab-ci.yml à la racine du projet et y ajouter le contenu de ce fichier\nAnalyser la structure du document\nCommit/push le fichier sur votre dépôt\nOuvrir l’interface GitLab et vérifier qu’un job d’intégration continue s’est lancé\nSi le job s’est terminé sans erreur, ouvrir la page du rapport déployé\nEffectuer un changement sur le fichier rapport.qmd, render à nouveau, commit les changements, et vérifier que les changements se répercutent à la page déployée"
+    "section": "Application 5: partie 3",
+    "text": "Application 5: partie 3\n\n\n\n\nPartie 3 : ajout de contrôles de qualité des données\n\n\nUn critère de qualité majeur d’une chaîne de production est sa robustesse. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on va ajouter des contrôles sur la qualité des données, en entrée et en sortie de la chaîne.\n\n\n\n\n\n\n\n\nPartie 4 : tests unitaires et versionnage de la chaîne\n\n\nNotre chaîne tourne à présent de manière robuste. Pour autant, ce n’est pas un objet fixe : on peut vouloir lui apporter des corrections ou des améliorations fonctionnelles. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va : - versionner la chaîne, afin de certifier le code qui la fait tourner sans erreur à un moment T - implémenter des tests unitaires, qui permettent de continuer à modifier la chaîne sans risquer de régressions\n\n\n\n\n\n\n\n\nPartie 5 : un rapport reproductible pour documenter sa chaîne de production\n\n\nUne bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisationde ses produits est de documenter son fonctionnement. Le format quarto — successeur de R Markdown — permet de reproduire facilement des rapports reproductibles, qui intègrent code et texte. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus interactif (html) aux plus classiques (pdf, odt, etc.).\n\n\n\n\n\n\n\n\nPartie 6 : automatiser la mise à disposition\n\n\nOn dispose finalement d’une chaîne orchestrée, robuste et bien documentée. Afin d’en faire une chaîne vraiment intégrée de bout en bout, on va automatiser les étapes, de sorte à ce que les modifications apportées au projet se répércutent sur ses sorties. Pour cela, on va utiliser les outils de l’intégration continue proposés par GitHub / GitLab."
   },
   {
     "objectID": "slides/complete.html#ressources-supplémentaires-4",
