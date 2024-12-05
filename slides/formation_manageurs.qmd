@@ -61,7 +61,7 @@ conventionnellement acceptées comme produisant des logiciels [**fiables**]{.ora
 
 <br>
 
-L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur (notion de [*citizen developpers*]{.orange  }) :
+L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur (notion de [*citizen developers*]{.orange  }) :
 
 - projets [**intenses en code**]{.orange}
 
