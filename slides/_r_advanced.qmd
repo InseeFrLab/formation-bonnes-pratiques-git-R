@@ -414,9 +414,6 @@ Facilitée par [**l'éco-système *cloud***]{.orange}
 ![](img/ideal.png){height="450" fig-align="center"}
 
 
-
-
-
 ## Application 5: partie 1 {.smaller}
 
 :::: {.callout-tip .nonincremental collapse="true" icon=false}

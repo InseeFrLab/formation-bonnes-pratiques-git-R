@@ -29,7 +29,7 @@ build_sample <- function(n_samples=100000, bucket_input, path_input,
       opts = list("region" = "")
     )
 
-  df_subset <- data.table::setDT(df_parquet) %>%
+  df_subset <- data.table::setDT(df_parquet) |>
     dplyr::slice_sample(n=n_samples)
 
   aws.s3::s3write_using(

@@ -36,7 +36,7 @@ from: markdown+emoji
 ## Introduction
 
 * Version pour les _manageurs_ de la formation
-aux bonnes pratiques avec `R` et `Git`
+aux bonnes pratiques avec {{< fa brands r-project >}} et {{< fa brands git >}}
 
 ![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-boss/falcon.png){fig-align="center"}
 
@@ -45,266 +45,148 @@ aux bonnes pratiques avec `R` et `Git`
 
 # Introduction
 
-{{< include _intro.qmd >}}
+## Pourquoi les bonnes pratiques ?
+
+- [**Origine**]{.blue2} : communauté des développeurs logiciels
+
+- [**Constats**]{.blue2} :
+    - le [_"code est plus souvent lu qu'écrit"_]{.green2} ([Guido Van Rossum](https://fr.wikipedia.org/wiki/Guido_van_Rossum))
+    - la maintenance d'un code est très coûteuse
+
+- [**Conséquence**]{.blue2} : un ensemble de [**règles informelles**]{.orange},
+conventionnellement acceptées comme produisant des logiciels [**fiables**]{.orange}, [**évolutifs**]{.orange} et [**maintenables**]{.orange}
 
 
-## Vers un socle de bonnes pratiques ?
+## Pourquoi intéresser les statisticiens aux bonnes pratiques ? {.smaller}
 
 <br>
 
-:one: [**Qualité**]{.orange} du code et [**structure**]{.orange} des projets
+L'activité du statisticien / *datascientist* tend à se rapprocher de celle du développeur (notion de [*citizen developpers*]{.orange  }) :
 
+- projets [**intenses en code**]{.orange}
 
-:two: Les [**formats de données**]{.orange} de diffusion
+- [**projets collaboratifs**]{.orange} et de grande envergure
 
+- [**complexification**]{.orange} des données et donc des [**infrastructures**]{.orange}
 
+- [**déploiement**]{.orange} d'applications pour valoriser les analyses
 
-:three: Le [**contrôle de version**]{.orange}
 
+## Pourquoi intéresser les managers aux bonnes pratiques ? {.smaller}
 
-:four: Normes de [**sécurité**]{.orange}
 
-
-:five: [**Ouverture**]{.orange}
-
-
-# Partie 1 : Qualité du code et structure des projets
-
-## Enjeux
-
-- D'une vision utilitariste du code à une vision du code comme [**outil de communication**]{.orange}
-
-
-- Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
-
-
-- Faciliter la [**réutilisation**]{.orange}
-
-
-- Assurer la [__transparence__]{.orange} méthodologique
-
-
-## Principes généraux
-
-1. Adopter les [**standards communautaires**]{.orange}
-
-
-2. Utiliser des [**fonctions**]{.orange}
-
-
-3. [**Documenter**]{.orange} son code
-
-
-4. Indiquer les _packages_ utilisés afin d'éviter les [**conflits**]{.orange}
-
-
-## :one: Adopter les standards communautaires {.smaller}
-
-Deux outils pratiques aident à respecter les standards :
-
-1. [**_linter_**]{.orange} : programme qui vérifie que le code est __formellement__ conforme à un certain _guidestyle_
-    + signale problèmes formels, sans corriger 
-
-
-2. [**_formatter_**]{.orange} : programme qui reformate un code pour le rendre conforme à un certain _guidestyle_
-    + modifie directement le code
-
-::: {.callout-note}
-Il existe un **guide de référence** pour bien coder en `R` : le [Tidyverse style guide](https://style.tidyverse.org/index.html).
-:::
-
-
-## :two: Favoriser la modularité des projets {.smaller}
-
-- Favoriser l’utilisation de [**fonctions**]{.orange}
-  - [**Limite les risques d'erreur**]{.blue} liés aux copier/coller
-  - Rend le code plus [**lisible**]{.blue} et plus [**compact**]{.blue}
-  - [**Unicité**]{.blue} de la source de vérité
-
-- Les [**packages**]{.orange}
-  - Idéal pour favoriser la [**réutilisation**]{.blue} du code
-  - Coût de [**maintenance**]{.blue} élevé
-
-
-## :three: Documenter son code
-
-- Grands principes :
-  - Documenter le [__pourquoi__]{.orange} plutôt que le [__comment__]{.orange}
-  - Privilégier l'auto-documentation via des [**nommages pertinents**]{.orange}
-
-
-- Documenter le projet (contexte, objectifs, fonctionnement) dans un fichier `README`
-  - Quelques modèles : [utilitR](https://github.com/InseeFrLab/utilitR/blob/master/README.md), [DoReMIFaSol](https://github.com/InseeFrLab/DoReMIFaSol)
-
-# Partie 2: les formats de données
-
-## Enjeux
-
-- Le choix d'un format de données répond à un [**arbitrage**]{.orange} entre plusieurs critères :
-  - [**Finalité**]{.blue2} (traitement, analyse, diffusion)
-  - [**Public cible**]{.blue2}
-  - [**Volumétrie**]{.blue2}
-
-## Recommandations {.smaller}
-
-- Eviter impérativement les formats de données adhérents à un langage (`RDS`, `RData`, `fst`, `sas7bdat`, etc.).
-
-- Deux formats à privilégier :
-  - [**CSV**]{.orange} : pour la [**plupart des usages courants**]{.blue2}
-    - _Avantage_ : [**non-compressé**]{.blue2} donc facilement [**lisible**]{.blue2}
-    - _Inconvénients_ : pas de gestion des méta-données, peu adapté aux données volumineuses
-  - [**Parquet**]{.orange} : pour le traitement de [**données volumineuses**]{.blue2}
-    - [**Compressé**]{.blue2} et très [**performant**]{.blue2} en lecture/écriture
-    - Gestion native des méta-données
-
-
-# Partie 3 : Le contrôle de version
-
-
-## :one: Archiver son code proprement {auto-animate=true}
-
-pour en finir avec ça :
-
-![](img/fichiers_multiples.png)
-
-
-## :one: Archiver son code proprement {auto-animate=true}
-
-ou ça :
-
-![](img/finalfinal.png){fig-align="center"}
-
-
-## :one: Archiver son code proprement {auto-animate=true}
-
-ou encore ça :
-
-```{.python code-line-numbers="12-18"}
-prior <- read_csv(prior_path)
-prior <- prior %>%
-    select(id, proba_inter, proba_build, proba_rfl) %>%
-    separate(id, into = c('nidt', 'grid_id'), sep = ":") %>%
-    group_by(nidt) %>%
-    mutate(
-        proba_build = proba_build/sum(proba_build),
-        proba_rfl = proba_rfl/sum(proba_rfl),
-        ) %>%
-    unite(col = "id", nidt, grid_id, sep = ":")
-
-# Test
-# prior_test <- prior %>%
-#    mutate(
-#        proba_inter = round(proba_inter, 4)
-#        proba_build = round(proba_build, 4)
-#        proba_rfl = round(proba_rfl, 4)
-#    )
-
-write_csv(prior_round, "~/prior.csv")
-```
-
-## :one: Archiver son code proprement {auto-animate=true}
-
-Pour arriver à ça :
-
-![](img/timeline.png){fig-align="center" height=475}
-
-Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/)
-
-## :two: Voyager dans le temps (de votre projet)
-
-![](img/historique_utilitr.png){fig-align="center"}
-
-## Concepts {auto-animate=true}
-
-#### `Git`, `GitHub`, `GitLab`... quelles différences ?
-
-- `Git` est un **logiciel** ;
-- Utilisation en ligne de commandes
-- Différentes [__interfaces graphiques__]{.blue2} (`RStudio`, `VS Code`...)
-
-## Concepts {auto-animate=true}
-
-#### `Git`, `GitHub`, `GitLab`... quelles différences ?
-
-- `GitHub` et `GitLab` sont des **forges logicielles**
-- _Forge_: espace d'archivage de code
-- Des fonctionalités supplémentaires : __réseau social du code__
-
-:::{.callout-tip}
-
-- `GitHub` : utilisation pour les projets **open-source**
-- `GitLab` : utilisation pour les projets **internes**
-
-:::
-
-## Bonnes pratiques {auto-animate=true .smaller}
-
-__Que versionne-t-on ?__
-
-- Essentiellement du [**code source**]{.orange}
-- [__Pas d'outputs__]{.orange} (fichiers `.html`, `.pdf`, modèles...)
-- [__Pas de données__]{.orange}, d'informations locales ou sensibles
+- [__Projets en production__]{.orange} (automatisée ou ponctuelle) impliquent:
+  - La [__coordination__]{.blue2} entre plusieurs acteurs (aux niveaux techniques différents)
+  - La [__répétition__]{.blue2} d'opérations dans le temps 
+  - Des [__évolutions__]{.blue2} sur des maillons de chaînes, sans la déstabiliser
 
 . . .
 
-:::{.callout-note}
+- Le tout dans un __[environnement changeant]{.orange}__ (données, infrastructures, équipes...)
 
-Pour définir des règles qui évitent de _committer_ tel ou tel fichier, on utilise
-un fichier nommé __`.gitignore`__.
+. . .
 
-Si on mélange du code et des éléments
-annexes (_output_, données...) dans un même dossier, il [__faut consacrer du temps à ce fichier__]{.orange}.
+- Bonnes pratiques ({{< fa brands git >}} et {{< fa brands r-project >}}): manière de réduire le [__poids de la maintenance__]{.orange}
+  - Sans brider la phase d'expérimentation
 
-Des modèles de `.gitignore` existent sur internet, par exemple [celui-ci](https://www.toptal.com/developers/gitignore)
-pour les projets {{< fa brands r-project >}}.
+. . .
 
-N'hésitez pas à y ajouter des règles conservatrices (par exemple `*.csv`), 
-comme cela est expliqué dans [la documentation `utilitR`](https://book.utilitr.org/03_Fiches_thematiques/Fiche_git_utilisation.html#gitignore).
+- Erreur de ne pas penser ensemble les [__enjeux organisationnels, humains et techniques__]{.orange}
+  - Derrière le sujet technique, opportunité pour faire évoluer l'organisation...
+  - ... pour produire des statistiques plus nombreuses, de meilleure qualité, en souffrant moins
 
-:::
 
-## Bonnes pratiques {auto-animate=true .smaller}
 
-__Format des commits__
 
-::: {layout="[40,60]"}
+eedd
 
-- [**Fréquence**]{.orange}
-    - Aussi souvent que possible
-    - Le lot de modifications doit "avoir du sens"
-- [**Messages**]{.orange}
-    - Courts et informatifs (comme un titre de mail)
-    - Décrire **le pourquoi plutôt que le comment** dans le texte
 
-![](img/titre-commit.png)
+## Enjeux de la formation bonnes pratiques {auto-animate=true}
 
-:::
+Un point de départ commun
 
-## Ouverture vers la partie 4
+![](img/environment_messy.png)
 
-Nous nous sommes concentrés sur les briques:
+## Enjeux de la formation bonnes pratiques {auto-animate=true}
 
-:::: {.columns}
+Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align="right"}
 
-::: {.column width="60%"}
-* ["_Code R_"]{.blue2} 
-* ["_Données_"]{.blue2}
 
-:::
+Une structuration de projet plus viable
 
-::: {.column width="40%"}
 ![](img/environment_clean.png)
-:::
-
-::::
-
-- Mais besoin d'aller plus loin:
-    + ["_Code R_"]{.blue2} : besoin d'un environnement standardisé (`renv`)
-    + ["_Données_"]{.blue2}: enjeu de localisation (réseau, _cloud_, etc)
-    + ["_Configuration_"]{.blue2}: enjeu de la sécurité
 
 
-# L'élaboration d'une statistique
+## Messages clés de la formation aux agents
+
+<br>
+
+- Des [**standards communautaires**]{.orange} qui favorisent la [**reproductibilité**]{.blue2} et la [**maintenabilité**]{.blue2}
+
+- De multiples [**outils**]{.orange} pour simplifier leur mise en oeuvre
+
+- Un [**coût**]{.orange} d'autant plus faible que l'on se place [**en amont**]{.orange}
+
+- Le mouvement de [**modernisation du self**]{.orange} est l'occasion d'une [**montée en compétence collective**]{.blue2}
+
+
+## Lignes directrices de la formation aux agents {.smaller}
+
+<br>
+
+* 1️⃣ [__Versionner__]{.orange} son projet pour historiciser et archiver proprement
+
+. . .
+
+* 2️⃣ Construire des [__codes de qualité__]{.orange} (lisibles, reproductibles, auto-documentés...)
+
+. . .
+
+* 3️⃣ Adopter une [__structure modulaire__]{.orange} et évolutive
+
+. . .
+
+* 4️⃣ Utiliser des [__formats de données__]{.orange} adaptés
+
+. . .
+
+* 5️⃣ Comment construire des [__environnements reproductibles__]{.orange} 
+
+. . .
+
+* 6️⃣ Enjeux de la  [__mise en production__]{.orange}  de projets statistiques
+
+
+## Ressources communautaires {.smaller}
+
+- [**Canaux de discussion**]{.orange}
+    - À l'Insee
+        - Pour toute question sur [**Git**]{.blue2} : [Insee-Git-Gitlab](https://tchap.gouv.fr/#/room/#InseeGitGitlablPtu8f1Frns:agent.finances.tchap.gouv.fr)
+        - Pour toute question [**stat/self**]{.blue2} : [Insee - Outils Stats v2](https://tchap.gouv.fr/#/room/#InseeOutilsStatsv2wtxSdth:agent.finances.tchap.gouv.fr)
+        - Pour toute question spécifique à [**AUS/LS3**]{.blue2} : [Insee-DSI-Plateformes-Internes-Datascience](https://matrix.to/#/!bxlTbQgAEcLkRjoNPi:agent.finances.tchap.gouv.fr?via=agent.finances.tchap.gouv.fr&via=agent.agriculture.tchap.gouv.fr&via=agent.interieur.tchap.gouv.fr)
+    - Plus largement sur {{< fa brands r-project >}}
+        - Sur `Tchap` : [Langage R (Tchap)](https://tchap.gouv.fr/#/room/#RdIezwNF:agent.finances.tchap.gouv.fr)
+        - Sur `Slack` : [r-grrr](https://r-grrr.slack.com)
+
+- [**Documentation**]{.orange} 
+    - [Service datascience Insee](https://datascience.gitlab-pages.insee.fr/site-documentaire/accueil/)
+    - [UtilitR](https://book.utilitr.org/)
+
+- [**Formation**]{.orange} : [Espace formation du SSP Cloud](https://www.sspcloud.fr/formation)
+
+- [**Réseau data science**]{.orange} : [`SSPHub`](https://ssphub.netlify.app/)
+
+
+## Plan
+
+1. Présentation des enjeux avec des exemples concrets
+2. Qualité et structure des projets
+3. Pourquoi et comment faire du bon {{< fa brands git >}} ?
+4. Format et sécurité des données
+5. Ouverture à l'_open source_
+
+
+# Illustration: l'élaboration d'une statistique
 
 ## Le cas d'usage classique à l'Insee
 
@@ -313,12 +195,13 @@ Il faut distinguer deux types de processus de production :
 - celui qui est [**entièrement automatisé**]{.orange}, et où l'intervention humaine est limitée ;
 
 
-- celui qui nécessite du [__travail humain postérieur__]{.orange} de la part du statisticien, et donc fait l'objet de tâtonnements
+- celui qui nécessite du [__travail humain__]{.orange} (vérifications _ex post_ non automatisables, etc.) de la part du statisticien, et donc fait l'objet de tâtonnements :
+
   + calcul du taux de pauvreté avec [__ERFS et SRCV__]{.blue2} ;
   + micro-simulation avec le [__modèle INES__]{.blue2} ;
   + des processus de [__suivi conjoncturels__]{.blue2}...
   
-## Pourquoi `Git` répond-il bien aux enjeux de la production ? {.smaller}
+## Pourquoi {{< fa brands git >}} répond-il bien aux enjeux de la production ? {.smaller}
 
 ::: {h4}
 __Exemple avec calcul du taux de pauvreté dans [SRCV]{.blue2}__
@@ -332,14 +215,16 @@ Les tâtonnements supposent des allers et retours sur différentes hypothèses :
 - production de différentes [__variantes__]{.orange} que l'on veut pouvoir comparer les unes aux autres ;
 - comprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi.
 
-## Quels concepts ? {.smaller}
+## Quels concepts ? {.smaller .nonincremental}
 
 <br>
+
+::: {.nonincremental}
 
 - les [__variantes__]{.orange} peuvent se décliner sous la notion de [__branches__]{.orange} ;
 
 
-- en traçant l'ensemble des modifications du code, `Git` facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
+- en traçant l'ensemble des modifications du code, {{< fa brands git >}} facilite la complète [__reproductibilité__]{.orange} des tâtonnements ;
 
 
 - au travers de l'[__historique__]{.orange}, il permet de retracer l'ensemble du cheminement ;
@@ -348,14 +233,16 @@ Les tâtonnements supposent des allers et retours sur différentes hypothèses :
 - le `git blame` permet de voir qui a fait quoi ;
 
 
-- mais cela nécessite une [__discipline__]{.orange} sur l'usage de `Git`.
+- mais cela nécessite une [__discipline__]{.orange} sur l'usage de {{< fa brands git >}}.
+
+:::
 
 &#8658; deux notions essentielles : [__reproductibilité__]{.orange} et [__traçabilité__]{.orange}
 
 ## Gestion du cycle de vie d'un projet
 
 - [__Changement de paradigme__]{.blue2} : [**le code _self_ doit être maintenu**]{.orange}
-  * Changement de version de `R` et des _packages_ ;
+  * Changement de version de {{< fa brands r-project >}} et des _packages_ ;
   * Quelles solutions connaissez-vous ?
 
 
@@ -407,9 +294,228 @@ if (!requireNamespace("dplyr", quietly = TRUE)) {
     + sur [gitlab.insee.fr](https://gitlab.insee.fr).
 
 
-# Partie 4: Enjeux de sécurité
+# Qualité du code et structure des projets
 
-## Question
+
+## Enjeux
+
+- D'une vision utilitariste du code à une vision du code comme [**outil de communication**]{.orange}
+
+- Favoriser la [**lisibilité**]{.orange} et la [**maintenabilité**]{.orange}
+
+- Assurer la [__transparence__]{.orange} méthodologique
+
+- La [__modularité__]{.orange} pour éviter les monolithes
+
+
+## Les outils à recommander aux agents {.smaller}
+
+Deux outils pratiques aident à respecter les standards :
+
+1. [**_linter_**]{.orange} : programme qui vérifie que le code est __formellement__ conforme à un certain _guidestyle_
+    + signale problèmes formels, sans corriger 
+
+
+2. [**_formatter_**]{.orange} : programme qui reformate un code pour le rendre conforme à un certain _guidestyle_
+    + modifie directement le code
+
+::: {.callout-note}
+Il existe un **guide de référence** pour bien coder en {{< fa brands r-project >}} : le [Tidyverse style guide](https://style.tidyverse.org/index.html).
+:::
+
+
+## La modularité des projets {.smaller}
+
+- Favoriser l’utilisation de [**fonctions**]{.orange}
+  - [**Limite les risques d'erreur**]{.blue} liés aux copier/coller
+  - Rend le code plus [**lisible**]{.blue} et plus [**compact**]{.blue}
+  - [**Unicité**]{.blue} de la source de vérité
+
+- Les [**packages**]{.orange}
+  - Idéal pour favoriser la [**réutilisation**]{.blue} du code
+  - Coût de [**maintenance**]{.blue} élevé
+
+
+## Bien documenter
+
+- Grands principes :
+  - Documenter le [__pourquoi__]{.orange} plutôt que le [__comment__]{.orange}
+  - Privilégier l'auto-documentation via des [**nommages pertinents**]{.orange}
+
+
+- Documenter le projet (contexte, objectifs, fonctionnement) dans un fichier `README`
+  - Quelques modèles : [utilitR](https://github.com/InseeFrLab/utilitR/blob/master/README.md), [DoReMIFaSol](https://github.com/InseeFrLab/DoReMIFaSol)
+
+
+# Pourquoi et comment faire du bon `Git` ?
+
+
+## :one: Archiver son code proprement {auto-animate=true}
+
+pour en finir avec ça :
+
+![](img/fichiers_multiples.png)
+
+
+## :one: Archiver son code proprement {auto-animate=true}
+
+ou ça :
+
+![](img/finalfinal.png){fig-align="center"}
+
+
+## :one: Archiver son code proprement {auto-animate=true}
+
+ou encore ça :
+
+```{.python code-line-numbers="12-18"}
+prior <- read_csv(prior_path)
+prior <- prior |>
+    select(id, proba_inter, proba_build, proba_rfl) |>
+    separate(id, into = c('nidt', 'grid_id'), sep = ":") |>
+    group_by(nidt) |>
+    mutate(
+        proba_build = proba_build/sum(proba_build),
+        proba_rfl = proba_rfl/sum(proba_rfl),
+        ) |>
+    unite(col = "id", nidt, grid_id, sep = ":")
+
+# Test
+# prior_test <- prior |>
+#    mutate(
+#        proba_inter = round(proba_inter, 4)
+#        proba_build = round(proba_build, 4)
+#        proba_rfl = round(proba_rfl, 4)
+#    )
+
+write_csv(prior_round, "~/prior.csv")
+```
+
+## :one: Archiver son code proprement {auto-animate=true}
+
+Pour arriver à ça :
+
+![](img/timeline.png){fig-align="center" height=475}
+
+Source : [ThinkR](https://thinkr.fr/travailler-avec-git-via-rstudio-et-versionner-son-code/)
+
+## :two: Voyager dans le temps (de votre projet)
+
+![](img/historique_utilitr.png){fig-align="center"}
+
+## Concepts {auto-animate=true}
+
+#### `Git`, `GitHub`, `GitLab`... quelles différences ?
+
+- {{< fa brands git >}} est un **logiciel** ;
+- Utilisation en ligne de commandes
+- Différentes [__interfaces graphiques__]{.blue2} (`RStudio`, `VS Code`...)
+
+## Concepts {auto-animate=true}
+
+#### `Git`, `GitHub`, `GitLab`... quelles différences ?
+
+- `GitHub` et `GitLab` sont des **forges logicielles**
+- _Forge_: espace d'archivage de code
+- Des fonctionalités supplémentaires : __réseau social du code__
+
+:::{.callout-tip}
+
+- `GitHub` : utilisation pour les projets **open-source**
+- `GitLab` : utilisation pour les projets **internes**
+
+:::
+
+## Bonnes pratiques {auto-animate=true .smaller}
+
+__Que versionne-t-on ?__
+
+- Essentiellement du [**code source**]{.orange}
+- [__Pas d'outputs__]{.orange} (fichiers `.html`, `.pdf`, modèles...)
+- [__Pas de données__]{.orange}, d'informations locales ou sensibles
+
+. . .
+
+## Bonnes pratiques {auto-animate=true .smaller .nonincremental}
+
+__Format des commits__
+
+::: {layout="[40,60]"}
+
+- [**Fréquence**]{.orange}
+    - Aussi souvent que possible
+    - Le lot de modifications doit "avoir du sens"
+- [**Messages**]{.orange}
+    - Courts et informatifs (comme un titre de mail)
+    - Décrire **le pourquoi plutôt que le comment** dans le texte
+
+![](img/titre-commit.png)
+
+:::
+
+
+## Comment faire de la gestion de projets avec `Gitlab` ?
+
+::: {.nonincremental}
+
+- Allons voir un projet sur [`Gitlab` {{< fa brands gitlab >}}](https://gitlab.insee.fr/espace-charges-etudes/utilrp) !
+
+:::
+
+
+## Ouverture vers la suite
+
+Nous nous sommes concentrés sur la brique:
+
+:::: {.columns}
+
+::: {.column width="60%"}
+* ["_Code R_"]{.blue2} 
+
+:::
+
+::: {.column width="40%"}
+![](img/environment_clean.png)
+:::
+
+::::
+
+- Mais besoin d'aller plus loin:
+    + ["_Code R_"]{.blue2} : besoin d'un environnement standardisé (`renv`)
+    + ["_Données_"]{.blue2}: enjeu du format et de la localisation (réseau, _cloud_, etc)
+    + ["_Configuration_"]{.blue2}: enjeu de la sécurité
+
+
+# Bonnes pratiques relatives aux données
+
+## Enjeux du choix d'un format
+
+- Le choix d'un format de données répond à un [**arbitrage**]{.orange} entre plusieurs critères :
+  - [**Finalité**]{.blue2} (traitement, analyse, diffusion)
+  - [**Public cible**]{.blue2}
+  - [**Volumétrie**]{.blue2}
+
+## Recommandations de format {.smaller}
+
+- Eviter impérativement les formats de données adhérents à un langage (`RDS`, `RData`, `fst`, `sas7bdat`, etc.).
+
+- Deux formats à privilégier :
+  - [**CSV**]{.orange} : pour la [**plupart des usages courants**]{.blue2}
+    - _Avantage_ : [**non-compressé**]{.blue2} donc facilement [**lisible**]{.blue2}
+    - _Inconvénients_ : pas de gestion des méta-données, peu adapté aux données volumineuses
+  - [**Parquet**]{.orange} : pour le traitement de [**données volumineuses**]{.blue2}
+    - [**Compressé**]{.blue2} et très [**performant**]{.blue2} en lecture/écriture
+    - Gestion native des méta-données
+
+
+## Recommandations de format {.smaller}
+
+- Exemple sur les données du recensement:
+
+![](img/tableau-perf-parquet.png){fig-align="center" height="500"}
+
+
+## La sécurité: question
 
 ::: {.callout-note title="Question"}
 
@@ -422,7 +528,7 @@ if (!requireNamespace("dplyr", quietly = TRUE)) {
 - Mot de passe et jetons d'accès à des API  
   [**pas de mot de passe ni de jeton d'accès écrits dans le code**]{.orange}
 - Risques sur les données :
-  * **pas de données dans `Git`**
+  * **pas de données dans {{< fa brands git >}}**
   * **pas de compte d'accès commun à des bases de données**
   * **pas de données sensibles en dehors des environnements protégés**
 
@@ -480,7 +586,7 @@ connexion_clone <- do.call(dbConnect, args = c(connexion_details$clone[2:4],
 ## Stockage des données
 
 - Données sous forme de fichier :
-  * ne pas les mettre sous `Git` (utiliser le fichier `.gitignore`)
+  * ne pas les mettre sous {{< fa brands git >}} (utiliser le fichier `.gitignore`)
   * veiller à ce que les données sensibles ne prolifèrent pas.
 - Données dans des bases de données :
   * toujours se poser la question de l'opportunité de les dupliquer sous forme de fichier
@@ -493,7 +599,7 @@ On préférera toujours avoir des données stockées dans un unique espace pour 
 
 - Pour limiter les risques de sécurité, vaut-il mieux cacher son code à ses collègues ?
 - Quelle est la nature juridique des codes sources réalisés à l'Insee ?
-- `R`, `Python` et leurs _packages_ sont gratuits, comment est-ce possible ?
+- {{< fa brands r-project >}}, {{< fa brands python >}} et leurs _packages_ sont gratuits, comment est-ce possible ?
 - Connaissez-vous la science ouverte et ses standards ?
 
 ## La sécurité par l'obscurité
@@ -520,7 +626,7 @@ On préférera toujours avoir des données stockées dans un unique espace pour 
 ## Différents niveaux d'ouverture possibles
 
 - Au-delà, la publication de certains projets en _open source_ permet de valoriser le savoir-faire de l'Insee :
-  - _Packages_ `R` : `disaggR`, `btb`, `RJDemetra`...
+  - _Packages_ {{< fa brands r-project >}} : `disaggR`, `btb`, `RJDemetra`...
   - Eurostat systématise l'open source pour les travaux européens
   - une nécessité pour ne pas passer pour un passager clandestin vis-à-vis des communautés open source
   - un moyen d'assurer la transparence de nos méthodes (cf. code des bonnes pratiques et les standards de la science ouverte)

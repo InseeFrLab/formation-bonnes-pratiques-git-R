@@ -8,6 +8,15 @@ import_recensement_subset <- function(bucket_path, REGION, cols){
     select(any_of(cols)) |>
     collect()
   
+  # Pipeline de validation
+  df |>
+    row_count_match(count = 683144) |>
+    col_is_integer(c(AGED, ANAI)) |> 
+    col_is_numeric(IPONDI) |>
+    col_vals_in_set(c(SEXE, COUPLE), set = c("1", "2")) |>
+    col_vals_gt(IPONDI, value = 0) |> 
+    col_vals_between(AGED, left = 0, right = 120)
+  
   
   df <- df |>
     mutate(SEXE = as.character(SEXE)) |>
@@ -25,7 +34,7 @@ import_shapefile_departement <- function(path){
     bucket = path,
     opts = list("region" = "")
   )
-
+  
   return(departements)
 }
 

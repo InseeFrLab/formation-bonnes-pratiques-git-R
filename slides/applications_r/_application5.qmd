@@ -1,0 +1,271 @@
+## Application 5 {.smaller}
+
+:::: {.callout-tip .nonincremental collapse="true" icon=false .nonincremental}
+## Partie 1 : Transition vers le stockage `S3`
+
+::: {.justify}
+Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* dans la mesure où l'on développait dans des **conteneurs** hébergés sur des serveurs distants. Néanmoins, on a traité le stockage de manière "traditionnelle", en important/exportant les fichiers depuis/vers le stockage **local** au conteneur. L'objectif de cet exercice est de **faire la transition vers un stockage *cloud***, en l'occurence le stockage de type `S3`.
+:::
+
+* En début de script, créer les chemins où les données pourront être trouvées sur `S3`
+
+::: {.panel-tabset}
+
+## {{< fa brands github >}} 
+
+
+```{.r}
+bucket_formation <- "projet-formation"
+path_within_bucket <- "/bonnes-pratiques/data"
+```
+
+## {{< fa brands gitlab >}} insee
+
+
+```{.r}
+bucket_formation <- "public"
+path_within_bucket <- "/ssplab-formation"
+```
+
+:::
+
+* Créer un connecteur `Arrow` entre votre session `R` et le *bucket* de la formation sur `S3`
+
+```{.r}
+bucket <- s3_bucket(bucket_formation, endpoint_override = Sys.getenv("AWS_S3_ENDPOINT"))
+bucket_path <- bucket$path(paste0(path_within_bucket, "/RPindividus"))
+```
+
+* Analyser la structure du chemin des données, contenu dans la variable `bucket_path` 
+
+* Dans `script.R`, modifier les codes utilisant [arrow::open_dataset](https://arrow.apache.org/docs/r/reference/open_dataset.html) pour importer le fichier `data/RPindividus_partitionne.parquet` directement depuis `S3`. 
+
+* De même, modifier l'import du fichier `france.geojson` pour qu'il soit importé directement depuis `S3` grâce à la fonction [aws.s3::s3read_using](https://rdrr.io/cran/aws.s3/man/s3read_using.html)
+
+<details>
+<summary>
+Solution
+</summary>
+```{.r}
+departements <- aws.s3::s3read_using(
+  FUN = sf::st_read, 
+  object = "france.geojson", 
+  bucket = paste0(bucket_formation, "/", path_within_bucket),
+  opts = list("region" = "")
+  )
+```
+</details>
+
+::::
+
+
+## Checkpoint
+
+::: {.callout-caution .nonincremental}
+## Checkpoint
+
+::: {.panel-tabset}
+
+## {{< fa brands github >}} 
+
+* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part1/script_sspcloud.R)
+
+## {{< fa brands gitlab >}} insee
+
+* Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part1/script_ls3.R)
+
+:::
+
+![](checkpoint.jpg){width=40% fig-align="center"}
+
+:::
+
+
+
+
+## Application 5 {.smaller}
+
+:::: {.callout-tip collapse="true" icon=false .nonincremental}
+## Partie 2 : Orchestrer sa chaîne de production
+
+::: {.justify}
+Notre chaîne de production est encore sous la forme d'un unique *script*, exécuté interactivement. L'objectif de cette partie est de **modéliser notre chaîne avec un script "chef d'orchestre" qui appelle différentes fonctions**. Par ailleurs, on veut pouvoir exécuter ce script en mode **batch**.
+:::
+
+* Créer les scripts `R/functions_import.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R)), `R/functions_stats_desc.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R)), `R/functions_models.R` ([contenu](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R)) et inspecter leur contenu
+
+* Modifier `script.R` pour qu'il appelle les fonctions des scripts précédemment créés, avec les paramètres pertinents
+
+* Renommer `script.R` en `main.R`, une convention qui permet de comprendre que le script est le **"point d'entrée"**
+
+* En vue de sortir du mode interactif et aller vers le **mode batch**, exécuter le script `main.R` via le terminal :
+
+```bash
+cd nom_du_projet
+Rscript main.R &> main.log  # Redirige stdout et stderr vers un fichier
+```
+
+* Analyser les *logs* générés dans le fichier `main.log`. Comment les rendre plus pertinents ?
+
+:::::::
+
+
+
+::: {.callout-note .nonincremental .justify}
+## `targets`: un orchestrateur formel
+
+On aurait pu également utiliser un **orchestrateur** dédié pour effectuer cette tâche, comme le package [targets](https://books.ropensci.org/targets/). Les plus curieux d'entre vous pourront aller voir [le chapitre et les exercices](https://github.com/InseeFrLab/formation-bonnes-pratiques-git-R/blob/main/slides/legacy/targets.qmd) qui lui étaient auparavant dédiés dans cette formation.
+
+:::
+
+
+## Checkpoint
+
+::: {.callout-caution .nonincremental}
+## Checkpoint
+
+::: {.panel-tabset}
+
+## {{< fa brands github >}} 
+
+* Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_ls3.R)
+* Le script [`R/functions_import.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R)
+* Le script [`R/functions_models.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R)
+* Le script [`R/functions_stats_desc.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R)
+
+## {{< fa brands gitlab >}} insee
+
+* Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R)
+* Le script [`R/functions_import.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R)
+* Le script [`R/functions_models.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R)
+* Le script [`R/functions_stats_desc.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R)
+
+:::
+
+![](checkpoint.jpg){width=40% fig-align="center"}
+
+:::
+
+
+
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false .nonincremental}
+## Partie 3 : ajout de contrôles de qualité des données
+
+::: {.justify}
+Un critère de qualité majeur d'une chaîne de production est sa **robustesse**. Naturellement, les données en entrée de la chaîne peuvent évoluer dans le temps. Afin de gérer au mieux les risques posés par de telles évolutions, on peut **ajouter des *contrôles sur la qualité des données*, en entrée et/ou en sortie de la chaîne**.
+:::
+
+* Parcourir la documentation du package [pointblank](https://rstudio.github.io/pointblank/index.html) pour comprendre sa philosophie générale et les fonctions de validation qu'il propose
+* On propose d'implémenter le *pipeline* de validation suivant à la table individus du recensement. Essayer de comprendre chacune des étapes, en s'aidant de la documentation de [pointblank](https://rstudio.github.io/pointblank/index.html) si nécessaire
+
+```{.r}
+df |>
+  row_count_match(count = 683166) |>
+  col_is_integer(c(AGED, ANAI)) |> 
+  col_is_numeric(IPONDI) |>
+  col_vals_in_set(c(SEXE, COUPLE), set = c("1", "2")) |>
+  col_vals_gt(IPONDI, value = 0) |> 
+  col_vals_between(AGED, left = 0, right = 115) |> 
+  rows_distinct(columns = "NUMMI")
+```
+
+* Implémenter le *pipeline* de validation décrit ci-dessus juste après l'import de la table individus du recensement, dans la fonction `import_recensement_subset`
+* Tester l'exécution de la fonction. Certaines étapes vont fonctionner, certaines vont renvoyer une erreur. A vous de décider des choix à opérer pour que le *pipeline* de validation fonctionne : modifier les contrôles, ou bien modifier les données avant les contrôles
+* Une fois que la fonction complète s'exécute sans erreur, tester que la chaîne complète `main.R` s'exécute correctement
+
+:::
+
+
+## Checkpoint
+
+::: {.callout-caution .nonincremental}
+## Checkpoint
+
+* Le script [`R/functions_import.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part3/R/functions_import.R)
+
+![](checkpoint.jpg){width=40% fig-align="center"}
+
+:::
+
+
+
+
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false .nonincremental}
+## Partie 4 : versionnage de la chaîne
+
+::: {.justify}
+Notre chaîne tourne à présent de manière robuste. Pour autant, ce n'est pas un objet fixe : on peut vouloir lui apporter des **corrections** ou des **améliorations fonctionnelles**. Et ces modifications peuvent, à leur tour, provoquer des nouvelles erreurs. Pour gérer ces risques, on va **versionner la chaîne**, afin de certifier le code qui la fait tourner sans erreur à un moment donné.
+:::
+
+* Vérifier que notre chaîne tourne correctement de bout en bout, c'est à dire que le script point d'entrée `main.R` s'exécute sans erreur. Si ce n'est pas le cas, corriger les erreurs restantes.
+* Une fois que c'est le cas, *commit/push* les changements
+* Appliquer un *tag* pour marquer le dernier commit d'un **marqueur immuable**. On peut par exemple utiliser la convention du [versionnage sémantique](https://semver.org/) et donner pour tag `v1.0.0`. Mais d'autres conventions sont possibles (ex : millésime de la chaîne en production).
+
+```bash
+git tag -a v1.0.0 -m "Chaîne de production 2024 validée et fonctionnelle."
+```
+
+* Un tag annoté contient un ensemble d'informations utiles, les afficher avec la commande `git show v1.0.0`
+* *Push* le tag sur le dépôt distant
+
+```bash
+git push origin v1.0.0
+```
+
+* Vérifier qu'il apparaît dans l'interface et qu'on retrouve ses informations
+
+:::
+
+
+
+
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false .nonincremental}
+## Partie 5 : un rapport reproductible pour documenter sa chaîne de production
+
+::: {.justify}
+Une bonne manière de favoriser à la fois la maintenabilité de sa chaîne et la réutilisation de sa chaîne est de documenter son fonctionnement. Le format [quarto](https://quarto.org) — successeur de `R Markdown` — permet de reproduire facilement des **rapports reproductibles, qui intègrent code et texte**. En plus, ces rapports peuvent être facilement publiés en différents formats, du plus **interactif** (`html`) aux plus classiques (`pdf`, `odt`, etc.).
+:::
+
+* Créer un fichier vierge `rapport.qmd` et y ajouter le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part5/rapport.qmd)
+* Analyser la structure du document. En particulier, essayer de comprendre la signification des paramètres `echo` et `warning` de l'en-tête en vous aidant de la [documentation](https://quarto.org/docs/computations/execution-options.html)
+* Utiliser le bouton `Render` de l'interface `Rstudio`, équivalent à la commande suivante dans le terminal :
+
+```bash
+quarto render rapport.qmd --to html
+```
+
+* Ouvrir le rendu interactif au format `HTML`
+* Une des forces de `quarto` est de pouvoir générer des sorties de différents types à très peu de frais. Pour vous en convaincre :
+  + Changer le format de rendu de `html` à `pdf`
+  + Remplacer la ligne `head(df, 100) |> datatable(rownames = FALSE)` en `head(df, 5)` (la première est une sortie `HTML` interactive, qui ne peut donc naturellement pas être affichée dans un `pdf` statique)
+  + Utiliser à nouveau le bouton `Render` et vérifier le contenu du fichier `pdf` produit
+* *Commit/push* les fichiers `rapport.qmd`, `rapport.html` et le dossier `rapport_files`. Attention aux nombreux fichiers produits par le rendering ! Utiliser le `.gitignore` pour ne pas risquer de *commit* les mauvais fichiers par inadvertance
+
+:::
+
+
+
+
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false .nonincremental}
+## Partie 6 (optionnelle) : automatiser la mise à disposition
+
+::: {.justify}
+On dispose finalement d'une chaîne **orchestrée, robuste et bien documentée**. Afin d'en faire une chaîne vraiment intégrée de bout en bout, on va **automatiser** les étapes, de sorte à ce que les modifications apportées au projet se répercutent sur ses sorties. Pour cela, on va utiliser les outils de l'**intégration continue** proposés par `GitLab`.
+:::
+
+* Créer un fichier vierge `.gitlab-ci.yml` à la racine du projet et y ajouter le contenu de [ce fichier](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part6/.gitlab-ci.yml)
+* Analyser la structure du document
+* *Commit/push* le fichier sur votre dépôt
+* Ouvrir l'interface `GitLab` et vérifier qu'un *job* d'intégration continue s'est lancé
+* Si le *job* s'est terminé sans erreur, ouvrir la page du rapport déployé
+* Effectuer un changement sur le fichier `rapport.qmd`, *render* à nouveau, *commit* les changements, et vérifier que les changements se répercutent à la page déployée
+
+:::

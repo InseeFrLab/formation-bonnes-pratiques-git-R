@@ -18,7 +18,7 @@ df <- readr::read_csv(
 )
 
 
-df %>% group_by(AGED) %>% summarise(n = sum(IPONDI))
+df |> group_by(AGED) |> summarise(n = sum(IPONDI))
 
 decennie_a_partir_annee    = function(ANNEE){ return(ANNEE - ANNEE %%
                                                        10) }
@@ -27,23 +27,23 @@ ggplot(df) + geom_histogram(aes(x = 5*floor(as.numeric(AGED)/5), weight = IPONDI
 
 # correction (qu'il faudra retirer)
 # ggplot(
-#   df %>% group_by(aged, sexe) %>% summarise(SH_sexe = n()) %>% group_by(aged) %>% mutate(SH_sexe = SH_sexe/sum(SH_sexe)) %>% filter(sexe==1)
+#   df |> group_by(aged, sexe) |> summarise(SH_sexe = n()) |> group_by(aged) |> mutate(SH_sexe = SH_sexe/sum(SH_sexe)) |> filter(sexe==1)
 # ) + geom_bar(aes(x = as.numeric(aged), y = SH_sexe), stat="identity") + geom_point(aes(x = as.numeric(aged), y = SH_sexe), stat="identity", color = "red") + coord_cartesian(c(0,100))
 
 # stats trans par statut
-df3 = df %>% group_by(COUPLE, TRANS) %>% summarise(x = sum(IPONDI)) %>% group_by(COUPLE) %>% mutate(y = 100*x/sum(x))
+df3 = df |> group_by(COUPLE, TRANS) |> summarise(x = sum(IPONDI)) |> group_by(COUPLE) |> mutate(y = 100*x/sum(x))
 
 library(forcats)
-df <- df %>% mutate(SEXE = as.character(SEXE)) %>%
+df <- df |> mutate(SEXE = as.character(SEXE)) |>
   mutate(SEXE = fct_recode(SEXE, Homme = "1", Femme = "2"))
 
 p <- # part d'homme dans chaque cohort
-  df %>% 
-  group_by(AGED, SEXE) %>% 
-  summarise(SH_sexe = sum(IPONDI)) %>% 
-  group_by(AGED) %>% 
-  mutate(SH_sexe = SH_sexe/sum(SH_sexe)) %>% 
-  filter(SEXE=="Homme") %>%
+  df |> 
+  group_by(AGED, SEXE) |> 
+  summarise(SH_sexe = sum(IPONDI)) |> 
+  group_by(AGED) |> 
+  mutate(SH_sexe = SH_sexe/sum(SH_sexe)) |> 
+  filter(SEXE=="Homme") |>
   ggplot() + geom_bar(aes(x = AGED, y = SH_sexe), stat="identity") + geom_point(aes(x = AGED, y = SH_sexe), stat="identity", color = "red") + coord_cartesian(c(0,100))
 
 
@@ -66,15 +66,15 @@ fonction_de_stat_agregee(rnorm(10))
 fonction_de_stat_agregee(rnorm(10), "ecart-type")
 fonction_de_stat_agregee(rnorm(10), "variance")
 
-fonction_de_stat_agregee(df %>% filter(SEXE == "Homme") %>% pull(AGED))
-fonction_de_stat_agregee(df %>% filter(SEXE == "Femme") %>% pull(AGED))
+fonction_de_stat_agregee(df |> filter(SEXE == "Homme") |> pull(AGED))
+fonction_de_stat_agregee(df |> filter(SEXE == "Femme") |> pull(AGED))
 
 api_token <- "trotskitueleski$1917"
 
 # modelisation
 # library(MASS)
-df3=df%>%filter(SURF!="Z")%>%sample_n(1000)
-df3 <- df3 %>% mutate(SURF = factor(SURF, ordered=T))
-df3 %>% 
+df3=df|>filter(SURF!="Z")|>sample_n(1000)
+df3 <- df3 |> mutate(SURF = factor(SURF, ordered=T))
+df3 |> 
   filter(COUPLE == 2 & between(AGED, 40, 60))
 polr(SURF ~ factor(COUPLE) + factor(TP), df3)

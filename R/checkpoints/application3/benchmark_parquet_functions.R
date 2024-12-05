@@ -33,11 +33,11 @@ import_time_parquet <- function(path, col_names = NULL) {
   parquet_data <- open_dataset(path)
   
   if (!is.null(col_names)){
-    parquet_data <- parquet_data %>%
+    parquet_data <- parquet_data |>
       select(any_of(col_names))
   }
   
-  parquet_data <- parquet_data %>% collect()
+  parquet_data <- parquet_data |> collect()
   
   end_time <- Sys.time()
   diff_time <- end_time - start_time
@@ -48,7 +48,7 @@ import_time_parquet <- function(path, col_names = NULL) {
 
 
 import_time_parquet_partioned <- function(
-    path = "./data/RPindividus.parquet",
+    path = "data/RPindividus.parquet",
     col_names = NULL
 ){
   
@@ -57,15 +57,15 @@ import_time_parquet_partioned <- function(
   parquet_data <- open_dataset(
     path,
     hive_style = TRUE,
-  ) %>%
+  ) |>
     filter(region == "24")
   
   if (!is.null(col_names)){
-    parquet_data <- parquet_data %>%
+    parquet_data <- parquet_data |>
       select(any_of(col_names))
   }
   
-  parquet_data <- parquet_data %>% collect()
+  parquet_data <- parquet_data |> collect()
   diff_time <- Sys.time() - start
   
   return(diff_time)
@@ -123,35 +123,35 @@ create_results_df <- function(disk_usage, timings, dimensions) {
     )
   )
   
-  results_df <- results_df %>%
+  results_df <- results_df |>
     mutate(
       partitioned = case_when(
         (sample) & (grepl("partitionné", format)) ~ "✅️",
         (sample) & (format != "CSV" ) ~ "❌️",
         TRUE ~ ""
       )
-    ) %>%
+    ) |>
     mutate(
       format = gsub(" partitionné", "", format)
     )
   
-  results_df <- results_df %>%
-    mutate(disk = fs::fs_bytes(disk)) %>%
-    mutate(disk_bar = as.numeric(disk)) %>%
+  results_df <- results_df |>
+    mutate(disk = fs::fs_bytes(disk)) |>
+    mutate(disk_bar = as.numeric(disk)) |>
     mutate(
       import_bar = import,
       cols_bar = cols_number,
       rows_number_bar = rows_number
-    ) %>%
-    select(order(colnames(.))) %>%
-    mutate(cols = glue("_{cols}_ (**{cols_number}** colonnes)")) %>%
-    mutate(emo = if_else(format == "Parquet", "🐎", "🐢")) %>%
+    ) |>
+    select(order(colnames(.))) |>
+    mutate(cols = glue("_{cols}_ (**{cols_number}** colonnes)")) |>
+    mutate(emo = if_else(format == "Parquet", "🐎", "🐢")) |>
     select(
       emo, format, partitioned, cols, sample,
       starts_with("rows_"),
       starts_with("cols_"),
       everything()
-    ) %>%
+    ) |>
     arrange(desc(sample), desc(cols), format)
   
   return(results_df)
@@ -163,34 +163,34 @@ create_results_df <- function(disk_usage, timings, dimensions) {
 
 create_report_table <- function(df){
   
-  tab <- gt(results_df) %>%
+  tab <- gt(results_df) |>
     cols_hide(
       columns = c("sample", "cols_bar", "cols_number", "rows_number", "rows_number_bar")
-    ) %>%
-    fmt_markdown(columns = c('sample', 'cols')) %>%
-    fmt_number(columns = "import", decimals = 2) %>%
+    ) |>
+    fmt_markdown(columns = c('sample', 'cols')) |>
+    fmt_number(columns = "import", decimals = 2) |>
     gtExtras::gt_plt_bar(
       column = disk_bar,
       color = "#ff562c"
-    ) %>%
+    ) |>
     gtExtras::gt_plt_bar(
       column = cols_bar,
       color = "#ff562c"
-    ) %>%
+    ) |>
     gtExtras::gt_plt_bar(
       column = rows_number_bar,
       color = "#ff562c"
-    ) %>%
+    ) |>
     gtExtras::gt_plt_bar(
       column = import_bar,
       color = "#ff562c"
-    ) %>%
+    ) |>
     tab_spanner(
       label = md("**Configuration**"),
       columns = c("emo", "format", "partitioned", "cols", "sample", starts_with("cols_"), starts_with("rows_"))
-    ) %>%
-    tab_spanner(label = md("**Taille sur disque**<br>_(MiB ou GiB)_"), columns = starts_with("disk")) %>%
-    tab_spanner(label = md("**Vitesse à l'import**<br>_(secondes)_"), columns = starts_with("import")) %>%
+    ) |>
+    tab_spanner(label = md("**Taille sur disque**<br>_(MiB ou GiB)_"), columns = starts_with("disk")) |>
+    tab_spanner(label = md("**Vitesse à l'import**<br>_(secondes)_"), columns = starts_with("import")) |>
     cols_label(
       emo = "",
       format = "*Format du fichier*",
@@ -201,28 +201,28 @@ create_report_table <- function(df){
       import = "",
       ends_with("_bar") ~ "",
       .fn = md
-    ) %>%
+    ) |>
     tab_row_group(
       label = md(
         glue("**Seulement le Centre Val de Loire ({nrows} observations)**", nrows = format(dims_sample[1], big.mark=" "))
       ),
       rows = (sample == TRUE),
       id = "sample"
-    ) %>%
+    ) |>
     tab_row_group(
       label = md(
         glue("**Ensemble des données ({nrows} observations)**", nrows = format(dims_complete[1], big.mark=" "))
       ),
       rows = (sample == FALSE),
       id = "full"
-    ) %>%
+    ) |>
     tab_style(
       style = list(
         cell_fill(color = "#4758AB"),
         cell_text(color = "white")
       ),
       locations = cells_row_groups()
-    ) %>%
+    ) |>
     tab_style(
       style = list(
         cell_borders(
@@ -236,7 +236,7 @@ create_report_table <- function(df){
           rows = (format == "CSV" & cols != " _Toutes_ (**88** colonnes)")
         )
       )
-    ) %>%
+    ) |>
     tab_footnote(
       footnote = md("Poids de l'ensemble des données, y compris régions différentes"),
       locations = cells_body(
