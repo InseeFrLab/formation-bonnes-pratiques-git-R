@@ -1691,7 +1691,7 @@
     "href": "slides/manageurs.html#introduction",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Introduction",
-    "text": "Introduction\n\nVersion pour les manageurs de la formation aux bonnes pratiques avec R et Git\n\n\nRetour à la page d’accueil pour explorer les autres versions"
+    "text": "Introduction\n\nVersion pour les manageurs de la formation aux bonnes pratiques avec  et \n\n\nRetour à la page d’accueil pour explorer les autres versions"
   },
   {
     "objectID": "slides/manageurs.html#pourquoi-les-bonnes-pratiques",
@@ -1705,14 +1705,14 @@
     "href": "slides/manageurs.html#pourquoi-intéresser-les-statisticiens-aux-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Pourquoi intéresser les statisticiens aux bonnes pratiques ?",
-    "text": "Pourquoi intéresser les statisticiens aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et donc des infrastructures\ndéploiement d’applications pour valoriser les analyses"
+    "text": "Pourquoi intéresser les statisticiens aux bonnes pratiques ?\n\nL’activité du statisticien / datascientist tend à se rapprocher de celle du développeur (notion de citizen developpers) :\n\nprojets intenses en code\nprojets collaboratifs et de grande envergure\ncomplexification des données et donc des infrastructures\ndéploiement d’applications pour valoriser les analyses"
   },
   {
     "objectID": "slides/manageurs.html#pourquoi-intéresser-les-managers-aux-bonnes-pratiques",
     "href": "slides/manageurs.html#pourquoi-intéresser-les-managers-aux-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Pourquoi intéresser les managers aux bonnes pratiques ?",
-    "text": "Pourquoi intéresser les managers aux bonnes pratiques ?\n\nProjets en production (automatisée ou ponctuelle) impliquent:\n\nLa coordination entre plusieurs acteurs (aux niveaux techniques différents)\nLa répétition d’opérations dans le temps\nDes évolutions sur des maillons de chaînes, sans la déstabiliser\n\n\n\n\nLe tout dans un environnement changeant (données, infrastructures, équipes…)\n\n\n\n\nBonnes pratiques (Git et R): manière de réduire le poids de la maintenance\n\nSans brider la phase d’expérimentation\n\n\n\n\n\nErreur de ne pas penser ensemble les enjeux organisationnels, humains et techniques\n\nDerrière le sujet technique, opportunité pour faire évoluer l’organisation…\n… pour produire des statistiques plus nombreuses, de meilleure qualité, en souffrant moins\n\n\needd"
+    "text": "Pourquoi intéresser les managers aux bonnes pratiques ?\n\nProjets en production (automatisée ou ponctuelle) impliquent:\n\nLa coordination entre plusieurs acteurs (aux niveaux techniques différents)\nLa répétition d’opérations dans le temps\nDes évolutions sur des maillons de chaînes, sans la déstabiliser\n\n\n\n\nLe tout dans un environnement changeant (données, infrastructures, équipes…)\n\n\n\n\nBonnes pratiques ( et ): manière de réduire le poids de la maintenance\n\nSans brider la phase d’expérimentation\n\n\n\n\n\nErreur de ne pas penser ensemble les enjeux organisationnels, humains et techniques\n\nDerrière le sujet technique, opportunité pour faire évoluer l’organisation…\n… pour produire des statistiques plus nombreuses, de meilleure qualité, en souffrant moins\n\n\needd"
   },
   {
     "objectID": "slides/manageurs.html#enjeux-de-la-formation-bonnes-pratiques",
@@ -1747,42 +1747,42 @@
     "href": "slides/manageurs.html#ressources-communautaires",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Ressources communautaires",
-    "text": "Ressources communautaires\n\nCanaux de discussion\n\nA l’Insee\n\nPour toute question sur Git : Insee-Git-Gitlab\nPour toute question stat/self : Insee - Outils Stats v2\nPour toute question spécifique à AUS/LS3 : Insee-DSI-Plateformes-Internes-Datascience\n\nPlus largement sur R\n\nSur Tchap : Langage R (Tchap)\nSur Slack : r-grrr\n\n\nDocumentation\n\nService datascience Insee\nUtilitR\n\nFormation: Espace formation du SSP Cloud\nRéseau data science: SSPHub"
+    "text": "Ressources communautaires\n\nCanaux de discussion\n\nÀ l’Insee\n\nPour toute question sur Git : Insee-Git-Gitlab\nPour toute question stat/self : Insee - Outils Stats v2\nPour toute question spécifique à AUS/LS3 : Insee-DSI-Plateformes-Internes-Datascience\n\nPlus largement sur \n\nSur Tchap : Langage R (Tchap)\nSur Slack : r-grrr\n\n\nDocumentation\n\nService datascience Insee\nUtilitR\n\nFormation : Espace formation du SSP Cloud\nRéseau data science : SSPHub"
   },
   {
     "objectID": "slides/manageurs.html#plan",
     "href": "slides/manageurs.html#plan",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Plan",
-    "text": "Plan\n\nPrésentation des enjeux avec des exemples concrets\nQualité et structure des projets\nPourquoi et comment faire du bon Git ?\nFormat et sécurité des données\nOuverture à l’open source"
+    "text": "Plan\n\nPrésentation des enjeux avec des exemples concrets\nQualité et structure des projets\nPourquoi et comment faire du bon  ?\nFormat et sécurité des données\nOuverture à l’open source"
   },
   {
     "objectID": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
     "href": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le cas d’usage classique à l’Insee",
-    "text": "Le cas d’usage classique à l’Insee\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé, et où l’intervention humaine est limitée ;\ncelui qui nécessite du travail humain postérieur de la part du statisticien, et donc fait l’objet de tâtonnements\n\ncalcul du taux de pauvreté avec ERFS et SRCV ;\nmicro-simulation avec le modèle INES ;\ndes processus de suivi conjoncturels…"
+    "text": "Le cas d’usage classique à l’Insee\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé, et où l’intervention humaine est limitée ;\ncelui qui nécessite du travail humain (vérifications ex post non automatisables, etc.) de la part du statisticien, et donc fait l’objet de tâtonnements :\n\ncalcul du taux de pauvreté avec ERFS et SRCV ;\nmicro-simulation avec le modèle INES ;\ndes processus de suivi conjoncturels…"
   },
   {
-    "objectID": "slides/manageurs.html#pourquoi-git-répond-il-bien-aux-enjeux-de-la-production",
-    "href": "slides/manageurs.html#pourquoi-git-répond-il-bien-aux-enjeux-de-la-production",
+    "objectID": "slides/manageurs.html#pourquoi-répond-il-bien-aux-enjeux-de-la-production",
+    "href": "slides/manageurs.html#pourquoi-répond-il-bien-aux-enjeux-de-la-production",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Pourquoi Git répond-il bien aux enjeux de la production ?",
-    "text": "Pourquoi Git répond-il bien aux enjeux de la production ?\n\nExemple avec calcul du taux de pauvreté dans SRCV\n\n\nLes tâtonnements supposent des allers et retours sur différentes hypothèses :\n\nprise en compte évolutive des phénomènes affectant l’indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;\nproduction de différentes variantes que l’on veut pouvoir comparer les unes aux autres ;\ncomprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi."
+    "section": "Pourquoi  répond-il bien aux enjeux de la production ?",
+    "text": "Pourquoi  répond-il bien aux enjeux de la production ?\n\nExemple avec calcul du taux de pauvreté dans SRCV\n\n\nLes tâtonnements supposent des allers et retours sur différentes hypothèses :\n\nprise en compte évolutive des phénomènes affectant l’indicateur (défiscalisation de revenus, nouvelles prestations sociales, etc.) ;\nproduction de différentes variantes que l’on veut pouvoir comparer les unes aux autres ;\ncomprendre ce qui a été fait pour les précédentes productions, éventuellement qui a fait quoi."
   },
   {
     "objectID": "slides/manageurs.html#quels-concepts",
     "href": "slides/manageurs.html#quels-concepts",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Quels concepts ?",
-    "text": "Quels concepts ?\n\n\n\nles variantes peuvent se décliner sous la notion de branches ;\nen traçant l’ensemble des modifications du code, Git facilite la complète reproductibilité des tâtonnements ;\nau travers de l’historique, il permet de retracer l’ensemble du cheminement ;\nle git blame permet de voir qui a fait quoi ;\nmais cela nécessite une discipline sur l’usage de Git.\n\n\n⇒ deux notions essentielles : reproductibilité et traçabilité"
+    "text": "Quels concepts ?\n\n\n\nles variantes peuvent se décliner sous la notion de branches ;\nen traçant l’ensemble des modifications du code,  facilite la complète reproductibilité des tâtonnements ;\nau travers de l’historique, il permet de retracer l’ensemble du cheminement ;\nle git blame permet de voir qui a fait quoi ;\nmais cela nécessite une discipline sur l’usage de .\n\n\n⇒ deux notions essentielles : reproductibilité et traçabilité"
   },
   {
     "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
     "href": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Gestion du cycle de vie d’un projet",
-    "text": "Gestion du cycle de vie d’un projet\n\nChangement de paradigme : le code self doit être maintenu\n\nChangement de version de R et des packages ;\nQuelles solutions connaissez-vous ?\n\nrenv et la notion de lockfile\nanticiper les montées de version des logiciels :\n\non peut envisager un protocole pour cela"
+    "text": "Gestion du cycle de vie d’un projet\n\nChangement de paradigme : le code self doit être maintenu\n\nChangement de version de  et des packages ;\nQuelles solutions connaissez-vous ?\n\nrenv et la notion de lockfile\nanticiper les montées de version des logiciels :\n\non peut envisager un protocole pour cela"
   },
   {
     "objectID": "slides/manageurs.html#gestion-du-cycle-de-vie-dun-projet-renv",
@@ -1810,7 +1810,7 @@
     "href": "slides/manageurs.html#les-outils-à-recommander-aux-agents",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Les outils à recommander aux agents",
-    "text": "Les outils à recommander aux agents\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\nNote\n\n\nIl existe un guide de référence pour bien coder en R : le Tidyverse style guide."
+    "text": "Les outils à recommander aux agents\nDeux outils pratiques aident à respecter les standards :\n\nlinter : programme qui vérifie que le code est formellement conforme à un certain guidestyle\n\nsignale problèmes formels, sans corriger\n\nformatter : programme qui reformate un code pour le rendre conforme à un certain guidestyle\n\nmodifie directement le code\n\n\n\n\n\n\n\n\nNote\n\n\nIl existe un guide de référence pour bien coder en  : le Tidyverse style guide."
   },
   {
     "objectID": "slides/manageurs.html#la-modularité-des-projets",
@@ -1866,7 +1866,7 @@
     "href": "slides/manageurs.html#concepts",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Concepts",
-    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\nGit est un logiciel ;\nUtilisation en ligne de commandes\nDifférentes interfaces graphiques (RStudio, VS Code…)"
+    "text": "Concepts\nGit, GitHub, GitLab… quelles différences ?\n\n est un logiciel ;\nUtilisation en ligne de commandes\nDifférentes interfaces graphiques (RStudio, VS Code…)"
   },
   {
     "objectID": "slides/manageurs.html#concepts-1",
@@ -1936,7 +1936,7 @@
     "href": "slides/manageurs.html#risques",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Risques 👮",
-    "text": "Risques 👮\n\nMot de passe et jetons d’accès à des API\npas de mot de passe ni de jeton d’accès écrits dans le code\nRisques sur les données :\n\npas de données dans Git\npas de compte d’accès commun à des bases de données\npas de données sensibles en dehors des environnements protégés"
+    "text": "Risques 👮\n\nMot de passe et jetons d’accès à des API\npas de mot de passe ni de jeton d’accès écrits dans le code\nRisques sur les données :\n\npas de données dans \npas de compte d’accès commun à des bases de données\npas de données sensibles en dehors des environnements protégés"
   },
   {
     "objectID": "slides/manageurs.html#jetons-daccès-à-des-api",
@@ -1978,14 +1978,14 @@
     "href": "slides/manageurs.html#stockage-des-données",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Stockage des données",
-    "text": "Stockage des données\n\nDonnées sous forme de fichier :\n\nne pas les mettre sous Git (utiliser le fichier .gitignore)\nveiller à ce que les données sensibles ne prolifèrent pas.\n\nDonnées dans des bases de données :\n\ntoujours se poser la question de l’opportunité de les dupliquer sous forme de fichier\n\n\nOn préférera toujours avoir des données stockées dans un unique espace pour lequel les droits d’accès sont gérés individuellement."
+    "text": "Stockage des données\n\nDonnées sous forme de fichier :\n\nne pas les mettre sous  (utiliser le fichier .gitignore)\nveiller à ce que les données sensibles ne prolifèrent pas.\n\nDonnées dans des bases de données :\n\ntoujours se poser la question de l’opportunité de les dupliquer sous forme de fichier\n\n\nOn préférera toujours avoir des données stockées dans un unique espace pour lequel les droits d’accès sont gérés individuellement."
   },
   {
     "objectID": "slides/manageurs.html#quelques-questions-pour-commencer",
     "href": "slides/manageurs.html#quelques-questions-pour-commencer",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Quelques questions pour commencer",
-    "text": "Quelques questions pour commencer\n\nPour limiter les risques de sécurité, vaut-il mieux cacher son code à ses collègues ?\nQuelle est la nature juridique des codes sources réalisés à l’Insee ?\nR, Python et leurs packages sont gratuits, comment est-ce possible ?\nConnaissez-vous la science ouverte et ses standards ?"
+    "text": "Quelques questions pour commencer\n\nPour limiter les risques de sécurité, vaut-il mieux cacher son code à ses collègues ?\nQuelle est la nature juridique des codes sources réalisés à l’Insee ?\n,  et leurs packages sont gratuits, comment est-ce possible ?\nConnaissez-vous la science ouverte et ses standards ?"
   },
   {
     "objectID": "slides/manageurs.html#la-sécurité-par-lobscurité",
@@ -2013,6 +2013,6 @@
     "href": "slides/manageurs.html#différents-niveaux-douverture-possibles-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Différents niveaux d’ouverture possibles",
-    "text": "Différents niveaux d’ouverture possibles\n\nAu-delà, la publication de certains projets en open source permet de valoriser le savoir-faire de l’Insee :\n\nPackages R : disaggR, btb, RJDemetra…\nEurostat systématise l’open source pour les travaux européens\nune nécessité pour ne pas passer pour un passager clandestin vis-à-vis des communautés open source\nun moyen d’assurer la transparence de nos méthodes (cf. code des bonnes pratiques et les standards de la science ouverte)\n\n\nL’ensemble des bonnes pratiques qui ont été présentées sont issues de l’open source."
+    "text": "Différents niveaux d’ouverture possibles\n\nAu-delà, la publication de certains projets en open source permet de valoriser le savoir-faire de l’Insee :\n\nPackages  : disaggR, btb, RJDemetra…\nEurostat systématise l’open source pour les travaux européens\nune nécessité pour ne pas passer pour un passager clandestin vis-à-vis des communautés open source\nun moyen d’assurer la transparence de nos méthodes (cf. code des bonnes pratiques et les standards de la science ouverte)\n\n\nL’ensemble des bonnes pratiques qui ont été présentées sont issues de l’open source."
   }
 ]
