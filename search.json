@@ -473,7 +473,7 @@
     "href": "slides/complete.html#application-1-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 1 : vérification du bon fonctionnement du code\n\n\nUn code reproductible est avant toute chose un code fonctionnel !\n\nRepérez les erreurs qui empêchent le script script.R de s’exécuter correctement, et les corriger.\nRedémarrer votre session avec Session &gt; New Session (ou Ctrl+Maj+F10)\n\n\n\n\n\n\n\n\n\n\nLes pièges que cet exercice vous montre\n\n\n\n\nLes fonctions utilisées sans import des packages\nLes chemins et le working directory\nL’ordre des imports\nLes mauvaises pratiques de gestion de l’environnement (les bonnes pratiques arrivent dans les prochains exercices !)"
+    "text": "Application 1\n\n\n\nPartie 1 : vérification du bon fonctionnement du code\n\n\nUn code reproductible est avant toute chose un code fonctionnel !\n\nRepérez les erreurs qui empêchent le script script.R de s’exécuter correctement, et les corriger.\nRedémarrer votre session avec Session &gt; New Session (ou Ctrl+Maj+F10) et refaire tourner le code de A à Z. Avez-vous une erreur ?\n\n\n\n\n\n\n\n\n\n\nLes pièges que cet exercice vous montre\n\n\n\n\nLes fonctions utilisées sans import des packages\nLes chemins et le working directory\nL’ordre des imports\nLes mauvaises pratiques de gestion de l’environnement (les bonnes pratiques arrivent dans les prochains exercices !)"
   },
   {
     "objectID": "slides/complete.html#application-1-2",
@@ -1390,7 +1390,7 @@
     "href": "slides/light.html#application-1-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 1",
-    "text": "Application 1\n\n\n\nPartie 1 : vérification du bon fonctionnement du code\n\n\nUn code reproductible est avant toute chose un code fonctionnel !\n\nRepérez les erreurs qui empêchent le script script.R de s’exécuter correctement, et les corriger.\nRedémarrer votre session avec Session &gt; New Session (ou Ctrl+Maj+F10)\n\n\n\n\n\n\n\n\n\n\nLes pièges que cet exercice vous montre\n\n\n\n\nLes fonctions utilisées sans import des packages\nLes chemins et le working directory\nL’ordre des imports\nLes mauvaises pratiques de gestion de l’environnement (les bonnes pratiques arrivent dans les prochains exercices !)"
+    "text": "Application 1\n\n\n\nPartie 1 : vérification du bon fonctionnement du code\n\n\nUn code reproductible est avant toute chose un code fonctionnel !\n\nRepérez les erreurs qui empêchent le script script.R de s’exécuter correctement, et les corriger.\nRedémarrer votre session avec Session &gt; New Session (ou Ctrl+Maj+F10) et refaire tourner le code de A à Z. Avez-vous une erreur ?\n\n\n\n\n\n\n\n\n\n\nLes pièges que cet exercice vous montre\n\n\n\n\nLes fonctions utilisées sans import des packages\nLes chemins et le working directory\nL’ordre des imports\nLes mauvaises pratiques de gestion de l’environnement (les bonnes pratiques arrivent dans les prochains exercices !)"
   },
   {
     "objectID": "slides/light.html#application-1-2",
