@@ -1,4 +1,4 @@
-## Application 1 {.smaller}
+## Application 1 {.smaller .nonincremental}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 1 : vérification du bon fonctionnement du code
@@ -6,7 +6,7 @@
 Un code reproductible est avant toute chose un code fonctionnel !
 
 * Repérez les erreurs qui empêchent le script `script.R` de s’exécuter correctement, et les corriger.
-* Redémarrer votre session avec `Session` > `New Session` (ou <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>F10</kbd>)
+* Redémarrer votre session avec `Session` > `New Session` (ou <kbd>Ctrl</kbd>+<kbd>Maj</kbd>+<kbd>F10</kbd>) et refaire tourner le code de A à Z. Avez-vous une erreur ?
 
 :::
 
@@ -23,7 +23,7 @@ Un code reproductible est avant toute chose un code fonctionnel !
 :::
 
 
-## Application 1 {.smaller}
+## Application 1 {.smaller .nonincremental}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 2 : premiers standards de qualité
@@ -42,7 +42,7 @@ Un code reproductible est avant toute chose un code fonctionnel !
 
 [^install]: Les `install.packages` sont à faire en console et ne doivent pas être mis dans le script (justification dans la prochaine partie de cet exercice). 
 
-## Application 1 {.smaller}
+## Application 1 {.smaller .nonincremental}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 3 : une meilleure gestion des *packages* utilisés
@@ -74,7 +74,7 @@ Il vaut mieux gérer cela en changeant les options de {{< fa brands r-project >}
 
 :::
 
-## Application 1 {.smaller}
+## Application 1 {.smaller .nonincremental}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 4 : (auto-)documentation du code
@@ -95,7 +95,7 @@ _Au passage, vous pouvez changer les noms de certains objets pour les rendre moi
 
 :::
 
-## Application 1 {.smaller}
+## Application 1 {.smaller .nonincremental}
 
 :::{.callout-tip collapse="true" icon=false}
 ## Partie 5 : une meilleure gestion des [secrets]{.orange}
