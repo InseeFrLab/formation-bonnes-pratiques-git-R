@@ -194,7 +194,7 @@
 ::: {style="font-size: 70%; text-align: justify"}
 > "Les développeurs, quel que soit leur rôle, y voient de multiples avantages et un contexte dans lequel ils peuvent se former mutuellement, maintenir l'intégrité des bases de code de leurs équipes et créer, établir et faire évoluer des normes qui garantissent la lisibilité et la cohérence du code."
 >
-> Sadowski et al., *Modern code review: a case study at google* (2018)
+> [Sadowski et al., *Modern Code Review: a Case Study at Google* (2018)](https://dl.acm.org/doi/abs/10.1145/3183519.3183525)
 :::
 
 ## "Not just me"
