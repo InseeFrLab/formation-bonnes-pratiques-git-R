@@ -6,7 +6,7 @@ options(timeout = max(300, getOption("timeout")))
 
 filename_table_individu <- "data/RPindividus.parquet"
 system(
-  "mc cp s3/projet-formation/bonnes-pratiques/data/RPindividus.parquet data/RPindividus.parquet"
+  "mc cp s3/projet-formation/diffusion/bonnes-pratiques/data/RPindividus.parquet data/RPindividus.parquet"
 )
 
 # ALTERNATIVE EN CSV POUR LES BENCHMARKS -------------------------
@@ -42,7 +42,7 @@ arrow::write_parquet(rp24, "data/RPindividus_24.parquet")
 # 
 # url_table_individu <- "https://static.data.gouv.fr/resources/recensement-de-la-population-fichiers-detail-individus-localises-au-canton-ou-ville-2020-1/20231023-122841/fd-indcvi-2020.parquet"
 # filename_table_individu <- "data/RPindividus.parquet"
-# system("mc cp data/RPindividus.parquet s3/projet-formation/bonnes-pratiques/data/RPindividus.parquet")
+# system("mc cp data/RPindividus.parquet s3/projet-formation/diffusion/bonnes-pratiques/data/RPindividus.parquet")
 
 
 # Pour info, le CSV du RP complet a été créé de cette manière:
