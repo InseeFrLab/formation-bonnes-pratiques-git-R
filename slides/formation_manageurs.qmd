@@ -33,7 +33,7 @@ from: markdown+emoji
 
 
 
-## Introduction
+## Introduction {.nonincremental}
 
 * Version pour les _manageurs_ de la formation
 aux bonnes pratiques avec {{< fa brands r-project >}} et {{< fa brands git >}}
@@ -41,6 +41,17 @@ aux bonnes pratiques avec {{< fa brands r-project >}} et {{< fa brands git >}}
 ![](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-boss/falcon.png){fig-align="center"}
 
 [_Retour à la page d'accueil pour explorer les autres versions_](https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/)
+
+
+## Plan
+
+0. Messages principaux de la formation aux agents
+1. Présentation des enjeux avec des exemples concrets
+2. Qualité et structure des projets
+3. Pourquoi et comment faire du bon {{< fa brands git >}} ?
+4. Format et sécurité des données
+5. Ouverture à l'_open source_
+
 
 
 # Introduction
@@ -112,7 +123,7 @@ Un point de départ commun
 Un point de départ commun ![](img/environment_messy.png){width="10%" fig-align="right"}
 
 
-Une structuration de projet plus viable
+L'horizon désirable
 
 ![](img/environment_clean.png)
 
@@ -177,30 +188,42 @@ Une structuration de projet plus viable
 - [**Réseau data science**]{.orange} : [`SSPHub`](https://ssphub.netlify.app/)
 
 
-## Plan
-
-1. Présentation des enjeux avec des exemples concrets
-2. Qualité et structure des projets
-3. Pourquoi et comment faire du bon {{< fa brands git >}} ?
-4. Format et sécurité des données
-5. Ouverture à l'_open source_
-
-
 # Illustration: l'élaboration d'une statistique
 
-## Le cas d'usage classique à l'Insee
+## Le cas d'usage classique à l'Insee {.smaller}
 
 Il faut distinguer deux types de processus de production :
 
-- celui qui est [**entièrement automatisé**]{.orange}, et où l'intervention humaine est limitée ;
+- celui qui est [**entièrement automatisé**]{.orange} avec intervention humaine limitée ;
+
+- celui qui nécessite du [__travail humain__]{.orange} et fait l'objet de tâtonnements :
+    + Données en entrée non stables ; 
+    + Vérifications _ex post_ non automatisables...
+
+- Beaucoup de processus sont dans la zone grise:
+  - Enjeu de définition de la notion de production
+
+## Qu'est-ce que la production ? {.smaller}
+
+<br>
+
+* [__Mettre en production__]{.orange} : faire [**vivre**]{.blue2} un produit dans l’espace de ses utilisateurs
+  * Une base de données, une publication, une application...
+  * Notion simple mais mise en oeuvre compliquée !
+
+. . .
+
+* Insee: repose sur la séparation entre _"production"_ et _"libre service"_
+  * Les deux sont de la production !
+  * La différence est dans le besoin de contrôle à façon
+
+. . .
+
+* D'où l'enjeu de structuration de la chaîne et des contrôles qualité
+  * Ouverture vers la validation de données et le _data engineering_
+  * Enjeu de l'automatisation dans un contexte de réduction des délais, de multiplication des demandes...
 
 
-- celui qui nécessite du [__travail humain__]{.orange} (vérifications _ex post_ non automatisables, etc.) de la part du statisticien, et donc fait l'objet de tâtonnements :
-
-  + calcul du taux de pauvreté avec [__ERFS et SRCV__]{.blue2} ;
-  + micro-simulation avec le [__modèle INES__]{.blue2} ;
-  + des processus de [__suivi conjoncturels__]{.blue2}...
-  
 ## Pourquoi {{< fa brands git >}} répond-il bien aux enjeux de la production ? {.smaller}
 
 ::: {h4}

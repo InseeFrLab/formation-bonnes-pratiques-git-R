@@ -9,3 +9,5 @@ _targets/
 /.quarto/
 site_libs
 _site
+
+**/*.quarto_ipynb
