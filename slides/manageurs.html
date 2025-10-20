@@ -230,13 +230,24 @@ Pierre Lamarche
 </div>
 
 </section>
-<section id="introduction" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="introduction" class="slide level2 nonincremental" data-background-image="background.svg" data-background-size="contain">
 <h2>Introduction</h2>
 <ul>
 <li class="fragment">Version pour les <em>manageurs</em> de la formation aux bonnes pratiques avec <i class="fa-brands fa-r-project" aria-label="r-project"></i> et <i class="fa-brands fa-git" aria-label="git"></i></li>
 </ul>
 
 <img data-src="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/cards/version-boss/falcon.png" class="quarto-figure quarto-figure-center r-stretch"><p><a href="https://inseefrlab.github.io/formation-bonnes-pratiques-git-R/"><em>Retour à la page d’accueil pour explorer les autres versions</em></a></p>
+</section>
+<section id="plan" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Plan</h2>
+<ol start="0" type="1">
+<li class="fragment">Messages principaux de la formation aux agents</li>
+<li class="fragment">Présentation des enjeux avec des exemples concrets</li>
+<li class="fragment">Qualité et structure des projets</li>
+<li class="fragment">Pourquoi et comment faire du bon <i class="fa-brands fa-git" aria-label="git"></i> ?</li>
+<li class="fragment">Format et sécurité des données</li>
+<li class="fragment">Ouverture à l’<em>open source</em></li>
+</ol>
 </section>
 <section>
 <section id="introduction-1" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
@@ -308,7 +319,7 @@ Pierre Lamarche
 <section id="enjeux-de-la-formation-bonnes-pratiques-1" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title">Enjeux de la formation bonnes pratiques</h2>
 <p>Un point de départ commun <img data-src="img/environment_messy.png" class="quarto-figure quarto-figure-right" style="width:10.0%"></p>
-<p>Une structuration de projet plus viable</p>
+<p>L’horizon désirable</p>
 <p><img data-src="img/environment_clean.png"></p>
 </section>
 <section id="messages-clés-de-la-formation-aux-agents" class="slide level2" data-background-image="background.svg" data-background-size="contain">
@@ -378,34 +389,56 @@ Pierre Lamarche
 <li class="fragment"><p><span class="orange"><strong>Formation</strong></span> : <a href="https://www.sspcloud.fr/formation">Espace formation du SSP Cloud</a></p></li>
 <li class="fragment"><p><span class="orange"><strong>Réseau data science</strong></span> : <a href="https://ssphub.netlify.app/"><code>SSPHub</code></a></p></li>
 </ul>
-</section>
-<section id="plan" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Plan</h2>
-<ol type="1">
-<li class="fragment">Présentation des enjeux avec des exemples concrets</li>
-<li class="fragment">Qualité et structure des projets</li>
-<li class="fragment">Pourquoi et comment faire du bon <i class="fa-brands fa-git" aria-label="git"></i> ?</li>
-<li class="fragment">Format et sécurité des données</li>
-<li class="fragment">Ouverture à l’<em>open source</em></li>
-</ol>
 </section></section>
 <section>
 <section id="illustration-lélaboration-dune-statistique" class="title-slide slide level1 center" data-background-image="background.svg" data-background-size="contain">
 <h1>Illustration: l’élaboration d’une statistique</h1>
 
 </section>
-<section id="le-cas-dusage-classique-à-linsee" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<section id="le-cas-dusage-classique-à-linsee" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Le cas d’usage classique à l’Insee</h2>
 <p>Il faut distinguer deux types de processus de production :</p>
 <ul>
-<li class="fragment"><p>celui qui est <span class="orange"><strong>entièrement automatisé</strong></span>, et où l’intervention humaine est limitée ;</p></li>
-<li class="fragment"><p>celui qui nécessite du <span class="orange"><strong>travail humain</strong></span> (vérifications <em>ex post</em> non automatisables, etc.) de la part du statisticien, et donc fait l’objet de tâtonnements :</p>
+<li class="fragment"><p>celui qui est <span class="orange"><strong>entièrement automatisé</strong></span> avec intervention humaine limitée ;</p></li>
+<li class="fragment"><p>celui qui nécessite du <span class="orange"><strong>travail humain</strong></span> et fait l’objet de tâtonnements :</p>
 <ul>
-<li class="fragment">calcul du taux de pauvreté avec <span class="blue2"><strong>ERFS et SRCV</strong></span> ;</li>
-<li class="fragment">micro-simulation avec le <span class="blue2"><strong>modèle INES</strong></span> ;</li>
-<li class="fragment">des processus de <span class="blue2"><strong>suivi conjoncturels</strong></span>…</li>
+<li class="fragment">Données en entrée non stables ;</li>
+<li class="fragment">Vérifications <em>ex post</em> non automatisables…</li>
+</ul></li>
+<li class="fragment"><p>Beaucoup de processus sont dans la zone grise:</p>
+<ul>
+<li class="fragment">Enjeu de définition de la notion de production</li>
 </ul></li>
 </ul>
+</section>
+<section id="quest-ce-que-la-production" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Qu’est-ce que la production ?</h2>
+<p><br></p>
+<ul>
+<li class="fragment"><span class="orange"><strong>Mettre en production</strong></span> : faire <span class="blue2"><strong>vivre</strong></span> un produit dans l’espace de ses utilisateurs
+<ul>
+<li class="fragment">Une base de données, une publication, une application…</li>
+<li class="fragment">Notion simple mais mise en oeuvre compliquée !</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li class="fragment">Insee: repose sur la séparation entre <em>“production”</em> et <em>“libre service”</em>
+<ul>
+<li class="fragment">Les deux sont de la production !</li>
+<li class="fragment">La différence est dans le besoin de contrôle à façon</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">D’où l’enjeu de structuration de la chaîne et des contrôles qualité
+<ul>
+<li class="fragment">Ouverture vers la validation de données et le <em>data engineering</em></li>
+<li class="fragment">Enjeu de l’automatisation dans un contexte de réduction des délais, de multiplication des demandes…</li>
+</ul></li>
+</ul>
+</div>
 </section>
 <section id="pourquoi-répond-il-bien-aux-enjeux-de-la-production" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Pourquoi <i class="fa-brands fa-git" aria-label="git"></i> répond-il bien aux enjeux de la production ?</h2>

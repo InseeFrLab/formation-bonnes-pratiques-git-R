@@ -1652,6 +1652,13 @@
     "text": "Introduction\n\nVersion pour les manageurs de la formation aux bonnes pratiques avec  et \n\n\nRetour à la page d’accueil pour explorer les autres versions"
   },
   {
+    "objectID": "slides/manageurs.html#plan",
+    "href": "slides/manageurs.html#plan",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Plan",
+    "text": "Plan\n\nMessages principaux de la formation aux agents\nPrésentation des enjeux avec des exemples concrets\nQualité et structure des projets\nPourquoi et comment faire du bon  ?\nFormat et sécurité des données\nOuverture à l’open source"
+  },
+  {
     "objectID": "slides/manageurs.html#pourquoi-les-bonnes-pratiques",
     "href": "slides/manageurs.html#pourquoi-les-bonnes-pratiques",
     "title": "Bonnes pratiques pour les projets statistiques",
@@ -1684,7 +1691,7 @@
     "href": "slides/manageurs.html#enjeux-de-la-formation-bonnes-pratiques-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Enjeux de la formation bonnes pratiques",
-    "text": "Enjeux de la formation bonnes pratiques\nUn point de départ commun \nUne structuration de projet plus viable"
+    "text": "Enjeux de la formation bonnes pratiques\nUn point de départ commun \nL’horizon désirable"
   },
   {
     "objectID": "slides/manageurs.html#messages-clés-de-la-formation-aux-agents",
@@ -1708,18 +1715,18 @@
     "text": "Ressources communautaires\n\nCanaux de discussion\n\nÀ l’Insee\n\nPour toute question sur Git : Insee-Git-Gitlab\nPour toute question stat/self : Insee - Outils Stats v2\nPour toute question spécifique à AUS/LS3 : Insee-DSI-Plateformes-Internes-Datascience\n\nPlus largement sur \n\nSur Tchap : Langage R (Tchap)\nSur Slack : r-grrr\n\n\nDocumentation\n\nService datascience Insee\nUtilitR\n\nFormation : Espace formation du SSP Cloud\nRéseau data science : SSPHub"
   },
   {
-    "objectID": "slides/manageurs.html#plan",
-    "href": "slides/manageurs.html#plan",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Plan",
-    "text": "Plan\n\nPrésentation des enjeux avec des exemples concrets\nQualité et structure des projets\nPourquoi et comment faire du bon  ?\nFormat et sécurité des données\nOuverture à l’open source"
-  },
-  {
     "objectID": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
     "href": "slides/manageurs.html#le-cas-dusage-classique-à-linsee",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Le cas d’usage classique à l’Insee",
-    "text": "Le cas d’usage classique à l’Insee\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé, et où l’intervention humaine est limitée ;\ncelui qui nécessite du travail humain (vérifications ex post non automatisables, etc.) de la part du statisticien, et donc fait l’objet de tâtonnements :\n\ncalcul du taux de pauvreté avec ERFS et SRCV ;\nmicro-simulation avec le modèle INES ;\ndes processus de suivi conjoncturels…"
+    "text": "Le cas d’usage classique à l’Insee\nIl faut distinguer deux types de processus de production :\n\ncelui qui est entièrement automatisé avec intervention humaine limitée ;\ncelui qui nécessite du travail humain et fait l’objet de tâtonnements :\n\nDonnées en entrée non stables ;\nVérifications ex post non automatisables…\n\nBeaucoup de processus sont dans la zone grise:\n\nEnjeu de définition de la notion de production"
+  },
+  {
+    "objectID": "slides/manageurs.html#quest-ce-que-la-production",
+    "href": "slides/manageurs.html#quest-ce-que-la-production",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Qu’est-ce que la production ?",
+    "text": "Qu’est-ce que la production ?\n\n\nMettre en production : faire vivre un produit dans l’espace de ses utilisateurs\n\nUne base de données, une publication, une application…\nNotion simple mais mise en oeuvre compliquée !\n\n\n\n\nInsee: repose sur la séparation entre “production” et “libre service”\n\nLes deux sont de la production !\nLa différence est dans le besoin de contrôle à façon\n\n\n\n\n\nD’où l’enjeu de structuration de la chaîne et des contrôles qualité\n\nOuverture vers la validation de données et le data engineering\nEnjeu de l’automatisation dans un contexte de réduction des délais, de multiplication des demandes…"
   },
   {
     "objectID": "slides/manageurs.html#pourquoi-répond-il-bien-aux-enjeux-de-la-production",
