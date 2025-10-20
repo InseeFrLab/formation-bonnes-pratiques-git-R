@@ -6,10 +6,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.31">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Romain Avouac, Lino Galiana">
   <title>Formation aux bonnes pratiques `Git` et `R` – Bonnes pratiques pour les projets statistiques</title>
@@ -97,7 +97,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-7230c0af59ab1606bc2ed49e76979e8e.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ea8535d309a38c52e88d69daf30b07d0.css">
   <link rel="stylesheet" href="_extensions/InseeFrLab/onyxia/logo.css">
   <link rel="stylesheet" href="custom.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -325,7 +325,7 @@
 <section id="archiver-son-code-proprement-2" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
 <p>ou encore ça :</p>
-<div class="sourceCode" id="cb1" data-code-line-numbers="12-18"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb1-1" class="hljs-ln-code"><a></a>prior <span class="op">&lt;-</span> read_csv(prior_path)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-code-line-numbers="12-18"><pre class="sourceCode numberSource python number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode python hljs"><span id="cb1-1" class="hljs-ln-code"><a></a>prior <span class="op">&lt;-</span> read_csv(prior_path)</span>
 <span id="cb1-2" class="hljs-ln-code"><a></a>prior <span class="op">&lt;-</span> prior <span class="op">|&gt;</span></span>
 <span id="cb1-3" class="hljs-ln-code"><a></a>    select(<span class="bu">id</span>, proba_inter, proba_build, proba_rfl) <span class="op">|&gt;</span></span>
 <span id="cb1-4" class="hljs-ln-code"><a></a>    separate(<span class="bu">id</span>, into <span class="op">=</span> c(<span class="st">'nidt'</span>, <span class="st">'grid_id'</span>), sep <span class="op">=</span> <span class="st">":"</span>) <span class="op">|&gt;</span></span>
@@ -344,7 +344,7 @@
 <span id="cb1-17" class="hljs-ln-code"><a></a><span class="co">#        proba_rfl = round(proba_rfl, 4)</span></span>
 <span id="cb1-18" class="hljs-ln-code"><a></a><span class="co">#    )</span></span>
 <span id="cb1-19" class="hljs-ln-code"><a></a></span>
-<span id="cb1-20" class="hljs-ln-code"><a></a>write_csv(prior_round, <span class="st">"~/prior.csv"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-20" class="hljs-ln-code"><a></a>write_csv(prior_round, <span class="st">"~/prior.csv"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="archiver-son-code-proprement-3" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title"><span class="emoji" data-emoji="one">1️⃣</span> Archiver son code proprement</h2>
@@ -1931,12 +1931,12 @@ if (x_is_not_empty_string) {
 <p><strong>Exemple d’une requête <em>lazy</em></strong></p>
 </div>
 <div class="callout-content">
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>n_logements_depcom <span class="ot">&lt;-</span> achille <span class="sc">|&gt;</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>n_logements_depcom <span class="ot">&lt;-</span> achille <span class="sc">|&gt;</span> </span>
 <span id="cb7-2"><a></a>  <span class="fu">filter</span>(dep <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"01"</span>, <span class="st">"02"</span>, <span class="st">"03"</span>)) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les données nécessaires</span></span>
 <span id="cb7-3"><a></a>  <span class="fu">select</span>(idlogement, depcom) <span class="sc">|&gt;</span>  <span class="co"># Récupère seulement les colonnes nécessaires</span></span>
 <span id="cb7-4"><a></a>  <span class="fu">group_by</span>(depcom) <span class="sc">|&gt;</span></span>
 <span id="cb7-5"><a></a>  <span class="fu">summarise</span>(<span class="at">n_logements =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span>  </span>
-<span id="cb7-6"><a></a>  <span class="fu">collect</span>()  <span class="co"># Les calculs ne sont effectués qu'à cette étape !</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a></a>  <span class="fu">collect</span>()  <span class="co"># Les calculs ne sont effectués qu'à cette étape !</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2005,10 +2005,10 @@ if (x_is_not_empty_string) {
 <li>Pour effectuer les comparaisons de performance, on va utiliser la fonction <a href="https://bench.r-lib.org/#benchmark">bench::mark</a>. Analyser la documentation pour comprendre ce que la fonction attend en entrée.</li>
 <li>La requête suivante permet de calculer les données pour construire une pyramide des âges sur un département donné, à partir du fichier <code>CSV</code> du recensement. Encapsuler la requête dans une fonction <code>req_csv</code> (sans argument).</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>res <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/RPindividus_24.csv"</span>) <span class="sc">|&gt;</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>res <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/RPindividus_24.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb8-2"><a></a>    <span class="fu">filter</span>(DEPT <span class="sc">==</span> <span class="st">"36"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb8-3"><a></a>    <span class="fu">group_by</span>(AGED, DEPT) <span class="sc">|&gt;</span></span>
-<span id="cb8-4"><a></a>    <span class="fu">summarise</span>(<span class="at">n_indiv =</span> <span class="fu">sum</span>(IPONDI))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-4"><a></a>    <span class="fu">summarise</span>(<span class="at">n_indiv =</span> <span class="fu">sum</span>(IPONDI))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Sur le même modèle, construire une fonction <code>req_read_parquet</code> basée cette fois sur le fichier <code>data/RPindividus_24.parquet</code> chargé avec la fonction <a href="https://arrow.apache.org/docs/r/reference/read_parquet.html">read_parquet</a> d’<code>Arrow</code></li>
 <li>Comparer les performances (temps d’exécution et allocation mémoire) de ces deux méthodes grâce à la fonction <a href="https://bench.r-lib.org/#benchmark">bench::mark</a>, à laquelle on passera les paramètres <code>iterations = 1</code> (comparaison à partir d’une seule itération) et <code>check = FALSE</code> (autorise les outputs des deux fonctions à être différents).</li>
@@ -2749,27 +2749,27 @@ Tout au long de la formation, on se plaçait déjà dans le paradigme *cloud* da
 <li>En début de script, créer les chemins où les données pourront être trouvées (voir ci-dessous)</li>
 <li>Créer un connecteur <code>Arrow</code> entre votre session <code>R</code> et l’espace de stockage <code>S3</code></li>
 </ol>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>bucket <span class="ot">&lt;-</span> <span class="fu">s3_bucket</span>(bucket_formation, <span class="at">endpoint_override =</span> <span class="fu">Sys.getenv</span>(<span class="st">"AWS_S3_ENDPOINT"</span>))</span>
-<span id="cb9-2"><a></a>bucket_path <span class="ot">&lt;-</span> bucket<span class="sc">$</span><span class="fu">path</span>(<span class="fu">paste0</span>(path_within_bucket, <span class="st">"/RPindividus"</span>))</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>bucket <span class="ot">&lt;-</span> <span class="fu">s3_bucket</span>(bucket_formation, <span class="at">endpoint_override =</span> <span class="fu">Sys.getenv</span>(<span class="st">"AWS_S3_ENDPOINT"</span>))</span>
+<span id="cb9-2"><a></a>bucket_path <span class="ot">&lt;-</span> bucket<span class="sc">$</span><span class="fu">path</span>(<span class="fu">paste0</span>(path_within_bucket, <span class="st">"/RPindividus"</span>))</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="3" type="1">
 <li>Dans <code>main.R</code>, modifier les codes utilisant <code>open_dataset</code> pour remplacer les chemins par la variable <code>bucket_path</code>.</li>
 </ol>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(</span>
 <span id="cb10-2"><a></a>  bucket_path,</span>
 <span id="cb10-3"><a></a>  <span class="at">hive_style =</span> <span class="cn">TRUE</span></span>
 <span id="cb10-4"><a></a>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-5"><a></a>  <span class="fu">filter</span>(REGION <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb10-6"><a></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(columns_subset)) <span class="sc">%&gt;%</span></span>
-<span id="cb10-7"><a></a>  <span class="fu">collect</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-7"><a></a>  <span class="fu">collect</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="4" type="1">
 <li>Si nécessaire, remplacer l’import du geojson</li>
 </ol>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>departements <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>departements <span class="ot">&lt;-</span> aws.s3<span class="sc">::</span><span class="fu">s3read_using</span>(</span>
 <span id="cb11-2"><a></a>  <span class="at">FUN =</span> sf<span class="sc">::</span>st_read, </span>
 <span id="cb11-3"><a></a>  <span class="at">object =</span> <span class="st">"france.geojson"</span>, </span>
 <span id="cb11-4"><a></a>  <span class="at">bucket =</span> <span class="fu">paste0</span>(bucket_formation, <span class="st">"/"</span>, path_within_bucket),</span>
 <span id="cb11-5"><a></a>  <span class="at">opts =</span> <span class="fu">list</span>(<span class="st">"region"</span> <span class="ot">=</span> <span class="st">""</span>)</span>
-<span id="cb11-6"><a></a>  )</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a></a>  )</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 <p><br></p>
 <details>
 <summary>
@@ -2779,12 +2779,12 @@ Connecteur pour la question 1
 <ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-6-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1">
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"projet-formation"</span></span>
-<span id="cb12-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/bonnes-pratiques/data"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"projet-formation"</span></span>
+<span id="cb12-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/bonnes-pratiques/data"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="tabset-6-2">
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"public"</span></span>
-<span id="cb13-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/ssplab-formation"</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>bucket_formation <span class="ot">&lt;-</span> <span class="st">"public"</span></span>
+<span id="cb13-2"><a></a>path_within_bucket <span class="ot">&lt;-</span> <span class="st">"/ssplab-formation"</span></span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -3129,7 +3129,7 @@ Connecteur pour la question 1
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -3203,13 +3203,14 @@ Connecteur pour la question 1
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
