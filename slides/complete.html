@@ -6,10 +6,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Romain Avouac, Lino Galiana">
   <title>Formation aux bonnes pratiques `Git` et `R` – Bonnes pratiques pour les projets statistiques</title>
@@ -1100,15 +1100,16 @@ _Workflow_ (version littéraire) :
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Créer un nouveau dépôt public sur <code>GitLab</code></li>
-<li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>GitLab</code> à une valeur suffisamment élevée</li>
-<li>Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> de <code>LS3</code>):
-<ul>
-<li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
-</ul></li>
-<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/get_data_ls3.R">ce fichier</a>, puis l’exécuter</li>
+<li>Créer un nouveau dépôt public sur <code>GitLab</code> <i class="fa-brands fa-gitlab" aria-label="gitlab"></i> en <strong>incluant un fichier <code>README</code></strong></li>
+<li>Lancer un service <code>RStudio</code> sur <code>LS3</code>.
+<ol type="1">
+<li>Dans l’onglet de configuration <code>Git</code> du service, renseigner l’URL du dépôt (méthode HTTPS)</li>
+<li>Dans l’onglet <code>Ressources de stockage</code>, augmenter la valeur à 12Go.</li>
+</ol></li>
+<li>Une fois le service fonctionnel, dans l’explorateur de fichiers, naviguer pour cliquer sur le <code>README</code>.</li>
+<li>Créer un script <code>get_data.R</code> en copiant le contenu de <a href="https://gitlab.insee.fr/ssplab/formation_bonnes_pratiques_git_r/-/blob/main/get_data.R">ce fichier</a>, puis l’exécuter</li>
 <li>Créer le script <code>script.R</code> dans votre dépôt en copiant le contenu de <a href="https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/main/R/script.R">ce fichier</a></li>
-<li>Ajouter la règle “individu_reg.*” au fichier <code>.gitignore</code>. Que signifie-t-elle ?</li>
+<li>Ajouter la règle “individu_reg.*” au fichier <code>.gitignore</code> (et d’autres règles, au cas où). Que signifie-t-elle ?</li>
 <li><em>Commit</em>/<em>push</em> les changements</li>
 </ol>
 </div>
