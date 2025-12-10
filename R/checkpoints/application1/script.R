@@ -33,7 +33,7 @@ fonction_de_stat_agregee(rnorm(10), "variance")
 
 
 df <- readr::read_csv(
-  "RPindividus_24.csv",
+  "data/RPindividus_24.csv",
   col_select = c(
     "REGION", "AGED", "ANAI", "CATL", "COUPLE",
     "SEXE", "SURF", "TP", "TRANS", "IPONDI"
