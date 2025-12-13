@@ -614,27 +614,9 @@ _Workflow_ (version littéraire) :
 <section id="modes-dauthentification" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Modes d’authentification</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-1-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> Insee</a></li><li><a href="#tabset-1-2"><i class="fa-brands fa-github" aria-label="github"></i></a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div style="font-size: 75%;">
-<ul>
-<li><span class="orange"><strong>https</strong></span>
-<ul>
-<li><code>git clone https://github.com/username/projet.git</code></li>
-<li>simple à utiliser</li>
-<li>authentification username + password (ou token) à chaque <em>push</em></li>
-</ul></li>
-<li><span class="orange"><strong>ssh</strong></span>
-<ul>
-<li><code>git clone git@github.com:username/projet.git</code></li>
-<li>(plus) complexe à initialiser</li>
-<li>authentification automatique</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="tabset-1-2">
 <div style="font-size: 75%;">
 <ul>
 <li><span class="orange"><strong>https</strong></span>
@@ -652,15 +634,54 @@ _Workflow_ (version littéraire) :
 </ul>
 </div>
 </div>
+<div id="tabset-1-2">
+<div style="font-size: 75%;">
+<ul>
+<li><span class="orange"><strong>https</strong></span>
+<ul>
+<li><code>git clone https://github.com/username/projet.git</code></li>
+<li>simple à utiliser</li>
+<li>authentification username + password (ou token) à chaque <em>push</em></li>
+</ul></li>
+<li><span class="orange"><strong>ssh</strong></span>
+<ul>
+<li><code>git clone git@github.com:username/projet.git</code></li>
+<li>(plus) complexe à initialiser</li>
+<li>authentification automatique</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </section>
 <section id="application-0" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 0</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-2-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> Insee</a></li><li><a href="#tabset-2-2"><i class="fa-brands fa-github" aria-label="github"></i></a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Préparation de l’environnement de travail</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Ouvrir <a href="https://gitlab.insee.fr/">https://gitlab.insee.fr/</a> (instance interne de <code>GitLab</code>)</li>
+<li>Créer un nouveau dépôt (<em>repository</em>) sur <code>gitlab.insee.fr</code> placé dans son espace personnel (idep)</li>
+<li>Pour permettre l’authentification à <code>GitLab</code>, <a href="https://gitlab.insee.fr/-/user_settings/personal_access_tokens">générer un <em>token</em></a> (jeton d’authentification)</li>
+<li>Lancer <a href="https://datalab.sspcloud.fr/home">LS3</a> (via <code>Floorp</code> ou <code>AUS</code>)</li>
+<li>Stocker le <em>token</em> <code>GitLab</code> sur <code>LS3</code> : <code>Mon Compte</code> -&gt; <code>Git</code> -&gt; <code>Token d'accès personnel pour Forge Git</code></li>
+<li>Pour travailler sur un projet, on doit en récupérer une copie locale (<code>clone</code>). Pour cela, on va utiliser le lien HTTPS du dépôt (bouton bleu “Code” -&gt; copier le <strong>lien “Clone with HTTPS”</strong> )</li>
+<li>Ouvrir un service <code>RStudio</code> sur <code>LS3</code>. Dans l’onglet de configuration <code>Git</code> du service, vérifier que le <em>token</em> est bien rempli, et ajouter le lien HTTPS du dépôt <code>GitLab</code> dans le champ “Dépôt”. Puis lancer le service</li>
+<li>Vérifier que le dépôt distant a bien été cloné en local</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -687,36 +708,44 @@ _Workflow_ (version littéraire) :
 </div>
 </div>
 </div>
-<div id="tabset-2-2">
+</div>
+</div>
+<p>❓ <strong>Questions</strong> :</p>
+<ul>
+<li class="fragment">qu’est ce qui différencie le projet cloné d’un projet quelconque ?</li>
+<li class="fragment">pourquoi l’interface <code>Git</code> n’est pas encore disponible dans <code>RStudio</code> ?</li>
+</ul>
+</section>
+<section id="application-0-suite" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 0 (suite)</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Préparation de l’environnement de travail</strong></p>
+<p><strong>Se placer dans un projet <code>RStudio</code></strong></p>
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Compte déjà créé sur le <a href="https://gitlab.insee.fr/">gitlab interne</a></li>
-<li>Créer un nouveau dépôt <strong>privé</strong> sur <code>gitlab.insee.fr</code></li>
-<li>Créer un compte sur <a href="https://datalab.sspcloud.fr/home">LS3</a> via AUS.</li>
-<li>Lancer un service <code>RStudio</code>. Dans l’onglet de configuration <code>Git</code> du service, fixer la durée du <code>Cache</code> pour le stockage des identifiants <code>Gitlab</code> à une valeur suffisamment élevée</li>
-<li>Cloner le dépôt distant sur votre environnement local (ici, le <code>RStudio</code> de la plateforme <code>LS3</code>):
-<ul>
-<li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
-</ul></li>
-<li><a href="https://gitlab.insee.fr/-/user_settings/personal_access_tokens">Générer un <em>token</em></a> (jeton d’authentification) sur <code>gitlab.insee.fr</code></li>
-<li>Stocker le <em>token</em> sur <code>LS3</code> :
-<ul>
-<li><code>Mon Compte</code> -&gt; <code>Git</code> -&gt; <code>Token d'accès personnel pour Forge Git</code></li>
-</ul></li>
-<li>Terminer la procédure de clonage en fournissant le nom d’utilisateur (IDEP) et le <em>token</em></li>
+<li>Faire du dépôt un <a href="https://book.utilitr.org/03_Fiches_thematiques/Fiche_rprojects.html">projet <code>RStudio</code></a> :</li>
 </ol>
+<ul>
+<li><code>File</code> -&gt; <code>New Project</code> -&gt; <code>Existing Directory</code> -&gt; <code>Browse</code> -&gt; compléter le chemin d’accès au dépôt</li>
+</ul>
+<ol start="2" type="1">
+<li>Deux fichiers importants ont été ajoutés au projet par <code>RStudio</code> :</li>
+</ol>
+<ul>
+<li><p>un <strong>fichier <code>.Rproj</code></strong> : il permet de se placer dans un projet <code>RStudio</code> et en particulier d’activer l’interface avec <code>Git</code></p></li>
+<li><p>un <strong>fichier <code>.gitignore</code></strong> : il permet de spécifier à <code>Git</code> les fichiers/dossiers que l’on ne voudra jamais <code>commit</code></p></li>
+</ul>
+<p>On explorera plus en détail le fonctionnement de ces deux fichiers dans la suite de la formation.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<p>❓ <strong>Questions</strong> : qu’est ce qui différencie le projet cloné d’un projet quelconque ?</p>
+<p>❓ <strong>Questions</strong> :</p>
+<ul>
+<li class="fragment">le fichier <code>.Rproj</code> est-il toujours nécessaire dans un projet pour “faire du <code>Git</code>” ?</li>
+<li class="fragment">faut-il ajouter le fichier <code>.Rproj</code> au dépôt distant ?</li>
+</ul>
 </section>
 <section id="application-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 1</h2>
@@ -726,15 +755,15 @@ _Workflow_ (version littéraire) :
 <p><strong>Premiers commits</strong></p>
 </div>
 <div class="callout-content">
-<ol type="1">
+<ol start="0" type="1">
+<li>Ajouter le fichier <code>.Rproj</code> à la zone de <em>staging</em> de Git en le cochant dans l’interface <code>RStudio</code>, puis faire un premier <em>commit</em> auquel on donnera un message descriptif pertinent</li>
 <li>Créer un dossier 📁 <code>scripts</code></li>
-<li>Y créer les fichiers <code>script1.R</code> et <code>script2.R</code>, chacun contenant quelques commandes <code>R</code> de votre choix</li>
-<li>Ajouter ces fichiers à la zone de <em>staging</em> de Git en les cochant dans l’interface <code>RStudio</code></li>
-<li>Effectuer un <code>commit</code>, auquel on donnera un message descriptif pertinent</li>
+<li>Y créer les fichiers <code>script1.R</code> et <code>script2.R</code>, chacun contenant quelques commandes <code>R</code> de votre choix. Observer comment ces fichiers sont caractérisés dans l’interface <code>Git</code></li>
+<li><code>add / commit</code> ces fichiers dans un second <em>commit</em></li>
 <li>Supprimer le fichier <code>script1.R</code> et modifier le contenu du fichier <code>script2.R</code></li>
-<li>Analyser ce qui se passe lorsque l’on coche ces fichiers dans l’interface <code>RStudio</code></li>
+<li>Analyser ce qui se passe lorsque l’on coche ces fichiers dans l’interface</li>
 <li>Effectuer un nouveau <em>commit</em> pour ajouter ces modifications à l’historique</li>
-<li>Visualiser l’historique du projet à partir de l’interface graphique de <code>RStudio</code></li>
+<li>Visualiser l’historique du projet à partir de l’onglet <code>History</code> de l’interface</li>
 </ol>
 </div>
 </div>
@@ -760,6 +789,7 @@ _Workflow_ (version littéraire) :
 </div>
 </div>
 </div>
+<p>❓ <strong>Question</strong> : quels sont les risques auxquels il faut faire attention quand on utilise <code>Git</code> sur un projet ?</p>
 </section>
 <section id="bonnes-pratiques" class="slide level2 smaller" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title">Bonnes pratiques</h2>
@@ -827,23 +857,16 @@ _Workflow_ (version littéraire) :
 <li>Créer un dossier <code>data</code> à la racine du projet et créer à l’intérieur de celui-ci un fichier <code>data/raw.csv</code> avec une ligne de données quelconque</li>
 <li>Ajouter une première règle au fichier <code>.gitignore</code> qui exclue le dossier <code>data/</code>, et vérifier que la règle fonctionne</li>
 <li>Ajouter une seconde règle excluant tous les fichiers de type <code>*.pdf</code> et <code>*.html</code>, et vérifier que la règle fonctionne</li>
+<li>Ajouter les règles du <a href="https://github.com/github/gitignore/blob/main/R.gitignore">.gitignore standard R</a> à la suite des règles définies précédemment</li>
 </ol>
 </div>
 </div>
 </div>
-<p>❓ <strong>Question</strong> : que se passe-t-il lorsque l’on ajoute au <code>.gitignore</code> des fichiers qui ont déjà été <em>commit</em> sur le projet Git ?</p>
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Des fichiers <code>.gitignore</code> standards</strong></p>
-</div>
-<div class="callout-content">
-<p>Dans cette application, nous avons généré le fichier <code>.gitignore</code> manuellement. En pratique, il existe des <a href="https://github.com/github/gitignore/tree/main">.gitignore standards</a> adaptés pour chaque langage de programmation, qui implémentent déjà de nombreuses règles pertinentes. Le mieux est donc de partir du <a href="https://github.com/github/gitignore/blob/main/R.gitignore">.gitignore R</a> pour tout nouveau projet <code>R</code>, et de rajouter les règles spécifiques que l’on souhaite appliquer au projet.</p>
-</div>
-</div>
-</div>
-</div>
+<p>❓ <strong>Questions</strong> :</p>
+<ul>
+<li class="fragment">pourquoi utiliser un <code>.gitignore</code> standard lié au langage de programmation ?</li>
+<li class="fragment">que se passe-t-il lorsque l’on ajoute au <code>.gitignore</code> des fichiers qui ont déjà été <em>commit</em> sur le projet Git ?</li>
+</ul>
 </section>
 <section id="ressources-supplémentaires" class="slide level2" data-background-image="background.svg" data-background-size="contain">
 <h2>Ressources supplémentaires</h2>
@@ -867,7 +890,7 @@ _Workflow_ (version littéraire) :
 <section id="application-0-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 0</h2>
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-3-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-3-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> Insee</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
@@ -1759,7 +1782,7 @@ if (x_is_not_empty_string) {
 <section id="application-3-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 3</h2>
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-4-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-4-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> Insee</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
