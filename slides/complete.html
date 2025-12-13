@@ -454,8 +454,8 @@
 <li class="fragment">Différentes <span class="blue2"><strong>interfaces graphiques</strong></span> (<code>RStudio</code>, <code>VS Code</code>…)</li>
 </ul>
 </section>
-<section id="concepts-1" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
-<h2 data-id="quarto-animate-title">Concepts</h2>
+<section id="concepts-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Concepts</h2>
 <h4 data-background-image="background.svg" data-background-size="contain" id="git-github-gitlab-quelles-différences-1"><code>Git</code>, <code>GitHub</code>, <code>GitLab</code>… quelles différences ?</h4>
 <ul>
 <li class="fragment"><code>GitHub</code> et <code>GitLab</code> sont des <strong>forges logicielles</strong></li>
@@ -705,7 +705,7 @@ _Workflow_ (version littéraire) :
 <li><code>File</code> → <code>New project</code> → <code>Version Control</code> → <code>Git</code></li>
 </ul></li>
 <li><a href="https://gitlab.insee.fr/-/user_settings/personal_access_tokens">Générer un <em>token</em></a> (jeton d’authentification) sur <code>gitlab.insee.fr</code></li>
-<li>Stocker le <em>token</em> sur <code>LS3</code> (ou un gestionnaire de mot de passe) :
+<li>Stocker le <em>token</em> sur <code>LS3</code> :
 <ul>
 <li><code>Mon Compte</code> -&gt; <code>Git</code> -&gt; <code>Token d'accès personnel pour Forge Git</code></li>
 </ul></li>
@@ -717,7 +717,7 @@ _Workflow_ (version littéraire) :
 </div>
 </div>
 </div>
-<p>❓ <strong>Question</strong> : qu’est ce qui différencie le projet cloné d’un projet quelconque ?</p>
+<p>❓ <strong>Questions</strong> : qu’est ce qui différencie le projet cloné d’un projet quelconque ?</p>
 </section>
 <section id="application-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 1</h2>
@@ -872,7 +872,7 @@ _Workflow_ (version littéraire) :
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Synchronisation des dépôts</strong></p>
+<p><strong>Divergence d’historiques : cas simple</strong></p>
 </div>
 <div class="callout-content">
 <ol type="1">
@@ -881,83 +881,50 @@ _Workflow_ (version littéraire) :
 <li>Une personne aura la responsabilité d’être <span class="blue2"><strong>mainteneur</strong></span></li>
 <li>Deux à trois personnes seront <span class="blue2"><strong>développeurs</strong></span></li>
 </ul></li>
-<li>Le mainteneur crée un dépôt sur <code>Github</code> / <code>Gitlab</code>. Il/Elle donne des droits au(x) développeur(s) du projet</li>
-<li>Créer une copie locale (clone) du projet sur son service <code>RStudio</code></li>
-<li>Créer un fichier <code>&lt;votre_nom&gt;-&lt;votre_prenom&gt;.md</code>. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis <code>commit</code> et <code>push</code> les modifications</li>
-<li><strong>À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du <code>push</code>.</strong> C’est normal ! Le premier ayant fait un <code>push</code> a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (<code>pull</code>) avant d’avoir le droit de proposer un changement.</li>
-<li>Néanmoins, le <code>pull</code> renvoie également une erreur : <code>Git</code> ne parvient pas à résoudre la divergence d’historique. Essayons de comprendre le problème et les solutions possibles.</li>
+<li>Le mainteneur crée un dépôt sur <code>Github</code> / <code>Gitlab</code>. Il/Elle donne des <strong>droits de niveau <em>maintainer</em></strong> aux membres du projet</li>
+<li>Chaque membre du groupe crée un nouveau service <code>RStudio</code> et clone le dépôt commun du groupe. Conseil : utiliser l’interface d’Onyxia pour cloner directement le dépôt avec le <em>token</em> intégré -&gt; plus besoin de renseigner le <em>token</em> à chaque <code>push</code> !</li>
+<li>Créer un fichier <code>&lt;votre_nom&gt;-&lt;votre_prenom&gt;.md</code>. Écrire dedans quelques lignes de son choix, puis <code>commit</code> et <code>push</code> les modifications</li>
+<li><strong>À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du <code>push</code>.</strong></li>
 </ol>
 </div>
 </div>
 </div>
+<p>❓ <strong>Question</strong> : pourquoi les autres membres ne peuvent pas <code>push</code> normalement ? Indice : le message d’erreur de <code>Git</code> donne la réponse !</p>
 </section>
-<section id="divergence-dhistoriques-cas-simple" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Divergence d’historiques : cas simple</h2>
-
-<img data-src="img/ff.png" class="r-stretch"><ul>
-<li class="fragment"><code>Git</code> résout le problème via un <span class="blue2"><strong><em>fast-forward merge</em></strong></span>
-<ul>
-<li class="fragment">Le commit distant est rajouté à l’historique local</li>
-<li class="fragment">Les dépôts sont synchronisés</li>
-</ul></li>
-</ul>
-</section>
-<section id="divergence-dhistoriques-cas-compliqué" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>Divergence d’historiques : cas compliqué</h2>
+<section id="divergence-dhistoriques-cas-simple-1" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<h2 data-id="quarto-animate-title">Divergence d’historiques : cas simple</h2>
 
 <img data-src="img/divergence.png" class="r-stretch"><ul>
-<li class="fragment"><p><code>Git</code> ne peut pas résoudre de lui même la divergence</p></li>
-<li class="fragment"><p>Deux stratégies possibles</p>
+<li class="fragment">Si les deux <em>commits</em> concernent des <strong>parties séparées du projet</strong>, un <code>pull</code> préalable suffit à résoudre le problème</li>
+</ul>
+</section>
+<section id="divergence-dhistoriques-cas-simple-2" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<h2 data-id="quarto-animate-title">Divergence d’historiques : cas simple</h2>
+
+<img data-src="img/merge_commit_local.png" class="r-stretch"><ul>
+<li class="fragment"><code>Git</code> fusionne les deux <em>commits</em> en un <span class="blue2"><strong><em>merge commit</em></strong></span>
 <ul>
-<li class="fragment">Le <span class="blue2"><strong>merge</strong></span></li>
-<li class="fragment">Le <span class="blue2"><strong>rebase</strong></span></li>
+<li class="fragment">Les deux <em>commits</em> existent toujours dans l’historique !</li>
+<li class="fragment">L’historique est réconcilié → on peut <code>push</code></li>
 </ul></li>
 </ul>
 </section>
-<section id="ère-possibilité-le-merge" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>1ère possibilité : le <em>merge</em></h2>
+<section id="divergence-dhistoriques-cas-simple-3" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
+<h2 data-id="quarto-animate-title">Divergence d’historiques : cas simple</h2>
 
-<img data-src="img/merge.png" class="r-stretch"><ul>
-<li class="fragment"><code>Git</code> crée un <span class="blue2"><strong>commit de merge</strong></span>
-<ul>
-<li class="fragment">Comportement par défaut (jusqu’à récemment)</li>
-</ul></li>
-<li class="fragment"><span class="orange"><strong>Inconvénient</strong></span> : rend l’<span class="blue2"><strong>historique non-linéaire</strong></span> (<a href="https://www.atlassian.com/fr/git/tutorials/using-branches/git-merge">plus d’explications</a>)</li>
+<img data-src="img/merge_commit_remote.png" class="r-stretch"><ul>
+<li class="fragment">Le dépôt local et le dépôt distant sont synchronisés 🤗</li>
 </ul>
 </section>
-<section id="ème-possibilité-le-rebase-12" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>2ème possibilité : le <em>rebase</em> (1/2)</h2>
-
-<img data-src="img/rebase1.png" class="r-stretch"><ul>
-<li class="fragment"><code>Git</code> effectue 3 étapes
-<ul>
-<li class="fragment">Supprime temporairement le commit local</li>
-<li class="fragment">Réalise un <em>fast-forward merge</em></li>
-<li class="fragment">Rajoute le commit local au bout de l’historique</li>
-</ul></li>
-</ul>
-</section>
-<section id="ème-possibilité-le-rebase-22" class="slide level2" data-background-image="background.svg" data-background-size="contain">
-<h2>2ème possibilité : le <em>rebase</em> (2/2)</h2>
-
-<img data-src="img/rebase2.png" class="r-stretch"><ul>
-<li class="fragment"><p><span class="orange"><strong>Avantage</strong></span> : l’historique reste <span class="blue2"><strong>linéaire</strong></span></p></li>
-<li class="fragment"><p><span class="orange"><strong>Attention</strong></span> : ne jamais <em>rebase</em> des commits déjà poussés sur un dépôt public (<a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Rebaser-Rebasing#s_rebase_peril">plus d’explications</a>)</p></li>
-</ul>
-</section>
-<section id="application-4-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
-<h2>Application 4</h2>
+<section id="application-4-suite" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 4 (suite)</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Synchronisation des dépôts</strong></p>
+<p><strong>Divergence d’historiques : cas simple</strong></p>
 </div>
 <div class="callout-content">
 <ol start="7" type="1">
-<li>Dans notre cas, on va conserver le précédent défaut (le <em>commit</em> de <em>merge</em>). Comme l’interface <code>RStudio</code> ne permet pas (encore) de sélectionner la stratégie de <code>pull</code>, on va préciser la configuration voulue via une commande passée dans le terminal
-<ul>
-<li><code>git config pull.rebase false</code></li>
-</ul></li>
 <li>Pour ceux dont le <code>push</code> a été refusé, effectuer un <code>pull</code> des modifications distantes via l’interface <code>RStudio</code></li>
 <li>Effectuer à nouveau un <code>push</code> de vos modifications locales</li>
 <li>Les derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir <code>push</code> leurs modifications locales</li>
@@ -972,21 +939,49 @@ _Workflow_ (version littéraire) :
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>Résoudre les conflits</strong></p>
+<p><strong>Divergence d’historiques : cas compliqué</strong></p>
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>On se place dans la même configuration que dans l’application précédente : un <span class="blue2"><strong>mainteneur</strong></span> et deux/trois <span class="blue2"><strong>développeurs</strong></span></li>
+<li>Avant de commencer cette application, chaque membre du groupe doit avoir réussi à <code>push</code> ses modifications de l’application précédente (éventuellement après plusieurs tentatives selon le nombre de membres du groupe)</li>
 <li>Le mainteneur modifie le contenu de son fichier, puis <code>commit</code> et <code>push</code> les modifications</li>
-<li>Sans faire de <code>pull</code> préalable, les développeurs modifient également le contenu du fichier du mainteneur, puis <code>commit</code> et <code>push</code> les modifications</li>
-<li>Le <code>push</code> est rejeté pour la même raison que dans l’application précédente : les dépôts ne sont plus synchronisés, il faut <code>pull</code> les changements distants au préalable. Mais <strong>cette fois, le <code>pull</code> est également rejeté</strong> : il y a un <strong>conflit</strong> entre l’historique du projet distant et celui du projet local. <code>Git</code> nous indique qu’il faut résoudre le conflit avant de pouvoir modifier l’historique du projet.</li>
-<li>Utiliser l’interface de <code>RStudio</code> pour résoudre le conflit, en choisissant la version du fichier que vous souhaitez conserver, puis <code>commit</code>/<code>push</code> les modifications</li>
-<li>Comme dans l’application précédente, seul le développeur le plus rapide parvient à <code>push</code>. Les autres doivent répéter l’opération.</li>
+<li><strong>Sans faire de <code>pull</code> préalable</strong>, les autres membres modifient chacun de leur côté <strong>le contenu du fichier du mainteneur</strong>, puis <code>commit</code> et <code>push</code> les modifications</li>
+<li>Le <code>push</code> est rejeté pour la même raison que dans l’application précédente : les dépôts ne sont plus synchronisés, il faut <code>pull</code> les changements distants au préalable. Mais <strong>cette fois, le <code>pull</code> est également rejeté</strong> 😱</li>
 </ol>
 </div>
 </div>
 </div>
-<p>❓ <strong>Question</strong> : comment limiter au maximum la survenue des conflits d’historique ?</p>
+<p>❓ <strong>Question</strong> : pourquoi le <code>pull</code> est cette fois impossible ?</p>
+</section>
+<section id="divergence-dhistoriques-cas-compliqué-1" class="slide level2" data-background-image="background.svg" data-background-size="contain">
+<h2>Divergence d’historiques : cas compliqué</h2>
+
+<img data-src="img/divergence.png" class="r-stretch"><ul>
+<li class="fragment">Si les deux <em>commits</em> modifient les <strong>mêmes parties du projet</strong>, un <code>pull</code> ne suffit plus à résoudre le problème
+<ul>
+<li class="fragment"><code>Git</code> ne peut pas décider quelle version prioriser 🤔</li>
+<li class="fragment">Il faut lui indiquer comment <strong>résoudre le conflit</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="application-5-suite" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<h2>Application 5 (suite)</h2>
+<div class="callout callout-tip no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Divergence d’historiques : résolution de conflits</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Ouvrir le fichier concerné, et analyser la structure d’un conflit</li>
+<li>Résoudre le conflit en choisissant quelle information retenir : le local ? le distant ? les deux ? aucun des deux ?</li>
+<li><strong>Un conflit est considéré comme résolvable par <code>Git</code> dès lors que toutes les lignes de balise ont disparu</strong>. Pour finir la résolution, <code>commit</code>/<code>push</code> les modifications</li>
+<li>Comme dans l’application précédente, seul le membre le plus rapide parvient à <code>push</code>. Les autres doivent répéter l’opération autant de fois qu’il y a de conflits.</li>
+</ol>
+</div>
+</div>
+</div>
+<p>❓ <strong>Question</strong> : comment limiter au maximum la survenue des conflits d’historique en pratique ?</p>
 </section>
 <section id="le-modèle-des-branches" class="slide level2" data-auto-animate="true" data-background-image="background.svg" data-background-size="contain">
 <h2 data-id="quarto-animate-title">Le modèle des branches</h2>
@@ -2198,7 +2193,7 @@ if (x_is_not_empty_string) {
 <li class="fragment"><p><span class="orange"><strong>Portabilité</strong></span> : un tiers peut recréer un environnement avec les mêmes spécifications</p></li>
 </ul>
 </section>
-<section id="application-4-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="application-4-1" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 4</h2>
 <div class="panel-tabset">
 <ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1"><i class="fa-brands fa-github" aria-label="github"></i></a></li><li><a href="#tabset-5-2"><i class="fa-brands fa-gitlab" aria-label="gitlab"></i> insee</a></li></ul>
@@ -2234,7 +2229,7 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="application-4-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="application-4-2" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 4</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -2252,7 +2247,7 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="application-4-4" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="application-4-3" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 4</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
@@ -2273,7 +2268,7 @@ if (x_is_not_empty_string) {
 </div>
 </div>
 </section>
-<section id="application-4-5" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
+<section id="application-4-4" class="slide level2 smaller" data-background-image="background.svg" data-background-size="contain">
 <h2>Application 4</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">

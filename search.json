@@ -228,7 +228,7 @@
     "href": "slides/complete.html#application-0",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub en incluant un fichier README\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\nCompte déjà créé sur le gitlab interne\nCréer un nouveau dépôt privé sur gitlab.insee.fr\nCréer un compte sur LS3 via AUS.\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants Gitlab à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de la plateforme LS3):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur gitlab.insee.fr\nStocker le token sur LS3 (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur (IDEP) et le token\n\n\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
+    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub en incluant un fichier README\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\nCompte déjà créé sur le gitlab interne\nCréer un nouveau dépôt privé sur gitlab.insee.fr\nCréer un compte sur LS3 via AUS.\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants Gitlab à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de la plateforme LS3):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur gitlab.insee.fr\nStocker le token sur LS3 :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur (IDEP) et le token\n\n\n\n\n\n\n\n❓ Questions : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
   },
   {
     "objectID": "slides/complete.html#application-1",
@@ -277,56 +277,56 @@
     "href": "slides/complete.html#application-4",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\nSe mettre par groupes de 3/4 personnes:\n\nUne personne aura la responsabilité d’être mainteneur\nDeux à trois personnes seront développeurs\n\nLe mainteneur crée un dépôt sur Github / Gitlab. Il/Elle donne des droits au(x) développeur(s) du projet\nCréer une copie locale (clone) du projet sur son service RStudio\nCréer un fichier &lt;votre_nom&gt;-&lt;votre_prenom&gt;.md. Écrire dedans trois phrases de son choix sans ponctuation ni majuscules, puis commit et push les modifications\nÀ ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du push. C’est normal ! Le premier ayant fait un push a modifié le dépôt commun ; les autres doivent intégrer ces modifications dans leur version locale (pull) avant d’avoir le droit de proposer un changement.\nNéanmoins, le pull renvoie également une erreur : Git ne parvient pas à résoudre la divergence d’historique. Essayons de comprendre le problème et les solutions possibles."
+    "text": "Application 4\n\n\n\nDivergence d’historiques : cas simple\n\n\n\nSe mettre par groupes de 3/4 personnes:\n\nUne personne aura la responsabilité d’être mainteneur\nDeux à trois personnes seront développeurs\n\nLe mainteneur crée un dépôt sur Github / Gitlab. Il/Elle donne des droits de niveau maintainer aux membres du projet\nChaque membre du groupe crée un nouveau service RStudio et clone le dépôt commun du groupe. Conseil : utiliser l’interface d’Onyxia pour cloner directement le dépôt avec le token intégré -&gt; plus besoin de renseigner le token à chaque push !\nCréer un fichier &lt;votre_nom&gt;-&lt;votre_prenom&gt;.md. Écrire dedans quelques lignes de son choix, puis commit et push les modifications\nÀ ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du push.\n\n\n\n\n❓ Question : pourquoi les autres membres ne peuvent pas push normalement ? Indice : le message d’erreur de Git donne la réponse !"
   },
   {
-    "objectID": "slides/complete.html#divergence-dhistoriques-cas-simple",
-    "href": "slides/complete.html#divergence-dhistoriques-cas-simple",
+    "objectID": "slides/complete.html#divergence-dhistoriques-cas-simple-1",
+    "href": "slides/complete.html#divergence-dhistoriques-cas-simple-1",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Divergence d’historiques : cas simple",
-    "text": "Divergence d’historiques : cas simple\n\n\nGit résout le problème via un fast-forward merge\n\nLe commit distant est rajouté à l’historique local\nLes dépôts sont synchronisés"
+    "text": "Divergence d’historiques : cas simple\n\n\nSi les deux commits concernent des parties séparées du projet, un pull préalable suffit à résoudre le problème"
   },
   {
-    "objectID": "slides/complete.html#divergence-dhistoriques-cas-compliqué",
-    "href": "slides/complete.html#divergence-dhistoriques-cas-compliqué",
+    "objectID": "slides/complete.html#divergence-dhistoriques-cas-simple-2",
+    "href": "slides/complete.html#divergence-dhistoriques-cas-simple-2",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Divergence d’historiques : cas compliqué",
-    "text": "Divergence d’historiques : cas compliqué\n\n\nGit ne peut pas résoudre de lui même la divergence\nDeux stratégies possibles\n\nLe merge\nLe rebase"
+    "section": "Divergence d’historiques : cas simple",
+    "text": "Divergence d’historiques : cas simple\n\n\nGit fusionne les deux commits en un merge commit\n\nLes deux commits existent toujours dans l’historique !\nL’historique est réconcilié → on peut push"
   },
   {
-    "objectID": "slides/complete.html#ère-possibilité-le-merge",
-    "href": "slides/complete.html#ère-possibilité-le-merge",
+    "objectID": "slides/complete.html#divergence-dhistoriques-cas-simple-3",
+    "href": "slides/complete.html#divergence-dhistoriques-cas-simple-3",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "1ère possibilité : le merge",
-    "text": "1ère possibilité : le merge\n\n\nGit crée un commit de merge\n\nComportement par défaut (jusqu’à récemment)\n\nInconvénient : rend l’historique non-linéaire (plus d’explications)"
+    "section": "Divergence d’historiques : cas simple",
+    "text": "Divergence d’historiques : cas simple\n\n\nLe dépôt local et le dépôt distant sont synchronisés 🤗"
   },
   {
-    "objectID": "slides/complete.html#ème-possibilité-le-rebase-12",
-    "href": "slides/complete.html#ème-possibilité-le-rebase-12",
+    "objectID": "slides/complete.html#application-4-suite",
+    "href": "slides/complete.html#application-4-suite",
     "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "2ème possibilité : le rebase (1/2)",
-    "text": "2ème possibilité : le rebase (1/2)\n\n\nGit effectue 3 étapes\n\nSupprime temporairement le commit local\nRéalise un fast-forward merge\nRajoute le commit local au bout de l’historique"
-  },
-  {
-    "objectID": "slides/complete.html#ème-possibilité-le-rebase-22",
-    "href": "slides/complete.html#ème-possibilité-le-rebase-22",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "2ème possibilité : le rebase (2/2)",
-    "text": "2ème possibilité : le rebase (2/2)\n\n\nAvantage : l’historique reste linéaire\nAttention : ne jamais rebase des commits déjà poussés sur un dépôt public (plus d’explications)"
-  },
-  {
-    "objectID": "slides/complete.html#application-4-1",
-    "href": "slides/complete.html#application-4-1",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 4",
-    "text": "Application 4\n\n\n\nSynchronisation des dépôts\n\n\n\nDans notre cas, on va conserver le précédent défaut (le commit de merge). Comme l’interface RStudio ne permet pas (encore) de sélectionner la stratégie de pull, on va préciser la configuration voulue via une commande passée dans le terminal\n\ngit config pull.rebase false\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes via l’interface RStudio\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push leurs modifications locales\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
+    "section": "Application 4 (suite)",
+    "text": "Application 4 (suite)\n\n\n\nDivergence d’historiques : cas simple\n\n\n\nPour ceux dont le push a été refusé, effectuer un pull des modifications distantes via l’interface RStudio\nEffectuer à nouveau un push de vos modifications locales\nLes derniers membres du groupe devront refaire les étapes précédentes, potentiellement plusieurs fois, pour pouvoir push leurs modifications locales\n\n\n\n\n❓ Question : que se serait-il passé si les différents membres du groupe avaient effectué leurs modifications sur un seul et même fichier ?"
   },
   {
     "objectID": "slides/complete.html#application-5",
     "href": "slides/complete.html#application-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 5",
-    "text": "Application 5\n\n\n\nRésoudre les conflits\n\n\n\nOn se place dans la même configuration que dans l’application précédente : un mainteneur et deux/trois développeurs\nLe mainteneur modifie le contenu de son fichier, puis commit et push les modifications\nSans faire de pull préalable, les développeurs modifient également le contenu du fichier du mainteneur, puis commit et push les modifications\nLe push est rejeté pour la même raison que dans l’application précédente : les dépôts ne sont plus synchronisés, il faut pull les changements distants au préalable. Mais cette fois, le pull est également rejeté : il y a un conflit entre l’historique du projet distant et celui du projet local. Git nous indique qu’il faut résoudre le conflit avant de pouvoir modifier l’historique du projet.\nUtiliser l’interface de RStudio pour résoudre le conflit, en choisissant la version du fichier que vous souhaitez conserver, puis commit/push les modifications\nComme dans l’application précédente, seul le développeur le plus rapide parvient à push. Les autres doivent répéter l’opération.\n\n\n\n\n❓ Question : comment limiter au maximum la survenue des conflits d’historique ?"
+    "text": "Application 5\n\n\n\nDivergence d’historiques : cas compliqué\n\n\n\nAvant de commencer cette application, chaque membre du groupe doit avoir réussi à push ses modifications de l’application précédente (éventuellement après plusieurs tentatives selon le nombre de membres du groupe)\nLe mainteneur modifie le contenu de son fichier, puis commit et push les modifications\nSans faire de pull préalable, les autres membres modifient chacun de leur côté le contenu du fichier du mainteneur, puis commit et push les modifications\nLe push est rejeté pour la même raison que dans l’application précédente : les dépôts ne sont plus synchronisés, il faut pull les changements distants au préalable. Mais cette fois, le pull est également rejeté 😱\n\n\n\n\n❓ Question : pourquoi le pull est cette fois impossible ?"
+  },
+  {
+    "objectID": "slides/complete.html#divergence-dhistoriques-cas-compliqué-1",
+    "href": "slides/complete.html#divergence-dhistoriques-cas-compliqué-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Divergence d’historiques : cas compliqué",
+    "text": "Divergence d’historiques : cas compliqué\n\n\nSi les deux commits modifient les mêmes parties du projet, un pull ne suffit plus à résoudre le problème\n\nGit ne peut pas décider quelle version prioriser 🤔\nIl faut lui indiquer comment résoudre le conflit"
+  },
+  {
+    "objectID": "slides/complete.html#application-5-suite",
+    "href": "slides/complete.html#application-5-suite",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 5 (suite)",
+    "text": "Application 5 (suite)\n\n\n\nDivergence d’historiques : résolution de conflits\n\n\n\nOuvrir le fichier concerné, et analyser la structure d’un conflit\nRésoudre le conflit en choisissant quelle information retenir : le local ? le distant ? les deux ? aucun des deux ?\nUn conflit est considéré comme résolvable par Git dès lors que toutes les lignes de balise ont disparu. Pour finir la résolution, commit/push les modifications\nComme dans l’application précédente, seul le membre le plus rapide parvient à push. Les autres doivent répéter l’opération autant de fois qu’il y a de conflits.\n\n\n\n\n❓ Question : comment limiter au maximum la survenue des conflits d’historique en pratique ?"
   },
   {
     "objectID": "slides/complete.html#le-modèle-des-branches",
@@ -763,29 +763,29 @@
     "text": "4️⃣ Restauration de l’environnement\n\nrenv::restore() : installe/désinstalle les packages nécessaires pour arriver à l’état spécifié dans le fichier renv.lock\nPortabilité : un tiers peut recréer un environnement avec les mêmes spécifications"
   },
   {
+    "objectID": "slides/complete.html#application-4-1",
+    "href": "slides/complete.html#application-4-1",
+    "title": "Bonnes pratiques pour les projets statistiques",
+    "section": "Application 4",
+    "text": "Application 4\n\n insee\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application.\n\n\n\n\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application."
+  },
+  {
     "objectID": "slides/complete.html#application-4-2",
     "href": "slides/complete.html#application-4-2",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n insee\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application.\n\n\n\n\n\n\n\n\n\nPartie 0 : Préparation\n\n\n\nRemplacer le contenu du script get_data.R en copiant-collant le contenu de ce fichier. Exécuter ce script, il importe les fichiers nécessaires pour cette application."
+    "text": "Application 4\n\n\n\nPartie 1 : Initialisation de l’environnement virtuel\n\n\n\nVérifier tout d’abord que vous arrivez à charger le package sf avec la fonction library().\nInitialiser l’environnement virtuel avec la commande renv::init(), lire le message et accepter.\nObserver les nouveaux fichiers et dossiers qui sont apparus dans le projet. En particulier, comment renv a-t-il choisi les packages à ajouter au fichier renv.lock ?\nEssayer de charger à nouveau le package sf. Comprenez-vous pourquoi celui-ci n’est plus disponible ?"
   },
   {
     "objectID": "slides/complete.html#application-4-3",
     "href": "slides/complete.html#application-4-3",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
-    "text": "Application 4\n\n\n\nPartie 1 : Initialisation de l’environnement virtuel\n\n\n\nVérifier tout d’abord que vous arrivez à charger le package sf avec la fonction library().\nInitialiser l’environnement virtuel avec la commande renv::init(), lire le message et accepter.\nObserver les nouveaux fichiers et dossiers qui sont apparus dans le projet. En particulier, comment renv a-t-il choisi les packages à ajouter au fichier renv.lock ?\nEssayer de charger à nouveau le package sf. Comprenez-vous pourquoi celui-ci n’est plus disponible ?"
+    "text": "Application 4\n\n\n\nPartie 2 : Mise à jour du fichier renv.lock\n\n\n\nDans la partie sur les statistiques descriptives du script script.R, ajouter ce morceau de code, qui produit une carte à l’aide du package sf\nDans la console, faire renv::status() et observer le message\nInstaller le package sf\nEffectuer à nouveau renv::status() et observer le message\nIntégrer les nouveaux packages au fichier renv.lock avec la commande renv::snapshot()\nEffectuer à nouveau renv::status() et observer le message\nFaire un commit / push des différents fichiers qui ont été modifiés"
   },
   {
     "objectID": "slides/complete.html#application-4-4",
     "href": "slides/complete.html#application-4-4",
-    "title": "Bonnes pratiques pour les projets statistiques",
-    "section": "Application 4",
-    "text": "Application 4\n\n\n\nPartie 2 : Mise à jour du fichier renv.lock\n\n\n\nDans la partie sur les statistiques descriptives du script script.R, ajouter ce morceau de code, qui produit une carte à l’aide du package sf\nDans la console, faire renv::status() et observer le message\nInstaller le package sf\nEffectuer à nouveau renv::status() et observer le message\nIntégrer les nouveaux packages au fichier renv.lock avec la commande renv::snapshot()\nEffectuer à nouveau renv::status() et observer le message\nFaire un commit / push des différents fichiers qui ont été modifiés"
-  },
-  {
-    "objectID": "slides/complete.html#application-4-5",
-    "href": "slides/complete.html#application-4-5",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 4",
     "text": "Application 4\n\n\n\nPartie 3 : Test de portabilité\n\n\n\nOuvrir un nouveau projet RStudio et cloner à nouveau votre dépôt (sous un nom différent)\nExécuter renv::restore() pour installer les packages nécessaires à l’exécution du projet\nVérifier que le script.R s’exécute correctement dans ce nouveau projet\n(optionnel) Si vous n’êtes toujours pas convaincu de la portabilité de la solution, ouvrir un nouveau service RStudio et refaire les étapes précédentes"
@@ -1243,7 +1243,7 @@
     "href": "slides/light.html#application-0",
     "title": "Bonnes pratiques pour les projets statistiques",
     "section": "Application 0",
-    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub en incluant un fichier README\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\nCompte déjà créé sur le gitlab interne\nCréer un nouveau dépôt privé sur gitlab.insee.fr\nCréer un compte sur LS3 via AUS.\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants Gitlab à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de la plateforme LS3):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur gitlab.insee.fr\nStocker le token sur LS3 (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur (IDEP) et le token\n\n\n\n\n\n\n\n❓ Question : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
+    "text": "Application 0\n\n insee\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\nCréer un compte GitHub\nCréer un nouveau dépôt privé sur GitHub en incluant un fichier README\nCréer un compte sur le SSP Cloud\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants GitHub à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio du Datalab):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur GitHub\nStocker le token sur le SSP Cloud (ou un gestionnaire de mot de passe) :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur GitHub et le token\n\n\n\n\n\n\n\n\n\nPréparation de l’environnement de travail\n\n\n\nCompte déjà créé sur le gitlab interne\nCréer un nouveau dépôt privé sur gitlab.insee.fr\nCréer un compte sur LS3 via AUS.\nLancer un service RStudio. Dans l’onglet de configuration Git du service, fixer la durée du Cache pour le stockage des identifiants Gitlab à une valeur suffisamment élevée\nCloner le dépôt distant sur votre environnement local (ici, le RStudio de la plateforme LS3):\n\nFile → New project → Version Control → Git\n\nGénérer un token (jeton d’authentification) sur gitlab.insee.fr\nStocker le token sur LS3 :\n\nMon Compte -&gt; Git -&gt; Token d'accès personnel pour Forge Git\n\nTerminer la procédure de clonage en fournissant le nom d’utilisateur (IDEP) et le token\n\n\n\n\n\n\n\n❓ Questions : qu’est ce qui différencie le projet cloné d’un projet quelconque ?"
   },
   {
     "objectID": "slides/light.html#application-1",
