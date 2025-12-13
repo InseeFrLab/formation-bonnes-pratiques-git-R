@@ -23,7 +23,7 @@
 :::
 
 
-## {{< fa brands gitlab >}} insee
+## {{< fa brands gitlab >}} Insee
 
 :::{.callout-tip collapse="true" icon=false}
 ## Préparation de l'environnement de travail

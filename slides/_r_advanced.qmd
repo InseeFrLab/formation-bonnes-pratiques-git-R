@@ -474,7 +474,7 @@ bucket_formation <- "projet-formation"
 path_within_bucket <- "/bonnes-pratiques/data"
 ```
 
-## {{< fa brands gitlab >}} insee
+## {{< fa brands gitlab >}} Insee
 
 
 ```{.r}

@@ -4,14 +4,14 @@
 ## Premiers commits
 
 ::: {.nonincremental}
+0. Ajouter le fichier `.Rproj` à la zone de *staging* de Git en le cochant dans l'interface `RStudio`, puis faire un premier *commit* auquel on donnera un message descriptif pertinent
 1. Créer un dossier 📁 `scripts`
-2. Y créer les fichiers `script1.R` et `script2.R`, chacun contenant quelques commandes `R` de votre choix
-3. Ajouter ces fichiers à la zone de *staging* de Git en les cochant dans l'interface `RStudio`
-4. Effectuer un `commit`, auquel on donnera un message descriptif pertinent
+2. Y créer les fichiers `script1.R` et `script2.R`, chacun contenant quelques commandes `R` de votre choix. Observer comment ces fichiers sont caractérisés dans l'interface `Git`
+4. `add / commit` ces fichiers dans un second *commit*
 5. Supprimer le fichier `script1.R` et modifier le contenu du fichier `script2.R`
-6. Analyser ce qui se passe lorsque l'on coche ces fichiers dans l'interface `RStudio`
+6. Analyser ce qui se passe lorsque l'on coche ces fichiers dans l'interface
 7. Effectuer un nouveau *commit* pour ajouter ces modifications à l'historique
-8. Visualiser l'historique du projet à partir de l'interface graphique de `RStudio`
+8. Visualiser l'historique du projet à partir de l'onglet `History` de l'interface
 :::
 
 :::

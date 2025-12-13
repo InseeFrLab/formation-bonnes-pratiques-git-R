@@ -7,10 +7,11 @@
 1. Se mettre par [__groupes de 3/4 personnes__]{.orange}:
     - Une personne aura la responsabilité d’être [**mainteneur**]{.blue2}
     - Deux à trois personnes seront [**développeurs**]{.blue2}
-2. Le mainteneur crée un dépôt sur `Github` / `Gitlab`. Il/Elle donne des **droits de niveau *maintainer*** aux membres du projet
-3. Chaque membre du groupe crée un nouveau service `RStudio` et clone le dépôt commun du groupe. Conseil : utiliser l'interface d'Onyxia pour cloner directement le dépôt avec le *token* intégré -> plus besoin de renseigner le *token* à chaque `push` !
-4. Créer un fichier `<votre_nom>-<votre_prenom>.md`. Écrire dedans quelques lignes de son choix, puis `commit` et `push` les modifications
-5. __À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du `push`.__
+2. Le mainteneur crée un nouveau dépôt sur `Github` / `Gitlab`. Il/Elle donne des **droits de niveau *maintainer*** aux membres du projet
+3. Le mainteneur clone le **nouveau** dépôt sur un nouveau service `RStudio` et se charge d'initialiser et de *commit* le fichier `.Rproj` et le fichier `.gitignore`
+4. Chaque membre du groupe crée un nouveau service `RStudio` et clone le dépôt commun du groupe
+5. Créer un fichier `<votre_nom>-<votre_prenom>.md`. Écrire dedans quelques lignes de son choix, puis `commit` et `push` les modifications
+6. __À ce stade, une seule personne (la plus rapide) devrait ne pas avoir rencontré de rejet du `push`.__
 :::
 
 :::

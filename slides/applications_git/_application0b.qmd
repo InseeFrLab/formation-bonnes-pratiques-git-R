@@ -1,0 +1,26 @@
+## Application 0 (suite) {.smaller}
+
+:::{.callout-tip collapse="true" icon=false}
+
+## Se placer dans un projet `RStudio`
+
+::: {.nonincremental}
+1. Faire du dépôt un [projet `RStudio`](https://book.utilitr.org/03_Fiches_thematiques/Fiche_rprojects.html) : 
+
+- `File` -> `New Project` -> `Existing Directory` -> `Browse` ->  compléter le chemin d'accès au dépôt 
+
+2. Deux fichiers importants ont été ajoutés au projet par `RStudio` : 
+
+- un **fichier `.Rproj`** : il permet de se placer dans un projet `RStudio` et en particulier d'activer l'interface avec `Git`
+
+- un **fichier `.gitignore`** : il permet de spécifier à `Git` les fichiers/dossiers que l'on ne voudra jamais `commit`
+
+On explorera plus en détail le fonctionnement de ces deux fichiers dans la suite de la formation.
+:::
+
+:::
+
+❓ **Questions** : 
+
+- le fichier `.Rproj` est-il toujours nécessaire dans un projet pour "faire du `Git`" ?
+- faut-il ajouter le fichier `.Rproj` au dépôt distant ?

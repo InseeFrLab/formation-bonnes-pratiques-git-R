@@ -228,6 +228,20 @@ un bon `.gitignore`)
 ::: {.nonincremental}
 ::: {.panel-tabset}
 
+## {{< fa brands gitlab >}} Insee
+
+::: {style="font-size: 75%;"}
+- [**https**]{.orange}
+  - `git clone https://gitlab.insee.fr/username_or_groupname/projet.git`
+  - simple à utiliser
+  - authentification username + password (ou token) à chaque *push*
+
+- [**ssh**]{.orange}
+  - `git clone git@gitlab.insee.fr:username_or_groupname/projet.git`
+  - (plus) complexe à initialiser
+  - authentification automatique 
+:::
+
 ## {{< fa brands github >}}
 
 ::: {style="font-size: 75%;"}
@@ -242,26 +256,15 @@ un bon `.gitignore`)
   - authentification automatique 
 :::
 
-## {{< fa brands gitlab >}} insee
-
-::: {style="font-size: 75%;"}
-- [**https**]{.orange}
-  - `git clone https://gitlab.insee.fr/username_or_groupname/projet.git`
-  - simple à utiliser
-  - authentification username + password (ou token) à chaque *push*
-
-- [**ssh**]{.orange}
-  - `git clone git@gitlab.insee.fr:username_or_groupname/projet.git`
-  - (plus) complexe à initialiser
-  - authentification automatique 
-:::
-
 :::
 :::
 
 
 
-{{< include applications_git/_application0.qmd >}}
+{{< include applications_git/_application0a.qmd >}}
+
+
+{{< include applications_git/_application0b.qmd >}}
 
 
 {{< include applications_git/_application1.qmd >}}

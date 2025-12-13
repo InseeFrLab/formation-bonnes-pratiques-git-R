@@ -12,3 +12,5 @@
 :::
 
 :::
+
+❓ **Question** : quels sont les risques auxquels il faut faire attention quand on utilise `Git` sur un projet ?

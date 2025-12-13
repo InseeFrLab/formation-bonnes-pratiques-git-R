@@ -12,7 +12,7 @@
 
 :::
 
-## {{< fa brands gitlab >}} insee
+## {{< fa brands gitlab >}} Insee
 
 :::{.callout-tip .nonincremental collapse="true" icon=false}
 # Partie 0 : Préparation

@@ -19,7 +19,7 @@ bucket_formation <- "projet-formation"
 path_within_bucket <- "/bonnes-pratiques/data"
 ```
 
-## {{< fa brands gitlab >}} insee
+## {{< fa brands gitlab >}} Insee
 
 
 ```{.r}
@@ -70,7 +70,7 @@ departements <- aws.s3::s3read_using(
 
 * Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part1/script_sspcloud.R)
 
-## {{< fa brands gitlab >}} insee
+## {{< fa brands gitlab >}} Insee
 
 * Le script [`script.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part1/script_ls3.R)
 
@@ -133,7 +133,7 @@ On aurait pu également utiliser un **orchestrateur** dédié pour effectuer cet
 * Le script [`R/functions_models.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_models.R)
 * Le script [`R/functions_stats_desc.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_stats_desc.R)
 
-## {{< fa brands gitlab >}} insee
+## {{< fa brands gitlab >}} Insee
 
 * Le script [`main.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/main_sspcloud.R)
 * Le script [`R/functions_import.R`](https://raw.githubusercontent.com/InseeFrLab/formation-bonnes-pratiques-git-R/refs/heads/main/R/checkpoints/application5_part2/R/functions_import.R)

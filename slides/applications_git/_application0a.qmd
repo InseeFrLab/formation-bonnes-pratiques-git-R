@@ -1,0 +1,50 @@
+## Application 0 {.smaller}
+
+::: {.panel-tabset}
+
+## {{< fa brands gitlab >}} Insee 
+
+:::{.callout-tip collapse="true" icon=false}
+
+## Préparation de l'environnement de travail
+
+::: {.nonincremental}
+1. Ouvrir [https://gitlab.insee.fr/](https://gitlab.insee.fr/) (instance interne de `GitLab`)
+2. Créer un nouveau dépôt (*repository*) sur `gitlab.insee.fr` placé dans son espace personnel (idep)
+3. Pour permettre l'authentification à `GitLab`, [générer un *token*](https://gitlab.insee.fr/-/user_settings/personal_access_tokens) (jeton d'authentification)
+4. Lancer [LS3](https://datalab.sspcloud.fr/home) (via `Floorp` ou `AUS`)
+5. Stocker le *token* `GitLab` sur `LS3` : `Mon Compte` -> `Git` -> `Token d'accès personnel pour Forge Git`
+6. Pour travailler sur un projet, on doit en récupérer une copie locale (`clone`). Pour cela, on va utiliser le lien HTTPS du dépôt (bouton bleu "Code" -> copier le **lien "Clone with HTTPS"** )
+7. Ouvrir un service `RStudio` sur `LS3`. Dans l'onglet de configuration `Git` du service, vérifier que le *token* est bien rempli, et ajouter le lien HTTPS du dépôt `GitLab` dans le champ "Dépôt". Puis lancer le service
+8. Vérifier que le dépôt distant a bien été cloné en local
+:::
+
+:::
+
+## {{< fa brands github >}} 
+
+:::{.callout-tip collapse="true" icon=false}
+
+## Préparation de l'environnement de travail
+
+::: {.nonincremental}
+1. Créer un compte [`GitHub`](https://github.com/)
+2. Créer un nouveau dépôt **privé** sur `GitHub` en **incluant un fichier `README`**
+3. Créer un compte sur le [SSP Cloud](https://datalab.sspcloud.fr/home)
+4. Lancer un service `RStudio`. Dans l'onglet de configuration `Git` du service, fixer la durée du `Cache` pour le stockage des identifiants `GitHub` à une valeur suffisamment élevée
+5. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` du `Datalab`):
+    + `File` → `New project` → `Version Control` → `Git`
+6. [Générer un *token*](https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) (jeton d'authentification) sur `GitHub`
+7. Stocker le *token* sur le `SSP Cloud` (ou un gestionnaire de mot de passe) :
+    + `Mon Compte` -> `Git` -> `Token d'accès personnel pour Forge Git`
+8. Terminer la procédure de clonage en fournissant le nom d'utilisateur `GitHub` et le *token*
+:::
+
+:::
+
+:::
+
+❓ **Questions** : 
+
+- qu'est ce qui différencie le projet cloné d'un projet quelconque ?
+- pourquoi l'interface `Git` n'est pas encore disponible dans `RStudio` ?
