@@ -1,0 +1,15 @@
+## Application 5 {.smaller}
+
+:::{.callout-tip collapse="true" icon=false}
+## Divergence d'historiques : cas compliqué
+
+::: {.nonincremental}
+1. Avant de commencer cette application, chaque membre du groupe doit avoir réussi à `push` ses modifications de l'application précédente (éventuellement après plusieurs tentatives selon le nombre de membres du groupe)
+2. Le mainteneur modifie le contenu de son fichier, puis `commit` et `push` les modifications
+3. **Sans faire de `pull` préalable**, les autres membres modifient chacun de leur côté **le contenu du fichier du mainteneur**, puis `commit` et `push` les modifications
+4. Le `push` est rejeté pour la même raison que dans l'application précédente : les dépôts ne sont plus synchronisés, il faut `pull` les changements distants au préalable. Mais **cette fois, le `pull` est également rejeté** 😱
+:::
+
+:::
+
+❓ **Question** : pourquoi le `pull` est cette fois impossible ?

@@ -14,62 +14,40 @@
 
 {{< include applications_git/_application4a.qmd >}}
 
-## Divergence d'historiques : cas simple
+## Divergence d'historiques : cas simple {auto-animate=true}
 
-![](img/ff.png)
+![](img/divergence.png)
 
+- Si les deux *commits* concernent des **parties séparées du projet**, un `pull` préalable suffit à résoudre le problème
+    
 
-- `Git` résout le problème via un [***fast-forward merge***]{.blue2}
-    - Le commit distant est rajouté à l'historique local
-    - Les dépôts sont synchronisés
+## Divergence d'historiques : cas simple {auto-animate=true}
+
+![](img/merge_commit_local.png)
+
+- `Git` fusionne les deux *commits* en un [***merge commit***]{.blue2}
+    - Les deux *commits* existent toujours dans l'historique !
+    - L'historique est réconcilié → on peut `push`
+
+## Divergence d'historiques : cas simple {auto-animate=true}
+
+![](img/merge_commit_remote.png)
+
+- Le dépôt local et le dépôt distant sont synchronisés 🤗
+
+{{< include applications_git/_application4b.qmd >}}
+
+{{< include applications_git/_application5a.qmd >}}
 
 ## Divergence d'historiques : cas compliqué
 
 ![](img/divergence.png)
 
+- Si les deux *commits* modifient les **mêmes parties du projet**, un `pull` ne suffit plus à résoudre le problème
+    - `Git` ne peut pas décider quelle version prioriser 🤔
+    - Il faut lui indiquer comment **résoudre le conflit**
 
-- `Git` ne peut pas résoudre de lui même la divergence
-
-
-- Deux stratégies possibles
-    - Le [**merge**]{.blue2}
-    - Le [**rebase**]{.blue2}
-
-## 1ère possibilité : le *merge*
-
-![](img/merge.png)
-
-
-- `Git` crée un [**commit de merge**]{.blue2}
-    - Comportement par défaut (jusqu'à récemment)
-
-
-- [**Inconvénient**]{.orange} : rend l'[**historique non-linéaire**]{.blue2} ([plus d'explications](https://www.atlassian.com/fr/git/tutorials/using-branches/git-merge))
-
-## 2ème possibilité : le *rebase* (1/2)
-
-![](img/rebase1.png)
-
-
-- `Git` effectue 3 étapes
-    - Supprime temporairement le commit local
-    - Réalise un *fast-forward merge*
-    - Rajoute le commit local au bout de l'historique
-
-## 2ème possibilité : le *rebase* (2/2)
-
-![](img/rebase2.png)
-
-
-- [**Avantage**]{.orange} : l'historique reste [**linéaire**]{.blue2}
-
-
-- [**Attention**]{.orange} : ne jamais *rebase* des commits déjà poussés sur un dépôt public ([plus d'explications](https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Rebaser-Rebasing#s_rebase_peril))
-
-
-{{< include applications_git/_application4b.qmd >}}
-
-{{< include applications_git/_application5.qmd >}}
+{{< include applications_git/_application5b.qmd >}}
 
 
 ## Le modèle des branches {auto-animate=true}

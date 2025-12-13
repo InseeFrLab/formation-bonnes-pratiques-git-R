@@ -37,7 +37,7 @@
 5. Cloner le dépôt distant sur votre environnement local (ici, le `RStudio` de la plateforme `LS3`):
     + `File` → `New project` → `Version Control` → `Git`
 6. [Générer un *token*](https://gitlab.insee.fr/-/user_settings/personal_access_tokens) (jeton d'authentification) sur `gitlab.insee.fr`
-7. Stocker le *token* sur `LS3` (ou un gestionnaire de mot de passe) :
+7. Stocker le *token* sur `LS3` :
     + `Mon Compte` -> `Git` -> `Token d'accès personnel pour Forge Git`
 8. Terminer la procédure de clonage en fournissant le nom d'utilisateur (IDEP) et le *token*
 :::
@@ -46,4 +46,4 @@
 
 :::
 
-❓ **Question** : qu'est ce qui différencie le projet cloné d'un projet quelconque ?
+❓ **Questions** : qu'est ce qui différencie le projet cloné d'un projet quelconque ?

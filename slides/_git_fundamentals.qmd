@@ -135,7 +135,7 @@ L'utilisation de `Git` nécessite [__certaines notions préalables__]{.orange}:
 - Utilisation en ligne de commandes
 - Différentes [__interfaces graphiques__]{.blue2} (`RStudio`, `VS Code`...)
 
-## Concepts {auto-animate=true}
+## Concepts
 
 #### `Git`, `GitHub`, `GitLab`... quelles différences ?
 

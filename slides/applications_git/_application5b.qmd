@@ -1,0 +1,15 @@
+## Application 5 (suite) {.smaller}
+
+:::{.callout-tip collapse="true" icon=false}
+## Divergence d'historiques : résolution de conflits
+
+::: {.nonincremental}
+1. Ouvrir le fichier concerné, et analyser la structure d'un conflit
+2. Résoudre le conflit en choisissant quelle information retenir : le local ? le distant ? les deux ? aucun des deux ? 
+3. **Un conflit est considéré comme résolvable par `Git` dès lors que toutes les lignes de balise ont disparu**. Pour finir la résolution, `commit`/`push` les modifications
+4. Comme dans l'application précédente, seul le membre le plus rapide parvient à `push`. Les autres doivent répéter l'opération autant de fois qu'il y a de conflits.
+:::
+
+:::
+
+❓ **Question** : comment limiter au maximum la survenue des conflits d'historique en pratique ?
